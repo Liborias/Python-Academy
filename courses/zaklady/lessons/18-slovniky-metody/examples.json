@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Telefonní seznam",
+    "description": "Vyzkoušejte existující i chybějící jméno.",
+    "code": "kontakty = {\"Ema\": \"111 222 333\", \"Jan\": \"444 555 666\"}\n# get dovolí zvolit hodnotu při chybějícím klíči.\nprint(kontakty.get(\"Ema\", \"Neznámý kontakt\"))\nprint(kontakty.get(\"Petr\", \"Neznámý kontakt\"))\n# items postupně vrací klíč i hodnotu.\nfor jmeno, telefon in kontakty.items():\n    print(jmeno, telefon)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Ceník",
+    "description": "Změňte hranici pro výpis dražších položek.",
+    "code": "ceny = {\"čaj\": 35, \"káva\": 55, \"voda\": 25}\n# Ve slovníku se testuje přítomnost klíče.\nprint(\"čaj\" in ceny)\nfor napoj, cena in ceny.items():\n    if cena > 30:\n        print(napoj, cena)\n# del odstraní celou dvojici klíč–hodnota.\ndel ceny[\"voda\"]\nprint(list(ceny.values()))\n"
+  }
+]

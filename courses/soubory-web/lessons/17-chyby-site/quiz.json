@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co udělá requests.get, když server odpoví kódem 404?",
+  "options": [
+   "Vyvolá výjimku",
+   "Vrátí odpověď s kódem 404 a výjimku nevyvolá",
+   "Vrátí None"
+  ],
+  "answer": 1,
+  "why": "Výjimku vyvolá až raise_for_status(). Bez něj musíte kód kontrolovat sami."
+ },
+ {
+  "q": "Proč se píše timeout?",
+  "options": [
+   "Aby se stránka stáhla rychleji",
+   "Aby program nečekal na pomalý server donekonečna",
+   "Je povinný, jinak get nefunguje"
+  ],
+  "answer": 1,
+  "why": "timeout nic nezrychlí, jen určí, jak dlouho se čeká, než se požadavek vzdá."
+ },
+ {
+  "q": "Kterou výjimkou zachytíte všechny chyby balíčku requests najednou?",
+  "options": [
+   "Exception",
+   "requests.RequestException",
+   "ValueError"
+  ],
+  "answer": 1,
+  "why": "RequestException je společný předek (HTTPError, Timeout, ConnectionError ...). Samotné Exception je zbytečně široké."
+ }
+]

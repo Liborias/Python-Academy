@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Proč se hvězda po spadnutí pod okno vrací nahoru, místo aby se vytvářela nová?",
+  "options": [
+   "Používáme pořád stejné čtyři objekty, jen se jim vrátí poloha",
+   "Nové hvězdy vytvořit nejdou",
+   "Pygame to vyžaduje"
+  ],
+  "answer": 0,
+  "why": "Je to jednodušší a rychlejší: počet hvězd se nemění a stačí jim přenastavit polohu."
+ },
+ {
+  "q": "Co se stane bez kontroly hran rakety?",
+  "options": [
+   "Nic, raketa se zastaví sama",
+   "Raketa může vyjet z okna a hráč ji ztratí",
+   "Hra spadne s chybou"
+  ],
+  "answer": 1,
+  "why": "Pygame objektům nijak nebrání ve vyjetí z okna. Hlídání okrajů musí udělat program."
+ }
+]

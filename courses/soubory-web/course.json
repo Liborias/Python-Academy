@@ -1,0 +1,50 @@
+{
+ "id": "soubory-web",
+ "title": "Soubory a web scraping",
+ "requires_packages": [
+  "requests",
+  "beautifulsoup4"
+ ],
+ "modules": [
+  {
+   "id": "m01",
+   "title": "Čtení a zápis souborů",
+   "lessons": [
+    "01-cteni-souboru",
+    "02-radky-souboru",
+    "03-zapis-souboru",
+    "04-slozky-a-pathlib",
+    "05-chyby-u-souboru",
+    "06-projekt-denik"
+   ]
+  },
+  {
+   "id": "m02",
+   "title": "CSV a JSON",
+   "lessons": [
+    "07-csv-cteni",
+    "08-csv-slovniky",
+    "09-json",
+    "10-zpracovani-tabulky",
+    "11-projekt-kontakty"
+   ]
+  },
+  {
+   "id": "m03",
+   "title": "Web scraping",
+   "lessons": [
+    "12-html-zaklady",
+    "13-beautifulsoup-uvod",
+    "14-find-all",
+    "15-css-selektory",
+    "16-requests-get",
+    "17-chyby-site",
+    "18-projekt-knihy-csv",
+    "19-stahovani-souboru",
+    "20-etika-robots",
+    "21-opakovani-soubory-web",
+    "22-zaverecny-test"
+   ]
+  }
+ ]
+}

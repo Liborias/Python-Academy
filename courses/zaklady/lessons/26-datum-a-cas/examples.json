@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Výpůjční lhůta",
+    "description": "Posuňte počáteční datum blízko konce měsíce.",
+    "code": "from datetime import date, timedelta\n\nvypujceno = date(2026, 11, 25)\n# timedelta zvládne i přechod do dalšího měsíce.\nvratit = vypujceno + timedelta(days=14)\nprint(vratit)\n# Rozdíl dat umožní počet dnů ověřit.\nprint(\"Dnů na vrácení:\", (vratit - vypujceno).days)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Přestupný rok",
+    "description": "Porovnejte konec února v letech 2027 a 2028.",
+    "code": "from datetime import date, timedelta\n\n# Přičtení dne se řídí skutečným kalendářem.\nfor rok in [2027, 2028]:\n    den = date(rok, 2, 28) + timedelta(days=1)\n    print(den.strftime(\"%d. %m. %Y\"))\n    # weekday čísluje od pondělí (0).\n    print(\"Den v týdnu:\", den.weekday())\n"
+  }
+]

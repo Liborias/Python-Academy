@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co vrátí \"2026-10-21 | a | b\".split(\" | \", 1)?",
+  "options": [
+   "[\"2026-10-21\", \"a\", \"b\"]",
+   "[\"2026-10-21\", \"a | b\"]",
+   "[\"2026-10-21 | a | b\"]"
+  ],
+  "answer": 1,
+  "why": "Druhý parametr 1 omezuje rozdělení na jedno. Zbytek textu zůstane pohromadě."
+ },
+ {
+  "q": "Proč se zápis do deníku dělá v režimu \"a\" a ne \"w\"?",
+  "options": [
+   "Režim a je rychlejší",
+   "Režim w by při každém zápisu smazal starší zápisy",
+   "V režimu w se nedá psát česky"
+  ],
+  "answer": 1,
+  "why": "Režim w soubor vytvoří znovu a starý obsah zmizí. Pro přidávání na konec je režim a."
+ }
+]

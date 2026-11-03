@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Jídelní lístek",
+    "description": "Zavolejte funkci ještě jednou nebo změňte oddělovač.",
+    "code": "# Definice sama ještě nic nevypíše.\ndef oddelovac():\n    print(\"=\" * 16)\n\n\ndef menu():\n    oddelovac()\n    print(\"Polévka a rizoto\")\n    oddelovac()\n\n\n# Voláním se provede celé tělo funkce.\nmenu()\nmenu()\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Ranní rutina",
+    "description": "Změňte pořadí volání a sledujte pořadí výstupu.",
+    "code": "# Každá funkce seskupuje několik příkazů.\ndef priprav_batoh():\n    print(\"Přibal vodu.\")\n    print(\"Přibal svačinu.\")\n\n\ndef rozluc_se():\n    print(\"Ahoj, odcházím!\")\n\n\n# O pořadí provedení rozhodují volání, ne pořadí definic.\npriprav_batoh()\nrozluc_se()\n"
+  }
+]

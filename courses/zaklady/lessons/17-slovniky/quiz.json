@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co udělá příkaz auto[\"rok\"] = 2020, když klíč \"rok\" ve slovníku už je?",
+  "options": [
+   "Přidá druhou dvojici se stejným klíčem",
+   "Přepíše původní hodnotu",
+   "Skončí chybou KeyError"
+  ],
+  "answer": 1,
+  "why": "Klíče jsou jedinečné. Přiřazení k existujícímu klíči přepíše jeho hodnotu."
+ },
+ {
+  "q": "Jak z kontakt = {\"jmeno\": \"Eva\", \"vek\": 31} získáte hodnotu 31?",
+  "options": [
+   "kontakt[1]",
+   "kontakt.vek",
+   "kontakt[\"vek\"]"
+  ],
+  "answer": 2,
+  "why": "Slovník se čte podle klíče v hranatých závorkách. Číslo pozice se u slovníku nepoužívá."
+ }
+]

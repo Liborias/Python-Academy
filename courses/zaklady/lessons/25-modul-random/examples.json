@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Losování služby",
+    "description": "Změňte seed. Stejný seed zopakuje stejnou posloupnost.",
+    "code": "import random\n\n# Pevný seed je užitečný při zkoušení programu.\nrandom.seed(12)\njmena = [\"Ema\", \"Jan\", \"Lada\"]\nfor pokus in range(3):\n    # choice může stejné jméno vylosovat opakovaně.\n    print(random.choice(jmena))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Pořadí hráčů",
+    "description": "Sledujte rozdíl mezi původním seznamem a zamíchanou kopií.",
+    "code": "import random\n\nrandom.seed(21)\nhraci = [\"Ema\", \"Jan\", \"Lada\", \"Petr\"]\n# list vytvoří kopii seznamu.\nporadi = list(hraci)\n# shuffle mění seznam na místě, nevrací nový.\nrandom.shuffle(poradi)\nprint(\"Start:\", poradi)\nprint(\"Původní:\", hraci)\n"
+  }
+]

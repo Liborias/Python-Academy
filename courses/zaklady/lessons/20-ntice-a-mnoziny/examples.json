@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Společné záliby",
+    "description": "Změňte záliby. Proč se opakující položka ztratí?",
+    "code": "ema = set([\"čtení\", \"běh\", \"čtení\"])\njan = set([\"běh\", \"plavání\"])\n# Průnik obsahuje jen prvky z obou množin.\nprint(\"Společné:\", sorted(ema & jan))\n# Sjednocení obsahuje každou zálibu jednou.\nprint(\"Všechny:\", sorted(ema | jan))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Souřadnice",
+    "description": "Vyzkoušejte rozbalení dvojice i prohození hodnot.",
+    "code": "bod = (4, 7)\n# N-tici rozbalíme do přesně dvou proměnných.\nx, y = bod\nprint(\"X:\", x, \"Y:\", y)\n# Pravá strana se vyhodnotí před přiřazením vlevo.\nx, y = y, x\nprint(\"Po prohození:\", x, y)\nprint(\"Původní bod:\", bod)\n"
+  }
+]

@@ -1,0 +1,30 @@
+import ast
+from dilna_check import check
+c = check()
+c.uses_call("colliderect", "Dotyk rakety a hvězdy zjistíte metodou colliderect.")
+c.uses_call("get_pressed", "Raketu řiďte pomocí pygame.key.get_pressed().")
+c.add("Nové x je random.randint(0, 368)", c.tree is not None and any(isinstance(n, ast.Call) and getattr(n.func, "attr", getattr(n.func, "id", "")) == "randint" and [getattr(a, "value", None) for a in n.args] == [0, 368] for n in ast.walk(c.tree)),
+      "Nové x hvězdy získáte voláním random.randint(0, 368).")
+okno = (80, 160, 255)
+Z = (255, 220, 0)
+r = c.pygame_run(frames=200, pixels=[(46, 106), (136, 116), (316, 76), (46, 496)], colors=[Z + (0, 0, 400, 100), (255, 255, 255), (255, 255, 255, 0, 0, 200, 40)], held={})
+if c.pg_no_error(r):
+    v = lambda f: {t["text"] for t in (r.texts or []) if t["frame"] == f}
+    c.add("Titulek je „Sběratel hvězd“ a okno 400 × 500", r.caption == "Sběratel hvězd" and r.size == [400, 500], f"Titulek {r.caption!r}, okno {r.size}.")
+    c.add("Hvězda 0 padá o 3 body za snímek", r.pixel((46, 106), 30) == Z, f"V bodě (46, 106) má být po 30 snímcích střed první hvězdy, ale je tam {r.pixel((46, 106), 30)}.")
+    c.add("Hvězda 1 začíná výš než hvězda 0 (o 80 bodů)", r.pixel((136, 116), 60) == Z, f"V bodě (136, 116) má být po 60 snímcích střed hvězdy 1, ale je tam {r.pixel((136, 116), 60)}.")
+    c.add("Hvězda 3 začíná 240 bodů nad oknem", r.pixel((316, 76), 100) == Z, f"V bodě (316, 76) má být po 100 snímcích střed hvězdy 3, ale je tam {r.pixel((316, 76), 100)}.")
+    c.add("Hvězda, která spadla pod okno, se vrátí nahoře", r.color_count(Z, 199, (0, 0, 400, 100)) >= 600, "Hvězda, která minula raketu (top > 500), se musí objevit znovu nahoře (rect.bottom = 0). V horním pásu má být po 199 snímcích vidět víc hvězd.")
+    c.add("Hvězda propadne až za dolní okraj okna (top > 500)", r.pixel((46, 496), 160) == Z, "Hvězda se má vrátit nahoru, až když její horní okraj přejde 500 (rect.top > 500).")
+    bila, vlevo = r.color_count((255, 255, 255), 100), r.color_count((255, 255, 255), 100, (0, 0, 200, 40))
+    c.add("Skóre je bílé, písmo 32, vlevo nahoře", bila == vlevo and 330 <= bila <= 410, f"Bílých bodů: {bila}, z toho vlevo nahoře {vlevo} (čekáme asi 360). Text Skóre: N, písmo 32, topleft (10, 10).")
+    c.add("Na začátku je skóre 0", "Skóre: 0" in v(100), f"Ve snímku 100 jsou texty {sorted(v(100))}.")
+    c.add("Chycená hvězda zvýší skóre (hvězda 2 padá na raketu)", "Skóre: 1" in v(195), f"Ve snímku 195 jsou texty {sorted(v(195))}; hvězda číslo 2 má kolem snímku 183 trefit stojící raketu.")
+    c.add("Skóre se nezvýší dřív, než hvězda raketu zasáhne", "Skóre: 0" in v(170), f"Ve snímku 170 jsou texty {sorted(v(170))}.")
+r = c.pygame_run(frames=61, pixels=[(263, 450), (368, 450)], held={0: ["K_RIGHT"]})
+c.add("Raketa jede doprava rychlostí 6 bodů za snímek", r.pixel((263, 450), 10) == okno, f"Po 10 snímcích má být střed rakety u x ≈ 263, v bodě (263, 450) je {r.pixel((263, 450), 10)}.")
+c.add("Raketa nevyjede z okna vpravo", r.pixel((368, 450), 60) == okno, "Pravá hrana rakety (right) nesmí přesáhnout 400, střed zůstane na x = 368.")
+r = c.pygame_run(frames=81, pixels=[(32, 450), (137, 450)], held={0: ["K_LEFT"]})
+c.add("Raketa nevyjede z okna vlevo", r.pixel((32, 450), 80) == okno, "Levá hrana rakety (left) nesmí být menší než 0, střed zůstane na x = 32.")
+c.add("Raketa jede doleva rychlostí 6 bodů za snímek", r.pixel((137, 450), 10) == okno, f"Po 10 snímcích má být střed rakety u x ≈ 137, v bodě (137, 450) je {r.pixel((137, 450), 10)}.")
+c.done()

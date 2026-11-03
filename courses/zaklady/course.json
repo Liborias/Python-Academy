@@ -1,0 +1,101 @@
+{
+ "id": "zaklady",
+ "title": "Základy Pythonu",
+ "requires_packages": [],
+ "modules": [
+  {
+   "id": "m01",
+   "title": "První kroky",
+   "lessons": [
+    "01-prvni-program",
+    "02-promenne",
+    "03-vstup-od-uzivatele"
+   ]
+  },
+  {
+   "id": "m02",
+   "title": "Rozhodování a opakování",
+   "lessons": [
+    "04-podminky",
+    "05-cyklus-for",
+    "06-cyklus-while"
+   ]
+  },
+  {
+   "id": "m03",
+   "title": "Seznamy a texty",
+   "lessons": [
+    "07-seznamy",
+    "08-operace-se-seznamy",
+    "09-seznamy-a-cykly",
+    "10-retezce"
+   ]
+  },
+  {
+   "id": "m04",
+   "title": "Funkce",
+   "lessons": [
+    "11-funkce",
+    "12-parametry-a-return",
+    "13-vychozi-hodnoty",
+    "14-rozsah-platnosti",
+    "15-funkce-a-seznamy",
+    "16-vice-hodnot-a-docstring"
+   ]
+  },
+  {
+   "id": "m05",
+   "title": "Slovníky a n-tice",
+   "lessons": [
+    "17-slovniky",
+    "18-slovniky-metody",
+    "19-pocitani-ve-slovniku",
+    "20-ntice-a-mnoziny",
+    "21-seznam-slovniku"
+   ]
+  },
+  {
+   "id": "m06",
+   "title": "Chyby a moduly",
+   "lessons": [
+    "22-chyby-try-except",
+    "23-vice-vyjimek-raise",
+    "24-moduly-math",
+    "25-modul-random",
+    "26-datum-a-cas"
+   ]
+  },
+  {
+   "id": "m07",
+   "title": "Ladění a čitelný kód",
+   "lessons": [
+    "27-chybove-hlasky",
+    "28-ladeni-print-assert",
+    "29-ladici-program-vscodium",
+    "30-citelny-kod",
+    "31-styl-pep8-ruff"
+   ]
+  },
+  {
+   "id": "m08",
+   "title": "Mini-projekty",
+   "lessons": [
+    "32-projekt-hadej-planetu",
+    "33-projekt-sibenice",
+    "34-projekt-caesarova-sifra",
+    "35-projekt-seznam-ukolu",
+    "36-projekt-kamen-nuzky-papir"
+   ]
+  },
+  {
+   "id": "m09",
+   "title": "Opakování a závěrečný test",
+   "lessons": [
+    "37-opakovani-texty-cykly",
+    "38-opakovani-slovniky-vyjimky",
+    "39-opakovani-oprava-kodu",
+    "40-zaverecny-test"
+   ]
+  }
+ ]
+}

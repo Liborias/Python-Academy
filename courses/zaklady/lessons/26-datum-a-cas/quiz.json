@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Jaké číslo vrátí weekday() pro neděli?",
+  "options": [
+   "0",
+   "7",
+   "6"
+  ],
+  "answer": 2,
+  "why": "Počítá se od pondělí = 0, takže neděle je 6 a sobota 5."
+ },
+ {
+  "q": "Co je výsledkem date(2026, 3, 1) - date(2026, 2, 1)?",
+  "options": [
+   "Objekt timedelta, jeho .days je 28",
+   "Číslo 28",
+   "Datum 0000-01-28"
+  ],
+  "answer": 0,
+  "why": "Rozdíl dvou dat je timedelta. Počet dnů z něj získáte pomocí .days."
+ }
+]

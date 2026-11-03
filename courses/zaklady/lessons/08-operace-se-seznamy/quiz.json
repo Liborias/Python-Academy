@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co dělá s.sort()?",
+  "options": [
+   "Vrací nový seřazený seznam",
+   "Seřadí původní seznam a nic nevrací",
+   "Seřadí seznam sestupně"
+  ],
+  "answer": 1,
+  "why": ".sort() mění seznam na místě. Nový seřazený seznam vrací sorted(s)."
+ },
+ {
+  "q": "Co je [10, 20, 30, 40][1:3]?",
+  "options": [
+   "[10, 20, 30]",
+   "[20, 30]",
+   "[20, 30, 40]"
+  ],
+  "answer": 1,
+  "why": "Řez začíná indexem 1 a končí před indexem 3."
+ }
+]

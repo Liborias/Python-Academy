@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co udělá print(\"2 + 3\")?",
+  "options": [
+   "Vypíše 5",
+   "Vypíše text 2 + 3",
+   "Skončí chybou"
+  ],
+  "answer": 1,
+  "why": "Co je v uvozovkách, je text. Python ho nepočítá, jen vypíše."
+ },
+ {
+  "q": "K čemu slouží znak #?",
+  "options": [
+   "Spustí příkaz",
+   "Zakomentuje zbytek řádku",
+   "Vytvoří proměnnou"
+  ],
+  "answer": 1,
+  "why": "Za # Python řádek ignoruje, je to poznámka pro lidi."
+ }
+]

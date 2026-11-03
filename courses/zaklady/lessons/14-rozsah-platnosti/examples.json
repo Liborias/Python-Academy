@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Místní cena",
+    "description": "Porovnejte cenu uvnitř a vně funkce.",
+    "code": "cena = 100\n\n\ndef mistni_cena():\n    # Přiřazení vytvoří lokální proměnnou, globální nemění.\n    cena = 60\n    return cena\n\n\nprint(mistni_cena())\n# Globální cena je stále stejná.\nprint(cena)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Délka trasy",
+    "description": "Změňte konstantu a znovu spusťte výpočet.",
+    "code": "DELKA_OKRUHU = 3\n\n\ndef kilometry(pocet_okruhu):\n    # Globální konstantu lze ve funkci číst.\n    vzdalenost = pocet_okruhu * DELKA_OKRUHU\n    return vzdalenost\n\n\n# Lokální vzdalenost se ven předává pomocí return.\nprint(kilometry(4))\nprint(kilometry(2))\n"
+  }
+]

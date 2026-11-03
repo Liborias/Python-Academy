@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co vrací csv.DictReader pro sloupec s čísly?",
+  "options": [
+   "Čísla (int)",
+   "Text (str), převádí se ručně",
+   "Desetinná čísla"
+  ],
+  "answer": 1,
+  "why": "CSV je textový formát. Čísla musíte převést sami pomocí int() nebo float()."
+ },
+ {
+  "q": "Který parametr zachová v JSON čitelnou češtinu?",
+  "options": [
+   "indent=2",
+   "ensure_ascii=False",
+   "encoding=\"utf-8\" u json.dump"
+  ],
+  "answer": 1,
+  "why": "Bez ensure_ascii=False se háčky a čárky zapíšou jako \\u escape sekvence."
+ }
+]

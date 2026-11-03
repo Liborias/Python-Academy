@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Čemu je rovno (25 + 3) % 26?",
+  "options": [
+   "28",
+   "2",
+   "0"
+  ],
+  "answer": 1,
+  "why": "28 děleno 26 je 1 se zbytkem 2. Proto se po písmenu z pokračuje od začátku abecedy: třetí písmeno za z je c, čili pozice 2."
+ },
+ {
+  "q": "Co udělá \"abc\".index(\"x\")?",
+  "options": [
+   "Vrátí -1",
+   "Vrátí None",
+   "Skončí chybou ValueError"
+  ],
+  "answer": 2,
+  "why": "Metoda index pro chybějící znak vyvolá ValueError. Proto se před jejím použitím ověřuje, že znak v abecedě je."
+ }
+]

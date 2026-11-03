@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Kde v chybové hlášce (Traceback) najdete druh chyby?",
+  "options": [
+   "Na prvním řádku",
+   "Na posledním řádku",
+   "V čísle řádku"
+  ],
+  "answer": 1,
+  "why": "Poslední řádek obsahuje jméno výjimky a vysvětlení, například IndexError: list index out of range. Řádky nad ním ukazují cestu k chybě."
+ },
+ {
+  "q": "Seznam má 5 prvků. Jaký je index posledního z nich?",
+  "options": [
+   "5",
+   "4",
+   "6"
+  ],
+  "answer": 1,
+  "why": "Indexy se počítají od nuly, takže poslední má index len(seznam) - 1, tedy 4. Index 5 už skončí chybou IndexError."
+ }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Proč musí mít obrat_slovnik hodnoty původního slovníku navzájem různé?",
+  "options": [
+   "Hodnoty musí být čísla",
+   "Klíče ve slovníku jsou jedinečné, stejné hodnoty by se přepsaly",
+   "Jinak by funkce items nefungovala"
+  ],
+  "answer": 1,
+  "why": "Z hodnot se stávají klíče, a ty se nemohou opakovat. Dvě stejné hodnoty by splynuly v jednu."
+ },
+ {
+  "q": "Který druh chyby vznikne při float(None)?",
+  "options": [
+   "ValueError",
+   "TypeError",
+   "KeyError"
+  ],
+  "answer": 1,
+  "why": "None je špatný typ pro převod na číslo, což je TypeError. Špatný obsah textu, třeba float(\"abc\"), je ValueError."
+ }
+]

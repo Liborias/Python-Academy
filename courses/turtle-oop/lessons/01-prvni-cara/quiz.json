@@ -1,0 +1,42 @@
+[
+ {
+  "q": "Kam se želva dívá hned po vytvoření?",
+  "options": [
+   "Nahoru",
+   "Doprava (na východ)",
+   "Doleva"
+  ],
+  "answer": 1,
+  "why": "Želva začíná uprostřed okna v bodě (0, 0) a míří doprava. Příkaz left ji otočí proti směru hodinových ručiček."
+ },
+ {
+  "q": "Co dělá t.left(90)?",
+  "options": [
+   "Posune želvu o 90 bodů doleva",
+   "Otočí želvu na místě o 90° doleva",
+   "Nakreslí čáru dlouhou 90"
+  ],
+  "answer": 1,
+  "why": "left a right želvu jen otáčejí, nehýbou jí. Pohybuje se příkazy forward a backward."
+ },
+ {
+  "q": "Co zajistí turtle.done() na konci programu?",
+  "options": [
+   "Okno zůstane otevřené, dokud ho nezavřete",
+   "Smaže nakreslený obrázek",
+   "Želva zrychlí"
+  ],
+  "answer": 0,
+  "why": "Bez něj by program skončil a okno by hned zmizelo."
+ },
+ {
+  "q": "Kam míří osa y v turtle?",
+  "options": [
+   "Dolů, jako na obrazovce počítače",
+   "Nahoru, jako v matematice",
+   "Doprava"
+  ],
+  "answer": 1,
+  "why": "V turtle je bod (0, 0) uprostřed a y roste směrem nahoru, jako v matematice. Na obrazovce počítače se běžně počítá odshora dolů."
+ }
+]

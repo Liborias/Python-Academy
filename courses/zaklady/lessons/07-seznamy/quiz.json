@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co je zvirata[1] u seznamu [\"pes\", \"kočka\", \"králík\"]?",
+  "options": [
+   "pes",
+   "kočka",
+   "králík"
+  ],
+  "answer": 1,
+  "why": "Číslování začíná od nuly, takže index 1 je druhý prvek."
+ },
+ {
+  "q": "K čemu je index -1?",
+  "options": [
+   "Chyba",
+   "První prvek",
+   "Poslední prvek"
+  ],
+  "answer": 2,
+  "why": "Záporné indexy se počítají od konce."
+ }
+]

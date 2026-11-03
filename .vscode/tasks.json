@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Spustit aktuální soubor",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/python",
+      "args": ["-u", "${file}"],
+      "windows": { "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe" },
+      "options": { "env": { "PYTHONUTF8": "1" } },
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true },
+      "problemMatcher": []
+    },
+    {
+      "label": "Spustit aplikaci Dílna Pythonu",
+      "type": "shell",
+      "command": "python3 start.py",
+      "windows": { "command": "python start.py" },
+      "presentation": { "reveal": "always", "panel": "dedicated" },
+      "problemMatcher": []
+    },
+    {
+      "label": "Zkontrolovat prostředí (doctor)",
+      "type": "shell",
+      "command": "${workspaceFolder}/.venv/bin/python tools/doctor.py",
+      "windows": { "command": "${workspaceFolder}\\.venv\\Scripts\\python.exe tools\\doctor.py" },
+      "presentation": { "reveal": "always", "panel": "shared" },
+      "problemMatcher": []
+    }
+  ]
+}

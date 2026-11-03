@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Funkce dostane seznam a zavolá na něm append. Co se stane s původním seznamem u volajícího?",
+  "options": [
+   "Nic, funkce pracuje s kopií",
+   "Také se změní, je to tentýž seznam",
+   "Python ohlásí chybu"
+  ],
+  "answer": 1,
+  "why": "Seznam se předává jako odkaz na tentýž objekt, ne jako kopie."
+ },
+ {
+  "q": "Proč je bezpečnější v jen_kladna vytvořit nový seznam?",
+  "options": [
+   "Je to rychlejší",
+   "Původní seznam volajícího by se tím omylem nesmazal ani nezměnil",
+   "Python jiné řešení nedovolí"
+  ],
+  "answer": 1,
+  "why": "Funkce, která nic nemění, nemá nečekané vedlejší účinky a snadno se zkouší."
+ }
+]

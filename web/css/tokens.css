@@ -1,0 +1,21 @@
+/* Barvy a písma. Světlý a tmavý režim; ručně přepíná [data-theme]. */
+:root{
+  --bg:#EEF0F4; --surface:#FFFFFF; --surface-2:#F5F6F9; --ink:#171B26; --muted:#5A6272; --line:#D6DAE2;
+  --accent:#2556A8; --accent-soft:#DDE7F7; --on-accent:#FFFFFF; --gold:#B8860B; --gold-soft:#F7ECC8;
+  --ok:#17744A; --ok-soft:#DDF1E6; --bad:#B3261E; --bad-soft:#F8E1DF; --warn:#9A5B00; --warn-soft:#FBEBCF;
+  --code-bg:#12161F; --code-ink:#E0E6F0; --code-line:#262C3A; --c-com:#8390A8; --c-str:#9BD38A; --c-num:#F2B574; --c-kw:#8DB6F5;
+  --f-display:'Bricolage Grotesque','Segoe UI',system-ui,sans-serif;
+  --f-body:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;
+  --f-code:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0E1118; --surface:#161B26; --surface-2:#1C2230; --ink:#E6EAF2; --muted:#98A2B5; --line:#283042;
+  --accent:#7EA6F0; --accent-soft:#1B2A47; --on-accent:#0A1226; --gold:#E3B94A; --gold-soft:#33290F;
+  --ok:#5FD39A; --ok-soft:#12301F; --bad:#FF8F85; --bad-soft:#3A1A18; --warn:#F0B35A; --warn-soft:#352610;
+  --code-bg:#0A0D14; --code-line:#1F2535; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1118; --surface:#161B26; --surface-2:#1C2230; --ink:#E6EAF2; --muted:#98A2B5; --line:#283042;
+  --accent:#7EA6F0; --accent-soft:#1B2A47; --on-accent:#0A1226; --gold:#E3B94A; --gold-soft:#33290F;
+  --ok:#5FD39A; --ok-soft:#12301F; --bad:#FF8F85; --bad-soft:#3A1A18; --warn:#F0B35A; --warn-soft:#352610;
+  --code-bg:#0A0D14; --code-line:#1F2535; color-scheme:dark}

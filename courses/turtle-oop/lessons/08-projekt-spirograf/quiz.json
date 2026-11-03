@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Kolik stupňů je celkem otočka po 36 otočkách po 10°?",
+  "options": [
+   "360°",
+   "180°",
+   "3600°"
+  ],
+  "answer": 0,
+  "why": "36 × 10 = 360. Želva se vrátí do původního směru a obrazec se uzavře."
+ },
+ {
+  "q": "Čemu se rovná 8 % 6?",
+  "options": [
+   "1",
+   "2",
+   "0"
+  ],
+  "answer": 1,
+  "why": "Zbytek po dělení: 8 = 1 · 6 + 2. Proto barvy[i % 6] nikdy nepřekročí konec seznamu o šesti prvcích."
+ },
+ {
+  "q": "Co dělá t.speed(0)?",
+  "options": [
+   "Zastaví želvu",
+   "Nastaví nejrychlejší kreslení bez animace",
+   "Vypne barvy"
+  ],
+  "answer": 1,
+  "why": "Hodnota 0 je zvláštní: žádná animace, vše se nakreslí okamžitě. Čísla 1 až 10 jsou postupně rychlejší."
+ }
+]

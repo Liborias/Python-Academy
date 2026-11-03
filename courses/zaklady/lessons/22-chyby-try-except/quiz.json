@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Kdy se provede blok except ValueError:?",
+  "options": [
+   "Vždy po bloku try",
+   "Jen když v bloku try vznikne ValueError",
+   "Jen když blok try proběhne bez chyby"
+  ],
+  "answer": 1,
+  "why": "Blok except se spustí pouze při výjimce uvedeného typu. Jinak se přeskočí."
+ },
+ {
+  "q": "Jakou výjimku vyvolá int(\"3.5\")?",
+  "options": [
+   "TypeError",
+   "ZeroDivisionError",
+   "ValueError"
+  ],
+  "answer": 2,
+  "why": "Text \"3.5\" je řetězec, takže typ vyhovuje, ale obsah není celé číslo, a to je ValueError."
+ }
+]

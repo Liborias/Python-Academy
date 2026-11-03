@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Dvojnásobky",
+    "description": "Změňte vstupní seznam. Výsledky se sestaví v cyklu.",
+    "code": "cisla = [2, 5, 8]\nvysledky = []\n# Každé číslo zpracujeme a výsledek přidáme do nového seznamu.\nfor cislo in cisla:\n    vysledky.append(cislo * 2)\n# Původní seznam se nezměnil.\nprint(cisla)\nprint(vysledky)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Dlouhá jména",
+    "description": "Změňte hranici délky nebo přidejte jména.",
+    "code": "jmena = [\"Ema\", \"Tereza\", \"Jan\", \"Matěj\"]\nvybrana = []\n# Do výsledku patří jen jména splňující podmínku.\nfor jmeno in jmena:\n    if len(jmeno) > 3:\n        vybrana.append(jmeno)\n# Po cyklu máme všechny vybrané položky.\nprint(vybrana)\n"
+  }
+]

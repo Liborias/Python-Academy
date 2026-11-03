@@ -1,0 +1,29 @@
+.lesson{max-width:860px}
+.prose{margin-top:18px}
+.prose h2{font-size:1.4rem;margin:26px 0 8px}.prose h3{font-size:1.15rem;margin:20px 0 6px}
+.prose p,.prose ul,.prose ol{margin:10px 0}.prose li{margin:3px 0}
+.block{margin-top:30px}.block h2{font-size:1.25rem;margin-bottom:10px}
+pre.code{background:var(--code-bg);color:var(--code-ink);border:1px solid var(--code-line);border-radius:10px;padding:14px 16px;font-family:var(--f-code);font-size:.9rem;line-height:1.55;tab-size:4;overflow:auto;margin:12px 0}
+pre.code code{background:none;border:0;padding:0;color:inherit;font-size:inherit}
+.bar-btns{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.hint{margin:6px 0;color:var(--muted);font-size:.9rem}
+.console{margin-top:10px;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.console .out{margin:0;padding:12px 14px;min-height:48px;max-height:320px;overflow:auto;font-family:var(--f-code);font-size:.88rem;white-space:pre-wrap;word-break:break-word}
+.console .out .err{color:var(--bad)}.console .out .in{color:var(--accent)}
+.console .stdin{display:flex;gap:8px;align-items:center;padding:8px 12px;border-top:1px solid var(--line);background:var(--surface-2)}
+.console .stdin label{flex:1;display:flex;gap:8px;align-items:center;font-size:.88rem;color:var(--muted)}
+.console .stdin input{flex:1;min-width:0;font:inherit;font-family:var(--f-code);padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink)}
+.console .status{padding:6px 14px;font-size:.84rem;color:var(--muted);border-top:1px solid var(--line)}
+.console .status:empty{display:none}.console .status.ok{color:var(--ok)}.console .status.bad{color:var(--bad)}
+.res{margin-top:12px;border-radius:10px;padding:12px 16px;border:1px solid var(--line)}
+.res.ok{background:var(--ok-soft);border-color:transparent}.res.bad{background:var(--bad-soft);border-color:transparent}
+.res ul{list-style:none;margin:8px 0 0;padding:0}.res li{margin:4px 0}.res li.ok span{color:var(--ok)}.res li.bad span{color:var(--bad)}
+.res .why{margin-left:1.4em;color:var(--muted);font-size:.9rem}
+.quiz .q{border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:12px 0;background:var(--surface)}
+.quiz legend{font-weight:600;padding:0 6px}.quiz label{display:block;padding:4px 0;cursor:pointer}
+.quiz .why{margin-top:8px;font-size:.92rem}.quiz .why.ok{color:var(--ok)}.quiz .why.bad{color:var(--bad)}
+.lesson-foot{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:40px;padding-top:18px;border-top:1px solid var(--line)}
+.spacer{flex:1}
+.done-toggle{display:flex;gap:8px;align-items:center}
+@media (max-width:560px){.lesson-foot .btn{width:100%;justify-content:center}.spacer{display:none}}
+.console .stdin[hidden]{display:none}

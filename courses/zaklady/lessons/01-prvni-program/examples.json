@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Vizitka",
+    "description": "Změňte jméno a zálibu. Všimněte si rozdílu mezi textem a výpočtem.",
+    "code": "# Text píšeme v uvozovkách, každý print vytvoří řádek.\nprint(\"Jméno: Ema\")\nprint(\"Záliba: kreslení\")\n# Čísla bez uvozovek Python sečte.\nprint(\"Za týden nakreslím obrázků:\", 2 + 3)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Účtenka",
+    "description": "Změňte ceny. Porovnejte výsledek výpočtu se zápisem v uvozovkách.",
+    "code": "# Výpočet v print se nejdřív vyhodnotí.\nprint(\"Sešit:\", 25)\nprint(\"Tužka:\", 12)\nprint(\"Celkem:\", 25 + 12)\n# Tohle je text, proto se nesčítá.\nprint(\"25 + 12\")\n"
+  }
+]

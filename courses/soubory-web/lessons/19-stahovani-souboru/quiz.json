@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Proč se obrázek zapisuje v režimu \"wb\"?",
+  "options": [
+   "Je rychlejší",
+   "Obrázek jsou bajty, ne text, a nesmí se překódovat",
+   "\"w\" nefunguje s requests"
+  ],
+  "answer": 1,
+  "why": "Binární režim zapíše bajty beze změny. V textovém režimu by se data poškodila."
+ },
+ {
+  "q": "Co dá urljoin(\"http://x.cz/a/galerie.html\", \"/img/b.png\")?",
+  "options": [
+   "http://x.cz/a/img/b.png",
+   "http://x.cz/img/b.png",
+   "/img/b.png"
+  ],
+  "answer": 1,
+  "why": "Počáteční lomítko znamená „od začátku webu“. Bez něj (img/b.png) by adresa zůstala ve složce a."
+ },
+ {
+  "q": "Co dělá Path(slozka).mkdir(exist_ok=True)?",
+  "options": [
+   "Smaže složku",
+   "Vytvoří složku a nehlásí chybu, když už je",
+   "Otevře složku"
+  ],
+  "answer": 1,
+  "why": "Bez exist_ok=True by druhé spuštění programu skončilo chybou FileExistsError."
+ }
+]

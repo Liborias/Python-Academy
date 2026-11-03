@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Proč uložit hvězdy do seznamu?",
+  "options": [
+   "Stejný kód (pohyb, kreslení) se provede cyklem pro všechny a počet lze snadno změnit",
+   "Jinak by se nedaly nakreslit",
+   "Seznam je rychlejší než jedna proměnná"
+  ],
+  "answer": 0,
+  "why": "Cyklus for pracuje s libovolným počtem objektů bez opisování kódu."
+ },
+ {
+  "q": "Co vrátí random.randint(0, 368)?",
+  "options": [
+   "Desetinné číslo mezi 0 a 368",
+   "Celé číslo od 1 do 367",
+   "Celé číslo od 0 do 368 včetně obou mezí"
+  ],
+  "answer": 2,
+  "why": "randint vrací celé číslo a obě meze patří mezi možné hodnoty."
+ },
+ {
+  "q": "Ve for rect in hvezdy: rect.y += 3 se změní:",
+  "options": [
+   "Jen lokální kopie rect",
+   "Hvězda přímo v seznamu (rect je tentýž objekt)",
+   "Nic"
+  ],
+  "answer": 1,
+  "why": "Rect je proměnlivý objekt. Cyklus nedělá kopii, takže změna se projeví v seznamu."
+ }
+]

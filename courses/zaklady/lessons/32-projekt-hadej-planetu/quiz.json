@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Kdy se provede blok if __name__ == \"__main__\":?",
+  "options": [
+   "Pokaždé, i když soubor jen načte jiný program",
+   "Jen když soubor spustíte přímo",
+   "Nikdy, je to jen komentář"
+  ],
+  "answer": 1,
+  "why": "Při přímém spuštění má __name__ hodnotu \"__main__\". Při importu ne, takže se hra sama nespustí."
+ },
+ {
+  "q": "Jak získáte průměr Marsu z PLANETY = {\"Mars\": {\"prumer\": 6779}}?",
+  "options": [
+   "PLANETY[\"prumer\"][\"Mars\"]",
+   "PLANETY[\"Mars\"][\"prumer\"]",
+   "PLANETY[\"Mars\", \"prumer\"]"
+  ],
+  "answer": 1,
+  "why": "Nejdřív vyberete vnitřní slovník podle jména planety a v něm pak hodnotu klíče prumer."
+ }
+]

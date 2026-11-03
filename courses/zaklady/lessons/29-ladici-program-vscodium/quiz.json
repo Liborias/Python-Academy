@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co dělá klávesa F10 při ladění?",
+  "options": [
+   "Vstoupí do volané funkce",
+   "Provede řádek a přejde na další, volanou funkci přeskočí",
+   "Ukončí ladění"
+  ],
+  "answer": 1,
+  "why": "F10 je krok přes (step over). Do funkce se vstupuje klávesou F11 a ladění se ukončuje Shift+F5."
+ },
+ {
+  "q": "Co je bod přerušení (breakpoint)?",
+  "options": [
+   "Řádek, na kterém se program při ladění zastaví",
+   "Řádek s chybou, který Python označí sám",
+   "Konec programu"
+  ],
+  "answer": 0,
+  "why": "Bod přerušení nastavíte sami kliknutím vedle čísla řádku. Program se na něm zastaví a vy si můžete prohlédnout proměnné."
+ }
+]

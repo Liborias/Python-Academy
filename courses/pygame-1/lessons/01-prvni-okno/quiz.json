@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co udělá pygame.display.flip()?",
+  "options": [
+   "Otočí okno",
+   "Zobrazí na obrazovce to, co jsme nakreslili",
+   "Zavře okno"
+  ],
+  "answer": 1,
+  "why": "Kreslí se nejdřív do paměti. Až flip() nakreslený obraz ukáže."
+ },
+ {
+  "q": "Co znamená barva (255, 0, 0)?",
+  "options": [
+   "Zelená",
+   "Černá",
+   "Červená"
+  ],
+  "answer": 2,
+  "why": "Čísla jsou množství červené, zelené a modré (0 až 255). Plná červená a nic dalšího dává červenou."
+ },
+ {
+  "q": "Proč má set_mode dvoje závorky: set_mode((400, 300))?",
+  "options": [
+   "Vnitřní závorky tvoří dvojici (šířka, výška)",
+   "Je to chyba, stačí jedny",
+   "Vnější závorky jsou pro barvu"
+  ],
+  "answer": 0,
+  "why": "Funkce dostává jeden argument, a to dvojici čísel."
+ }
+]

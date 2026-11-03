@@ -1,0 +1,21 @@
+from dilna_check import check
+c = check()
+ns = c.load()
+if ns is not None:
+    c.returns(ns, 'min_max', ([4, 1, 9],), (1, 9))
+    c.returns(ns, 'min_max', ([5],), (5, 5))
+    c.returns(ns, 'min_max', ([],), None)
+    c.returns(ns, 'min_max', ([-3, -1],), (-3, -1))
+    c.returns(ns, 'prvni_a_zbytek', ([1, 2, 3],), (1, [2, 3]))
+    c.returns(ns, 'prvni_a_zbytek', ([7],), (7, []))
+    c.returns(ns, 'prvni_a_zbytek', ([],), (None, []))
+    c.returns(ns, 'prvni_a_zbytek', (['a', 'b'],), ('a', ['b']))
+    c.returns(ns, 'ocisluj', (['pes', 'kočka'],), ['1. pes', '2. kočka'])
+    c.returns(ns, 'ocisluj', ([],), [])
+    c.returns(ns, 'ocisluj', (['x'],), ['1. x'])
+    c.returns(ns, 'sloz_dvojice', ([1, 2, 3], ['a', 'b']), [(1, 'a'), (2, 'b')])
+    c.returns(ns, 'sloz_dvojice', ([], [1]), [])
+    c.returns(ns, 'sloz_dvojice', (['x'], [9]), [('x', 9)])
+    r = ns["min_max"]([1, 2]) if callable(ns.get("min_max")) else None
+    c.add("min_max vrací dvojici (tuple)", isinstance(r, tuple), f"Vrácená hodnota má typ {type(r).__name__}, má to být tuple.")
+c.done()

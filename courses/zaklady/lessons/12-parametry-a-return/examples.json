@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Převod minut",
+    "description": "Použijte návratovou hodnotu v dalším výpočtu.",
+    "code": "# Parametr dostane hodnotu z volání.\ndef na_sekundy(minuty):\n    return minuty * 60\n\n\n# return nic nevypisuje; výsledek si uložíme.\ndelka = na_sekundy(3)\nprint(\"Sekund:\", delka)\nprint(\"Dvě skladby:\", delka * 2)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Porovnání cen",
+    "description": "Změňte ceny a sledujte vrácené True nebo False.",
+    "code": "def je_levnejsi(prvni, druha):\n    # Porovnání je výraz s pravdivostní hodnotou.\n    return prvni < druha\n\n\n# Pořadí argumentů ovlivní výsledek.\nprint(je_levnejsi(20, 35))\nprint(je_levnejsi(35, 20))\nprint(je_levnejsi(20, 20))\n"
+  }
+]

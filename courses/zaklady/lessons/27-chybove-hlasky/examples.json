@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Chybějící klíč",
+    "description": "Po prvním běhu opravte klíč na nazev a porovnejte výstup.",
+    "code": "kniha = {\"nazev\": \"Výlet\"}\n# Záměrnou chybu zachytíme, aby celá ukázka doběhla.\ntry:\n    print(kniha[\"titul\"])\nexcept KeyError as chyba:\n    print(\"KeyError – chybí klíč:\", chyba)\n# get je jedna z možností bezpečného čtení.\nprint(kniha.get(\"titul\", \"Neznámý název\"))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Index za koncem",
+    "description": "Změňte index 2 na 1. Proč pak except neproběhne?",
+    "code": "barvy = [\"modrá\", \"zelená\"]\n# Dva prvky mají indexy 0 a 1, index 2 už neexistuje.\ntry:\n    print(barvy[2])\nexcept IndexError as chyba:\n    print(\"IndexError:\", chyba)\n# Po zachycení lze pokračovat běžným výpisem.\nprint(\"Poslední barva:\", barvy[-1])\n"
+  }
+]

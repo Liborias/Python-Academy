@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co vrátí soup.find(\"h5\"), když stránka žádný nadpis h5 nemá?",
+  "options": [
+   "Prázdný řetězec",
+   "None",
+   "Chybu ValueError"
+  ],
+  "answer": 1,
+  "why": "find při neúspěchu vrací None. Proto je potřeba před voláním get_text ověřit, že výsledek není None."
+ },
+ {
+  "q": "Proč se v BeautifulSoup píše class_ a ne class?",
+  "options": [
+   "class je v Pythonu vyhrazené slovo",
+   "Podtržítko zrychluje hledání",
+   "Je to název značky v HTML"
+  ],
+  "answer": 0,
+  "why": "class je v Pythonu vyhrazené slovo (začíná třídu), proto knihovna používá jméno class_."
+ }
+]

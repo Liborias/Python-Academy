@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Kdy použijete pygame.mixer.Sound a kdy mixer.music?",
+  "options": [
+   "Sound pro krátké efekty, music pro dlouhou hudbu na pozadí",
+   "Je to totéž",
+   "Sound jen pro mp3"
+  ],
+  "answer": 0,
+  "why": "Sound se celý načte do paměti a může hrát víckrát najednou. Hudba se proudově čte a hraje jen jedna."
+ },
+ {
+  "q": "Co znamená mixer.music.play(-1)?",
+  "options": [
+   "Přehraje skladbu pozpátku",
+   "Opakuje skladbu pořád dokola",
+   "Zastaví hudbu"
+  ],
+  "answer": 1,
+  "why": "Argument je počet opakování. Hodnota -1 znamená „donekonečna“."
+ }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Proč má nacti_kontakty vracet [] a ne chybu, když soubor neexistuje?",
+  "options": [
+   "Python takovou chybu nepozná",
+   "Při prvním spuštění soubor ještě není, a to je normální stav",
+   "Chyba by smazala soubor"
+  ],
+  "answer": 1,
+  "why": "Prázdný seznam kontaktů je rozumný výchozí stav. Soubor vznikne až při prvním uložení."
+ },
+ {
+  "q": "Jak z uloženého seznamu smazat kontakt a zachovat ostatní?",
+  "options": [
+   "Sestavit nový seznam bez něj a uložit ho",
+   "Přepsat soubor prázdným textem",
+   "Smazat celý soubor"
+  ],
+  "answer": 0,
+  "why": "Načtete seznam, vyberete kontakty, které zůstanou, a uložíte nový seznam zpět do souboru."
+ }
+]

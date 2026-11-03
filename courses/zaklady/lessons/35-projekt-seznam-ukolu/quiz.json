@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co vrátí \"pridej Koupit mléko\".split(\" \", 1)?",
+  "options": [
+   "[\"pridej\", \"Koupit\", \"mléko\"]",
+   "[\"pridej\", \"Koupit mléko\"]",
+   "[\"pridej Koupit mléko\", 1]"
+  ],
+  "answer": 1,
+  "why": "Druhý parametr říká, že se text rozdělí nejvýš jednou, tedy jen na první mezeře."
+ },
+ {
+  "q": "Úkoly číslujeme od 1. Na jakém indexu seznamu leží úkol číslo 3?",
+  "options": [
+   "3",
+   "2",
+   "4"
+  ],
+  "answer": 1,
+  "why": "Index se počítá od nuly, takže úkol číslo 3 je na indexu 2 (cislo - 1)."
+ }
+]

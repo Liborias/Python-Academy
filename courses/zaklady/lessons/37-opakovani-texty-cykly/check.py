@@ -1,0 +1,21 @@
+from dilna_check import check
+c = check()
+ns = c.load()
+if ns is not None:
+    c.returns(ns, "fizzbuzz", (5,), ["1", "2", "Fizz", "4", "Buzz"])
+    c.returns(ns, "fizzbuzz", (15,), ["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"])
+    c.returns(ns, "fizzbuzz", (0,), [])
+    for n, o in ((2, True), (3, True), (17, True), (97, True), (1, False), (0, False), (-5, False), (9, False), (91, False), (100, False), (4, False), (25, False), (49, False), (121, False), (169, False), (11, True)):
+        c.returns(ns, "je_prvocislo", (n,), o)
+    c.returns(ns, "obrat_slova", ("ahoj svete dnes",), "dnes svete ahoj")
+    c.returns(ns, "obrat_slova", ("jedno",), "jedno")
+    c.returns(ns, "obrat_slova", ("a b c d",), "d c b a")
+    c.returns(ns, "pocet_samohlasek", ("Python",), 2)
+    c.returns(ns, "pocet_samohlasek", ("AEIOUY",), 6)
+    c.returns(ns, "pocet_samohlasek", ("krk",), 0)
+    c.returns(ns, "pocet_samohlasek", ("žluťoučký kůň",), 3)
+    c.returns(ns, "ciferny_soucet", (472,), 13)
+    c.returns(ns, "ciferny_soucet", (0,), 0)
+    c.returns(ns, "ciferny_soucet", (9,), 9)
+    c.returns(ns, "ciferny_soucet", (1000,), 1)
+c.done()

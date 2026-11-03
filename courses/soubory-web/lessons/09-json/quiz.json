@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co se stane s n-ticí (1, 2) po zápisu do JSON a načtení zpět?",
+  "options": [
+   "Zůstane n-ticí",
+   "Vrátí se jako seznam [1, 2]",
+   "Skončí chybou"
+  ],
+  "answer": 1,
+  "why": "JSON nezná n-tice, zapisuje je jako pole a po načtení vznikne seznam."
+ },
+ {
+  "q": "Proč se při json.dump píše ensure_ascii=False?",
+  "options": [
+   "Aby se čeština zapsala čitelně a ne jako \\u010d",
+   "Aby se soubor zmenšil",
+   "Aby se ověřila platnost dat"
+  ],
+  "answer": 0,
+  "why": "Výchozí zápis nahrazuje znaky mimo ASCII kódy. S ensure_ascii=False zůstanou písmena čitelná."
+ }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co vrátí \"ahoj\".find(\"x\")?",
+  "options": [
+   "None",
+   "-1",
+   "0"
+  ],
+  "answer": 1,
+  "why": "Když text není nalezen, find vrací -1. Nula by znamenala nález na začátku."
+ },
+ {
+  "q": "Který zápis HTML je atribut?",
+  "options": [
+   "</a>",
+   "<a>",
+   "href=\"mapa.html\""
+  ],
+  "answer": 2,
+  "why": "Atribut je dvojice jmeno=\"hodnota\" uvnitř začátku značky. Zde href říká, kam odkaz vede."
+ }
+]

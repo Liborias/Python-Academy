@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co je výsledek len(set([5, 5, 7, 5, 7]))?",
+  "options": [
+   "5",
+   "2",
+   "3"
+  ],
+  "answer": 1,
+  "why": "Množina zahodí duplicity a zůstanou jen hodnoty 5 a 7."
+ },
+ {
+  "q": "Jak vytvoříte prázdnou množinu?",
+  "options": [
+   "{}",
+   "set()",
+   "()"
+  ],
+  "answer": 1,
+  "why": "Složené závorky {} bez obsahu jsou prázdný slovník. Prázdná množina se píše set()."
+ }
+]

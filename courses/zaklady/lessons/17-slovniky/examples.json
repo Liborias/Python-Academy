@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Kniha",
+    "description": "Přidejte vlastní klíč a přečtěte jeho hodnotu.",
+    "code": "kniha = {\"nazev\": \"Výlet do hor\", \"stran\": 120}\n# Ke čtení používáme klíč, nikoli pořadové číslo.\nprint(kniha[\"nazev\"])\nkniha[\"stran\"] = 128\n# Nový klíč se přiřazením přidá.\nkniha[\"precteno\"] = False\nprint(kniha)\nprint(len(kniha))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Stav skladu",
+    "description": "Změňte množství a sledujte počet klíčů.",
+    "code": "sklad = {\"sešity\": 20, \"tužky\": 35}\n# Čteme starou hodnotu a ukládáme novou pod stejný klíč.\nsklad[\"sešity\"] = sklad[\"sešity\"] - 3\n# Nová položka zvětší počet dvojic.\nsklad[\"gumy\"] = 10\nprint(sklad)\nprint(\"Druhů zboží:\", len(sklad))\n"
+  }
+]

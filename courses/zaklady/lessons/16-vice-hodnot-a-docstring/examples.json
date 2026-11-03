@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Rozdělení teplot",
+    "description": "Funkce vrací dva seznamy najednou. Vyzkoušejte prázdný vstup.",
+    "code": "def rozdel_teploty(teploty):\n    \"\"\"Vrátí záporné a nezáporné teploty jako dva seznamy.\"\"\"\n    mrazive = []\n    ostatni = []\n    # Každá hodnota patří právě do jednoho výsledku.\n    for teplota in teploty:\n        if teplota < 0:\n            mrazive.append(teplota)\n        else:\n            ostatni.append(teplota)\n    return mrazive, ostatni\n\n\n# Dvojici výsledků rozbalíme do dvou proměnných.\nmrazive, ostatni = rozdel_teploty([-3, 0, 8, -1])\nprint(mrazive, ostatni)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Rozměry obdélníku",
+    "description": "Porovnejte rozbalení s uložením celé n-tice.",
+    "code": "def rozmery(sirka, vyska):\n    \"\"\"Vrátí obvod a obsah obdélníku.\"\"\"\n    # Za čárkou v return je druhá návratová hodnota.\n    return 2 * (sirka + vyska), sirka * vyska\n\n\nobvod, obsah = rozmery(3, 5)\nprint(obvod, obsah)\n# Bez rozbalení dostaneme jednu n-tici.\nvysledek = rozmery(3, 5)\nprint(vysledek)\nprint(rozmery.__doc__)\n"
+  }
+]

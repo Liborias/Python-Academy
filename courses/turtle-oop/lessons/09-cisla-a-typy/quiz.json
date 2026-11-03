@@ -1,0 +1,42 @@
+[
+ {
+  "q": "Co vrátí int(3.9)?",
+  "options": [
+   "4",
+   "3",
+   "3.9"
+  ],
+  "answer": 1,
+  "why": "int desetinnou část utne, nezaokrouhluje. Pro zaokrouhlení slouží round()."
+ },
+ {
+  "q": "Co dá \"5\" + \"5\"?",
+  "options": [
+   "10",
+   "Chybu",
+   "\"55\""
+  ],
+  "answer": 2,
+  "why": "U textů plus znamená spojení. Čísla vzniknou až převodem int(\"5\") + int(\"5\")."
+ },
+ {
+  "q": "Co vrací divmod(17, 5)?",
+  "options": [
+   "(3, 2)",
+   "(2, 3)",
+   "3.4"
+  ],
+  "answer": 0,
+  "why": "Dvojici (podíl, zbytek): 17 // 5 = 3 a 17 % 5 = 2."
+ },
+ {
+  "q": "Jaký typ má výsledek 10 / 2?",
+  "options": [
+   "int",
+   "float",
+   "str"
+  ],
+  "answer": 1,
+  "why": "Dělení / vrací vždy float, tedy 5.0. Celé číslo dá celočíselné dělení 10 // 2."
+ }
+]

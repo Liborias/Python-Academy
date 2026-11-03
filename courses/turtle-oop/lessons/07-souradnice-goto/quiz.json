@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co udělá zápis x, y = (3, 4)?",
+  "options": [
+   "Chyba, dvojici nelze rozbalit",
+   "Do x se uloží celá dvojice",
+   "Do x se uloží 3 a do y se uloží 4"
+  ],
+  "answer": 2,
+  "why": "Rozbalení (unpacking) přiřadí prvky dvojice po řadě do proměnných."
+ },
+ {
+  "q": "Čím se dvojice (tuple) liší od seznamu?",
+  "options": [
+   "Po vytvoření se nedá měnit",
+   "Může obsahovat jen čísla",
+   "Nedá se procházet cyklem"
+  ],
+  "answer": 0,
+  "why": "Tuple je neměnný. Hodí se na souřadnice, protože bod se nemění, jen se vytvoří nový."
+ },
+ {
+  "q": "Co je body[1:] u seznamu o pěti prvcích?",
+  "options": [
+   "Poslední prvek",
+   "Seznam bez prvního prvku",
+   "Jen druhý prvek"
+  ],
+  "answer": 1,
+  "why": "Řez od indexu 1 až do konce vrátí všechno kromě prvního prvku."
+ }
+]

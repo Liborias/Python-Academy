@@ -1,0 +1,17 @@
+from dilna_check import check
+c = check()
+c.uses_call("tick", "Použijte clock.tick(60), aby smyčka neběžela zbytečně rychle.")
+r = c.pygame_run(frames=8, pixels=[(250, 150)])
+if c.pg_no_error(r):
+    c.add("Okno má velikost 500 × 300", r.size == [500, 300], f"Okno má velikost {r.size}.")
+    c.add("Titulek je „Herní smyčka“", r.caption == "Herní smyčka", f"Titulek je {r.caption!r}.")
+    c.add("Pozadí je (30, 30, 60)", r.pixel((250, 150)) == (30, 30, 60), f"Barva uprostřed je {r.pixel((250, 150))}.")
+    c.add("Smyčka běží dál, když se nic neděje", r.frames == 8 and not r.ended, f"Program skončil po {r.frames} snímcích, měl běžet dál.")
+    c.add("Používá clock.tick(60)", 60 in (r.fps or []), "Zavolejte clock.tick(60) v každém průchodu smyčkou.")
+    r2 = c.pygame_run(frames=20, events={3: [{"type": "QUIT"}]})
+    c.add("Zavření okna ukončí smyčku", r2.ended and r2.frames in (3, 4), f"Po zavření okna program {'skončil po ' + str(r2.frames) + ' snímcích' if r2.ended else 'neskončil'}.")
+    r3 = c.pygame_run(frames=20, events={2: [{"type": "KEYDOWN", "key": "K_ESCAPE"}]})
+    c.add("Escape ukončí smyčku", r3.ended and r3.frames in (2, 3), "Při stisku Escape (pygame.K_ESCAPE) nastavte running = False.")
+    r4 = c.pygame_run(frames=6, events={1: [{"type": "KEYDOWN", "key": "K_a"}]})
+    c.add("Jiná klávesa smyčku neukončí", r4.frames == 6 and not r4.ended, "Ukončovat smí jen zavření okna a Escape.")
+c.done()

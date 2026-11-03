@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Kdy se provede blok finally?",
+  "options": [
+   "Jen když vznikla chyba",
+   "Vždy, ať chyba vznikla, nebo ne",
+   "Jen když chyba nevznikla"
+  ],
+  "answer": 1,
+  "why": "finally je určen pro úklid, který se musí provést za všech okolností."
+ },
+ {
+  "q": "Co dělá příkaz raise ValueError(\"Špatná hodnota\")?",
+  "options": [
+   "Zachytí chybu ValueError",
+   "Vyvolá výjimku ValueError se zprávou",
+   "Vypíše text a pokračuje dál"
+  ],
+  "answer": 1,
+  "why": "raise výjimku vyvolá. Pokud ji nikdo nezachytí pomocí except, program skončí se zprávou."
+ }
+]

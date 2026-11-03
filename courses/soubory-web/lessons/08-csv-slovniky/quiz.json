@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Jaký typ má zak[\"body\"], když zak pochází z csv.DictReader?",
+  "options": [
+   "int",
+   "str",
+   "float"
+  ],
+  "answer": 1,
+  "why": "CSV je textový soubor, takže i čísla se načtou jako texty. Převod dělá až váš kód pomocí int() nebo float()."
+ },
+ {
+  "q": "K čemu je metoda writeheader()?",
+  "options": [
+   "Zapíše řádek s názvy sloupců",
+   "Zapíše první datový řádek",
+   "Zavře soubor"
+  ],
+  "answer": 0,
+  "why": "writeheader zapíše hlavičku z hodnoty fieldnames. Data se pak zapisují metodami writerow a writerows."
+ }
+]

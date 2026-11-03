@@ -1,0 +1,8 @@
+{
+  "venvPath": ".",
+  "venv": ".venv",
+  "typeCheckingMode": "standard",
+  "reportMissingModuleSource": "none",
+  "include": ["courses", "workspace", "lib", "server", "tools"],
+  "exclude": ["**/__pycache__", "workspace/_run", "tests/fixtures"]
+}

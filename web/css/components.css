@@ -1,0 +1,45 @@
+.btn{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:7px 14px;text-decoration:none}
+.btn:hover{border-color:var(--accent)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent);font-weight:600}
+.card{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;text-decoration:none;color:var(--ink);transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.card h2{font-size:1.2rem}
+.card p{margin:0;color:var(--muted);font-size:.94rem}
+.meta{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:.84rem;color:var(--muted);margin-top:auto}
+.stars{color:var(--gold);letter-spacing:2px;font-size:.95rem}
+.stars i{color:var(--line);font-style:normal}
+.badge{display:inline-block;border-radius:99px;padding:1px 10px;font-size:.76rem;font-weight:600;background:var(--surface-2);border:1px solid var(--line);color:var(--muted)}
+.badge.ready{background:var(--ok-soft);border-color:transparent;color:var(--ok)}
+.badge.draft{background:var(--warn-soft);border-color:transparent;color:var(--warn)}
+.bar{height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .4s}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:.78rem;padding:1px 9px;border-radius:99px;background:var(--accent-soft);color:var(--accent);text-decoration:none}
+.note{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:8px;padding:12px 16px;margin:20px 0;color:var(--muted)}
+.note strong{color:var(--ink)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.filters button{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:99px;padding:4px 14px;font-size:.88rem}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.mod{margin-top:26px}
+.mod h3{font-size:.8rem;font-family:var(--f-body);font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin-bottom:8px}
+.mod ol{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.mod li a{display:flex;gap:12px;align-items:baseline;padding:10px 16px;text-decoration:none;color:var(--ink);border-top:1px solid var(--line)}
+.mod li:first-child a{border-top:0}
+.mod li a:hover{background:var(--surface-2)}
+.mod .n{font-family:var(--f-code);font-size:.78rem;color:var(--muted);min-width:2em;text-align:right}
+.mod .ck{margin-left:auto;color:var(--ok);font-weight:700;visibility:hidden}
+.mod li.done .ck{visibility:visible}
+.empty{padding:28px;text-align:center;color:var(--muted);background:var(--surface);border:1px dashed var(--line);border-radius:12px;margin-top:26px}
+.prose li.task{list-style:none;margin-left:-1.2em}
+.prose li.task label{cursor:pointer}
+.setup{max-width:780px}
+
+.course-preparation{margin:24px 0;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:14px 18px}
+.course-preparation>summary{cursor:pointer;font-weight:600}
+.prep-content h2{margin:18px 0 10px;font-size:1.2rem}.prep-content h3,.prep-instructions h3{margin:18px 0 8px;font-size:1rem}
+.prep-options{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0}
+.prep-options label,.setup-course>label{display:flex;flex-direction:column;gap:6px;font-size:.92rem}
+.prep-options select,.setup-course select{max-width:100%;min-width:0;padding:8px;border:1px solid var(--line);border-radius:6px;background:var(--surface);color:var(--ink);font:inherit}
+.prep-instructions p{margin:10px 0}.prep-check{display:flex;gap:8px;align-items:baseline}
+.setup-course{margin:24px 0;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.prep-content pre,.prep-instructions pre{max-width:100%;min-width:0}.prep-options label{min-width:0;max-width:100%}

@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co vrací funkce bez příkazu return?",
+  "options": [
+   "0",
+   "None",
+   "Prázdný řetězec"
+  ],
+  "answer": 1,
+  "why": "Bez return Python vrátí speciální hodnotu None."
+ },
+ {
+  "q": "Jaký je rozdíl mezi parametrem a argumentem?",
+  "options": [
+   "Žádný",
+   "Parametr je jméno v def, argument je hodnota při volání",
+   "Argument je jméno v def, parametr hodnota při volání"
+  ],
+  "answer": 1,
+  "why": "def f(x) má parametr x, volání f(5) předává argument 5."
+ }
+]

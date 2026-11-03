@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Proč je dobré rozdělit program na ziskej_knihy, uloz_csv a stahni_knihy?",
+  "options": [
+   "Python jinak nespustí",
+   "Každou část lze zkoušet zvlášť a použít jinde",
+   "Je to rychlejší"
+  ],
+  "answer": 1,
+  "why": "ziskej_knihy zkoušíte na textu bez sítě, uloz_csv bez stahování. Menší části se snáz opravují."
+ },
+ {
+  "q": "Jak zjistíte, že li má třídu vyprodano?",
+  "options": [
+   "li.get(\"class\") == \"vyprodano\"",
+   "\"vyprodano\" in li.get(\"class\", [])",
+   "li.vyprodano"
+  ],
+  "answer": 1,
+  "why": "Atribut class je vždy seznam tříd (i s jedinou třídou), a tak se hledá operátorem in. Porovnání se seznamem s textem by nikdy neplatilo."
+ }
+]

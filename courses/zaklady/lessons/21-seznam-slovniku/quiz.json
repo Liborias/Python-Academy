@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co je studenti[1][\"jmeno\"] pro seznam slovníků studenti?",
+  "options": [
+   "Jméno prvního studenta",
+   "Hodnota klíče \"jmeno\" u druhého slovníku v seznamu",
+   "Chyba, protože seznam nemá klíče"
+  ],
+  "answer": 1,
+  "why": "Index 1 vybere druhý slovník (počítá se od nuly) a klíč \"jmeno\" v něm hodnotu."
+ },
+ {
+  "q": "Co je proměnná student v cyklu for student in studenti:, když studenti je seznam slovníků?",
+  "options": [
+   "Klíč slovníku",
+   "Číslo pozice v seznamu",
+   "Jeden slovník ze seznamu"
+  ],
+  "answer": 2,
+  "why": "Cyklus for bere z seznamu prvek po prvku a každým prvkem je tady jeden slovník."
+ }
+]

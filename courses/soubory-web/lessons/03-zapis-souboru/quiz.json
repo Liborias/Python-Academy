@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co se stane s obsahem existujícího souboru po open(\"data.txt\", \"w\")?",
+  "options": [
+   "Zůstane a nový text se přidá na konec",
+   "Okamžitě se smaže",
+   "Python skončí chybou"
+  ],
+  "answer": 1,
+  "why": "Režim w soubor vytvoří znovu, takže starý obsah zmizí. Pro přidávání na konec slouží režim a."
+ },
+ {
+  "q": "Jak zapsat řádek textu s koncem řádku pomocí write?",
+  "options": [
+   "soubor.write(text)",
+   "soubor.write(text + \"\\n\")",
+   "soubor.write(text, \"\\n\")"
+  ],
+  "answer": 1,
+  "why": "write nic nepřidává, nový řádek je znak \\n a musíte ho připsat sami."
+ }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Sleva na ceny",
+    "description": "Zkontrolujte, že vstupní seznam zůstane stejný.",
+    "code": "def zlevni(ceny):\n    # Nový seznam umožní ponechat původní data.\n    nove = []\n    for cena in ceny:\n        nove.append(cena * 0.9)\n    return nove\n\n\nceny = [100, 200, 50]\nprint(zlevni(ceny))\n# Původní ceny stále obsahují 100, 200 a 50.\nprint(ceny)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Změna seznamu",
+    "description": "Dvě volání ukazují změny téhož seznamu.",
+    "code": "def pridej_pozdrav(zpravy):\n    # append mění seznam dodaný volajícím.\n    zpravy.append(\"Ahoj\")\n\n\nzpravy = [\"Start\"]\npridej_pozdrav(zpravy)\npridej_pozdrav(zpravy)\n# Funkce nic nevrací, ale seznam změnila.\nprint(zpravy)\n"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Vstupenky",
+    "description": "Změňte počet návštěvníků a cenu jedné vstupenky.",
+    "code": "# Proměnné pojmenujeme podle toho, co obsahují.\npocet = 4\ncena = 80\ncelkem = pocet * cena\n# f-řetězec vloží hodnoty do zprávy.\nprint(f\"Za {pocet} vstupenky zaplatíte {celkem} Kč.\")\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Zásoba vody",
+    "description": "Sledujte hodnotu před změnou a po ní.",
+    "code": "# Desetinné číslo se zapisuje s tečkou.\nvoda = 2.5\nprint(type(voda))\nprint(\"Před výletem:\", voda)\n# Na pravé straně je původní hodnota proměnné.\nvoda = voda - 0.75\nprint(\"Po přestávce:\", voda)\n"
+  }
+]

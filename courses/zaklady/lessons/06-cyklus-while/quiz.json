@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Kdy se cyklus while ukončí?",
+  "options": [
+   "Po 10 opakováních",
+   "Když přestane platit podmínka (nebo přijde break)",
+   "Vždy po prvním kroku"
+  ],
+  "answer": 1,
+  "why": "while běží, dokud je podmínka pravdivá. Předčasně ho ukončí break."
+ },
+ {
+  "q": "Co se stane u while True: bez break?",
+  "options": [
+   "Nic",
+   "Program běží donekonečna",
+   "Python vypíše chybu"
+  ],
+  "answer": 1,
+  "why": "Podmínka True platí vždy, takže cyklus nikdy neskončí. Zastavíte ho Stop nebo Ctrl+C."
+ }
+]

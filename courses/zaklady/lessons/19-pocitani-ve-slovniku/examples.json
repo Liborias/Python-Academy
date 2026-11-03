@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Hlasy pro výlet",
+    "description": "Přidejte hlasy a sledujte rostoucí počty.",
+    "code": "hlasy = [\"hrad\", \"les\", \"hrad\", \"řeka\", \"les\", \"hrad\"]\npocty = {}\n# První výskyt začíná od nuly, další zvětšují stejný počet.\nfor misto in hlasy:\n    pocty[misto] = pocty.get(misto, 0) + 1\nprint(pocty)\n# key určuje, že porovnáváme počty, nikoli názvy míst.\nvitez = max(pocty, key=pocty.get)\nprint(\"Nejvíc hlasů:\", vitez)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Počítání písmen",
+    "description": "Porovnejte počty v různých slovech.",
+    "code": "text = \"ananas\"\npocty = {}\n# Řetězec lze procházet po jednotlivých znacích.\nfor znak in text:\n    pocty[znak] = pocty.get(znak, 0) + 1\n# Každý klíč se ve výsledku objeví jen jednou.\nfor znak, pocet in pocty.items():\n    print(znak, pocet)\n"
+  }
+]

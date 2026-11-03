@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Proč uložit polohy hvězd do seznamu?",
+  "options": [
+   "Přidání další hvězdy je jen jedna položka v seznamu a kód zůstane krátký",
+   "Python jinak hvězdu nevykreslí",
+   "Seznam je rychlejší než číslo"
+  ],
+  "answer": 0,
+  "why": "Cyklus for projde všechny polohy, takže nepíšete blit pro každou hvězdu zvlášť."
+ },
+ {
+  "q": "V jakém pořadí se kreslí scéna?",
+  "options": [
+   "Od předmětů vpředu k pozadí",
+   "Od pozadí k předmětům vpředu",
+   "Na pořadí nezáleží"
+  ],
+  "answer": 1,
+  "why": "Později nakreslené překrývá dřívější, takže pozadí musí být první."
+ }
+]

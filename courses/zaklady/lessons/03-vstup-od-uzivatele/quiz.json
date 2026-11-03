@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Jakého typu je hodnota, kterou vrací input()?",
+  "options": [
+   "int",
+   "str",
+   "float"
+  ],
+  "answer": 1,
+  "why": "input() vždy vrací text (str), i když jsou v něm číslice."
+ },
+ {
+  "q": "Co vypíše print(\"5\" + \"5\")?",
+  "options": [
+   "10",
+   "55",
+   "chybu"
+  ],
+  "answer": 1,
+  "why": "Plus u textů je spojuje. Pro sčítání čísel je nutné nejdřív použít int()."
+ }
+]

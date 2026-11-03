@@ -1,0 +1,2 @@
+## Soubor
+Přečtěte data.txt.

@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co je s[1:4] pro s = \"python\"?",
+  "options": [
+   "\"pyth\"",
+   "\"ytho\"",
+   "\"yth\""
+  ],
+  "answer": 2,
+  "why": "Řez bere indexy 1, 2, 3 (horní mez 4 už ne): y, t, h."
+ },
+ {
+  "q": "Co udělá s[::-1]?",
+  "options": [
+   "Obrátí pořadí znaků",
+   "Smaže poslední znak",
+   "Vrátí chybu"
+  ],
+  "answer": 0,
+  "why": "Záporný krok jde odzadu. Je to nejkratší způsob, jak řetězec obrátit."
+ },
+ {
+  "q": "Proč s[0] = \"P\" skončí chybou?",
+  "options": [
+   "Index 0 neexistuje",
+   "Řetězce se po vytvoření nedají měnit",
+   "Velké písmeno není povoleno"
+  ],
+  "answer": 1,
+  "why": "Řetězec je neměnný (immutable). Nový řetězec vytvoříte například jako \"P\" + s[1:]."
+ }
+]

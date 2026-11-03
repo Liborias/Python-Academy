@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Hledání součtu",
+    "description": "Sledujte průběžné výpisy a pak je zkuste odstranit.",
+    "code": "def soucet(cisla):\n    celkem = 0\n    for cislo in cisla:\n        celkem += cislo\n        # Ladicí výpis ukazuje stav po každém přičtení.\n        print(\"Přidávám\", cislo, \"součet\", celkem)\n    return celkem\n\n\n# Assert kontroluje i prázdný seznam.\nassert soucet([2, 4, 1]) == 7\nassert soucet([]) == 0\nprint(\"Kontroly prošly\")\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Hraniční hodnota",
+    "description": "Změňte >= na > a pozorujte selhání testu pro 18 let.",
+    "code": "def je_dospely(vek):\n    # Rovnost je důležitá právě na hranici.\n    return vek >= 18\n\n\n# Okolí hranice je dobré místo pro testování.\nassert je_dospely(17) == False\nassert je_dospely(18) == True\nassert je_dospely(19) == True\nprint(\"Hranice ověřena\")\n"
+  }
+]

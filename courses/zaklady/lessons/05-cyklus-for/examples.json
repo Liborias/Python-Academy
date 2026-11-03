@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Násobky",
+    "description": "Změňte násobené číslo nebo počet řádků tabulky.",
+    "code": "cislo = 7\n# range nezahrnuje horní mez, tedy 6.\nfor nasobek in range(1, 6):\n    print(cislo, \"krát\", nasobek, \"=\", cislo * nasobek)\n# Tohle se provede až po všech opakováních.\nprint(\"Konec tabulky\")\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Spoření",
+    "description": "Změňte částku ukládanou každý týden.",
+    "code": "uspory = 0\n# Pět týdnů znamená hodnoty 1 až 5.\nfor tyden in range(1, 6):\n    uspory = uspory + 30\n    print(\"Týden\", tyden, \"úspory\", uspory)\n# Výsledná proměnná existuje i po cyklu.\nprint(\"Naspořeno:\", uspory)\n"
+  }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Proč se při počítání píše pocty.get(slovo, 0) + 1 a ne pocty[slovo] + 1?",
+  "options": [
+   "Zápis s hranatými závorkami je pomalejší",
+   "U nového slova klíč ještě neexistuje a hranaté závorky by skončily KeyError",
+   "Metoda get umí sčítat"
+  ],
+  "answer": 1,
+  "why": "Při prvním výskytu slova ve slovníku není. get s hodnotou 0 to ošetří bez chyby."
+ },
+ {
+  "q": "Co vrací \"Ahoj Světe\".lower().split()?",
+  "options": [
+   "[\"ahoj\", \"světe\"]",
+   "\"ahoj světe\"",
+   "[\"Ahoj\", \"Světe\"]"
+  ],
+  "answer": 0,
+  "why": "lower() převede vše na malá písmena a split() text rozdělí na seznam slov."
+ }
+]

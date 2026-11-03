@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Batoh",
+    "description": "Změňte obsah batohu a přidejte další věc.",
+    "code": "batoh = [\"voda\", \"mapa\", \"jablko\"]\n# Index 0 označuje první věc.\nprint(\"Nahoře je:\", batoh[0])\nbatoh[1] = \"kompas\"\n# append přidává na konec, nemění ostatní položky.\nbatoh.append(\"svítilna\")\nprint(batoh)\nprint(\"Počet věcí:\", len(batoh))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Zastávky",
+    "description": "Přepište druhou zastávku a sledujte poslední položku.",
+    "code": "zastavky = [\"Náměstí\", \"Škola\", \"Park\"]\n# Záporný index -1 čte od konce.\nprint(\"Cíl:\", zastavky[-1])\n# Druhá položka má index 1.\nzastavky[1] = \"Knihovna\"\nprint(zastavky)\nprint(\"Počet zastávek:\", len(zastavky))\n"
+  }
+]

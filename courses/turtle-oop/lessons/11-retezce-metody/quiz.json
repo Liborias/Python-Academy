@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co vrátí \"a b  c\".split()?",
+  "options": [
+   "[\"a\", \"b\", \"c\"]",
+   "[\"a\", \"b\", \"\", \"c\"]",
+   "\"abc\""
+  ],
+  "answer": 0,
+  "why": "Bez parametru split dělí podle libovolně dlouhých mezer a prázdné prvky zahodí."
+ },
+ {
+  "q": "Jak se volá join?",
+  "options": [
+   "seznam.join(\"-\")",
+   "\"-\".join(seznam)",
+   "join(seznam, \"-\")"
+  ],
+  "answer": 1,
+  "why": "join je metoda řetězce, který slouží jako oddělovač. Bere seznam řetězců."
+ },
+ {
+  "q": "Změní s.upper() řetězec s?",
+  "options": [
+   "Ano, změní ho na místě",
+   "Ne, vrátí nový řetězec",
+   "Jen když s je prázdný"
+  ],
+  "answer": 1,
+  "why": "Řetězce jsou neměnné. Metody vracejí nový řetězec, výsledek je třeba uložit."
+ }
+]

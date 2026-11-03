@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co dělá pocty.get(slovo, 0)?",
+  "options": [
+   "Vrátí počet slova, nebo 0, pokud ve slovníku není",
+   "Vždy vrátí 0",
+   "Smaže slovo ze slovníku"
+  ],
+  "answer": 0,
+  "why": "get je bezpečné čtení: místo chyby KeyError vrátí výchozí hodnotu."
+ },
+ {
+  "q": "K čemu je key=lambda s: (-pocty[s], s) v min?",
+  "options": [
+   "Vybere nejčastější slovo, při shodě abecedně první",
+   "Seřadí slova podle délky",
+   "Odstraní duplicity"
+  ],
+  "answer": 0,
+  "why": "Záporný počet dává největší počet nejmenší klíč. Druhý prvek dvojice rozhoduje při shodě."
+ },
+ {
+  "q": "Co vrátí \"...\".strip(\".,!?\")?",
+  "options": [
+   "\"...\"",
+   "\"\" (prázdný řetězec)",
+   "Chybu"
+  ],
+  "answer": 1,
+  "why": "strip odstraní z obou konců všechny uvedené znaky. Když jsou všechny, zbude prázdný řetězec, a to je důvod, proč slova po očištění kontrolujeme."
+ }
+]

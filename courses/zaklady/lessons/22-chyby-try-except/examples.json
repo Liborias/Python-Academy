@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Bezpečný převod",
+    "description": "Vyzkoušejte text, prázdný řetězec a záporné číslo.",
+    "code": "def cele_cislo(text):\n    # int může odmítnout obsah, například písmena.\n    try:\n        return int(text)\n    except ValueError:\n        return None\n\n\n# Neplatný vstup neukončí celý program.\nfor text in [\"12\", \"ahoj\", \"\", \"-3\"]:\n    print(text, \"->\", cele_cislo(text))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Dělení nulou",
+    "description": "Zkuste další nenulové i nulové jmenovatele.",
+    "code": "def podil(a, b):\n    try:\n        return a / b\n    # Zachytíme konkrétní chybu dělení nulou.\n    except ZeroDivisionError:\n        return None\n\n\nprint(podil(12, 3))\nprint(podil(12, 0))\n# Po zachycené chybě může pokračovat další výpočet.\nprint(podil(12, 6))\n"
+  }
+]

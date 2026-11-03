@@ -1,0 +1,22 @@
+[
+ {
+  "q": "K čemu je proměnná stav ve hře?",
+  "options": [
+   "Určuje, co hra právě dělá (hraje se, konec, pauza), a smyčka se podle ní chová",
+   "Počítá snímky za sekundu",
+   "Ukládá barvu pozadí"
+  ],
+  "answer": 0,
+  "why": "Podle stavu se vybírá, co se kreslí a které události platí."
+ },
+ {
+  "q": "Co všechno musí udělat restart hry?",
+  "options": [
+   "Zavřít okno",
+   "Vrátit proměnné (skóre, stav ...) na počáteční hodnoty",
+   "Nic, hra se restartuje sama"
+  ],
+  "answer": 1,
+  "why": "Hra si pamatuje jen proměnné. Když je vrátíte na začátek, začíná se znovu."
+ }
+]

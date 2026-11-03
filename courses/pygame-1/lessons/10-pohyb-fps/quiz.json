@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Proč se v každém snímku znovu vyplňuje pozadí (screen.fill)?",
+  "options": [
+   "Aby se zvýšilo FPS",
+   "Jinak by na obrazovce zůstaly všechny starší polohy objektu jako stopa",
+   "Pygame to vyžaduje při každém flip()"
+  ],
+  "answer": 1,
+  "why": "Obrazovka si dřívější obraz pamatuje. Přemalováním pozadí starý obraz smažete."
+ },
+ {
+  "q": "Raketa má rychlost 5 bodů za snímek při 60 FPS. Kolik bodů uletí za sekundu?",
+  "options": [
+   "5",
+   "60",
+   "300"
+  ],
+  "answer": 2,
+  "why": "5 × 60 = 300 bodů za sekundu."
+ },
+ {
+  "q": "K čemu je dt = clock.tick(60) / 1000?",
+  "options": [
+   "Měří, kolik sekund trval poslední snímek, a pohyb pak nezávisí na FPS",
+   "Nastavuje hlasitost",
+   "Počítá skóre"
+  ],
+  "answer": 0,
+  "why": "tick vrací milisekundy od minulého volání. Po vydělení tisícem jsou to sekundy."
+ }
+]

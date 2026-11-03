@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co vrací random.shuffle(seznam)?",
+  "options": [
+   "Nový zamíchaný seznam",
+   "Nic (None), seznam zamíchá přímo na místě",
+   "Náhodný prvek ze seznamu"
+  ],
+  "answer": 1,
+  "why": "shuffle mění předaný seznam a vrací None. Proto se před ním dělá kopie, pokud chcete původní pořadí zachovat."
+ },
+ {
+  "q": "Proč se při ladění hodí random.seed(5)?",
+  "options": [
+   "Zrychlí losování",
+   "Náhodná čísla se pak po každém spuštění opakují stejně",
+   "Zakáže opakování čísel"
+  ],
+  "answer": 1,
+  "why": "Stejný seed dává stejnou posloupnost čísel, takže se chyba dá zopakovat."
+ }
+]

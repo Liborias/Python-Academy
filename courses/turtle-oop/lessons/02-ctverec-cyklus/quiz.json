@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Kolikrát se provede tělo cyklu for i in range(4)?",
+  "options": [
+   "3×",
+   "5×",
+   "4×"
+  ],
+  "answer": 2,
+  "why": "range(4) dává čísla 0, 1, 2, 3, tedy čtyři průchody."
+ },
+ {
+  "q": "Jaký úhel je celkem otočka po všech zatáčkách uzavřeného čtverce?",
+  "options": [
+   "360°",
+   "180°",
+   "90°"
+  ],
+  "answer": 0,
+  "why": "Čtyřikrát 90° dá 360°. Želva se vrátí do původního směru."
+ },
+ {
+  "q": "Kdy je nejlepší nastavit barvu a tloušťku čáry?",
+  "options": [
+   "Až po nakreslení čtverce",
+   "Před kreslením, platí pro vše, co se nakreslí potom",
+   "Musí se nastavit u každého forward"
+  ],
+  "answer": 1,
+  "why": "Nastavení zůstává v platnosti, dokud ho nezměníte."
+ }
+]

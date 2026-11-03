@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Čím začíná načítání hodnot do seznamu?",
+  "options": [
+   "Prázdným seznamem []",
+   "Funkcí sorted()",
+   "Cyklem while True"
+  ],
+  "answer": 0,
+  "why": "Nejdřív vytvoříte prázdný seznam a pak do něj v cyklu přidáváte pomocí append()."
+ },
+ {
+  "q": "Co vrací 10 / 4?",
+  "options": [
+   "2",
+   "2.5",
+   "2.0"
+  ],
+  "answer": 1,
+  "why": "Operátor / vždy dělí na desetinné číslo. Celočíselné dělení je //, které vrátí 2."
+ }
+]

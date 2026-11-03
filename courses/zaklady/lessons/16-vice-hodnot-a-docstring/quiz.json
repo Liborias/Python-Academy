@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co vrací funkce s řádkem return a, b?",
+  "options": [
+   "Jen hodnotu a",
+   "N-tici (a, b)",
+   "Seznam [a, b]"
+  ],
+  "answer": 1,
+  "why": "Hodnoty oddělené čárkou Python zabalí do n-tice, kterou lze rozbalit: x, y = f()."
+ },
+ {
+  "q": "Co je výsledek 17 % 5?",
+  "options": [
+   "3",
+   "2",
+   "3.4"
+  ],
+  "answer": 1,
+  "why": "17 děleno 5 je 3 a zbývají 2. Operátor % vrací zbytek."
+ }
+]

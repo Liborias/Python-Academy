@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co znamená barva \"#00ff00\"?",
+  "options": [
+   "Čistá zelená",
+   "Čistá modrá",
+   "Bílá"
+  ],
+  "answer": 0,
+  "why": "Kód je #RRGGBB: červená 00, zelená ff (maximum), modrá 00."
+ },
+ {
+  "q": "Proč je potřeba turtle.colormode(255) před t.pencolor(255, 165, 0)?",
+  "options": [
+   "Bez něj se barva nezobrazí vůbec",
+   "Bez něj želva čeká čísla od 0 do 1",
+   "Zrychlí kreslení"
+  ],
+  "answer": 1,
+  "why": "Výchozí rozsah je 0 až 1. Po colormode(255) se zadávají čísla 0 až 255."
+ },
+ {
+  "q": "Co dělá t.color(\"red\", \"yellow\")?",
+  "options": [
+   "Čára je červená a výplň žlutá",
+   "Čára je žlutá a výplň červená",
+   "Obě barvy se smíchají"
+  ],
+  "answer": 0,
+  "why": "První barva je pro čáru (pencolor), druhá pro výplň (fillcolor)."
+ }
+]

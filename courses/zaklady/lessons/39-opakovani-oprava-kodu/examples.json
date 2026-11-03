@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Správný průměr",
+    "description": "Zkuste odstranit kontrolu prázdného seznamu. Který test chybu odhalí?",
+    "code": "def prumer(cisla):\n    # Prázdný seznam nemá průměr a dělili bychom nulou.\n    if not cisla:\n        return None\n    return sum(cisla) / len(cisla)\n\n\n# Testy běžného, jediného i prázdného vstupu.\nassert prumer([2, 4, 6]) == 4\nassert prumer([5]) == 5\nassert prumer([]) is None\nprint(\"Průměr ověřen\")\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Hledání maxima",
+    "description": "Proč se počáteční kandidát nevolí jako nula?",
+    "code": "def maximum(cisla):\n    if not cisla:\n        return None\n    # První prvek funguje i pro samá záporná čísla.\n    nejvetsi = cisla[0]\n    for cislo in cisla:\n        if cislo > nejvetsi:\n            nejvetsi = cislo\n    return nejvetsi\n\n\n# Záporný vstup odhalí chybnou inicializaci nulou.\nassert maximum([-8, -2, -5]) == -2\nassert maximum([3]) == 3\nassert maximum([]) is None\nprint(\"Maximum ověřeno\")\n"
+  }
+]

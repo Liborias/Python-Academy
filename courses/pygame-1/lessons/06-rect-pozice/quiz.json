@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co udělá rect.center = (200, 150)?",
+  "options": [
+   "Změní velikost obdélníku",
+   "Posune obdélník tak, aby jeho střed byl v bodě (200, 150)",
+   "Vykreslí obdélník"
+  ],
+  "answer": 1,
+  "why": "Nastavení atributu přesune obdélník. Velikost zůstává a ostatní atributy (x, y, right ...) se přepočítají."
+ },
+ {
+  "q": "Rect má x = 10 a width = 100. Čemu se rovná right?",
+  "options": [
+   "10",
+   "100",
+   "110"
+  ],
+  "answer": 2,
+  "why": "Pravá hrana je x + width, tedy 110."
+ },
+ {
+  "q": "Jak vykreslíte obrázek na místo, kde je Rect?",
+  "options": [
+   "screen.blit(obrazek, rect)",
+   "screen.draw(obrazek, rect)",
+   "rect.blit(obrazek)"
+  ],
+  "answer": 0,
+  "why": "Metoda blit patří ploše a jako polohu bere i celý Rect (použije jeho levý horní roh)."
+ }
+]

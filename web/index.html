@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dílna Pythonu</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/lesson.css">
+<link rel="stylesheet" href="css/editor.css">
+</head>
+<body>
+<header class="top">
+  <a class="brand" href="#/"><b>py</b> Dílna Pythonu</a>
+  <nav aria-label="Hlavní nabídka">
+    <a href="#/">Podkurzy</a>
+    <a href="#/priprava">Příprava prostředí</a>
+    <button class="btn" id="theme" type="button">Motiv</button>
+  </nav>
+</header>
+<div id="warn" class="note" hidden><strong>Chybí token.</strong> Spouštění kódu nebude fungovat. Otevřete adresu, kterou vypsal <code>python start.py</code>.</div>
+<main id="main" aria-live="polite"><p>Načítám…</p></main>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>

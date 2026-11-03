@@ -1,0 +1,15 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Odpočítávání",
+    "description": "Změňte počáteční hodnotu. Co se stane pro nulu?",
+    "code": "zbyva = 5\n# Podmínka se zkouší před každým průchodem.\nwhile zbyva > 0:\n    print(zbyva)\n    zbyva = zbyva - 1\n# Odečítání je důležité, jinak by cyklus neskončil.\nprint(\"Start!\")\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Tajné slovo",
+    "description": "Zadávejte slova, dokud nenapíšete ahoj.",
+    "code": "# Opakujeme dotaz, dokud se nesplní podmínka pro break.\nwhile True:\n    slovo = input(\"Napiš ahoj: \")\n    if slovo == \"ahoj\":\n        break\n    print(\"Zkus to znovu.\")\n# Tento řádek se vypíše až po opuštění cyklu.\nprint(\"Správně!\")\n",
+    "stdin": "ne\nahoj\n"
+  }
+]

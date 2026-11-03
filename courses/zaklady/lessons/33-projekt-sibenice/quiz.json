@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Jak vytvoříte prázdnou množinu hádaných písmen?",
+  "options": [
+   "hadana = {}",
+   "hadana = set()",
+   "hadana = []"
+  ],
+  "answer": 1,
+  "why": "Složené závorky bez obsahu dělají prázdný slovník. Množinu vytvoří set()."
+ },
+ {
+  "q": "Proč je dobré oddělit logiku (odhal, vyhrano) od hry s input a print?",
+  "options": [
+   "Python to vyžaduje",
+   "Logiku jde snadno zkoušet samostatně",
+   "Program pak běží rychleji"
+  ],
+  "answer": 1,
+  "why": "Funkce bez vstupu a výstupu se testují voláním s hodnotami. Hra s input se zkouší hůř."
+ }
+]

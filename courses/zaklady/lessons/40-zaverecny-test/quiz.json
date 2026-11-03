@@ -1,0 +1,102 @@
+[
+ {
+  "q": "Co vypíše print(type(input()))?",
+  "options": [
+   "<class 'int'>",
+   "<class 'float'>",
+   "<class 'str'>"
+  ],
+  "answer": 2,
+  "why": "Funkce input vždy vrací text, ať uživatel napíše cokoli. Na číslo ho převede int() nebo float()."
+ },
+ {
+  "q": "Jak zjistíte poslední prvek seznamu s?",
+  "options": [
+   "s[-1]",
+   "s[len(s)]",
+   "s[last]"
+  ],
+  "answer": 0,
+  "why": "Záporný index počítá od konce. Zápis s[len(s)] je o jedno za koncem a skončí IndexError."
+ },
+ {
+  "q": "Co vypíše print(7 // 2, 7 % 2)?",
+  "options": [
+   "3.5 1",
+   "3 1",
+   "4 0"
+  ],
+  "answer": 1,
+  "why": "// je celočíselné dělení (3) a % je zbytek (1)."
+ },
+ {
+  "q": "Který zápis vytvoří prázdný slovník?",
+  "options": [
+   "{}",
+   "set()",
+   "[]"
+  ],
+  "answer": 0,
+  "why": "Prázdné složené závorky jsou slovník. Prázdná množina je set() a prázdný seznam []."
+ },
+ {
+  "q": "Co dělá funkce, která nemá příkaz return?",
+  "options": [
+   "Vrací 0",
+   "Vrací None",
+   "Skončí chybou"
+  ],
+  "answer": 1,
+  "why": "Bez return funkce vrací None, tedy hodnotu „nic“."
+ },
+ {
+  "q": "Co se vypíše? x = 5, pak def f(): x = 10, pak f() a print(x)",
+  "options": [
+   "10",
+   "5",
+   "Chyba"
+  ],
+  "answer": 1,
+  "why": "Uvnitř funkce vznikla nová lokální proměnná x. Globální x se nezměnilo, takže se vypíše 5."
+ },
+ {
+  "q": "Kdy se provede blok else u try?",
+  "options": [
+   "Když ve try vznikla chyba",
+   "Vždy",
+   "Když ve try žádná chyba nevznikla"
+  ],
+  "answer": 2,
+  "why": "else po try/except běží jen při úspěšném průběhu try. Blok, který běží vždy, je finally."
+ },
+ {
+  "q": "Který příkaz zachytí chybu dělení nulou?",
+  "options": [
+   "except ZeroDivisionError:",
+   "except DivisionError:",
+   "except ValueError:"
+  ],
+  "answer": 0,
+  "why": "Dělení nulou vyvolá ZeroDivisionError. ValueError je špatný obsah hodnoty, třeba int(\"abc\")."
+ },
+ {
+  "q": "Jaké jméno je podle PEP 8 vhodné pro proměnnou?",
+  "options": [
+   "PocetZaku",
+   "pocet_zaku",
+   "POCET_ZAKU"
+  ],
+  "answer": 1,
+  "why": "Proměnné a funkce se píší malými písmeny s podtržítky, velká písmena jsou pro konstanty."
+ },
+ {
+  "q": "Co udělá ladicí program po stisku F10?",
+  "options": [
+   "Provede řádek a přejde na další bez vstupu do funkce",
+   "Ukončí program",
+   "Vymaže bod přerušení"
+  ],
+  "answer": 0,
+  "why": "F10 je krok přes. Do volané funkce se vstupuje klávesou F11."
+ }
+]

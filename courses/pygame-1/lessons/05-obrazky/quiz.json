@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Kde se obrázek načítá, aby hra neběžela pomalu?",
+  "options": [
+   "V každém průchodu smyčkou",
+   "Jednou před smyčkou",
+   "Po každém flip()"
+  ],
+  "answer": 1,
+  "why": "Čtení souboru z disku je pomalé. Načtěte obrázek jednou a ve smyčce jen vykreslujte."
+ },
+ {
+  "q": "Co znamená screen.blit(obrazek, (x, y))?",
+  "options": [
+   "Střed obrázku je v bodě (x, y)",
+   "Levý horní roh obrázku je v bodě (x, y)",
+   "Obrázek se zmenší na x krát y bodů"
+  ],
+  "answer": 1,
+  "why": "Souřadnice vždy určují levý horní roh. Pro střed použijte get_rect(center=...)."
+ },
+ {
+  "q": "K čemu je convert_alpha()?",
+  "options": [
+   "Zachová průhlednost a zrychlí kreslení",
+   "Změní obrázek na černobílý",
+   "Uloží obrázek do souboru"
+  ],
+  "answer": 0,
+  "why": "Přizpůsobí obrázek obrazovce a zachová průhledná místa (PNG)."
+ }
+]

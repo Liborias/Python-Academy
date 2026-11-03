@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co bude v proměnné x po x = [3, 1, 2].sort()?",
+  "options": [
+   "[1, 2, 3]",
+   "None",
+   "[3, 1, 2]"
+  ],
+  "answer": 1,
+  "why": "sort řadí přímo v seznamu a vrací None. Chcete-li nový seznam, použijte sorted()."
+ },
+ {
+  "q": "Co udělá b = a, když a je seznam?",
+  "options": [
+   "Vytvoří kopii seznamu",
+   "b i a ukazují na tentýž seznam",
+   "Chybu"
+  ],
+  "answer": 1,
+  "why": "Přiřazení seznamu nekopíruje. Kopii vyrobí a.copy(), list(a) nebo a[:]."
+ },
+ {
+  "q": "Co dělá sorted(slova, key=len)?",
+  "options": [
+   "Seřadí slova podle délky do nového seznamu",
+   "Seřadí původní seznam podle abecedy",
+   "Spočítá délku seznamu"
+  ],
+  "answer": 0,
+  "why": "key určuje, podle čeho se řadí. Funkce len dává délku každého slova, sorted vrací nový seznam."
+ }
+]

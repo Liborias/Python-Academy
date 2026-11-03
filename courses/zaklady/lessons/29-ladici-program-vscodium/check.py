@@ -1,0 +1,15 @@
+from dilna_check import check
+c = check()
+ns = c.load()
+if ns is not None:
+    c.returns(ns, "fibonacci", (2,), [0, 1])
+    c.returns(ns, "fibonacci", (7,), [0, 1, 1, 2, 3, 5, 8])
+    c.returns(ns, "fibonacci", (10,), [0, 1, 1, 2, 3, 5, 8, 13, 21, 34])
+    c.returns(ns, "nejdelsi_slovo", ("ahoj svete python",), "python")
+    c.returns(ns, "nejdelsi_slovo", ("pes kocka kun ptak",), "kocka")
+    c.returns(ns, "nejdelsi_slovo", ("ab cd ef",), "ab")
+    c.returns(ns, "nejdelsi_slovo", ("jedno",), "jedno")
+    c.returns(ns, "pocet_vyskytu", ([1, 2, 1, 3, 1], 1), 3)
+    c.returns(ns, "pocet_vyskytu", (["a", "b"], "c"), 0)
+    c.returns(ns, "pocet_vyskytu", ([], 5), 0)
+c.done()

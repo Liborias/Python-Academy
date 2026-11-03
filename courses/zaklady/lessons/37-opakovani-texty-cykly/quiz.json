@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co udělá for znak in str(472): print(znak)?",
+  "options": [
+   "Vypíše číslo 472 najednou",
+   "Vypíše 4, 7 a 2 každé na svém řádku",
+   "Skončí chybou, protože číslo nejde procházet"
+  ],
+  "answer": 1,
+  "why": "str(472) je text \"472\" a text se prochází po znacích."
+ },
+ {
+  "q": "Které číslo je násobkem 3 i 5 zároveň?",
+  "options": [
+   "10",
+   "15",
+   "9"
+  ],
+  "answer": 1,
+  "why": "15 je dělitelné oběma, proto se u něj vypisuje FizzBuzz. Podmínka na 15 musí být před podmínkami pro 3 a 5."
+ }
+]

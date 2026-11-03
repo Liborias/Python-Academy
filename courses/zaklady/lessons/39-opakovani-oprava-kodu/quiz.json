@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Proč list(set(seznam)) nemusí zachovat pořadí prvků?",
+  "options": [
+   "Množina nemá pevné pořadí",
+   "Funkce list pořadí vždy změní",
+   "Množina smaže prvky s menší hodnotou"
+  ],
+  "answer": 0,
+  "why": "Množina pořadí prvků nezaručuje. Pro zachování pořadí je potřeba cyklus s kontrolou, jestli už prvek ve výsledku je."
+ },
+ {
+  "q": "Který vstup je krajní případ u funkce prumer?",
+  "options": [
+   "Seznam tří kladných čísel",
+   "Prázdný seznam",
+   "Seznam s číslem 10"
+  ],
+  "answer": 1,
+  "why": "Krajní případy jsou situace na okraji zadání. U průměru je to prázdný seznam, protože by se dělilo nulou."
+ }
+]

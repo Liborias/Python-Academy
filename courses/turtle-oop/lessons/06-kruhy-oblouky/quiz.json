@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Kde leží střed kruhu t.circle(50), když želva stojí v (0, 0) a dívá se doprava?",
+  "options": [
+   "V bodě (0, 0)",
+   "V bodě (50, 0)",
+   "V bodě (0, 50)"
+  ],
+  "answer": 2,
+  "why": "Želva kreslí kruh po levé straně, střed je o poloměr nalevo od směru jízdy, tedy nad bodem (0, 0)."
+ },
+ {
+  "q": "Co udělá t.circle(50, 180)?",
+  "options": [
+   "Půlkruh (oblouk o 180°)",
+   "Kruh o poloměru 180",
+   "Dva kruhy"
+  ],
+  "answer": 0,
+  "why": "Druhý parametr je úhel oblouku ve stupních. Bez něj se kreslí celých 360°."
+ },
+ {
+  "q": "Čím se liší t.dot(20, \"red\") od t.circle(10)?",
+  "options": [
+   "Ničím",
+   "Tečka je vyplněná a vycentrovaná na želvu, kdežto circle(10) kreslí jen obrys, jehož střed je o 10 výš",
+   "Tečka se kreslí pomaleji"
+  ],
+  "answer": 1,
+  "why": "dot udělá vyplněný puntík kolem aktuálního bodu. circle nakreslí obrys a jeho střed je o poloměr vedle želvy (při pohledu doprava nad ní)."
+ }
+]

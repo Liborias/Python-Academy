@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Čistý název",
+    "description": "Zkuste více mezer mezi slovy a změňte velikost písmen.",
+    "code": "nazev = \"  Výlet   na   hrad  \"\n# split bez argumentu zpracuje i více mezer za sebou.\nslova = nazev.strip().split()\nprint(slova)\n# join spojí slova jedinou mezerou.\nprint(\" \".join(slova))\nprint(\"-\".join(slova).lower())\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Úprava zprávy",
+    "description": "Sledujte, že metody vytvářejí nové texty.",
+    "code": "zprava = \"  Ahoj, světe!  \"\n# strip odstraní mezery na okrajích, nikoli uvnitř.\ncista = zprava.strip()\nprint(cista.upper())\n# replace nahradí vybranou část, zprava zůstává původní.\nprint(cista.replace(\"světe\", \"kamaráde\"))\nprint(zprava)\n"
+  }
+]

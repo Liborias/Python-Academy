@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Délka žebříku",
+    "description": "Změňte výšku a vzdálenost paty žebříku od zdi.",
+    "code": "import math\n\nvyska = 4\nvzdalenost = 3\n# hypot vypočte přeponu pravoúhlého trojúhelníku.\ndelka = math.hypot(vyska, vzdalenost)\nprint(\"Délka:\", delka)\n# ceil zaokrouhlí nahoru na celé číslo.\nprint(\"Celých metrů alespoň:\", math.ceil(delka))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Kruhový záhon",
+    "description": "Porovnejte výpočty s různými poloměry.",
+    "code": "from math import pi, floor\n\npolomer = 2\n# Importované pi píšeme bez předpony math.\nobsah = pi * polomer ** 2\nprint(\"Obsah:\", obsah)\n# floor je zaokrouhlení dolů, nikoli na nejbližší číslo.\nprint(\"Zaokrouhleno dolů:\", floor(obsah))\n"
+  }
+]

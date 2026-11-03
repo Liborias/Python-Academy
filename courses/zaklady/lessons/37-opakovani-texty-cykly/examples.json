@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Výběr slov",
+    "description": "Změňte minimální délku a vyzkoušejte prázdný text.",
+    "code": "def dlouha_slova(text, minimum):\n    vysledek = []\n    # split a cyklus spojíme s podmínkou.\n    for slovo in text.split():\n        if len(slovo) >= minimum:\n            vysledek.append(slovo)\n    return vysledek\n\n\n# Prázdný text přirozeně vrátí prázdný seznam.\nprint(dlouha_slova(\"Na louce roste tráva\", 5))\nprint(dlouha_slova(\"\", 5))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Obrácený text",
+    "description": "Sledujte rozdíl mezi připojením znaku dopředu a dozadu.",
+    "code": "def obrat(text):\n    vysledek = \"\"\n    # Nový znak vkládáme před dosavadní výsledek.\n    for znak in text:\n        vysledek = znak + vysledek\n    return vysledek\n\n\n# Řetězce zůstávají beze změny; funkce vrací nový text.\nprint(obrat(\"výlet\"))\nprint(obrat(\"\"))\n"
+  }
+]

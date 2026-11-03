@@ -1,0 +1,1 @@
+[{"q":"Co vrací input()?","options":["číslo","text","nic"],"answer":1,"why":"input() vždy vrací řetězec, i když uživatel napíše číslici."}]

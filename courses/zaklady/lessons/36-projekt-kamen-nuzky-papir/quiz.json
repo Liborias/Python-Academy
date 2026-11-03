@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Pro PORAZI = {\"kámen\": \"nůžky\", ...} je PORAZI[\"nůžky\"] rovno:",
+  "options": [
+   "\"kámen\"",
+   "\"papír\"",
+   "\"nůžky\""
+  ],
+  "answer": 1,
+  "why": "Klíč porazí hodnotu: nůžky porazí papír."
+ },
+ {
+  "q": "Proč je výhodné uložit pravidla hry do slovníku místo mnoha podmínek if?",
+  "options": [
+   "Slovník je vždy rychlejší",
+   "Pravidla jsou přehledná a nové tahy se přidají jedním řádkem",
+   "Python podmínky nepodporuje"
+  ],
+  "answer": 1,
+  "why": "Data ve slovníku se snadno čtou i rozšiřují, kód funkcí se přitom nemění."
+ }
+]

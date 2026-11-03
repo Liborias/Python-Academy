@@ -1,0 +1,16 @@
+from dilna_check import check
+c = check()
+ns = c.load()
+if ns is not None:
+    c.returns(ns, "pocet_ruznych", ([4, 2, 4, 9, 2],), 3)
+    c.returns(ns, "pocet_ruznych", (["a", "a", "a"],), 1)
+    c.returns(ns, "pocet_ruznych", ([],), 0)
+    c.returns(ns, "spolecne", ([1, 2, 3, 4], [4, 3, 9]), [3, 4])
+    c.returns(ns, "spolecne", (["pes", "kocka", "pes"], ["ptak", "kocka"]), ["kocka"])
+    c.returns(ns, "spolecne", ([1, 2], [3, 4]), [])
+    c.returns(ns, "spolecne", ([9, 1, 5], [5, 9, 1]), [1, 5, 9])
+    c.returns(ns, "spolecne", (["pes", "ara", "kocka"], ["kocka", "ara", "pes"]), ["ara", "kocka", "pes"])
+    c.returns(ns, "spolecne", ([1, 1, 2], [1, 2, 2]), [1, 2])
+    c.returns(ns, "prohod", ((1, 2),), (2, 1))
+    c.returns(ns, "prohod", (("a", "b"),), ("b", "a"))
+c.done()

@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co se stane, když se v herní smyčce nevybírají události (event.get)?",
+  "options": [
+   "Nic, hra běží normálně",
+   "Hra poběží rychleji",
+   "Okno přestane reagovat a systém ho označí za zaseknuté"
+  ],
+  "answer": 2,
+  "why": "Operační systém posílá oknu zprávy. Když je program nepřebírá, okno se tváří jako nereagující."
+ },
+ {
+  "q": "K čemu je clock.tick(60)?",
+  "options": [
+   "Omezí smyčku na nejvýš 60 průchodů za sekundu",
+   "Pozastaví hru na 60 sekund",
+   "Počítá skóre"
+  ],
+  "answer": 0,
+  "why": "Díky tomu hra běží podobně rychle na každém počítači a nezatěžuje zbytečně procesor."
+ },
+ {
+  "q": "Jak poznáte stisk klávesy Escape?",
+  "options": [
+   "udalost.type == pygame.QUIT",
+   "udalost.type == pygame.KEYDOWN a udalost.key == pygame.K_ESCAPE",
+   "pygame.K_ESCAPE == 1"
+  ],
+  "answer": 1,
+  "why": "KEYDOWN říká, že byla stisknuta klávesa, a key, která to byla."
+ }
+]

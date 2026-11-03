@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Která výjimka vznikne při otevření souboru, který neexistuje?",
+  "options": [
+   "KeyError",
+   "FileNotFoundError",
+   "ValueError"
+  ],
+  "answer": 1,
+  "why": "FileNotFoundError znamená, že soubor na dané cestě není. Je podtypem OSError."
+ },
+ {
+  "q": "Proč bývá lepší zachytit chybu než předem ověřovat exists()?",
+  "options": [
+   "exists() je pomalé",
+   "Soubor se mezi kontrolou a čtením může změnit nebo zmizet",
+   "exists() funguje jen na složky"
+  ],
+  "answer": 1,
+  "why": "Kontrola a otevření nejsou jeden krok. Zachycením chyby ošetříte skutečný stav v okamžiku čtení."
+ }
+]

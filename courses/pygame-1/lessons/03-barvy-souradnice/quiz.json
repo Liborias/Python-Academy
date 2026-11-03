@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Kde leží bod (0, 0) v okně pygame?",
+  "options": [
+   "V levém dolním rohu",
+   "Uprostřed",
+   "V levém horním rohu"
+  ],
+  "answer": 2,
+  "why": "Počátek je vlevo nahoře. Souřadnice y roste směrem dolů, na rozdíl od matematického grafu."
+ },
+ {
+  "q": "Jak vybarvíte obdélník s levým horním rohem (10, 20), širokým 50 a vysokým 30?",
+  "options": [
+   "screen.fill(barva, (10, 20, 50, 30))",
+   "screen.fill(barva, (10, 20, 60, 50))",
+   "screen.fill(barva, (50, 30, 10, 20))"
+  ],
+  "answer": 0,
+  "why": "Obdélník se zadává jako (x, y, šířka, výška). Pravý dolní roh se nezadává."
+ }
+]

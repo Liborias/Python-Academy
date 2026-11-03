@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co je s[3:100] pro seznam o pěti prvcích?",
+  "options": [
+   "Chyba IndexError",
+   "Prvky od indexu 3 do konce",
+   "Prázdný seznam"
+  ],
+  "answer": 1,
+  "why": "Řez se o rozsah neopře: vezme, co existuje. Jediný index mimo rozsah (s[100]) chybu vyvolá."
+ },
+ {
+  "q": "Kdy mělká kopie (s.copy()) nestačí?",
+  "options": [
+   "Když seznam obsahuje čísla",
+   "Když seznam obsahuje jiné seznamy, které se mají měnit",
+   "Nikdy"
+  ],
+  "answer": 1,
+  "why": "Vnitřní seznamy se sdílí. Změna vnitřního seznamu v kopii se projeví i v originálu."
+ },
+ {
+  "q": "Co je s[1:3] pro s = [10, 20, 30, 40]?",
+  "options": [
+   "[10, 20]",
+   "[20, 30]",
+   "[20, 30, 40]"
+  ],
+  "answer": 1,
+  "why": "Řez bere indexy 1 a 2 (horní mez 3 už ne): 20 a 30. Výsledkem je nový seznam."
+ }
+]

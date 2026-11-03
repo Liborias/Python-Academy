@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Který selektor najde značky s třídou cena uvnitř značky s třídou produkt?",
+  "options": [
+   ".produkt.cena",
+   ".produkt .cena",
+   "#produkt .cena"
+  ],
+  "answer": 1,
+  "why": "Mezera mezi selektory znamená „uvnitř“. Zápis .produkt.cena by hledal značku, která má obě třídy zároveň."
+ },
+ {
+  "q": "Jaký typ vrací produkt.get(\"class\") u <div class=\"produkt vyprodano\">?",
+  "options": [
+   "Text \"produkt vyprodano\"",
+   "Seznam [\"produkt\", \"vyprodano\"]",
+   "Slovník"
+  ],
+  "answer": 1,
+  "why": "BeautifulSoup rozdělí třídy podle mezer na seznam, takže se dá zjistit, jestli v něm třída je."
+ }
+]

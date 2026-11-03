@@ -1,0 +1,5 @@
+2026-10-20 | Začal jsem se učit Python
+2026-10-21 | Nákup: chleba a mléko
+2026-10-21 | Napsal jsem první program se soubory
+2026-10-23 | Python je zábava
+2026-10-24 | Zítra odevzdat úkol

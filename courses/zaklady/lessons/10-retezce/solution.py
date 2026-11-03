@@ -1,0 +1,5 @@
+veta = input("Věta: ")
+print(veta.upper())
+print(f"Znaků: {len(veta)}")
+print(f"Slov: {len(veta.split())}")
+print(veta.replace(" ", "-"))

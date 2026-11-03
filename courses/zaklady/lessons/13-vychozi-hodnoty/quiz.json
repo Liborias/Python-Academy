@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co vrátí mocnina(3), když je def mocnina(zaklad, exponent=2)?",
+  "options": [
+   "6",
+   "9",
+   "Chybu"
+  ],
+  "answer": 1,
+  "why": "Exponent se nezadal, použije se výchozí 2, tedy 3 ** 2 = 9."
+ },
+ {
+  "q": "Který zápis definice je chybný?",
+  "options": [
+   "def f(a, b=1):",
+   "def f(a=1, b):",
+   "def f(a, b=1, c=2):"
+  ],
+  "answer": 1,
+  "why": "Parametr bez výchozí hodnoty nesmí následovat po parametru s výchozí hodnotou."
+ }
+]

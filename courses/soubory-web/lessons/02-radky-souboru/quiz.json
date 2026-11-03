@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co obsahuje proměnná radek v cyklu for radek in soubor:?",
+  "options": [
+   "Jeden řádek včetně znaku nového řádku na konci",
+   "Jedno slovo",
+   "Celý soubor"
+  ],
+  "answer": 0,
+  "why": "Cyklus bere řádky jeden po druhém a každý končí znakem \\n. Proto se obvykle používá strip()."
+ },
+ {
+  "q": "Proč se v souboru s čísly přeskakují prázdné řádky?",
+  "options": [
+   "Prázdné řádky Python nečte",
+   "int(\"\") skončí chybou ValueError",
+   "Prázdný řádek má hodnotu 0"
+  ],
+  "answer": 1,
+  "why": "Prázdný řetězec nejde převést na číslo. Podmínka if radek: ho přeskočí, protože prázdný řetězec je False."
+ }
+]

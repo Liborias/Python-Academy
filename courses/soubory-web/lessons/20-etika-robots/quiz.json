@@ -1,0 +1,32 @@
+[
+ {
+  "q": "K čemu slouží soubor robots.txt?",
+  "options": [
+   "Obsahuje heslo k webu",
+   "Provozovatel v něm píše, co smějí roboti stahovat",
+   "Zrychluje stahování"
+  ],
+  "answer": 1,
+  "why": "Je to dohoda mezi provozovatelem a roboty. Technicky vás nezastaví, ale slušný program ji dodržuje."
+ },
+ {
+  "q": "Proč mezi dotazy čekat?",
+  "options": [
+   "Aby se server nezahltil",
+   "Python to vyžaduje",
+   "Aby se data nepoškodila"
+  ],
+  "answer": 0,
+  "why": "Stovky dotazů za sekundu mohou malý web zpomalit nebo shodit. Pauza je projev ohleduplnosti."
+ },
+ {
+  "q": "Co dělat, když služba nabízí API?",
+  "options": [
+   "Raději scrapovat HTML",
+   "Použít API: je určené pro programy",
+   "Nic, API je zakázané"
+  ],
+  "answer": 1,
+  "why": "API vrací čistá data, lépe se zpracovává a provozovatel s ním počítá."
+ }
+]

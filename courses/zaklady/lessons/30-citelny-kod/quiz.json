@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Proč se místo čísla 6 v podmínce používá konstanta VEK_ZDARMA?",
+  "options": [
+   "Python číslo 6 v podmínce nepovoluje",
+   "Jméno vysvětluje význam a hodnotu změníte na jednom místě",
+   "Je to rychlejší"
+  ],
+  "answer": 1,
+  "why": "Samotné číslo je záhadné a při změně byste ho museli hledat v celém kódu. Konstanta má jméno a jediné místo definice."
+ },
+ {
+  "q": "Které jméno funkce je nejlepší?",
+  "options": [
+   "f2",
+   "udelej",
+   "spocitej_prumer"
+  ],
+  "answer": 2,
+  "why": "Dobré jméno říká, co funkce dělá. Jedno písmeno nebo vágní sloveso čtenáři nic neřeknou."
+ }
+]

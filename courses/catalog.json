@@ -1,0 +1,104 @@
+{
+  "schema": 1,
+  "note": "Podkurzy jsou nezávislé. 'doporuceno' jsou jen informativní předpoklady, nic se nezamyká.",
+  "courses": [
+    {
+      "id": "priprava",
+      "title": "Začínáme: prostředí, projekt a Git",
+      "level": 1,
+      "lessons": 15,
+      "doporuceno": [],
+      "status": "concept",
+      "summary": "Koncept průvodce od instalace Pythonu a výběru editoru přes vlastní projekt a GitHub až po volitelný virtuální server."
+    },
+    {
+      "id": "zaklady",
+      "title": "Základy Pythonu",
+      "level": 1,
+      "lessons": 40,
+      "doporuceno": [],
+      "status": "draft",
+      "summary": "Proměnné, podmínky, seznamy, cykly, funkce, slovníky, ladění."
+    },
+    {
+      "id": "soubory-web",
+      "title": "Soubory a web scraping",
+      "level": 2,
+      "lessons": 22,
+      "doporuceno": [
+        "zaklady"
+      ],
+      "status": "draft",
+      "summary": "Čtení a zápis souborů, chyby, CSV a JSON, requests a BeautifulSoup."
+    },
+    {
+      "id": "pygame-1",
+      "title": "Pygame 1: okno, kreslení, vstupy",
+      "level": 2,
+      "lessons": 18,
+      "doporuceno": [
+        "zaklady"
+      ],
+      "status": "draft",
+      "summary": "Herní smyčka, tvary, obrázky, fonty, zvuk, klávesy a myš."
+    },
+    {
+      "id": "turtle-oop",
+      "title": "Turtle, OOP a hra Snake",
+      "level": 3,
+      "lessons": 40,
+      "doporuceno": [
+        "zaklady"
+      ],
+      "status": "draft",
+      "summary": "Kreslení želvou, datové typy, třídy, dědění, projekt Snake."
+    },
+    {
+      "id": "pandas",
+      "title": "Datová analýza v Pandas",
+      "level": 3,
+      "lessons": 42,
+      "doporuceno": [
+        "zaklady"
+      ],
+      "status": "planned",
+      "summary": "Series, DataFrame, čištění, filtrování, groupby, grafy (Pandas 3)."
+    },
+    {
+      "id": "tkinter-api",
+      "title": "Okenní aplikace, API a e-maily",
+      "level": 3,
+      "lessons": 28,
+      "doporuceno": [
+        "zaklady",
+        "soubory-web"
+      ],
+      "status": "planned",
+      "summary": "Tkinter, REST API, odesílání e-mailů, balení aplikace."
+    },
+    {
+      "id": "pygame-2",
+      "title": "Pygame 2: hry s třídami",
+      "level": 4,
+      "lessons": 30,
+      "doporuceno": [
+        "turtle-oop",
+        "pygame-1"
+      ],
+      "status": "planned",
+      "summary": "Meteority, Chyť robota, Hon na dronech, OOP ve hrách."
+    },
+    {
+      "id": "databaze",
+      "title": "Databáze a projekty",
+      "level": 4,
+      "lessons": 32,
+      "doporuceno": [
+        "zaklady",
+        "tkinter-api"
+      ],
+      "status": "planned",
+      "summary": "SQLite, CRUD, bezpečné dotazy, Tkinter s databází, projekty."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "priprava",
+  "title": "Začínáme: prostředí, projekt a Git",
+  "requires_packages": [],
+  "modules": [
+    {
+      "id": "m01",
+      "title": "Orientace a nástroje",
+      "lessons": [
+        "01-mapa-prostredi",
+        "02-instalace-pythonu",
+        "03-vyber-editoru"
+      ]
+    },
+    {
+      "id": "m02",
+      "title": "Vlastní projekt a podkurzy",
+      "lessons": [
+        "04-novy-projekt",
+        "05-virtualni-prostredi",
+        "06-priprava-podkurzu",
+        "07-spousteni-a-ladeni"
+      ]
+    },
+    {
+      "id": "m03",
+      "title": "Místní server a spuštění přes token",
+      "lessons": [
+        "08-mistni-server",
+        "09-server-a-token"
+      ]
+    },
+    {
+      "id": "m04",
+      "title": "Git, GitHub a obnova",
+      "lessons": [
+        "09-git-prvni-commit",
+        "10-github-propojeni",
+        "11-git-bezna-prace",
+        "12-obnova-projektu"
+      ]
+    },
+    {
+      "id": "m05",
+      "title": "Virtuální server a nasazení (volitelné)",
+      "lessons": [
+        "13-virtualni-server",
+        "14-nasazeni-a-kontrola"
+      ]
+    }
+  ]
+}

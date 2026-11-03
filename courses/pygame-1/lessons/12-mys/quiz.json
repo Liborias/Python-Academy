@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co vrací pygame.mouse.get_pos()?",
+  "options": [
+   "Číslo tlačítka",
+   "Dvojici (x, y) polohy kurzoru v okně",
+   "Seznam všech kliknutí"
+  ],
+  "answer": 1,
+  "why": "Dvojici lze rozbalit: x, y = pygame.mouse.get_pos()."
+ },
+ {
+  "q": "Jak poznáte, že bylo kliknuto pravým tlačítkem?",
+  "options": [
+   "udalost.button == 1",
+   "udalost.type == pygame.RIGHT",
+   "udalost.button == 3"
+  ],
+  "answer": 2,
+  "why": "1 je levé, 2 prostřední a 3 pravé tlačítko."
+ },
+ {
+  "q": "Proč se otisky ukládají do seznamu?",
+  "options": [
+   "Obrazovka se v každém snímku překresluje od pozadí, takže si kliknutí musí program pamatovat a kreslit znovu",
+   "Aby se kreslily rychleji",
+   "Seznam je povinný pro MOUSEBUTTONDOWN"
+  ],
+  "answer": 0,
+  "why": "Co nenakreslíte v daném snímku, na obrazovce není."
+ }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co dělá parametr key v sorted(radky, key=lambda r: r[\"kusy\"])?",
+  "options": [
+   "Určuje, podle jaké hodnoty se řádky porovnávají",
+   "Vybírá, které řádky se vypíšou",
+   "Zamyká seznam proti změnám"
+  ],
+  "answer": 0,
+  "why": "key dostane funkci, která z každého prvku vybere hodnotu k porovnání. Zde řádky řadíme podle kusů."
+ },
+ {
+  "q": "Jak vybrat prvních pět prvků seznamu s?",
+  "options": [
+   "s[5]",
+   "s[:5]",
+   "s[-5]"
+  ],
+  "answer": 1,
+  "why": "Řez s[:5] vrátí prvky na indexech 0 až 4, tedy prvních pět. Zápis s[5] by byl jediný šestý prvek."
+ }
+]

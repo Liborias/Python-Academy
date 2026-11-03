@@ -1,0 +1,51 @@
+{
+ "id": "pygame-1",
+ "title": "Pygame 1: okno, kreslení, vstupy",
+ "requires_packages": [
+  "pygame-ce"
+ ],
+ "modules": [
+  {
+   "id": "m01",
+   "title": "Okno, smyčka a kreslení",
+   "lessons": [
+    "01-prvni-okno",
+    "02-herni-smycka",
+    "03-barvy-souradnice",
+    "04-kresleni-tvaru",
+    "05-obrazky"
+   ]
+  },
+  {
+   "id": "m02",
+   "title": "Rect, text, zvuk a první projekt",
+   "lessons": [
+    "06-rect-pozice",
+    "07-fonty-text",
+    "08-zvuky-hudba",
+    "09-projekt-pohlednice"
+   ]
+  },
+  {
+   "id": "m03",
+   "title": "Pohyb a vstupy",
+   "lessons": [
+    "10-pohyb-fps",
+    "11-klavesy",
+    "12-mys",
+    "13-odrazy",
+    "14-kolize",
+    "15-vice-objektu",
+    "16-skore-konec-hry"
+   ]
+  },
+  {
+   "id": "m04",
+   "title": "Projekt: Sběratel hvězd",
+   "lessons": [
+    "17-sberatel-hvezd-1",
+    "18-sberatel-hvezd-2"
+   ]
+  }
+ ]
+}

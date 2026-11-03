@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Průběžný součin",
+    "description": "Ve VSCodium dejte bod přerušení na řádek se součinem; v aplikaci sledujte výpisy.",
+    "code": "def soucin(cisla):\n    vysledek = 1\n    for cislo in cisla:\n        # Zde zastavte ladění a sledujte cislo a vysledek.\n        vysledek = vysledek * cislo\n        print(\"Po kroku:\", vysledek)\n    return vysledek\n\n\n# Výpisy fungují i bez ladicího programu.\nprint(\"Výsledek:\", soucin([2, 3, 4]))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Výběr cen",
+    "description": "Sledujte podmínku a postupné plnění seznamu vybrané ceny.",
+    "code": "def do_limitu(ceny, limit):\n    vybrane = []\n    for cena in ceny:\n        # Bod přerušení sem: kdy podmínka platí?\n        if cena <= limit:\n            vybrane.append(cena)\n        print(\"Cena:\", cena, \"vybrané:\", vybrane)\n    return vybrane\n\n\n# Zkuste v ladění také krok dovnitř funkce.\nprint(do_limitu([20, 80, 50], 50))\n"
+  }
+]

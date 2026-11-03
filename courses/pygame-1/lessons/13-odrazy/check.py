@@ -1,0 +1,17 @@
+from dilna_check import check
+c = check()
+c.uses_call("circle", "Míč nakreslete funkcí pygame.draw.circle.")
+MIC = (255, 200, 0)
+r = c.pygame_run(frames=400, pixels=[(140, 130), (356, 232), (116, 52), (395, 295), (5, 5)], colors=[MIC])
+if c.pg_no_error(r):
+    c.add("Titulek je „Odrazy“", r.caption == "Odrazy", f"Titulek je {r.caption!r}.")
+    c.add("Okno má velikost 400 × 300", r.size == [400, 300], f"Okno má velikost {r.size}.")
+    c.add("Pozadí je (0, 0, 30)", r.pixel((5, 5), 1) == (0, 0, 30), f"V bodě (5, 5) je {r.pixel((5, 5), 1)}.")
+    c.add("Míč má poloměr 15", 650 <= r.color_count(MIC, 0) <= 760, f"V prvním snímku je míče {r.color_count(MIC, 0)} bodů (čekáme asi 707, poloměr 15).")
+    c.add("Míč začíná u bodu (100, 100)", r.color_count(MIC, 0) > 400, "V prvním snímku má být míč vidět.")
+    c.add("Po 10 snímcích je míč u bodu (140, 130)", r.pixel((140, 130), 10) == MIC, "Míč se má pohybovat o 4 body vodorovně a 3 svisle za snímek.")
+    c.add("Po odrazu od pravé a dolní stěny je míč u (356, 232)", r.pixel((356, 232), 80) == MIC, "Po 80 snímcích má být míč po odrazech od pravé a dolní stěny u bodu (356, 232).")
+    c.add("Po odrazu od levé stěny je míč u (116, 52)", r.pixel((116, 52), 140) == MIC, "Po 140 snímcích má být míč u bodu (116, 52).")
+    nejmin = min(r.color_count(MIC, f) for f in range(r.frames))
+    c.add("Míč nikdy neopustí okno", nejmin >= 400, f"V některém snímku je vidět jen {nejmin} bodů míče (celý má asi 700). Míč nesmí vyjet za okraj.")
+c.done()

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Pozdrav",
+    "description": "Při spuštění napište jméno a město do vstupu pod výstupem.",
+    "code": "# input vrátí text, tady ho nemusíme převádět.\njmeno = input(\"Jméno: \")\nmesto = input(\"Město: \")\n# Do f-řetězce vložíme obě odpovědi.\nprint(f\"Ahoj, {jmeno}! Zdravíme město {mesto}.\")\n",
+    "stdin": "Ema\nBrno\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Cena svačiny",
+    "description": "Zadejte celočíselnou cenu a počet kusů, například 15 a 3.",
+    "code": "# Číselný text převedeme na int, abychom mohli násobit.\ncena = int(input(\"Cena jednoho kusu v Kč: \"))\npocet = int(input(\"Počet kusů: \"))\n# Bez převodu by odpovědi zůstaly textem.\nprint(\"Celkem zaplatíte:\", cena * pocet, \"Kč\")\n",
+    "stdin": "15\n3\n"
+  }
+]

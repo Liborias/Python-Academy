@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Teploty",
+    "description": "Změňte naměřené hodnoty a porovnejte souhrn.",
+    "code": "teploty = [12, 8, 15, 9]\n# Agregační funkce zpracují celý seznam.\nprint(\"Minimum:\", min(teploty))\nprint(\"Maximum:\", max(teploty))\nprint(\"Průměr:\", sum(teploty) / len(teploty))\n# sorted vrací nový seznam, původní pořadí zůstane.\nprint(sorted(teploty))\nprint(teploty)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Nákupní seznam",
+    "description": "Porovnejte odstranění podle hodnoty a odebrání z konce.",
+    "code": "nakup = [\"chléb\", \"mléko\", \"čaj\", \"sýr\"]\n# remove hledá konkrétní hodnotu.\nnakup.remove(\"čaj\")\n# pop odebere poslední položku a vrátí ji.\nkoupeno = nakup.pop()\nprint(\"Koupeno:\", koupeno)\nprint(\"Zbývá:\", nakup)\nprint(\"Ještě mléko?\", \"mléko\" in nakup)\n"
+  }
+]

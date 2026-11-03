@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co znamená stavový kód 404?",
+  "options": [
+   "Server má chybu",
+   "Stránka na dané adrese neexistuje",
+   "Vše proběhlo v pořádku"
+  ],
+  "answer": 1,
+  "why": "Kód 200 je „v pořádku“, 404 „nenalezeno“ a kódy od 500 výš znamenají chybu na straně serveru."
+ },
+ {
+  "q": "Jak z odpovědi získáte data ve formátu JSON jako slovník?",
+  "options": [
+   "odpoved.text",
+   "odpoved.json()",
+   "odpoved.status_code"
+  ],
+  "answer": 1,
+  "why": "Metoda json() obsah rovnou přeloží. Atribut text by vrátil jen surový text."
+ },
+ {
+  "q": "Co znamená adresa 127.0.0.1?",
+  "options": [
+   "Server v Praze",
+   "Tento počítač",
+   "Router doma"
+  ],
+  "answer": 1,
+  "why": "127.0.0.1 je vždy „tento počítač“. Proto lekce fungují i bez internetu."
+ }
+]

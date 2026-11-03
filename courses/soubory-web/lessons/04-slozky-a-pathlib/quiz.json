@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co dělá lomítko v Path(\"poznamky\") / \"pondeli.txt\"?",
+  "options": [
+   "Dělí cestu na dvě části",
+   "Spojí dvě části cesty do jedné cesty",
+   "Smaže soubor"
+  ],
+  "answer": 1,
+  "why": "Operátor / spojuje části cesty a výsledek funguje na Windows i na dalších systémech."
+ },
+ {
+  "q": "Proč se výsledek glob() obvykle obaluje funkcí sorted?",
+  "options": [
+   "Pořadí nálezů není zaručené",
+   "glob jinak vrací chybu",
+   "Bez sorted se najdou jen první dva soubory"
+  ],
+  "answer": 0,
+  "why": "Pořadí souborů závisí na systému. sorted ho ustálí, a tak se kód chová všude stejně."
+ }
+]

@@ -1,0 +1,38 @@
+from dilna_check import check
+c = check()
+c.uses_call("input", "Hra se má ptát hráče pomocí input().")
+ns = c.load()
+if ns is not None:
+    c.returns(ns, "odhal", ("pes", {"p", "s"}), "p _ s")
+    c.returns(ns, "odhal", ("pes", set()), "_ _ _")
+    c.returns(ns, "odhal", ("slon", {"s", "l", "o", "n", "x"}), "s l o n")
+    c.returns(ns, "odhal", ("kocka", {"k", "a"}), "k _ _ k a")
+    c.returns(ns, "vyhrano", ("pes", {"p", "e", "s"}), True)
+    c.returns(ns, "vyhrano", ("pes", {"p", "e"}), False)
+    c.returns(ns, "vyhrano", ("kocka", {"k", "o", "c", "a", "z"}), True)
+    c.returns(ns, "vyhrano", ("pes", set()), False)
+    c.returns(ns, "pocet_chyb", ("pes", {"p", "x", "y"}), 2)
+    c.returns(ns, "pocet_chyb", ("pes", {"p", "e", "s"}), 0)
+    c.returns(ns, "pocet_chyb", ("pes", set()), 0)
+    ok, v = c.call(ns, "hra", ("pes",), stdin="p\ne\ns\n")
+    c.add("hra: uhodnutí slova vrátí True", ok and v is True, f"Vrátila {v!r}. Po uhodnutí všech písmen vraťte True.")
+    ok, v = c.call(ns, "hra", ("pes", 3), stdin="x\ny\nz\n")
+    c.add("hra: ztráta všech životů vrátí False", ok and v is False, f"Vrátila {v!r}. Po ztrátě životů vraťte False.")
+    ok, v = c.call(ns, "hra", ("pes", 2), stdin="x\nx\nx\ne\np\ns\n")
+    c.add("hra: opakované špatné písmeno nestojí život", ok and v is True,
+          "Písmeno, které už hráč zkusil, nesmí stát další život (vypište Už bylo.).")
+    c.add("hra vypíše Už bylo.", "Už bylo." in c.last_output, "Opakované písmeno oznamte textem Už bylo.")
+    ok, v = c.call(ns, "hra", ("kocka",), stdin="k\no\nc\na\n")
+    c.add("hra: slovo kocka", ok and v is True, f"Vrátila {v!r}.")
+    ok, v = c.call(ns, "hra", ("pes", 1), stdin="\nab\nes\np\ne\ns\n")
+    c.add("hra: prázdný vstup a více písmen nestojí život", ok and v is True and "Zadejte jedno písmeno." in c.last_output,
+          "Vstup, který není jedno písmeno, nesmí stát život: vypište Zadejte jedno písmeno.")
+    ok, v = c.call(ns, "hra", ("pes",), stdin=" P \nE\n s\n")
+    c.add("hra: velká písmena a mezery se ignorují", ok and v is True, "Vstup upravte pomocí strip() a lower().")
+    ok, v = c.call(ns, "hra", ("pes", 1), stdin="x\n")
+    c.add("hra: poslední život skončí hru, nečeká na další vstup", ok and v is False,
+          "Když životy dojdou, vraťte False hned (bez dalšího input).")
+    ok, v = c.call(ns, "hra", ("pes",), stdin="p\ne\ns\n")
+    c.add("hra ukazuje stav slova", "p _ _" in c.last_output or "p e _" in c.last_output,
+          "V každém kole vypište odhal(slovo, hadana).")
+c.done()

@@ -1,0 +1,29 @@
+.ed{position:relative;background:var(--code-bg);border:1px solid var(--code-line);border-radius:10px;margin:12px 0}
+.ed-hl,.ed-ta{margin:0;padding:14px 16px;border:0;font-family:var(--f-code);font-size:.9rem;line-height:1.55;tab-size:4;white-space:pre;letter-spacing:0;word-spacing:0}
+.ed-hl{position:absolute;inset:0;overflow:hidden;pointer-events:none;color:var(--code-ink);padding-bottom:30px}
+.ed-ta{position:relative;display:block;width:100%;min-height:90px;background:transparent;color:transparent;-webkit-text-fill-color:transparent;caret-color:var(--code-ink);resize:none;outline:none;overflow:auto;border-radius:10px}
+.ed-ta::selection{background:rgba(126,166,240,.4);-webkit-text-fill-color:transparent}
+.ed:focus-within{border-color:var(--accent)}
+.ed-ta[readonly]{cursor:text}
+.c-com{color:var(--c-com);font-style:italic}.c-str{color:var(--c-str)}.c-num{color:var(--c-num)}.c-kw{color:var(--c-kw);font-weight:500}
+.c-fn{color:#F2D17A}.c-bi{color:#C9A9F2}.c-dec{color:#F29E9E}
+.ed-help{position:absolute;top:6px;right:8px;z-index:2;width:26px;height:26px;border-radius:50%;border:1px solid var(--code-line);background:rgba(255,255,255,.06);color:var(--code-ink);font-size:.85rem;opacity:.7}
+.ed-help:hover,.ed-help:focus-visible{opacity:1;border-color:var(--accent)}
+.ac{position:fixed;z-index:60;min-width:200px;max-width:min(320px,92vw);background:var(--surface);border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,.28);padding:4px;font-family:var(--f-code);font-size:.85rem}
+.ac-i{display:flex;justify-content:space-between;gap:14px;padding:4px 8px;border-radius:5px;cursor:pointer}
+.ac-i span{color:var(--muted);font-family:var(--f-body);font-size:.78rem}
+.ac-i.on{background:var(--accent-soft)}
+.dlg{max-width:min(640px,94vw);border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);padding:20px 24px}
+.dlg::backdrop{background:rgba(0,0,0,.5)}
+.dlg h2{font-size:1.25rem;margin-bottom:10px}
+.dlg table{border-collapse:collapse;width:100%;font-size:.9rem}
+.dlg th{text-align:left;vertical-align:top;padding:6px 12px 6px 0;white-space:nowrap;font-weight:600}
+.dlg td{padding:6px 0;color:var(--muted)}.dlg tr+tr{border-top:1px solid var(--line)}
+.dlg form{margin-top:14px;text-align:right}
+/* f-řetězce: závorky, proměnné, volání, atributy, vnitřní závorky, formátování */
+.c-brace{color:#FF79C6;font-weight:700}
+.c-var{color:#6FE3D0}
+.c-call{color:#F2D17A}
+.c-attr{color:#A8E6DC}
+.c-par{color:#FFB86C}
+.c-spec{color:#E8A87C}

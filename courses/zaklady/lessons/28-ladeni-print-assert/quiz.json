@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co se stane, když tvrzení v příkazu assert neplatí?",
+  "options": [
+   "Program pokračuje a vypíše varování",
+   "Program skončí chybou AssertionError",
+   "Příkaz se přeskočí"
+  ],
+  "answer": 1,
+  "why": "assert při selhání vyvolá AssertionError. Proto se hodí na testy, chyba si nelze nevšimnout."
+ },
+ {
+  "q": "Funkce soucet_do(3) vrací 3 místo 6. Kde je nejpravděpodobnější příčina?",
+  "options": [
+   "range(1, n) nezahrne číslo n",
+   "Chybí příkaz print",
+   "Funkce nemá docstring"
+  ],
+  "answer": 0,
+  "why": "range(1, n) se zastaví před n, takže se sečte jen 1 + 2. Horní mez range se do cyklu nezahrnuje."
+ }
+]

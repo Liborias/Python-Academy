@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Jaký je rozdíl mezi = a ==?",
+  "options": [
+   "Žádný",
+   "= přiřazuje, == porovnává",
+   "= porovnává, == přiřazuje"
+  ],
+  "answer": 1,
+  "why": "Jedno rovná se ukládá hodnotu do proměnné, dvě se ptají, zda jsou hodnoty stejné."
+ },
+ {
+  "q": "Co určuje, které řádky patří do bloku if?",
+  "options": [
+   "Složené závorky",
+   "Odsazení",
+   "Klíčové slovo end"
+  ],
+  "answer": 1,
+  "why": "Python používá odsazení, standardně 4 mezery."
+ }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Který zápis desetinného čísla je v Pythonu správně?",
+  "options": [
+   "3,14",
+   "3.14",
+   "\"3.14\""
+  ],
+  "answer": 1,
+  "why": "Python používá desetinnou tečku. Hodnota v uvozovkách by byl text."
+ },
+ {
+  "q": "Co vypíše: x = 5 a pak print(f\"x je {x}\")?",
+  "options": [
+   "x je {x}",
+   "x je 5",
+   "x je x"
+  ],
+  "answer": 1,
+  "why": "V f-řetězci se {x} nahradí hodnotou proměnné."
+ }
+]

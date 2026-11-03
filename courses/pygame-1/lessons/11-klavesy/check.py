@@ -1,0 +1,20 @@
+from dilna_check import check
+c = check()
+c.uses_call("get_pressed", "Plynulý pohyb čtěte pomocí pygame.key.get_pressed().")
+okno = (80, 160, 255)
+r = c.pygame_run(frames=24, pixels=[(200, 150), (250, 200), (5, 5)], held={2: ["K_RIGHT", "K_DOWN"], 12: []}, events={15: [{"type": "KEYDOWN", "key": "K_a"}], 20: [{"type": "KEYDOWN", "key": "K_SPACE"}]})
+if c.pg_no_error(r):
+    c.add("Titulek je „Řízení rakety“", r.caption == "Řízení rakety", f"Titulek je {r.caption!r}.")
+    c.add("Bez stisku klávesy raketa stojí uprostřed", r.pixel((200, 150), 1) == okno, "Na začátku má být střed rakety v bodě (200, 150).")
+    c.add("Pozadí je (0, 0, 30)", r.pixel((5, 5), 1) == (0, 0, 30), f"V bodě (5, 5) je {r.pixel((5, 5), 1)}.")
+    c.add("Šipky doprava a dolů: po 10 snímcích je raketa o 50 bodů vpravo a dole", r.pixel((250, 200), 19) == okno and r.pixel((200, 150), 19) != okno,
+          "Při držení šipek se raketa posouvá o 5 bodů za snímek v každém směru, po 10 snímcích o 50.")
+    c.add("Jiná klávesa raketu nevrací", r.pixel((250, 200), 17) == okno, "Raketu do středu vracejte jen při stisku mezerníku (udalost.key == pygame.K_SPACE).")
+    c.add("Mezerník vrátí raketu do středu (x i y)", r.pixel((200, 150), 23) == okno and r.pixel((250, 200), 23) != okno, "Při stisku mezerníku (KEYDOWN) nastavte střed rakety na (200, 150).")
+r = c.pygame_run(frames=16, pixels=[(150, 100)], held={1: ["K_UP", "K_LEFT"], 11: []})
+c.add("Šipky nahoru a doleva současně: raketa letí šikmo", r.pixel((150, 100), 15) == okno, "Raketa se při držení dvou kláves (nahoru a doleva) má pohybovat šikmo: každou šipku ošetřete samostatným if (ne elif) a rychlost 5 bodů za snímek.")
+r = c.pygame_run(frames=16, pixels=[(200, 200)], held={1: ["K_DOWN"], 11: []})
+c.add("Šipka dolů posune raketu o 50 bodů", r.pixel((200, 200), 15) == okno, "Šipka dolů zvětšuje souřadnici y.")
+r = c.pygame_run(frames=16, pixels=[(150, 150)], held={1: ["K_LEFT"], 11: []})
+c.add("Šipka doleva posune raketu o 50 bodů", r.pixel((150, 150), 15) == okno, "Šipka doleva zmenšuje souřadnici x.")
+c.done()

@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co udělá samotný řádek def pozdrav(): ... (bez volání)?",
+  "options": [
+   "Spustí funkci",
+   "Funkci jen vytvoří, nespustí",
+   "Smaže funkci"
+  ],
+  "answer": 1,
+  "why": "def jen definuje. Funkce se spustí až voláním pozdrav()."
+ },
+ {
+  "q": "Co je chyba?",
+  "options": [
+   "Volat funkci před jejím def",
+   "Volat funkci vícekrát",
+   "Volat funkci z jiné funkce"
+  ],
+  "answer": 0,
+  "why": "Python čte shora dolů, takže funkce musí být definovaná dřív, než ji zavoláte."
+ }
+]

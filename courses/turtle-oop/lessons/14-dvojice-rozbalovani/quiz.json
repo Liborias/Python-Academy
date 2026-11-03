@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co udělá a, b = b, a?",
+  "options": [
+   "Obě proměnné budou rovné a",
+   "Prohodí hodnoty a a b",
+   "Vyvolá chybu"
+  ],
+  "answer": 1,
+  "why": "Pravá strana se nejdřív vyhodnotí jako dvojice (b, a) a pak se rozbalí. Pomocná proměnná není potřeba."
+ },
+ {
+  "q": "Co bude v proměnné zbytek po prvni, *zbytek = [1]?",
+  "options": [
+   "Chyba",
+   "None",
+   "[] (prázdný seznam)"
+  ],
+  "answer": 2,
+  "why": "Hvězdička sbírá zbylé prvky do seznamu, který může být i prázdný."
+ },
+ {
+  "q": "Kolik dvojic vznikne z zip([1, 2, 3], [\"a\", \"b\"])?",
+  "options": [
+   "3",
+   "2",
+   "5"
+  ],
+  "answer": 1,
+  "why": "zip skončí u kratšího seznamu. Dvojice jsou (1, \"a\") a (2, \"b\")."
+ }
+]

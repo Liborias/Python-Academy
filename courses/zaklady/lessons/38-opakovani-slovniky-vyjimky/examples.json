@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Bezpečný ceník",
+    "description": "Zkuste změnit hodnoty cen na chybné texty.",
+    "code": "ceny = {\"čaj\": \"35\", \"káva\": \"chyba\", \"voda\": \"25\"}\ncelkem = 0\n# Každou položku zpracujeme zvlášť, chyba nezastaví ostatní.\nfor nazev, text in ceny.items():\n    try:\n        celkem += int(text)\n    except ValueError:\n        print(\"Neplatná cena:\", nazev)\n# Součet obsahuje jen úspěšné převody.\nprint(\"Součet platných cen:\", celkem)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Hledání kontaktu",
+    "description": "Porovnejte známý a neznámý klíč.",
+    "code": "def najdi(kontakty, jmeno):\n    # Přímý přístup může vyvolat KeyError.\n    try:\n        return kontakty[jmeno]\n    except KeyError:\n        return \"Kontakt chybí\"\n\n\nkontakty = {\"Ema\": \"111 222 333\"}\nprint(najdi(kontakty, \"Ema\"))\n# Zachycení konkrétní výjimky nezakrývá jiné chyby.\nprint(najdi(kontakty, \"Jan\"))\n"
+  }
+]

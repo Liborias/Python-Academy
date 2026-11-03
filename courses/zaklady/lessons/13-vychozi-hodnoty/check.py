@@ -1,0 +1,13 @@
+from dilna_check import check
+c = check()
+c.defines_function("zdrav")
+c.defines_function("mocnina")
+ns = c.load()
+c.returns(ns, "zdrav", ("Eva",), "Ahoj, Eva!")
+c.returns(ns, "zdrav", ("Eva", "Čau"), "Čau, Eva!")
+c.returns(ns, "zdrav", (), "Dobrý den, Jan!", kwargs={"pozdrav": "Dobrý den", "jmeno": "Jan"})
+c.returns(ns, "mocnina", (3,), 9)
+c.returns(ns, "mocnina", (2, 5), 32)
+c.returns(ns, "mocnina", (), 8, kwargs={"exponent": 3, "zaklad": 2})
+c.returns(ns, "mocnina", (5, 0), 1)
+c.done()

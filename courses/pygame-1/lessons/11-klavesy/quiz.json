@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Kdy použít get_pressed() a kdy KEYDOWN?",
+  "options": [
+   "KEYDOWN pro pohyb, get_pressed pro skok",
+   "get_pressed pro plynulý pohyb při držení klávesy, KEYDOWN pro jednorázové akce",
+   "Je to totéž"
+  ],
+  "answer": 1,
+  "why": "KEYDOWN přijde jednou při stisku, get_pressed říká, co se právě drží. Pohyb při držení chce druhé."
+ },
+ {
+  "q": "Proč při pohybu používat několik samostatných if místo if/elif?",
+  "options": [
+   "Aby šlo držet víc kláves najednou, třeba nahoru a doleva",
+   "Je to rychlejší",
+   "elif v pygame nefunguje"
+  ],
+  "answer": 0,
+  "why": "Při elif by se vyhodnotila jen první splněná podmínka a šikmý pohyb by nešel."
+ }
+]

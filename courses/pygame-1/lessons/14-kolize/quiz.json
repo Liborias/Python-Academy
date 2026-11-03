@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co zjistí a.colliderect(b)?",
+  "options": [
+   "Zda se obdélníky a a b překrývají",
+   "Zda bod leží v obdélníku",
+   "Vzdálenost mezi obdélníky"
+  ],
+  "answer": 0,
+  "why": "Vrací True nebo False. Pro bod je určeno collidepoint."
+ },
+ {
+  "q": "Kdy se v herní smyčce zjišťuje kolize?",
+  "options": [
+   "Jednou na začátku programu",
+   "V každém snímku po pohybu objektů",
+   "Jen při stisku klávesy"
+  ],
+  "answer": 1,
+  "why": "Objekty se pohybují, takže se kolize musí zjišťovat pořád."
+ }
+]

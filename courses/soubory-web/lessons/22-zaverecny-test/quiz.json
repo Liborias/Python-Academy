@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Proč se kontroluje robots.txt před stažením stránky?",
+  "options": [
+   "Aby se stránka stáhla rychleji",
+   "Aby robot respektoval přání provozovatele a stránku zbytečně nestahoval",
+   "Je to požadavek requests"
+  ],
+  "answer": 1,
+  "why": "Kontrola je projev slušnosti. Zakázanou stránku vůbec nestahujeme."
+ },
+ {
+  "q": "Kdy zapsat výsledný soubor?",
+  "options": [
+   "Před stažením, pro jistotu",
+   "Až po úspěšném stažení a zpracování",
+   "Nezáleží na tom"
+  ],
+  "answer": 1,
+  "why": "Při chybě by jinak zůstal prázdný nebo neúplný soubor, který by vypadal jako platný výsledek."
+ }
+]

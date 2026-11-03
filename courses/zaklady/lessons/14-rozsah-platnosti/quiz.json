@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co se stane při print(promenna) mimo funkci, když je proměnná vytvořená jen ve funkci?",
+  "options": [
+   "Vypíše hodnotu",
+   "NameError: proměnná neexistuje",
+   "Vypíše None"
+  ],
+  "answer": 1,
+  "why": "Lokální proměnná zaniká s koncem funkce, mimo ni neexistuje."
+ },
+ {
+  "q": "Jak nejlépe dostat výsledek z funkce ven?",
+  "options": [
+   "Pomocí global",
+   "Pomocí return",
+   "Pomocí print"
+  ],
+  "answer": 1,
+  "why": "return vrací hodnotu volajícímu a funkce zůstane samostatná a zkoušitelná."
+ }
+]

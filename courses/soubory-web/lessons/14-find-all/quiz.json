@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co vrátí soup.find_all(\"table\"), když stránka žádnou tabulku nemá?",
+  "options": [
+   "None",
+   "Prázdný seznam",
+   "Chybu"
+  ],
+  "answer": 1,
+  "why": "find_all vždy vrací seznam. Když nic nenajde, je prázdný, takže cyklus přes něj se jednoduše neprovede."
+ },
+ {
+  "q": "K čemu je v řádku tabulky radek.find_all(\"td\")?",
+  "options": [
+   "Najde všechny buňky tohoto řádku",
+   "Najde všechny řádky tabulky",
+   "Najde jen první buňku"
+  ],
+  "answer": 0,
+  "why": "Hledání zavolané na nalezené značce probíhá jen uvnitř ní. Tak se vyčtou buňky jednoho řádku."
+ }
+]

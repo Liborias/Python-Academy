@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Převod času",
+    "description": "Změňte konstantu nebo počet dní. Názvy popisují jednotky.",
+    "code": "HODIN_VE_DNI = 24\n\n\n# Malá funkce řeší jeden srozumitelný úkol.\ndef na_hodiny(pocet_dni):\n    return pocet_dni * HODIN_VE_DNI\n\n\n# Ve výpisu je jasné, odkud se výsledek bere.\nprint(\"Hodin za tři dny:\", na_hodiny(3))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Rozpočet výletu",
+    "description": "Zkuste pojmenovat mezivýsledek tak, aby vysvětloval výpočet.",
+    "code": "CENA_VSTUPENKY = 80\nCENA_AUTOBUSU = 1200\n\n\ndef rozpocet(pocet_lidi):\n    # Mezivýsledek vysvětluje část výpočtu.\n    vstupne_celkem = pocet_lidi * CENA_VSTUPENKY\n    return vstupne_celkem + CENA_AUTOBUSU\n\n\n# Konstanty uchovávají ceny na jednom místě.\nprint(rozpocet(20))\n"
+  }
+]

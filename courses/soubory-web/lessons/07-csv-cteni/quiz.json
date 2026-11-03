@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co dostává proměnná radek v cyklu for radek in csv.reader(soubor)?",
+  "options": [
+   "Celý řádek jako jeden text",
+   "Seznam textů, po jednom pro každý sloupec",
+   "Slovník s názvy sloupců"
+  ],
+  "answer": 1,
+  "why": "csv.reader rozdělí řádek podle oddělovače na seznam textů. Slovníky dává až DictReader."
+ },
+ {
+  "q": "K čemu je v csv funkce next(ctenar) před cyklem?",
+  "options": [
+   "Přeskočí celý soubor",
+   "Vezme z čtenáře jeden řádek, obvykle hlavičku",
+   "Zavře soubor"
+  ],
+  "answer": 1,
+  "why": "next vrátí následující řádek a posune čtenáře dál. Cyklus pak začne až u dat."
+ }
+]

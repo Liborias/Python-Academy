@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Proč se pohyb a kolize provádějí jen ve stavu \"hra\"?",
+  "options": [
+   "Aby se po konci hry nic nehýbalo a neměnilo skóre",
+   "Je to rychlejší",
+   "Pygame jinak neumí zobrazit text"
+  ],
+  "answer": 0,
+  "why": "Stav určuje, co hra dělá. Po konci se má zobrazit jen obrazovka s výsledkem."
+ },
+ {
+  "q": "Co všechno se musí při restartu vrátit na počáteční hodnotu?",
+  "options": [
+   "Jen skóre",
+   "Skóre, životy, stav a poloha hvězd i rakety",
+   "Nic, pygame to udělá sám"
+  ],
+  "answer": 1,
+  "why": "Hra se pamatuje v proměnných a polohách objektů. Všechno, co se mění, se musí vrátit na začátek."
+ },
+ {
+  "q": "Který modul je určený pro hudbu na pozadí, která se opakuje dokola?",
+  "options": [
+   "pygame.mixer.music a play(-1)",
+   "pygame.mixer.Sound zavolaný v každém snímku",
+   "pygame.mixer.Sound s hlasitostí 0"
+  ],
+  "answer": 0,
+  "why": "Hudba na pozadí patří do mixer.music, argument -1 zajistí opakování."
+ }
+]

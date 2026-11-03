@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Mezi kterými příkazy se kreslí obvod tvaru, který se má vyplnit?",
+  "options": [
+   "Mezi color a pensize",
+   "Mezi penup a pendown",
+   "Mezi begin_fill a end_fill"
+  ],
+  "answer": 2,
+  "why": "Želva si od begin_fill pamatuje body obvodu a po end_fill vybarví vnitřek."
+ },
+ {
+  "q": "Co nastaví t.color(\"brown\", \"yellow\")?",
+  "options": [
+   "Čára je žlutá, výplň hnědá",
+   "Čára je hnědá, výplň žlutá",
+   "Obojí se smíchá"
+  ],
+  "answer": 1,
+  "why": "První barva je čára (pencolor), druhá výplň (fillcolor)."
+ },
+ {
+  "q": "Co se stane, když zapomenete na end_fill()?",
+  "options": [
+   "Tvar zůstane bez výplně",
+   "Želva přestane kreslit čáry",
+   "Tvar se vyplní automaticky"
+  ],
+  "answer": 0,
+  "why": "Výplň se vybarví až příkazem end_fill. Bez něj vidíte jen obrys."
+ }
+]

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /soukrome/
+
+User-agent: zlybot
+Disallow: /

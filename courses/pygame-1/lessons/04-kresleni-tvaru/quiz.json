@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Co je u pygame.draw.circle(screen, barva, (200, 50), 30) bod (200, 50)?",
+  "options": [
+   "Levý horní roh",
+   "Střed kruhu",
+   "Pravý dolní roh"
+  ],
+  "answer": 1,
+  "why": "Kruh se zadává středem a poloměrem. U obdélníku je to naopak levý horní roh."
+ },
+ {
+  "q": "Jak nakreslíte jen obrys obdélníku?",
+  "options": [
+   "Přidáte tloušťku čáry, např. 3, na konec volání",
+   "Použijete pygame.draw.outline",
+   "Nakreslíte ho dvakrát"
+  ],
+  "answer": 0,
+  "why": "Parametr width (poslední) určuje tloušťku čáry. Bez něj nebo s 0 se tvar vyplní."
+ },
+ {
+  "q": "Proč se nejdřív kreslí obloha a až potom slunce?",
+  "options": [
+   "Python to vyžaduje",
+   "Co se kreslí později, překryje to, co je pod tím",
+   "Slunce by jinak zmizelo z paměti"
+  ],
+  "answer": 1,
+  "why": "Kreslí se jako na papír: pozdější tah překrývá starší."
+ }
+]

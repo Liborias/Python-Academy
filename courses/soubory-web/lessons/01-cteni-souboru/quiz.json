@@ -1,0 +1,22 @@
+[
+ {
+  "q": "K čemu slouží with při otevírání souboru?",
+  "options": [
+   "Soubor se po skončení bloku sám zavře",
+   "Soubor se otevře rychleji",
+   "Soubor se smaže po přečtení"
+  ],
+  "answer": 0,
+  "why": "with zaručí zavření souboru na konci bloku, i když uvnitř vznikne chyba."
+ },
+ {
+  "q": "Proč se při open() uvádí encoding=\"utf-8\"?",
+  "options": [
+   "Aby se soubor nedal měnit",
+   "Aby se písmena s diakritikou přečetla správně na každém počítači",
+   "Je to povinné, jinak open() nefunguje"
+  ],
+  "answer": 1,
+  "why": "Bez parametru záleží na nastavení počítače. S utf-8 se čeština čte všude stejně."
+ }
+]

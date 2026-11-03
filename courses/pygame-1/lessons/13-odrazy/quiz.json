@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co se stane s rychlostí vx = 4 po příkazu vx = -vx?",
+  "options": [
+   "Zůstane 4",
+   "Bude 0",
+   "Bude -4: míč se obrátí"
+  ],
+  "answer": 2,
+  "why": "Záporná rychlost znamená pohyb opačným směrem, což je odraz."
+ },
+ {
+  "q": "Který výraz je pravý okraj míče se středem x a poloměrem r?",
+  "options": [
+   "x + r",
+   "x - r",
+   "r"
+  ],
+  "answer": 0,
+  "why": "Pravý okraj leží o poloměr za středem. Proto se porovnává x + r se šířkou okna."
+ }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Jak zavoláte funkci sqrt po příkazu import math?",
+  "options": [
+   "sqrt(16)",
+   "math.sqrt(16)",
+   "math(sqrt, 16)"
+  ],
+  "answer": 1,
+  "why": "Po obyčejném import math se funkce volá s jménem modulu a tečkou. Bez předpony by fungovalo jen from math import sqrt."
+ },
+ {
+  "q": "Co vrací math.ceil(4.01)?",
+  "options": [
+   "4",
+   "4.0",
+   "5"
+  ],
+  "answer": 2,
+  "why": "ceil zaokrouhluje vždy nahoru na celé číslo, takže výsledek je 5."
+ }
+]

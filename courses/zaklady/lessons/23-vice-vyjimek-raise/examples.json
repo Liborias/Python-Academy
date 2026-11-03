@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Platný věk",
+    "description": "Sledujte rozdíl mezi chybným textem a nepovoleným číslem.",
+    "code": "def nacti_vek(text):\n    vek = int(text)\n    # Vlastní pravidlo také oznámíme výjimkou.\n    if vek < 0:\n        raise ValueError(\"Věk nesmí být záporný\")\n    return vek\n\n\nfor text in [\"15\", \"-2\", \"x\"]:\n    try:\n        print(nacti_vek(text))\n    except ValueError as chyba:\n        print(\"Nelze přijmout:\", chyba)\n    # finally se provede při úspěchu i chybě.\n    finally:\n        print(\"Zpracováno\")\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Dvě příčiny chyby",
+    "description": "Změňte text jmenovatele a sledujte vybranou větev except.",
+    "code": "for text in [\"4\", \"0\", \"nic\"]:\n    try:\n        vysledek = 20 / int(text)\n    # Každý typ chyby dostane vlastní zprávu.\n    except ValueError:\n        print(\"Zadejte celé číslo.\")\n    except ZeroDivisionError:\n        print(\"Nulou dělit nelze.\")\n    # else patří jen k úspěšnému výpočtu.\n    else:\n        print(\"Výsledek:\", vysledek)\n"
+  }
+]

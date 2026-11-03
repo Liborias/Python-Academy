@@ -1,0 +1,32 @@
+[
+ {
+  "q": "O jaký úhel se otáčí želva při kreslení pravidelného pětiúhelníku?",
+  "options": [
+   "90°",
+   "72°",
+   "108°"
+  ],
+  "answer": 1,
+  "why": "360 / 5 = 72. Součet všech zatáček je vždy 360°."
+ },
+ {
+  "q": "Proč funkce mnohouhelnik dostává želvu t jako parametr?",
+  "options": [
+   "Aby mohla kreslit tou želvou, kterou jí předáme",
+   "Protože Python jinak funkci nespustí",
+   "Aby se želva zrychlila"
+  ],
+  "answer": 0,
+  "why": "Funkce se nemusí spoléhat na globální proměnnou. Dostane objekt, se kterým má pracovat."
+ },
+ {
+  "q": "Co dělá t.goto(100, 0) se zdviženým perem?",
+  "options": [
+   "Nakreslí čáru do bodu (100, 0)",
+   "Přesune želvu do bodu (100, 0) bez kreslení",
+   "Otočí želvu o 100°"
+  ],
+  "answer": 1,
+  "why": "Kreslí se jen s perem dole. goto nemění směr, kterým se želva dívá."
+ }
+]

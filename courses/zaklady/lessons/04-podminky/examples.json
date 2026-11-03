@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Počasí",
+    "description": "Změňte teplotu na -2, 10 a 25 a porovnejte větve.",
+    "code": "teplota = 10\n# Python provede jen první větev s pravdivou podmínkou.\nif teplota < 0:\n    print(\"Vezmi si rukavice.\")\nelif teplota < 20:\n    print(\"Vezmi si bundu.\")\nelse:\n    print(\"Stačí tričko.\")\n# Neodsazený řádek už není součástí větvení.\nprint(\"Příjemný výlet!\")\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Otevírací doba",
+    "description": "Vyzkoušejte hodiny 8, 9, 16 a 17.",
+    "code": "hodina = 16\n# and vyžaduje splnění obou porovnání.\nif hodina >= 9 and hodina < 17:\n    print(\"Knihovna je otevřená.\")\nelse:\n    print(\"Knihovna je zavřená.\")\n# Horní hranice 17 už do otevírací doby nepatří.\nprint(\"Otevíráme v 9, zavíráme v 17.\")\n"
+  }
+]

@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co vrátí ceny.get(\"sul\", 0), když klíč \"sul\" ve slovníku není?",
+  "options": [
+   "0",
+   "None",
+   "Nastane chyba KeyError"
+  ],
+  "answer": 0,
+  "why": "Druhý parametr metody get je náhradní hodnota pro chybějící klíč. Bez něj by se vrátilo None, ale chyba nenastane nikdy."
+ },
+ {
+  "q": "Co dostává proměnná x v cyklu for x in slovnik:?",
+  "options": [
+   "Hodnoty slovníku",
+   "Dvojice (klíč, hodnota)",
+   "Klíče slovníku"
+  ],
+  "answer": 2,
+  "why": "Cyklus přes slovník prochází klíče. Na hodnoty slouží values() a na dvojice items()."
+ }
+]

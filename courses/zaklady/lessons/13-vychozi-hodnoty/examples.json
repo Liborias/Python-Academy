@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Poštovné",
+    "description": "Porovnejte vynechaný a pojmenovaný argument.",
+    "code": "# Bez druhého argumentu se použije výchozí cena dopravy.\ndef s_dopravou(cena, doprava=79):\n    return cena + doprava\n\n\nprint(s_dopravou(200))\n# Pojmenovaný argument může výchozí hodnotu nahradit.\nprint(s_dopravou(200, doprava=0))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Rámeček",
+    "description": "Měňte délku a znak pomocí pojmenovaných argumentů.",
+    "code": "def cara(delka=10, znak=\"-\"):\n    # Oba parametry mají výchozí hodnotu.\n    print(znak * delka)\n\n\n# Lze vynechat všechny argumenty nebo jen některé.\ncara()\ncara(5)\ncara(znak=\"=\", delka=12)\n"
+  }
+]

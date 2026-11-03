@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Která čísla vypíše for i in range(3)?",
+  "options": [
+   "1, 2, 3",
+   "0, 1, 2",
+   "0, 1, 2, 3"
+  ],
+  "answer": 1,
+  "why": "range(3) začíná nulou a končí před trojkou."
+ },
+ {
+  "q": "Co udělá print bez odsazení za cyklem?",
+  "options": [
+   "Provede se v každém kroku",
+   "Provede se jednou po skončení cyklu",
+   "Způsobí chybu"
+  ],
+  "answer": 1,
+  "why": "Bez odsazení řádek do cyklu nepatří."
+ }
+]

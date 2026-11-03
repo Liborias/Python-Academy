@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Co udělá s = \"ahoj\" a pak s.upper() na samostatném řádku?",
+  "options": [
+   "s bude AHOJ",
+   "s zůstane ahoj",
+   "Chyba"
+  ],
+  "answer": 1,
+  "why": "Řetězce se nemění. upper() vrací nový text, který je třeba uložit nebo vypsat."
+ },
+ {
+  "q": "Co vrací \"a b c\".split()?",
+  "options": [
+   "Řetězec \"abc\"",
+   "Seznam ['a', 'b', 'c']",
+   "Číslo 3"
+  ],
+  "answer": 1,
+  "why": "split() bez argumentu rozdělí text podle mezer na seznam slov."
+ }
+]

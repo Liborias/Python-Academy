@@ -1,0 +1,22 @@
+[
+ {
+  "q": "Které jméno odpovídá stylu PEP 8 pro funkci?",
+  "options": [
+   "PocetZaku",
+   "pocet_zaku",
+   "POCET_ZAKU"
+  ],
+  "answer": 1,
+  "why": "Funkce a proměnné se píší malými písmeny s podtržítky. Velká písmena jsou vyhrazena pro konstanty."
+ },
+ {
+  "q": "K čemu slouží Ruff ve VSCodium?",
+  "options": [
+   "Spouští program rychleji",
+   "Hlídá a opravuje styl kódu a formátuje soubor",
+   "Zjišťuje, jestli program počítá správně"
+  ],
+  "answer": 1,
+  "why": "Ruff kontroluje vzhled kódu a upozorňuje na drobné chyby. Jestli program počítá správně, ověřují testy."
+ }
+]

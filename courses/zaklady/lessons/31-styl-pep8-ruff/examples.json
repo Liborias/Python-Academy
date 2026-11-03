@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Přehledné funkce",
+    "description": "Všimněte si názvů, mezer a prázdných řádků.",
+    "code": "def cena_za_kusy(cena, pocet):\n    \"\"\"Vrátí cenu za daný počet kusů.\"\"\"\n    # Mezery kolem operátoru usnadňují čtení.\n    return cena * pocet\n\n\ndef cena_s_dopravou(cena, doprava):\n    \"\"\"Přičte k ceně dopravu.\"\"\"\n    return cena + doprava\n\n\n# Funkce oddělujeme dvěma prázdnými řádky.\nprint(cena_s_dopravou(cena_za_kusy(15, 4), 79))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Popisné názvy",
+    "description": "Změňte rozměry; styl by měl zůstat stejný.",
+    "code": "def objem_kvadru(sirka, vyska, hloubka):\n    \"\"\"Vrátí objem ze tří rozměrů ve stejných jednotkách.\"\"\"\n    # Jména parametrů vysvětlují význam všech tří čísel.\n    return sirka * vyska * hloubka\n\n\n# Odsazení má čtyři mezery, čárky odděluje mezera.\nprint(objem_kvadru(2, 3, 4))\n"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Knihovna",
+    "description": "Přidejte záznam a změňte hranici délky knihy.",
+    "code": "knihy = [\n    {\"nazev\": \"Lesní cesta\", \"stran\": 80},\n    {\"nazev\": \"Horská stezka\", \"stran\": 160},\n]\n# Každá položka seznamu je celý slovník.\nfor kniha in knihy:\n    if kniha[\"stran\"] > 100:\n        print(kniha[\"nazev\"])\n# Seznam záznamů lze běžně rozšiřovat.\nknihy.append({\"nazev\": \"U řeky\", \"stran\": 96})\nprint(\"Knih:\", len(knihy))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Nejlevnější svačina",
+    "description": "Změňte ceny a sledujte výběr nejlepšího kandidáta.",
+    "code": "svaciny = [\n    {\"nazev\": \"rohlík\", \"cena\": 5},\n    {\"nazev\": \"jablko\", \"cena\": 8},\n    {\"nazev\": \"mrkev\", \"cena\": 4},\n]\n# Seznam není prázdný, první záznam je počáteční kandidát.\nnejlevnejsi = svaciny[0]\nfor svacina in svaciny:\n    if svacina[\"cena\"] < nejlevnejsi[\"cena\"]:\n        nejlevnejsi = svacina\n# Uchováváme celý záznam, tedy i název.\nprint(nejlevnejsi[\"nazev\"], nejlevnejsi[\"cena\"])\n"
+  }
+]

@@ -1,0 +1,32 @@
+[
+ {
+  "q": "Jak pygame zobrazí text?",
+  "options": [
+   "Kreslí ho přímo na obrazovku příkazem print",
+   "Vyrobí z textu obrázek (render) a ten vykreslí (blit)",
+   "Text se vypíše do konzole"
+  ],
+  "answer": 1,
+  "why": "Font.render vrací obrázek (Surface) s textem. Vykreslí se jako každý jiný obrázek."
+ },
+ {
+  "q": "Kam patří vytvoření písma pygame.font.Font(None, 48)?",
+  "options": [
+   "Před smyčku, jednou",
+   "Do smyčky, aby se pokaždé obnovilo",
+   "Až za smyčku"
+  ],
+  "answer": 0,
+  "why": "Vytvoření písma je pomalé. Stejně jako u obrázků se dělá jednou."
+ },
+ {
+  "q": "Skóre se změní z 0 na 1. Co musí program udělat?",
+  "options": [
+   "Nic, text se změní sám",
+   "Znovu vyrobit text (render) s novým číslem",
+   "Restartovat okno"
+  ],
+  "answer": 1,
+  "why": "Text je hotový obrázek pro jeden konkrétní řetězec. Pro nové skóre se vyrobí nový."
+ }
+]
