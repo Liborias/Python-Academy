@@ -1,1 +1,6 @@
-{"title": "Seznamy: více hodnot v jedné proměnné", "minutes": 15, "kind": "console"}
+{
+  "title": "Seznamy: více hodnot v jedné proměnné",
+  "minutes": 15,
+  "kind": "console",
+  "example_title": "Seznam zvířat"
+}

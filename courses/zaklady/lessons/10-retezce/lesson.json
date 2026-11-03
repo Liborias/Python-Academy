@@ -1,1 +1,6 @@
-{"title": "Práce s textem: řetězce", "minutes": 15, "kind": "console"}
+{
+  "title": "Práce s textem: řetězce",
+  "minutes": 15,
+  "kind": "console",
+  "example_title": "Úprava věty"
+}

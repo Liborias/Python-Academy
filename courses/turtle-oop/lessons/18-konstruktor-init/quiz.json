@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co označuje self v inicializátoru?",
+    "options": [
+      "Název celého modulu",
+      "Právě vytvářenou instanci",
+      "Libovolný první rozměr"
+    ],
+    "answer": 1,
+    "why": "Python předá konkrétní nový objekt jako první argument __init__."
+  },
+  {
+    "q": "Co ukládá self.sirka = sirka?",
+    "options": [
+      "Argument sirka do atributu dané instance",
+      "Atribut do všech obdélníků",
+      "Novou globální proměnnou"
+    ],
+    "answer": 0,
+    "why": "Levá strana vybírá atribut objektu, pravá čte lokální parametr."
+  },
+  {
+    "q": "Proč do __init__ nepíšeme return self?",
+    "options": [
+      "Protože self nikdy neexistuje",
+      "Protože třídy nesmějí mít metody",
+      "Protože __init__ připravuje objekt a má vracet None"
+    ],
+    "answer": 2,
+    "why": "Novou instanci vrátí volání třídy. Návrat jiné hodnoty než None z __init__ vyvolá TypeError."
+  }
+]

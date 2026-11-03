@@ -1,1 +1,6 @@
-{"title": "Čitelný kód: jména a konstanty", "minutes": 20, "kind": "console"}
+{
+  "title": "Čitelný kód: jména a konstanty",
+  "minutes": 20,
+  "kind": "console",
+  "example_title": "Minuty v týdnu"
+}

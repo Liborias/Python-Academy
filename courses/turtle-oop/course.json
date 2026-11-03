@@ -1,35 +1,45 @@
 {
- "id": "turtle-oop",
- "title": "Turtle, OOP a hra Snake",
- "requires_packages": [],
- "modules": [
-  {
-   "id": "m01",
-   "title": "Kreslení želvou",
-   "lessons": [
-    "01-prvni-cara",
-    "02-ctverec-cyklus",
-    "03-mnohouhelniky-funkce",
-    "04-barvy-tloustka",
-    "05-vyplnene-tvary",
-    "06-kruhy-oblouky",
-    "07-souradnice-goto",
-    "08-projekt-spirograf"
-   ]
-  },
-  {
-   "id": "m02",
-   "title": "Zpět k základům: typy, řetězce, seznamy",
-   "lessons": [
-    "09-cisla-a-typy",
-    "10-retezce-indexy-rezy",
-    "11-retezce-metody",
-    "12-seznamy-metody",
-    "13-rezy-seznamu-kopie",
-    "14-dvojice-rozbalovani",
-    "15-mnoziny-set",
-    "16-projekt-analyza-textu"
-   ]
-  }
- ]
+  "id": "turtle-oop",
+  "title": "Turtle, OOP a hra Snake",
+  "requires_packages": [],
+  "modules": [
+    {
+      "id": "m01",
+      "title": "Kreslení želvou",
+      "lessons": [
+        "01-prvni-cara",
+        "02-ctverec-cyklus",
+        "03-mnohouhelniky-funkce",
+        "04-barvy-tloustka",
+        "05-vyplnene-tvary",
+        "06-kruhy-oblouky",
+        "07-souradnice-goto",
+        "08-projekt-spirograf"
+      ]
+    },
+    {
+      "id": "m02",
+      "title": "Zpět k základům: typy, řetězce, seznamy",
+      "lessons": [
+        "09-cisla-a-typy",
+        "10-retezce-indexy-rezy",
+        "11-retezce-metody",
+        "12-seznamy-metody",
+        "13-rezy-seznamu-kopie",
+        "14-dvojice-rozbalovani",
+        "15-mnoziny-set",
+        "16-projekt-analyza-textu"
+      ]
+    },
+    {
+      "id": "m03",
+      "title": "Úvod do OOP: třídy, atributy a metody",
+      "lessons": [
+        "17-trida-a-instance",
+        "18-konstruktor-init",
+        "19-metody-a-stav",
+        "20-vlastni-seznam-objektu"
+      ]
+    }
+  ]
 }

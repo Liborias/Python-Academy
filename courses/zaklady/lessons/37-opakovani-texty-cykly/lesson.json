@@ -1,1 +1,6 @@
-{"title": "Opakování: podmínky, cykly a texty", "minutes": 30, "kind": "console"}
+{
+  "title": "Opakování: podmínky, cykly a texty",
+  "minutes": 30,
+  "kind": "console",
+  "example_title": "Počet znaků a číslic"
+}

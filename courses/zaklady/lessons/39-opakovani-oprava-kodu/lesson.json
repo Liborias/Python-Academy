@@ -1,1 +1,6 @@
-{"title": "Opakování: oprava a úklid kódu", "minutes": 30, "kind": "console"}
+{
+  "title": "Opakování: oprava a úklid kódu",
+  "minutes": 30,
+  "kind": "console",
+  "example_title": "Hledání minima"
+}

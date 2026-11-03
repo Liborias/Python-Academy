@@ -1,1 +1,6 @@
-{"title": "Opakování: cyklus for", "minutes": 15, "kind": "console"}
+{
+  "title": "Opakování: cyklus for",
+  "minutes": 15,
+  "kind": "console",
+  "example_title": "Součet 1 až 3"
+}

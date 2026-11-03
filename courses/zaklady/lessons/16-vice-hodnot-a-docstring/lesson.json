@@ -1,1 +1,6 @@
-{"title": "Více návratových hodnot a docstring", "minutes": 15, "kind": "console"}
+{
+  "title": "Více návratových hodnot a docstring",
+  "minutes": 15,
+  "kind": "console",
+  "example_title": "Sudá a lichá čísla"
+}

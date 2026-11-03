@@ -1,1 +1,6 @@
-{"title": "Chyby a try/except", "minutes": 15, "kind": "console"}
+{
+  "title": "Chyby a try/except",
+  "minutes": 15,
+  "kind": "console",
+  "example_title": "Bezpečné čtení věku"
+}

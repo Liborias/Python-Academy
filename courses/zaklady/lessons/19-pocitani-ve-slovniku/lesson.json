@@ -1,1 +1,6 @@
-{"title": "Počítání pomocí slovníku", "minutes": 20, "kind": "console"}
+{
+  "title": "Počítání pomocí slovníku",
+  "minutes": 20,
+  "kind": "console",
+  "example_title": "Četnosti slov"
+}

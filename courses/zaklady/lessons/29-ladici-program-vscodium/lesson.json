@@ -1,1 +1,6 @@
-{"title": "Ladicí program ve VSCodium", "minutes": 25, "kind": "console"}
+{
+  "title": "Ladicí program ve VSCodium",
+  "minutes": 25,
+  "kind": "console",
+  "example_title": "Krokování dvojnásobků"
+}

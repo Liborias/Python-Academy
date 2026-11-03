@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.37):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), Soubory a web (22), Pygame 1 (18), Turtle/OOP (16 ze 40). Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.38):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), Soubory a web (22), Pygame 1 (18), Turtle/OOP (20 ze 40). Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -37,6 +37,15 @@ Každý podkurz včetně plánovaných má před lekcemi přípravu s volbou sys
 seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená stránka Příprava prostředí
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
+
+## Nově: začátek OOP a názvy ukázek
+Kurz Turtle, OOP a hra Snake pokračuje lekcemi 17–20: třída a instance,
+konstruktor a self, metody měnící stav a vlastní seznam každého objektu.
+Ukázky a úlohy běží v konzoli; grafické Snake přijde až po základech OOP.
+
+V přepínači ukázek má i první příklad název podle obsahu (například „Planeta Merkur“).
+Jeho id a uložené úpravy se nemění. Web používá SVG i ICO faviconu; při staré
+ikoně obnovte stránku pomocí Ctrl+F5. Soubory ikon mají v odkazech verzi pro cache.
 
 ## Pět úkolů na procvičení
 V běžných lekcích Základů (01–31 a 37–39) přepínají tlačítka **Úkol 1 až Úkol 5**

@@ -1,1 +1,6 @@
-{"title": "Seznamy: hledání, řazení a výběr částí", "minutes": 15, "kind": "console"}
+{
+  "title": "Seznamy: hledání, řazení a výběr částí",
+  "minutes": 15,
+  "kind": "console",
+  "example_title": "Úpravy čísel"
+}

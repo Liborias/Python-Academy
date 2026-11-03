@@ -1,1 +1,6 @@
-{"title": "Vstup od uživatele: input", "minutes": 12, "kind": "console"}
+{
+  "title": "Vstup od uživatele: input",
+  "minutes": 12,
+  "kind": "console",
+  "example_title": "Jméno a věk"
+}

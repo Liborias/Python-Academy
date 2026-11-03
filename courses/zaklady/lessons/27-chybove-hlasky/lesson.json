@@ -1,1 +1,6 @@
-{"title": "Čtení chybových hlášek", "minutes": 20, "kind": "console"}
+{
+  "title": "Čtení chybových hlášek",
+  "minutes": 20,
+  "kind": "console",
+  "example_title": "Zachycené chyby"
+}

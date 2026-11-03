@@ -1,1 +1,6 @@
-{"title": "N-tice a množiny", "minutes": 15, "kind": "console"}
+{
+  "title": "N-tice a množiny",
+  "minutes": 15,
+  "kind": "console",
+  "example_title": "Společné hodnoty množin"
+}

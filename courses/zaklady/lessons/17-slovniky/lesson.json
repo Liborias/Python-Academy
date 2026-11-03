@@ -1,1 +1,6 @@
-{"title": "Slovníky", "minutes": 15, "kind": "console"}
+{
+  "title": "Slovníky",
+  "minutes": 15,
+  "kind": "console",
+  "example_title": "Údaje o autě"
+}

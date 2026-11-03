@@ -1,1 +1,6 @@
-{"title": "Rozsah platnosti proměnných", "minutes": 15, "kind": "console"}
+{
+  "title": "Rozsah platnosti proměnných",
+  "minutes": 15,
+  "kind": "console",
+  "example_title": "Globální sleva"
+}

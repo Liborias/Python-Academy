@@ -1,1 +1,6 @@
-{"title": "Slovníky: get, in a cykly", "minutes": 15, "kind": "console"}
+{
+  "title": "Slovníky: get, in a cykly",
+  "minutes": 15,
+  "kind": "console",
+  "example_title": "Slovník známek"
+}

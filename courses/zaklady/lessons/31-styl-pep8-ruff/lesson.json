@@ -1,1 +1,6 @@
-{"title": "Styl PEP 8 a nástroj Ruff", "minutes": 20, "kind": "console"}
+{
+  "title": "Styl PEP 8 a nástroj Ruff",
+  "minutes": 20,
+  "kind": "console",
+  "example_title": "Obsah a obvod čtverce"
+}

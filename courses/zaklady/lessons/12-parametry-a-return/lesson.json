@@ -1,1 +1,6 @@
-{"title": "Parametry a návratová hodnota", "minutes": 18, "kind": "console"}
+{
+  "title": "Parametry a návratová hodnota",
+  "minutes": 18,
+  "kind": "console",
+  "example_title": "Cena s DPH"
+}

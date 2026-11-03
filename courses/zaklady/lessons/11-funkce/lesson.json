@@ -1,1 +1,6 @@
-{"title": "Vlastní funkce: def", "minutes": 12, "kind": "console"}
+{
+  "title": "Vlastní funkce: def",
+  "minutes": 12,
+  "kind": "console",
+  "example_title": "Titulek s oddělovačem"
+}

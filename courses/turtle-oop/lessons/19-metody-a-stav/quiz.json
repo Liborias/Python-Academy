@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kolik argumentů sami zadáme při p.pridej(3), je-li definice pridej(self, kolik)?",
+    "options": [
+      "Dva, včetně self",
+      "Žádný",
+      "Jeden; self předá Python"
+    ],
+    "answer": 2,
+    "why": "Objekt před tečkou se předává automaticky, 3 je parametr kolik."
+  },
+  {
+    "q": "Co zaručí pouze return self.hodnota + 1?",
+    "options": [
+      "Vrátí součet, ale atribut sám nezmění",
+      "Vždy uloží novou hodnotu",
+      "Vynuluje instanci"
+    ],
+    "answer": 0,
+    "why": "Návrat výsledku a přiřazení do atributu jsou dvě odlišné činnosti."
+  },
+  {
+    "q": "Co vrátí metoda, která změní atribut a skončí bez return?",
+    "options": [
+      "Novou hodnotu atributu",
+      "None",
+      "Celou třídu"
+    ],
+    "answer": 1,
+    "why": "Stejně jako funkce bez return metoda implicitně vrací None."
+  }
+]

@@ -53,6 +53,7 @@ def lesson_view(courses_dir: Path, cid: str, lid: str) -> dict | None:
     meta = _json(d / "lesson.json", {})
     return {"id": lid, "course": cid, "title": meta.get("title", lid), "kind": meta.get("kind", "console"),
             "minutes": meta.get("minutes"), "md": _read(d / "lesson.md"), "example": _read(d / "example.py"),
+            "example_title": meta.get("example_title", meta.get("title", lid)),
             "examples": _json(d / "examples.json", []),
             "exercise": _read(d / "exercise.py"), "quiz": _json(d / "quiz.json", []),
             "has_check": (d / "check.py").is_file(),

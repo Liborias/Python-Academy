@@ -1,1 +1,6 @@
-{"title": "Náhoda a modul random", "minutes": 20, "kind": "console"}
+{
+  "title": "Náhoda a modul random",
+  "minutes": 20,
+  "kind": "console",
+  "example_title": "Kostka a míchání"
+}

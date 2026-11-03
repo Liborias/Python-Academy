@@ -1,1 +1,6 @@
-{"title": "Proměnné a f-řetězce", "minutes": 12, "kind": "console"}
+{
+  "title": "Proměnné a f-řetězce",
+  "minutes": 12,
+  "kind": "console",
+  "example_title": "Planeta Merkur"
+}

@@ -1,1 +1,6 @@
-{"title": "Rozhodování: if, elif, else", "minutes": 15, "kind": "console"}
+{
+  "title": "Rozhodování: if, elif, else",
+  "minutes": 15,
+  "kind": "console",
+  "example_title": "Hodnocení známky"
+}

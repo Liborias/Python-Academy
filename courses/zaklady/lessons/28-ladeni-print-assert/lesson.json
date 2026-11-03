@@ -1,1 +1,6 @@
-{"title": "Hledání chyb: print a assert", "minutes": 20, "kind": "console"}
+{
+  "title": "Hledání chyb: print a assert",
+  "minutes": 20,
+  "kind": "console",
+  "example_title": "Test hledání maxima"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co vznikne při každém volání Hrac()?",
+    "options": [
+      "Nová instance třídy Hrac",
+      "Automaticky slovník",
+      "Nová třída se jménem Hrac"
+    ],
+    "answer": 0,
+    "why": "Třídu definujeme pomocí class; závorkami vytváříme její konkrétní objekt."
+  },
+  {
+    "q": "Co udělá druhy = prvni s již vytvořeným objektem?",
+    "options": [
+      "Vytvoří nezávislou kopii",
+      "Vytvoří druhý odkaz na stejný objekt",
+      "Přepíše definici třídy"
+    ],
+    "answer": 1,
+    "why": "Přiřazení objekt nekopíruje. Obě jména pak ukazují na stejnou instanci."
+  },
+  {
+    "q": "Proč je v prázdné třídě pass?",
+    "options": [
+      "Vrací novou instanci",
+      "Vytváří atributy",
+      "Vyplňuje zatím prázdné tělo a nic neprovádí"
+    ],
+    "answer": 2,
+    "why": "Python vyžaduje tělo definice; pass je příkaz bez činnosti."
+  }
+]

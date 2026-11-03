@@ -1,1 +1,6 @@
-{"title": "Výchozí hodnoty a pojmenované argumenty", "minutes": 15, "kind": "console"}
+{
+  "title": "Výchozí hodnoty a pojmenované argumenty",
+  "minutes": 15,
+  "kind": "console",
+  "example_title": "Obdélník ze znaků"
+}

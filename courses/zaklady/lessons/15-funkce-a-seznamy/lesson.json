@@ -1,1 +1,6 @@
-{"title": "Funkce se seznamy", "minutes": 15, "kind": "console"}
+{
+  "title": "Funkce se seznamy",
+  "minutes": 15,
+  "kind": "console",
+  "example_title": "Odstranění záporných čísel"
+}

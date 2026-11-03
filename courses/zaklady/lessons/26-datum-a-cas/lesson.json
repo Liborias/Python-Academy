@@ -1,1 +1,6 @@
-{"title": "Datum a čas", "minutes": 20, "kind": "console"}
+{
+  "title": "Datum a čas",
+  "minutes": 20,
+  "kind": "console",
+  "example_title": "Datum a narozeniny"
+}

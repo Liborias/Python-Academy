@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kde vytvořit prázdný seznam pro každý batoh zvlášť?",
+    "options": [
+      "Jednou jako globální seznam",
+      "Pomocí self.veci = [] v __init__",
+      "Jako výchozí argument veci=[]"
+    ],
+    "answer": 1,
+    "why": "Inicializátor běží pro každou instanci a pokaždé vytvoří nový seznam."
+  },
+  {
+    "q": "Co může způsobit return self.veci?",
+    "options": [
+      "Volající dostane odkaz a může změnit vnitřní seznam",
+      "Vždy vrátí nezávislou kopii",
+      "Automaticky vymaže obsah batohu"
+    ],
+    "answer": 0,
+    "why": "Seznam je měnitelný objekt. Kopii vytvoří list, copy nebo řez."
+  },
+  {
+    "q": "Přidáme-li do batohu novou věc po získání kopie, co se stane s dřívější kopií?",
+    "options": [
+      "Doplní se automaticky",
+      "Přestane existovat",
+      "Zůstane samostatným dřívějším snímkem"
+    ],
+    "answer": 2,
+    "why": "Kopie je nový seznam. Pozdější append do originálu její obsah nemění."
+  }
+]

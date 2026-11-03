@@ -85,6 +85,10 @@ Okno a smyčka · barvy a tvary · obrázky · fonty · zvuky a hudba · kláves
 Mini-hra **Sběratel hvězd**: raketa sbírá hvězdy, skóre, zvuk (náhrada za „dýně“).
 
 ### C. Turtle, OOP a hra Snake (40 lekcí)
+Stav po v0.38: 20 lekcí. Moduly m01 (želva), m02 (opakování) a m03 (základní OOP) jsou napsané.
+Další blok: zapouzdření, pravidla změn stavu, dědění a super(); poté další OOP nástroje a projekt Snake.
+Konkrétní další dávka se provede na uživatelovo pokračování; ostatní podkurzy se nerozšiřují automaticky.
+
 Pořadí od nejjednoduššího: Turtle (kreslení, tuple, spirograf) · Opakování typů a řetězců („zpět k základům“) · seznamy a slicing, `set`, rozbalování · Úvod do OOP (class, konstruktor, atributy, metody) · Čtyři pilíře, dědění, `super()`, dunder metody, MRO, `@property`, `@dataclass` (novinka) · Projekty: **Snake**, kvíz s API (Open Trivia DB, s mockem).
 
 ### F. Datová analýza v Pandas (42 lekcí)

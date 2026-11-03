@@ -20,7 +20,7 @@ export async function renderLesson(el, cid, lid) {
 
   const gui = lesson.kind === 'gui';
   const guide = lesson.kind === 'guide';
-  const examples = [{ id: 'original', title: 'Původní ukázka', code: lesson.example,
+  const examples = [{ id: 'original', title: lesson.example_title || lesson.title, code: lesson.example,
     description: 'Ukázka z výkladu lekce.' }, ...(lesson.examples || [])];
   const multipleExamples = examples.length > 1;
 

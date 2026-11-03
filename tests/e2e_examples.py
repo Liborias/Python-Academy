@@ -21,6 +21,12 @@ try:
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.goto(f'{base}?t={srv.token}#/kurz/zaklady/01-prvni-program')
         page.wait_for_selector('[data-example="2"]')
+        assert page.locator('[data-example="0"]').inner_text() == 'Výpis a sčítání'
+        ico = page.request.get(base + 'favicon.ico?v=038')
+        assert ico.status == 200 and ico.body().startswith(bytes([0, 0, 1, 0]))
+        svg = page.request.get(base + 'favicon.svg?v=038')
+        assert svg.status == 200 and '<svg' in svg.text()
+        assert page.locator('link[rel="icon"]').count() == 2
         task = page.locator('.editor textarea')
         task.fill('# Vlastní rozepsaný úkol\n')
         example = page.locator('.ex-editor textarea')
@@ -37,7 +43,7 @@ try:
         page.wait_for_function("document.querySelector('.ex-console .status').textContent === 'Hotovo.'")
         assert 'Moje upravená vizitka' in page.locator('.ex-console pre.out').inner_text()
         assert task.input_value() == '# Vlastní rozepsaný úkol\n'
-        page.get_by_role('button', name='Původní ukázka', exact=True).click()
+        page.get_by_role('button', name='Výpis a sčítání', exact=True).click()
         assert example.input_value() == original
         page.reload()
         page.wait_for_selector('[data-example="2"]')

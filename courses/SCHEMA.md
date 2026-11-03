@@ -110,3 +110,10 @@ běžící program a vyčistí jeho výstup.
 Validátor provede vzorové řešení i výchozí šablonu každého dalšího úkolu. Řešení
 musí projít, šablona nesmí; chyba samotného kontrolního procesu není řádné
 odmítnutí šablony. Rozsah aktuálně odpovídá 34 lekcím s examples.json.
+
+## Obsahový název první ukázky (v0.38)
+Volitelné pole `example_title` v lesson.json pojmenuje původní example.py.
+API jej vrací pod stejným názvem; bez pole použije název lekce. Přepínač zobrazuje
+obsahový název, interní id původního příkladu však zůstává `original`, aby se
+zachoval rozepsaný kód v prohlížeči. Toto pole nepřidává novou variantu ani
+nemění počty příkladů/úkolů.

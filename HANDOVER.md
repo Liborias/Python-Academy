@@ -1,5 +1,8 @@
 # Předávací dokument: Dílna Pythonu
 
+> **Aktuální v0.38:** Uživatel obnovil pokračování Turtle/OOP/Snake. Nový modul m03 má lekce 17–20 (instance, konstruktor, metody/stav, vlastní seznamy), celkem 20/40 lekcí kurzu. Další dávka: zapouzdření a dědění/super(); Snake zatím nevznikl. Obsahové názvy prvních ukázek jsou v example_title místo tlačítka „Původní ukázka“, id original zůstává. Doplněna ICO favicona vedle SVG a verze odkazů. Ověřeno: 95 testů OK, validátor 115 lekcí bez chyb, prohlížečové testy OOP a ukázek OK. Viz poslední STATUS.md. Pracovat v `/workspace/Python-Academy`, změny doručovat přes GitHub/main, nevytvářet ZIPy. Historický zákaz pokračování tohoto kurzu níže je překonán nynějším zadáním; jiné kurzy zůstávají mimo rozsah.
+
+
 > **Aktuální v0.37:** Uživatel chce odteď verzovat přímo v GitHubu a nevyžaduje další ZIPy. Ve 34 běžných lekcích Základů doplněny čtyři nové úkoly (136 celkem), přepínání Úkol 1–5 s vlastními zadáními, kontrolami, drafty a pracovními soubory. Původní úkoly i jejich uložená data zůstaly zachované. Značky procvičení jsou samostatné. Viz poslední STATUS.md, courses/SCHEMA.md a nový modul web/js/tasks.js. Používejte `/workspace/Python-Academy`. Nové změny určené uživateli commitovat a pushnout do main podle jeho autorizace. Původní obsahový plán je pozastaven; neprovádět historické pokyny k ZIPům níže bez nové žádosti.
 
 
