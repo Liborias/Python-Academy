@@ -40,6 +40,16 @@
         "19-metody-a-stav",
         "20-vlastni-seznam-objektu"
       ]
+    },
+    {
+      "id": "m04",
+      "title": "Pravidla objektů, property a dědění",
+      "lessons": [
+        "21-zapouzdreni-a-pravidla",
+        "22-property",
+        "23-dedeni-a-prepisovani",
+        "24-super-a-rozsireni"
+      ]
     }
   ]
 }

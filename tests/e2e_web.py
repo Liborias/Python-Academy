@@ -20,7 +20,7 @@ with sync_playwright() as p:
     pg.on("console", lambda m: m.type == "error" and "fonts.g" not in m.text and "ERR_" not in m.text and errors.append(m.text))
     pg.goto(f"{base}?t={srv.token}")
     pg.wait_for_selector(".card")
-    assert pg.locator(".card").count() == 9, "9 podkurzů včetně úvodního konceptu"
+    assert pg.locator(".card").count() == 10, "10 podkurzů včetně samostatného návrhu OOP"
     assert "t=" not in pg.url, "token odstraněn z adresy"
     pg.click('.filters button[data-l="4"]')
     assert pg.locator(".card").count() == 2, "filtr obtížnosti 4"

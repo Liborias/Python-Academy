@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co zde provede super().__init__(jmeno)?",
+    "options": [
+      "Vytvoří druhého hráče",
+      "Použije základní inicializaci pro právě připravovaný objekt",
+      "Vymaže odvozené atributy"
+    ],
+    "answer": 1,
+    "why": "Super naváže volání na stejnou instanci; v našem řetězci použije inicializátor základní třídy."
+  },
+  {
+    "q": "Spustí se základní __init__ automaticky, když odvozená třída definuje svůj vlastní?",
+    "options": [
+      "Ne, potřebnou základní inicializaci zavoláme sami",
+      "Ano, vždy před první řádkou",
+      "Ano, ale až po skončení programu"
+    ],
+    "answer": 0,
+    "why": "Vlastní __init__ určuje své tělo. Pokud potřebujeme chování základu, výslovně ho zavoláme."
+  },
+  {
+    "q": "Proč rozšířený popis sestavit z výsledku super().popis()?",
+    "options": [
+      "Aby se nemusela vytvářet instance",
+      "Aby se nikdy nepoužíval self",
+      "Aby odvozený popis využíval i pozdější změnu základní implementace"
+    ],
+    "answer": 2,
+    "why": "Opisování základního textu do potomka by tuto spolupráci nezachovalo."
+  }
+]

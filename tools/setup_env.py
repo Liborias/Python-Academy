@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parent.parent
 PACKAGES = {
     "priprava": [],
     "zaklady": [],
+    "oop": [],
     "soubory-web": ["requests", "beautifulsoup4"],
     "pygame-1": ["pygame-ce"],
     "turtle-oop": ["requests"],

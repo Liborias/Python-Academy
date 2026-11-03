@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená class Pes(Zvire)?",
+    "options": [
+      "Pes je hotová instance Zvire",
+      "Zvire dědí ze Pes",
+      "Pes je odvozená třída se základem Zvire"
+    ],
+    "answer": 2,
+    "why": "Název základní třídy píšeme do závorek za názvem odvozené třídy."
+  },
+  {
+    "q": "Co se stane, když Pes přepíše metodu pozdrav?",
+    "options": [
+      "Změní se chování Pes, původní Zvire si zachová svou metodu",
+      "Přepíše se soubor se základní třídou",
+      "Všechny instance Zvire začnou štěkat"
+    ],
+    "answer": 0,
+    "why": "Metodu vybíráme podle skutečného objektu. Přepis nemění definici základní třídy."
+  },
+  {
+    "q": "Jaké tvrzení o Pes a Zvire je správné?",
+    "options": [
+      "Každé Zvire je Pes",
+      "Instance Pes je zároveň instancí Zvire",
+      "Instance Pes nemůže mít jméno"
+    ],
+    "answer": 1,
+    "why": "Odvozená třída představuje specializovaný druh základního typu."
+  }
+]

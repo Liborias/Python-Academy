@@ -7,6 +7,11 @@ PROFILES = {
         'verify': 'import sys; print(sys.executable); print(sys.version)',
         'system': 'Stačí Python a terminál. Git nainstalujete až pro modul Verzování. GitHub účet ani server nejsou potřeba pro první lekce.',
     },
+    'oop': {
+        'focus': 'Samostatný OOP kurz je zatím koncept. Pro budoucí konzolové příklady bude stačit standardní knihovna Pythonu.',
+        'verify': 'import sys; print(sys.executable); print(sys.version)',
+        'system': 'Nepotřebujete Turtle, Pygame, grafické prostředí, Docker ani účet u externí služby. Nejprve zvládněte základní funkce a datové struktury. Výukové lekce a projekt tohoto kurzu zatím nejsou vytvořené.',
+    },
     'zaklady': {
         'focus': 'Čistý Python: proměnné, cykly a funkce. Žádné další pip balíčky nejsou potřeba.',
         'verify': 'import sys; print(sys.executable); print(2 + 3)',

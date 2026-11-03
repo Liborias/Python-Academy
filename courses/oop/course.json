@@ -1,0 +1,15 @@
+{
+  "id": "oop",
+  "title": "Objektově orientované programování v praxi",
+  "requires_packages": [],
+  "modules": [],
+  "learning_plan": {
+    "title": "OOP v praxi: Chytré expediční centrum",
+    "status": "concept",
+    "level": 3,
+    "summary": "Samostatný kurz objektového programování bez Turtle a her. Od první instance k aplikaci, která spravuje objednávky, zásoby a doručení.",
+    "placement": "Po Základech Pythonu; nezávisle na Turtle a grafických kurzech.",
+    "difficulty_reason": "Začátek od 2/4, celý kurz 3/4: samostatný návrh spolupracujících objektů, pravidla stavu, dědění a testy.",
+    "duration": "Návrh 20 lekcí, přibližně 10–14 hodin včetně procvičování."
+  }
+}

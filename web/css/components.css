@@ -43,3 +43,10 @@
 .prep-instructions p{margin:10px 0}.prep-check{display:flex;gap:8px;align-items:baseline}
 .setup-course{margin:24px 0;padding-bottom:24px;border-bottom:1px solid var(--line)}
 .prep-content pre,.prep-instructions pre{max-width:100%;min-width:0}.prep-options label{min-width:0;max-width:100%}
+
+.learning-plan{margin:24px 0;padding:20px;border:1px solid var(--accent);border-radius:14px;background:var(--surface);min-width:0}
+.learning-plan>.meta{margin:0 0 10px}.learning-plan h2{font-size:1.35rem;margin:0 0 12px}
+.learning-plan-lead{color:var(--muted);max-width:75ch}.learning-plan-facts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:16px 0;font-size:.94rem}
+.learning-plan details>summary{cursor:pointer;color:var(--accent);font-weight:600}.learning-plan .prose{max-width:80ch}
+.learning-plan .prose p,.learning-plan .prose li{overflow-wrap:anywhere}
+@media(max-width:620px){.learning-plan-facts{grid-template-columns:1fr;gap:10px}.learning-plan{padding:16px}}

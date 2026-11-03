@@ -1,4 +1,5 @@
 import { api } from './api.js';
+import { markdown } from './markdown.js';
 import { renderPreparation } from './preparation.js';
 import { doneCount, isDone } from './store.js';
 import { esc, stars, STATUS } from './util.js';
@@ -11,6 +12,7 @@ const byId = (list, id) => list.find((c) => c.id === id);
 
 function card(c, all) {
   const done = doneCount(c.id);
+  const outlineOnly = c.status === 'concept' && c.lessons === 0;
   const pct = c.lessons ? Math.round((100 * done) / c.lessons) : 0;
   const rec = c.doporuceno.map((id) => byId(all, id)?.title).filter(Boolean);
   return `<a class="card" href="#/kurz/${esc(c.id)}">
@@ -18,8 +20,8 @@ function card(c, all) {
     <h2>${esc(c.title)}</h2>
     <p>${esc(c.summary)}</p>
     ${rec.length ? `<p style="font-size:.82rem">Hodí se znát: ${esc(rec.join(', '))}</p>` : ''}
-    <div class="bar" aria-hidden="true"><i style="width:${pct}%"></i></div>
-    <div class="meta"><span>${done} / ${c.lessons} lekcí</span></div>
+    ${outlineOnly ? `<div class="meta"><span>Plán ${esc(c.planned_lessons)} lekcí · zatím pouze návrh</span></div>` : `<div class="bar" aria-hidden="true"><i style="width:${pct}%"></i></div>
+    <div class="meta"><span>${done} / ${c.lessons} lekcí</span></div>`}
   </a>`;
 }
 
@@ -51,15 +53,26 @@ export async function renderCourse(el, id) {
   try { course = await api(`/api/course?id=${encodeURIComponent(id)}`); } catch { /* bez obsahu */ }
   const rec = c.doporuceno.map((rid) => byId(all, rid)).filter(Boolean);
   const total = course.modules.reduce((n, m) => n + m.lessons.length, 0);
+  const outlineOnly = c.status === 'concept' && total === 0;
+  const plan = course.learning_plan;
+  const learningPanel = plan ? `<section class="learning-plan" aria-labelledby="learning-plan-title">
+    <div class="meta">${stars(plan.level)}<span class="badge concept">Koncept samostatného kurzu · zatím bez realizace</span></div>
+    <h2 id="learning-plan-title">${esc(plan.title)}</h2>
+    <p class="learning-plan-lead">${esc(plan.summary)}</p>
+    <div class="learning-plan-facts"><p><strong>Náročnost ${esc(plan.level)}/4:</strong> ${esc(plan.difficulty_reason)}</p>
+      <p><strong>Zařazení:</strong> ${esc(plan.placement)} ${esc(plan.duration)}</p></div>
+    <details><summary>Prohlédnout plán samostatného kurzu</summary><article class="prose">${markdown(plan.md || '')}</article></details>
+  </section>` : '';
   const mods = course.modules.map((m) => `<section class="mod"><h3>${esc(m.title)}</h3><ol>${m.lessons.map((l) =>
     `<li class="${isDone(id, l.id) ? 'done' : ''}"><a href="#/kurz/${esc(id)}/${esc(l.id)}"><span class="n">${esc(l.n)}</span><span>${esc(l.title)}</span><span class="ck" aria-label="splněno">✓</span></a></li>`).join('')}</ol></section>`).join('');
   el.innerHTML = `<div class="crumbs"><a href="#/">Přehled</a> › ${esc(c.title)}</div>
     <h1>${esc(c.title)}</h1>
-    <div class="meta" style="margin-top:12px">${stars(c.level)}<span class="badge ${esc(c.status)}">${STATUS[c.status]}</span><span>${total || c.lessons} lekcí</span></div>
+    <div class="meta" style="margin-top:12px">${stars(c.level)}<span class="badge ${esc(c.status)}">${STATUS[c.status]}</span><span>${outlineOnly ? `plán ${esc(c.planned_lessons)} lekcí` : `${total || c.lessons} lekcí`}</span></div>
     <p class="lead">${esc(c.summary)}</p>
     ${rec.length ? `<div class="note"><strong>Tip, ne podmínka.</strong> Půjde se vám snáz, když znáte: ${rec.map((r) => `<a class="chip" href="#/kurz/${esc(r.id)}">${esc(r.title)}</a>`).join(' ')}. Můžete ale začít rovnou tady.</div>` : ''}
+    ${learningPanel}
     <details class="course-preparation" open><summary>Příprava pro tento podkurz</summary><section class="prep-content"></section></details>
-    ${c.status === 'concept' ? '<div class="note"><strong>Koncept podkurzu.</strong> Lekce níže jsou návrh s cíli, praktickými kroky a vlastním ověřením. Nejde o hotový kurz s automatickými kontrolami instalace.</div>' : ''}
-    ${mods || '<div class="empty">Lekce tohoto podkurzu se připravují.</div>'}`;
+    ${c.status === 'concept' ? (outlineOnly ? '<div class="note"><strong>Zatím pouze návrh.</strong> Samostatný kurz má připravenou osnovu a pojetí projektu. Výukové lekce ani projekt se zatím neimplementují.</div>' : '<div class="note"><strong>Koncept podkurzu.</strong> Lekce níže jsou návrh s cíli, praktickými kroky a vlastním ověřením. Nejde o hotový kurz s automatickými kontrolami instalace.</div>') : ''}
+    ${mods || `<div class="empty">${outlineOnly ? 'Osnovu najdete v panelu výše. Výukové lekce zatím nejsou vytvořené.' : 'Lekce tohoto podkurzu se připravují.'}</div>`}`;
   await renderPreparation(el.querySelector('.prep-content'), id);
 }

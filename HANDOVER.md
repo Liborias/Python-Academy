@@ -1,5 +1,8 @@
 # Předávací dokument: Dílna Pythonu
 
+> **Aktuální v0.39:** Původní Turtle/OOP pokračuje lekcemi 21–24 (pravidla stavu, property, dědění, super), celkem 24/40. Nově je v katalogu **samostatný koncept OOP** s id `oop`, plán 20 lekcí a obtížnost 3/4, nezávislý na Turtle a hrách. Praktické téma je Chytré expediční centrum, text v courses/oop/plan.md, panel zatím bez výukové implementace. Uživatel výslovně upřesnil: stávající OOP lekce ponechat a nový kurz pouze navrhnout. Nepřesouvat dosavadní obsah a nový koncept zatím neimplementovat. Pracovat v `/workspace/Python-Academy`, změny doručovat přes GitHub/main, bez ZIPů. Ověřeno: 101 testů OK, validátor 119 lekcí bez chyb a 4 prohlížečové testy OK. Viz poslední STATUS.md.
+
+
 > **Aktuální v0.38:** Uživatel obnovil pokračování Turtle/OOP/Snake. Nový modul m03 má lekce 17–20 (instance, konstruktor, metody/stav, vlastní seznamy), celkem 20/40 lekcí kurzu. Další dávka: zapouzdření a dědění/super(); Snake zatím nevznikl. Obsahové názvy prvních ukázek jsou v example_title místo tlačítka „Původní ukázka“, id original zůstává. Doplněna ICO favicona vedle SVG a verze odkazů. Ověřeno: 95 testů OK, validátor 115 lekcí bez chyb, prohlížečové testy OOP a ukázek OK. Viz poslední STATUS.md. Pracovat v `/workspace/Python-Academy`, změny doručovat přes GitHub/main, nevytvářet ZIPy. Historický zákaz pokračování tohoto kurzu níže je překonán nynějším zadáním; jiné kurzy zůstávají mimo rozsah.
 
 

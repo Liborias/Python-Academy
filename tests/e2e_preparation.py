@@ -21,7 +21,7 @@ try:
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.goto(f'{base}?t={server.token}')
         page.wait_for_selector('.card')
-        assert page.locator('.card').count() == 9
+        assert page.locator('.card').count() == 10
         assert page.locator('.card').first.get_attribute('href') == '#/kurz/priprava'
         assert 'Koncept' in page.locator('.card').first.inner_text()
         catalog = json.loads((ROOT / 'courses/catalog.json').read_text())['courses']
@@ -73,7 +73,7 @@ try:
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'mobil bez vodorovného posunu'
         assert not errors, errors
         browser.close()
-    print('OK: úvodní koncept, všech 9 profilů, 3 systémy × 3 editory, uložení voleb a checklistů, dokumenty a mobil')
+    print('OK: úvodní koncept, všech 10 profilů, 3 systémy × 3 editory, uložení voleb a checklistů, dokumenty a mobil')
 finally:
     server.runs.stop_all()
     server.shutdown()

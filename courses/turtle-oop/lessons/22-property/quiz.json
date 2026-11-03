@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak čteme property teplota?",
+    "options": [
+      "t.teplota()",
+      "t.teplota",
+      "Teplomer(teplota)"
+    ],
+    "answer": 1,
+    "why": "Getter se spustí při přístupu k atributu, bez závorek."
+  },
+  {
+    "q": "Proč getter vrací self._teplota místo self.teplota?",
+    "options": [
+      "Druhá varianta by getter znovu zavolala",
+      "Property nesmí vracet čísla",
+      "Podtržítko zrychluje procesor"
+    ],
+    "answer": 0,
+    "why": "Čtením stejné veřejné property uvnitř jejího getteru bychom spustili opakované volání až do chyby."
+  },
+  {
+    "q": "Proč se vypočítaný Fahrenheit mění spolu s teplotou?",
+    "options": [
+      "Python mění všechny atributy automaticky",
+      "Protože se ukládá do globální proměnné",
+      "Getter jej z aktuální teploty znovu vypočítá při čtení"
+    ],
+    "answer": 2,
+    "why": "Vypočítaná property nemusí udržovat druhou uloženou hodnotu; vrátí nový výsledek getteru."
+  }
+]

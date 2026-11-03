@@ -21,6 +21,18 @@
       "summary": "Proměnné, podmínky, seznamy, cykly, funkce, slovníky, ladění."
     },
     {
+      "id": "oop",
+      "title": "Objektově orientované programování v praxi",
+      "level": 3,
+      "lessons": 0,
+      "planned_lessons": 20,
+      "doporuceno": [
+        "zaklady"
+      ],
+      "status": "concept",
+      "summary": "Koncept samostatného kurzu: třídy, spolupráce objektů, property, dědění a testy na praktickém expedičním centru."
+    },
+    {
       "id": "soubory-web",
       "title": "Soubory a web scraping",
       "level": 2,

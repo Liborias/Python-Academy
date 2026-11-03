@@ -41,6 +41,8 @@ def course_view(courses_dir: Path, cid: str) -> dict:
             meta = _json(base / "lessons" / lid / "lesson.json", {})
             out.append({"id": lid, "n": n, "title": meta.get("title", lid), "minutes": meta.get("minutes")})
         m["lessons"] = out
+    if isinstance(c.get("learning_plan"), dict):
+        c["learning_plan"]["md"] = _read(base / "plan.md")
     return c
 
 

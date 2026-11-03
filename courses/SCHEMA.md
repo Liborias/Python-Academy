@@ -117,3 +117,15 @@ API jej vrací pod stejným názvem; bez pole použije název lekce. Přepínač
 obsahový název, interní id původního příkladu však zůstává `original`, aby se
 zachoval rozepsaný kód v prohlížeči. Toto pole nepřidává novou variantu ani
 nemění počty příkladů/úkolů.
+
+## Plán samostatného kurzu bez výukových lekcí (v0.39)
+Katalogový záznam může mít `status: concept`, `lessons: 0` a `planned_lessons`
+s počtem navržených lekcí. Karta pak ukazuje plán, nikoli průběh 0/0 nebo hotové
+lekce. Course.json má prázdné modules a objekt learning_plan (title, level,
+summary, placement, difficulty_reason, duration). Text plánu je ve fixním souboru
+plan.md vedle course.json; API course jej přidá jako learning_plan.md.
+
+Web zobrazí samostatný rozbalitelný panel plánu. Nespouští kód a neoznačuje nic
+za splněné. OOP má vlastní id oop a profil přípravy; nový kurz zatím neobsahuje
+žádné programové lekce. Dosavadní lekce v turtle-oop se nemigrují a jejich id
+ani uložený postup se nemění.

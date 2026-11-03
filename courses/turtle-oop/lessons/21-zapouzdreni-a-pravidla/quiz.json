@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co vyjadřuje jedno podtržítko v _zustatek?",
+    "options": [
+      "Dohodu, že jde o vnitřní údaj",
+      "Zákaz čtení v Pythonu",
+      "Automatické šifrování"
+    ],
+    "answer": 0,
+    "why": "Jedno podtržítko je konvence pro spolupráci. Jazyk úmyslnému přístupu nebrání."
+  },
+  {
+    "q": "Kdy ověřit, že výběr nepřekročí zůstatek?",
+    "options": [
+      "Až po odečtení",
+      "Před změnou stavu",
+      "Jen při spuštění aplikace"
+    ],
+    "answer": 1,
+    "why": "Raise nevrací provedená přiřazení automaticky zpět. Nejprve ověříme, potom měníme."
+  },
+  {
+    "q": "Co je zde příkladem abstrakce?",
+    "options": [
+      "Volající zná každý vnitřní atribut",
+      "Každá metoda pouze vypisuje",
+      "Volající použije vyber(castka) a spoléhá na jeho popsané chování"
+    ],
+    "answer": 2,
+    "why": "Rozhraní říká, co operace dělá, a skrývá detaily jejího provedení."
+  }
+]

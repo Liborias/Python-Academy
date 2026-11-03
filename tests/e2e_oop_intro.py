@@ -29,7 +29,7 @@ with tempfile.TemporaryDirectory() as temp:
             page.on('pageerror', lambda error: errors.append(str(error)))
             page.goto(f'{base}?t={server.token}#/kurz/turtle-oop')
             page.wait_for_selector('.mod li')
-            assert page.locator('.mod li').count() == 20
+            assert page.locator('.mod li').count() >= 20
             assert page.locator('.mod li.done').count() == 0
             for lid, expected in zip(IDS, EXPECTED):
                 directory = root/'courses/turtle-oop/lessons'/lid

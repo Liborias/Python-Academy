@@ -85,8 +85,8 @@ Okno a smyčka · barvy a tvary · obrázky · fonty · zvuky a hudba · kláves
 Mini-hra **Sběratel hvězd**: raketa sbírá hvězdy, skóre, zvuk (náhrada za „dýně“).
 
 ### C. Turtle, OOP a hra Snake (40 lekcí)
-Stav po v0.38: 20 lekcí. Moduly m01 (želva), m02 (opakování) a m03 (základní OOP) jsou napsané.
-Další blok: zapouzdření, pravidla změn stavu, dědění a super(); poté další OOP nástroje a projekt Snake.
+Stav po v0.39: 24 lekcí. Moduly m01 (želva), m02 (opakování), m03 (základní OOP) a m04 (pravidla objektů, property a dědění) jsou napsané.
+Další blok: speciální metody, vztah identity a rovnosti, pořadí dědění/MRO a dataclass; poté projekt Snake.
 Konkrétní další dávka se provede na uživatelovo pokračování; ostatní podkurzy se nerozšiřují automaticky.
 
 Pořadí od nejjednoduššího: Turtle (kreslení, tuple, spirograf) · Opakování typů a řetězců („zpět k základům“) · seznamy a slicing, `set`, rozbalování · Úvod do OOP (class, konstruktor, atributy, metody) · Čtyři pilíře, dědění, `super()`, dunder metody, MRO, `@property`, `@dataclass` (novinka) · Projekty: **Snake**, kvíz s API (Open Trivia DB, s mockem).
@@ -244,3 +244,12 @@ Podkurzy celkem asi 1 175 000 tokenů, s základem **zhruba 1,3 milionu**. Je to
 - Open VSX: [Python](https://open-vsx.org/extension/ms-python/python), [Python Debugger](https://www.open-vsx.org/extension/ms-python/debugpy), [Jupyter](https://open-vsx.org/extension/ms-toolsai/jupyter), [Ruff](https://open-vsx.org/extension/charliermarsh/ruff), [BasedPyright](https://open-vsx.org/extension/detachhead/basedpyright)
 - [Gmail SMTP](https://developer.nylas.com/docs/cookbook/email/gmail-smtp-settings/)
 - [psycopg 3 vs psycopg2](https://reviews.freebsd.org/D48493)
+
+## Samostatný podkurz OOP — návrh z v0.39
+
+Uživatel si přál samostatný OOP kurz bez Turtle a her. Návrh 20 lekcí je v
+`courses/oop/plan.md`, projekt Chytré expediční centrum, celková obtížnost 3/4.
+V katalogu je pouze koncept s planned_lessons=20 a bez hotových lekcí. Zatím
+neimplementovat výukový obsah ani projekt. Na výslovné upřesnění uživatele
+zůstávají dosavadní OOP lekce v původním kombinovaném kurzu; nic nepřesouvat.
+Návrh nepřidává nové realizované lekce do původního plánu 40 lekcí Turtle/OOP.
