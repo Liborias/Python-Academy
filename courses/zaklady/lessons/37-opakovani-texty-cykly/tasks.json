@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Počet samohlásek"
+  },
+  {
+    "id": "task-3",
+    "title": "Čistá slova"
+  },
+  {
+    "id": "task-4",
+    "title": "Odstranění znaku"
+  },
+  {
+    "id": "task-5",
+    "title": "Počet dlouhých slov"
+  }
+]

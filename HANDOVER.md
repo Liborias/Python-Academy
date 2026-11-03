@@ -1,5 +1,8 @@
 # Předávací dokument: Dílna Pythonu
 
+> **Aktuální v0.37:** Uživatel chce odteď verzovat přímo v GitHubu a nevyžaduje další ZIPy. Ve 34 běžných lekcích Základů doplněny čtyři nové úkoly (136 celkem), přepínání Úkol 1–5 s vlastními zadáními, kontrolami, drafty a pracovními soubory. Původní úkoly i jejich uložená data zůstaly zachované. Značky procvičení jsou samostatné. Viz poslední STATUS.md, courses/SCHEMA.md a nový modul web/js/tasks.js. Používejte `/workspace/Python-Academy`. Nové změny určené uživateli commitovat a pushnout do main podle jeho autorizace. Původní obsahový plán je pozastaven; neprovádět historické pokyny k ZIPům níže bez nové žádosti.
+
+
 > **Git repozitář:** Projekt v0.36 je nyní vložen přímo do kořene `Liborias/Python-Academy`. V cloudu používejte existující checkout `/workspace/Python-Academy`; starší cesty do rozbalených ZIPů níže jsou historické. Změny určené pro místní `git pull` je potřeba commitnout a odeslat do tohoto repozitáře; publikace cloudového prostředí je jiný krok. Uživatel nyní výslovně autorizoval první nahrání aplikace na GitHub. Návod pro lokální kopii a korektury je v `docs/lokalni-projekt-git.md`.
 
 

@@ -1,3 +1,4 @@
+import { setupTasks } from './tasks.js';
 import { api } from './api.js';
 import { getCatalog } from './catalog.js';
 import { isDone, markDone, getChecks, setCheck } from './store.js';
@@ -37,7 +38,7 @@ export async function renderLesson(el, cid, lid) {
         <div class="ex-editor"></div>
         <div class="bar-btns"><button class="btn primary" data-act="run-ex">▶ Spustit ukázku</button><button class="btn" data-act="stop-ex">■ Stop</button>${multipleExamples ? '<button class="btn" data-act="reset-ex">Obnovit příklad</button>' : ''}</div>
         <div class="ex-console"></div></section>` : ''}
-      ${lesson.exercise ? `<section class="block"><h2>Váš úkol</h2><div class="editor"></div>
+      ${lesson.exercise ? `<section class="block"><h2>Váš úkol</h2><div class="bar-btns task-switch" role="group" aria-label="Výběr úkolu"></div><div class="prose task-description"></div><div class="editor"></div>
         <div class="bar-btns">
           <button class="btn primary" data-act="run">▶ Spustit</button>
           <button class="btn" data-act="stop">■ Stop</button>
@@ -123,44 +124,7 @@ export async function renderLesson(el, cid, lid) {
   // úkol
   let ed = null, con = null;
   if (lesson.exercise) {
-    const key = `dilna-code-${cid}-${lid}`;
-    let saved = null; try { saved = localStorage.getItem(key); } catch { /* ignoruj */ }
-    ed = createEditor(el.querySelector('.editor'), saved ?? lesson.exercise, {
-      onChange: (v) => { try { localStorage.setItem(key, v); } catch { /* ignoruj */ } } });
-    con = makeConsole(el.querySelector('.run-console'));
-    const res = el.querySelector('.results');
-    const act = {
-      run: () => con.run(ed.get(), gui ? 600 : 20, { course: cid, lesson: lid }),
-      stop: () => con.stop(),
-      reset: () => { if (confirm('Vrátit zadání do původní podoby? Váš kód se přepíše.')) ed.set(lesson.exercise); },
-      check: async () => {
-        res.textContent = 'Kontroluji…';
-        try {
-          const r = await api('/api/check', { course: cid, lesson: lid, code: ed.get() });
-          renderResults(res, r);
-          if (r.ok) done(true);
-        } catch (e) { renderResults(res, { error: e.message }); }
-      },
-      vsc: async () => {
-        try {
-          const r = await api('/api/workspace/open', { course: cid, lesson: lid, code: ed.get() });
-          hint.innerHTML = r.opened
-            ? `Soubor je otevřený ve VSCodium: <code>${esc(r.path)}</code>. Po uložení tam klikněte na „Načíst ze souboru“.`
-            : `VSCodium se nepodařilo spustit automaticky (příkaz <code>codium</code> není v PATH). Otevřete soubor ručně: <code>${esc(r.path)}</code>`;
-        } catch (e) { hint.textContent = e.message; }
-      },
-      reload: async () => {
-        try {
-          const r = await api(`/api/workspace?course=${cid}&lesson=${lid}`);
-          if (!r.exists) { hint.textContent = 'Soubor ještě neexistuje. Nejdřív klikněte na „Otevřít ve VSCodium“.'; return; }
-          ed.set(r.code); hint.textContent = 'Načteno ze souboru.';
-        } catch (e) { hint.textContent = e.message; }
-      },
-    };
-    el.querySelector('.editor').parentElement.addEventListener('click', (e) => {
-      const b = e.target.closest('[data-act]'); if (b && act[b.dataset.act]) act[b.dataset.act]();
-    });
-    ed.onRun(act.run);
+    con = setupTasks(el, lesson, cid, lid, gui, done);
   }
 
   renderQuiz(el.querySelector('.quiz'), lesson.quiz || [], () => { if (!lesson.has_check) done(true); });

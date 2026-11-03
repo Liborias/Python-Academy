@@ -55,17 +55,26 @@ def lesson_view(courses_dir: Path, cid: str, lid: str) -> dict | None:
             "minutes": meta.get("minutes"), "md": _read(d / "lesson.md"), "example": _read(d / "example.py"),
             "examples": _json(d / "examples.json", []),
             "exercise": _read(d / "exercise.py"), "quiz": _json(d / "quiz.json", []),
-            "has_check": (d / "check.py").is_file()}
+            "has_check": (d / "check.py").is_file(),
+            "tasks": [{"id": task["id"], "title": task["title"],
+                       "md": _read(d / "tasks" / task["id"] / "exercise.md"),
+                       "exercise": _read(d / "tasks" / task["id"] / "exercise.py")}
+                      for task in _json(d / "tasks.json", [])]}
 
 
-def workspace_file(root: Path, cid: str, lid: str) -> Path | None:
+def workspace_file(root: Path, cid: str, lid: str, task: str | None = None) -> Path | None:
     if not (ID_RE.match(cid or "") and ID_RE.match(lid or "")):
         return None
-    return Path(root) / "workspace" / cid / lid / "reseni.py"
+    base = Path(root) / "workspace" / cid / lid
+    if task not in (None, "", "task-1"):
+        if not isinstance(task, str) or task not in {"task-2", "task-3", "task-4", "task-5"}:
+            return None
+        base = base / "tasks" / task
+    return base / "reseni.py"
 
 
-def save_workspace(root: Path, cid: str, lid: str, code: str, files: Path | None = None) -> Path | None:
-    f = workspace_file(root, cid, lid)
+def save_workspace(root: Path, cid: str, lid: str, code: str, files: Path | None = None, task: str | None = None) -> Path | None:
+    f = workspace_file(root, cid, lid, task)
     if f is None or not isinstance(code, str) or len(code) > 200_000:
         return None
     f.parent.mkdir(parents=True, exist_ok=True)

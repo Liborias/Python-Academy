@@ -85,3 +85,28 @@ ve `files/` tři samostatné výukové soubory. Průvodce je nespouští automat
 student je zkopíruje podle návodu do vlastní složky a spustí je v terminálu.
 Jejich skutečný běh a odmítání neplatných požadavků ověřuje `tests/test_token_lesson.py`.
 Zobrazované pořadí pochází z course.json, id dřívějších lekcí se kvůli vložení neměnila.
+
+## Přepínatelné úkoly (v0.37)
+Původní exercise.py, check.py a solution.py zůstávají v kořeni lekce jako Úkol 1.
+Volitelný `tasks.json` obsahuje čtyři položky `{"id":"task-2","title":"Pozdrav a součet"}`
+až po task-5. Jejich obsah leží v `tasks/<id>/exercise.md`, `exercise.py`,
+`check.py` a `solution.py`. Zadání musí uvádět vstupy, očekávané výstupy nebo
+návratové hodnoty a doménu platných vstupů. Checker má ověřovat více případů a
+mezní hodnoty, aniž by odmítal správné alternativní řešení.
+
+API lesson vrací pole tasks s id, title, md a exercise; kontroly a řešení nezveřejňuje.
+API check/run/workspace/open/save přijímá volitelné pole task. GET workspace má
+stejnojmenný parametr. Vynechání nebo task-1 používá původní chování.
+Ostatní id mimo task-2 až task-5 se odmítají; vybraná kontrola musí existovat.
+Pracovní soubor původního úkolu se nemění, další jsou v
+`workspace/<kurz>/<lekce>/tasks/<task-id>/reseni.py`.
+
+Web zachovává původní localStorage klíč kódu pro Úkol 1. Nové úkoly mají vlastní
+klíče, vlastní značky úspěšného procvičení a oddělené výsledky kontrol. Úspěch
+nového úkolu automaticky neoznačuje původní úkol za splněný. Pozdní odpověď nesmí
+přepsat právě vybraný úkol ani hodnotit mezitím upravený kód. Přepnutí zastaví
+běžící program a vyčistí jeho výstup.
+
+Validátor provede vzorové řešení i výchozí šablonu každého dalšího úkolu. Řešení
+musí projít, šablona nesmí; chyba samotného kontrolního procesu není řádné
+odmítnutí šablony. Rozsah aktuálně odpovídá 34 lekcím s examples.json.

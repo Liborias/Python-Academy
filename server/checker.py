@@ -14,10 +14,14 @@ ID_RE = re.compile(r"^[a-z0-9][a-z0-9-]{0,63}$")
 CHECK_TIMEOUT = 30
 
 
-def lesson_dir(courses_dir: Path, course: str, lesson: str) -> Path | None:
+def lesson_dir(courses_dir: Path, course: str, lesson: str, task: str | None = None) -> Path | None:
     if not (ID_RE.match(course or "") and ID_RE.match(lesson or "")):
         return None
     d = Path(courses_dir) / course / "lessons" / lesson
+    if task not in (None, "", "task-1"):
+        if not isinstance(task, str) or task not in {"task-2", "task-3", "task-4", "task-5"}:
+            return None
+        d = d / "tasks" / task
     return d if (d / "check.py").is_file() else None
 
 

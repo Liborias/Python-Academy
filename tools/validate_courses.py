@@ -154,6 +154,38 @@ def run_gui_example(d: Path, ex: Path):
         err(d.name, "example.py (pygame) nic nenakreslil")
 
 
+def validate_tasks(d: Path, work: Path):
+    manifest = d / "tasks.json"
+    if not manifest.exists():
+        return
+    try:
+        tasks = json.loads(manifest.read_text("utf-8"))
+    except ValueError:
+        return err(d.name, "tasks.json není platný JSON")
+    if not isinstance(tasks, list):
+        return err(d.name, "tasks.json musí být seznam")
+    ids = set()
+    for task in tasks:
+        if not isinstance(task, dict) or not isinstance(task.get("id"), str) or task.get("id") not in {"task-2", "task-3", "task-4", "task-5"} or not task.get("title"):
+            err(d.name, "neplatná metadata úkolu")
+            continue
+        tid = task["id"]
+        if tid in ids:
+            err(d.name, "duplicitní úkol")
+        ids.add(tid)
+        directory = d / "tasks" / tid
+        label = f"{d.name}/{tid}"
+        if any(not (directory / name).is_file() for name in ("exercise.md", "exercise.py", "solution.py", "check.py")):
+            err(label, "chybí zadání, šablona, řešení nebo kontrola")
+            continue
+        if not (directory / "exercise.md").read_text("utf-8").strip():
+            err(label, "prázdné zadání")
+        for name, expected in (("solution.py", True), ("exercise.py", False)):
+            result = run_check(directory, (directory / name).read_text("utf-8"), ROOT / "lib", work)
+            if bool(result.get("ok")) != expected or result.get("error"):
+                err(label, f"{name}: " + str(result))
+
+
 def validate_lesson(cdir: Path, lid: str, work: Path):
     d = cdir / "lessons" / lid
     if not ID_RE.match(lid): return err(lid, "neplatné id lekce")
@@ -195,6 +227,7 @@ def validate_lesson(cdir: Path, lid: str, work: Path):
             err(lid, f"quiz.json není platný JSON: {e}")
     run_example(d, meta.get("kind", "console"))
     validate_extra_examples(d)
+    validate_tasks(d, work)
     sol = run_check(d, (d / "solution.py").read_text("utf-8"), ROOT / "lib", work)
     if not sol.get("ok"):
         err(lid, "VZOROVÉ ŘEŠENÍ NEPROŠLO: " + (sol.get("error") or "; ".join(f"{r['name']} ({r['msg']})" for r in sol.get("results", []) if not r["ok"])))

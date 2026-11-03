@@ -25,3 +25,12 @@ export function applyTheme() {
 // Zaškrtnuté položky kontrolního seznamu (příprava prostředí)
 export const getChecks = () => mem.checks || {};
 export function setCheck(id, on) { mem.checks = { ...(mem.checks || {}), [id]: on ? 1 : 0 }; save(); }
+
+// Procvičovací úkoly se evidují samostatně, staré označení lekcí se nemění.
+export const isTaskDone = (course, lesson, task) => !!mem.tasks?.[course]?.[lesson]?.[task];
+export function markTaskDone(course, lesson, task) {
+  const courses = (mem.tasks ||= {});
+  const lessons = (courses[course] ||= {});
+  (lessons[lesson] ||= {})[task] = 1;
+  save();
+}

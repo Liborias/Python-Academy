@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Oprava minima"
+  },
+  {
+    "id": "task-3",
+    "title": "Oprava průměru"
+  },
+  {
+    "id": "task-4",
+    "title": "Oprava posledního prvku"
+  },
+  {
+    "id": "task-5",
+    "title": "Oprava počtu"
+  }
+]

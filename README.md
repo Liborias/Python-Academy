@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.36):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), Soubory a web (22), Pygame 1 (18), Turtle/OOP (16 ze 40). Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.37):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), Soubory a web (22), Pygame 1 (18), Turtle/OOP (16 ze 40). Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -37,6 +37,16 @@ Každý podkurz včetně plánovaných má před lekcemi přípravu s volbou sys
 seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená stránka Příprava prostředí
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
+
+## Pět úkolů na procvičení
+V běžných lekcích Základů (01–31 a 37–39) přepínají tlačítka **Úkol 1 až Úkol 5**
+mezi původním úkolem a čtyřmi novými. Každý má vlastní zadání, rozepsaný kód,
+kontrolu a pracovní soubor pro externí editor. Nových úkolů je celkem 136.
+Úkol 1 zachovává původní uložený kód i návaznost na splnění lekce. Nové úkoly mají
+vlastní značky úspěšného procvičení. „Začít znovu“ obnoví jen právě vybraný úkol.
+Mini-projekty 32–36, závěrečný test 40 a ostatní kurzy zůstávají beze změn.
+
+Další verze doručujeme přímo přes GitHub; ZIP není potřeba.
 
 ## Další příklady v Základech
 V lekcích 01–31 a 37–39 jsou nad editorem ukázky tři tlačítka: původní ukázka

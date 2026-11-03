@@ -10,7 +10,7 @@ export function makeConsole(box, { onDone } = {}) {
     <div class="status" aria-live="polite"></div>`;
   const out = box.querySelector('.out'), form = box.querySelector('.stdin'),
         inp = form.querySelector('input'), status = box.querySelector('.status');
-  let id = null, since = 0, timer = null;
+  let id = null, since = 0, timer = null, generation = 0;
   const api_ = { running: false };
 
   const add = (ch, text) => {
@@ -26,15 +26,16 @@ export function makeConsole(box, { onDone } = {}) {
     status.textContent = msg; status.className = 'status ' + (p.exit === 0 && !p.timed_out ? 'ok' : 'bad');
     onDone && onDone(p);
   };
-  const poll = async () => {
-    if (!id) return;
+  const poll = async (version) => {
+    if (!id || version !== generation) return;
     try {
       const p = await api(`/api/run/poll?id=${id}&since=${since}`);
+      if (version !== generation) return;
       since = p.next;
       p.chunks.forEach((c) => add(c.ch, c.text));
       if (p.done) return finish(p);
-    } catch (e) { api_.running = false; status.textContent = e.message; status.className = 'status bad'; return; }
-    timer = setTimeout(poll, 80);
+    } catch (e) { if (version !== generation) return; api_.running = false; status.textContent = e.message; status.className = 'status bad'; return; }
+    timer = setTimeout(() => poll(version), 80);
   };
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -45,14 +46,27 @@ export function makeConsole(box, { onDone } = {}) {
 
   api_.run = async (code, timeout = 20, ctx = {}) => {
     api_.stop();
+    const version = ++generation;
     out.textContent = ''; status.textContent = 'Běží…'; status.className = 'status';
     since = 0; form.hidden = false; api_.running = true;
     try {
-      id = (await api('/api/run', { code, timeout, course: ctx.course, lesson: ctx.lesson })).id;
-      poll();
-    } catch (e) { api_.running = false; form.hidden = true; status.textContent = e.message; status.className = 'status bad'; }
+      const run = await api('/api/run', { code, timeout, course: ctx.course, lesson: ctx.lesson, task: ctx.task });
+      if (version !== generation) { api('/api/run/stop', { id: run.id }).catch(() => {}); return; }
+      id = run.id;
+      poll(version);
+    } catch (e) { if (version !== generation) return; api_.running = false; form.hidden = true; status.textContent = e.message; status.className = 'status bad'; }
   };
-  api_.stop = () => { if (id) { api('/api/run/stop', { id }).catch(() => {}); } };
+  api_.stop = () => {
+    generation += 1;
+    clearTimeout(timer);
+    const previousId = id;
+    id = null;
+    if (api_.running) { status.textContent = 'Zastaveno.'; status.className = 'status'; }
+    api_.running = false; form.hidden = true;
+    if (previousId) api('/api/run/stop', { id: previousId }).catch(() => {});
+  };
+  api_.clear = () => { api_.stop(); out.textContent = ''; status.textContent = ''; };
+
   return api_;
 }
 

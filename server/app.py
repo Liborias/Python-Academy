@@ -108,7 +108,7 @@ class Handler(SimpleHTTPRequestHandler):
             if not self._guard(True):
                 return
             q = parse_qs(u.query)
-            f = content.workspace_file(self.root, (q.get("course") or [""])[0], (q.get("lesson") or [""])[0])
+            f = content.workspace_file(self.root, (q.get("course") or [""])[0], (q.get("lesson") or [""])[0], (q.get("task") or [None])[0])
             if f is None:
                 return self._json(404, {"error": "Neplatná lekce."})
             return self._json(200, {"exists": f.is_file(), "code": content._read(f), "path": str(f)})
@@ -138,9 +138,13 @@ class Handler(SimpleHTTPRequestHandler):
         if body is None:
             return
         if u.path in ("/api/workspace/save", "/api/workspace/open"):
-            ld = lesson_dir(self.srv.courses_dir, str(body.get("course", "")), str(body.get("lesson", "")))
+            if content.workspace_file(self.root, str(body.get("course", "")), str(body.get("lesson", "")), body.get("task")) is None:
+                return self._json(400, {"error": "Neplatná lekce nebo úkol."})
+            ld = lesson_dir(self.srv.courses_dir, str(body.get("course", "")), str(body.get("lesson", "")), body.get("task"))
+            if ld is None:
+                return self._json(404, {"error": "Úkol neexistuje."})
             f = content.save_workspace(self.root, str(body.get("course", "")), str(body.get("lesson", "")), body.get("code", ""),
-                                       ld / "files" if ld else None)
+                                       ld / "files" if ld else None, task=body.get("task"))
             if f is None:
                 return self._json(400, {"error": "Neplatná lekce nebo kód."})
             res = {"path": str(f), "saved": True}
@@ -148,7 +152,7 @@ class Handler(SimpleHTTPRequestHandler):
                 res.update(content.open_in_editor(f))
             return self._json(200, res)
         if u.path == "/api/check":
-            d = lesson_dir(self.srv.courses_dir, str(body.get("course", "")), str(body.get("lesson", "")))
+            d = lesson_dir(self.srv.courses_dir, str(body.get("course", "")), str(body.get("lesson", "")), body.get("task"))
             if d is None:
                 return self._json(404, {"error": "Lekce nebo její kontrola neexistuje."})
             with self.srv.check_sem:
@@ -156,7 +160,9 @@ class Handler(SimpleHTTPRequestHandler):
             return self._json(200, res)
         if u.path == "/api/run":
             try:
-                ld = lesson_dir(self.srv.courses_dir, str(body.get("course", "")), str(body.get("lesson", "")))
+                ld = lesson_dir(self.srv.courses_dir, str(body.get("course", "")), str(body.get("lesson", "")), body.get("task"))
+                if body.get("task") not in (None, "") and ld is None:
+                    return self._json(404, {"error": "Úkol neexistuje."})
                 run = self.srv.runs.start(body.get("code", ""), body.get("timeout", 20), body.get("stdin", ""),
                                           ld / "files" if ld else None)
             except ValueError as e:

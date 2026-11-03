@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Počty hlasů"
+  },
+  {
+    "id": "task-3",
+    "title": "Četnosti písmen"
+  },
+  {
+    "id": "task-4",
+    "title": "Četnosti délek"
+  },
+  {
+    "id": "task-5",
+    "title": "Počty slov"
+  }
+]
