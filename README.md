@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.39):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), Soubory a web (22), Pygame 1 (18), Turtle/OOP (24 ze 40). Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.40):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), Soubory a web (22), Pygame 1 (18), Turtle/OOP (28 ze 40). Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -46,7 +46,10 @@ Výukové lekce tohoto nového kurzu ani projekt zatím nevznikají; plán je ro
 v jeho panelu a také v [courses/oop/plan.md](courses/oop/plan.md).
 
 Dosavadní OOP lekce zůstávají na přání uživatele ve stávajícím kurzu Turtle/OOP/Snake.
-V rozpracované dávce přibyly lekce 21–24: zapouzdření, property, dědění a super.
+Po lekcích 21–24 (zapouzdření, property, dědění a super) přibyly lekce 25–28:
+speciální metody pro str/repr/len, identita a hodnotová rovnost, pořadí dědění (MRO)
+a dataclass s vlastním výchozím seznamem pro každou instanci. Každá má komentovanou
+ukázku, úkol s automatickou kontrolou a tři kvízové otázky. Další blok bude projekt Snake.
 
 ## Nově: začátek OOP a názvy ukázek
 Kurz Turtle, OOP a hra Snake pokračuje lekcemi 17–20: třída a instance,

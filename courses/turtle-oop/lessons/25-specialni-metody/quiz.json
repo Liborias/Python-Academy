@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co má vracet metoda __str__?",
+    "options": [
+      "Řetězec, který pak může vypsat print",
+      "Počet atributů",
+      "Nic, text vypíše sama"
+    ],
+    "answer": 0,
+    "why": "Metoda připraví text pomocí return. Výpis provede až print; návrat None by způsobil TypeError."
+  },
+  {
+    "q": "Jak se obvykle zobrazí vlastní objekt uvnitř seznamu?",
+    "options": [
+      "Pomocí __len__",
+      "Pomocí __repr__",
+      "Vždy pouze jménem proměnné"
+    ],
+    "answer": 1,
+    "why": "Reprezentace seznamu využívá repr jednotlivých prvků, takže je užitečné uvést typ i hodnoty objektu."
+  },
+  {
+    "q": "Co udělá !r ve f-řetězci?",
+    "options": [
+      "Odstraní uvozovky z textu",
+      "Převede text na číslo",
+      "Použije repr dané hodnoty"
+    ],
+    "answer": 2,
+    "why": "Repr řetězce zahrnuje uvozovky i potřebné escapování, což pomáhá při ladění."
+  }
+]

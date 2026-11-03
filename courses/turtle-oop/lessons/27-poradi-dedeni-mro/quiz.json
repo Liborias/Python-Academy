@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co ukazuje atribut třídy __mro__?",
+    "options": [
+      "Seznam jejích instancí",
+      "Pořadí hledání metod sestavené Pythonem",
+      "Pořadí posledních volání metod"
+    ],
+    "answer": 1,
+    "why": "MRO je n-tice tříd od konkrétní třídy po společný základ object. Nejde o historii běhu."
+  },
+  {
+    "q": "Kam pokračuje super() uvnitř Ramovani pro instanci Znacka(Ramovani, Zvyrazneni)?",
+    "options": [
+      "Vždy přímo do Popisek",
+      "Znovu do Znacka",
+      "Za Ramovani v MRO, tedy do Zvyrazneni"
+    ],
+    "answer": 2,
+    "why": "Super používá MRO skutečné třídy objektu. Stejná metoda proto může spolupracovat s různými dalšími třídami."
+  },
+  {
+    "q": "Proč obě větve využívají návrat super().cesta()?",
+    "options": [
+      "Aby se do výsledku přenesla i změna společného základu",
+      "Aby vytvořily novou instanci při každém kroku",
+      "Aby se základ zavolal dvakrát"
+    ],
+    "answer": 0,
+    "why": "Spolupracující metody zpracovávají výsledek následující metody pro stejnou instanci. Společný základ tak stačí jednou."
+  }
+]

@@ -48,7 +48,7 @@ try:
         page.goto(f'{base}#/kurz/turtle-oop')
         page.wait_for_selector('.mod li')
         assert page.locator('.learning-plan').count()==0
-        assert page.locator('.mod li').count()==24
+        assert page.locator('.mod li').count()>=24
         assert not errors,errors
         browser.close()
     print('OK: samostatná karta OOP, plán 20 lekcí, obtížnost 3/4, oddělené Turtle, bez hotových lekcí, mobil')

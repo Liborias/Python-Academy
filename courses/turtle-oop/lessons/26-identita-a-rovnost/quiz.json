@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Dvě samostatně vytvořené karty mají stejný kód a vlastní hodnotovou rovnost. Co může platit?",
+    "options": [
+      "a is b je True, a == b je False",
+      "a == b je True, a is b je False",
+      "Rovné objekty musí mít stejnou identitu"
+    ],
+    "answer": 1,
+    "why": "Rovnost se řídí hodnotami podle __eq__, zatímco is zjišťuje, zda jde o tentýž objekt."
+  },
+  {
+    "q": "Co vrátí __eq__, pokud druhý typ neumí porovnat?",
+    "options": [
+      "Vždy False",
+      "Vyvolá NotImplementedError",
+      "Hodnotu NotImplemented"
+    ],
+    "answer": 2,
+    "why": "NotImplemented umožní Pythonu nabídnout porovnání druhé straně. Není to výjimka."
+  },
+  {
+    "q": "Proč při porovnávání bodů čteme aktuální x a y?",
+    "options": [
+      "Změna souřadnic se má projevit v dalším porovnání",
+      "Aby se změnily oba body najednou",
+      "Aby měl každý Bod stejnou identitu"
+    ],
+    "answer": 0,
+    "why": "Hodnotová rovnost vychází ze současného stavu. Porovnání samo souřadnice nemění."
+  }
+]

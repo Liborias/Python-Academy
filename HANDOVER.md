@@ -1,5 +1,7 @@
 # Předávací dokument: Dílna Pythonu
 
+> **Aktuální v0.40:** Na uživatelovo „pokračuj“ dokončen m05 původního Turtle/OOP, lekce 25–28: speciální metody, identita/rovnost, MRO a dataclass. Kurz má 28/40 lekcí. Nový samostatný `oop` nadále pouze koncept — nepřesouvat do něj dosavadní obsah a neimplementovat ho bez nového zadání. Další blok původního kurzu je Snake (orientačně 29–36), pak kvíz/API (37–40); pracovat po dávkách přibližně čtyř lekcí. Nové kontroly zkouší 35 chybných a 8 správných alternativ, v prohlížeči ověřeny ukázky, řešení i zachování kódu a postupu. Úplné výsledky jsou v posledním STATUS.md. Pracovat v `/workspace/Python-Academy`, dodávat přes GitHub/main, bez ZIPů.
+
 > **Aktuální v0.39:** Původní Turtle/OOP pokračuje lekcemi 21–24 (pravidla stavu, property, dědění, super), celkem 24/40. Nově je v katalogu **samostatný koncept OOP** s id `oop`, plán 20 lekcí a obtížnost 3/4, nezávislý na Turtle a hrách. Praktické téma je Chytré expediční centrum, text v courses/oop/plan.md, panel zatím bez výukové implementace. Uživatel výslovně upřesnil: stávající OOP lekce ponechat a nový kurz pouze navrhnout. Nepřesouvat dosavadní obsah a nový koncept zatím neimplementovat. Pracovat v `/workspace/Python-Academy`, změny doručovat přes GitHub/main, bez ZIPů. Ověřeno: 101 testů OK, validátor 119 lekcí bez chyb a 4 prohlížečové testy OK. Viz poslední STATUS.md.
 
 

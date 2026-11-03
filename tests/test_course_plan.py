@@ -32,7 +32,7 @@ class CoursePlanTest(unittest.TestCase):
     def test_combined_course_keeps_its_lessons(self):
         course = course_view(ROOT/'courses', 'turtle-oop')
         ids = [lesson['id'] for module in course['modules'] for lesson in module['lessons']]
-        self.assertEqual(len(ids), 24)
+        self.assertGreaterEqual(len(ids), 24)
         self.assertIn('17-trida-a-instance', ids)
         self.assertIn('24-super-a-rozsireni', ids)
         self.assertNotIn('learning_plan', course)

@@ -50,6 +50,16 @@
         "23-dedeni-a-prepisovani",
         "24-super-a-rozsireni"
       ]
+    },
+    {
+      "id": "m05",
+      "title": "Speciální metody, rovnost, MRO a dataclass",
+      "lessons": [
+        "25-specialni-metody",
+        "26-identita-a-rovnost",
+        "27-poradi-dedeni-mro",
+        "28-dataclass"
+      ]
     }
   ]
 }

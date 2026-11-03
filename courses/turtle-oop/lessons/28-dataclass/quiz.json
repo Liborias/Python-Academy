@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co běžně vytvoří dekorátor @dataclass?",
+    "options": [
+      "Instalaci knihoven",
+      "Automatickou kontrolu typů za běhu",
+      "Konstruktor, repr a hodnotovou rovnost podle polí"
+    ],
+    "answer": 2,
+    "why": "Dataclass vytvoří opakující se metody. Anotace samy hodnoty nekontrolují ani nepřevádějí."
+  },
+  {
+    "q": "Proč zapisujeme field(default_factory=list) bez závorek za list?",
+    "options": [
+      "Předáváme funkci, která vytvoří nový výchozí seznam pro každou instanci",
+      "Aby všechny instance používaly stejný seznam",
+      "Protože dataclass seznamy nepodporuje"
+    ],
+    "answer": 0,
+    "why": "Factory se zavolá při vytváření instance, pokud seznam výslovně nezadáme. List() by předalo hotový seznam místo funkce."
+  },
+  {
+    "q": "Co udělá samotná anotace body: int?",
+    "options": [
+      "Změní text na celé číslo",
+      "Popíše očekávaný typ pro čtenáře a nástroje",
+      "Zakáže záporná čísla"
+    ],
+    "answer": 1,
+    "why": "Anotace vyjadřuje očekávání; případnou kontrolu, zákaz hodnot nebo převod musíme naprogramovat."
+  }
+]
