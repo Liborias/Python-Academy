@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co udělá neplatné písmeno?",
+    "options": [
+      "Zopakuje vstup ke stejné otázce bez změny skóre",
+      "Započítá chybnou odpověď a pokračuje",
+      "Převede se automaticky na True"
+    ],
+    "answer": 0,
+    "why": "Do modelu patří jen platná odpověď. Neplatný vstup vyřídí vnitřní cyklus."
+  },
+  {
+    "q": "Proč si aktuální otázku uložíme před odpovez?",
+    "options": [
+      "Aby se změnil její správný výsledek",
+      "Protože po vyhodnocení už model ukazuje na další otázku",
+      "Aby se položila dvakrát"
+    ],
+    "answer": 1,
+    "why": "Zpětná vazba má popsat právě zodpovězenou otázku, nikoli tu následující."
+  },
+  {
+    "q": "Co udělá q nebo konec vstupu?",
+    "options": [
+      "Zkusí stejný vstup donekonečna",
+      "Označí otázku jako správnou",
+      "Ukončí běh a vrátí dosavadní skóre i počet odpovědí"
+    ],
+    "answer": 2,
+    "why": "Předčasný konec nepřidává odpověď. Průběžné skóre zůstává dostupné."
+  }
+]

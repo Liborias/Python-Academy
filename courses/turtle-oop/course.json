@@ -80,6 +80,16 @@
         "35-snake-skore-a-stav",
         "36-snake-hotova-hra"
       ]
+    },
+    {
+      "id": "m08",
+      "title": "Závěrečný projekt: kvíz a API",
+      "lessons": [
+        "37-kviz-otazka-a-skore",
+        "38-kviz-data-json",
+        "39-kviz-api-a-zaloha",
+        "40-kviz-hotova-aplikace"
+      ]
     }
   ]
 }

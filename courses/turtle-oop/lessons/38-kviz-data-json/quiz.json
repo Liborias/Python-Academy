@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co provede json.loads(text)?",
+    "options": [
+      "Vytvoří Python data z textu JSON",
+      "Stáhne text z internetu",
+      "Automaticky vytvoří Otazka podle našeho návrhu"
+    ],
+    "answer": 0,
+    "why": "JSON se dekóduje na slovníky, seznamy a další základní typy. Převod na náš model provedeme zvlášť."
+  },
+  {
+    "q": "Jak převedeme platnou textovou odpověď \"False\" na bool?",
+    "options": [
+      "bool(\"False\")",
+      "Po ověření porovnáme text s \"True\"",
+      "Ponecháme ji jako neprázdný řetězec"
+    ],
+    "answer": 1,
+    "why": "Oba texty jsou neprázdné. Porovnání s True vrátí pro řetězec False správně hodnotu False."
+  },
+  {
+    "q": "Proč používáme html.unescape?",
+    "options": [
+      "Aby se provedl HTML program",
+      "Abychom změnili skóre",
+      "Aby entity jako &quot; dostaly čitelnou podobu"
+    ],
+    "answer": 2,
+    "why": "V API mohou být uvozovky a další znaky zapsané jako HTML entity. V kvízu potřebujeme obyčejný text."
+  }
+]

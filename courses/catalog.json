@@ -63,7 +63,7 @@
         "zaklady"
       ],
       "status": "draft",
-      "summary": "Kreslení želvou, datové typy, třídy, dědění, projekt Snake."
+      "summary": "Kreslení želvou, datové typy, třídy, dědění, hotový Snake a kvíz s API i offline otázkami."
     },
     {
       "id": "pandas",

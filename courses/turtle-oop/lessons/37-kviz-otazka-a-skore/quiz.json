@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co vrací aktualni() po dokončení?",
+    "options": [
+      "None",
+      "False bez ohledu na otázku",
+      "První otázku znovu"
+    ],
+    "answer": 0,
+    "why": "None označuje chybějící další otázku. False může být správnou odpovědí na existující otázku."
+  },
+  {
+    "q": "Kdy se posune index otázky?",
+    "options": [
+      "Pouze při správné odpovědi",
+      "Po každé platné odpovědi, správné i nesprávné",
+      "Při každém zobrazení otázky"
+    ],
+    "answer": 1,
+    "why": "Vyhodnocená otázka je zodpovězená. Pouhé čtení a odmítnutý vstup stav nemění."
+  },
+  {
+    "q": "Proč do modelu nepředáváme text \"False\"?",
+    "options": [
+      "Protože Python neumí texty",
+      "Protože je vždy prázdný",
+      "Protože model očekává bool a neprázdný řetězec není False"
+    ],
+    "answer": 2,
+    "why": "Překlad vstupu a vnějších dat na True/False patří jiné části programu."
+  }
+]

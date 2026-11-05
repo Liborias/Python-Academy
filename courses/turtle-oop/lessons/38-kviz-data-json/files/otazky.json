@@ -1,0 +1,45 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "type": "boolean",
+      "question": "Pythonovský seznam lze měnit po vytvoření.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "type": "boolean",
+      "question": "Operátor is porovnává hodnoty podle __eq__.",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "type": "boolean",
+      "question": "Metoda __init__ připravuje stav nové instance.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "type": "boolean",
+      "question": "V Turtle je záporná souřadnice y nad středem okna.",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    },
+    {
+      "type": "boolean",
+      "question": "JSON podporuje hodnoty true a false.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    }
+  ]
+}

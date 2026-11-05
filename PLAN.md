@@ -85,9 +85,8 @@ Okno a smyčka · barvy a tvary · obrázky · fonty · zvuky a hudba · kláves
 Mini-hra **Sběratel hvězd**: raketa sbírá hvězdy, skóre, zvuk (náhrada za „dýně“).
 
 ### C. Turtle, OOP a hra Snake (40 lekcí)
-Stav po v0.42: 36 lekcí, moduly m01–m07 jsou hotové. Snake má osm kroků (29–36): model, zobrazení, časovač, šipky, potrava/růst, kolize s tělem, skóre/stav partie a hotová hra s restartem. Průchozí okraje zůstávají pravidlem varianty. Číslo generace zneplatní staré časovače i při restartu během update; drží se jedna zatáčka na krok. Ve files/ jsou předchozí vzorová řešení, jejich shodu hlídají test_snake_start.py a test_snake_finish.py.
-Další dávka 37–40: kvíz s API a offline daty, uzavření původního kurzu 40 lekcemi. Připravit malý datový model otázky/partie, lokální předvídatelná data pro úkoly a testy a srozumitelnou obsluhu selhání vzdáleného API. Nespoléhat na dostupnost internetu během automatické kontroly. Nové pojmy musí být vysvětleny před použitím.
-Konkrétní další dávka se provede na uživatelovo pokračování; ostatní podkurzy se nerozšiřují automaticky.
+Stav po v0.43: všech 40 lekcí a moduly m01–m08 jsou napsané. Snake tvoří osm kroků 29–36. Lekce 37–40 přidávají model kvízu, JSON/HTML entity, urllib klienta s přiznanou offline zálohou a hotovou konzolovou aplikaci. Výchozí obsah je pět vlastních českých otázek, výslovná volba api nabízí anglické otázky Open Trivia DB. Vše používá standardní knihovnu a kontroly nevyžadují veřejnou síť.
+Pomocné moduly ve files/ navazují na předchozí vzorová řešení; jejich shodu a předvídatelná data hlídají test_snake_start.py, test_snake_finish.py a test_quiz_project.py. Stav draft zůstává do zpětné vazby a obsahové revize. Dalším doporučeným krokem je obsahová revize celého bloku OOP/projektů a připomínky studenta; volba dalšího podkurzu patří dalšímu zadání.
 
 Pořadí od nejjednoduššího: Turtle (kreslení, tuple, spirograf) · Opakování typů a řetězců („zpět k základům“) · seznamy a slicing, `set`, rozbalování · Úvod do OOP (class, konstruktor, atributy, metody) · Čtyři pilíře, dědění, `super()`, dunder metody, MRO, `@property`, `@dataclass` (novinka) · Projekty: **Snake**, kvíz s API (Open Trivia DB, s mockem).
 

@@ -1,0 +1,21 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "type": "boolean",
+      "question": "The word &quot;class&quot; starts a Python class definition.",
+      "correct_answer": "True",
+      "incorrect_answers": [
+        "False"
+      ]
+    },
+    {
+      "type": "boolean",
+      "question": "A Python tuple can be changed in place.",
+      "correct_answer": "False",
+      "incorrect_answers": [
+        "True"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "title": "Kvíz: otázka, odpověď a skóre",
+  "minutes": 35,
+  "kind": "console",
+  "example_title": "Dvě otázky a vlastní model kvízu"
+}

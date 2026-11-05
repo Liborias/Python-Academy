@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.42):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), Soubory a web (22), Pygame 1 (18), Turtle/OOP (36 ze 40). Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.43):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40). Obsah kurzu Turtle/OOP je dokončený, včetně Snake a kvízu; čeká na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -59,12 +59,24 @@ Při zaplnění plochy vyhlásí výhru; po střetu s tělem se zastaví.
 
 Hotovou hru spustíte v ukázce lekce 36. Šipky ovládají směr a Enter začne
 novou partii i během hraní. Restart obnoví tělo, směr, skóre a potravu;
-staré časovače už do nové hry nezasáhnou. Následující lekce 37–40 budou kvíz s API.
+staré časovače už do nové hry nezasáhnou.
 
 Každá lekce připraví potřebné moduly z předchozích vzorových řešení vedle kódu.
 V aplikaci i pracovní složce editoru tak jde pokračovat bez přepisování minulých úkolů.
 Grafická část otevírá samostatné okno Turtle na počítači s Pythonem a vyžaduje Tkinter;
 vykreslování neprobíhá uvnitř webové stránky. Podrobnosti vysvětluje příprava kurzu a lekce 30.
+
+## Závěrečný kvíz: objekty, JSON a volitelné API
+Lekce 37–40 uzavírají kurz modelem otázky a skóre, převodem a kontrolou JSON,
+síťovým klientem se zálohou a hotovou konzolovou aplikací. Všechny podklady
+jsou v lekcích připravené; další pip balíčky nejsou potřeba.
+
+Ukázku spusťte v lekci 40. Enter při výběru zdroje načte pět přiložených českých
+otázek. Odpovídejte **a** nebo **n**, pomocí **q** skončíte s průběžným skóre.
+Neplatný vstup zopakuje stejnou otázku. Režim **api** zkusí Open Trivia DB
+s anglickými otázkami a při chybě použije českou zálohu s vysvětlující zprávou.
+Ukázka API v lekci 39 používá předvídatelnou simulaci úspěchu i výpadku.
+Kontroly otázek a klienta jsou nezávislé na dostupnosti veřejné služby.
 
 ## Názvy ukázek a favicony
 V přepínači ukázek má i první příklad název podle obsahu (například „Planeta Merkur“).

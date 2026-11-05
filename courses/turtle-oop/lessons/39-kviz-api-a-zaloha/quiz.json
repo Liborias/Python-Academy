@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená parametr timeout=5?",
+    "options": [
+      "Omezení čekání síťové operace",
+      "Zaručený konec celé aplikace za pět sekund",
+      "Počet stažených otázek"
+    ],
+    "answer": 0,
+    "why": "Jde o timeout síťové operace. Počet otázek určuje amount v URL."
+  },
+  {
+    "q": "Proč kontrolujeme response_code i po přijetí HTTP odpovědi?",
+    "options": [
+      "Protože je to skóre hráče",
+      "Protože služba může oznámit neúspěch uvnitř přenesených dat",
+      "Protože se musí vždy rovnat HTTP kódu 200"
+    ],
+    "answer": 1,
+    "why": "Přenos a výsledek služby jsou dvě různé vrstvy. Náš převod odmítá nepoužitelný zdroj."
+  },
+  {
+    "q": "Co se má stát při online=False?",
+    "options": [
+      "Použije se náhodně API nebo soubor",
+      "Proběhne zkušební síťový požadavek",
+      "Přečte se místní soubor bez volání stahni"
+    ],
+    "answer": 2,
+    "why": "Výchozí offline volba má být předvídatelná a nezávislá na síti."
+  }
+]
