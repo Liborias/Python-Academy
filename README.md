@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.40):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), Soubory a web (22), Pygame 1 (18), Turtle/OOP (28 ze 40). Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.41):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), Soubory a web (22), Pygame 1 (18), Turtle/OOP (32 ze 40). Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -49,13 +49,20 @@ Dosavadní OOP lekce zůstávají na přání uživatele ve stávajícím kurzu 
 Po lekcích 21–24 (zapouzdření, property, dědění a super) přibyly lekce 25–28:
 speciální metody pro str/repr/len, identita a hodnotová rovnost, pořadí dědění (MRO)
 a dataclass s vlastním výchozím seznamem pro každou instanci. Každá má komentovanou
-ukázku, úkol s automatickou kontrolou a tři kvízové otázky. Další blok bude projekt Snake.
+ukázku, úkol s automatickou kontrolou a tři kvízové otázky.
 
-## Nově: začátek OOP a názvy ukázek
-Kurz Turtle, OOP a hra Snake pokračuje lekcemi 17–20: třída a instance,
-konstruktor a self, metody měnící stav a vlastní seznam každého objektu.
-Ukázky a úlohy běží v konzoli; grafické Snake přijde až po základech OOP.
+## Projekt Snake: první čtyři kroky
+Lekce 29–32 postupně přidávají model hada na mřížce, zobrazení želvou,
+pravidelný pohyb přes časovač a ovládání šipkami s jednou zatáčkou na krok.
+Plocha má průchozí okraje. Potrava, růst, kolize s tělem, skóre a restart
+budou následovat; současná verze je ovladatelný základ projektu.
 
+Každá lekce připraví potřebné moduly z předchozích vzorových řešení vedle kódu.
+V aplikaci i pracovní složce editoru tak jde pokračovat bez přepisování minulých úkolů.
+Grafická část otevírá samostatné okno Turtle na počítači s Pythonem a vyžaduje Tkinter;
+vykreslování neprobíhá uvnitř webové stránky. Podrobnosti vysvětluje příprava kurzu a lekce 30.
+
+## Názvy ukázek a favicony
 V přepínači ukázek má i první příklad název podle obsahu (například „Planeta Merkur“).
 Jeho id a uložené úpravy se nemění. Web používá SVG i ICO faviconu; při staré
 ikoně obnovte stránku pomocí Ctrl+F5. Soubory ikon mají v odkazech verzi pro cache.

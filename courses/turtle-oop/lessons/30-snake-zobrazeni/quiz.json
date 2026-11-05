@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co má dělat funkce vykresli s modelem?",
+    "options": [
+      "Přidat novou hlavu",
+      "Pouze přečíst jeho stav a zobrazit ho",
+      "Převést jeho uložené buňky trvale na pixely"
+    ],
+    "answer": 1,
+    "why": "Pohyb patří modelu. Zobrazení převádí souřadnice jen pro kreslení a původní tělo nemění."
+  },
+  {
+    "q": "Proč před novým snímkem voláme pero.clear()?",
+    "options": [
+      "Aby se odstranily předchozí otisky tohoto pera",
+      "Aby se smazal celý model",
+      "Aby se zavřelo okno"
+    ],
+    "answer": 0,
+    "why": "Jinak by na ploše zůstávaly staré články. Clear neodstraní údaje modelu."
+  },
+  {
+    "q": "Co zajistí tracer(0) a pozdější update()?",
+    "options": [
+      "Zablokují vstup z klávesnice",
+      "Změní počet buněk",
+      "Přípravu a společné zveřejnění celého snímku"
+    ],
+    "answer": 2,
+    "why": "Při vypnutém průběžném překreslování sestavíme obraz a pak jej zobrazíme pomocí update."
+  }
+]

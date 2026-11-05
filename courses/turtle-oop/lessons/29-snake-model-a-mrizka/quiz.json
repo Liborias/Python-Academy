@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Která položka body je hlava?",
+    "options": [
+      "První, s indexem 0",
+      "Poslední",
+      "Každá současně"
+    ],
+    "answer": 0,
+    "why": "Pořadí v modelu je hlava, další části těla a nakonec ocas."
+  },
+  {
+    "q": "Proč po vložení nové hlavy odstraňujeme poslední buňku?",
+    "options": [
+      "Aby had změnil barvu",
+      "Aby zachoval délku a tělo následovalo hlavu",
+      "Aby se vymazalo okno"
+    ],
+    "answer": 1,
+    "why": "Nová hlava přidá jednu část a odebrání ocasu jednu část ubere; potravu a růst přidáme později."
+  },
+  {
+    "q": "Kam se při šířce 6 dostane x = 0 po kroku doleva?",
+    "options": [
+      "Na -1 mimo plochu",
+      "Zůstane na 0",
+      "Na 5 díky (-1) % 6"
+    ],
+    "answer": 2,
+    "why": "Kladný modul udržuje souřadnici v rozsahu 0 až 5 i při pohybu záporným směrem."
+  }
+]

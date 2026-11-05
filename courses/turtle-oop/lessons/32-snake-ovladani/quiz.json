@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč šipka nemá sama volat had.krok()?",
+    "options": [
+      "Aby had nikdy nezměnil polohu",
+      "Aby rychlost dál určoval časovač",
+      "Protože klávesy neumějí volat metody"
+    ],
+    "answer": 1,
+    "why": "Klávesa připraví směr, ale skutečný pohyb patří tiku. Počet stisků tak nezrychluje hru."
+  },
+  {
+    "q": "Had jede doprava a před dalším tikem přijde Up a Left. Jak se zachová?",
+    "options": [
+      "Přijme Up, další změnu do příštího tiku odmítne",
+      "Okamžitě se otočí doleva",
+      "Přijme obě změny a udělá dva kroky"
+    ],
+    "answer": 0,
+    "why": "Jedna čekající změna zabrání obejití zákazu otočky dvěma rychlými stisky."
+  },
+  {
+    "q": "Proč přepsaný tik končí voláním super().tik()?",
+    "options": [
+      "Aby vytvořil novou hru",
+      "Aby přeskočil model",
+      "Aby využil společný krok, kreslení a naplánování dalšího tiku"
+    ],
+    "answer": 2,
+    "why": "Rozšířená třída doplní zpracování směru a zbytek práce svěří existující základní metodě."
+  }
+]

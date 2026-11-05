@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč ontimer dostává self.tik bez závorek?",
+    "options": [
+      "Aby předal metodu k pozdějšímu zavolání",
+      "Aby ji okamžitě spustil",
+      "Aby ji převedl na text"
+    ],
+    "answer": 0,
+    "why": "Self.tik je volatelná metoda. Self.tik() by se provedla hned při vyhodnocování argumentu."
+  },
+  {
+    "q": "Jaké je pořadí práce jednoho tiku?",
+    "options": [
+      "Kreslení, krok a nekonečné čekání",
+      "Krok, kreslení, update a další časovač",
+      "Dva kroky a dva časovače"
+    ],
+    "answer": 1,
+    "why": "Nový snímek má odpovídat novému stavu; jeden naplánovaný další tik zachová jediný řetězec pohybu."
+  },
+  {
+    "q": "Co má udělat opakované spust() na téže instanci?",
+    "options": [
+      "Zrychlit hru dvěma časovači",
+      "Okamžitě posunout hada",
+      "Vrátit se bez dalších změn"
+    ],
+    "answer": 2,
+    "why": "Příznak spusteno brání založení dalšího řetězce časovačů. Restart bude pozdější samostatná funkce."
+  }
+]

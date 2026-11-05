@@ -60,6 +60,16 @@
         "27-poradi-dedeni-mro",
         "28-dataclass"
       ]
+    },
+    {
+      "id": "m06",
+      "title": "Projekt Snake: od modelu k ovládání",
+      "lessons": [
+        "29-snake-model-a-mrizka",
+        "30-snake-zobrazeni",
+        "31-snake-casovac-a-pohyb",
+        "32-snake-ovladani"
+      ]
     }
   ]
 }
