@@ -73,7 +73,7 @@ with tempfile.TemporaryDirectory() as temp:
             assert page.locator('.mod li.done').count() == 5
             page.goto(f'{base}#/kurz/oop')
             page.wait_for_selector('.learning-plan')
-            assert page.locator('.mod li').count() == 0
+            assert page.locator('.mod li').count() >= 4
             assert not errors, errors
             browser.close()
         print('OK: Snake 29–32, model, kvízy, kontroly řešení, odmítnutí šablony, pracovní moduly a zachování postupu')

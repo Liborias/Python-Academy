@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co má dělat celkem()?",
+    "options": [
+      "Vrátit cenu z aktuálního stavu bez jeho změny",
+      "Přidat další kus",
+      "Pouze vytisknout číslo a vrátit None"
+    ],
+    "answer": 0,
+    "why": "Čtení součtu nemá měnit objednané množství; vrácenou hodnotu lze použít dál."
+  },
+  {
+    "q": "Jak se do pridej dostane self při kniha.pridej(2)?",
+    "options": [
+      "Musíme napsat kniha.pridej(kniha, 2)",
+      "Python předá instanci automaticky",
+      "Vytvoří se nová položka"
+    ],
+    "answer": 1,
+    "why": "Zápis s tečkou sváže volání s konkrétní instancí, číselný argument patří kolik."
+  },
+  {
+    "q": "Proč po změně počtu znovu počítáme cenu?",
+    "options": [
+      "Protože se vymaže seznam položek",
+      "Protože return vždy změní cenu za kus",
+      "Protože výsledek má odpovídat současným atributům"
+    ],
+    "answer": 2,
+    "why": "Uložený starý součet by po změně množství přestal odpovídat skutečnému stavu."
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co udělá druha = prvni pro existující objekt?",
+    "options": [
+      "Vytvoří další odkaz na tentýž objekt",
+      "Vytvoří hlubokou kopii",
+      "Změní třídu objektu"
+    ],
+    "answer": 0,
+    "why": "Přiřazení odkazu samo nevytváří novou instanci."
+  },
+  {
+    "q": "Proč seznam položek vzniká v __init__ každé objednávky?",
+    "options": [
+      "Aby byl vždy společný",
+      "Aby měla každá objednávka vlastní seznam",
+      "Aby se nedaly přidávat položky"
+    ],
+    "answer": 1,
+    "why": "Měnitelný seznam vytvořený zvlášť pro každou instanci zabrání nechtěnému sdílení řádků."
+  },
+  {
+    "q": "Co zůstává sdílené v list(objednavka.polozky)?",
+    "options": [
+      "Nový seznam je původním seznamem",
+      "Automaticky se zkopírují i všechny objekty",
+      "Objekty položek uvnitř nového seznamu"
+    ],
+    "answer": 2,
+    "why": "Jde o mělkou kopii. Změna členství v přehledu nemění objednávku, změna samotné položky se může projevit v obou pohledech."
+  }
+]

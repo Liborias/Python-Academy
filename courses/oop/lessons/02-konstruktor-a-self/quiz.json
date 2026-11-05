@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co označuje self v __init__?",
+    "options": [
+      "Právě připravovanou instanci",
+      "Vždy celou třídu",
+      "Název modulu"
+    ],
+    "answer": 0,
+    "why": "Python předá právě vytvářený objekt jako první argument metody."
+  },
+  {
+    "q": "Co udělá self.pocet = pocet?",
+    "options": [
+      "Změní počet všech položek",
+      "Uloží hodnotu argumentu do atributu instance",
+      "Pouze přejmenuje lokální proměnnou"
+    ],
+    "answer": 1,
+    "why": "Vlevo je údaj objektu, vpravo argument tohoto volání konstruktoru."
+  },
+  {
+    "q": "Jaký počet má Polozka(\"Obal\", 30), když je v podpisu pocet=1?",
+    "options": [
+      "Nula",
+      "Třicet",
+      "Jedna"
+    ],
+    "answer": 2,
+    "why": "Vynechaný poslední argument použije výchozí hodnotu. Výslovně zadaná nula by se naopak měla zachovat."
+  }
+]

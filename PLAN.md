@@ -244,11 +244,17 @@ Podkurzy celkem asi 1 175 000 tokenů, s základem **zhruba 1,3 milionu**. Je to
 - [Gmail SMTP](https://developer.nylas.com/docs/cookbook/email/gmail-smtp-settings/)
 - [psycopg 3 vs psycopg2](https://reviews.freebsd.org/D48493)
 
-## Samostatný podkurz OOP — návrh z v0.39
+## Samostatný podkurz OOP — realizace od v0.44
 
 Uživatel si přál samostatný OOP kurz bez Turtle a her. Návrh 20 lekcí je v
 `courses/oop/plan.md`, projekt Chytré expediční centrum, celková obtížnost 3/4.
-V katalogu je pouze koncept s planned_lessons=20 a bez hotových lekcí. Zatím
-neimplementovat výukový obsah ani projekt. Na výslovné upřesnění uživatele
-zůstávají dosavadní OOP lekce v původním kombinovaném kurzu; nic nepřesouvat.
-Návrh nepřidává nové realizované lekce do původního plánu 40 lekcí Turtle/OOP.
+Na nové zadání „pokračujme s lekcí OOP“ zahájena realizace samostatného kurzu.
+Hotový m01, lekce 1–4: první instance zásilky, konstruktor položky, metody a změny stavu,
+objednávka složená z položek. Každá má konzolovou ukázku, úkol, kontrolu a kvíz.
+Celkem 4/20; katalog i learning_plan mají status draft. Původní omezení pouze na návrh
+je tímto novým zadáním překonané. Dosavadní OOP lekce zůstávají v dokončeném
+Turtle/OOP, nic se nepřesouvá; uložený postup obou kurzů je oddělený.
+
+Další dávka 5–8: zapouzdření a veřejné rozhraní, pravidla stavu a výjimky,
+property/vypočítaná dostupnost a malá revize skladu. Ověřovat odmítnutí před změnou,
+samostatné instance a kopie kolekcí. Nové pojmy vysvětlit před použitím.

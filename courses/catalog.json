@@ -24,13 +24,13 @@
       "id": "oop",
       "title": "Objektově orientované programování v praxi",
       "level": 3,
-      "lessons": 0,
+      "lessons": 20,
       "planned_lessons": 20,
       "doporuceno": [
         "zaklady"
       ],
-      "status": "concept",
-      "summary": "Koncept samostatného kurzu: třídy, spolupráce objektů, property, dědění a testy na praktickém expedičním centru."
+      "status": "draft",
+      "summary": "Samostatné OOP na projektu expedičního centra. První 4 lekce: objekty, konstruktor, metody a objednávka s položkami."
     },
     {
       "id": "soubory-web",

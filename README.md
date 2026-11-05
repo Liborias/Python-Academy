@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.43):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40). Obsah kurzu Turtle/OOP je dokončený, včetně Snake a kvízu; čeká na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.44):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (4 z 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40). Obsah kurzu Turtle/OOP je dokončený, včetně Snake a kvízu; čeká na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,12 +38,16 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Samostatný OOP kurz — zatím koncept
+## Samostatný OOP kurz — první čtyři lekce
 V katalogu je vedle Základů samostatná karta **Objektově orientované programování v praxi**.
-Jde o plán 20 lekcí s náročností **3/4**, bez závislosti na Turtle a hrách.
+Kurz má osnovu 20 lekcí s náročností **3/4**, bez závislosti na Turtle a hrách.
 Nosný praktický projekt „Chytré expediční centrum“ propojí objednávky, zásoby a způsoby doručení.
-Výukové lekce tohoto nového kurzu ani projekt zatím nevznikají; plán je rozbalitelný přímo
-v jeho panelu a také v [courses/oop/plan.md](courses/oop/plan.md).
+První blok je připravený: objekt zásilky, konstruktor a self, metody položky a objednávka
+s vlastním seznamem položek. Každá lekce má komentovanou ukázku, úkol s automatickou
+kontrolou a tři kvízové otázky. Příprava prostředí je před lekcemi, stačí standardní Python.
+
+Panel zobrazuje dostupné lekce i zbývající plán v [courses/oop/plan.md](courses/oop/plan.md).
+Další blok doplní pravidla stavu, výjimky a sklad. Celé expediční centrum vznikne postupně.
 
 Dosavadní OOP lekce zůstávají na přání uživatele ve stávajícím kurzu Turtle/OOP/Snake.
 Po lekcích 21–24 (zapouzdření, property, dědění a super) přibyly lekce 25–28:

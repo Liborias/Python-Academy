@@ -56,7 +56,7 @@ export async function renderCourse(el, id) {
   const outlineOnly = c.status === 'concept' && total === 0;
   const plan = course.learning_plan;
   const learningPanel = plan ? `<section class="learning-plan" aria-labelledby="learning-plan-title">
-    <div class="meta">${stars(plan.level)}<span class="badge concept">Koncept samostatného kurzu · zatím bez realizace</span></div>
+    <div class="meta">${stars(plan.level)}<span class="badge ${outlineOnly ? 'concept' : esc(c.status)}">${outlineOnly ? 'Koncept samostatného kurzu · zatím bez realizace' : `Samostatný kurz · ${esc(total)} z ${esc(c.planned_lessons || c.lessons)} lekcí připraveno`}</span></div>
     <h2 id="learning-plan-title">${esc(plan.title)}</h2>
     <p class="learning-plan-lead">${esc(plan.summary)}</p>
     <div class="learning-plan-facts"><p><strong>Náročnost ${esc(plan.level)}/4:</strong> ${esc(plan.difficulty_reason)}</p>

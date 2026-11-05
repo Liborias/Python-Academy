@@ -1,4 +1,4 @@
-"""Katalog a plán samostatného OOP kurzu, bez výukové implementace."""
+"""Katalog a plán samostatného OOP kurzu vedle prvních skutečných lekcí."""
 import shutil
 import sys
 import threading
@@ -21,17 +21,18 @@ try:
         page.goto(f'{base}?t={server.token}')
         card = page.locator('a.card[href="#/kurz/oop"]')
         card.wait_for()
-        assert 'Koncept' in card.inner_text()
-        assert 'Plán 20 lekcí' in card.inner_text()
+        assert 'Rozpracováno' in card.inner_text()
+        assert '0 / 20 lekcí' in card.inner_text()
         assert '0 / 0' not in card.inner_text()
-        assert card.locator('.bar').count()==0
+        assert card.locator('.bar').count()==1
         card.click()
         panel = page.locator('.learning-plan')
         panel.wait_for()
         assert 'Chytré expediční centrum' in panel.inner_text()
         assert '3/4' in panel.inner_text()
-        assert 'zatím bez realizace' in panel.inner_text()
-        assert page.locator('.mod li').count()==0
+        assert '4 z 20 lekcí připraveno' in panel.inner_text()
+        assert 'zatím bez realizace' not in panel.inner_text()
+        assert page.locator('.mod li').count()==4
         assert page.locator('.editor, .ex-editor, .run-console').count()==0
         assert not panel.locator('details').evaluate('(el) => el.open')
         panel.locator('summary').click()
@@ -51,6 +52,6 @@ try:
         assert page.locator('.mod li').count()>=24
         assert not errors,errors
         browser.close()
-    print('OK: samostatná karta OOP, plán 20 lekcí, obtížnost 3/4, oddělené Turtle, bez hotových lekcí, mobil')
+    print('OK: samostatná karta OOP, plán 20 lekcí, obtížnost 3/4, oddělené Turtle, první čtyři lekce, mobil')
 finally:
     server.runs.stop_all(); server.shutdown(); server.server_close()

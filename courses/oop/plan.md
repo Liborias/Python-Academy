@@ -1,6 +1,6 @@
 ## Samostatný kurz OOP v Pythonu
 
-Toto je **plán nového podkurzu**, nikoli rozšíření Turtle ani kurz tvorby her. Výukové lekce a závěrečný projekt zatím neimplementujeme. Kurz bude mít vlastní místo v katalogu a půjde studovat bez grafických knihoven a bez předchozí práce s Turtle.
+Tento samostatný podkurz se začal realizovat. **První čtyři lekce jsou připravené**: od jednoduchého objektu přes konstruktor a metody k objednávce složené z položek. Následující bloky a závěrečné expediční centrum jsou zatím osnovou. Kurz má vlastní místo v katalogu a lze jej studovat bez grafických knihoven a bez předchozí práce s Turtle.
 
 ## Pro koho a jak náročný
 
@@ -8,7 +8,7 @@ Toto je **plán nového podkurzu**, nikoli rozšíření Turtle ani kurz tvorby 
 
 Předpoklady: základní Python, funkce a return, podmínky, seznamy a slovníky, jednoduché výjimky. Doporučený předchozí kurz je Základy Pythonu. Turtle, Pygame, síť, databáze ani tvorba webu nejsou předpokladem.
 
-Navrženo je 20 lekcí s postupným procvičováním a závěrečným projektem. Orientačně 10–14 hodin podle rozsahu vlastních pokusů; časové odhady se ověří až na hotových lekcích. Části lze rozdělit do kratších setkání. Náročnost není měřena rychlostí studenta.
+Osnova má 20 lekcí s postupným procvičováním a závěrečným projektem, z toho první 4 jsou dostupné. Orientačně 10–14 hodin za celý kurz podle rozsahu vlastních pokusů; časové odhady se ověří na hotových lekcích. Části lze rozdělit do kratších setkání. Náročnost není měřena rychlostí studenta.
 
 ## Nosný projekt: Chytré expediční centrum
 
@@ -29,6 +29,8 @@ Průběžně se objeví malé „detektivní opravy“: sdílený seznam dvou ob
 ## Navržená osnova: 20 lekcí
 
 ### Modul 1 — Od funkcí k vlastním objektům
+
+**Stav: lekce 1–4 jsou vytvořené.** Mají výklad, ukázku, samostatný úkol s automatickou kontrolou a kvíz.
 
 1. Kdy mají objekty smysl: srovnání funkcí, slovníků a tříd na stejném problému.
 2. Třída, instance, konstruktor a self; vytváření více nezávislých objektů.
@@ -95,4 +97,4 @@ Předloha má vlastní pokročilejší architekturu a starší instalační poky
 
 ## Současný stav
 
-Připravený je pouze tento návrh a panel v aplikaci. Samostatný kurz zatím nemá výukové lekce, řešení ani implementovaný projekt. Nevyžaduje Turtle ani hraní her. Dosavadní obsah existujících podkurzů se kvůli tomuto návrhu automaticky nepřesouvá.
+Připravená je osnova celého kurzu a realizovaný první modul, 4 z 20 lekcí. Student už vytvoří zásilku, položku a malou objednávku s aktuálním součtem. Kompletní sklad, rezervace, doprava a konzolové expediční centrum budou následovat v dalších blocích. Kurz nevyžaduje Turtle ani hraní her. Dosavadní lekce existujících podkurzů zůstávají na svém místě.

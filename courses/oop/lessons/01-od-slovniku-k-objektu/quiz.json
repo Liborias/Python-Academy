@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co vznikne voláním Zasilka()?",
+    "options": [
+      "Nová instance třídy",
+      "Pouze text názvu třídy",
+      "Vždy tentýž sdílený slovník"
+    ],
+    "answer": 0,
+    "why": "Třída popisuje druh objektu. Volání vytvoří jeho konkrétní instanci."
+  },
+  {
+    "q": "Co označuje zasilka.kod?",
+    "options": [
+      "Klíč ve všech slovnících programu",
+      "Atribut konkrétního objektu",
+      "Speciální příkaz pro odeslání zásilky"
+    ],
+    "answer": 1,
+    "why": "Tečka zpřístupní pojmenovaný údaj objektu. Samotné přiřazení nic neposílá."
+  },
+  {
+    "q": "Proč vytvor_zasilku vrací objekt?",
+    "options": [
+      "Aby ho smazala z paměti",
+      "Aby automaticky vypsala každý atribut",
+      "Aby s vytvořenou zásilkou mohl dál pracovat volající"
+    ],
+    "answer": 2,
+    "why": "Return předá hodnotu do místa volání; výpis může být až v hlavním programu."
+  }
+]

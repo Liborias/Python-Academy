@@ -65,10 +65,10 @@ with tempfile.TemporaryDirectory() as temp:
             assert page.locator('.mod li.done').count() == 5
             page.goto(f'{base}#/kurz/oop')
             page.wait_for_selector('.learning-plan')
-            assert page.locator('.mod li').count() == 0
+            assert page.locator('.mod li').count() >= 4
             assert not errors, errors
             browser.close()
-        print('OK: OOP 25–28, 4 ukázky, 4 řešení, kvízy, drafty a zachování dosavadního postupu; samostatné OOP zůstává konceptem')
+        print('OK: OOP 25–28, 4 ukázky, 4 řešení, kvízy, drafty a zachování dosavadního postupu; samostatné OOP má vlastní lekce')
     finally:
         server.runs.stop_all()
         server.shutdown()
