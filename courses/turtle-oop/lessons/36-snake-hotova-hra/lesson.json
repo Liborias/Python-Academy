@@ -1,0 +1,6 @@
+{
+  "title": "Snake: hotová hra a bezpečný restart",
+  "minutes": 55,
+  "kind": "gui",
+  "example_title": "Snake s potravou, skóre a restartem"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co se při snědení potravy změní?",
+    "options": [
+      "Počet článků se zvětší o jeden",
+      "Had ztratí hlavu",
+      "Zruší se průchozí okraje"
+    ],
+    "answer": 0,
+    "why": "Nová hlava přibude a původní ocas zůstane. Bez potravy se ocas odebere jako dosud."
+  },
+  {
+    "q": "Proč potravu vybíráme ze seznamu všech volných buněk?",
+    "options": [
+      "Aby se vždy objevila na hlavě",
+      "Aby výběr fungoval i při téměř plné ploše a uměl rozpoznat plnou",
+      "Abychom nemuseli znát rozměry"
+    ],
+    "answer": 1,
+    "why": "Konečný seznam možností dovolí vrátit None při úplném zaplnění, bez nekonečného losování."
+  },
+  {
+    "q": "Co udělá vyber_potravu, když žádná buňka není volná?",
+    "options": [
+      "Vrátí (0, 0)",
+      "Zavolá výběr na prázdném seznamu",
+      "Vrátí None bez volání výběru"
+    ],
+    "answer": 2,
+    "why": "None znamená chybějící potravu. Buňka (0, 0) může být platná a není náhradou za tento stav."
+  }
+]

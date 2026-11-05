@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.41):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), Soubory a web (22), Pygame 1 (18), Turtle/OOP (32 ze 40). Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.42):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), Soubory a web (22), Pygame 1 (18), Turtle/OOP (36 ze 40). Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -51,11 +51,15 @@ speciální metody pro str/repr/len, identita a hodnotová rovnost, pořadí dě
 a dataclass s vlastním výchozím seznamem pro každou instanci. Každá má komentovanou
 ukázku, úkol s automatickou kontrolou a tři kvízové otázky.
 
-## Projekt Snake: první čtyři kroky
-Lekce 29–32 postupně přidávají model hada na mřížce, zobrazení želvou,
-pravidelný pohyb přes časovač a ovládání šipkami s jednou zatáčkou na krok.
-Plocha má průchozí okraje. Potrava, růst, kolize s tělem, skóre a restart
-budou následovat; současná verze je ovladatelný základ projektu.
+## Projekt Snake: hotová hra v osmi krocích
+Lekce 29–36 postupně přidávají model hada na mřížce, zobrazení želvou,
+časovač, šipky, potravu a růst, kolize s tělem, skóre a restart.
+Hra má průchozí okraje a přijme nejvýš jednu zatáčku mezi dvěma kroky.
+Při zaplnění plochy vyhlásí výhru; po střetu s tělem se zastaví.
+
+Hotovou hru spustíte v ukázce lekce 36. Šipky ovládají směr a Enter začne
+novou partii i během hraní. Restart obnoví tělo, směr, skóre a potravu;
+staré časovače už do nové hry nezasáhnou. Následující lekce 37–40 budou kvíz s API.
 
 Každá lekce připraví potřebné moduly z předchozích vzorových řešení vedle kódu.
 V aplikaci i pracovní složce editoru tak jde pokračovat bez přepisování minulých úkolů.

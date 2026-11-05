@@ -70,6 +70,16 @@
         "31-snake-casovac-a-pohyb",
         "32-snake-ovladani"
       ]
+    },
+    {
+      "id": "m07",
+      "title": "Projekt Snake: potrava, pravidla a dokončení",
+      "lessons": [
+        "33-snake-potrava-a-rust",
+        "34-snake-kolize-s-telem",
+        "35-snake-skore-a-stav",
+        "36-snake-hotova-hra"
+      ]
     }
   ]
 }

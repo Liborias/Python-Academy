@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč má naplánované volání číslo generace?",
+    "options": [
+      "Aby po restartu rozpoznalo, že patří staré hře",
+      "Aby určilo barvu potravy",
+      "Aby zvýšilo skóre"
+    ],
+    "answer": 0,
+    "why": "Starý časovač se nesmí připojit k nové partii a založit další řetězec pohybu."
+  },
+  {
+    "q": "Co si má callback zapamatovat při plánování?",
+    "options": [
+      "Budoucí počet bodů",
+      "Tehdejší číslo generace",
+      "Aktuální číslo načtené až po restartu"
+    ],
+    "answer": 1,
+    "why": "Uložená hodnota umožní odlišit staré a nové volání. Pozdní čtení self.generace by toto rozlišení ztratilo."
+  },
+  {
+    "q": "Co obnoví Enter?",
+    "options": [
+      "Jen obrázek bez změny těla",
+      "Pouze interval",
+      "Počáteční tělo, směr, skóre, potravu i čekající zatáčku"
+    ],
+    "answer": 2,
+    "why": "Restart vytvoří novou Partii a zneplatní stará naplánovaná volání. Nový první snímek ještě neprovádí krok."
+  }
+]

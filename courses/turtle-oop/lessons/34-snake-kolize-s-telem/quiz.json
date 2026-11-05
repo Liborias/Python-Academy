@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kdy posuzujeme kolizi?",
+    "options": [
+      "Před změnou těla",
+      "Až po vykreslení neplatného kroku",
+      "Pouze po restartu"
+    ],
+    "answer": 0,
+    "why": "Výhledový výpočet umožní odmítnout krok bez poškození posledního platného stavu."
+  },
+  {
+    "q": "Smí hlava vstoupit na místo současného ocasu, když had neroste?",
+    "options": [
+      "Nikdy",
+      "Ano, ocas při témže kroku místo uvolní",
+      "Jen pokud je plocha čtvercová"
+    ],
+    "answer": 1,
+    "why": "Bez růstu z kontroly překážek vynecháme poslední článek. Při růstu ocas zůstává."
+  },
+  {
+    "q": "Jak se posuzuje pohyb přes okraj?",
+    "options": [
+      "Vždy jde o prohru",
+      "Nikdy se nekontroluje tělo",
+      "Nová souřadnice se nejprve přenese na protější stranu a pak se zkontroluje"
+    ],
+    "answer": 2,
+    "why": "Průchozí okraje jsou pravidlo této hry. I na protější straně však může být překážkou tělo."
+  }
+]

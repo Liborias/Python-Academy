@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kdy přibude 10 bodů?",
+    "options": [
+      "Při každém tiku",
+      "Při snědení současné potravy",
+      "Při každém stisku šipky"
+    ],
+    "answer": 1,
+    "why": "Běžný pohyb ani kolize skóre nezvyšují."
+  },
+  {
+    "q": "Proč další potravu vybíráme až po kroku a růstu?",
+    "options": [
+      "Aby se neobjevila v nově obsazené buňce",
+      "Aby měla stejnou souřadnici jako hlava",
+      "Aby se vynulovalo skóre"
+    ],
+    "answer": 0,
+    "why": "Seznam volných buněk musí odpovídat novému tělu včetně přidané hlavy a zachovaného ocasu."
+  },
+  {
+    "q": "Co má dělat další krok už ukončené partie?",
+    "options": [
+      "Znovu přičíst poslední potravu",
+      "Znovu vybrat potravu",
+      "Vrátit výsledek bez změn"
+    ],
+    "answer": 2,
+    "why": "Konec i výhra zastavují pravidla pohybu a bodování. Nový začátek bude výslovný restart."
+  }
+]
