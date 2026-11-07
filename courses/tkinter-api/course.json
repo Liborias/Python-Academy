@@ -24,15 +24,25 @@
         "07-promenne-a-volby",
         "08-projekt-prevodnik-vzdalenosti"
       ]
+    },
+    {
+      "id": "m03",
+      "title": "Úkolníček a soubory",
+      "lessons": [
+        "09-seznam-a-vyber",
+        "10-text-a-posuvnik",
+        "11-json-a-dialogy",
+        "12-projekt-ukolnicek"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od prvního okna ke Korespondenční dílně",
     "status": "draft",
     "level": 3,
-    "summary": "Prvních osm lekcí je připravených: od okna a formuláře přes klávesnici a volby po převodník vzdálenosti. Další části přidají soubory, API a e-maily.",
+    "summary": "Prvních dvanáct lekcí je připravených: okna, formuláře, převodník, seznamy a úkolníček s JSON. Další části přidají API a e-maily.",
     "placement": "Po Základech Pythonu; soubory/JSON a OOP pomohou v pozdějších částech.",
     "difficulty_reason": "Úvod od 2/4, celek 3/4: události, spolupráce GUI s daty a sítí, odmítnuté operace a testy.",
-    "duration": "Plán 28 lekcí, prvních 8 je dostupných. Odhad 16–22 hodin včetně projektů."
+    "duration": "Plán 28 lekcí, prvních 12 je dostupných. Odhad 16–22 hodin včetně projektů."
   }
 }

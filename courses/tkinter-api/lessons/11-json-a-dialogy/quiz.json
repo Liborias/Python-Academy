@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co vrátí zrušený dialog askopenfilename?",
+    "options": [
+      "Prázdnou cestu, takže nemáme číst žádný soubor.",
+      "Prázdný soubor JSON.",
+      "Vždy předchozí uložený soubor."
+    ],
+    "answer": 0,
+    "why": "Zrušení je běžný výsledek dialogu a má se zpracovat před open."
+  },
+  {
+    "q": "Kdy smíme vymazat dosavadní Text při načítání?",
+    "options": [
+      "Ještě před otevřením dialogu.",
+      "Až když se nový soubor úspěšně načetl a celý ověřil.",
+      "Při každé výjimce."
+    ],
+    "answer": 1,
+    "why": "Pracovní poznámka se nesmí ztratit kvůli zrušení nebo chybě nových dat."
+  },
+  {
+    "q": "Zaručuje přípona .json správný tvar dat?",
+    "options": [
+      "Ano, jiný obsah v takovém souboru být nemůže.",
+      "Pouze při uložení na ploše.",
+      "Ne, kontrolujeme syntaxi i očekávané typy a klíče."
+    ],
+    "answer": 2,
+    "why": "Filtr dialogu je jen pomůcka při výběru, nikoli ověření obsahu."
+  }
+]

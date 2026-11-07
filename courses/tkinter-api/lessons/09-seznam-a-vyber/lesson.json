@@ -1,0 +1,10 @@
+{
+  "title": "Seznam úkolů a bezpečný výběr",
+  "minutes": 40,
+  "kind": "gui",
+  "tags": [
+    "tkinter",
+    "soubory"
+  ],
+  "example_title": "Plán dne s opakovaným názvem"
+}

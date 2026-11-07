@@ -1,0 +1,10 @@
+{
+  "title": "Delší text a posuvník",
+  "minutes": 40,
+  "kind": "gui",
+  "tags": [
+    "tkinter",
+    "soubory"
+  ],
+  "example_title": "Poznámkový blok s počítáním"
+}

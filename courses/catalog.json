@@ -86,7 +86,7 @@
         "soubory-web"
       ],
       "status": "draft",
-      "summary": "Prvních 8 z 28 lekcí: okna Tkinter, formuláře, klávesnice, volby a převodník vzdálenosti. Dále soubory, HTTP API a e-maily."
+      "summary": "Prvních 12 z 28 lekcí: okna, formuláře, převodník a úkolníček s ukládáním do JSON. Dále HTTP API a e-maily."
     },
     {
       "id": "pygame-2",

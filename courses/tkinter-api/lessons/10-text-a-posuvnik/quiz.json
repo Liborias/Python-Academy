@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená end-1c při čtení celého Text?",
+    "options": [
+      "Vyřadí automatický koncový nový řádek widgetu.",
+      "Vymaže první řádek.",
+      "Vrátí pouze poslední písmeno."
+    ],
+    "answer": 0,
+    "why": "Text obsahuje vlastní koncový znak. Čtení bez něj odpovídá skutečně zadanému obsahu."
+  },
+  {
+    "q": "Proč připojit také yscrollcommand?",
+    "options": [
+      "Aby se text převedl na číslo.",
+      "Aby text hlásil posuvníku aktuální výřez.",
+      "Aby se otevřelo další okno."
+    ],
+    "answer": 1,
+    "why": "Command ovládá výřez z jezdce, yscrollcommand udržuje jezdec v souladu s textem."
+  },
+  {
+    "q": "Přidává wrap=\"word\" do textu znak nového řádku?",
+    "options": [
+      "Ano, při každém vykreslení.",
+      "Pouze na Windows.",
+      "Ne, jde o vizuální zalomení."
+    ],
+    "answer": 2,
+    "why": "V datech zůstává původní text; počítáme skutečné znaky nového řádku, ne řádky na obrazovce."
+  }
+]

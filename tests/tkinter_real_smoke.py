@@ -1,14 +1,18 @@
 """Skutečné Tk na grafické ploše: DISPLAY=:... python tests/tkinter_real_smoke.py [--shots DIR]."""
 import argparse
+import json
 import os
 import runpy
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parent.parent
 LESSONS = ['01-prvni-okno-a-mainloop', '02-popisky-a-pack', '03-tlacitka-a-zpetna-volani', '04-vstupni-pole-a-grid',
-           '05-ramecky-a-zmena-velikosti', '06-enter-a-fokus', '07-promenne-a-volby', '08-projekt-prevodnik-vzdalenosti']
+           '05-ramecky-a-zmena-velikosti', '06-enter-a-fokus', '07-promenne-a-volby', '08-projekt-prevodnik-vzdalenosti',
+           '09-seznam-a-vyber', '10-text-a-posuvnik', '11-json-a-dialogy', '12-projekt-ukolnicek']
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--lesson', type=int, choices=range(1, len(LESSONS)+1))
 parser.add_argument('--shots', type=Path)
@@ -27,7 +31,7 @@ if args.lesson is None:
     raise SystemExit(0)
 
 import tkinter as tk
-from tkinter import ttk
+from tkinter import ttk, filedialog
 original = tk.Tk.mainloop
 failures = []
 entered = []
@@ -137,6 +141,110 @@ def mainloop(root, *a, **kw):
                     assert label.cget('text') == expected,(text,label.cget('text'))
                     assert entry.get() == text
                 assert len(descendants(root)) == len(all_widgets)
+            elif args.lesson == 9:
+                all_widgets=descendants(root)
+                listing=next(w for w in all_widgets if isinstance(w,tk.Listbox))
+                entry=next(w for w in all_widgets if isinstance(w,ttk.Entry))
+                buttons={w.cget('text'):w for w in all_widgets if isinstance(w,ttk.Button)}
+                buttons['Odebrat'].invoke()
+                assert tuple(listing.get(0,tk.END)) == ('Přečíst zadání','Vyzkoušet ukázku','Přečíst zadání')
+                listing.selection_set(2);buttons['Odebrat'].invoke()
+                assert tuple(listing.get(0,tk.END)) == ('Přečíst zadání','Vyzkoušet ukázku')
+                entry.insert(0,'  Žofie  Nová  ');buttons['Přidat'].invoke()
+                assert listing.get(tk.END)=='Žofie  Nová' and entry.get()==''
+                for _ in range(3):
+                    listing.selection_set(0);buttons['Odebrat'].invoke()
+                assert listing.size()==0
+                buttons['Odebrat'].invoke()
+                entry.insert(0,'Nový úkol');buttons['Přidat'].invoke()
+                assert listing.get(0)=='Nový úkol'
+            elif args.lesson == 10:
+                all_widgets=descendants(root)
+                text=next(w for w in all_widgets if isinstance(w,tk.Text))
+                bar=next(w for w in all_widgets if isinstance(w,ttk.Scrollbar))
+                button=next(w for w in all_widgets if isinstance(w,ttk.Button))
+                status=next(w for w in all_widgets if isinstance(w,ttk.Label))
+                root.tk.call(*root.tk.splitlist(bar.cget('command')),'moveto',.5);root.update_idletasks()
+                assert text.yview()[0]>.1
+                assert all(abs(a-b)<1e-6 for a,b in zip(text.yview(),bar.get()))
+                text.yview_moveto(0);root.update_idletasks()
+                assert bar.get()[0]==0
+                for content in ['A\nB\n','','Žofie  Nová','Dnes procvičím seznamy.\n\nZkusím i ukládání souborů.']:
+                    text.delete('1.0','end');text.insert('1.0',content);button.invoke()
+                    lines=content.count('\n')+1 if content else 0
+                    assert status.cget('text')==f'Znaků: {len(content)}; řádků: {lines}.'
+                    assert text.get('1.0','end-1c')==content
+            elif args.lesson == 11:
+                all_widgets=descendants(root)
+                text=next(w for w in all_widgets if isinstance(w,tk.Text))
+                status=next(w for w in all_widgets if isinstance(w,ttk.Label))
+                buttons={w.cget('text'):w for w in all_widgets if isinstance(w,ttk.Button)}
+                with tempfile.TemporaryDirectory() as folder:
+                    directory=Path(folder);target=directory/'česká poznámka.json'
+                    bad=directory/'bad.json';bad.write_text('{',encoding='utf-8')
+                    wrong=directory/'wrong.json';wrong.write_text('{"text":42}',encoding='utf-8')
+                    empty=directory/'empty.json';empty.write_text('{"text":""}',encoding='utf-8')
+                    original='Česká poznámka\nDruhý řádek.\n'
+                    text.delete('1.0','end');text.insert('1.0',original)
+                    # Nativní výběr cesty řídí test, widgety a souborové operace jsou skutečné.
+                    with patch.object(filedialog,'asksaveasfilename',side_effect=['',str(directory),str(target)]) as save, patch.object(filedialog,'askopenfilename',side_effect=['',str(bad),str(wrong),str(directory/'missing.json'),str(target),str(empty),str(target)]):
+                        for message in ['Ukládání zrušeno.','Soubor se nepodařilo uložit.','Poznámka uložena.']:
+                            buttons['Uložit JSON'].invoke()
+                            assert status.cget('text')==message and text.get('1.0','end-1c')==original
+                        assert save.call_args.kwargs['parent'] is root
+                        assert json.loads(target.read_text('utf-8'))=={'text':original}
+                        assert 'Česká' in target.read_text('utf-8')
+                        for message in ['Načítání zrušeno.']+['Soubor se nepodařilo načíst.']*3:
+                            buttons['Načíst JSON'].invoke()
+                            assert status.cget('text')==message and text.get('1.0','end-1c')==original
+                        text.delete('1.0','end');text.insert('1.0','Změněno')
+                        buttons['Načíst JSON'].invoke();assert text.get('1.0','end-1c')==original
+                        buttons['Načíst JSON'].invoke();assert text.get('1.0','end-1c')==''
+                        buttons['Načíst JSON'].invoke();assert text.get('1.0','end-1c')==original
+            elif args.lesson == 12:
+                all_widgets=descendants(root)
+                listing=next(w for w in all_widgets if isinstance(w,tk.Listbox))
+                entry=next(w for w in all_widgets if isinstance(w,ttk.Entry))
+                text=next(w for w in all_widgets if isinstance(w,tk.Text))
+                bar=next(w for w in all_widgets if isinstance(w,ttk.Scrollbar))
+                status=next(w for w in all_widgets if isinstance(w,ttk.Label))
+                buttons={w.cget('text'):w for w in all_widgets if isinstance(w,ttk.Button)}
+                def select(index):
+                    listing.selection_clear(0,tk.END);listing.selection_set(index)
+                    listing.event_generate('<<ListboxSelect>>');root.update_idletasks()
+                buttons['Dokončit'].invoke();assert status.cget('text')=='Nejprve vyberte úkol.'
+                for name in ['  Stejné  ','Jiný','Stejné']:
+                    entry.insert(0,name);buttons['Přidat'].invoke()
+                select(2)
+                assert text.get('1.0','end-1c')=='Úkol: Stejné\nStav: čeká'
+                buttons['Dokončit'].invoke();buttons['Dokončit'].invoke()
+                assert tuple(listing.get(0,tk.END))==('[ ] Stejné','[ ] Jiný','[hotovo] Stejné')
+                buttons['Odstranit'].invoke();assert tuple(listing.get(0,tk.END))==('[ ] Stejné','[ ] Jiný')
+                select(0);buttons['Dokončit'].invoke();select(1)
+                with tempfile.TemporaryDirectory() as folder:
+                    directory=Path(folder);target=directory/'úkoly.json'
+                    bad=directory/'bad.json';bad.write_text('[{"nazev":"A","hotovo":false},{"nazev":"B","hotovo":null}]',encoding='utf-8')
+                    empty=directory/'empty.json';empty.write_text('[]',encoding='utf-8')
+                    long=directory/'long.json';long.write_text(json.dumps([{'nazev':f'Procvičit příklad {i}','hotovo':False} for i in range(1,31)],ensure_ascii=False),encoding='utf-8')
+                    with patch.object(filedialog,'asksaveasfilename',return_value=str(target)), patch.object(filedialog,'askopenfilename',side_effect=['',str(bad),str(target),str(empty),str(long)]):
+                        buttons['Uložit JSON'].invoke()
+                        assert json.loads(target.read_text('utf-8'))==[{'nazev':'Stejné','hotovo':True},{'nazev':'Jiný','hotovo':False}]
+                        for message in ['Načítání zrušeno.','Soubor se nepodařilo načíst.']:
+                            before=tuple(listing.get(0,tk.END)),listing.curselection(),text.get('1.0','end-1c')
+                            buttons['Načíst JSON'].invoke()
+                            assert status.cget('text')==message
+                            assert (tuple(listing.get(0,tk.END)),listing.curselection(),text.get('1.0','end-1c'))==before
+                        buttons['Odstranit'].invoke();buttons['Načíst JSON'].invoke()
+                        assert tuple(listing.get(0,tk.END))==('[hotovo] Stejné','[ ] Jiný') and not listing.curselection()
+                        buttons['Načíst JSON'].invoke();assert listing.size()==0
+                        buttons['Načíst JSON'].invoke();assert listing.size()==30
+                        root.update_idletasks();root.tk.call(*root.tk.splitlist(bar.cget('command')),'moveto',.5);root.update_idletasks()
+                        assert listing.yview()[0]>.1 and all(abs(a-b)<1e-6 for a,b in zip(listing.yview(),bar.get()))
+                        select(29);buttons['Dokončit'].invoke()
+                        assert text.get('1.0','end-1c')=='Úkol: Procvičit příklad 30\nStav: hotovo'
+                        text.insert('1.0','Nesmí přepsat detail')
+                        assert text.get('1.0','end-1c')=='Úkol: Procvičit příklad 30\nStav: hotovo'
+                assert len(descendants(root))==len(all_widgets)
             root.update_idletasks()
             assert not failures, failures
             if args.shots:

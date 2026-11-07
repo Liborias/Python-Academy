@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co vrátí curselection bez výběru?",
+    "options": [
+      "Prázdnou n-tici ().",
+      "Vždy index 0.",
+      "Text prvního úkolu."
+    ],
+    "answer": 0,
+    "why": "Než použijeme vyber[0], musíme ověřit, že výběr není prázdný."
+  },
+  {
+    "q": "Proč mažeme z modelu podle indexu?",
+    "options": [
+      "Aby se všechny stejné texty smazaly zároveň.",
+      "Abychom i u stejných názvů odstranili právě vybranou položku.",
+      "Protože Listbox neumí zobrazit text."
+    ],
+    "answer": 1,
+    "why": "Remove podle hodnoty najde první shodu. Index zachovává totožnost vybraného řádku."
+  },
+  {
+    "q": "Co má být zdrojem zobrazení po změně?",
+    "options": [
+      "Text poslední zprávy.",
+      "Počet kliknutí.",
+      "Aktuální seznam ukoly."
+    ],
+    "answer": 2,
+    "why": "Listbox obnovujeme z modelu; změna pouze na obrazovce by se při obnově mohla ztratit."
+  }
+]

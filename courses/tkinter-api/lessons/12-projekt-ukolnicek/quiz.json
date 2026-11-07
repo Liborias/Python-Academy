@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co je uložené v názvu dokončeného úkolu?",
+    "options": [
+      "Původní název, značka [hotovo] je jen ve zobrazení.",
+      "Vždy celý řádek Listbox včetně značky.",
+      "Pouze text hotovo."
+    ],
+    "answer": 0,
+    "why": "Model uchovává název a bool zvlášť; zobrazení je z nich sestavené."
+  },
+  {
+    "q": "Proč nahradíme ukoly až po ověření všech záznamů?",
+    "options": [
+      "Aby se neplatné položky tiše ztratily.",
+      "Aby pozdní chyba nezničila původní data ani nezanechala napůl načtený seznam.",
+      "Aby se do JSON nemusela psát diakritika."
+    ],
+    "answer": 1,
+    "why": "Nejdřív se připraví celý nový model, až úspěch dovolí změnit současný."
+  },
+  {
+    "q": "Co udělá ukoly[:] = nactene?",
+    "options": [
+      "Změní obsah původního seznamu a zachová jeho objekt.",
+      "Vytvoří novou lokální proměnnou ukoly.",
+      "Přidá všechny nové úkoly na konec starých."
+    ],
+    "answer": 0,
+    "why": "Přiřazení do celého řezu nahradí položky seznamu; nepřiřazuje nový objekt jménu ukoly."
+  }
+]

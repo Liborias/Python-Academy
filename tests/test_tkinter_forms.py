@@ -83,7 +83,7 @@ class TkinterFormsTest(unittest.TestCase):
     def test_course_has_second_module_and_complete_lesson_files(self):
         course=json.loads((BASE.parent/'course.json').read_text('utf-8'))
         self.assertEqual(course['modules'][1]['lessons'],IDS)
-        self.assertEqual(sum(len(m['lessons']) for m in course['modules']),8)
+        self.assertGreaterEqual(sum(len(m['lessons']) for m in course['modules']),8)
         for lid in IDS:
             d=BASE/lid
             self.assertEqual(json.loads((d/'lesson.json').read_text('utf-8'))['kind'],'gui')

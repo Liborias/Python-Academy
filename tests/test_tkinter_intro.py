@@ -109,7 +109,7 @@ stav.pack(padx=16, pady=12)''')]
         row = next(r for r in catalog if r['id'] == 'tkinter-api')
         self.assertEqual((row['status'], row['lessons']), ('draft', 28))
         profile = course_preparation('tkinter-api')
-        self.assertIn('Prvních osm', profile['focus'])
+        self.assertIn('standardní Tkinter a ttk', profile['focus'])
         self.assertIn('-m tkinter', profile['system'])
         for lid in IDS:
             d = BASE/lid

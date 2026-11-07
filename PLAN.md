@@ -297,10 +297,17 @@ StringVar/IntVar, Checkbutton/Radiobutton a převodník kilometrů a metrů
 s odděleným výpočtem a ošetřením vstupu. Tk_run rozšířen a ověřen se skutečným Tk.
 Import převodníku nevytváří okno, funkce převádí čísla a GUI zpracovává chyby.
 
-Další dávka 9–12: Listbox s odděleným seznamem dat a ověřením výběru,
-Scrollbar/Text, JSON v UTF-8 s dialogy a jejich zrušením, propojený úkolníček.
-Před automatickými kontrolami doplnit příslušné widgety/dialogy v tk_run
-a ověřit se skutečným Tk. Nevynucovat použití živé sítě ani posílání e-mailů.
+Ve v0.52 dokončena dávka 9–12: Listbox s odděleným seznamem dat a ověřením
+výběru, Scrollbar/Text, JSON v UTF-8 s dialogy a jejich zrušením, úkolníček.
+Model zachovává pořadí a samostatné stavy i u stejných názvů. Neplatný soubor
+nebo zrušení dialogu ponechá původní data, výběr a detail. Tk_run rozšířen
+a ověřen se skutečnými widgety a souborovými operacemi.
+
+Další dávka 13–16: místní cvičné REST API přes requests, stavové kódy,
+timeouty/neplatné odpovědi, after a pracovní vlákno s frontou výsledků,
+převodník měn 2.0. Widgety mění jen hlavní vlákno, pomalý požadavek nesmí
+zablokovat okno. Navrhnout předvídatelné místní odpovědi a jejich chyby,
+bez závislosti na dostupnosti živé služby. Nezahajovat zatím posílání e-mailů.
 API a e-maily navazují až v pozdějších modulech, síťové chyby se budou zkoušet
 na místních datech a e-maily nejprve v místním záchytu. Zachovat ID a uložené
 postupy starších kurzů. Dodávka přes GitHub/main, bez ZIPů a publikace prostředí.

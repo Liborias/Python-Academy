@@ -38,9 +38,9 @@ PROFILES = {
         'system': 'V notebooku vyberte jádro ze stejné .venv jako v terminálu. VS Code/VSCodium: rozšíření Jupyter; v PyCharm záleží dostupnost notebooků na verzi a licenci. Záložní postup je obyčejný soubor .py v terminálu. Kurz je zatím plánovaný.',
     },
     'tkinter-api': {
-        'focus': 'Prvních osm lekcí používá standardní Tkinter a ttk. Requests slouží až pro HTTP API, PyInstaller je volitelný pro závěrečné balení.',
+        'focus': 'Prvních dvanáct lekcí používá standardní Tkinter a ttk. Requests slouží až pro HTTP API, PyInstaller je volitelný pro závěrečné balení.',
         'verify': 'import tkinter, requests; print(tkinter.TkVersion); print(requests.__version__)',
-        'system': 'Tkinter ověřte na grafické ploše pomocí Pythonu z .venv s volbou -m tkinter. Na Debianu/Ubuntu potřebujete odpovídající python3-tk; na Homebrew python-tk@3.14. Pro lokální e-mailový test nebude potřeba osobní heslo ke schránce. Prvních osm lekcí je připravených, včetně převodníku vzdálenosti. Okno se otevře na počítači s Pythonem, nikoli uvnitř webové stránky; v prostředí bez grafické plochy ho nelze zobrazit. Konkrétní API a e-mailový záchyt se doplní s příslušnými lekcemi.',
+        'system': 'Tkinter ověřte na grafické ploše pomocí Pythonu z .venv s volbou -m tkinter. Na Debianu/Ubuntu potřebujete odpovídající python3-tk; na Homebrew python-tk@3.14. Pro lokální e-mailový test nebude potřeba osobní heslo ke schránce. Prvních dvanáct lekcí je připravených, včetně převodníku a úkolníčku s JSON. Okno se otevře na počítači s Pythonem, nikoli uvnitř webové stránky; v prostředí bez grafické plochy ho nelze zobrazit. Konkrétní API a e-mailový záchyt se doplní s příslušnými lekcemi.',
     },
     'pygame-2': {
         'focus': 'Stejné pygame-ce jako v Pygame 1; znalost tříd se hodí z Turtle a OOP.',

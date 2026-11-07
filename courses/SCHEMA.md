@@ -157,7 +157,8 @@ předchozí zobrazení a ignoruje opožděnou odpověď jiného úkolu. Jednotli
 {"action": "click", "text": "Pozdravit"}])` spustí studentský program v podprocesu
 s malou náhradou modulů tkinter/ttk. Podporuje Tk, Label, Button, Entry, Frame,
 Checkbutton/Radiobutton, StringVar/IntVar, základní nastavení okna, configure/config, pack/grid a přístup
-k textu. Nejde o úplné Tk ani vykreslování; nepodporované funkce skončí chybou.
+k textu. Od v0.52 také Listbox, Text, Scrollbar, řádky mřížky a řízené odpovědi
+filedialog. Nejde o úplné Tk ani vykreslování; nepodporované funkce skončí chybou.
 Před přidáním dalšího widgetu nebo událostí je nutné náhradu rozšířit a ověřit
 proti skutečnému Tkinteru. Míchání pack/grid v jednom rodiči je chyba.
 
@@ -170,7 +171,7 @@ add="+" a návrat break. Z rozsahu Tk vazeb podporujeme jen vlastní vazbu widge
 a hlavního okna pro tuto událost, nikoli třídní vazby a úplnou logiku klávesnice.
 `r.widgets("label", index=0)` vrátí počáteční popisky, index=1 stav po první akci,
 index=-1 poslední stav. Záznam má id/kind/parent, text, visible, manager/layout
-a pořadí umístění, columns, focused a bindings; okno navíc title/geometry/minsize,
+a pořadí umístění, columns/rows, state, focused a bindings; okno navíc title/geometry/minsize,
 tlačítko has_command, vstup value a přepínače selected/variable_kind.
 Výsledek obsahuje také mainloops, error, timed_out, crashed, out/err.
 `c.tk_no_error(r)` vypíše případnou chybu včetně studentského řádku. Běh má časový
@@ -179,7 +180,7 @@ limit, limit kroků studentského kódu a počtu widgetů.
 Kontroly mají ověřovat stavy před kliknutím i po více opakováních, nové hodnoty
 vstupu a zachování původního widgetu. Samotná přítomnost callbacku nestačí.
 Validátor Tkinter ukázku skutečně provede přes tuto náhradu a vyžaduje viditelné
-okno s hlavní smyčkou. Vzhled a skutečnou odezvu prvních osmi lekcí ověřuje
+okno s hlavní smyčkou. Vzhled a skutečnou odezvu prvních dvanácti lekcí ověřuje
 `python tests/tkinter_real_smoke.py` na grafické ploše se skutečným Tk;
 volba `--shots DIR` uloží snímky, pokud je dostupný Pillow.
 
@@ -190,3 +191,30 @@ obsahuje pro každé volání value a error (stejný formát chyby včetně řá
 Argumenty a návratové hodnoty jsou omezené na JSON data; výjimka jednoho volání
 se zaznamená a další pokračují. Tato cesta stále používá náhradu Tk, proto
 kontrola 8 navíc vyžaduje, aby import a výpočet nevytvořily žádné widgety.
+
+### Seznamy, delší text a soubory (v0.52)
+Listbox má insert/delete/get se zahrnutým posledním indexem, size,
+curselection, selection_set/clear a see. Snapshot obsahuje items, selection a yview.
+Akce `{"action":"select","index":2}` vybere jediný řádek a vyšle
+<<ListboxSelect>>; index=null výběr vymaže. Programové selection_set samo
+událost nevyvolává, stejně jako ve skutečném Tk. Ověřujte i stejné názvy na
+různých indexech a návaznost dalších operací na změněný model.
+
+Text podporuje insert/delete/get s indexy řádek.sloupec, end a end-1c.
+Get do end zahrne automatický koncový nový řádek; snapshot value jej vynechává.
+Akce `{"action":"fill_text","value":"A\nB\n"}` změní právě jeden Text;
+disabled odmítá úpravy stejně jako reálný widget. Posun je logický podle řádků
+a height, bez měření písma či zalamování. Yview hlásí výřez přes yscrollcommand;
+Scrollbar má set/get a snapshot range. Akce scroll s fraction nebo number/what
+použije command posuvníku; kind=text či listbox může posunout přímo obsah.
+Při ověřování posuvu neporovnávejte přesné podíly s pixelovým vykreslením Tk.
+
+`c.tk_run(actions, dialogs=[{"kind":"open","path":"..."},
+{"kind":"save","path":""}])` vrací z askopenfilename/asksaveasfilename
+připravené cesty v pořadí volání, prázdná znamená zrušení. Jiný typ dialogu nebo
+chybějící odpověď je chyba. R.dialogs zaznamená kind/path. Soubory se čtou a
+zapisují skutečně, proto kontroly vytvářejí vlastní cvičná data vedle studentova
+dočasného souboru. Testujte i neexistující cestu, chybný JSON/kódování, neplatný
+pozdější záznam, prázdná data a následnou opravu. Nativní vzhled dialogu není
+součástí náhrady. I test skutečného Tk řídí volbu cesty testovacími odpověďmi;
+ověřuje skutečné widgety, zachování stavu a souborové operace.

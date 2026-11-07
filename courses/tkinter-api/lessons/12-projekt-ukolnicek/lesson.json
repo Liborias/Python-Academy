@@ -1,0 +1,10 @@
+{
+  "title": "Projekt: úkolníček se souborem",
+  "minutes": 65,
+  "kind": "gui",
+  "tags": [
+    "tkinter",
+    "soubory"
+  ],
+  "example_title": "Přidat, dokončit, uložit a obnovit"
+}

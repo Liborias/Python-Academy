@@ -37,10 +37,11 @@ with tempfile.TemporaryDirectory() as temp:
             assert 'Rozpracováno' in card.inner_text() and '0 / 28 lekcí' in card.inner_text()
             card.click()
             page.wait_for_selector('.mod li')
-            assert page.locator('.mod li').count() == 8
-            assert '8 z 28 lekcí připraveno' in page.locator('.learning-plan').inner_text()
+            available=sum(len(m['lessons']) for m in json.loads((root/'courses/tkinter-api/course.json').read_text('utf-8'))['modules'])
+            assert page.locator('.mod li').count() == available
+            assert f'{available} z 28 lekcí připraveno' in page.locator('.learning-plan').inner_text()
             assert page.locator('.course-preparation').count() == 1
-            assert 'Prvních osm' in page.locator('.prep-content').inner_text()
+            assert 'standardní Tkinter a ttk' in page.locator('.prep-content').inner_text()
             page.locator('.learning-plan summary').click()
             assert 'Modul 7' in page.locator('.learning-plan').inner_text()
             for lid in IDS:

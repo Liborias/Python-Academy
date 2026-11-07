@@ -163,6 +163,101 @@ if __name__ == "__main__":
         self.assertEqual(r.calls[1]['error']['type'],'ValueError')
         self.assertEqual(r.calls[2],{'value':6,'error':None})
 
+    def test_listbox_endpoints_selection_and_snapshot_independence(self):
+        r=self.run_prog('''import tkinter as tk
+w=tk.Tk();l=tk.Listbox(w);l.pack()
+l.insert(tk.END,"A","B","A")
+assert l.get(0,tk.END)==("A","B","A")
+l.selection_set(2)
+assert l.curselection()==(2,)
+count=[]
+l.bind("<<ListboxSelect>>",lambda event: count.append(l.curselection()))
+assert not count
+tk.Button(w,text="Smazat",command=lambda: l.delete(2)).pack()
+w.mainloop()
+print(count)
+''',actions=[{'action':'select','index':2},{'action':'click','text':'Smazat'},{'action':'select','index':None}])
+        self.assertIsNone(r.error)
+        self.assertEqual(r.widgets('listbox')[0]['items'],['A','B','A'])
+        self.assertEqual(r.widgets('listbox',2)[0]['items'],['A','B'])
+        self.assertEqual(r.widgets('listbox',2)[0]['selection'],[])
+        self.assertEqual(r.out.strip(),'[(2,), ()]')
+
+    def test_text_indices_and_implicit_final_newline(self):
+        r=self.run_prog('''import tkinter as tk
+w=tk.Tk();t=tk.Text(w);t.pack()
+assert t.get("1.0","end")=="\\n"
+assert t.get("1.0","end-1c")==""
+t.insert("1.0","A\\nB\\n")
+assert t.get("1.0","end")=="A\\nB\\n\\n"
+assert t.get("2.0","2.1")=="B"
+t.delete("2.0","2.1")
+assert t.get("1.0","end-1c")=="A\\n\\n"
+w.mainloop()
+''',actions=[{'action':'fill_text','value':'Žofie\nNová\n'}])
+        self.assertIsNone(r.error)
+        self.assertEqual(r.widgets('text')[0]['value'],'A\n\n')
+        self.assertEqual(r.widgets('text',1)[0]['value'],'Žofie\nNová\n')
+
+    def test_readonly_text_ignores_edits_until_enabled(self):
+        r=self.run_prog('''import tkinter as tk
+w=tk.Tk();t=tk.Text(w);t.pack();t.insert("1.0","Původní")
+t.config(state="disabled")
+def enable():
+    t.config(state="normal")
+tk.Button(w,text="Povolit",command=enable).pack()
+w.mainloop()
+''',actions=[{'action':'fill_text','value':'Zakázaná změna'},{'action':'click','text':'Povolit'},{'action':'fill_text','value':'Nová'}])
+        self.assertIsNone(r.error)
+        self.assertEqual(r.widgets('text',1)[0]['value'],'Původní')
+        self.assertEqual(r.widgets('text',3)[0]['value'],'Nová')
+
+    def test_scrollbar_and_text_report_both_directions(self):
+        r=self.run_prog('''import tkinter as tk
+from tkinter import ttk
+w=tk.Tk();t=tk.Text(w,height=5);t.grid(row=0,column=0)
+b=ttk.Scrollbar(w,orient="vertical",command=t.yview);b.grid(row=0,column=1)
+t.config(yscrollcommand=b.set)
+t.insert("1.0","\\n".join(str(i) for i in range(30)))
+w.rowconfigure(0,weight=1)
+w.mainloop()
+''',actions=[{'action':'scroll','fraction':.5},{'action':'scroll','kind':'text','number':-1,'what':'pages'}])
+        self.assertIsNone(r.error)
+        self.assertGreater(r.widgets('text',1)[0]['yview'][0],r.widgets('text',2)[0]['yview'][0])
+        for i in range(3):
+            self.assertEqual(r.widgets('text',i)[0]['yview'],r.widgets('scrollbar',i)[0]['range'])
+        self.assertEqual(r.widgets('root')[0]['rows'],{'0':{'weight':1}})
+
+    def test_listbox_scroll_updates_range_after_rows_are_removed(self):
+        r=self.run_prog('''import tkinter as tk
+w=tk.Tk();l=tk.Listbox(w,height=5);l.pack()
+b=tk.Scrollbar(w,command=l.yview);b.pack();l.config(yscrollcommand=b.set)
+l.insert("end",*range(30))
+tk.Button(w,text="Vyprázdnit",command=lambda:l.delete(0,"end")).pack()
+w.mainloop()
+''',actions=[{'action':'scroll','fraction':.5},{'action':'click','text':'Vyprázdnit'}])
+        self.assertIsNone(r.error)
+        self.assertGreater(r.widgets('listbox',1)[0]['yview'][0],0)
+        self.assertEqual(r.widgets('listbox',2)[0]['items'],[])
+        self.assertEqual(r.widgets('scrollbar',2)[0]['range'],[0,1])
+        self.assertEqual(r.widgets('scrollbar')[0]['orient'],'vertical')
+
+    def test_file_dialog_answers_cancel_and_mismatched_dialog(self):
+        source='''import tkinter as tk
+from tkinter import filedialog
+w=tk.Tk()
+tk.Button(w,text="Otevřít",command=lambda:print(repr(filedialog.askopenfilename(parent=w)))).pack()
+tk.Button(w,text="Uložit",command=lambda:print(repr(filedialog.asksaveasfilename(parent=w)))).pack()
+w.mainloop()
+'''
+        r=self.run_prog(source,actions=[{'action':'click','text':'Otevřít'},{'action':'click','text':'Uložit'}],
+                        dialogs=[{'kind':'open','path':''},{'kind':'save','path':'česká cesta.json'}])
+        self.assertIsNone(r.error)
+        self.assertEqual(r.out.splitlines(),["''","'česká cesta.json'"])
+        self.assertEqual(r.dialogs,[{'kind':'open','path':''},{'kind':'save','path':'česká cesta.json'}])
+        bad=self.run_prog(source,actions=[{'action':'click','text':'Otevřít'}],dialogs=[{'kind':'save','path':''}])
+        self.assertEqual(bad.error['type'],'TclError')
+
 
 if __name__ == '__main__':
     unittest.main()

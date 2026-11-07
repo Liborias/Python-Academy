@@ -1,12 +1,12 @@
 ## Okenní aplikace, API a e-maily
 
-Prvních 8 z plánovaných 28 lekcí jsou hotové. Kurz začíná Tkinterem, potom propojí okna se soubory, HTTP API a přípravou e-mailů. Celková náročnost je 3/4; úvod navazuje na základní funkce a podmínky. Doporučené Základy Pythonu a Soubory a web pomohou, samostatný OOP je užitečný, ale úvod jej nevyžaduje. Turtle ani Pygame nejsou potřeba.
+Prvních 12 z plánovaných 28 lekcí jsou hotové. Kurz začíná Tkinterem, potom propojí okna se soubory, HTTP API a přípravou e-mailů. Celková náročnost je 3/4; úvod navazuje na základní funkce a podmínky. Doporučené Základy Pythonu a Soubory a web pomohou, samostatný OOP je užitečný, ale úvod jej nevyžaduje. Turtle ani Pygame nejsou potřeba.
 
 Každá hotová lekce obsahuje výklad nových konstrukcí před použitím, komentovanou ukázku, samostatné zadání, vzor, automatickou kontrolu a tři kvízové otázky. Kontroly ověřují nastavení a chování, skutečný vzhled se zkouší také v Tk. Okno vzniká na počítači s Pythonem, nikoli uvnitř webové stránky.
 
 ## Prostředí a průběh
 
-Vstupní příprava nabízí Windows, macOS a Linux i VS Code, VSCodium a PyCharm. Tkinter je systémová součást instalace Pythonu/Tk, ne pip balíček. Prvních osm lekcí používá jen standardní knihovnu; requests je připravený pro pozdější HTTP část a PyInstaller je volitelný až pro balení. Stejný interpreter z .venv musí fungovat v terminálu i editoru. Ověření: python -m tkinter na grafické ploše.
+Vstupní příprava nabízí Windows, macOS a Linux i VS Code, VSCodium a PyCharm. Tkinter je systémová součást instalace Pythonu/Tk, ne pip balíček. Prvních dvanáct lekcí používá jen standardní knihovnu; requests je připravený pro pozdější HTTP část a PyInstaller je volitelný až pro balení. Stejný interpreter z .venv musí fungovat v terminálu i editoru. Ověření: python -m tkinter na grafické ploše.
 
 Základní projekty půjdou vyzkoušet s místními daty. Síťová část dostane předvídatelné odpovědi a chyby pro testování. E-mailová část nejprve použije lokální záchytný server a cvičné adresy, aby nepotřebovala osobní schránku. Přístup k reálné službě a konkrétní závislosti se ověří při realizaci příslušných lekcí.
 
@@ -36,10 +36,14 @@ Výstup: převodník kilometrů a metrů ovládaný tlačítkem i Enterem, s odd
 
 ## Modul 3 — Úkolníček a soubory
 
+**Hotovo: lekce 9–12.**
+
 9. Listbox a model dat, výběr a bezpečná práce s indexy.
 10. Scrollbar a Text, delší seznamy a obsah.
 11. Načtení/uložení JSON v UTF-8, dialogy souborů a jejich zrušení.
 12. Hotový úkolníček: přidat, dokončit, odstranit, uložit a znovu načíst.
+
+Výstup: úkolníček se samostatným modelem, podrobnostmi výběru a uložením/obnovením JSON. Zrušený dialog ani vadný soubor nerozpracovaná data nenahradí.
 
 ## Modul 4 — HTTP API bez zamrzání okna
 

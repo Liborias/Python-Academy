@@ -1,0 +1,10 @@
+{
+  "title": "Poznámka v JSON a dialogy souborů",
+  "minutes": 50,
+  "kind": "gui",
+  "tags": [
+    "tkinter",
+    "soubory"
+  ],
+  "example_title": "Uložit a znovu načíst poznámku"
+}

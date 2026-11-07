@@ -22,6 +22,8 @@ mainloops = 0
 snapshots = []
 steps = 0
 focused = None
+dialog_answers = list(spec.get('dialogs', []))
+dialog_log = []
 
 
 class TclError(Exception):
@@ -74,6 +76,7 @@ class Widget:
         self.alive = True
         self.visible = True
         self.columns = {}
+        self.rows = {}
         self.bindings = {}
         widgets.append(self)
     def configure(self, cnf=None, **options):
@@ -125,6 +128,9 @@ class Widget:
     def columnconfigure(self, index, **options):
         self.columns[str(index)] = dict(options)
     grid_columnconfigure = columnconfigure
+    def rowconfigure(self, index, **options):
+        self.rows[str(index)] = dict(options)
+    grid_rowconfigure = rowconfigure
     def bind(self, sequence=None, func=None, add=None):
         if sequence is None:
             return tuple(self.bindings)
@@ -189,6 +195,9 @@ class Tk(Widget):
         mainloops += 1
         if mainloops != 1:
             raise TclError('Použijte jednu hlavní smyčku')
+        for widget in widgets:
+            if isinstance(widget, VerticalView):
+                widget._notify_scroll()
         snapshots.append(snapshot())
         for action in spec.get('actions', []):
             if action.get('action') == 'fill':
@@ -206,6 +215,32 @@ class Tk(Widget):
                 if focused is None or not shown(focused):
                     raise TclError('Klávesa potřebuje viditelný widget s fokusem')
                 focused.event_generate(action.get('sequence', '<Return>'))
+            elif action.get('action') in ('select', 'fill_text', 'scroll'):
+                kind = action.get('kind', {'select': 'listbox', 'fill_text': 'text', 'scroll': 'scrollbar'}[action['action']])
+                targets = [w for w in widgets if w.kind == kind and shown(w)]
+                if len(targets) != 1:
+                    raise TclError(f'Akce vyžaduje právě jeden viditelný {kind}')
+                target = targets[0]
+                if action['action'] == 'select':
+                    target.selection_clear(0, 'end')
+                    if action.get('index') is not None:
+                        index = int(action['index'])
+                        if not 0 <= index < target.size():
+                            raise TclError('Test vybral neexistující položku')
+                        target.selection_set(index)
+                    target.event_generate('<<ListboxSelect>>')
+                elif action['action'] == 'fill_text':
+                    target.delete('1.0', 'end')
+                    target.insert('1.0', action['value'])
+                else:
+                    args = ('moveto', action['fraction']) if 'fraction' in action else ('scroll', action.get('number', 1), action.get('what', 'units'))
+                    if isinstance(target, Scrollbar):
+                        command = target.cget('command')
+                        if not callable(command):
+                            raise TclError('Posuvník nemá připojený příkaz')
+                        command(*args)
+                    else:
+                        target.yview(*args)
             else:
                 raise TclError('Nepodporovaná testovací akce')
             snapshots.append(snapshot())
@@ -289,6 +324,141 @@ class Entry(Widget):
         self._set(self.get()[:offset] + str(text) + self.get()[offset:])
 
 
+class VerticalView:
+    """Logický svislý posun; nezahrnuje měření písma ani zalamování skutečného Tk."""
+    first = 0.0
+    def _visible_fraction(self):
+        count = len(self.items) if isinstance(self, Listbox) else self.value.count('\n') + 1
+        return min(1.0, max(1, int(self.cget('height') or 10)) / max(1, count))
+    def _notify_scroll(self):
+        self.first = max(0.0, min(self.first, 1.0 - self._visible_fraction()))
+        callback = self.cget('yscrollcommand')
+        if callable(callback):
+            callback(*self.yview())
+    def yview(self, *args):
+        if args:
+            if args[0] == 'moveto' and len(args) == 2:
+                self.first = float(args[1])
+            elif args[0] == 'scroll' and len(args) == 3 and args[2] in ('units', 'pages'):
+                count = max(1, len(self.items) if isinstance(self, Listbox) else self.value.count('\n') + 1)
+                amount = 1 / count if args[2] == 'units' else self._visible_fraction()
+                self.first += int(args[1]) * amount
+            else:
+                raise TclError('Nepodporovaný svislý posun')
+            self._notify_scroll()
+        return (self.first, min(1.0, self.first + self._visible_fraction()))
+    def yview_moveto(self, fraction):
+        self.yview('moveto', fraction)
+    def yview_scroll(self, number, what):
+        self.yview('scroll', number, what)
+
+
+class Listbox(VerticalView, Widget):
+    kind = 'listbox'
+    def __init__(self, master=None, **options):
+        super().__init__(master, **options)
+        self.items = []
+        self.selection = set()
+    def _index(self, index):
+        return len(self.items) - 1 if index == 'end' else int(index)
+    def size(self):
+        return len(self.items)
+    def get(self, first, last=None):
+        start = self._index(first)
+        if last is None:
+            return self.items[start] if 0 <= start < len(self.items) else ''
+        return tuple(self.items[max(0, start):self._index(last)+1])
+    def insert(self, index, *elements):
+        offset = len(self.items) if index == 'end' else max(0, min(int(index), len(self.items)))
+        self.items[offset:offset] = [str(v) for v in elements]
+        self.selection = {i + len(elements) if i >= offset else i for i in self.selection}
+        self._notify_scroll()
+    def delete(self, first, last=None):
+        start = max(0, self._index(first))
+        stop = min(len(self.items), self._index(last) + 1 if last is not None else start + 1)
+        if stop <= start:
+            return
+        del self.items[start:stop]
+        self.selection = {i if i < start else i - (stop-start) for i in self.selection if i < start or i >= stop}
+        self._notify_scroll()
+    def curselection(self):
+        return tuple(sorted(self.selection))
+    def selection_set(self, first, last=None):
+        start, stop = self._index(first), self._index(last) if last is not None else self._index(first)
+        self.selection.update(range(max(0, start), min(len(self.items)-1, stop)+1))
+    select_set = selection_set
+    def selection_clear(self, first, last=None):
+        start, stop = self._index(first), self._index(last) if last is not None else self._index(first)
+        self.selection.difference_update(range(max(0, start), min(len(self.items)-1, stop)+1))
+    select_clear = selection_clear
+    def see(self, index):
+        index = self._index(index)
+        if self.items:
+            self.yview_moveto(max(0, index) / len(self.items))
+
+
+class Text(VerticalView, Widget):
+    kind = 'text'
+    def __init__(self, master=None, **options):
+        super().__init__(master, **options)
+        self.value = ''
+    def _index(self, index):
+        index = str(index).replace(' ', '')
+        if index == 'end':
+            return len(self.value) + 1
+        if index in ('end-1c', 'end-1chars'):
+            return len(self.value)
+        try:
+            row, column = map(int, index.split('.'))
+            if row < 1 or column < 0:
+                raise ValueError
+        except ValueError:
+            raise TclError('Podporované indexy Text: řádek.sloupec, end a end-1c') from None
+        lines = (self.value + '\n').splitlines(keepends=True)
+        return min(len(self.value)+1, sum(len(line) for line in lines[:row-1]) + min(column, len(lines[row-1].rstrip('\n')) if row <= len(lines) else 0))
+    def get(self, first, last=None):
+        start = self._index(first)
+        stop = self._index(last) if last is not None else start+1
+        return (self.value + '\n')[start:stop]
+    def delete(self, first, last=None):
+        if self.cget('state') == 'disabled':
+            return
+        start = min(len(self.value), self._index(first))
+        stop = min(len(self.value), self._index(last) if last is not None else start+1)
+        if stop > start:
+            self.value = self.value[:start] + self.value[stop:]
+            self._notify_scroll()
+    def insert(self, index, text, *tags):
+        if self.cget('state') == 'disabled':
+            return
+        offset = min(len(self.value), self._index(index))
+        self.value = self.value[:offset] + str(text) + self.value[offset:]
+        self._notify_scroll()
+
+
+class Scrollbar(Widget):
+    kind = 'scrollbar'
+    def __init__(self, master=None, **options):
+        options.setdefault('orient', 'vertical')
+        super().__init__(master, **options)
+        self.range = (0.0, 1.0)
+    def set(self, first, last):
+        self.range = (float(first), float(last))
+    def get(self):
+        return self.range
+
+
+def choose_file(kind, **options):
+    if not dialog_answers:
+        raise TclError('Pro dialog chybí připravená testovací odpověď')
+    answer = dialog_answers.pop(0)
+    if answer.get('kind') != kind:
+        raise TclError('Program otevřel jiný typ dialogu')
+    path = answer.get('path', '')
+    dialog_log.append({'kind': kind, 'path': path})
+    return path
+
+
 def shown(widget):
     if not widget.alive or not widget.visible:
         return False
@@ -306,7 +476,8 @@ def snapshot():
                 'manager': w.manager, 'layout': dict(w.layout), 'order': w.order,
                 'visible': shown(w), 'text': str(w.cget('text')),
                 'focused': w is focused, 'bindings': sorted(w.bindings),
-                'columns': {k: dict(v) for k, v in w.columns.items()}}
+                'columns': {k: dict(v) for k, v in w.columns.items()},
+                'rows': {k: dict(v) for k, v in w.rows.items()}, 'state': str(w.cget('state'))}
         if isinstance(w, Tk):
             item.update(title=w.caption, geometry=w.size, minsize=w.minimum, columns={k: dict(v) for k, v in w.columns.items()})
         if isinstance(w, Button):
@@ -317,6 +488,12 @@ def snapshot():
             item['selected'] = w.selected()
             variable = w.options['variable']
             item['variable_kind'] = 'int' if isinstance(variable, IntVar) else 'string' if isinstance(variable, StringVar) else 'other'
+        if isinstance(w, Listbox):
+            item.update(items=list(w.items), selection=list(w.curselection()), yview=list(w.yview()))
+        if isinstance(w, Text):
+            item.update(value=w.value, yview=list(w.yview()))
+        if isinstance(w, Scrollbar):
+            item.update(range=list(w.range), orient=str(w.cget('orient')))
         result.append(item)
     return result
 
@@ -324,17 +501,22 @@ def snapshot():
 mod = types.ModuleType('tkinter')
 mod.__path__ = []
 ttk = types.ModuleType('tkinter.ttk')
+filedialog = types.ModuleType('tkinter.filedialog')
+filedialog.askopenfilename = lambda **options: choose_file('open', **options)
+filedialog.asksaveasfilename = lambda **options: choose_file('save', **options)
 for name, cls in [('Tk', Tk), ('Label', Label), ('Button', Button), ('Entry', Entry), ('Frame', Frame),
                   ('Checkbutton', Checkbutton), ('Radiobutton', Radiobutton),
+                  ('Listbox', Listbox), ('Text', Text), ('Scrollbar', Scrollbar),
                   ('StringVar', StringVar), ('IntVar', IntVar), ('TclError', TclError)]:
     setattr(mod, name, cls)
-for name in ('Label', 'Button', 'Entry', 'Frame', 'Checkbutton', 'Radiobutton'):
+for name in ('Label', 'Button', 'Entry', 'Frame', 'Checkbutton', 'Radiobutton', 'Scrollbar'):
     setattr(ttk, name, getattr(mod, name))
 mod.ttk = ttk
-for name in ('END', 'W', 'E', 'N', 'S', 'EW', 'BOTH', 'X', 'Y', 'TOP', 'BOTTOM', 'LEFT', 'RIGHT'):
+mod.filedialog = filedialog
+for name in ('END', 'W', 'E', 'N', 'S', 'EW', 'BOTH', 'X', 'Y', 'TOP', 'BOTTOM', 'LEFT', 'RIGHT', 'VERTICAL', 'HORIZONTAL', 'BROWSE', 'SINGLE', 'WORD', 'NORMAL', 'DISABLED'):
     setattr(mod, name, name.lower())
 mod.mainloop = lambda: default_root.mainloop() if default_root is not None else None
-sys.modules.update({'tkinter': mod, 'tkinter.ttk': ttk})
+sys.modules.update({'tkinter': mod, 'tkinter.ttk': ttk, 'tkinter.filedialog': filedialog})
 sys.path.insert(0, os.path.dirname(os.path.abspath(student)))
 out, err = io.StringIO(), io.StringIO()
 error = None
@@ -376,4 +558,5 @@ if not snapshots:
     snapshots.append(snapshot())
 with open(out_path, 'w', encoding='utf-8') as file:
     json.dump({'snapshots': snapshots, 'mainloops': mainloops, 'error': error, 'calls': calls,
+               'dialogs': dialog_log,
                'out': out.getvalue()[:20000], 'err': err.getvalue()[:20000]}, file, ensure_ascii=False)
