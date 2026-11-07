@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.50):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (4 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.51):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (8 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,16 +38,19 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Okenní aplikace, API a e-maily — první čtyři lekce
+## Okenní aplikace, API a e-maily — prvních osm lekcí
 Kurz začíná oknem Tkinteru, popisky, tlačítky a formulářem se jménem.
+Navazuje rámečky Frame a změnou rozměrů, ovládáním přes Enter, propojenými
+proměnnými a přepínači. První projekt převádí kilometry a metry: výpočet funguje
+samostatně, formulář přijímá desetinnou čárku i tečku a dovolí opravit chybný vstup.
 Každá lekce vysvětluje nové příkazy před použitím a obsahuje ukázku, úkol,
 automatickou kontrolu chování a kvíz. Příprava kurzu pomůže ověřit Tkinter
-ve zvoleném editoru; první blok nepotřebuje žádné další pip balíčky.
+ve zvoleném editoru; prvních osm lekcí nepotřebuje žádné další pip balíčky.
 Okno se otevře na počítači, kde běží Python, vedle prohlížeče s učebnicí.
 
 Celá osnova 28 lekcí je v rozbalitelném panelu kurzu a v
-[plánu kurzu](courses/tkinter-api/plan.md). Navazovat budou větší formuláře,
-soubory, HTTP API a e-maily s místním testovacím záchytem, později balení aplikace.
+[plánu kurzu](courses/tkinter-api/plan.md). Navazovat budou úkolníček a soubory,
+HTTP API a e-maily s místním testovacím záchytem, později balení aplikace.
 Tyto navazující lekce zatím nejsou připravené. Náročnost celku je 3/4,
 první okna jsou vhodná po Základech Pythonu.
 

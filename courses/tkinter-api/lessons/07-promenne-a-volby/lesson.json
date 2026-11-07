@@ -1,0 +1,10 @@
+{
+  "title": "Proměnné a volby ve formuláři",
+  "minutes": 40,
+  "kind": "gui",
+  "tags": [
+    "tkinter",
+    "formuláře"
+  ],
+  "example_title": "Volby expedice"
+}

@@ -1,12 +1,12 @@
 ## Okenní aplikace, API a e-maily
 
-První 4 z plánovaných 28 lekcí jsou hotové. Kurz začíná Tkinterem, potom propojí okna se soubory, HTTP API a přípravou e-mailů. Celková náročnost je 3/4; úvod navazuje na základní funkce a podmínky. Doporučené Základy Pythonu a Soubory a web pomohou, samostatný OOP je užitečný, ale úvod jej nevyžaduje. Turtle ani Pygame nejsou potřeba.
+Prvních 8 z plánovaných 28 lekcí jsou hotové. Kurz začíná Tkinterem, potom propojí okna se soubory, HTTP API a přípravou e-mailů. Celková náročnost je 3/4; úvod navazuje na základní funkce a podmínky. Doporučené Základy Pythonu a Soubory a web pomohou, samostatný OOP je užitečný, ale úvod jej nevyžaduje. Turtle ani Pygame nejsou potřeba.
 
 Každá hotová lekce obsahuje výklad nových konstrukcí před použitím, komentovanou ukázku, samostatné zadání, vzor, automatickou kontrolu a tři kvízové otázky. Kontroly ověřují nastavení a chování, skutečný vzhled se zkouší také v Tk. Okno vzniká na počítači s Pythonem, nikoli uvnitř webové stránky.
 
 ## Prostředí a průběh
 
-Vstupní příprava nabízí Windows, macOS a Linux i VS Code, VSCodium a PyCharm. Tkinter je systémová součást instalace Pythonu/Tk, ne pip balíček. První čtyři lekce používají jen standardní knihovnu; requests je připravený pro pozdější HTTP část a PyInstaller je volitelný až pro balení. Stejný interpreter z .venv musí fungovat v terminálu i editoru. Ověření: python -m tkinter na grafické ploše.
+Vstupní příprava nabízí Windows, macOS a Linux i VS Code, VSCodium a PyCharm. Tkinter je systémová součást instalace Pythonu/Tk, ne pip balíček. Prvních osm lekcí používá jen standardní knihovnu; requests je připravený pro pozdější HTTP část a PyInstaller je volitelný až pro balení. Stejný interpreter z .venv musí fungovat v terminálu i editoru. Ověření: python -m tkinter na grafické ploše.
 
 Základní projekty půjdou vyzkoušet s místními daty. Síťová část dostane předvídatelné odpovědi a chyby pro testování. E-mailová část nejprve použije lokální záchytný server a cvičné adresy, aby nepotřebovala osobní schránku. Přístup k reálné službě a konkrétní závislosti se ověří při realizaci příslušných lekcí.
 
@@ -25,10 +25,14 @@ Výstup: ovladatelný formulář se jménem a srozumitelnou reakcí na prázdný
 
 ## Modul 2 — Uspořádané formuláře
 
+**Hotovo: lekce 5–8.**
+
 5. Frame, seskupování a kombinace správců v různých rodičích, změny velikosti.
 6. Události bind, argument události, Enter a fokus klávesnice.
 7. StringVar/IntVar, Checkbutton a Radiobutton, čtení nastavení.
-8. Projekt převodníku jednotek: samostatný výpočet, převod textu na číslo a zpráva místo pádu.
+8. Projekt převodníku vzdálenosti: samostatný výpočet, převod textu na číslo a zpráva místo pádu.
+
+Výstup: převodník kilometrů a metrů ovládaný tlačítkem i Enterem, s odděleným výpočtem a opravou chybného vstupu.
 
 ## Modul 3 — Úkolníček a soubory
 

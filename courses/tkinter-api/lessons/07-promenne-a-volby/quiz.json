@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak správně změníte propojenou proměnnou doprava?",
+    "options": [
+      "doprava = \"kuryr\"",
+      "doprava.set(\"kuryr\")",
+      "doprava.get(\"kuryr\")"
+    ],
+    "answer": 1,
+    "why": "Set mění obsah Tk proměnné. Přiřazení do doprava by přepsalo odkaz na objekt."
+  },
+  {
+    "q": "Co spojuje Radiobuttony do jedné skupiny?",
+    "options": [
+      "Stejné textové popisky.",
+      "Stejná hodnota value u všech.",
+      "Společná proměnná variable a odlišné hodnoty value."
+    ],
+    "answer": 2,
+    "why": "Proměnná obsahuje jedinou vybranou hodnotu. Každý přepínač představuje jinou možnost."
+  },
+  {
+    "q": "Změní se výsledná zpráva pouhým přepnutím volby?",
+    "options": [
+      "V naší ukázce až po tlačítku Zobrazit volby.",
+      "Vždy okamžitě, i bez našeho kódu.",
+      "Změní se pouze po novém mainloop."
+    ],
+    "answer": 0,
+    "why": "Volba mění Tk proměnnou, ale text výsledku přepočítává až funkce tlačítka."
+  }
+]

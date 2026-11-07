@@ -1,0 +1,10 @@
+{
+  "title": "Enter a fokus klávesnice",
+  "minutes": 35,
+  "kind": "gui",
+  "tags": [
+    "tkinter",
+    "formuláře"
+  ],
+  "example_title": "Pozdrav tlačítkem i Enterem"
+}

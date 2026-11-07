@@ -93,6 +93,76 @@ w.mainloop()''')
                 errors=validator.errors[before:];del validator.errors[before:]
                 self.assertEqual(bool(errors),expected,errors)
 
+    def test_keyboard_focus_event_argument_and_break(self):
+        r = self.run_prog('''import tkinter as tk
+w=tk.Tk()
+e=tk.Entry(w); e.pack(); e.focus_set()
+l=tk.Label(w,text="Čekám"); l.pack()
+def enter(event):
+    assert event.widget is e and event.keysym == "Return"
+    l.config(text=e.get())
+    return "break"
+e.bind("<KeyPress-Return>",enter)
+w.bind("<Return>",lambda event: l.config(text="Chybná druhá reakce"))
+w.mainloop()
+''', actions=[{'action':'fill','value':'Žofie'}, {'action':'key'}])
+        self.assertIsNone(r.error)
+        self.assertTrue(r.widgets('entry')[0]['focused'])
+        self.assertEqual(r.widgets('label',-1)[0]['text'],'Žofie')
+        self.assertEqual(r.widgets('entry')[0]['bindings'],['<Return>'])
+        missing=self.run_prog('import tkinter as tk\nw=tk.Tk()\ntk.Entry(w).pack()\nw.mainloop()',actions=[{'action':'key'}])
+        self.assertEqual(missing.error['type'],'TclError')
+        bad=self.run_prog('import tkinter as tk\nw=tk.Tk()\ne=tk.Entry(w);e.pack();e.focus_set()\ne.bind("<Return>",lambda: None)\nw.mainloop()',actions=[{'action':'key'}])
+        self.assertEqual(bad.error['type'],'TypeError')
+
+    def test_binding_replace_and_add_and_parent_dispatch(self):
+        r=self.run_prog('''import tkinter as tk
+w=tk.Tk();e=tk.Entry(w);e.pack();e.focus_set()
+events=[]
+e.bind("<Return>",lambda event: events.append("old"))
+e.bind("<Return>",lambda event: events.append("new"))
+e.bind("<Return>",lambda event: events.append("extra"),add="+")
+w.bind("<Return>",lambda event: events.append("root"))
+w.mainloop()
+print(events)
+''',actions=[{'action':'key'}])
+        self.assertIsNone(r.error)
+        self.assertEqual(r.out.strip(),"['new', 'extra', 'root']")
+
+    def test_choices_update_variables_before_callback_and_share_radio_group(self):
+        r=self.run_prog('''import tkinter as tk
+from tkinter import ttk
+w=tk.Tk();c=tk.IntVar(w,value=0);s=tk.StringVar(w,value="a")
+l=ttk.Label(w,text="Čekám");l.pack()
+ttk.Checkbutton(w,text="C",variable=c,command=lambda: l.config(text=str(c.get()))).pack()
+ttk.Radiobutton(w,text="A",variable=s,value="a").pack()
+ttk.Radiobutton(w,text="B",variable=s,value="b").pack()
+ttk.Button(w,text="Číst",command=lambda: l.config(text=s.get())).pack()
+w.mainloop()
+''',actions=[{'action':'click','text':t} for t in ['C','B','B','Číst','C','A']])
+        self.assertIsNone(r.error)
+        self.assertFalse(r.widgets('checkbutton')[0]['selected'])
+        self.assertEqual(r.widgets('label',1)[0]['text'],'1')
+        self.assertEqual([w['selected'] for w in r.widgets('radiobutton',2)],[False,True])
+        self.assertEqual([w['selected'] for w in r.widgets('radiobutton',3)],[False,True])
+        self.assertEqual(r.widgets('label',4)[0]['text'],'b')
+        self.assertEqual(r.widgets('label',5)[0]['text'],'0')
+        self.assertEqual([w['selected'] for w in r.widgets('radiobutton',6)],[True,False])
+
+    def test_calls_without_starting_window_and_per_call_exceptions(self):
+        r=self.run_prog('''import tkinter as tk
+def double(x): return x*2
+def fail(): raise ValueError("neplatné")
+if __name__ == "__main__":
+    w=tk.Tk();w.mainloop()
+''',run_name='student',calls=[{'name':'double','args':[1.25]},{'name':'fail'},{'name':'double','args':[3]}])
+        self.assertIsNone(r.error)
+        self.assertEqual(r.widgets(),[])
+        self.assertEqual(r.mainloops,0)
+        self.assertEqual(r.calls[0],{'value':2.5,'error':None})
+        self.assertEqual(r.calls[1]['error']['type'],'ValueError')
+        self.assertEqual(r.calls[2],{'value':6,'error':None})
+
 
 if __name__ == '__main__':
     unittest.main()

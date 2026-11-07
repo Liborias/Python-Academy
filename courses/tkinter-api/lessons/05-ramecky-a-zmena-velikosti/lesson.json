@@ -1,0 +1,10 @@
+{
+  "title": "Rámečky a změna velikosti",
+  "minutes": 35,
+  "kind": "gui",
+  "tags": [
+    "tkinter",
+    "formuláře"
+  ],
+  "example_title": "Dvě části formuláře"
+}

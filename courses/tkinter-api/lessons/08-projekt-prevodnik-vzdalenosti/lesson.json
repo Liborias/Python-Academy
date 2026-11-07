@@ -1,0 +1,10 @@
+{
+  "title": "Projekt: převodník vzdálenosti",
+  "minutes": 50,
+  "kind": "gui",
+  "tags": [
+    "tkinter",
+    "formuláře"
+  ],
+  "example_title": "Převodník kilometrů a metrů"
+}

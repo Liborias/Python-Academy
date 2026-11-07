@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč zde můžeme použít pack i grid?",
+    "options": [
+      "Každý z nich spravuje děti jiného rodiče.",
+      "Frame odstraní všechna pravidla rozložení.",
+      "Grid musí být zapsaný dříve než pack."
+    ],
+    "answer": 0,
+    "why": "Rozhoduje rodič widgetů. V jednom rodiči se mezi jeho dětmi pack a grid nemíchají."
+  },
+  {
+    "q": "Co znamená padding u ttk.Frame?",
+    "options": [
+      "Vnější odstup od ostatních rámečků.",
+      "Vnitřní prostor mezi hranou rámečku a obsahem.",
+      "Počet sloupců."
+    ],
+    "answer": 1,
+    "why": "Vnější mezery určuje například padx/pady správce pack. Padding patří dovnitř rámečku."
+  },
+  {
+    "q": "Proč nestačí samotné sticky=\"ew\"?",
+    "options": [
+      "Vstup vyplní svou buňku, ale buňka i rodič také potřebují získat volnou šířku.",
+      "Sticky funguje pouze v konzoli.",
+      "Sticky mění pouze text ve vstupu."
+    ],
+    "answer": 0,
+    "why": "Pack fill a váha sloupce přivedou volné místo až k buňce, kterou sticky dovolí vyplnit."
+  }
+]

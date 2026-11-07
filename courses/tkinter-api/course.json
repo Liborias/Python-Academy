@@ -14,15 +14,25 @@
         "03-tlacitka-a-zpetna-volani",
         "04-vstupni-pole-a-grid"
       ]
+    },
+    {
+      "id": "m02",
+      "title": "Uspořádané formuláře",
+      "lessons": [
+        "05-ramecky-a-zmena-velikosti",
+        "06-enter-a-fokus",
+        "07-promenne-a-volby",
+        "08-projekt-prevodnik-vzdalenosti"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od prvního okna ke Korespondenční dílně",
     "status": "draft",
     "level": 3,
-    "summary": "První čtyři lekce jsou připravené: okno, popisky, tlačítka a formulář se jménem. Další části přidají projekty, API a e-maily.",
+    "summary": "Prvních osm lekcí je připravených: od okna a formuláře přes klávesnici a volby po převodník vzdálenosti. Další části přidají soubory, API a e-maily.",
     "placement": "Po Základech Pythonu; soubory/JSON a OOP pomohou v pozdějších částech.",
     "difficulty_reason": "Úvod od 2/4, celek 3/4: události, spolupráce GUI s daty a sítí, odmítnuté operace a testy.",
-    "duration": "Plán 28 lekcí, první 4 jsou dostupné. Odhad 16–22 hodin včetně projektů."
+    "duration": "Plán 28 lekcí, prvních 8 je dostupných. Odhad 16–22 hodin včetně projektů."
   }
 }

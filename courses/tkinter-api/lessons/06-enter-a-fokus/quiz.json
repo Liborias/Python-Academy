@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co dostane funkce připojená přes bind?",
+    "options": [
+      "Žádný argument, stejně jako command.",
+      "Objekt události.",
+      "Vždy text celého formuláře."
+    ],
+    "answer": 1,
+    "why": "Tk předá objekt události. Proto handler potřebuje odpovídající parametr nebo obal."
+  },
+  {
+    "q": "Proč má pozdrav parametr udalost=None?",
+    "options": [
+      "Aby šel volat bez argumentu z command i s událostí z bind.",
+      "Aby se mainloop spouštěl znovu.",
+      "Aby se jméno uložilo na disk."
+    ],
+    "answer": 0,
+    "why": "None je výchozí hodnota při volání bez argumentu, událost ji při bind nahradí."
+  },
+  {
+    "q": "Co znamená fokus?",
+    "options": [
+      "Barvu vstupního pole.",
+      "Právo připojit se k internetu.",
+      "Widget, který právě dostává klávesové události."
+    ],
+    "answer": 2,
+    "why": "Focus_set žádá fokus pro widget; celé okno musí být také aktivní v systému."
+  }
+]

@@ -292,9 +292,15 @@ a zpětná volání, Entry a grid s pozdravem. Jde o samostatné programy použ�
 jen standardní tkinter/ttk, bez síťových požadavků. Obsah je draft pro připomínky.
 Každá lekce vysvětluje nové konstrukce před použitím a má úkol, kontrolu a kvíz.
 
-Další dávka 5–8: Frame a přizpůsobení velikosti, bind/Enter/focus, stavové proměnné
-a volby, převodník jednotek s odděleným výpočtem a ošetřením vstupu. Před jejich
-kontrolami rozšířit tk_run o potřebné funkce a ověřit shodu se skutečným Tk.
+Ve v0.51 dokončena dávka 5–8: Frame a přizpůsobení velikosti, bind/Enter/focus,
+StringVar/IntVar, Checkbutton/Radiobutton a převodník kilometrů a metrů
+s odděleným výpočtem a ošetřením vstupu. Tk_run rozšířen a ověřen se skutečným Tk.
+Import převodníku nevytváří okno, funkce převádí čísla a GUI zpracovává chyby.
+
+Další dávka 9–12: Listbox s odděleným seznamem dat a ověřením výběru,
+Scrollbar/Text, JSON v UTF-8 s dialogy a jejich zrušením, propojený úkolníček.
+Před automatickými kontrolami doplnit příslušné widgety/dialogy v tk_run
+a ověřit se skutečným Tk. Nevynucovat použití živé sítě ani posílání e-mailů.
 API a e-maily navazují až v pozdějších modulech, síťové chyby se budou zkoušet
 na místních datech a e-maily nejprve v místním záchytu. Zachovat ID a uložené
 postupy starších kurzů. Dodávka přes GitHub/main, bez ZIPů a publikace prostředí.

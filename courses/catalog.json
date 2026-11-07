@@ -86,7 +86,7 @@
         "soubory-web"
       ],
       "status": "draft",
-      "summary": "První 4 z 28 lekcí: okno Tkinter, popisky, tlačítka a formulář. Dále projekty, HTTP API a e-maily."
+      "summary": "Prvních 8 z 28 lekcí: okna Tkinter, formuláře, klávesnice, volby a převodník vzdálenosti. Dále soubory, HTTP API a e-maily."
     },
     {
       "id": "pygame-2",

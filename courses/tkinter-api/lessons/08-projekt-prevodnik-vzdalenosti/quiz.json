@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co vrací preved_vzdalenost?",
+    "options": [
+      "Číselný výsledek bez widgetů a jednotky v textu.",
+      "Nové hlavní okno.",
+      "Vždy text s jednotkou."
+    ],
+    "answer": 0,
+    "why": "Převodník odděluje výpočet od čtení a zobrazení ve formuláři."
+  },
+  {
+    "q": "Proč po float kontrolujeme také math.isfinite?",
+    "options": [
+      "Float neumí desetinné zlomky.",
+      "Float přijímá i nan a inf, které pro vzdálenost nechceme.",
+      "Isfinite vytvoří zaokrouhlený text."
+    ],
+    "answer": 1,
+    "why": "NaN a nekonečno nejsou běžné konečné vzdálenosti; samotný převod float je neodmítne."
+  },
+  {
+    "q": "Co udělá return po zobrazení chybové zprávy?",
+    "options": [
+      "Zavře všechna okna.",
+      "Spustí nový proces.",
+      "Ukončí aktuální callback; hlavní smyčka zůstane běžet."
+    ],
+    "answer": 2,
+    "why": "Uživatel může vstup opravit a znovu zavolat stejnou akci."
+  }
+]

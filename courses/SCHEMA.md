@@ -156,23 +156,37 @@ předchozí zobrazení a ignoruje opožděnou odpověď jiného úkolu. Jednotli
 `r = c.tk_run(actions=[{"action": "fill", "value": "  Ema  "},
 {"action": "click", "text": "Pozdravit"}])` spustí studentský program v podprocesu
 s malou náhradou modulů tkinter/ttk. Podporuje Tk, Label, Button, Entry, Frame,
-StringVar/IntVar, základní nastavení okna, configure/config, pack/grid a přístup
+Checkbutton/Radiobutton, StringVar/IntVar, základní nastavení okna, configure/config, pack/grid a přístup
 k textu. Nejde o úplné Tk ani vykreslování; nepodporované funkce skončí chybou.
 Před přidáním dalšího widgetu nebo událostí je nutné náhradu rozšířit a ověřit
 proti skutečnému Tkinteru. Míchání pack/grid v jednom rodiči je chyba.
 
 Mainloop zachytí počáteční stav a postupně provede zadané akce. Fill vyžaduje
-právě jedno viditelné Entry; click právě jedno viditelné tlačítko s daným textem.
+právě jedno viditelné Entry; click právě jeden viditelný Button, Checkbutton nebo
+Radiobutton s daným textem. Volby mění svou propojenou proměnnou před callbackem.
+Akce `{"action": "key", "sequence": "<Return>"}` odešle událost widgetu, který
+dostal focus_set. Bind předává objekt s widget/keysym, podporuje nahrazení vazby,
+add="+" a návrat break. Z rozsahu Tk vazeb podporujeme jen vlastní vazbu widgetu
+a hlavního okna pro tuto událost, nikoli třídní vazby a úplnou logiku klávesnice.
 `r.widgets("label", index=0)` vrátí počáteční popisky, index=1 stav po první akci,
 index=-1 poslední stav. Záznam má id/kind/parent, text, visible, manager/layout
-a pořadí umístění; okno navíc title/geometry/minsize/columns, tlačítko has_command,
-vstup value. Výsledek obsahuje také mainloops, error, timed_out, crashed, out/err.
+a pořadí umístění, columns, focused a bindings; okno navíc title/geometry/minsize,
+tlačítko has_command, vstup value a přepínače selected/variable_kind.
+Výsledek obsahuje také mainloops, error, timed_out, crashed, out/err.
 `c.tk_no_error(r)` vypíše případnou chybu včetně studentského řádku. Běh má časový
 limit, limit kroků studentského kódu a počtu widgetů.
 
 Kontroly mají ověřovat stavy před kliknutím i po více opakováních, nové hodnoty
 vstupu a zachování původního widgetu. Samotná přítomnost callbacku nestačí.
 Validátor Tkinter ukázku skutečně provede přes tuto náhradu a vyžaduje viditelné
-okno s hlavní smyčkou. Vzhled a skutečnou odezvu prvních čtyř lekcí ověřuje
+okno s hlavní smyčkou. Vzhled a skutečnou odezvu prvních osmi lekcí ověřuje
 `python tests/tkinter_real_smoke.py` na grafické ploše se skutečným Tk;
 volba `--shots DIR` uloží snímky, pokud je dostupný Pillow.
+
+Pro oddělený výpočet lze použít `c.tk_run(run_name="student", calls=[
+{"name": "preved_vzdalenost", "args": [1.25, "km-m"]}])`. Program dostane jiné
+__name__ než __main__, takže může přeskočit blok s otevřením okna. R.calls
+obsahuje pro každé volání value a error (stejný formát chyby včetně řádku).
+Argumenty a návratové hodnoty jsou omezené na JSON data; výjimka jednoho volání
+se zaznamená a další pokračují. Tato cesta stále používá náhradu Tk, proto
+kontrola 8 navíc vyžaduje, aby import a výpočet nevytvořily žádné widgety.

@@ -46,6 +46,7 @@ class TkResult:
     crashed: str = ""
     out: str = ""
     err: str = ""
+    calls: list | None = None
 
     def widgets(self, kind=None, index=0):
         states = self.snapshots or []
@@ -278,12 +279,13 @@ class Checker:
             return PgResult(crashed=err[-1] if err else "program nespustil")
         return PgResult(**json.loads(out.read_text(encoding="utf-8")))
 
-    def tk_run(self, actions=(), timeout: float = 10, max_steps: int = 100000) -> TkResult:
-        """Spustí úvodní Tkinter bez okna a provede fill/click akce."""
+    def tk_run(self, actions=(), timeout: float = 10, max_steps: int = 100000, *, calls=(), run_name="__main__") -> TkResult:
+        """Spustí Tkinter bez okna: fill/click/key, případně volání funkcí s JSON výsledky."""
         import tempfile
         with tempfile.TemporaryDirectory(prefix="tk-") as temp:
             tmp = Path(temp)
-            (tmp / "spec.json").write_text(json.dumps({"actions": list(actions), "max_steps": max_steps}), encoding="utf-8")
+            (tmp / "spec.json").write_text(json.dumps({"actions": list(actions), "max_steps": max_steps,
+                                                     "calls": list(calls), "run_name": run_name}), encoding="utf-8")
             out = tmp / "out.json"
             env = dict(os.environ, PYTHONUTF8="1", PYTHONIOENCODING="utf-8")
             try:

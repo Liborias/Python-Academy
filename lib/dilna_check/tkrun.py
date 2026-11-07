@@ -21,6 +21,7 @@ layout_order = 0
 mainloops = 0
 snapshots = []
 steps = 0
+focused = None
 
 
 class TclError(Exception):
@@ -48,6 +49,10 @@ class IntVar(Variable):
         return int(self.value)
 
 
+def event_key(sequence):
+    return '<Return>' if sequence in ('<Return>', '<Key-Return>', '<KeyPress-Return>') else sequence
+
+
 class Widget:
     kind = 'widget'
     def __init__(self, master=None, cnf=None, **options):
@@ -69,6 +74,7 @@ class Widget:
         self.alive = True
         self.visible = True
         self.columns = {}
+        self.bindings = {}
         widgets.append(self)
     def configure(self, cnf=None, **options):
         self.options.update(cnf or {})
@@ -119,6 +125,35 @@ class Widget:
     def columnconfigure(self, index, **options):
         self.columns[str(index)] = dict(options)
     grid_columnconfigure = columnconfigure
+    def bind(self, sequence=None, func=None, add=None):
+        if sequence is None:
+            return tuple(self.bindings)
+        sequence = event_key(sequence)
+        if func is None:
+            return 'bound' if self.bindings.get(sequence) else ''
+        if not callable(func):
+            raise TclError('Událost potřebuje volatelnou funkci')
+        if add not in (True, '+'):
+            self.bindings[sequence] = []
+        self.bindings.setdefault(sequence, []).append(func)
+        return str(len(self.bindings[sequence]))
+    def focus_set(self):
+        global focused
+        focused = self
+    focus = focus_set
+    def focus_get(self):
+        return focused
+    def event_generate(self, sequence, **options):
+        sequence = event_key(sequence)
+        event = types.SimpleNamespace(widget=self, keysym='Return' if sequence == '<Return>' else '', **options)
+        # V tomto rozsahu pouze vazba na widget a jeho hlavní okno; bez třídních vazeb Tk.
+        root = self
+        while root.master is not None:
+            root = root.master
+        for target in ([self, root] if root is not self else [self]):
+            for callback in target.bindings.get(sequence, []):
+                if callback(event) == 'break':
+                    return
 
 
 class Tk(Widget):
@@ -167,6 +202,10 @@ class Tk(Widget):
                 if len(buttons) != 1:
                     raise TclError(f"Tlačítko {action.get('text')!r} není jednoznačně dostupné")
                 buttons[0].invoke()
+            elif action.get('action') == 'key':
+                if focused is None or not shown(focused):
+                    raise TclError('Klávesa potřebuje viditelný widget s fokusem')
+                focused.event_generate(action.get('sequence', '<Return>'))
             else:
                 raise TclError('Nepodporovaná testovací akce')
             snapshots.append(snapshot())
@@ -191,6 +230,37 @@ class Button(Widget):
         if not callable(command):
             raise TclError('Příkaz tlačítka musí být volatelný')
         return command()
+
+
+class Checkbutton(Button):
+    kind = 'checkbutton'
+    def __init__(self, master=None, **options):
+        options.setdefault('variable', IntVar(value=0))
+        options.setdefault('onvalue', 1)
+        options.setdefault('offvalue', 0)
+        super().__init__(master, **options)
+    def selected(self):
+        return str(self.options['variable'].get()) == str(self.options['onvalue'])
+    def invoke(self):
+        if str(self.cget('state')) == 'disabled':
+            return ''
+        self.options['variable'].set(self.options['offvalue'] if self.selected() else self.options['onvalue'])
+        return super().invoke()
+
+
+class Radiobutton(Button):
+    kind = 'radiobutton'
+    def __init__(self, master=None, **options):
+        options.setdefault('variable', StringVar())
+        options.setdefault('value', '')
+        super().__init__(master, **options)
+    def selected(self):
+        return str(self.options['variable'].get()) == str(self.options['value'])
+    def invoke(self):
+        if str(self.cget('state')) == 'disabled':
+            return ''
+        self.options['variable'].set(self.options['value'])
+        return super().invoke()
 
 
 class Entry(Widget):
@@ -234,13 +304,19 @@ def snapshot():
             continue
         item = {'id': w.id, 'kind': w.kind, 'parent': w.master.id if w.master else None,
                 'manager': w.manager, 'layout': dict(w.layout), 'order': w.order,
-                'visible': shown(w), 'text': str(w.cget('text'))}
+                'visible': shown(w), 'text': str(w.cget('text')),
+                'focused': w is focused, 'bindings': sorted(w.bindings),
+                'columns': {k: dict(v) for k, v in w.columns.items()}}
         if isinstance(w, Tk):
             item.update(title=w.caption, geometry=w.size, minsize=w.minimum, columns={k: dict(v) for k, v in w.columns.items()})
         if isinstance(w, Button):
             item['has_command'] = callable(w.cget('command'))
         if isinstance(w, Entry):
             item['value'] = w.get()
+        if isinstance(w, (Checkbutton, Radiobutton)):
+            item['selected'] = w.selected()
+            variable = w.options['variable']
+            item['variable_kind'] = 'int' if isinstance(variable, IntVar) else 'string' if isinstance(variable, StringVar) else 'other'
         result.append(item)
     return result
 
@@ -249,9 +325,10 @@ mod = types.ModuleType('tkinter')
 mod.__path__ = []
 ttk = types.ModuleType('tkinter.ttk')
 for name, cls in [('Tk', Tk), ('Label', Label), ('Button', Button), ('Entry', Entry), ('Frame', Frame),
+                  ('Checkbutton', Checkbutton), ('Radiobutton', Radiobutton),
                   ('StringVar', StringVar), ('IntVar', IntVar), ('TclError', TclError)]:
     setattr(mod, name, cls)
-for name in ('Label', 'Button', 'Entry', 'Frame'):
+for name in ('Label', 'Button', 'Entry', 'Frame', 'Checkbutton', 'Radiobutton'):
     setattr(ttk, name, getattr(mod, name))
 mod.ttk = ttk
 for name in ('END', 'W', 'E', 'N', 'S', 'EW', 'BOTH', 'X', 'Y', 'TOP', 'BOTTOM', 'LEFT', 'RIGHT'):
@@ -261,6 +338,12 @@ sys.modules.update({'tkinter': mod, 'tkinter.ttk': ttk})
 sys.path.insert(0, os.path.dirname(os.path.abspath(student)))
 out, err = io.StringIO(), io.StringIO()
 error = None
+calls = []
+
+
+def error_info(exc):
+    own = [f for f in traceback.extract_tb(exc.__traceback__) if f.filename == student]
+    return {'type': type(exc).__name__, 'msg': str(exc), 'line': own[-1].lineno if own else None}
 
 
 def trace(frame, event, arg):
@@ -277,14 +360,20 @@ try:
         code = compile(file.read(), student, 'exec')
     sys.settrace(trace)
     with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
-        exec(code, {'__name__': '__main__', '__file__': student})
+        namespace = {'__name__': spec.get('run_name', '__main__'), '__file__': student}
+        exec(code, namespace)
+        for call in spec.get('calls', []):
+            try:
+                value = namespace[call['name']](*call.get('args', []))
+                calls.append({'value': value, 'error': None})
+            except BaseException as exc:
+                calls.append({'value': None, 'error': error_info(exc)})
 except BaseException as exc:
-    own = [f for f in traceback.extract_tb(exc.__traceback__) if f.filename == student]
-    error = {'type': type(exc).__name__, 'msg': str(exc), 'line': own[-1].lineno if own else None}
+    error = error_info(exc)
 finally:
     sys.settrace(None)
 if not snapshots:
     snapshots.append(snapshot())
 with open(out_path, 'w', encoding='utf-8') as file:
-    json.dump({'snapshots': snapshots, 'mainloops': mainloops, 'error': error,
+    json.dump({'snapshots': snapshots, 'mainloops': mainloops, 'error': error, 'calls': calls,
                'out': out.getvalue()[:20000], 'err': err.getvalue()[:20000]}, file, ensure_ascii=False)
