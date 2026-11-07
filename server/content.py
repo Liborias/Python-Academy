@@ -5,7 +5,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from .checker import ID_RE
+from .checker import ID_RE, lesson_dir
 from .lessonfiles import copy_files
 
 
@@ -21,6 +21,23 @@ def _json(p: Path, default):
         return json.loads(p.read_text(encoding="utf-8"))
     except (OSError, ValueError):
         return default
+
+
+def _has_solution(cid: str, directory: Path) -> bool:
+    return cid == "zaklady" and bool(_read(directory / "solution.py").strip())
+
+
+def solution_view(courses_dir: Path, cid: str, lid: str, task: str | None = None) -> dict | None:
+    """Vzorový kód Základů se načítá až při výslovném odkrytí řešení."""
+    if cid != "zaklady":
+        return None
+    directory = lesson_dir(courses_dir, cid, lid, task)
+    if directory is None:
+        return None
+    code = _read(directory / "solution.py")
+    if not code.strip():
+        return None
+    return {"course": cid, "lesson": lid, "task": task or "task-1", "code": code}
 
 
 def course_view(courses_dir: Path, cid: str) -> dict:
@@ -63,9 +80,11 @@ def lesson_view(courses_dir: Path, cid: str, lid: str) -> dict | None:
             "examples": _json(d / "examples.json", []),
             "exercise": _read(d / "exercise.py"), "quiz": _json(d / "quiz.json", []),
             "has_check": (d / "check.py").is_file(),
+            "has_solution": _has_solution(cid, d),
             "tasks": [{"id": task["id"], "title": task["title"],
                        "md": _read(d / "tasks" / task["id"] / "exercise.md"),
-                       "exercise": _read(d / "tasks" / task["id"] / "exercise.py")}
+                       "exercise": _read(d / "tasks" / task["id"] / "exercise.py"),
+                       "has_solution": _has_solution(cid, d / "tasks" / task["id"])}
                       for task in _json(d / "tasks.json", [])]}
 
 

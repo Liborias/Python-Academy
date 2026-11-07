@@ -94,7 +94,8 @@ až po task-5. Jejich obsah leží v `tasks/<id>/exercise.md`, `exercise.py`,
 návratové hodnoty a doménu platných vstupů. Checker má ověřovat více případů a
 mezní hodnoty, aniž by odmítal správné alternativní řešení.
 
-API lesson vrací pole tasks s id, title, md a exercise; kontroly a řešení nezveřejňuje.
+API lesson vrací pole tasks s id, title, md, exercise a has_solution; kód kontroly
+a řešení do tohoto seznamu nevkládá. Has_solution je také na úrovni původního úkolu.
 API check/run/workspace/open/save přijímá volitelné pole task. GET workspace má
 stejnojmenný parametr. Vynechání nebo task-1 používá původní chování.
 Ostatní id mimo task-2 až task-5 se odmítají; vybraná kontrola musí existovat.
@@ -135,3 +136,18 @@ Volitelné `run_timeout` v lesson.json je celé číslo 1–600, počet sekund p
 ukázky i úkolu v prohlížeči. Chybějící či neplatná hodnota zachová výchozích
 20 sekund pro konzoli a 600 pro GUI. Kontrola řešení si ponechává vlastní limit.
 Závěrečné expediční centrum má 600 sekund pro ruční zadávání příkazů; Stop funguje dál.
+
+## Odkrývání řešení v Základech (od v0.49)
+Pro kurz zaklady vrací lesson API příznak `has_solution`, pokud existuje neprázdné
+solution.py. Totéž platí pro další úkoly. Web nabízí zavřený panel „Zobrazit možné
+řešení“; při otevření načte `GET /api/solution?course=zaklady&lesson=<id>&task=task-1`.
+Vynechané task nebo task-1 čte solution.py z kořene lekce, task-2 až task-5 ze svého
+podadresáře. Vrací course, lesson, kanonické task a code. Neexistující/nesprávná
+volba nebo jiný kurz vrací 404. Endpoint používá stejné kontroly Host/Origin jako
+čtení lekce a neprovádí kód ani zápisy do workspace.
+
+Panel používá existující otestované vzory; při úpravě řešení ponechte shodu se
+zadáním a ověřte jej kontrolou daného úkolu. Zobrazení nic nevkládá do editoru,
+neprovádí kontrolu a nemění značky splnění. Přepnutí úkolu panel zavře, vymaže
+předchozí zobrazení a ignoruje opožděnou odpověď jiného úkolu. Jednotlivá načtená
+řešení se drží jen v paměti aktuální stránky; obnovení stránky je znovu skryje.

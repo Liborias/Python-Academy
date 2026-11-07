@@ -48,7 +48,8 @@ export async function renderLesson(el, cid, lid) {
           <button class="btn" data-act="reset">Začít znovu</button>
         </div>
         <p class="hint" data-role="hint"></p>
-        <div class="run-console"></div><div class="results" aria-live="polite"></div></section>` : ''}
+        <div class="run-console"></div><div class="results" aria-live="polite"></div>
+        ${lesson.has_solution || lesson.tasks?.some((task) => task.has_solution) ? '<div class="solution-slot"></div>' : ''}</section>` : ''}
       <section class="block quiz"></section>
       <footer class="lesson-foot">
         <label class="done-toggle"><input type="checkbox" ${isDone(cid, lid) ? 'checked' : ''}> ${guide ? 'Ověřil/a jsem u sebe' : 'Mám splněno'}</label>

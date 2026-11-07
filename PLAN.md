@@ -269,3 +269,12 @@ Nový podkurz nezačínat automaticky bez jeho volby. Při změnách zachovat ID
 postupu a hlídat přesné kopie pomocných řešení ve files/. Rezervace podle čísel
 objednávek ponechávají fyzický počet a mění dostupnost; druhé storno nic neuvolní.
 Projekt běží postupně v paměti, doprava ani cenový souhrn neprovádějí odeslání/platbu.
+
+## Pomoc s řešením Základů — v0.49
+
+Na zadání uživatele doplněno odkrývání jednoho možného řešení pro 40 hlavních
+a 136 doplňkových úkolů kurzu zaklady. Využívá existující solution.py, vybraný
+zdroj se načte až po otevření panelu. Při změně úkolu se panel skryje, rozepsaný
+kód a uložený postup zůstávají zachované. Text připomíná více správných postupů.
+Tento požadavek navazuje na dokončení OOP; nový podkurz se nezačíná. Další úpravy
+Základů podle připomínek uživatele.

@@ -104,6 +104,13 @@ class Handler(SimpleHTTPRequestHandler):
             q = parse_qs(u.query)
             v = content.lesson_view(self.srv.courses_dir, (q.get("course") or [""])[0], (q.get("lesson") or [""])[0])
             return self._json(200, v) if v else self._json(404, {"error": "Lekce nenalezena."})
+        if u.path == "/api/solution":
+            if not self._guard(False):
+                return
+            q = parse_qs(u.query)
+            value = content.solution_view(self.srv.courses_dir, (q.get("course") or [""])[0],
+                                          (q.get("lesson") or [""])[0], (q.get("task") or [None])[0])
+            return self._json(200, value) if value else self._json(404, {"error": "Řešení pro tento úkol není dostupné."})
         if u.path == "/api/workspace":
             if not self._guard(True):
                 return

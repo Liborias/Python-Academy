@@ -27,3 +27,10 @@ pre.code code{background:none;border:0;padding:0;color:inherit;font-size:inherit
 .done-toggle{display:flex;gap:8px;align-items:center}
 @media (max-width:560px){.lesson-foot .btn{width:100%;justify-content:center}.spacer{display:none}}
 .console .stdin[hidden]{display:none}
+.solution-help{margin-top:18px;border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+.solution-help>summary{cursor:pointer;padding:12px 16px;font-weight:600;color:var(--accent)}
+.solution-help>summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:10px}
+.solution-body{padding:0 16px 4px;min-width:0}
+.solution-context{font-weight:600;margin:4px 0 8px}
+.solution-status:empty{display:none}
+.solution-help pre.code{max-height:480px}

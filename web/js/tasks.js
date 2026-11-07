@@ -4,9 +4,10 @@ import { createEditor } from './editor/editor.js';
 import { makeConsole, renderResults } from './runner-client.js';
 import { esc } from './util.js';
 import { isTaskDone, markTaskDone } from './store.js';
+import { setupSolutions } from './solutions.js';
 
 export function setupTasks(el, lesson, cid, lid, gui, done) {
-  const tasks = [{ id: 'task-1', title: 'Původní úkol', exercise: lesson.exercise,
+  const tasks = [{ id: 'task-1', title: 'Původní úkol', exercise: lesson.exercise, has_solution: lesson.has_solution,
     md: lesson.md.includes('## Váš úkol') ? lesson.md.split('## Váš úkol').slice(1).join('## Váš úkol') : 'Původní zadání najdete ve výkladu výše.' }, ...(lesson.tasks || [])];
   const multiple = tasks.length > 1;
   let selected = 0;
@@ -19,6 +20,9 @@ export function setupTasks(el, lesson, cid, lid, gui, done) {
   const res = el.querySelector('.results');
   const con = makeConsole(el.querySelector('.run-console'));
   const context = (i) => ({ course: cid, lesson: lid, ...(i ? { task: tasks[i].id } : {}) });
+  const solutions = setupSolutions(el.querySelector('.solution-slot'), cid, lid);
+  const selectSolution = () => solutions.select(tasks[selected], multiple ? `Úkol ${selected + 1}: ${selected ? tasks[selected].title : lesson.title}` : lesson.title);
+  selectSolution();
   const ed = createEditor(el.querySelector('.editor'), drafts[0], { onChange: (value) => {
     drafts[selected] = value;
     results[selected] = null;
@@ -38,6 +42,7 @@ export function setupTasks(el, lesson, cid, lid, gui, done) {
     con.clear();
     drafts[selected] = ed.get();
     selected = Number(button.dataset.task);
+    selectSolution();
     // set volá onChange: uchovat již získaný výsledek vybraného úkolu.
     const previousResult = results[selected];
     ed.set(drafts[selected]);
