@@ -30,7 +30,7 @@
         "zaklady"
       ],
       "status": "draft",
-      "summary": "Samostatné OOP na projektu expedičního centra. Hotových 16 lekcí: objekty, sklad, doprava, výpis, rovnost, dataclass a vlastní testy."
+      "summary": "Samostatné OOP: všech 20 lekcí, od prvních objektů po konzolové expediční centrum s rezervací, bezpečným stornem, dopravou a testy."
     },
     {
       "id": "soubory-web",

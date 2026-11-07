@@ -48,7 +48,7 @@ export function setupTasks(el, lesson, cid, lid, gui, done) {
     switcher.querySelector(`[data-task="${selected}"]`).focus({ preventScroll: true });
   });
   const act = {
-    run: () => con.run(ed.get(), gui ? 600 : 20, context(selected)),
+    run: () => con.run(ed.get(), lesson.run_timeout ?? (gui ? 600 : 20), context(selected)),
     stop: () => con.stop(),
     reset: () => { if (confirm('Vrátit vybraný úkol do původní podoby? Jeho rozepsaný kód se přepíše.')) ed.set(tasks[selected].exercise); },
     check: async () => {

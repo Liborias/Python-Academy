@@ -53,8 +53,12 @@ def lesson_view(courses_dir: Path, cid: str, lid: str) -> dict | None:
     if not (d / "lesson.md").is_file():
         return None
     meta = _json(d / "lesson.json", {})
+    default_timeout = 600 if meta.get("kind") == "gui" else 20
+    run_timeout = meta.get("run_timeout", default_timeout)
+    if type(run_timeout) is not int or not 1 <= run_timeout <= 600:
+        run_timeout = default_timeout
     return {"id": lid, "course": cid, "title": meta.get("title", lid), "kind": meta.get("kind", "console"),
-            "minutes": meta.get("minutes"), "md": _read(d / "lesson.md"), "example": _read(d / "example.py"),
+            "minutes": meta.get("minutes"), "run_timeout": run_timeout, "md": _read(d / "lesson.md"), "example": _read(d / "example.py"),
             "example_title": meta.get("example_title", meta.get("title", lid)),
             "examples": _json(d / "examples.json", []),
             "exercise": _read(d / "exercise.py"), "quiz": _json(d / "quiz.json", []),

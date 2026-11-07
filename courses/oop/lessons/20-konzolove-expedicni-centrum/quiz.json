@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Která část má ověřovat dostupnost skladových kusů?",
+    "options": [
+      "Model skladu, který zavolá konzolový ovladač",
+      "Samotný print v konzoli",
+      "Každá doprava svou vlastní kopií zásob"
+    ],
+    "answer": 0,
+    "why": "Ovladač převádí vstup, pravidla dostupnosti zůstávají na jednom místě v modelu."
+  },
+  {
+    "q": "Proč po neplatném příkazu smyčka pokračuje?",
+    "options": [
+      "Protože ignoruje všechny chyby v programu",
+      "Protože zachytí očekávaný ValueError a ukáže vysvětlení",
+      "Protože před každým příkazem vytvoří nový sklad"
+    ],
+    "answer": 1,
+    "why": "Uživatel může opravit vstup a pokračovat s posledním platným stavem."
+  },
+  {
+    "q": "Jak projekt ověříme nad rámec jediného úspěšného nákupu?",
+    "options": [
+      "Pouze výpisem názvů tříd",
+      "Opakovaným stornem bez kontroly zásob",
+      "Testy nedostatku, hranic dopravy a zachování rezervací jiných objednávek"
+    ],
+    "answer": 2,
+    "why": "Odmítnuté operace a hraniční situace prokazují pravidla spolupráce objektů."
+  }
+]

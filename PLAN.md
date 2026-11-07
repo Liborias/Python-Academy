@@ -256,15 +256,16 @@ property pouze pro čtení a základní sklad s úplnou rezervací.
 Ve v0.46 dokončen m03, lekce 9–12: dědění Balik/KrehkyBalik, polymorfní doprava,
 expres s termínem přes super a bezpečná změna dopravy v Expedice.
 Ve v0.47 dokončen m04, lekce 13–16: __str__/__repr__, hodnotová rovnost adres,
-dataclass štítku s vlastními poznámkami a unittest testy dopravy. Celkem 16/20;
+dataclass štítku s vlastními poznámkami a unittest testy dopravy.
+Ve v0.48 dokončen m05, lekce 17–20: nákupní objednávka, rezervace podle jejího
+čísla, bezpečné storno, centrum se štítkem a dopravou a konzolový ovladač. Celkem 20/20;
 katalog i learning_plan mají status draft. Původní omezení pouze na návrh
 je tímto novým zadáním překonané. Dosavadní OOP lekce zůstávají v dokončeném
 Turtle/OOP, nic se nepřesouvá; uložený postup obou kurzů je oddělený.
 
-Další dávka 17–20 dokončí praktický projekt: návrh odpovědností a propojení modelů,
-rezervace podle konkrétní objednávky a bezpečné storno, rozšíření dopravy přes
-společné rozhraní a konzolový ovladač s testy. Před kódem vyložit vlastnictví
-rezervací a povolené přechody stavů; druhé storno nesmí vrátit zboží podruhé.
-Zachovat veřejná rozhraní předchozích lekcí a jejich pomocné kopie. Při rezervaci
-se fyzický počet nemění, mění se dostupnost. Odmítnutá operace zachová smysluplný
-stav a dotazy dopravy nic neodesílají. Nové pojmy vysvětlit před použitím.
+Obsah samostatného OOP je dokončený. Dalším doporučeným krokem je obsahová revize
+celého kurzu a připomínky studenta, případně úprava konkrétního nejasného zadání.
+Nový podkurz nezačínat automaticky bez jeho volby. Při změnách zachovat ID i klíče
+postupu a hlídat přesné kopie pomocných řešení ve files/. Rezervace podle čísel
+objednávek ponechávají fyzický počet a mění dostupnost; druhé storno nic neuvolní.
+Projekt běží postupně v paměti, doprava ani cenový souhrn neprovádějí odeslání/platbu.

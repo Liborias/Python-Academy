@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč NakupniObjednavka používá původní Objednavka jako spolupracovníka?",
+    "options": [
+      "Využije její položky a součet bez změny starého rozhraní",
+      "Aby každá položka dědila ze skladu",
+      "Aby změna kopie požadavku přepsala nákup"
+    ],
+    "answer": 0,
+    "why": "Nová odpovědnost pro skladové kódy se skládá s dosavadní objednávkou."
+  },
+  {
+    "q": "Dva řádky mají stejný kód a počty 2 a 1. Jaký je požadavek na sklad?",
+    "options": [
+      "Jeden kus, protože rozhoduje poslední řádek",
+      "Tři kusy pod jedním kódem",
+      "Dva kusy, protože poslední řádek je duplicitní"
+    ],
+    "answer": 1,
+    "why": "Řádky se zachovají, ale množství stejných skladových kódů se sčítá."
+  },
+  {
+    "q": "Proč přijatý nákup uzavíráme?",
+    "options": [
+      "Aby se jeho číslo mohlo okamžitě použít znovu",
+      "Aby se fyzické zásoby snížily na nulu",
+      "Aby se počty řádků nerozešly s uloženou rezervací"
+    ],
+    "answer": 2,
+    "why": "Rezervace musí odpovídat údajům, které byly skutečně ověřené a přijaté."
+  }
+]

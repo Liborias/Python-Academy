@@ -115,7 +115,7 @@ export async function renderLesson(el, cid, lid) {
       };
     }
     exCon = makeConsole(el.querySelector('.ex-console'));
-    const runExample = () => exCon.run(ex.get(), gui ? 600 : 20, { course: cid, lesson: lid });
+    const runExample = () => exCon.run(ex.get(), lesson.run_timeout ?? (gui ? 600 : 20), { course: cid, lesson: lid });
     el.querySelector('[data-act="run-ex"]').onclick = runExample;
     ex.onRun(runExample);
     el.querySelector('[data-act="stop-ex"]').onclick = () => exCon.stop();

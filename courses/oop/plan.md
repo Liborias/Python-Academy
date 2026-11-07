@@ -1,6 +1,6 @@
 ## Samostatný kurz OOP v Pythonu
 
-Tento samostatný podkurz se postupně realizuje. **Prvních šestnáct lekcí je připravených**: od jednoduchého objektu přes objednávku, sklad a dopravu k čitelnému výpisu, hodnotové rovnosti, dataclass a vlastním testům. Závěrečné expediční centrum je zatím osnovou. Kurz má vlastní místo v katalogu a lze jej studovat bez grafických knihoven a bez předchozí práce s Turtle.
+**Všech 20 lekcí je připravených.** Samostatný kurz vede od jednoduchého objektu přes objednávku, sklad, dopravu, hodnotovou rovnost a vlastní testy k hotovému konzolovému expedičnímu centru. Každá lekce má výklad, ukázku, úkol, automatickou kontrolu a kvíz. Obsah je dokončený, status draft zůstává pro připomínky a revizi. Kurz lze studovat bez grafických knihoven a bez předchozí práce s Turtle.
 
 ## Pro koho a jak náročný
 
@@ -8,7 +8,7 @@ Tento samostatný podkurz se postupně realizuje. **Prvních šestnáct lekcí j
 
 Předpoklady: základní Python, funkce a return, podmínky, seznamy a slovníky, jednoduché výjimky. Doporučený předchozí kurz je Základy Pythonu. Turtle, Pygame, síť, databáze ani tvorba webu nejsou předpokladem.
 
-Osnova má 20 lekcí s postupným procvičováním a závěrečným projektem, z toho prvních 16 je dostupných. Orientačně 10–14 hodin za celý kurz podle rozsahu vlastních pokusů; časové odhady se ověří na hotových lekcích. Části lze rozdělit do kratších setkání. Náročnost není měřena rychlostí studenta.
+Osnova má 20 lekcí s postupným procvičováním a závěrečným projektem, všech 20 je dostupných. Orientačně 10–14 hodin za celý kurz podle rozsahu vlastních pokusů; časové odhady se ověří na hotových lekcích. Části lze rozdělit do kratších setkání. Náročnost není měřena rychlostí studenta.
 
 ## Nosný projekt: Chytré expediční centrum
 
@@ -74,12 +74,14 @@ Výstup: testy odhalí typické chyby bez závislosti na grafice nebo konkrétn�
 
 ### Modul 5 — Závěrečný praktický projekt
 
+**Stav: lekce 17–20 jsou vytvořené.** Nákup skládá původní objednávku, sklad eviduje rezervace podle čísla, centrum ověřuje dopravu před rezervací a konzole přijímá příkazy. Storno vrátí jen vlastní kusy právě jednou.
+
 17. Návrh odpovědností: položka, objednávka, sklad, zásilka a způsob dopravy. Kresba jejich vztahů.
 18. Rezervace a storno: změny více údajů, odmítnutí nedostupného zboží a ochrana před dvojitým stornem.
 19. Doprava jako vyměnitelná spolupráce; přidání nové varianty bez přepisování celého systému.
 20. Konzolový ovladač, předvedení scénáře, testy a vlastní vysvětlení návrhu.
 
-Výstup: fungující expediční centrum s jasnými pravidly a krátkým README. Teprve při realizaci se stanoví přesné názvy metod, rozsah šablon a testovací kontrakty. Návrh je nebude studentovi skrytě měnit.
+Výstup: fungující expediční centrum s jasnými pravidly, krátkým README a čtyřmi přiloženými unittest testy. Přesná veřejná rozhraní jsou vysvětlená v lekcích před jejich doplněním. Starší modely si zachovávají původní rozhraní; připravené moduly se kopírují do pracovního prostoru.
 
 ## Minimální rozsah a další možnosti
 
@@ -103,4 +105,4 @@ Předloha má vlastní pokročilejší architekturu a starší instalační poky
 
 ## Současný stav
 
-Připravená je osnova celého kurzu a první čtyři moduly, 16 z 20 lekcí. Student vytvoří zásilku, položku, objednávku s aktuálním součtem, sklad s úplnou rezervací a volbu dopravy pro balík. Doplní čitelný výpis balíku, pravidlo shody adres, dataclass štítku s vlastními poznámkami a unittest testy cen, hranic, referencí i zachovaného stavu po chybě. Nabídky dopravy nic neodesílají ani nerezervují. Přiřazení rezervací konkrétním objednávkám a úplné konzolové expediční centrum doplní závěrečný projekt v lekcích 17–20. Kurz nevyžaduje Turtle ani hraní her. Dosavadní lekce existujících podkurzů zůstávají na svém místě.
+Hotových je všech pět modulů, 20 z 20 lekcí. Projekt přijímá nákupy, rezervuje celý požadavek nebo nic, uzavírá úpravy přijatých řádků a uvolňuje rezervaci podle konkrétní objednávky. Druhé storno nic neuvolní. Centrum ověřuje dopravu před rezervací, bezpečně mění volbu a připravuje souhrn se štítkem a poznámkami. Cyklodoprava ukazuje přidání kompatibilního objektu bez přepsání centra. Konzole ve 20. lekci má vlastní cvičné údaje, návod a čtyři unittest testy; novým spuštěním se paměťový stav obnoví. Fyzické kusy se během rezervace ani storna nemění a nedochází ke skutečnému odeslání nebo platbě. Další doporučený krok je obsahová revize a zpětná vazba studenta. Kurz nevyžaduje Turtle ani hraní her a dosavadní lekce ostatních podkurzů zůstávají na svém místě.

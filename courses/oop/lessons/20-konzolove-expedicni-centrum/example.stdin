@@ -1,0 +1,11 @@
+stav
+nova A 2 1 1200
+doprava A kolo
+poznamka A Nezvonit prosím
+prehled A
+nova B 4 0 800
+storno A
+storno A
+nova B 4 0 800
+stav
+konec

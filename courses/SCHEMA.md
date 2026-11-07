@@ -126,6 +126,12 @@ summary, placement, difficulty_reason, duration). Text plánu je ve fixním soub
 plan.md vedle course.json; API course jej přidá jako learning_plan.md.
 
 Web zobrazí samostatný rozbalitelný panel plánu. Nespouští kód a neoznačuje nic
-za splněné. OOP má vlastní id oop a profil přípravy; nový kurz zatím neobsahuje
-žádné programové lekce. Dosavadní lekce v turtle-oop se nemigrují a jejich id
+za splněné. OOP má vlastní id oop a profil přípravy; všech 20 programových lekcí
+je hotových. Panel dál nabízí úplný přehled kurzu. Dosavadní lekce v turtle-oop se nemigrují a jejich id
 ani uložený postup se nemění.
+
+## Delší interaktivní běh
+Volitelné `run_timeout` v lesson.json je celé číslo 1–600, počet sekund pro spuštění
+ukázky i úkolu v prohlížeči. Chybějící či neplatná hodnota zachová výchozích
+20 sekund pro konzoli a 600 pro GUI. Kontrola řešení si ponechává vlastní limit.
+Závěrečné expediční centrum má 600 sekund pro ruční zadávání příkazů; Stop funguje dál.

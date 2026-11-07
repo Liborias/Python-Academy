@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč při přijetí ověřujeme dopravu před rezervací?",
+    "options": [
+      "Aby nepřepravitelný balík nezablokoval zboží",
+      "Aby hmotnost rozhodovala o ceně zboží",
+      "Aby se při chybě vymazal celý sklad"
+    ],
+    "answer": 0,
+    "why": "Odmítnutá doprava nesmí zanechat částečně přijatou objednávku."
+  },
+  {
+    "q": "Co potřebuje další kompatibilní doprava?",
+    "options": [
+      "Přidat novou větev podle typu do centra",
+      "Metodu cena(balik) dodržující společnou dohodu",
+      "Vlastní kopii skladových karet"
+    ],
+    "answer": 1,
+    "why": "Centrum deleguje přes Expedice; konkrétní výpočet patří dané dopravě."
+  },
+  {
+    "q": "Co se stane při úpravě seznamu poznámek ve vráceném souhrnu?",
+    "options": [
+      "Změní se poznámky všech objednávek",
+      "Centrum se automaticky stornuje",
+      "Původní poznámky zůstanou beze změny"
+    ],
+    "answer": 2,
+    "why": "Souhrn obsahuje nový seznam textů, nikoli vnitřní seznam štítku."
+  }
+]

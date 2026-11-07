@@ -1,0 +1,32 @@
+[
+  {
+    "q": "A rezervuje 3 knihy a B další 2 z celkových 5. Co zbude po stornu A?",
+    "options": [
+      "Tři dostupné a dvě dál rezervované pro B",
+      "Pět dostupných, protože se ruší celá karta",
+      "Žádné, protože storno nemění dostupnost"
+    ],
+    "answer": 0,
+    "why": "Uvolníme pouze uložené množství objednávky A."
+  },
+  {
+    "q": "Kdy uzavřeme nákupní objednávku?",
+    "options": [
+      "Před kontrolou dostupnosti první položky",
+      "Až po úspěšné úplné rezervaci",
+      "Až po druhém stornu"
+    ],
+    "answer": 1,
+    "why": "Odmítnutý požadavek nechá objednávku otevřenou a sklad nezměněný."
+  },
+  {
+    "q": "Co udělá druhé storno stejného čísla?",
+    "options": [
+      "Vrátí kusy ještě jednou",
+      "Odstraní rezervaci jiné objednávky",
+      "Vyvolá ValueError bez změny stavu"
+    ],
+    "answer": 2,
+    "why": "Stav stornovana už další uvolnění nepovoluje."
+  }
+]

@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.47):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (16 z 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40). Obsah kurzu Turtle/OOP je dokončený, včetně Snake a kvízu; čeká na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.48):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40). Obsah kurzu Turtle/OOP je dokončený, včetně Snake a kvízu; čeká na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,7 +38,7 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Samostatný OOP kurz — šestnáct připravených lekcí
+## Samostatný OOP kurz — všech dvacet lekcí připravených
 V katalogu je vedle Základů samostatná karta **Objektově orientované programování v praxi**.
 Kurz má osnovu 20 lekcí s náročností **3/4**, bez závislosti na Turtle a hrách.
 Nosný praktický projekt „Chytré expediční centrum“ propojí objednávky, zásoby a způsoby doručení.
@@ -51,12 +51,18 @@ přes stejnou metodu cena bez úpravy Expedice.
 Čtvrtý blok přidává __str__/__repr__, identitu a hodnotovou rovnost adres,
 dataclass štítku s vlastními poznámkami a vlastní unittest testy dopravy.
 Kontrola testů ověří i jejich schopnost odhalit úmyslně vložené chyby.
+Závěrečné lekce 17–20 propojí nákup, rezervace podle čísla objednávky, bezpečné
+storno, dopravu a konzolový ovladač. Přijatý nákup se uzavře a opakované storno
+nevrací kusy podruhé. Odmítnutá doprava nezablokuje zboží.
 Každá lekce má komentovanou ukázku, úkol s automatickou kontrolou a tři kvízové otázky.
 Příprava prostředí je před lekcemi, stačí standardní Python.
 
 Panel zobrazuje dostupné lekce i zbývající plán v [courses/oop/plan.md](courses/oop/plan.md).
-Zbývá závěrečný projekt v lekcích 17–20: propojení objednávky, skladu a dopravy,
-rezervace se stornem a konzolový ovladač s testy.
+Obsah všech 20 lekcí je dokončený; status draft zůstává pro zpětnou vazbu a revizi.
+Hotovou aplikaci spusťte v ukázce lekce 20 (na běh máte deset minut): například `nova A 2 1 1200`,
+`doprava A kolo`, `prehled A`, `storno A` a `konec`. Běží v paměti s cvičnými
+údaji, po novém spuštění začíná znovu. V pracovní složce jsou také README
+a čtyři testy projektu: `python -m unittest -v test_centrum`.
 
 Dosavadní OOP lekce zůstávají na přání uživatele ve stávajícím kurzu Turtle/OOP/Snake.
 Po lekcích 21–24 (zapouzdření, property, dědění a super) přibyly lekce 25–28:

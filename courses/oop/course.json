@@ -42,15 +42,25 @@
         "15-dataclass-a-vlastni-seznam",
         "16-testy-objektu"
       ]
+    },
+    {
+      "id": "m05",
+      "title": "Projekt: Chytré expediční centrum",
+      "lessons": [
+        "17-navrh-expedicniho-centra",
+        "18-rezervace-a-bezpecne-storno",
+        "19-centrum-a-vymenna-doprava",
+        "20-konzolove-expedicni-centrum"
+      ]
     }
   ],
   "learning_plan": {
     "title": "OOP v praxi: Chytré expediční centrum",
     "status": "draft",
     "level": 3,
-    "summary": "Dostupných je šestnáct lekcí: objekty, objednávka a sklad, spolupráce dopravy, čitelný výpis, hodnotová rovnost, dataclass a vlastní unittest testy.",
+    "summary": "Všech 20 lekcí je připravených: objekty, sklad, doprava, hodnotová rovnost, dataclass, vlastní testy a hotové konzolové expediční centrum s rezervací a bezpečným stornem.",
     "placement": "Po Základech Pythonu; nezávisle na Turtle a grafických kurzech.",
     "difficulty_reason": "Začátek od 2/4, celý kurz 3/4: samostatný návrh spolupracujících objektů, pravidla stavu, dědění a testy.",
-    "duration": "Plán 20 lekcí, prvních 16 je dostupných. Celkový odhad 10–14 hodin včetně procvičování."
+    "duration": "20 dostupných lekcí. Celkový odhad 10–14 hodin včetně procvičování a závěrečného projektu."
   }
 }
