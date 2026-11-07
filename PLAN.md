@@ -254,15 +254,17 @@ objednávka složená z položek. Každá má konzolovou ukázku, úkol, kontrol
 Ve v0.45 dokončen také m02, lekce 5–8: zapouzdření, validace před změnou,
 property pouze pro čtení a základní sklad s úplnou rezervací.
 Ve v0.46 dokončen m03, lekce 9–12: dědění Balik/KrehkyBalik, polymorfní doprava,
-expres s termínem přes super a bezpečná změna dopravy v Expedice. Celkem 12/20;
+expres s termínem přes super a bezpečná změna dopravy v Expedice.
+Ve v0.47 dokončen m04, lekce 13–16: __str__/__repr__, hodnotová rovnost adres,
+dataclass štítku s vlastními poznámkami a unittest testy dopravy. Celkem 16/20;
 katalog i learning_plan mají status draft. Původní omezení pouze na návrh
 je tímto novým zadáním překonané. Dosavadní OOP lekce zůstávají v dokončeném
 Turtle/OOP, nic se nepřesouvá; uložený postup obou kurzů je oddělený.
 
-Další dávka 13–16: srozumitelný výpis přes __str__/__repr__, identita a rovnost,
-dataclass pro jednoduché záznamy s default_factory a základní unittest.
-Zachovat veřejná rozhraní dosavadních řešení a srozumitelně vysvětlit nové pojmy.
-Doprava má smysluplně různé podmínky: kurýr adresu a hmotnostní limit, osobní
-odběr výdejní místo, expres také termín. Nabídky jsou dotazy bez odesílání. Rezervace patří skladu, fyzický
-počet zůstává při rezervaci zachovaný; vlastnictví a storno konkrétních objednávek
-naváže závěrečný projekt 17–20. Nové pojmy vysvětlit před použitím.
+Další dávka 17–20 dokončí praktický projekt: návrh odpovědností a propojení modelů,
+rezervace podle konkrétní objednávky a bezpečné storno, rozšíření dopravy přes
+společné rozhraní a konzolový ovladač s testy. Před kódem vyložit vlastnictví
+rezervací a povolené přechody stavů; druhé storno nesmí vrátit zboží podruhé.
+Zachovat veřejná rozhraní předchozích lekcí a jejich pomocné kopie. Při rezervaci
+se fyzický počet nemění, mění se dostupnost. Odmítnutá operace zachová smysluplný
+stav a dotazy dopravy nic neodesílají. Nové pojmy vysvětlit před použitím.

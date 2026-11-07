@@ -1,0 +1,6 @@
+{
+  "title": "Výpis objektů: __str__ a __repr__",
+  "minutes": 35,
+  "kind": "console",
+  "example_title": "Jeden balík ve zprávě, v repr a v seznamu"
+}

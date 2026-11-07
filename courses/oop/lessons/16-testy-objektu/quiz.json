@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co nejlépe ověří zachování původního balíku?",
+    "options": [
+      "assertIs(expedice.balik, balik)",
+      "assertEqual(99, 99)",
+      "Pouhé print(balik)"
+    ],
+    "answer": 0,
+    "why": "AssertIs zjišťuje totožnost původního objektu, tedy zda nebyl nahrazen kopií."
+  },
+  {
+    "q": "Co ověřit po očekávaném ValueError při změně dopravy?",
+    "options": [
+      "Jen to, že se program nezastavil",
+      "Také původní dopravu, balík a nabídku",
+      "Že se neplatná doprava přesto uložila"
+    ],
+    "answer": 1,
+    "why": "Výjimka sama neprokazuje, že před jejím vyvoláním nebyl poškozen stav."
+  },
+  {
+    "q": "Čtyři testovací metody s pass skončily OK. Co to dokazuje?",
+    "options": [
+      "Že jsou ověřené všechny ceny",
+      "Že unittest přidal chybějící ověření",
+      "Že se metody provedly bez chyby; chování ale neověřily"
+    ],
+    "answer": 2,
+    "why": "Úspěšné provedení prázdného testu nenahrazuje porovnání skutečných výsledků s očekáváním."
+  }
+]

@@ -32,15 +32,25 @@
         "11-super-a-rozsireni",
         "12-doprava-jako-spoluprace"
       ]
+    },
+    {
+      "id": "m04",
+      "title": "Čitelný model a vlastní testy",
+      "lessons": [
+        "13-str-a-repr",
+        "14-identita-a-rovnost",
+        "15-dataclass-a-vlastni-seznam",
+        "16-testy-objektu"
+      ]
     }
   ],
   "learning_plan": {
     "title": "OOP v praxi: Chytré expediční centrum",
     "status": "draft",
     "level": 3,
-    "summary": "Dostupných je dvanáct lekcí: od první instance přes objednávku a sklad k dědění, polymorfismu, super() a skládání dopravy.",
+    "summary": "Dostupných je šestnáct lekcí: objekty, objednávka a sklad, spolupráce dopravy, čitelný výpis, hodnotová rovnost, dataclass a vlastní unittest testy.",
     "placement": "Po Základech Pythonu; nezávisle na Turtle a grafických kurzech.",
     "difficulty_reason": "Začátek od 2/4, celý kurz 3/4: samostatný návrh spolupracujících objektů, pravidla stavu, dědění a testy.",
-    "duration": "Plán 20 lekcí, prvních 12 je dostupných. Celkový odhad 10–14 hodin včetně procvičování."
+    "duration": "Plán 20 lekcí, prvních 16 je dostupných. Celkový odhad 10–14 hodin včetně procvičování."
   }
 }

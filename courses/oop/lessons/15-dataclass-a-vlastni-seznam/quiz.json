@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co ve výchozím nastavení připraví @dataclass?",
+    "options": [
+      "Konstruktor, repr a porovnání datových polí",
+      "Automatickou kontrolu všech anotovaných typů",
+      "Databázi a ukládání na disk"
+    ],
+    "answer": 0,
+    "why": "Dekorátor vytváří běžné metody z popisu polí, nikoli automatické ověřování typů."
+  },
+  {
+    "q": "Proč default_factory=list neobsahuje závorky za list?",
+    "options": [
+      "Protože prázdný seznam se nikdy nevytvoří",
+      "Předáváme funkci, kterou konstruktor zavolá pro každý vynechaný argument",
+      "Protože se má jeden seznam sdílet"
+    ],
+    "answer": 1,
+    "why": "Továrna se volá zvlášť pro každou instanci potřebující výchozí seznam."
+  },
+  {
+    "q": "Co se stane s výslovně předaným seznamem poznámek?",
+    "options": [
+      "Dataclass vždy vytvoří jeho hlubokou kopii",
+      "Dataclass ho zahodí a použije továrnu",
+      "Štítek si uchová právě tento seznam"
+    ],
+    "answer": 2,
+    "why": "Default factory se používá pouze tehdy, když argument vynecháme."
+  }
+]

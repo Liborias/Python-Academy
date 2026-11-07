@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Dvě samostatně vytvořené adresy mají stejné údaje. Co může platit?",
+    "options": [
+      "== je True a is je False",
+      "is musí být True, když jsou údaje stejné",
+      "== i is musejí být False"
+    ],
+    "answer": 0,
+    "why": "Hodnotová rovnost může porovnat data, zatímco is vždy ověřuje totožnost objektů."
+  },
+  {
+    "q": "Co vrací naše __eq__ při porovnání s jiným typem?",
+    "options": [
+      "Výjimku NotImplementedError",
+      "Hodnotu NotImplemented",
+      "Vždy True"
+    ],
+    "answer": 1,
+    "why": "NotImplemented dovolí Pythonu zkusit porovnání druhé strany. Není to výjimka."
+  },
+  {
+    "q": "Proč uchováváme PSČ jako text?",
+    "options": [
+      "Aby změna PSČ změnila obě instance",
+      "Protože texty nelze porovnávat",
+      "Aby se zachovala například počáteční nula"
+    ],
+    "answer": 2,
+    "why": "PSČ je identifikační údaj; aritmetiku s ním neděláme."
+  }
+]

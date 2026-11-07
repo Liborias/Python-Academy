@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co má vrátit __str__?",
+    "options": [
+      "Text, který následně použije print nebo str",
+      "Nic, protože výsledek sama vypíše",
+      "Kopii balíku"
+    ],
+    "answer": 0,
+    "why": "Speciální metoda vrací řetězec; výpis provede její volající."
+  },
+  {
+    "q": "Proč je v repr textového kódu použito !r?",
+    "options": [
+      "Aby se odstranily mezery z kódu",
+      "Aby byly správně zapsané uvozovky i únikové znaky",
+      "Aby se text změnil na číslo"
+    ],
+    "answer": 1,
+    "why": "Repr textu zachová jeho hodnotu včetně znaků vyžadujících speciální zápis."
+  },
+  {
+    "q": "Kterou podobu balíku použije zobrazení seznamu [balik]?",
+    "options": [
+      "Vždy popis z __str__",
+      "Náhodně jednu ze dvou metod",
+      "Repr jednotlivého prvku"
+    ],
+    "answer": 2,
+    "why": "Seznam zobrazuje své prvky přes repr, aby bylo možné prohlížet jejich údaje."
+  }
+]
