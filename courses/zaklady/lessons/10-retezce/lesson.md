@@ -14,14 +14,16 @@ len(slovo)    # 6
 
 ## Metody řetězců
 
-Všechny vracejí **nový** text, původní se nezmění:
+Tyto operace původní řetězec nemění. Typ výsledku závisí na použité operaci:
 
 - `s.upper()` a `s.lower()` velká a malá písmena
 - `s.strip()` odstraní mezery na začátku a konci
 - `s.replace("a", "b")` nahradí text
-- `s.split()` rozdělí na seznam slov, `s.split(",")` podle čárky
+- `s.split()` vrátí seznam slov, `s.split(",")` rozdělí text podle čárky a také vrátí seznam
 - `"-".join(seznam)` spojí seznam řetězců zpět s oddělovačem
-- `s.startswith("Ah")`, `s.endswith("!")`, `"yt" in s`
+- `s.startswith("Ah")` a `s.endswith("!")` vrátí `True` nebo `False` podle začátku a konce textu
+
+Metody `upper`, `lower`, `strip`, `replace` a `join` vracejí text. Výraz `"yt" in s` ověří přítomnost části textu a vrátí `True` nebo `False`.
 
 > Po `s.upper()` musíte výsledek uložit nebo vypsat: `s = s.upper()`. Samotný řádek `s.upper()` nic nezmění.
 

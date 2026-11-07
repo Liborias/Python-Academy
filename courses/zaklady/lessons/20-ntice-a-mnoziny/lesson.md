@@ -25,11 +25,14 @@ Prázdnou množinu zapíšete jako `set()`, protože `{}` je prázdný slovník.
 
 ## Seřazení
 
-Množina nemá pevné pořadí, takže se výsledek hodí seřadit funkcí `sorted(...)`. Ta vrátí nový seznam od nejmenšího po největší (u textů podle abecedy):
+Množina nemá pevné pořadí, takže se výsledek hodí seřadit funkcí `sorted(...)`. Ta vrátí nový seznam od nejmenšího po největší:
 
 ```python
 sorted({3, 1, 2})    # [1, 2, 3]
+sorted({"čaj", "zebra", "auto"})    # ['auto', 'zebra', 'čaj']
 ```
+
+Texty Python porovnává podle pořadí jejich znaků; rozlišuje velikost písmen i diakritiku. Česká abeceda má jiná pravidla, proto v ukázce vyjde `zebra` před `čaj`. Pro české abecední řazení je potřeba pravidla nastavit zvlášť.
 
 ## Váš úkol
 

@@ -3,13 +3,16 @@
 Příkaz `if` provede blok kódu jen tehdy, když je podmínka pravdivá. Za podmínkou je **dvojtečka** a následující řádky jsou **odsazené o 4 mezery**. Odsazení v Pythonu určuje, co patří dovnitř bloku.
 
 ```python
-if teplota < 0:
+teplota = 0
+if teplota <= 0:
     print("Mráz")
 elif teplota < 20:
     print("Chladno")
 else:
     print("Teplo")
 ```
+
+Pro hodnotu 0 ukázka vypíše `Mráz`, stejně jako vyžaduje zadání na konci lekce.
 
 ## Porovnání a logika
 

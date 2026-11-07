@@ -278,3 +278,7 @@ zdroj se načte až po otevření panelu. Při změně úkolu se panel skryje, r
 kód a uložený postup zůstávají zachované. Text připomíná více správných postupů.
 Tento požadavek navazuje na dokončení OOP; nový podkurz se nezačíná. Další úpravy
 Základů podle připomínek uživatele.
+
+Na další připomínku uživatele provedena obsahová kontrola ukázek Základů: opravy
+v lekcích 4, 10, 16, 19, 20 a 37. Konkrétní výstupy ověřovat spuštěním i v textu
+a komentářích; samotný validátor souboru Pythonu chybný slovní popis neodhalí.

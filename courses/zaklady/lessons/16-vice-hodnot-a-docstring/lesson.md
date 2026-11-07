@@ -1,6 +1,6 @@
 ## Vrátit víc hodnot najednou
 
-Funkce může po `return` vypsat víc hodnot oddělených čárkou. Python je zabalí do **n-tice** (`tuple`), což je neměnný seznam v kulatých závorkách. Volající ji pak **rozbalí** do více proměnných:
+Funkce může pomocí `return` vrátit víc hodnot oddělených čárkou. Python je zabalí do **n-tice** (`tuple`), což je neměnná posloupnost hodnot. Volající ji pak **rozbalí** do více proměnných:
 
 ```python
 def min_max(cisla):
