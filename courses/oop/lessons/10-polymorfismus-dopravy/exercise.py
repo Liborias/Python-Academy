@@ -1,0 +1,58 @@
+from balik import Balik
+
+
+class Doprava:
+    def cena(self, balik):
+        raise NotImplementedError("Cenu určuje konkrétní doprava")
+
+
+class OsobniOdber(Doprava):
+    def __init__(self, misto):
+        if not isinstance(misto, str) or not misto.strip():
+            raise ValueError("Osobní odběr potřebuje výdejní místo")
+        self._misto = misto
+
+    @property
+    def misto(self):
+        return self._misto
+
+    def cena(self, balik):
+        # Osobní odběr nemá poplatek ani hmotnostní limit.
+        pass
+
+
+class Kuryr(Doprava):
+    def __init__(self, adresa, limit_g=10000):
+        if not isinstance(adresa, str) or not adresa.strip():
+            raise ValueError("Kurýr potřebuje adresu")
+        if type(limit_g) is not int or limit_g <= 0:
+            raise ValueError("Limit musí být kladný celý počet gramů")
+        self._adresa = adresa
+        self._limit_g = limit_g
+
+    @property
+    def adresa(self):
+        return self._adresa
+
+    @property
+    def limit_g(self):
+        return self._limit_g
+
+    def cena(self, balik):
+        # Ověřte limit a vraťte 99 Kč do 5000 g včetně, jinak 149 Kč.
+        pass
+
+
+def ceny_dopravy(dopravy, balik):
+    # Použijte stejné volání cena na každém předaném objektu.
+    pass
+
+
+if __name__ == "__main__":
+    moznosti = [OsobniOdber("Dílna Brno"), Kuryr("Javorová 1, Brno")]
+    print("Lehký balík:", ceny_dopravy(moznosti, Balik("B-001", 1200)))
+    print("Těžší balík:", ceny_dopravy(moznosti, Balik("B-002", 8000)))
+    try:
+        moznosti[1].cena(Balik("B-003", 10001))
+    except ValueError:
+        print("Nadlimitní balík kurýr odmítl.")

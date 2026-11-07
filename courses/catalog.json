@@ -30,7 +30,7 @@
         "zaklady"
       ],
       "status": "draft",
-      "summary": "Samostatné OOP na projektu expedičního centra. Hotových 8 lekcí: objekty, objednávky, pravidla stavu, property a rezervace skladu."
+      "summary": "Samostatné OOP na projektu expedičního centra. Hotových 12 lekcí: objekty, objednávky, sklad, dědění, polymorfismus a spolupráce při dopravě."
     },
     {
       "id": "soubory-web",

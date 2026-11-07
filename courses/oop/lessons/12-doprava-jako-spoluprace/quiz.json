@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč Expedice nedědí z Kuryr?",
+    "options": [
+      "Expedice má zvolenou dopravu a může ji vyměnit",
+      "Dědit lze jen třídy bez konstruktoru",
+      "Kurýr nemůže být uložen v atributu"
+    ],
+    "answer": 0,
+    "why": "Vztah má dopravu vyjádříme odkazem na spolupracující objekt."
+  },
+  {
+    "q": "Kdy zmen_dopravu uloží novou volbu?",
+    "options": [
+      "Ještě před dotazem na cenu",
+      "Až po úspěšném ověření nové nabídky",
+      "I při ValueError, cenu pak nastaví na nulu"
+    ],
+    "answer": 1,
+    "why": "Kontrola před přiřazením zachová původní volbu při odmítnutí balíku."
+  },
+  {
+    "q": "Proč nabidka znovu volá cena aktuální dopravy?",
+    "options": [
+      "Aby při každém dotazu změnila balík",
+      "Aby vybírala podle názvu třídy",
+      "Aby vracela aktuální nabídku spolupracujícího objektu"
+    ],
+    "answer": 2,
+    "why": "Delegování využívá aktuální chování dopravy a neudržuje zastaralou kopii ceny."
+  }
+]

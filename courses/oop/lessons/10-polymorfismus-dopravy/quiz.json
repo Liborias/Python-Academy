@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co určí výsledek doprava.cena(balik)?",
+    "options": [
+      "Metoda konkrétního objektu dopravy",
+      "Pozice dopravy v seznamu",
+      "Vždy základní Doprava.cena"
+    ],
+    "answer": 0,
+    "why": "Přepsanou metodu vybere Python podle konkrétního objektu."
+  },
+  {
+    "q": "Kurýr má limit 3000 g. Co udělá s balíkem 4000 g?",
+    "options": [
+      "Vrátí 99 Kč, protože jde o levné pásmo",
+      "Vyvolá ValueError kvůli limitu",
+      "Sníží hmotnost na 3000 g"
+    ],
+    "answer": 1,
+    "why": "Nejprve ověřujeme přepravitelnost; teprve potom cenové pásmo."
+  },
+  {
+    "q": "Proč ceny_dopravy volá cena na každém objektu bez větvení podle typu?",
+    "options": [
+      "Aby vždy vracela jen jednu cenu",
+      "Aby se vyhnula výjimkám",
+      "Aby fungovala i s novou dopravou se stejným rozhraním"
+    ],
+    "answer": 2,
+    "why": "Nová možnost dodá vlastní cena(balik); společný cyklus zůstává použitelný."
+  }
+]

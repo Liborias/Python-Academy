@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.45):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (8 z 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40). Obsah kurzu Turtle/OOP je dokončený, včetně Snake a kvízu; čeká na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.46):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (12 z 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40). Obsah kurzu Turtle/OOP je dokončený, včetně Snake a kvízu; čeká na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,18 +38,21 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Samostatný OOP kurz — osm připravených lekcí
+## Samostatný OOP kurz — dvanáct připravených lekcí
 V katalogu je vedle Základů samostatná karta **Objektově orientované programování v praxi**.
 Kurz má osnovu 20 lekcí s náročností **3/4**, bez závislosti na Turtle a hrách.
 Nosný praktický projekt „Chytré expediční centrum“ propojí objednávky, zásoby a způsoby doručení.
 První blok učí objekt zásilky, konstruktor a self, metody položky a objednávku
 s vlastním seznamem položek. Druhý přidává zapouzdření, výjimky před změnou stavu,
 property pouze pro čtení a sklad s rezervací celého požadavku, nebo žádné jeho části.
+Třetí učí dědění na balíku, polymorfismus osobního odběru a kurýra, rozšíření
+přes super() a expedici, která bezpečně mění dopravu. Nová doprava může spolupracovat
+přes stejnou metodu cena bez úpravy Expedice.
 Každá lekce má komentovanou ukázku, úkol s automatickou kontrolou a tři kvízové otázky.
 Příprava prostředí je před lekcemi, stačí standardní Python.
 
 Panel zobrazuje dostupné lekce i zbývající plán v [courses/oop/plan.md](courses/oop/plan.md).
-Další blok doplní dědění, polymorfismus, super a různé způsoby dopravy. Celé expediční centrum vznikne postupně.
+Další blok doplní __str__/__repr__, identitu a rovnost, dataclass a unittest. Celé expediční centrum vznikne postupně.
 
 Dosavadní OOP lekce zůstávají na přání uživatele ve stávajícím kurzu Turtle/OOP/Snake.
 Po lekcích 21–24 (zapouzdření, property, dědění a super) přibyly lekce 25–28:

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co provede super().__init__(adresa, limit_g) v ExpresniKuryr?",
+    "options": [
+      "Inicializuje základní část téže instance",
+      "Vytvoří druhého kurýra",
+      "Přeskočí kontrolu adresy"
+    ],
+    "answer": 0,
+    "why": "V této hierarchii naváže na Kuryr.__init__, self zůstává stejný expresní kurýr."
+  },
+  {
+    "q": "Proč cena používá super().cena(balik) + self.priplatek?",
+    "options": [
+      "Aby vypsala dvě ceny",
+      "Aby zachovala základní cenu i kontrolu limitu",
+      "Aby vždy použila základ 99 Kč"
+    ],
+    "answer": 1,
+    "why": "Základní metoda ověří aktuální limit a vybere cenové pásmo; expres přičte příplatek."
+  },
+  {
+    "q": "Expres definuje vlastní __init__. Kdy se provede základní inicializace?",
+    "options": [
+      "Vždy automaticky ještě před ním",
+      "Při prvním čtení adresy",
+      "Když ji v konstruktoru výslovně zavoláme"
+    ],
+    "answer": 2,
+    "why": "Vlastní konstruktor přebírá inicializaci; zde navážeme pomocí super().__init__."
+  }
+]

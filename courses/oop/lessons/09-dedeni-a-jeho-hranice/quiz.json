@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená class KrehkyBalik(Balik)?",
+    "options": [
+      "Křehký balík dědí chování balíku",
+      "Balik uvnitř obsahuje seznam křehkých balíků",
+      "Vzniknou současně dvě instance"
+    ],
+    "answer": 0,
+    "why": "Potomek je také balíkem; zděděné metody pracují se stejnou instancí."
+  },
+  {
+    "q": "KrehkyBalik nemá vlastní __init__. Co se stane při vytvoření?",
+    "options": [
+      "Kód a hmotnost zůstanou prázdné",
+      "Použije se zděděný konstruktor Balik",
+      "Python zakáže vytvoření potomka"
+    ],
+    "answer": 1,
+    "why": "Python hledá metodu i v základní třídě. Její self označuje nový křehký balík."
+  },
+  {
+    "q": "Objednávka obsahuje položky. Jak tento vztah vyjádřit?",
+    "options": [
+      "Objednavka má dědit z Polozka",
+      "Každá položka má být objednávkou",
+      "Objednávka si uchová odkazy na položky"
+    ],
+    "answer": 2,
+    "why": "Vztah má položky vyjadřuje kompozice; vztah je položka by zde nedával smysl."
+  }
+]

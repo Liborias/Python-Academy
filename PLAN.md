@@ -252,13 +252,17 @@ Na nové zadání „pokračujme s lekcí OOP“ zahájena realizace samostatné
 Hotový m01, lekce 1–4: první instance zásilky, konstruktor položky, metody a změny stavu,
 objednávka složená z položek. Každá má konzolovou ukázku, úkol, kontrolu a kvíz.
 Ve v0.45 dokončen také m02, lekce 5–8: zapouzdření, validace před změnou,
-property pouze pro čtení a základní sklad s úplnou rezervací. Celkem 8/20;
+property pouze pro čtení a základní sklad s úplnou rezervací.
+Ve v0.46 dokončen m03, lekce 9–12: dědění Balik/KrehkyBalik, polymorfní doprava,
+expres s termínem přes super a bezpečná změna dopravy v Expedice. Celkem 12/20;
 katalog i learning_plan mají status draft. Původní omezení pouze na návrh
 je tímto novým zadáním překonané. Dosavadní OOP lekce zůstávají v dokončeném
 Turtle/OOP, nic se nepřesouvá; uložený postup obou kurzů je oddělený.
 
-Další dávka 9–12: dědění a jeho hranice, přepisování metod/polymorfismus,
-super a volba mezi děděním a složením. Doprava má mít smysluplně různé podmínky
-(kurýr, osobní odběr), ne pouze jiné číslo sazby. Rezervace patří skladu, fyzický
+Další dávka 13–16: srozumitelný výpis přes __str__/__repr__, identita a rovnost,
+dataclass pro jednoduché záznamy s default_factory a základní unittest.
+Zachovat veřejná rozhraní dosavadních řešení a srozumitelně vysvětlit nové pojmy.
+Doprava má smysluplně různé podmínky: kurýr adresu a hmotnostní limit, osobní
+odběr výdejní místo, expres také termín. Nabídky jsou dotazy bez odesílání. Rezervace patří skladu, fyzický
 počet zůstává při rezervaci zachovaný; vlastnictví a storno konkrétních objednávek
 naváže závěrečný projekt 17–20. Nové pojmy vysvětlit před použitím.

@@ -1,6 +1,6 @@
 ## Samostatný kurz OOP v Pythonu
 
-Tento samostatný podkurz se postupně realizuje. **Prvních osm lekcí je připravených**: od jednoduchého objektu přes objednávku s položkami k pravidlům stavu, property a skladu s úplnou rezervací. Následující bloky a závěrečné expediční centrum jsou zatím osnovou. Kurz má vlastní místo v katalogu a lze jej studovat bez grafických knihoven a bez předchozí práce s Turtle.
+Tento samostatný podkurz se postupně realizuje. **Prvních dvanáct lekcí je připravených**: od jednoduchého objektu přes objednávku a sklad k dědění, polymorfismu, super() a volbě dopravy složením objektů. Následující bloky a závěrečné expediční centrum jsou zatím osnovou. Kurz má vlastní místo v katalogu a lze jej studovat bez grafických knihoven a bez předchozí práce s Turtle.
 
 ## Pro koho a jak náročný
 
@@ -8,7 +8,7 @@ Tento samostatný podkurz se postupně realizuje. **Prvních osm lekcí je přip
 
 Předpoklady: základní Python, funkce a return, podmínky, seznamy a slovníky, jednoduché výjimky. Doporučený předchozí kurz je Základy Pythonu. Turtle, Pygame, síť, databáze ani tvorba webu nejsou předpokladem.
 
-Osnova má 20 lekcí s postupným procvičováním a závěrečným projektem, z toho prvních 8 je dostupných. Orientačně 10–14 hodin za celý kurz podle rozsahu vlastních pokusů; časové odhady se ověří na hotových lekcích. Části lze rozdělit do kratších setkání. Náročnost není měřena rychlostí studenta.
+Osnova má 20 lekcí s postupným procvičováním a závěrečným projektem, z toho prvních 12 je dostupných. Orientačně 10–14 hodin za celý kurz podle rozsahu vlastních pokusů; časové odhady se ověří na hotových lekcích. Části lze rozdělit do kratších setkání. Náročnost není měřena rychlostí studenta.
 
 ## Nosný projekt: Chytré expediční centrum
 
@@ -51,6 +51,8 @@ Výstup: malá objednávka, která obsahuje své položky a umí spočítat sou�
 Výstup: sklad nepřipustí zápornou zásobu a chybný požadavek nezarezervuje část položek. Úprava vráceného slovníku přehledu nemění skladové karty. Rezervace snižuje dostupnost, nikoli fyzický celkový počet.
 
 ### Modul 3 — Spolupráce a různé chování
+
+**Stav: lekce 9–12 jsou vytvořené.** Balík a křehký balík, osobní odběr a kurýr, expres s termínem a příplatkem, bezpečná změna dopravy v expedici.
 
 9. Dědění: vztah „je druhem“ a jeho hranice.
 10. Přepisování metod a polymorfismus: stejné rozhraní, různé provedení.
@@ -99,4 +101,4 @@ Předloha má vlastní pokročilejší architekturu a starší instalační poky
 
 ## Současný stav
 
-Připravená je osnova celého kurzu a první dva moduly, 8 z 20 lekcí. Student vytvoří zásilku, položku, objednávku s aktuálním součtem i základní sklad, který hlídá rezervaci celého požadavku. Přiřazení rezervací objednávkám, doprava a úplné konzolové expediční centrum budou následovat v dalších blocích. Kurz nevyžaduje Turtle ani hraní her. Dosavadní lekce existujících podkurzů zůstávají na svém místě.
+Připravená je osnova celého kurzu a první tři moduly, 12 z 20 lekcí. Student vytvoří zásilku, položku, objednávku s aktuálním součtem, sklad s úplnou rezervací a volbu dopravy pro balík. Osobní odběr potřebuje výdejní místo; kurýr adresu a dodržuje hmotnostní limit, expres přidává termín a příplatek. Expedice může dopravu vyměnit, odmítnutí zachová původní volbu. Nabídka nic neodesílá ani nerezervuje. Přiřazení rezervací objednávkám a úplné konzolové expediční centrum budou následovat v závěrečném projektu. Další blok 13–16 doplní čitelný výpis, identitu/rovnost, dataclass a unittest. Kurz nevyžaduje Turtle ani hraní her. Dosavadní lekce existujících podkurzů zůstávají na svém místě.
