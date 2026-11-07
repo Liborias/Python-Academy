@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak se čte property dostupne?",
+    "options": [
+      "karta.dostupne bez závorek",
+      "karta.dostupne()",
+      "Pouze přímým přístupem do _rezervovano"
+    ],
+    "answer": 0,
+    "why": "Property spustí čtecí metodu při atributovém zápisu."
+  },
+  {
+    "q": "Co změní rezervace tří z pěti fyzických kusů?",
+    "options": [
+      "Celkový fyzický počet na dva",
+      "Rezervované množství na tři a dostupnost na dva",
+      "Název zboží"
+    ],
+    "answer": 1,
+    "why": "Rezervace odkládá kusy pro objednávku, ale fyzicky je zatím nevydává."
+  },
+  {
+    "q": "Proč dostupnost počítáme při čtení?",
+    "options": [
+      "Aby se vždy přidal další kus",
+      "Aby vznikal nový sklad",
+      "Aby vždy odpovídala současnému rozdílu celkem minus rezervováno"
+    ],
+    "answer": 2,
+    "why": "Uložená druhá kopie dostupnosti by se mohla rozcházet se skutečnými údaji."
+  }
+]

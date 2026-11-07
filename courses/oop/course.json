@@ -12,15 +12,25 @@
         "03-metody-a-prubeh-volani",
         "04-objednavka-a-jeji-polozky"
       ]
+    },
+    {
+      "id": "m02",
+      "title": "Objekty, kterým lze věřit",
+      "lessons": [
+        "05-zapouzdreni-a-rozhrani",
+        "06-pravidla-stavu-a-vyjimky",
+        "07-property-a-dostupnost",
+        "08-revize-skladu"
+      ]
     }
   ],
   "learning_plan": {
     "title": "OOP v praxi: Chytré expediční centrum",
     "status": "draft",
     "level": 3,
-    "summary": "První čtyři lekce jsou připravené: od první instance přes konstruktor a metody k objednávce složené z položek. Další bloky povedou k expedičnímu centru.",
+    "summary": "Dostupných je osm lekcí: od první instance přes objednávku s položkami k ověřovaným operacím, property a skladu s úplnou rezervací.",
     "placement": "Po Základech Pythonu; nezávisle na Turtle a grafických kurzech.",
     "difficulty_reason": "Začátek od 2/4, celý kurz 3/4: samostatný návrh spolupracujících objektů, pravidla stavu, dědění a testy.",
-    "duration": "Plán 20 lekcí, první 4 jsou dostupné. Celkový odhad 10–14 hodin včetně procvičování."
+    "duration": "Plán 20 lekcí, prvních 8 je dostupných. Celkový odhad 10–14 hodin včetně procvičování."
   }
 }

@@ -1,0 +1,6 @@
+{
+  "title": "Pravidla stavu: ověřit před změnou",
+  "minutes": 35,
+  "kind": "console",
+  "example_title": "Odmítnutý výdej zachová původní zásobu"
+}

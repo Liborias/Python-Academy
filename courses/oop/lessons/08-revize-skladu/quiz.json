@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co uděláme, když ve dvoupoložkovém požadavku chybí druhé zboží?",
+    "options": [
+      "Odmítneme celý požadavek bez rezervace prvního",
+      "Rezervujeme první a druhou ignorujeme",
+      "Vytvoříme chybějící kartu se zápornou zásobou"
+    ],
+    "answer": 0,
+    "why": "Nejprve se ověří všechny položky; teprve potom probíhají změny."
+  },
+  {
+    "q": "Co má obsahovat prehled()?",
+    "options": [
+      "Přímo vnitřní slovník karet",
+      "Nový slovník kódů a dostupných celých počtů",
+      "Společný slovník všech skladů"
+    ],
+    "answer": 1,
+    "why": "Přehled nepředává vnitřní objekty karet, takže změna jeho hodnot nepřepíše sklad."
+  },
+  {
+    "q": "Co znamená rezervuj({})?",
+    "options": [
+      "Chybu a vynulování skladu",
+      "Rezervaci všech kusů",
+      "Platný požadavek bez změny a nový přehled"
+    ],
+    "answer": 2,
+    "why": "Prázdný požadavek nic neodebírá ani nerezervuje, pouze vrátí aktuální kopii přehledu."
+  }
+]

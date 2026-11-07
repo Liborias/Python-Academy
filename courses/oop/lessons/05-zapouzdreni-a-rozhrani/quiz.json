@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená jedno podtržítko v názvu _pocet?",
+    "options": [
+      "Dohodu, že jde o vnitřní údaj objektu",
+      "Heslo bránící přístupu",
+      "Zákaz všech změn tohoto údaje"
+    ],
+    "answer": 0,
+    "why": "Podtržítko vyjadřuje konvenci rozhraní, nikoli bezpečnostní bariéru."
+  },
+  {
+    "q": "Kudy má volající měnit zásobu?",
+    "options": [
+      "Přepisem libovolného vnitřního atributu",
+      "Domluvenými metodami prijmi a vydej",
+      "Přiřazením ke třídě Zasoba"
+    ],
+    "answer": 1,
+    "why": "Veřejné metody pojmenují operaci a později v ní umožní soustředit pravidla."
+  },
+  {
+    "q": "Proč metody vracejí nový počet místo vlastního výpisu?",
+    "options": [
+      "Aby přestaly měnit stav",
+      "Aby vznikla nová zásoba",
+      "Aby výsledek mohl využít jiný objekt nebo hlavní program"
+    ],
+    "answer": 2,
+    "why": "Return předává použitelnou hodnotu. Zobrazení může být samostatnou částí aplikace."
+  }
+]

@@ -251,10 +251,14 @@ Uživatel si přál samostatný OOP kurz bez Turtle a her. Návrh 20 lekcí je v
 Na nové zadání „pokračujme s lekcí OOP“ zahájena realizace samostatného kurzu.
 Hotový m01, lekce 1–4: první instance zásilky, konstruktor položky, metody a změny stavu,
 objednávka složená z položek. Každá má konzolovou ukázku, úkol, kontrolu a kvíz.
-Celkem 4/20; katalog i learning_plan mají status draft. Původní omezení pouze na návrh
+Ve v0.45 dokončen také m02, lekce 5–8: zapouzdření, validace před změnou,
+property pouze pro čtení a základní sklad s úplnou rezervací. Celkem 8/20;
+katalog i learning_plan mají status draft. Původní omezení pouze na návrh
 je tímto novým zadáním překonané. Dosavadní OOP lekce zůstávají v dokončeném
 Turtle/OOP, nic se nepřesouvá; uložený postup obou kurzů je oddělený.
 
-Další dávka 5–8: zapouzdření a veřejné rozhraní, pravidla stavu a výjimky,
-property/vypočítaná dostupnost a malá revize skladu. Ověřovat odmítnutí před změnou,
-samostatné instance a kopie kolekcí. Nové pojmy vysvětlit před použitím.
+Další dávka 9–12: dědění a jeho hranice, přepisování metod/polymorfismus,
+super a volba mezi děděním a složením. Doprava má mít smysluplně různé podmínky
+(kurýr, osobní odběr), ne pouze jiné číslo sazby. Rezervace patří skladu, fyzický
+počet zůstává při rezervaci zachovaný; vlastnictví a storno konkrétních objednávek
+naváže závěrečný projekt 17–20. Nové pojmy vysvětlit před použitím.

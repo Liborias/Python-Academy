@@ -1,0 +1,32 @@
+[
+  {
+    "q": "V jakém pořadí má vydej pracovat?",
+    "options": [
+      "Ověřit požadavek, potom odečíst kusy",
+      "Nejdřív odečíst a potom hlásit chybu",
+      "Vynulovat zásobu při každé chybě"
+    ],
+    "answer": 0,
+    "why": "Odmítnutá operace musí ponechat původní platná data."
+  },
+  {
+    "q": "Vrátí vyvolání ValueError samo dřívější přiřazení zpět?",
+    "options": [
+      "Ano, automaticky",
+      "Ne, výjimka sama stav neobnoví",
+      "Pouze u atributů začínajících podtržítkem"
+    ],
+    "answer": 1,
+    "why": "Proto ověřujeme před změnou a kontrolujeme také stav po odmítnutí."
+  },
+  {
+    "q": "Který počáteční počet je platný?",
+    "options": [
+      "-1",
+      "True jako náhrada jednoho kusu",
+      "0"
+    ],
+    "answer": 2,
+    "why": "Počáteční počet může být nula. Pro příjem a výdej ale požadujeme kladné celé množství, bool odmítáme."
+  }
+]

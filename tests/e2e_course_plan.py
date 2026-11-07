@@ -30,9 +30,11 @@ try:
         panel.wait_for()
         assert 'Chytré expediční centrum' in panel.inner_text()
         assert '3/4' in panel.inner_text()
-        assert '4 z 20 lekcí připraveno' in panel.inner_text()
+        available = page.locator('.mod li').count()
+        assert available >= 8
+        assert f'{available} z 20 lekcí připraveno' in panel.inner_text()
         assert 'zatím bez realizace' not in panel.inner_text()
-        assert page.locator('.mod li').count()==4
+        assert page.locator('.mod li').count()>=8
         assert page.locator('.editor, .ex-editor, .run-console').count()==0
         assert not panel.locator('details').evaluate('(el) => el.open')
         panel.locator('summary').click()
@@ -52,6 +54,6 @@ try:
         assert page.locator('.mod li').count()>=24
         assert not errors,errors
         browser.close()
-    print('OK: samostatná karta OOP, plán 20 lekcí, obtížnost 3/4, oddělené Turtle, první čtyři lekce, mobil')
+    print('OK: samostatná karta OOP, plán 20 lekcí, obtížnost 3/4, oddělené Turtle, dostupné lekce, mobil')
 finally:
     server.runs.stop_all(); server.shutdown(); server.server_close()

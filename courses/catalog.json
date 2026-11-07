@@ -30,7 +30,7 @@
         "zaklady"
       ],
       "status": "draft",
-      "summary": "Samostatné OOP na projektu expedičního centra. První 4 lekce: objekty, konstruktor, metody a objednávka s položkami."
+      "summary": "Samostatné OOP na projektu expedičního centra. Hotových 8 lekcí: objekty, objednávky, pravidla stavu, property a rezervace skladu."
     },
     {
       "id": "soubory-web",
