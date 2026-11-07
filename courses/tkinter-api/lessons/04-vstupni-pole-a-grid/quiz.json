@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kdy máme číst Entry.get pro pozdrav?",
+    "options": [
+      "Při každém kliknutí uvnitř callbacku",
+      "Jen jednou před otevřením okna",
+      "Až po ukončení mainloop"
+    ],
+    "answer": 0,
+    "why": "Uživatel může obsah pole měnit; čteme jeho aktuální hodnotu."
+  },
+  {
+    "q": "Co udělá strip s textem \"  Ema  Nová  \"?",
+    "options": [
+      "Odstraní všechny mezery",
+      "Vrátí \"Ema  Nová\" se zachovanými vnitřními mezerami",
+      "Změní jej na malá písmena"
+    ],
+    "answer": 1,
+    "why": "Strip bez argumentů odebírá jen krajní bílé znaky."
+  },
+  {
+    "q": "Kdy je použití pack a grid v pořádku?",
+    "options": [
+      "Když je střídáme pro děti téhož rodiče",
+      "Když každý widget dostane vlastní mainloop",
+      "Když spravují děti různých rodičů"
+    ],
+    "answer": 2,
+    "why": "V jednom rodiči je nekombinujeme; oddělení do Frame nám později dovolí použít různé správce."
+  }
+]

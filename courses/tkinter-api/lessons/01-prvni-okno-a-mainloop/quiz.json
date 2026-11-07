@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kde se otevře okno vytvořené Tkinterem?",
+    "options": [
+      "Na počítači, kde běží Python, pokud má grafickou plochu",
+      "Vždy uvnitř ukázky ve webové stránce",
+      "Na počítači se samotným prohlížečem bez ohledu na server"
+    ],
+    "answer": 0,
+    "why": "Tk vytváří okna v prostředí běžícího Pythonu; prohlížeč pouze ovládá spuštění."
+  },
+  {
+    "q": "Co dělá mainloop()?",
+    "options": [
+      "Opakovaně vytváří nové hlavní okno",
+      "Zpracovává události do zavření okna",
+      "Pouze nastaví jeho počáteční rozměry"
+    ],
+    "answer": 1,
+    "why": "Smyčka reaguje na události a ponechává okno ovladatelné."
+  },
+  {
+    "q": "Jak předáme počáteční šířku 420 a výšku 240?",
+    "options": [
+      "geometry(420, 240)",
+      "minsize(\"420x240\")",
+      "geometry(\"420x240\")"
+    ],
+    "answer": 2,
+    "why": "Geometry používá text šířkaxvýška; minsize přijímá dvě čísla pro nejmenší rozměry."
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč píšeme command=potvrd bez závorek?",
+    "options": [
+      "Předáváme funkci pro pozdější kliknutí",
+      "Tím funkci spustíme okamžitě",
+      "Command očekává text jména funkce místo funkce"
+    ],
+    "answer": 0,
+    "why": "Závorky by funkci zavolaly již při vytváření tlačítka."
+  },
+  {
+    "q": "Jak změníme zprávu ve stejném popisku?",
+    "options": [
+      "Každým kliknutím vytvoříme nový Label",
+      "Zavoláme stav.configure(text=...)",
+      "Spustíme novou hlavní smyčku"
+    ],
+    "answer": 1,
+    "why": "Configure upravuje existující widget, takže se v okně nehromadí další popisky."
+  },
+  {
+    "q": "Co by udělalo dlouhé sleep uvnitř callbacku?",
+    "options": [
+      "Automaticky zpracovávalo další kliknutí",
+      "Vytvořilo druhé pracovní vlákno",
+      "Zablokovalo zpracování událostí okna"
+    ],
+    "answer": 2,
+    "why": "Callback běží v hlavním vlákně Tk; má se rychle vrátit do smyčky."
+  }
+]

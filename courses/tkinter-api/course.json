@@ -1,0 +1,28 @@
+{
+  "id": "tkinter-api",
+  "title": "Okenní aplikace, API a e-maily",
+  "requires_packages": [
+    "requests"
+  ],
+  "modules": [
+    {
+      "id": "m01",
+      "title": "První okna a události",
+      "lessons": [
+        "01-prvni-okno-a-mainloop",
+        "02-popisky-a-pack",
+        "03-tlacitka-a-zpetna-volani",
+        "04-vstupni-pole-a-grid"
+      ]
+    }
+  ],
+  "learning_plan": {
+    "title": "Od prvního okna ke Korespondenční dílně",
+    "status": "draft",
+    "level": 3,
+    "summary": "První čtyři lekce jsou připravené: okno, popisky, tlačítka a formulář se jménem. Další části přidají projekty, API a e-maily.",
+    "placement": "Po Základech Pythonu; soubory/JSON a OOP pomohou v pozdějších částech.",
+    "difficulty_reason": "Úvod od 2/4, celek 3/4: události, spolupráce GUI s daty a sítí, odmítnuté operace a testy.",
+    "duration": "Plán 28 lekcí, první 4 jsou dostupné. Odhad 16–22 hodin včetně projektů."
+  }
+}

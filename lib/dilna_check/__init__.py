@@ -15,8 +15,11 @@ Použití v lekci (check.py):
 Kontroly nikdy neshodí celý běh: každá vloží do výsledku řádek {name, ok, msg}.
 Pygame bez okna: c.pygame_run(frames=5, pixels=[(10, 10)], events={2: [{"type": "QUIT"}]}) spustí program
 s ovladačem "dummy" a vrátí PgResult (barvy pixelů, volání pygame.draw, texty, zvuky, skončil-li program).
-Pro okenní lekce (Tkinter, Pygame) se používá load(), pygame_run() a AST kontroly, okno se neotevírá:
-load() spouští kód s __name__ == "student", takže blok `if __name__ == "__main__":` se přeskočí.
+Úvodní Tkinter: c.tk_run(actions=[{"action": "click", "text": "Potvrdit"}]) vrátí
+TkResult se stavy widgetů před akcemi a po nich. Náhrada podporuje pouze části
+Tkinteru potřebné v úvodních lekcích; skutečný vzhled se ověřuje zvlášť s Tk.
+load() spouští kód s __name__ == "student", takže blok `if __name__ == "__main__":`
+se přeskočí. Kód vytvářející okno mimo tento blok se při load() provede také.
 """
 import ast
 import builtins
@@ -30,7 +33,25 @@ import sys
 from dataclasses import dataclass
 from pathlib import Path
 
-__all__ = ["check", "Checker", "RunResult", "PgResult", "TurtleResult"]
+__all__ = ["check", "Checker", "RunResult", "PgResult", "TurtleResult", "TkResult"]
+
+
+@dataclass
+class TkResult:
+    """Stav widgetů před akcemi a po nich; nejde o snímek skutečného Tk."""
+    snapshots: list | None = None
+    mainloops: int = 0
+    error: dict | None = None
+    timed_out: bool = False
+    crashed: str = ""
+    out: str = ""
+    err: str = ""
+
+    def widgets(self, kind=None, index=0):
+        states = self.snapshots or []
+        if not states or not -len(states) <= index < len(states):
+            return []
+        return [w for w in states[index] if kind is None or w["kind"] == kind]
 
 
 @dataclass
@@ -256,6 +277,34 @@ class Checker:
             err = p.stderr.decode("utf-8", "replace").strip().splitlines()
             return PgResult(crashed=err[-1] if err else "program nespustil")
         return PgResult(**json.loads(out.read_text(encoding="utf-8")))
+
+    def tk_run(self, actions=(), timeout: float = 10, max_steps: int = 100000) -> TkResult:
+        """Spustí úvodní Tkinter bez okna a provede fill/click akce."""
+        import tempfile
+        with tempfile.TemporaryDirectory(prefix="tk-") as temp:
+            tmp = Path(temp)
+            (tmp / "spec.json").write_text(json.dumps({"actions": list(actions), "max_steps": max_steps}), encoding="utf-8")
+            out = tmp / "out.json"
+            env = dict(os.environ, PYTHONUTF8="1", PYTHONIOENCODING="utf-8")
+            try:
+                p = subprocess.run([sys.executable, "-u", "-X", "utf8", str(Path(__file__).with_name("tkrun.py")),
+                                    str(self.student), str(tmp / "spec.json"), str(out)], capture_output=True,
+                                   timeout=timeout, cwd=self.student.parent, env=env)
+            except subprocess.TimeoutExpired:
+                return TkResult(timed_out=True)
+            if not out.is_file():
+                lines = p.stderr.decode("utf-8", "replace").strip().splitlines()
+                return TkResult(crashed=lines[-1] if lines else "program nespustil")
+            return TkResult(**json.loads(out.read_text(encoding="utf-8")))
+
+    def tk_no_error(self, r: TkResult, name="Program Tkinter běží bez chyby") -> bool:
+        if r.timed_out:
+            return self.add(name, False, "Program běžel příliš dlouho. Zkontrolujte cykly a čekání.")
+        if r.crashed:
+            return self.add(name, False, f"Kontrola Tkinteru se nespustila: {r.crashed}")
+        if r.error:
+            return self.add(name, False, f"{r.error['type']}: {r.error['msg']} (řádek {r.error.get('line')})")
+        return self.add(name, True)
 
     def turtle_run(self, keys=(), clicks=(), ticks: int = 0, timeout: float = 15, max_ops: int = 200000) -> TurtleResult:
         """Spustí program studenta s modulem turtle bez okna a zaznamená, co želva nakreslila.

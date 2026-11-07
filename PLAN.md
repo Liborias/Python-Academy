@@ -158,7 +158,7 @@ dilna-pythonu/
 ### Jak se spouští kód
 1. **Student píše ve VSCodium** do `workspace/<podkurz>/<lekce>/reseni.py`. V aplikaci je tlačítko „Otevřít ve VSCodium“ (odkaz `vscodium://file/…`, záložně příkaz `codium`).
 2. **Aplikace spouští a kontroluje** přes místní server: tlačítko „Spustit“ (včetně `input()` přes okno vstupu) a „Zkontrolovat“.
-3. **Okno Tkinter nebo Pygame** se při spuštění otevře na počítači studenta. Takové lekce se kontrolují strukturou kódu (AST) a funkcemi, ne okny.
+3. **Okno Tkinter nebo Pygame** se při spuštění otevře na počítači studenta. Automatická kontrola používá běh bez okna (tk_run/pygame_run/turtle_run), doplněný podle potřeby AST a funkcemi. Skutečné vykreslení se ověřuje zvlášť na grafické ploše.
 4. **Volitelně později:** režim bez serveru přes Pyodide (jen čistý Python, bez oken).
 
 ### Bezpečnost místního serveru
@@ -282,3 +282,19 @@ Základů podle připomínek uživatele.
 Na další připomínku uživatele provedena obsahová kontrola ukázek Základů: opravy
 v lekcích 4, 10, 16, 19, 20 a 37. Konkrétní výstupy ověřovat spuštěním i v textu
 a komentářích; samotný validátor souboru Pythonu chybný slovní popis neodhalí.
+
+## Okenní aplikace, API a e-maily — realizace od v0.50
+
+Uživatel výslovně vybral další podkurz tkinter-api. Úplná osnova 28 lekcí je v
+courses/tkinter-api/plan.md a zobrazí se v panelu kurzu; obtížnost celku 3/4.
+První dávka m01, lekce 1–4: prázdné okno a mainloop, popisky a pack, tlačítka
+a zpětná volání, Entry a grid s pozdravem. Jde o samostatné programy používající
+jen standardní tkinter/ttk, bez síťových požadavků. Obsah je draft pro připomínky.
+Každá lekce vysvětluje nové konstrukce před použitím a má úkol, kontrolu a kvíz.
+
+Další dávka 5–8: Frame a přizpůsobení velikosti, bind/Enter/focus, stavové proměnné
+a volby, převodník jednotek s odděleným výpočtem a ošetřením vstupu. Před jejich
+kontrolami rozšířit tk_run o potřebné funkce a ověřit shodu se skutečným Tk.
+API a e-maily navazují až v pozdějších modulech, síťové chyby se budou zkoušet
+na místních datech a e-maily nejprve v místním záchytu. Zachovat ID a uložené
+postupy starších kurzů. Dodávka přes GitHub/main, bez ZIPů a publikace prostředí.

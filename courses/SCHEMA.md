@@ -23,7 +23,7 @@ Pořadí lekcí = od jednoduchých ke složitým. `requires_packages` = pip bal�
 | `lesson.md` | ano | výklad (Markdown: nadpisy, odstavce, seznamy, `code`, bloky ```python, `> poznámka`) |
 | `example.py` | ano | ukázka s komentáři vysvětlujícími kód; musí běžet bez chyby |
 | `exercise.py` | ano | šablona pro studenta (kopíruje se do `workspace/<podkurz>/<lekce>/reseni.py`); nesmí projít kontrolou |
-| `check.py` | ano | kontrola přes `dilna_check` (viz lib/dilna_check); `kind: gui` se kontroluje jen přes AST/funkce |
+| `check.py` | ano | kontrola přes `dilna_check` (viz lib/dilna_check); GUI používá odpovídající běh bez okna a případně AST/funkce |
 | `solution.py` | ano | vzorové řešení; musí projít kontrolou |
 | `files/` | ne | pomocné soubory lekce (texty, CSV, HTML…). Kopírují se do složky, kde běží kód studenta (spuštění, kontrola i pracovní složka ve VSCodium). Student je otevírá relativní cestou, např. `open("data.txt")` |
 | `quiz.json` | ne | `[{"q": "...", "options": ["..."], "answer": 0, "why": "..."}]` |
@@ -151,3 +151,28 @@ zadáním a ověřte jej kontrolou daného úkolu. Zobrazení nic nevkládá do 
 neprovádí kontrolu a nemění značky splnění. Přepnutí úkolu panel zavře, vymaže
 předchozí zobrazení a ignoruje opožděnou odpověď jiného úkolu. Jednotlivá načtená
 řešení se drží jen v paměti aktuální stránky; obnovení stránky je znovu skryje.
+
+## Úvodní Tkinter bez okna (od v0.50)
+`r = c.tk_run(actions=[{"action": "fill", "value": "  Ema  "},
+{"action": "click", "text": "Pozdravit"}])` spustí studentský program v podprocesu
+s malou náhradou modulů tkinter/ttk. Podporuje Tk, Label, Button, Entry, Frame,
+StringVar/IntVar, základní nastavení okna, configure/config, pack/grid a přístup
+k textu. Nejde o úplné Tk ani vykreslování; nepodporované funkce skončí chybou.
+Před přidáním dalšího widgetu nebo událostí je nutné náhradu rozšířit a ověřit
+proti skutečnému Tkinteru. Míchání pack/grid v jednom rodiči je chyba.
+
+Mainloop zachytí počáteční stav a postupně provede zadané akce. Fill vyžaduje
+právě jedno viditelné Entry; click právě jedno viditelné tlačítko s daným textem.
+`r.widgets("label", index=0)` vrátí počáteční popisky, index=1 stav po první akci,
+index=-1 poslední stav. Záznam má id/kind/parent, text, visible, manager/layout
+a pořadí umístění; okno navíc title/geometry/minsize/columns, tlačítko has_command,
+vstup value. Výsledek obsahuje také mainloops, error, timed_out, crashed, out/err.
+`c.tk_no_error(r)` vypíše případnou chybu včetně studentského řádku. Běh má časový
+limit, limit kroků studentského kódu a počtu widgetů.
+
+Kontroly mají ověřovat stavy před kliknutím i po více opakováních, nové hodnoty
+vstupu a zachování původního widgetu. Samotná přítomnost callbacku nestačí.
+Validátor Tkinter ukázku skutečně provede přes tuto náhradu a vyžaduje viditelné
+okno s hlavní smyčkou. Vzhled a skutečnou odezvu prvních čtyř lekcí ověřuje
+`python tests/tkinter_real_smoke.py` na grafické ploše se skutečným Tk;
+volba `--shots DIR` uloží snímky, pokud je dostupný Pillow.

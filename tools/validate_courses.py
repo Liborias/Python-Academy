@@ -119,11 +119,37 @@ def run_turtle_example(d: Path, ex: Path, code: str):
         err(d.name, "example.py (turtle) nic nenakreslil")
 
 
+def run_tk_example(d: Path, code: str):
+    """Ověří vytvoření viditelného okna a vstup do hlavní smyčky bez grafické plochy."""
+    from server.lessonfiles import copy_files
+    with tempfile.TemporaryDirectory(prefix="tkex-") as temp:
+        work = Path(temp)
+        copy_files(d / "files", work)
+        (work / "main.py").write_text(code, encoding="utf-8")
+        (work / "spec.json").write_text("{}", encoding="utf-8")
+        runner = ROOT / "lib/dilna_check/tkrun.py"
+        try:
+            p = subprocess.run([sys.executable, "-X", "utf8", str(runner), str(work / "main.py"),
+                                str(work / "spec.json"), str(work / "out.json")], capture_output=True, timeout=15, cwd=work)
+        except subprocess.TimeoutExpired:
+            return err(d.name, "example.py (Tkinter) běžel déle než 15 s")
+        if not (work / "out.json").exists():
+            return err(d.name, "example.py (Tkinter) nešel spustit: " + p.stderr.decode("utf-8", "replace"))
+        result = json.loads((work / "out.json").read_text("utf-8"))
+        if result.get("error"):
+            return err(d.name, "example.py (Tkinter): " + str(result["error"]))
+        visible = any(w["kind"] == "root" and w["visible"] for w in result["snapshots"][0])
+        if result["mainloops"] != 1 or not visible:
+            err(d.name, "example.py (Tkinter) musí vytvořit viditelné okno a spustit jednu hlavní smyčku")
+
+
 def run_gui_example(d: Path, ex: Path):
-    """Okenní příklad se spustí bez okna přes pgrun (pro pygame); Tkinter se jen zkompiluje."""
+    """Okenní příklad se spustí přes odpovídající náhradu bez grafické plochy."""
     code = ex.read_text("utf-8")
     if "import turtle" in code or "from turtle" in code:
         return run_turtle_example(d, ex, code)
+    if "import tkinter" in code or "from tkinter" in code:
+        return run_tk_example(d, code)
     if "pygame" not in code:
         return
     try:

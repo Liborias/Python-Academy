@@ -85,8 +85,8 @@
         "zaklady",
         "soubory-web"
       ],
-      "status": "planned",
-      "summary": "Tkinter, REST API, odesílání e-mailů, balení aplikace."
+      "status": "draft",
+      "summary": "První 4 z 28 lekcí: okno Tkinter, popisky, tlačítka a formulář. Dále projekty, HTTP API a e-maily."
     },
     {
       "id": "pygame-2",

@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.49):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40). Obsah kurzu Turtle/OOP je dokončený, včetně Snake a kvízu; čeká na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.50):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (4 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -37,6 +37,19 @@ Každý podkurz včetně plánovaných má před lekcemi přípravu s volbou sys
 seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená stránka Příprava prostředí
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
+
+## Okenní aplikace, API a e-maily — první čtyři lekce
+Kurz začíná oknem Tkinteru, popisky, tlačítky a formulářem se jménem.
+Každá lekce vysvětluje nové příkazy před použitím a obsahuje ukázku, úkol,
+automatickou kontrolu chování a kvíz. Příprava kurzu pomůže ověřit Tkinter
+ve zvoleném editoru; první blok nepotřebuje žádné další pip balíčky.
+Okno se otevře na počítači, kde běží Python, vedle prohlížeče s učebnicí.
+
+Celá osnova 28 lekcí je v rozbalitelném panelu kurzu a v
+[plánu kurzu](courses/tkinter-api/plan.md). Navazovat budou větší formuláře,
+soubory, HTTP API a e-maily s místním testovacím záchytem, později balení aplikace.
+Tyto navazující lekce zatím nejsou připravené. Náročnost celku je 3/4,
+první okna jsou vhodná po Základech Pythonu.
 
 ## Samostatný OOP kurz — všech dvacet lekcí připravených
 V katalogu je vedle Základů samostatná karta **Objektově orientované programování v praxi**.

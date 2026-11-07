@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč po vytvoření Label voláme pack()?",
+    "options": [
+      "Aby správce rozložení widget umístil",
+      "Aby se text změnil na číslo",
+      "Aby vzniklo další hlavní okno"
+    ],
+    "answer": 0,
+    "why": "Vytvoření objektu a určení jeho umístění jsou dva kroky."
+  },
+  {
+    "q": "Co se uloží do nadpis při nadpis = ttk.Label(...).pack()?",
+    "options": [
+      "Odkaz na původní okno",
+      "None, což vrací pack",
+      "Text z popisku"
+    ],
+    "answer": 1,
+    "why": "Chceme-li později měnit popisek, uložíme zvlášť Label a pack zavoláme potom."
+  },
+  {
+    "q": "Který údaj určuje vnější svislé mezery?",
+    "options": [
+      "text",
+      "padx",
+      "pady"
+    ],
+    "answer": 2,
+    "why": "Padx je vodorovná a pady svislá vnější mezera."
+  }
+]
