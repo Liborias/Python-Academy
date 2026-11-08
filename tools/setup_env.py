@@ -21,7 +21,7 @@ PACKAGES = {
     "soubory-web": ["requests", "beautifulsoup4"],
     "pygame-1": ["pygame-ce"],
     "turtle-oop": ["requests"],
-    "pandas": ["pandas", "matplotlib", "openpyxl", "ipykernel"],
+    "pandas": ["pandas>=3,<4", "matplotlib", "openpyxl", "ipykernel"],
     "tkinter-api": ["requests", "aiosmtpd>=1.4.6,<2"],
     "pygame-2": ["pygame-ce"],
     "databaze": [],

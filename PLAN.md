@@ -91,9 +91,21 @@ Pomocné moduly ve files/ navazují na předchozí vzorová řešení; jejich sh
 Pořadí od nejjednoduššího: Turtle (kreslení, tuple, spirograf) · Opakování typů a řetězců („zpět k základům“) · seznamy a slicing, `set`, rozbalování · Úvod do OOP (class, konstruktor, atributy, metody) · Čtyři pilíře, dědění, `super()`, dunder metody, MRO, `@property`, `@dataclass` (novinka) · Projekty: **Snake**, kvíz s API (Open Trivia DB, s mockem).
 
 ### F. Datová analýza v Pandas (42 lekcí)
-Moduly: Prostředí (venv, Jupyter ve VSCodium, záložně Colab) · Series · DataFrame · načítání dat · čištění · filtrování · `loc` a `iloc` · změny hodnot (**s Pandas 3.0**) · vizualizace (matplotlib) · práce s textem · `groupby` · CSV a Excel.
-Lekce jsou ve formátu `# %%` (buňky), takže jdou spustit v Jupyteru i jako obyčejný skript.
-Datové sady: vlastní malé vymyšlené sady (kavárna, planety, filmy, ceny) generované skriptem. Žádný Bond. Odkazy na otevřená data jako doplněk.
+**Stav v0.59: 5 ze 42 lekcí hotovo, kurz zahájen na výslovnou žádost uživatele.**
+První modul: Series a popisky · výpočty a zarovnání · loc/iloc · DataFrame · CSV.
+Každá z pěti lekcí má tři přepínatelné ukázky a pět samostatných úkolů s kontrolou
+a dostupným možným řešením (15 ukázek, 25 úkolů). Nové příkazy se vysvětlují před použitím.
+Příprava před kurzem nabízí tři editory a .venv; notebook není povinný.
+Python 3.14.8/pandas 3.1.1/NumPy 2.5.4 ověřeny, instalace vybírá pandas>=3,<4.
+V prohlížeči i terminálu běží obyčejné .py, značky # %% jsou pro volitelné buňky.
+Vlastní syntetická měření a ceníky jsou přiložené jako UTF-8 CSV, bez stahování.
+
+Celá osnova je v [courses/pandas/plan.md](courses/pandas/plan.md) a panelu kurzu:
+výběr a změny · čištění · groupby a souhrny · spojení a čas · grafy · CSV/Excel
+a opakovatelný postup · projekt Analytická dílna. Úvod 2/4, celek 3/4.
+Další blok 6–10: sloupce, tabulkové loc/iloc, masky, sort_values a změny přes loc
+v pandas 3. Zachovat více příkladů/úkolů s řešeními u samostatných témat;
+navazující projektové kroky nerozdělovat na nesouvisející varianty.
 
 ### D. Okenní aplikace, API a e-maily (28 lekcí)
 Tkinter základy (okno, Label, Button, Entry, `pack`, `grid`, `place`, `ttk`) · Převodník měn · Úkolníček (Listbox, Scrollbar, ukládání do JSON) · API (REST, stavové kódy, chyby, `requests`) · Převodník měn 2.0 · E-maily přes lokální testovací server, Gmail volitelně · Balení do spustitelného souboru (PyInstaller, ověřit podporu Pythonu 3.14/3.15).

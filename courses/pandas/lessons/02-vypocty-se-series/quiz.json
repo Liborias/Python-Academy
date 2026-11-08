@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak Series páruje údaje při násobení dvou Series?",
+    "options": [
+      "Podle popisků.",
+      "Vždy pouze podle pozic.",
+      "Podle délky názvu proměnné."
+    ],
+    "answer": 0,
+    "why": "Stejné popisky drží cenu a počet u stejného zboží i při jiném pořadí."
+  },
+  {
+    "q": "Jaký je průměr [10, None, 20] při výchozí mean?",
+    "options": [
+      "15, protože chybějící údaj vynechá.",
+      "10, protože None nahradí nulou.",
+      "30, protože jde o součet."
+    ],
+    "answer": 0,
+    "why": "Průměr se počítá ze dvou dostupných hodnot."
+  },
+  {
+    "q": "Co provede s + 3 nad Series?",
+    "options": [
+      "Vytvoří výsledek s bonusem u každé hodnoty.",
+      "Připojí tři nové řádky.",
+      "Vždy přepíše původní Series."
+    ],
+    "answer": 0,
+    "why": "Aritmetika vrací výsledek; zde vstupní objekt neměníme."
+  }
+]

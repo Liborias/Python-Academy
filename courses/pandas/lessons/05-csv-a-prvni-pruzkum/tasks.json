@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "CSV s čárkou jako oddělovačem"
+  },
+  {
+    "id": "task-3",
+    "title": "CSV bez hlavičky"
+  },
+  {
+    "id": "task-4",
+    "title": "Kódy s počátečními nulami"
+  },
+  {
+    "id": "task-5",
+    "title": "Počet záznamů v souboru"
+  }
+]

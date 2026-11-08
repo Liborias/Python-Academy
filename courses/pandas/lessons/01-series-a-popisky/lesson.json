@@ -1,0 +1,11 @@
+{
+  "title": "Series: hodnoty a popisky",
+  "minutes": 45,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "tabulky"
+  ],
+  "example_title": "Teploty podle místa"
+}

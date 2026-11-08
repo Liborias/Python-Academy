@@ -24,14 +24,14 @@ class TasksTest(unittest.TestCase):
             cid, lid = directory.parent.parent.name, directory.name
             view = lesson_view(ROOT / 'courses', cid, lid)
             tasks = view['tasks']
-            expected = cid == 'zaklady' and (directory / 'examples.json').exists()
+            expected = cid in {'zaklady', 'pandas'} and (directory / 'examples.json').exists()
             self.assertEqual(len(tasks), 4 if expected else 0, str(directory))
             total += len(tasks)
             for task in tasks:
                 self.assertNotIn('solution', task)
                 self.assertNotIn('check', task)
                 self.assertTrue(task['md'] and task['exercise'])
-        self.assertEqual(total, 136)
+        self.assertEqual(total, 156)
 
     def test_selection_and_traversal(self):
         root = ROOT / 'courses'

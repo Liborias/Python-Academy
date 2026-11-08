@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jaký je rozdíl mezi sep a decimal?",
+    "options": [
+      "Sep odděluje sloupce, decimal určuje desetinný znak.",
+      "Jsou to dva názvy stejné věci.",
+      "Decimal určuje kódování."
+    ],
+    "answer": 0,
+    "why": "Čárka uvnitř 18,5 může být desetinná část, zatímco sloupce odděluje středník."
+  },
+  {
+    "q": "Proč načíst kod jako str?",
+    "options": [
+      "Aby se například 001 nezměnilo na 1.",
+      "Aby se kód mohl správně násobit.",
+      "Aby se smazala hlavička."
+    ],
+    "answer": 0,
+    "why": "Identifikátor má textový význam, počáteční nuly jsou součástí hodnoty."
+  },
+  {
+    "q": "Proč počet záznamů nezjišťovat prostým počítáním Enterů?",
+    "options": [
+      "Textové pole v uvozovkách může obsahovat nový řádek.",
+      "CSV nikdy nemá hlavičku.",
+      "Pandas vůbec neumí počet řádků."
+    ],
+    "answer": 0,
+    "why": "Parser rozumí hranicím CSV záznamu i u víceřádkového pole."
+  }
+]

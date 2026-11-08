@@ -73,8 +73,8 @@
       "doporuceno": [
         "zaklady"
       ],
-      "status": "planned",
-      "summary": "Series, DataFrame, čištění, filtrování, groupby, grafy (Pandas 3)."
+      "status": "draft",
+      "summary": "Prvních 5 z 42 lekcí: Series, výpočty, loc/iloc, DataFrame a CSV. Tři ukázky a pět úkolů s možnými řešeními v každé lekci."
     },
     {
       "id": "tkinter-api",

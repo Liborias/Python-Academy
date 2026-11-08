@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.58):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (28 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.59):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a první blok Datové analýzy (5 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -37,6 +37,29 @@ Každý podkurz včetně plánovaných má před lekcemi přípravu s volbou sys
 seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená stránka Příprava prostředí
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
+
+## Datová analýza — prvních pět lekcí
+
+Kurz začíná Series a popisky, výpočty podle indexu, výběrem loc/iloc,
+prvním DataFrame a načtením místních CSV. Každá lekce má tři přepínatelné
+ukázky a pět úkolů s vlastním zadáním, kontrolou a možným řešením.
+Celkem je v úvodu 15 ukázek a 25 úkolů. Data jsou vlastní a smyšlená,
+u CSV procvičíte desetinnou čárku, hlavičku, UTF-8 a textové kódy s nulami.
+Výklad vysvětluje nové operace, význam výsledku i běžné omyly.
+
+Po aktualizaci připravte závislosti příkazem
+`python tools/setup_env.py --courses pandas` a znovu spusťte aplikaci.
+Pomocník použije projektovou .venv; vyberte ji také v editoru.
+Instaluje pandas řady 3, matplotlib, openpyxl a ipykernel.
+První blok používá jen pandas a běží bez internetu i grafické plochy.
+Ověřeno na Pythonu 3.14.8 s pandas 3.1.1 a NumPy 2.5.4.
+Soubory .py fungují přímo v aplikaci nebo terminálu; značky # %% umožní
+volitelné buňky v podporovaném editoru. Notebook není povinný.
+Příprava nabízí VS Code, VSCodium i PyCharm.
+
+Celá [osnova 42 lekcí](courses/pandas/plan.md) je dostupná také v panelu kurzu.
+Úvod má náročnost 2/4 po Základech Pythonu, celek 3/4. Další blok přidá
+výběr sloupců a řádků, podmínky, řazení a změny přes loc v pandas 3.
 
 ## Okenní aplikace, API a e-maily — všech 28 lekcí připravených
 Kurz začíná oknem Tkinteru, popisky, tlačítky a formulářem se jménem.
@@ -147,18 +170,19 @@ Jeho id a uložené úpravy se nemění. Web používá SVG i ICO faviconu; při
 ikoně obnovte stránku pomocí Ctrl+F5. Soubory ikon mají v odkazech verzi pro cache.
 
 ## Pět úkolů na procvičení
-V běžných lekcích Základů (01–31 a 37–39) přepínají tlačítka **Úkol 1 až Úkol 5**
+V běžných lekcích Základů (01–31 a 37–39) a prvních pěti lekcích Datové analýzy
+přepínají tlačítka **Úkol 1 až Úkol 5**
 mezi původním úkolem a čtyřmi novými. Každý má vlastní zadání, rozepsaný kód,
-kontrolu a pracovní soubor pro externí editor. Nových úkolů je celkem 136.
+kontrolu a pracovní soubor pro externí editor. Doplňkových úkolů je celkem 156.
 Úkol 1 zachovává původní uložený kód i návaznost na splnění lekce. Nové úkoly mají
 vlastní značky úspěšného procvičení. „Začít znovu“ obnoví jen právě vybraný úkol.
-Mini-projekty 32–36, závěrečný test 40 a ostatní kurzy zůstávají beze změn.
+Navazující mini-projekty a závěrečné testy tvoří vlastní celky.
 
 ## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
 variantu k právě vybranému zadání s připomenutím, že správných postupů může být více.
-Pomoc je dostupná pro všech 168 hlavních zadání napříč šesti hotovými kurzy
-i 136 dalších úkolů v Základech, celkem 304 řešení včetně projektů a závěrečných
+Pomoc je dostupná pro všech 173 hlavních zadání napříč sedmi praktickými kurzy
+i 156 dalších úkolů v Základech a Datové analýze, celkem 329 řešení včetně projektů a závěrečných
 programů. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
 Průvodce přípravou bez programovacího úkolu tento panel nemá.
 

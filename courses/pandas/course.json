@@ -1,0 +1,32 @@
+{
+  "id": "pandas",
+  "title": "Datová analýza v Pandas",
+  "requires_packages": [
+    "pandas>=3,<4",
+    "matplotlib",
+    "openpyxl",
+    "ipykernel"
+  ],
+  "modules": [
+    {
+      "id": "m01",
+      "title": "Od seznamu k datové tabulce",
+      "lessons": [
+        "01-series-a-popisky",
+        "02-vypocty-se-series",
+        "03-vyber-loc-a-iloc",
+        "04-prvni-dataframe",
+        "05-csv-a-prvni-pruzkum"
+      ]
+    }
+  ],
+  "learning_plan": {
+    "title": "Od prvního měření k Analytické dílně",
+    "status": "draft",
+    "level": 3,
+    "summary": "Prvních pět lekcí je připravených: Series, výpočty, loc/iloc, DataFrame a místní CSV. Každá má tři ukázky a pět úkolů s možným řešením.",
+    "placement": "Po Základech Pythonu; práce se soubory pomůže, notebook není povinný.",
+    "difficulty_reason": "Úvod od 2/4, celek 3/4: popisky, datové typy, chybějící údaje, spojování, grafy a ověření výsledků.",
+    "duration": "Plán 42 lekcí, prvních 5 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Výpočty se Series",
+  "minutes": 45,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "tabulky"
+  ],
+  "example_title": "Ceny v eurech"
+}

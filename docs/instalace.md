@@ -39,7 +39,15 @@ Volitelná aktivace: `source .venv/bin/activate`. Pro Tkinter u Homebrew Pythonu
 
 `tools/setup_env.py --courses zaklady` vytvoří nebo použije společnou `.venv` tohoto výukového projektu bez dalších balíčků. `--courses soubory-web,pygame-1` doplní jen závislosti těchto kurzů. `--dry-run` vypíše plán a nic nezmění.
 
-Bez `--courses` pomocník připraví běžné balíčky všech kurzů: requests, beautifulsoup4, pygame-ce, pandas, matplotlib, openpyxl, ipykernel a aiosmtpd pro místní e-mailový záchyt. Pro začátečníka to není nutné. Příznak `--extras` přidá volitelné součásti zvoleného kurzu: PyInstaller pro balení v tkinter-api, qrcode a pyttsx3 pro pozdější projekty databaze. Jejich funkce a systémové závislosti se ověřují až v příslušném projektu.
+Bez `--courses` pomocník připraví běžné balíčky všech kurzů: requests, beautifulsoup4, pygame-ce, pandas řady 3, matplotlib, openpyxl, ipykernel a aiosmtpd pro místní e-mailový záchyt. Pro začátečníka to není nutné. Příznak `--extras` přidá volitelné součásti zvoleného kurzu: PyInstaller pro balení v tkinter-api, qrcode a pyttsx3 pro pozdější projekty databaze. Jejich funkce a systémové závislosti se ověřují až v příslušném projektu.
+
+Pro Datovou analýzu použijte `python tools/setup_env.py --courses pandas`.
+Prvních pět lekcí je připravených a používá pouze pandas, další balíčky slouží
+pro pozdější grafy, Excel a volitelné notebooky. Instalace vybírá `pandas>=3,<4`.
+Ověření v projektové .venv: `python -c "import sys, pandas as pd; print(sys.version); print(pd.__version__)"`.
+Ověřený úvod: Python 3.14.8, pandas 3.1.1 a NumPy 2.5.4 na Linuxu.
+Editor musí mít zvolené stejné prostředí. Všechny úvodní .py soubory běží také
+v terminálu; podpora buněk `# %%` a notebooků závisí na editoru a rozšířeních.
 
 > Instalujte **pygame-ce**, v kódu používejte `import pygame`. Nekombinujte jej ve stejném prostředí s původním balíčkem pygame.
 

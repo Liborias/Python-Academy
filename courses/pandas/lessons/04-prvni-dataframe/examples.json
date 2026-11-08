@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Každý slovník jeden řádek",
+    "description": "Vyberte pořadí sloupců a sledujte chybějící údaj.",
+    "code": "# %% Záznamy mohou mít některé pole nevyplněné.\nimport pandas as pd\nradky = [{\"misto\": \"Brno\", \"hodnota\": 18.5}, {\"misto\": \"Praha\"}]\ndf = pd.DataFrame(radky, columns=[\"hodnota\", \"misto\"])\n# Shape uvádí nejprve řádky, potom sloupce.\nprint(df)\nprint(\"Rozměry:\", df.shape)\nprint(\"Sloupce:\", df.columns.tolist())\nprint(df.dtypes)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Vlastní index a náhled",
+    "description": "Náhled head nekrátí původní tabulku a ponechá popisky.",
+    "code": "# %% Popisky řádků dávají měřením význam.\nimport pandas as pd\ndf = pd.DataFrame({\"teplota\": [18.5, 21.0, 16.0], \"vlhkost\": [65, 58, 72]}, index=[\"Brno\", \"Praha\", \"Zlin\"])\n# První řádek je samostatný výsledek, celá tabulka má dál tři řádky.\nprint(df.head(1))\nprint(\"Celý vstup:\", df.shape)\nprint(\"Náhled bez řádků:\", df.head(0).shape)\n"
+  }
+]

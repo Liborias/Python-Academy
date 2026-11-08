@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Číslo v indexu není pozice",
+    "description": "Porovnejte popisek 0 s první pozicí stejné Series.",
+    "code": "# %% Číselné popisky mají jiné pořadí než pozice.\nimport pandas as pd\ns = pd.Series([8, 6, 9], index=[20, 0, 10], name=\"hodnota\", dtype=\"float64\")\n# Seznam v hranatých závorkách zachová návratový typ Series.\nprint(\"Popisek 0:\")\nprint(s.loc[[0]])\nprint(\"Pozice 0:\")\nprint(s.iloc[[0]])\nprint(\"Úsek pozic 1 až 2:\")\nprint(s.iloc[1:3])\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Přejmenovat a seřadit",
+    "description": "Změňte popisky a ověřte, že čísla patří stále správným řádkům.",
+    "code": "# %% Vlastní pořadí vstupu.\nimport pandas as pd\ns = pd.Series([4, 7, 1], index=[\"B\", \"C\", \"A\"], name=\"mereni\", dtype=\"float64\")\n# Mění se jen vybrané popisky, ne název celé Series.\nnovy = s.rename(index={\"B\": \"D\"}).sort_index()\nprint(\"Výsledek:\")\nprint(novy)\nprint(\"Původní popisky:\", s.index.tolist())\n"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "title": "Výběr pomocí loc a iloc",
+  "minutes": 50,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "tabulky"
+  ],
+  "example_title": "Vybraná měření podle popisku"
+}

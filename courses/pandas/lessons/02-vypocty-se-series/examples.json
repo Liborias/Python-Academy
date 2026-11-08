@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Cena a počet podle popisku",
+    "description": "Záměrně jiné pořadí obou Series ukáže spojení podle názvů.",
+    "code": "# %% Dvě různé posloupnosti se společnými popisky.\nimport pandas as pd\nceny = pd.Series([50, 75], index=[\"caj\", \"kava\"], dtype=\"float64\")\npocty = pd.Series([3, 2], index=[\"kava\", \"caj\"], dtype=\"float64\")\n# Cena čaje 50 se násobí počtem čajů 2, ne prvním počtem 3.\ntrzby = (ceny * pocty).sort_index().rename(\"trzba\")\nprint(trzby)\nprint(\"Celkem:\", trzby.sum())\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Souhrn a odchylky",
+    "description": "Chybějící hodnota se při průměru vynechá a v odchylkách zůstane.",
+    "code": "# %% NaN není naměřená nula.\nimport pandas as pd\ns = pd.Series([10, None, 20], index=[\"A\", \"B\", \"C\"], name=\"mereni\", dtype=\"float64\")\nprint(\"Součet:\", s.sum())\nprint(\"Průměr:\", s.mean())\n# Od každého dostupného čísla odečteme stejný průměr.\nprint(s - s.mean())\nprint(\"Vstup zůstal:\", s.tolist())\n"
+  }
+]

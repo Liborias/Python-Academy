@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Soubor bez hlavičky",
+    "description": "První měření má zůstat řádkem, názvy sloupců zadáme sami.",
+    "code": "# %% V souboru není řádek s názvy sloupců.\nimport pandas as pd\ndf = pd.read_csv(\"bez-hlavicky.csv\", sep=\";\", decimal=\",\", encoding=\"utf-8\", header=None, names=[\"misto\", \"hodnota\"])\n# Čísla i oba záznamy přečteme parserem bez úpravy souboru.\nprint(df)\nprint(\"Počet záznamů:\", len(df))\nprint(df.dtypes)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Kód s počátečními nulami",
+    "description": "Identifikátor má textový význam, i když obsahuje jen číslice.",
+    "code": "# %% Při převodu kódu na číslo by se ztratily počáteční nuly.\nimport pandas as pd\ndf = pd.read_csv(\"identifikatory.csv\", sep=\";\", encoding=\"utf-8\", dtype={\"kod\": \"str\"})\n# Jednomu sloupci určíme dtype, ostatní se odvodí.\nprint(df)\nprint(df.dtypes)\n"
+  }
+]

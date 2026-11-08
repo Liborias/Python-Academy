@@ -1,6 +1,6 @@
 # Dílna Pythonu: ověření Pythonu, instalace a spuštění
 
-Všechny příkazy se zadávají v terminálu **ve složce projektu** (složka `dilna-pythonu` po rozbalení ZIPu).
+Všechny příkazy se zadávají v terminálu **ve složce projektu** (`Python-Academy` po git clone).
 Na Windows se píše `python` (případně `py`), na macOS a Linuxu `python3`. Dále je psáno `python`.
 
 ## 1. Ověření verze Pythonu
@@ -21,9 +21,8 @@ Podrobnosti: `docs/instalace.md`.
 ```
 python tools/setup_env.py --courses zaklady
 ```
-Vytvoří složku `.venv` (virtuální prostředí) a nainstaluje balíčky pro všechny podkurzy
-(`requests`, `beautifulsoup4`, `pygame-ce`, `pandas`, `matplotlib`, `openpyxl`, `ipykernel`, `pyinstaller`, `qrcode[pil]`, `pyttsx3`).
-Vyžaduje internet.
+Vytvoří nebo použije složku `.venv` (virtuální prostředí). Základy další balíčky
+nepotřebují. První vytvoření prostředí a instalace závislostí mohou potřebovat internet.
 
 Jen vybrané podkurzy:
 ```
@@ -34,6 +33,20 @@ Co by se instalovalo, bez instalace:
 python tools/setup_env.py --dry-run
 ```
 Základní podkurz **Základy** žádné balíčky nepotřebuje.
+
+Pro Datovou analýzu:
+```
+python tools/setup_env.py --courses pandas
+```
+Nainstaluje pandas řady 3, matplotlib, openpyxl a ipykernel do stejné projektové
+.venv. Prvních pět lekcí potřebuje pouze pandas a běží jako běžné .py soubory
+v aplikaci nebo terminálu. Notebooky a buňky # %% jsou volitelné.
+Balíčky používá Python z .venv; zvolte jej také v editoru. Po instalaci aplikaci
+znovu spusťte. Ověřený úvod používá Python 3.14.8 a pandas 3.1.1.
+
+Bez --courses pomocník připraví běžné balíčky všech kurzů; --extras navíc
+volitelné PyInstaller, qrcode a pyttsx3. Instalace těchto součástí není nutná
+pro úvod Datové analýzy.
 
 Volitelně rozšíření pro VSCodium:
 ```

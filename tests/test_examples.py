@@ -19,11 +19,12 @@ class ExamplesTest(unittest.TestCase):
             course = lesson.parent.parent.name
             view = lesson_view(ROOT / 'courses', course, lesson.name)
             extra = view['examples']
-            expected = course == 'zaklady' and (int(lesson.name[:2]) <= 31 or 37 <= int(lesson.name[:2]) <= 39)
+            expected = ((course == 'zaklady' and (int(lesson.name[:2]) <= 31 or 37 <= int(lesson.name[:2]) <= 39))
+                        or (course == 'pandas' and int(lesson.name[:2]) <= 5))
             self.assertEqual(len(extra), 2 if expected else 0, str(lesson))
             self.assertEqual(view['example'], (lesson / 'example.py').read_text('utf-8') if (lesson / 'example.py').is_file() else '')
             count += len(extra)
-        self.assertEqual(count, 68)
+        self.assertEqual(count, 78)
 
     def validate(self, value):
         with tempfile.TemporaryDirectory() as temp:

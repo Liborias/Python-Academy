@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co označuje index Series?",
+    "options": [
+      "Popisky jednotlivých záznamů.",
+      "Název celé knihovny.",
+      "Vždy pořadí od nuly bez možnosti změny."
+    ],
+    "answer": 0,
+    "why": "Index může být textový i číselný; název celé Series je zvlášť v name."
+  },
+  {
+    "q": "Co znamená NaN v číselné Series?",
+    "options": [
+      "Chybějící údaj.",
+      "Vždy naměřenou nulu.",
+      "Počet řádků souboru."
+    ],
+    "answer": 0,
+    "why": "Chybějící místo počítá len, ale metoda count jej mezi dostupné hodnoty nepočítá."
+  },
+  {
+    "q": "Který interpreter má spouštět kód v editoru?",
+    "options": [
+      "Stejná .venv, do které jsme nainstalovali knihovny.",
+      "Libovolný jiný Python bez knihoven.",
+      "Samotné rozšíření editoru bez Pythonu."
+    ],
+    "answer": 0,
+    "why": "Editor potřebuje interpreter nebo jádro, které skutečně obsahuje pandas."
+  }
+]

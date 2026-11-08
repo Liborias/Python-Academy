@@ -1,0 +1,11 @@
+{
+  "title": "První tabulka DataFrame",
+  "minutes": 45,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "tabulky"
+  ],
+  "example_title": "Tabulka míst a teplot"
+}

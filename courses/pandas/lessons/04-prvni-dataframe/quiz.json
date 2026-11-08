@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená shape (3, 2)?",
+    "options": [
+      "Tři řádky a dva sloupce.",
+      "Dva řádky a tři sloupce.",
+      "Tři Series bez řádků."
+    ],
+    "answer": 0,
+    "why": "Shape má pořadí počet řádků, počet sloupců."
+  },
+  {
+    "q": "Co se stane při head(0)?",
+    "options": [
+      "Vznikne náhled bez řádků se zachovanými sloupci a typy.",
+      "Původní tabulka se smaže.",
+      "Zobrazí se všechny řádky."
+    ],
+    "answer": 0,
+    "why": "Head vrací nový výsledek a původní tabulku nezkracuje."
+  },
+  {
+    "q": "Co určuje columns v konstrukci ze záznamů?",
+    "options": [
+      "Vybrané sloupce a jejich pořadí.",
+      "Pouze názvy řádků.",
+      "Automatické uložení do CSV."
+    ],
+    "answer": 0,
+    "why": "Index se týká řádků, columns sloupců."
+  }
+]

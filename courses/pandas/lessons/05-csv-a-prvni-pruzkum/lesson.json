@@ -1,0 +1,11 @@
+{
+  "title": "Načtení CSV a první průzkum",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "tabulky"
+  ],
+  "example_title": "Český CSV soubor"
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Ze slovníku do Series",
+    "description": "Z klíčů slovníku vzniknou popisky; porovnejte název, délku a seznam hodnot.",
+    "code": "# %% Příprava knihovny a vlastních cvičných dat\nimport pandas as pd\n# Klíče se stanou indexem ve stejném pořadí.\nceny = pd.Series({\"caj\": 45, \"kava\": 60}, name=\"cena\", dtype=\"float64\")\nprint(ceny)\n# Délka počítá prvky, tolist vrací samotné hodnoty.\nprint(\"Počet:\", len(ceny))\nprint(\"Hodnoty:\", ceny.tolist())\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Nový název a chybějící údaj",
+    "description": "Sledujte původní a nový název a rozdíl len proti count.",
+    "code": "# %% Každé místo zůstává v indexu i s chybějícím údajem.\nimport pandas as pd\ns = pd.Series([5, None, 8], index=[\"A\", \"B\", \"C\"], name=\"puvodni\", dtype=\"float64\")\nnovy = s.rename(\"navstevy\")\n# Rename bez inplace vrací výsledek, původní název zachová.\nprint(\"Názvy:\", s.name, novy.name)\nprint(novy)\nprint(\"Všechna místa:\", len(s))\nprint(\"Dostupné hodnoty:\", s.count())\n"
+  }
+]

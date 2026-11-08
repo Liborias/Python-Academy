@@ -53,8 +53,8 @@ Validátor spustí každou variantu, vyžaduje úspěšné dokončení a nejmén
 Původní `example.py` se zachovává jako první ukázka. Tlačítka se zobrazí pouze u lekcí
 s dalšími příklady. Jejich editor je upravitelný a každá varianta má vlastní
 rozepsaný kód v localStorage. Přepnutí neovlivňuje úkol, jeho kontrolu ani postup studenta.
-V aktuální verzi jsou varianty pouze v Základech, lekce 01–31 a 37–39;
-mini-projekty 32–36, závěrečný test 40 a ostatní podkurzy jsou beze změny.
+Varianty jsou v Základech, lekce 01–31 a 37–39, a v prvních pěti lekcích
+Datové analýzy. Nevytvářejí se automaticky pro navazující projektové kroky.
 
 ## Koncept úvodního podkurzu (od v0.35)
 Katalog může obsahovat `status: "concept"` (štítek Koncept). `priprava` je první
@@ -151,9 +151,23 @@ zadáním a ověřte jej kontrolou daného úkolu. Zobrazení nic nevkládá do 
 neprovádí kontrolu a nemění značky splnění. Přepnutí úkolu panel zavře, vymaže
 předchozí zobrazení a ignoruje opožděnou odpověď jiného úkolu. Jednotlivá načtená
 řešení se drží jen v paměti aktuální stránky; obnovení stránky je znovu skryje.
-Všech 168 praktických lekcí a 136 doplňkových úkolů má řešení. Průvodce bez
+Všech 173 praktických lekcí a 156 doplňkových úkolů má řešení. Průvodce bez
 programového zadání ani plánovaný kurz panel nezobrazuje. Zpřístupnění dalšího
 kurzu nevyžaduje seznam povolených kurzů v kódu: rozhoduje existence jeho vzoru.
+
+## Kontroly pandas (od v0.59)
+Lekce pandas používají volitelný lib/dilna_check/pandas_tools.py. Základní import
+dilna_check tím nezískává závislost na pandas. Check_cases porovnává skutečné
+Series/DataFrame přes pandas.testing včetně typu, pořadí, popisků a názvu;
+aritmetika má toleranci 1e-12, kontrola zachování vstupu je přesná. U prázdného
+výsledku bez popisků se nevyžaduje konkrétní typ prázdného indexu odvozený
+konstruktorem, dtype hodnot a jména se kontrolují dál. Readonly_files hlídá,
+že načtené CSV nezmizí ani se nezmění. Případy mají zahrnovat prázdné vstupy,
+NaN, jiné názvy/pořadí a čísla, která odhalí předčasné zaokrouhlení.
+
+Doplňkový úkol dědí pouze vlastní files/, nikoli files/ kořene lekce.
+Potřebné CSV proto vložte i k příslušnému tasks/task-N/files/. Ověřte nejen
+volání funkcí kontrolou, ale také skutečný samostatný běh ukázky řešení.
 
 ## Odolné ukládání postupu (od v0.58)
 Web/js/store.js zachovává klíč dilna-python-v1 a dosavadní strukturu done,
