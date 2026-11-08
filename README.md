@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.52):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (12 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.53):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (16 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,7 +38,7 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Okenní aplikace, API a e-maily — prvních dvanáct lekcí
+## Okenní aplikace, API a e-maily — prvních šestnáct lekcí
 Kurz začíná oknem Tkinteru, popisky, tlačítky a formulářem se jménem.
 Navazuje rámečky Frame a změnou rozměrů, ovládáním přes Enter, propojenými
 proměnnými a přepínači. První projekt převádí kilometry a metry: výpočet funguje
@@ -47,14 +47,20 @@ Třetí blok přidává Listbox s bezpečným výběrem, víceřádkový Text s 
 a souborové dialogy pro JSON v UTF-8. Úkolníček umí přidat, dokončit a odstranit
 konkrétní úkol i mezi stejnými názvy. Uložený model lze znovu načíst; zrušení
 dialogu nebo neplatná data zachovají současné úkoly, výběr i podrobnosti.
+Čtvrtý blok učí HTTP GET, parametry, JSON, timeout a ověření dat. Místní cvičné
+API nabízí předvídatelné chyby bez závislosti na internetu. Pracovní vlákno,
+fronta a after umožní načítat bez zamrzání okna; widgety zůstávají v hlavním vlákně.
+Převodník měn ukazuje zdroj a datum smyšleného kurzu a dovolí zvolit API nebo
+JSON soubor. Změna volby vyžádá nový kurz, neúspěch neponechá starý výsledek.
 Každá lekce vysvětluje nové příkazy před použitím a obsahuje ukázku, úkol,
 automatickou kontrolu chování a kvíz. Příprava kurzu pomůže ověřit Tkinter
-ve zvoleném editoru; prvních dvanáct lekcí nepotřebuje žádné další pip balíčky.
+ve zvoleném editoru; prvních dvanáct lekcí nepotřebuje další pip balíčky,
+od lekce 13 je potřeba requests. Pomocné soubory z files jsou součástí lekcí.
 Okno se otevře na počítači, kde běží Python, vedle prohlížeče s učebnicí.
 
 Celá osnova 28 lekcí je v rozbalitelném panelu kurzu a v
-[plánu kurzu](courses/tkinter-api/plan.md). Navazovat budou HTTP API bez zamrzání
-okna a e-maily s místním testovacím záchytem, později balení aplikace.
+[plánu kurzu](courses/tkinter-api/plan.md). Navazovat budou e-maily s místním
+testovacím záchytem, závěrečný projekt a později balení aplikace.
 Tyto navazující lekce zatím nejsou připravené. Náročnost celku je 3/4,
 první okna jsou vhodná po Základech Pythonu.
 

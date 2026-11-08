@@ -1,12 +1,12 @@
 ## Okenní aplikace, API a e-maily
 
-Prvních 12 z plánovaných 28 lekcí jsou hotové. Kurz začíná Tkinterem, potom propojí okna se soubory, HTTP API a přípravou e-mailů. Celková náročnost je 3/4; úvod navazuje na základní funkce a podmínky. Doporučené Základy Pythonu a Soubory a web pomohou, samostatný OOP je užitečný, ale úvod jej nevyžaduje. Turtle ani Pygame nejsou potřeba.
+Z plánovaných 28 lekcí je hotových prvních 16. Kurz začíná Tkinterem, potom propojí okna se soubory, HTTP API a přípravou e-mailů. Celková náročnost je 3/4; úvod navazuje na základní funkce a podmínky. Doporučené Základy Pythonu a Soubory a web pomohou, samostatný OOP je užitečný, ale úvod jej nevyžaduje. Turtle ani Pygame nejsou potřeba.
 
 Každá hotová lekce obsahuje výklad nových konstrukcí před použitím, komentovanou ukázku, samostatné zadání, vzor, automatickou kontrolu a tři kvízové otázky. Kontroly ověřují nastavení a chování, skutečný vzhled se zkouší také v Tk. Okno vzniká na počítači s Pythonem, nikoli uvnitř webové stránky.
 
 ## Prostředí a průběh
 
-Vstupní příprava nabízí Windows, macOS a Linux i VS Code, VSCodium a PyCharm. Tkinter je systémová součást instalace Pythonu/Tk, ne pip balíček. Prvních dvanáct lekcí používá jen standardní knihovnu; requests je připravený pro pozdější HTTP část a PyInstaller je volitelný až pro balení. Stejný interpreter z .venv musí fungovat v terminálu i editoru. Ověření: python -m tkinter na grafické ploše.
+Vstupní příprava nabízí Windows, macOS a Linux i VS Code, VSCodium a PyCharm. Tkinter je systémová součást instalace Pythonu/Tk, ne pip balíček. Prvních dvanáct lekcí používá jen standardní knihovnu; requests je potřeba od lekce 13 pro HTTP část a PyInstaller je volitelný až pro balení. Stejný interpreter z .venv musí fungovat v terminálu i editoru. Ověření: python -m tkinter na grafické ploše.
 
 Základní projekty půjdou vyzkoušet s místními daty. Síťová část dostane předvídatelné odpovědi a chyby pro testování. E-mailová část nejprve použije lokální záchytný server a cvičné adresy, aby nepotřebovala osobní schránku. Přístup k reálné službě a konkrétní závislosti se ověří při realizaci příslušných lekcí.
 
@@ -47,10 +47,14 @@ Výstup: úkolníček se samostatným modelem, podrobnostmi výběru a uložení
 
 ## Modul 4 — HTTP API bez zamrzání okna
 
+**Hotovo: lekce 13–16.** První dvě jsou konzolová příprava backendu, další dvě mají okno.
+
 13. REST, GET, parametry a JSON přes requests, časový limit, místní cvičné API.
 14. Stavové kódy, nedostupná služba a neplatná odpověď, jasné stavy načítání.
 15. Tk.after, pracovní vlákno a fronta výsledků; widgety se mění jen v hlavním vlákně.
 16. Převodník měn 2.0: zdroj a datum kurzu, ruční cvičná data a ověřená síťová varianta.
+
+Výstup: převodník měn se dvěma jasně označenými místními zdroji a datem cvičného kurzu. Načítání neblokuje okno, chyba i změna volby zneplatní starý kurz.
 
 ## Modul 5 — E-maily nejdříve lokálně
 
@@ -75,4 +79,4 @@ Výstup: úkolníček se samostatným modelem, podrobnostmi výběru a uložení
 
 ## Hranice rozsahu
 
-První blok nic neodesílá na síť. Síťové a e-mailové příklady budou mít výslovný zdroj a testovací režim; textové hodnoty ani hesla se nebudou vkládat do zdrojových souborů jako skutečné přihlašovací údaje. Produkční hromadné rozesílání, složitá autentizace a automatické nasazení nepatří do tohoto kurzu.
+První blok nic neodesílá na síť. HTTP příklady 13–16 mají výslovný místní zdroj a testovací režimy. E-mailové příklady budou mít také místní záchyt; textové hodnoty ani hesla se nebudou vkládat do zdrojových souborů jako skutečné přihlašovací údaje. Produkční hromadné rozesílání, složitá autentizace a automatické nasazení nepatří do tohoto kurzu.

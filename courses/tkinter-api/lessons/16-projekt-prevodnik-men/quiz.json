@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak převedeme částku v EUR při kurzu CZK za jednu EUR?",
+    "options": [
+      "Částku vynásobíme kurzem.",
+      "Vždy částku dělíme kurzem.",
+      "Přičteme datum kurzu."
+    ],
+    "answer": 0,
+    "why": "Jednotka kurzu určuje směr: EUR × CZK/EUR = CZK."
+  },
+  {
+    "q": "Co udělá změna měny po načtení kurzu?",
+    "options": [
+      "Ponechá starý kurz bez upozornění.",
+      "Zneplatní kurz i výsledek a vyžádá nové načtení.",
+      "Automaticky provede platbu."
+    ],
+    "answer": 1,
+    "why": "Starý kurz by mohl patřit jiné měně nebo jinému zdroji."
+  },
+  {
+    "q": "Kde zaokrouhlujeme cvičný výsledek na dvě místa?",
+    "options": [
+      "Už při ukládání kurzu z API.",
+      "Vždy v čisté výpočetní funkci.",
+      "Až při formátování textu v okně."
+    ],
+    "answer": 2,
+    "why": "Výpočet vrací číslo; formát .2f určuje pouze jeho zobrazení v tomto výukovém nástroji."
+  }
+]

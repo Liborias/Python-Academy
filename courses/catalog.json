@@ -86,7 +86,7 @@
         "soubory-web"
       ],
       "status": "draft",
-      "summary": "Prvních 12 z 28 lekcí: okna, formuláře, převodník a úkolníček s ukládáním do JSON. Dále HTTP API a e-maily."
+      "summary": "Prvních 16 z 28 lekcí: okna, úkolníček, HTTP API a převodník měn bez zamrzání. Dále e-maily a závěrečný projekt."
     },
     {
       "id": "pygame-2",

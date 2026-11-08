@@ -1,0 +1,11 @@
+{
+  "title": "HTTP chyby a ověření dat",
+  "minutes": 45,
+  "kind": "console",
+  "tags": [
+    "api",
+    "requests",
+    "tkinter"
+  ],
+  "example_title": "Neúspěšný požadavek a nový pokus"
+}

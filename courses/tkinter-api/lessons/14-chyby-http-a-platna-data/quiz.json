@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Zaručí HTTP 200 správná data pro převod?",
+    "options": [
+      "Ano, další ověřování je zbytečné.",
+      "Ne, ověřujeme i JSON a jeho význam.",
+      "Pouze při použití float."
+    ],
+    "answer": 1,
+    "why": "Správný přenos ještě neověřuje měnu, hodnotu, datum ani zdroj."
+  },
+  {
+    "q": "Proč odmítáme bool před kontrolou číselného typu?",
+    "options": [
+      "True může v Pythonu projít jako celé číslo, ale není to platný kurz.",
+      "Bool nikdy nelze vložit do JSON.",
+      "Bool je vždy neplatné datum."
+    ],
+    "answer": 0,
+    "why": "Bool je podtyp int, a proto potřebuje vlastní odmítnutí."
+  },
+  {
+    "q": "Vyřeší timeout sám zamrzání Tkinteru?",
+    "options": [
+      "Ano, vždy uvolní hlavní smyčku okamžitě.",
+      "Pouze na Linuxu.",
+      "Ne, synchronní požadavek do dokončení stále blokuje své vlákno."
+    ],
+    "answer": 2,
+    "why": "Omezené čekání potřebujeme, ale pro plynulé GUI práci přesuneme mimo hlavní vlákno."
+  }
+]

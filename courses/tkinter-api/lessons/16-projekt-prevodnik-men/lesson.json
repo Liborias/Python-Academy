@@ -1,0 +1,11 @@
+{
+  "title": "Projekt: převodník měn 2.0",
+  "minutes": 65,
+  "kind": "gui",
+  "tags": [
+    "api",
+    "requests",
+    "tkinter"
+  ],
+  "example_title": "Stejná částka, dva označené zdroje"
+}

@@ -218,3 +218,37 @@ dočasného souboru. Testujte i neexistující cestu, chybný JSON/kódování, 
 pozdější záznam, prázdná data a následnou opravu. Nativní vzhled dialogu není
 součástí náhrady. I test skutečného Tk řídí volbu cesty testovacími odpověďmi;
 ověřuje skutečné widgety, zachování stavu a souborové operace.
+
+### Události, pracovníci a HTTP (v0.53)
+Tk_run podporuje after(ms, callback, *args) a after_cancel. Callbacky vykonává
+v hlavním vlákně podle skutečného času, práci threading/Queue ponechává skutečnému
+Pythonu. Akce `{"action":"wait","ms":50}` zpracuje naplánované události po danou
+dobu. Varianta `{"action":"wait","until":{"kind":"button","text":"Načíst kurz",
+"state":"normal"},"timeout":2}` čeká na stav widgetu s omezením času. Nejde
+o plný event loop Tk; nepodporované události stále vyžadují rozšíření.
+
+Přístupy k widgetům a Tk proměnným z jiného vlákna kontrola odmítne, i když
+student výjimku zachytí. Nezachycené výjimky pracovníka se také hlásí. Tento kurz
+předává přes frontu jen běžná data a Tk obsluhuje výhradně z hlavního vlákna.
+R.callbacks obsahuje origin (click/after) a ms trvání callbacku. Pomalý požadavek
+ani join nemají být v hlavní smyčce. Pro důkaz odezvy ověřujte stav v průběhu
+načítání, další ovládání a obnovení po chybě; samotný import threading nestačí.
+Entry ve stavu disabled/readonly ignoruje úpravy, stejně jako v reálném widgetu.
+
+Volitelné `http=[{"json":data,"delay_ms":350},{"status":503,"json":{}},
+{"error":"Timeout"}]` v tk_run dodá řízené odpovědi místo GET přes
+requests.sessions.Session.request. Obslouží také Session.get; vrací skutečný
+requests.Response s chováním json/raise_for_status. Body může obsahovat chybný
+JSON. R.http zaznamená url, params, timeout a main_thread. Odpovědi jsou jen pro
+testování spolupráce GUI; skutečné HTTP, timeout a cvičné endpointy zvlášť ověřuje
+test_tkinter_api.py. Zpoždění je skutečné, síťový timeout nenapodobujeme automaticky.
+
+Lekce 13/14 jsou kind=console a validátor spouští jejich příklady skutečně.
+Lekce 15/16 používají Tk a ověřuje je navíc `python tests/tkinter_api_real_smoke.py`
+na grafické ploše. Tento test používá skutečné místní HTTP, měří odezvu hlavní
+smyčky a provede neúspěch i nový pokus. Nepotřebuje veřejnou službu ani účet.
+`shared/cvicne_api.py` má přesné kopie ve files všech čtyř lekcí. Kontext spouští
+server jen na 127.0.0.1 a volném portu; přidá pro tuto dobu loopback do obou
+variant NO_PROXY se zachováním ostatních položek a potom vrátí původní hodnoty.
+`kurzy.py` v 15/16 je kopie solution.py lekce 14; shodu hlídá test. Při změně
+rozhraní aktualizujte návaznosti. Žádné cvičné kurzy nevydávejte za dnešní tržní data.

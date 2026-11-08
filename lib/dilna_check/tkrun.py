@@ -11,6 +11,9 @@ import os
 import sys
 import traceback
 import types
+import heapq
+import threading
+import time
 
 student, spec_path, out_path = sys.argv[1:4]
 with open(spec_path, encoding='utf-8') as file:
@@ -24,13 +27,72 @@ steps = 0
 focused = None
 dialog_answers = list(spec.get('dialogs', []))
 dialog_log = []
+main_thread = threading.get_ident()
+thread_errors = []
+callback_log = []
+http_log = []
+scheduled = []
+schedule_number = 0
+cancelled = set()
+
+
+def gui_thread():
+    if threading.get_ident() != main_thread:
+        error = RuntimeError('Widgety a Tk proměnné smí používat jen hlavní vlákno')
+        thread_errors.append(error)
+        raise error
+
+
+class TkThreadOnly:
+    def __getattribute__(self, name):
+        gui_thread()
+        return object.__getattribute__(self, name)
+    def __setattr__(self, name, value):
+        gui_thread()
+        object.__setattr__(self, name, value)
+
+
+def invoke_callback(callback, args=(), origin='after'):
+    start = time.monotonic()
+    try:
+        return callback(*args)
+    finally:
+        callback_log.append({'origin': origin, 'ms': (time.monotonic()-start)*1000})
+
+
+def pump():
+    count = 0
+    while scheduled and scheduled[0][0] <= time.monotonic():
+        _, token, owner, callback, args = heapq.heappop(scheduled)
+        if token not in cancelled and owner.alive:
+            invoke_callback(callback, args)
+        count += 1
+        if count > 10000:
+            raise RuntimeError('Příliš mnoho navazujících after callbacků')
+
+
+def wait_for(action):
+    until = action.get('until')
+    deadline = time.monotonic() + (float(action.get('timeout', 3)) if until else float(action.get('ms', 0))/1000)
+    while True:
+        pump()
+        if until:
+            candidates = [w for w in widgets if shown(w) and w.kind == until.get('kind', 'button')
+                          and w.cget('text') == until.get('text')]
+            if len(candidates) == 1 and str(candidates[0].cget('state')) == until.get('state', 'normal'):
+                return
+        if time.monotonic() >= deadline:
+            if until:
+                raise RuntimeError('Program nedokončil očekávanou akci v časovém limitu')
+            return
+        time.sleep(.002)
 
 
 class TclError(Exception):
     pass
 
 
-class Variable:
+class Variable(TkThreadOnly):
     def __init__(self, master=None, value='', name=None):
         self.value = value
     def get(self):
@@ -55,7 +117,7 @@ def event_key(sequence):
     return '<Return>' if sequence in ('<Return>', '<Key-Return>', '<KeyPress-Return>') else sequence
 
 
-class Widget:
+class Widget(TkThreadOnly):
     kind = 'widget'
     def __init__(self, master=None, cnf=None, **options):
         global default_root
@@ -131,6 +193,19 @@ class Widget:
     def rowconfigure(self, index, **options):
         self.rows[str(index)] = dict(options)
     grid_rowconfigure = rowconfigure
+    def after(self, ms, func=None, *args):
+        global schedule_number
+        if func is None:
+            time.sleep(int(ms)/1000)
+            return None
+        if not callable(func) or int(ms) < 0:
+            raise TclError('After potřebuje nezáporný čas a funkci')
+        schedule_number += 1
+        token = f'after#{schedule_number}'
+        heapq.heappush(scheduled, (time.monotonic()+int(ms)/1000, token, self, func, args))
+        return token
+    def after_cancel(self, token):
+        cancelled.add(token)
     def bind(self, sequence=None, func=None, add=None):
         if sequence is None:
             return tuple(self.bindings)
@@ -200,6 +275,7 @@ class Tk(Widget):
                 widget._notify_scroll()
         snapshots.append(snapshot())
         for action in spec.get('actions', []):
+            pump()
             if action.get('action') == 'fill':
                 entries = [w for w in widgets if isinstance(w, Entry) and shown(w)]
                 if len(entries) != 1:
@@ -210,7 +286,7 @@ class Tk(Widget):
                 buttons = [w for w in widgets if isinstance(w, Button) and shown(w) and w.cget('text') == action.get('text')]
                 if len(buttons) != 1:
                     raise TclError(f"Tlačítko {action.get('text')!r} není jednoznačně dostupné")
-                buttons[0].invoke()
+                invoke_callback(buttons[0].invoke, origin='click')
             elif action.get('action') == 'key':
                 if focused is None or not shown(focused):
                     raise TclError('Klávesa potřebuje viditelný widget s fokusem')
@@ -241,6 +317,8 @@ class Tk(Widget):
                         command(*args)
                     else:
                         target.yview(*args)
+            elif action.get('action') == 'wait':
+                wait_for(action)
             else:
                 raise TclError('Nepodporovaná testovací akce')
             snapshots.append(snapshot())
@@ -256,6 +334,9 @@ class Frame(Widget):
 
 class Button(Widget):
     kind = 'button'
+    def __init__(self, master=None, **options):
+        options.setdefault('state', 'normal')
+        super().__init__(master, **options)
     def invoke(self):
         if str(self.cget('state')) == 'disabled':
             return ''
@@ -301,6 +382,7 @@ class Radiobutton(Button):
 class Entry(Widget):
     kind = 'entry'
     def __init__(self, master=None, **options):
+        options.setdefault('state', 'normal')
         super().__init__(master, **options)
         self.value = ''
     def get(self):
@@ -315,11 +397,15 @@ class Entry(Widget):
     def _index(self, index):
         return len(self.get()) if index == 'end' else max(0, min(int(index), len(self.get())))
     def delete(self, first, last=None):
+        if self.cget('state') in ('disabled', 'readonly'):
+            return
         text = self.get()
         begin = self._index(first)
         end = self._index(last) if last is not None else begin + 1
         self._set(text[:begin] + text[end:])
     def insert(self, index, text):
+        if self.cget('state') in ('disabled', 'readonly'):
+            return
         offset = self._index(index)
         self._set(self.get()[:offset] + str(text) + self.get()[offset:])
 
@@ -528,6 +614,34 @@ def error_info(exc):
     return {'type': type(exc).__name__, 'msg': str(exc), 'line': own[-1].lineno if own else None}
 
 
+threading.excepthook = lambda args: thread_errors.append(args.exc_value)
+
+# Volitelné řízené odpovědi pro testování GUI. Backend se ověřuje zvlášť přes skutečné HTTP.
+if 'http' in spec:
+    import requests
+    responses = list(spec['http'])
+    http_lock = threading.Lock()
+    def request(self, method, url, **options):
+        with http_lock:
+            if str(method).upper() != 'GET' or not responses:
+                raise RuntimeError('Neočekávaný další HTTP požadavek')
+            plan = responses.pop(0)
+            http_log.append({'url': url, 'params': options.get('params'), 'timeout': options.get('timeout'),
+                             'main_thread': threading.get_ident() == main_thread})
+        time.sleep(float(plan.get('delay_ms', 0))/1000)
+        if plan.get('error'):
+            raise getattr(requests.exceptions, plan['error'])('Cvičná chyba přenosu')
+        response = requests.Response()
+        response.status_code = plan.get('status', 200)
+        response.encoding = 'utf-8'
+        response.headers['Content-Type'] = 'application/json; charset=utf-8'
+        response.url = str(url)
+        response._content = (plan['body'] if 'body' in plan else json.dumps(plan.get('json'), ensure_ascii=False)).encode('utf-8')
+        response.request = requests.Request('GET', str(url), params=options.get('params')).prepare()
+        return response
+    requests.sessions.Session.request = request
+
+
 def trace(frame, event, arg):
     global steps
     if event == 'line' and frame.f_code.co_filename == student:
@@ -554,9 +668,12 @@ except BaseException as exc:
     error = error_info(exc)
 finally:
     sys.settrace(None)
+if thread_errors and error is None:
+    error = error_info(thread_errors[0])
 if not snapshots:
     snapshots.append(snapshot())
 with open(out_path, 'w', encoding='utf-8') as file:
     json.dump({'snapshots': snapshots, 'mainloops': mainloops, 'error': error, 'calls': calls,
                'dialogs': dialog_log,
+               'callbacks': callback_log, 'http': http_log,
                'out': out.getvalue()[:20000], 'err': err.getvalue()[:20000]}, file, ensure_ascii=False)

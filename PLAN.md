@@ -303,11 +303,15 @@ Model zachovává pořadí a samostatné stavy i u stejných názvů. Neplatný 
 nebo zrušení dialogu ponechá původní data, výběr a detail. Tk_run rozšířen
 a ověřen se skutečnými widgety a souborovými operacemi.
 
-Další dávka 13–16: místní cvičné REST API přes requests, stavové kódy,
-timeouty/neplatné odpovědi, after a pracovní vlákno s frontou výsledků,
-převodník měn 2.0. Widgety mění jen hlavní vlákno, pomalý požadavek nesmí
-zablokovat okno. Navrhnout předvídatelné místní odpovědi a jejich chyby,
-bez závislosti na dostupnosti živé služby. Nezahajovat zatím posílání e-mailů.
-API a e-maily navazují až v pozdějších modulech, síťové chyby se budou zkoušet
-na místních datech a e-maily nejprve v místním záchytu. Zachovat ID a uložené
-postupy starších kurzů. Dodávka přes GitHub/main, bez ZIPů a publikace prostředí.
+Ve v0.53 dokončena dávka 13–16: místní REST API, GET/params/JSON, stavové kódy,
+timeout a ověření schématu, after + pracovní vlákno + fronta a převodník měn 2.0.
+Lekce 13/14 jsou konzolová příprava backendu, 15/16 skutečná okna. Kurzy jsou
+výslovně smyšlené a vždy ukazují zdroj a datum. API i JSON soubor mají různá
+cvičná data. Widgety používá jen hlavní vlákno, pracovník předává hotová data.
+
+Další dávka 17–20: EmailMessage a náhled české zprávy, SMTP pouze do místního
+záchytu, přílohy a zrušitelný výběr souboru, konfigurace služby a její chyby.
+Nejprve připravit předvídatelný místní SMTP záchyt bez osobní schránky;
+skutečnou externí zprávu neposílat bez výslovného zadání uživatele. Ověřit
+podporu Pythonu 3.14 u případné pomocné závislosti místo použití zrušeného smtpd.
+Zachovat ID a postup starších kurzů. Dodávka přes GitHub/main bez ZIPů a publikace prostředí.

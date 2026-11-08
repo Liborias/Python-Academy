@@ -258,6 +258,93 @@ w.mainloop()
         bad=self.run_prog(source,actions=[{'action':'click','text':'Otevřít'}],dialogs=[{'kind':'save','path':''}])
         self.assertEqual(bad.error['type'],'TclError')
 
+    def test_after_arguments_order_and_cancel_run_in_main_thread(self):
+        r=self.run_prog('''import threading
+import tkinter as tk
+w=tk.Tk();owner=threading.get_ident();events=[]
+def add(value):
+    assert threading.get_ident()==owner
+    events.append(value)
+w.after(5,add,"první")
+token=w.after(5,add,"zrušené");w.after_cancel(token)
+w.after(10,add,"druhé")
+w.mainloop()
+print(events)
+''',actions=[{'action':'wait','ms':30}])
+        self.assertIsNone(r.error)
+        self.assertEqual(r.out.strip(),"['první', 'druhé']")
+        self.assertEqual(len(r.callbacks),2)
+
+    def test_real_worker_queue_and_wait_until_callback(self):
+        r=self.run_prog('''import queue,threading,time
+import tkinter as tk
+w=tk.Tk();q=queue.Queue();b=tk.Button(w,text="Hotovo",state="disabled");b.pack()
+def worker():
+    time.sleep(.03);q.put("výsledek")
+def poll():
+    try:value=q.get_nowait()
+    except queue.Empty:w.after(5,poll);return
+    assert value=="výsledek"
+    b.config(state="normal")
+threading.Thread(target=worker,daemon=True).start();w.after(5,poll)
+w.mainloop()
+''',actions=[{'action':'wait','until':{'text':'Hotovo'},'timeout':1}])
+        self.assertIsNone(r.error)
+        self.assertEqual(r.widgets('button',-1)[0]['state'],'normal')
+
+    def test_worker_cannot_access_widget_or_tk_variable_even_if_caught(self):
+        for operation in ['label.config(text="Špatně")','value.get()','w.after(1,lambda:None)']:
+            source='''import threading
+import tkinter as tk
+w=tk.Tk();label=tk.Label(w,text="Původní");label.pack();value=tk.StringVar(w,value="A")
+def worker():
+    try:
+        OPERATION
+    except RuntimeError:
+        pass
+t=threading.Thread(target=worker);t.start();t.join()
+w.mainloop()
+'''.replace('OPERATION',operation)
+            with self.subTest(operation=operation):
+                r=self.run_prog(source)
+                self.assertEqual(r.error['type'],'RuntimeError')
+                self.assertIn('hlavní vlákno',r.error['msg'])
+
+    def test_scripted_http_uses_real_response_exceptions_and_worker_log(self):
+        r=self.run_prog('''import queue,threading
+import requests
+import tkinter as tk
+w=tk.Tk();q=queue.Queue();b=tk.Button(w,text="Hotovo",state="disabled");b.pack()
+def worker():
+    with requests.Session() as s:
+        response=s.get("http://test.invalid/kurz",params={"mena":"EUR"},timeout=2)
+        response.raise_for_status()
+        assert response.json()=={"mena":"EUR"}
+        try:s.get("http://test.invalid/kurz",timeout=.1)
+        except requests.Timeout:pass
+        else:raise AssertionError("Chybí timeout")
+    q.put(True)
+def poll():
+    try:q.get_nowait()
+    except queue.Empty:w.after(5,poll);return
+    b.config(state="normal")
+threading.Thread(target=worker,daemon=True).start();w.after(5,poll);w.mainloop()
+''',actions=[{'action':'wait','until':{'text':'Hotovo'},'timeout':1}],http=[{'json':{'mena':'EUR'},'delay_ms':20},{'error':'Timeout'}])
+        self.assertIsNone(r.error)
+        self.assertEqual(len(r.http),2)
+        self.assertTrue(all(not row['main_thread'] for row in r.http))
+        self.assertEqual(r.http[0]['params'],{'mena':'EUR'})
+
+    def test_disabled_entry_ignores_fill_but_normal_entry_accepts_it(self):
+        r=self.run_prog('''import tkinter as tk
+w=tk.Tk();e=tk.Entry(w);e.pack();e.insert(0,"Původní");e.config(state="disabled")
+tk.Button(w,text="Povolit",command=lambda:e.config(state="normal")).pack()
+w.mainloop()
+''',actions=[{'action':'fill','value':'Zakázáno'},{'action':'click','text':'Povolit'},{'action':'fill','value':'Nové'}])
+        self.assertIsNone(r.error)
+        self.assertEqual(r.widgets('entry',1)[0]['value'],'Původní')
+        self.assertEqual(r.widgets('entry',3)[0]['value'],'Nové')
+
 
 if __name__ == '__main__':
     unittest.main()

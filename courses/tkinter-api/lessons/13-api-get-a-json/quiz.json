@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co vrací requests.get?",
+    "options": [
+      "Objekt Response s HTTP stavem a tělem.",
+      "Vždy hotový slovník.",
+      "Nové okno Tkinter."
+    ],
+    "answer": 0,
+    "why": "JSON je potřeba rozebrat metodou json(), stav ověřit zvlášť."
+  },
+  {
+    "q": "Co dělá params?",
+    "options": [
+      "Zašifruje heslo do souboru.",
+      "Připraví a zakóduje parametry dotazu URL.",
+      "Změní metodu GET na POST."
+    ],
+    "answer": 1,
+    "why": "Parametr mena se pošle v dotazu, například ?mena=EUR."
+  },
+  {
+    "q": "Znamená timeout=2 celkový limit dvou sekund pro celý přenos?",
+    "options": [
+      "Ano, přesně na milisekundu.",
+      "Pouze na Windows.",
+      "Ne, omezuje čekání na spojení a nečinnost při čtení."
+    ],
+    "answer": 2,
+    "why": "U pomalého průběžného přenosu může celková doba přesáhnout hodnotu timeout."
+  }
+]

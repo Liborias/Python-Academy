@@ -1,0 +1,11 @@
+{
+  "title": "Načítání bez zamrzání okna",
+  "minutes": 55,
+  "kind": "gui",
+  "tags": [
+    "api",
+    "requests",
+    "tkinter"
+  ],
+  "example_title": "Počítadlo funguje i při čekání na API"
+}

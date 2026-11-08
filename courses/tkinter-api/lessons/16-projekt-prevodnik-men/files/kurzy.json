@@ -1,0 +1,14 @@
+{
+  "EUR": {
+    "mena": "EUR",
+    "czk_za_jednotku": 24.0,
+    "datum": "2026-01-14",
+    "zdroj": "Cvičný soubor"
+  },
+  "USD": {
+    "mena": "USD",
+    "czk_za_jednotku": 19.0,
+    "datum": "2026-01-14",
+    "zdroj": "Cvičný soubor"
+  }
+}

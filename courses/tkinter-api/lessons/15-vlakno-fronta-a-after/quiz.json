@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kde pracovník změní text popisku?",
+    "options": [
+      "Přímo po requests.get.",
+      "Nikde: vloží výsledek do fronty, widget upraví hlavní vlákno.",
+      "V libovolném vlákně podle počtu jader."
+    ],
+    "answer": 1,
+    "why": "Tkinter udržujeme v hlavním vlákně; fronta předává pouze data."
+  },
+  {
+    "q": "Co dělá after(25, vyzvedni)?",
+    "options": [
+      "Naplánuje callback do hlavní smyčky a hned vrátí řízení.",
+      "Založí další pracovní vlákno.",
+      "Na 25 sekund zastaví celý program."
+    ],
+    "answer": 0,
+    "why": "Čas je v milisekundách, callback běží později ve vlákně Tk."
+  },
+  {
+    "q": "Proč nevolat join uvnitř tlačítka?",
+    "options": [
+      "Join by změnil kurz na celé číslo.",
+      "Vlákno by se nespustilo.",
+      "Hlavní vlákno by čekalo na pracovníka a okno by opět ztrácelo odezvu."
+    ],
+    "answer": 2,
+    "why": "V callbacku práci spustíme a vrátíme se, výsledek si později vyzvedne fronta."
+  }
+]
