@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.57):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (28 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.58):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (28 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -166,6 +166,20 @@ Při přepnutí Úkolu 1–5 se panel zavře a nabídne řešení nového zadán
 zůstává v editoru a postup se ukládá stejným způsobem jako dosud. Řešení se načítá
 teprve po rozbalení; po obnovení stránky je opět skryté.
 
+## Ukládání postupu a více karet
+
+Postup a nastavení se ukládají v konkrétním profilu prohlížeče pro stejnou adresu
+aplikace. Před každým zápisem se načte poslední uložený stav, aby starší otevřená
+karta nepřepsala označení z jiné karty. Změna vzhledu se převezme také bez
+přepsání textu nebo změny kurzoru v editoru. Platné položky staršího záznamu
+zůstanou použitelné i při chybě v jiné části dat.
+
+Když prohlížeč odmítne ukládání, zobrazí se upozornění. Změny postupu se drží
+v paměti otevřené stránky a další změna postupu zkusí zápis znovu; po úspěchu upozornění
+zmizí. Před zavřením si při přetrvávající chybě uložte rozepsaný kód do souboru.
+Git přenáší projekt, postup mezi počítači tímto způsobem nepřenáší.
+Po aktualizaci obnovte otevřené karty, aby používaly opravené ukládání.
+
 Další verze doručujeme přímo přes GitHub; ZIP není potřeba.
 
 ## Další příklady v Základech
@@ -195,6 +209,9 @@ Zkopírujte složku `courses/zaklady/lessons/01-prvni-program`, upravte soubory,
 python -I -m unittest discover -s tests
 ```
 Testy v prohlížeči (potřebují `pip install playwright` a `playwright install chromium`): `python tests/e2e_web.py`, `e2e_lesson.py`, `e2e_editor.py`, `e2e_setup.py`, `e2e_pilot.py`.
+Ukládání mezi kartami, poškozený záznam a dočasné odmítnutí zápisu ověřuje
+`python tests/e2e_progress.py`. Přípravu včetně opakování po chybě ověřuje
+`python tests/e2e_preparation.py`.
 
 ## Bezpečnost
 

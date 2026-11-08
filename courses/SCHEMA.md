@@ -155,6 +155,33 @@ Všech 168 praktických lekcí a 136 doplňkových úkolů má řešení. Průvo
 programového zadání ani plánovaný kurz panel nezobrazuje. Zpřístupnění dalšího
 kurzu nevyžaduje seznam povolených kurzů v kódu: rozhoduje existence jeho vzoru.
 
+## Odolné ukládání postupu (od v0.58)
+Web/js/store.js zachovává klíč dilna-python-v1 a dosavadní strukturu done,
+tasks, checks a theme. Done a tasks evidují kladné příznaky 1/true, checks
+navíc zachovává 0/false; neplatné typy a dílčí záznamy se ignorují. Dictionary
+mají nulový prototyp. Neznámá pole kořene zůstávají zachovaná a samotné čtení
+původní uložený text nepřepisuje. Rozepsané kódy mají své původní samostatné klíče.
+
+Každá změna nejprve načte aktuální uložený stav a potom aplikuje vlastní operaci,
+takže nevychází ze starého snímku jiné karty. Událost storage načte nejnovější
+obsah, nikoli případně opožděné event.newValue. Nepodařený zápis ponechá operace
+v paměti; po načtení nového stavu se znovu aplikují a při úspěšném zápisu uklidí.
+Úmyslné removeItem/clear se bez neuložených vlastních operací projeví jako prázdný
+stav, staré značky se při další akci nevracejí. Toto není přenos mezi různými
+adresami/profily ani záloha mezi počítači.
+
+Store při změně vysílá dilna-store-change. App.js aktualizuje vzhled tlačítka
+a upozornění na nedostupné ukládání, nepřekresluje při tom editor. Upozornění
+storage-warning má role=status a po úspěšném zápisu se skryje. Při trvajícím
+odmítnutí jsou nové změny jen v paměti současné stránky. E2e_progress.py ověřuje
+dvě skutečné karty, pozdní oznámení, validní část staršího záznamu, nedostupné
+úložiště, kvótu/obnovení, zrušení splnění, vymazání, checklisty, úkoly a kurzor.
+
+RenderPreparation zobrazuje selhání čtecího API jen uvnitř přípravného panelu
+a nabízí data-prep-retry. Chyba nepropadne do globálního rendereru, který by
+přepsal celý seznam lekcí. Opakování mění jen tento panel. E2e_preparation.py
+ověřuje HTTP 503, zachovaný seznam 40 lekcí a úspěšný nový pokus.
+
 ## Úvodní Tkinter bez okna (od v0.50)
 `r = c.tk_run(actions=[{"action": "fill", "value": "  Ema  "},
 {"action": "click", "text": "Pozdravit"}])` spustí studentský program v podprocesu

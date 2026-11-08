@@ -7,7 +7,16 @@ const SYSTEMS = { windows: 'Windows (PowerShell)', macos: 'macOS', linux: 'Linux
 const EDITORS = { vscode: 'VS Code', vscodium: 'VSCodium', pycharm: 'PyCharm' };
 
 export async function renderPreparation(el, course) {
-  const profile = await api(`/api/preparation?course=${encodeURIComponent(course)}`);
+  el.textContent = 'Načítám přípravu…';
+  let profile;
+  try {
+    profile = await api(`/api/preparation?course=${encodeURIComponent(course)}`);
+  } catch (error) {
+    el.innerHTML = `<p class="hint" role="status">Přípravu se nepodařilo načíst. ${esc(error.message)}</p>
+      <button type="button" class="btn" data-prep-retry>Zkusit znovu</button>`;
+    el.querySelector('[data-prep-retry]').addEventListener('click', () => renderPreparation(el, course));
+    return;
+  }
   let options = { os: 'windows', editor: 'vscodium' };
   try { options = { ...options, ...JSON.parse(localStorage.getItem('dilna-preparation-options') || '{}') }; } catch { /* výchozí volby */ }
   if (!SYSTEMS[options.os]) options.os = 'windows';

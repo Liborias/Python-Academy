@@ -14,12 +14,33 @@ server = create_server(ROOT, '127.0.0.1', 0)
 threading.Thread(target=server.serve_forever, daemon=True).start()
 base = f'http://127.0.0.1:{server.server_address[1]}/'
 errors = []
+shots=Path(sys.argv[sys.argv.index('--shots')+1]) if '--shots' in sys.argv else None
+if shots:shots.mkdir(parents=True,exist_ok=True)
 try:
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch(executable_path=shutil.which('chromium') or None, args=['--no-sandbox'])
         page = browser.new_page(viewport={'width': 1100, 'height': 900})
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.goto(f'{base}?t={server.token}')
+        page.wait_for_selector('.card')
+        # Selhání přípravy nesmí nahradit celý kurz chybovou stránkou.
+        page.route('**/api/preparation?course=zaklady',
+                   lambda route: route.fulfill(status=503, content_type='application/json', body='{}'), times=1)
+        page.goto(f'{base}#/kurz/zaklady')
+        page.wait_for_selector('[data-prep-retry]')
+        assert page.locator('.mod li').count() == 40
+        assert page.locator('h1').inner_text() == 'Základy Pythonu'
+        assert 'Přípravu se nepodařilo načíst.' in page.locator('.prep-content').inner_text()
+        if shots:
+            page.set_viewport_size({'width':380,'height':800})
+            assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+            page.locator('.course-preparation').screenshot(path=str(shots/'preparation-retry-mobile.png'))
+            page.set_viewport_size({'width':1100,'height':900})
+        page.click('[data-prep-retry]')
+        page.wait_for_selector('[data-prep="editor"]')
+        assert page.locator('.mod li').count() == 40
+        assert page.locator('[data-prep-retry]').count() == 0
+        page.goto(f'{base}#/')
         page.wait_for_selector('.card')
         assert page.locator('.card').count() == 10
         assert page.locator('.card').first.get_attribute('href') == '#/kurz/priprava'

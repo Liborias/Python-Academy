@@ -15,7 +15,7 @@ base = f"http://127.0.0.1:{port}/"
 errors = []
 try:
     with sync_playwright() as p:
-        b = p.chromium.launch()
+        b = p.chromium.launch(executable_path=shutil.which('chromium') or None, args=['--no-sandbox'])
         pg = b.new_page(viewport={"width": 1000, "height": 900})
         pg.on("pageerror", lambda e: errors.append(str(e)))
         pg.on("dialog", lambda d: d.accept())

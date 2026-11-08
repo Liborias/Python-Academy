@@ -1,3 +1,19 @@
+## Postup se mění mezi kartami nebo se neukládá
+
+Aktualizujte projekt a obnovte všechny otevřené karty aplikace. Opravené ukládání
+před zápisem převezme poslední stav ostatních karet. Používejte stejný profil
+prohlížeče a adresu aplikace; Git uložený postup mezi počítači nepřenáší.
+
+Při upozornění „Prohlížeč teď neukládá postup“ ponechte stránku otevřenou,
+uložte si rozepsaný kód do souboru a ověřte povolení úložiště v prohlížeči.
+Další změna postupu zkusí zápis znovu a po úspěchu upozornění zmizí.
+
+## Nejde načíst přípravu kurzu
+
+V přípravném panelu použijte „Zkusit znovu“. Seznam lekcí zůstává přístupný.
+Při trvající chybě ověřte, že místní server aplikace běží, a spusťte jej znovu
+pomocí Pythonu ze správné .venv.
+
 ## Rozšíření Python nenajde interpreter nebo nejde vytvořit prostředí
 
 Zjištěný stav (podle hlášení k VSCodium, verze rozšíření 2026.4.0): rozšíření `ms-python.python` z Open VSX může postrádat složku `python-env-tools/bin` s programem `pet`, a pak nenajde interpretery. Oprava ze strany VSCodium se nechystá, protože jde o proprietární rozšíření Microsoftu. Stav se může změnit, ověřte u sebe.

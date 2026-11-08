@@ -1,4 +1,4 @@
-import { applyTheme, getTheme, setTheme } from './store.js';
+import { applyTheme, getTheme, setTheme, hasStorageProblem } from './store.js';
 import { route, start } from './router.js';
 import { renderCatalog, renderCourse } from './catalog.js';
 import { renderLesson } from './lesson.js';
@@ -8,12 +8,20 @@ import { esc } from './util.js';
 
 applyTheme();
 const main = document.getElementById('main');
+const storageNotice = document.createElement('p');
+storageNotice.id = 'storage-warning';
+storageNotice.className = 'note';
+storageNotice.setAttribute('role', 'status');
+storageNotice.textContent = 'Prohlížeč teď neukládá postup. Změny držíme v této otevřené stránce a další změna postupu zkusí uložení znovu. Před zavřením si rozepsaný kód uložte do souboru.';
+main.before(storageNotice);
 
 const dark = () => (getTheme() ? getTheme() === 'dark' : matchMedia('(prefers-color-scheme:dark)').matches);
 const themeBtn = document.getElementById('theme');
 const paintTheme = () => { themeBtn.textContent = dark() ? '☀ Světlý' : '☾ Tmavý'; };
+const paintStore = () => { paintTheme(); storageNotice.hidden = !hasStorageProblem(); };
+addEventListener('dilna-store-change', paintStore);
 themeBtn.addEventListener('click', () => { setTheme(dark() ? 'light' : 'dark'); paintTheme(); });
-paintTheme();
+paintStore();
 
 const guard = (fn) => (...a) => fn(main, ...a).catch((e) => {
   main.innerHTML = `<h1>Něco se nepovedlo</h1><p class="lead">${esc(e.message)}</p>
