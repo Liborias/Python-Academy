@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Skupina má dva řádky, ale jen jednu známou hodnotu. Jaké jsou size a count?",
+    "options": [
+      "Size 2, count vybraného sloupce 1.",
+      "Obě hodnoty vždy 2.",
+      "Size 1, count 2."
+    ],
+    "answer": 0,
+    "why": "Velikost skupiny počítá řádky, count pouze dostupné hodnoty vybraného sloupce."
+  },
+  {
+    "q": "Co zajišťuje dropna=False v groupby?",
+    "options": [
+      "Zahrnutí řádků s chybějícím skupinovým klíčem.",
+      "Nahrazení chybějících čísel nulou.",
+      "Odstranění všech prázdných skupin."
+    ],
+    "answer": 0,
+    "why": "Tento parametr řeší klíč; agregace zvlášť řeší chybějící hodnoty."
+  },
+  {
+    "q": "K čemu slouží as_index=False?",
+    "options": [
+      "Klíč zůstane běžným sloupcem výsledné tabulky.",
+      "Seřadí průměry sestupně.",
+      "Zakáže číselné součty."
+    ],
+    "answer": 0,
+    "why": "Výsledkem je DataFrame s klíčem ve sloupci a novým pořadovým indexem."
+  }
+]

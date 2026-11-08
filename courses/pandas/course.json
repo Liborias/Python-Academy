@@ -40,15 +40,26 @@
         "14-duplicity-a-jedinecne-hodnoty",
         "15-cisteni-textovych-sloupcu"
       ]
+    },
+    {
+      "id": "m04",
+      "title": "Ptejte se na souvislosti",
+      "lessons": [
+        "16-souhrny-a-osa-vypoctu",
+        "17-seskupovani-pomoci-groupby",
+        "18-vice-agregaci-a-nazvy",
+        "19-prumer-median-a-rozpeti",
+        "20-projekt-prehled-kavarny"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od prvního měření k Analytické dílně",
     "status": "draft",
     "level": 3,
-    "summary": "Prvních patnáct lekcí je připravených: od Series a CSV přes výběr a změny po chybějící údaje, převody, datumy, duplicity a čištění textu. Každá má tři ukázky a pět úkolů s možným řešením.",
+    "summary": "Prvních dvacet lekcí je připravených: od Series a čištění po souhrny, groupby, statistiku a projekt kavárny. Samostatná témata mají tři ukázky a pět úkolů s možným řešením; projekt tvoří jeden celek.",
     "placement": "Po Základech Pythonu; práce se soubory pomůže, notebook není povinný.",
     "difficulty_reason": "Úvod od 2/4, celek 3/4: popisky, datové typy, chybějící údaje, spojování, grafy a ověření výsledků.",
-    "duration": "Plán 42 lekcí, prvních 15 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
+    "duration": "Plán 42 lekcí, prvních 20 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
   }
 }

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Pojmenované agregace ze dvou sloupců",
+    "description": "Každá dvojice říká zdrojový sloupec a konkrétní operaci.",
+    "code": "# %% Průměr ceny a maximum kusů odpovídají na jiné otázky.\nimport pandas as pd\ndf = pd.DataFrame({\"produkt\": [\"caj\", \"kava\", \"caj\"], \"cena\": [45.0, 60.0, 48.0], \"kusy\": [2.0, 3.0, 1.0]})\nprehled = df.groupby(\"produkt\", as_index=False, dropna=False, sort=True).agg(\n    radky=(\"cena\", \"size\"), prumer_ceny=(\"cena\", \"mean\"), nejvice_kusu=(\"kusy\", \"max\")\n)\n# Pořadí výsledných sloupců je určeno pojmenovanými argumenty.\nprint(prehled)\nprint(prehled.dtypes)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Dva klíče a pořadí výsledku",
+    "description": "Nejdřív vytvoříme skupiny, potom zvolíme pořadí hotového přehledu.",
+    "code": "# %% Kombinace dne a produktu je jeden společný klíč.\nimport pandas as pd\ndf = pd.DataFrame({\"den\": [\"2026-11-01\", \"2026-11-01\", \"2026-11-02\"], \"produkt\": [\"caj\", \"kava\", \"caj\"], \"trzba\": [90.0, 180.0, 48.0]})\nprint(df.groupby([\"den\", \"produkt\"], as_index=False, dropna=False, sort=True).agg(radky=(\"trzba\", \"size\"), prumer=(\"trzba\", \"mean\")))\nmereni = pd.DataFrame({\"skupina\": [\"B\", \"A\", \"B\", \"C\"], \"hodnota\": [10.0, 20.0, 30.0, None]})\nprehled = mereni.groupby(\"skupina\", as_index=False, dropna=False, sort=True).agg(prumer=(\"hodnota\", \"mean\"))\n# Groupby řadilo klíče; pro nejvyšší průměr použijeme sort_values zvlášť.\nprint(prehled.sort_values([\"prumer\", \"skupina\"], ascending=[False, True], na_position=\"last\").reset_index(drop=True))\n"
+  }
+]

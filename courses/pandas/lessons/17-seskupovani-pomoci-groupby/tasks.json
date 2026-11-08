@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Kolik řádků patří do skupiny"
+  },
+  {
+    "id": "task-3",
+    "title": "Kolik hodnot ve skupině známe"
+  },
+  {
+    "id": "task-4",
+    "title": "Průměr v každé skupině"
+  },
+  {
+    "id": "task-5",
+    "title": "Seskupení jako obyčejná tabulka"
+  }
+]

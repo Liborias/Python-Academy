@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Pojmenované výsledky"
+  },
+  {
+    "id": "task-3",
+    "title": "Dva různé zdroje agregace"
+  },
+  {
+    "id": "task-4",
+    "title": "Dva klíče bez složitého indexu"
+  },
+  {
+    "id": "task-5",
+    "title": "Pořadí hotového přehledu"
+  }
+]

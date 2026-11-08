@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jaký index má součet tabulky po řádcích s axis=1?",
+    "options": [
+      "Původní řádkové popisky.",
+      "Vždy názvy sloupců.",
+      "Vždy nově seřazené produkty."
+    ],
+    "answer": 0,
+    "why": "Axis=1 počítá napříč sloupci uvnitř každého řádku."
+  },
+  {
+    "q": "Co vrátí součet samých NaN s min_count=1?",
+    "options": [
+      "NaN, protože není jediná známá hodnota.",
+      "Vždy 0.0.",
+      "Počet všech sloupců."
+    ],
+    "answer": 0,
+    "why": "Min_count stanoví potřebný počet dostupných hodnot pro součet."
+  },
+  {
+    "q": "Tabulka má 3 řádky a 2 sloupce. Co je její size?",
+    "options": [
+      "6 buněk včetně chybějících.",
+      "3 řádky.",
+      "Jen počet nechybějících buněk."
+    ],
+    "answer": 0,
+    "why": "Size tabulky je součin obou rozměrů, na rozdíl od len a count."
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená prumer=(\"cena\", \"mean\") uvnitř agg?",
+    "options": [
+      "Výstup prumer vznikne průměrem zdrojové ceny.",
+      "Přejmenuje každý původní produkt.",
+      "Cena se vynásobí počtem mean."
+    ],
+    "answer": 0,
+    "why": "Pojmenovaná agregace určuje nový název, zdrojový sloupec a operaci."
+  },
+  {
+    "q": "Co tvoří skupinu při groupby([\"den\", \"produkt\"])?",
+    "options": [
+      "Kombinace dne a produktu.",
+      "Vždy jen produkt.",
+      "Každá původní buňka samostatně."
+    ],
+    "answer": 0,
+    "why": "Stejný produkt v různých dnech patří do různých kombinací."
+  },
+  {
+    "q": "Řadí sort=True v groupby podle výsledného průměru?",
+    "options": [
+      "Ne, řadí skupinové klíče.",
+      "Ano, vždy sestupně.",
+      "Ano, ale jen kladná čísla."
+    ],
+    "answer": 0,
+    "why": "Pořadí podle výsledné statistiky zvolíme nad hotovým přehledem pomocí sort_values."
+  }
+]

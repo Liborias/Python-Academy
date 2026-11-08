@@ -74,7 +74,7 @@
         "zaklady"
       ],
       "status": "draft",
-      "summary": "Prvních 15 z 42 lekcí: od Series, CSV a výběru po čištění dat, čísla, datumy, duplicity a texty. Tři ukázky a pět úkolů s možnými řešeními v každé lekci."
+      "summary": "Prvních 20 z 42 lekcí: od Series a čištění dat po souhrny, groupby, statistiku a projekt kavárny. Více ukázek/procvičení a možná řešení."
     },
     {
       "id": "tkinter-api",

@@ -1,0 +1,11 @@
+{
+  "title": "Projekt: přehled kavárny",
+  "minutes": 70,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "projekt",
+    "groupby"
+  ],
+  "example_title": "Denní a produktový přehled"
+}

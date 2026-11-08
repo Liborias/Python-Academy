@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Jak spočítat tržbu při různých cenách a množstvích?",
+    "options": [
+      "Nejprve kusy * cena na každém řádku, pak součet.",
+      "Součet kusů krát prostý průměr všech řádkových cen.",
+      "Jen součet cen bez kusů."
+    ],
+    "answer": 0,
+    "why": "Každá řádková cena se musí použít pro množství na stejném řádku."
+  },
+  {
+    "q": "Co znamená radky v projektu kavárny?",
+    "options": [
+      "Počet zdrojových položek, včetně nulového množství.",
+      "Počet zákazníků.",
+      "Počet všech buněk tabulky."
+    ],
+    "answer": 0,
+    "why": "Zdrojový řádek není automaticky celá objednávka ani jeden člověk."
+  },
+  {
+    "q": "Proč porovnáváme součty tržeb přes math.isclose?",
+    "options": [
+      "Kvůli malé nepřesnosti desetinné aritmetiky float.",
+      "Aby prošel libovolný chybný součet.",
+      "Aby se každá částka zaokrouhlila na celé koruny."
+    ],
+    "answer": 0,
+    "why": "Počty porovnáváme přesně; float tržby mají výslovnou malou toleranci."
+  },
+  {
+    "q": "Zaručuje souhlas celkových součtů správné jednotlivé skupiny?",
+    "options": [
+      "Ne, hodnoty mohly být přeházené mezi skupinami.",
+      "Ano, další kontrola není potřeba.",
+      "Ano, i když chybí všechny názvy produktů."
+    ],
+    "answer": 0,
+    "why": "Kontrolujeme také konkrétní klíče, řádky a sloupce obou přehledů."
+  },
+  {
+    "q": "Kolik má přiložený soubor zdrojových řádků, kusů a tržby?",
+    "options": [
+      "7 řádků, 15 kusů, 687 Kč.",
+      "15 řádků, 7 kusů, 687 Kč.",
+      "7 zákazníků a zisk 687 Kč."
+    ],
+    "answer": 0,
+    "why": "Řádkový součet kusy * cena dává cvičnou tržbu, nikoli zisk ani počet zákazníků."
+  }
+]

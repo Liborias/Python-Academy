@@ -1,16 +1,16 @@
 ## Datová analýza v Pandas
 
-**Připraveno 15 ze 42 lekcí.** Začneme vlastními měřeními a ceníkem malé kavárny. Postupně z nich vznikne Analytická dílna: od otázky přes kontrolu dat až po graf a srozumitelnou zprávu. Data jsou cvičná a smyšlená, součástí projektu; jejich získávání nebude záviset na cizí službě.
+**Připraveno 20 ze 42 lekcí.** Začneme vlastními měřeními a ceníkem malé kavárny. Postupně z nich vznikne Analytická dílna: od otázky přes kontrolu dat až po graf a srozumitelnou zprávu. Data jsou cvičná a smyšlená, součástí projektu; jejich získávání nebude záviset na cizí službě.
 
 Kurz navazuje na seznamy, slovníky, funkce a soubory ze Základů Pythonu. Úvod má náročnost 2/4, celek 3/4 kvůli datovým typům, chybějícím hodnotám, spojování tabulek a ověřování výsledků. Odhad je 25–35 hodin základního průchodu; další procvičování podle potřeby.
 
 ## Prostředí a způsob práce
 
-Příprava před lekcemi nabízí Windows/macOS/Linux a VS Code/VSCodium/PyCharm. Použijte stejnou .venv pro editor i terminál. Instalaci obstará python tools/setup_env.py --courses pandas. Pandas řady 3 pracuje s tabulkami, matplotlib připraví grafy, openpyxl soubory Excelu a ipykernel volitelné notebooky či buňky. Prvních patnáct lekcí potřebuje pouze pandas.
+Příprava před lekcemi nabízí Windows/macOS/Linux a VS Code/VSCodium/PyCharm. Použijte stejnou .venv pro editor i terminál. Instalaci obstará python tools/setup_env.py --courses pandas. Pandas řady 3 pracuje s tabulkami, matplotlib připraví grafy, openpyxl soubory Excelu a ipykernel volitelné notebooky či buňky. Prvních dvacet lekcí potřebuje pouze pandas.
 
-První tři moduly jsou ověřené na Pythonu 3.14.8 s pandas 3.1.1 a NumPy 2.5.4. Ověřená instalace obsahuje také matplotlib 3.11.2, openpyxl 3.1.5 a ipykernel 7.4.0; jejich konkrétní použití přijde v dalších blocích. V prohlížeči spouštíme obyčejné .py soubory. Komentáře # %% dovolují volitelné rozdělení do buněk v podporovaném editoru. Vždy zůstává možnost spustit celý skript v terminálu. Notebook ani Anaconda nejsou podmínkou studia.
+První čtyři moduly jsou ověřené na Pythonu 3.14.8 s pandas 3.1.1 a NumPy 2.5.4. Ověřená instalace obsahuje také matplotlib 3.11.2, openpyxl 3.1.5 a ipykernel 7.4.0; jejich konkrétní použití přijde v dalších blocích. V prohlížeči spouštíme obyčejné .py soubory. Komentáře # %% dovolují volitelné rozdělení do buněk v podporovaném editoru. Vždy zůstává možnost spustit celý skript v terminálu. Notebook ani Anaconda nejsou podmínkou studia.
 
-Každá dostupná lekce vysvětluje nové operace před použitím a má tři přepínatelné ukázky a pět samostatných úkolů. Každý úkol nabízí možné řešení a kontrolu výsledku na různých vstupech. Jiný správný postup je v pořádku. Další běžná témata budou tento způsob procvičování zachovávat; navazující projektové kroky budou tvořit jeden celek. Odkrytí řešení nepřepisuje rozepsaný kód ani neoznačuje úkol za splněný.
+Každá dostupná lekce vysvětluje nové operace před použitím. Samostatné lekce 1–19 mají tři přepínatelné ukázky a pět úkolů. Projekt kavárny v lekci 20 tvoří jeden celek se dvěma funkcemi, přiloženým CSV, řešením a pěti kvízovými otázkami; nemá nesouvisející varianty. Každý úkol nabízí možné řešení a kontrolu výsledku na různých vstupech. Jiný správný postup je v pořádku. Další běžná témata budou tento způsob procvičování zachovávat; navazující projektové kroky budou tvořit jeden celek. Odkrytí řešení nepřepisuje rozepsaný kód ani neoznačuje úkol za splněný.
 
 ## Modul 1 — Od seznamu k datové tabulce
 
@@ -46,11 +46,11 @@ Výstup: přehled vybraných měření a ceník s vypočtenými částkami. Rozl
 14. Duplicitní záznamy, jedinečné hodnoty a pravidlo pro ponechání řádku.
 15. Textové sloupce: mezery, velikost písmen a čištění bez ztráty původních dat.
 
-Výstup: vyčištěná kopie tabulky a vysvětlení každé provedené změny. Rozlišujete chybějící údaj, prázdný text a neplatný zápis. Umíte Int64 s pd.NA, datumový formát a NaT, pravidlo klíče duplicit i cílené čištění textu. Původní data zachováte pro porovnání. Další modul 16–20 naváže souhrny a groupby.
+Výstup: vyčištěná kopie tabulky a vysvětlení každé provedené změny. Rozlišujete chybějící údaj, prázdný text a neplatný zápis. Umíte Int64 s pd.NA, datumový formát a NaT, pravidlo klíče duplicit i cílené čištění textu. Původní data zachováte pro porovnání. Modul 16–20 pokračuje souhrny a groupby.
 
 ## Modul 4 — Ptejte se na souvislosti
 
-**Plán: lekce 16–20.**
+**Hotovo: lekce 16–20.** Lekce 16–19 mají po třech ukázkách a pěti úkolech; projekt 20 je jedna ukázka a jedno souvislé zadání s možným řešením.
 
 16. Souhrny sloupců a řádků, axis, count a size.
 17. groupby: rozdělení do skupin a jejich porovnání.
@@ -58,7 +58,7 @@ Výstup: vyčištěná kopie tabulky a vysvětlení každé provedené změny. R
 19. Průměr, medián, minimum a maximum: co mohou zakrýt odlehlé hodnoty.
 20. Mini-projekt kavárny: tržby podle dne a výrobku, kontrolní součet.
 
-Výstup: odpovědi na konkrétní otázky doložené tabulkou a kontrolou počtů.
+Výstup: odpovědi na konkrétní otázky doložené tabulkou a kontrolou počtů. Rozlišujete řádky, buňky a dostupné hodnoty, neznámý součet a nulu i průměr a medián. Projekt kavárny počítá denní/produktové přehledy a kontrolní součty nad vlastním CSV, zachovává zdroj a nepovažuje řádky za zákazníky. Celkem je dostupných 58 ukázek a 96 úkolů. Další blok 21–25 naváže spojováním tabulek a časem.
 
 ## Modul 5 — Spojte tabulky a čas
 

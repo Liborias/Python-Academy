@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Osa a počet známých hodnot",
+    "description": "Porovnejte výpočet po sloupcích, po řádcích a počet všech buněk.",
+    "code": "# %% Jeden řádek obsahuje skutečnou nulu, poslední nemá žádné měření.\nimport pandas as pd\ndf = pd.DataFrame({\"rano\": [0.0, None, None], \"vecer\": [12.0, 10.0, None]}, index=[\"B\", \"A\", \"C\"])\nprint(\"Po sloupcích:\")\nprint(df.sum(axis=0, min_count=1))\nprint(\"Po řádcích:\")\nprint(df.sum(axis=1, min_count=1))\n# Count nepočítá chybějící údaje, size celé tabulky zahrnuje všechny buňky.\nprint(\"Dostupné hodnoty:\")\nprint(df.count())\nprint(\"Řádků:\", len(df), \"Buněk:\", df.size)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Neznámý součet proti nule",
+    "description": "Min_count vyjadřuje pravidlo, kdy považujeme součet za dostupný.",
+    "code": "# %% Standardní součet prázdných dostupných dat může být nula.\nimport pandas as pd\nnezname = pd.Series([None, None], name=\"mereni\", dtype=\"float64\")\nnula = pd.Series([0.0, None], name=\"mereni\", dtype=\"float64\")\nprint(\"Výchozí sum:\", nezname.sum())\n# Při požadavku na jednu známou hodnotu rozlišíme neznámé od skutečné nuly.\nprint(\"Neznámé s min_count=1:\", nezname.sum(min_count=1))\nprint(\"Nula s min_count=1:\", nula.sum(min_count=1))\nprint(\"Všech míst:\", len(nezname), \"Známých:\", nezname.count())\n"
+  }
+]

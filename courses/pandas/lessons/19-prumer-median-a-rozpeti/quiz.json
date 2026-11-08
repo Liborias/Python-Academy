@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jaký je medián hodnot 10, 10, 12, 1000?",
+    "options": [
+      "11.",
+      "258.",
+      "1000."
+    ],
+    "answer": 0,
+    "why": "U čtyř hodnot se zprůměrují dvě prostřední: 10 a 12."
+  },
+  {
+    "q": "Znamená hodnota výrazně nad průměrem automaticky chybu?",
+    "options": [
+      "Ne, může jít o skutečnou mimořádnou událost.",
+      "Ano, vždy se má odstranit.",
+      "Ano, proto se musí přepsat mediánem."
+    ],
+    "answer": 0,
+    "why": "Statistika popisuje data; platnost záznamu posuzujeme také podle jeho významu."
+  },
+  {
+    "q": "Proč nemusí průměr skupinových průměrů odpovídat celkovému průměru?",
+    "options": [
+      "Skupiny mohou mít různé počty dostupných hodnot.",
+      "Pandas neumí průměry skupin.",
+      "Medián vždy musí být nula."
+    ],
+    "answer": 0,
+    "why": "Celkový průměr vychází z odpovídajících součtů a počtů všech dostupných hodnot."
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "title": "Průměr, medián a rozpětí",
+  "minutes": 50,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "souhrny"
+  ],
+  "example_title": "Více pohledů na jednu Series"
+}

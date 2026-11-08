@@ -53,7 +53,7 @@ Validátor spustí každou variantu, vyžaduje úspěšné dokončení a nejmén
 Původní `example.py` se zachovává jako první ukázka. Tlačítka se zobrazí pouze u lekcí
 s dalšími příklady. Jejich editor je upravitelný a každá varianta má vlastní
 rozepsaný kód v localStorage. Přepnutí neovlivňuje úkol, jeho kontrolu ani postup studenta.
-Varianty jsou v Základech, lekce 01–31 a 37–39, a v prvních patnácti lekcích
+Varianty jsou v Základech, lekce 01–31 a 37–39, a v prvních devatenácti lekcích
 Datové analýzy. Nevytvářejí se automaticky pro navazující projektové kroky.
 
 ## Koncept úvodního podkurzu (od v0.35)
@@ -151,7 +151,7 @@ zadáním a ověřte jej kontrolou daného úkolu. Zobrazení nic nevkládá do 
 neprovádí kontrolu a nemění značky splnění. Přepnutí úkolu panel zavře, vymaže
 předchozí zobrazení a ignoruje opožděnou odpověď jiného úkolu. Jednotlivá načtená
 řešení se drží jen v paměti aktuální stránky; obnovení stránky je znovu skryje.
-Všech 183 praktických lekcí a 196 doplňkových úkolů má řešení. Průvodce bez
+Všech 188 praktických lekcí a 212 doplňkových úkolů má řešení. Průvodce bez
 programového zadání ani plánovaný kurz panel nezobrazuje. Zpřístupnění dalšího
 kurzu nevyžaduje seznam povolených kurzů v kódu: rozhoduje existence jeho vzoru.
 
@@ -187,6 +187,18 @@ Textové příklady ověřujte také s tabulátorem, novým řádkem, diakritiko
 Dlouhý inline code v odstavci či seznamu prose se může zalomit pomocí
 overflow-wrap:anywhere (lesson.css). Samostatné pre.code zachovává původní
 řádky a vlastní posouvání; mobilní zkouška ověřuje šířku stránky i toto chování.
+
+Lekce 16–19 ověřují min_count, osu souhrnu, velikost skupiny proti count,
+dropna=False pro klíče, tvar a názvy agregací i rozdíl průměru a mediánu.
+Pro medián použijte nesymetrická data s alespoň třemi známými hodnotami;
+u dvou se průměr a medián mohou shodovat. Bool výsledky mohou být bool nebo
+NumPy bool_; číslo 1 se za booleovský výsledek nepřijímá a bool se nepřijímá
+za číselný počet. Dtype a jména Series/DataFrame se dál kontrolují.
+
+Projekt pandas 20 je jedna úloha se dvěma funkcemi a bez examples.json/tasks.json.
+Má vlastní files/prodeje.csv a README. Checker počítá očekávané přehledy
+nezávislým cyklem a kontroluje i poškozené souhrny, přesné počty a toleranci
+částek. Samotné kontrolní součty nezaručují správné jednotlivé skupiny.
 
 ## Odolné ukládání postupu (od v0.58)
 Web/js/store.js zachovává klíč dilna-python-v1 a dosavadní strukturu done,

@@ -1,0 +1,11 @@
+{
+  "title": "Více agregací a názvy výsledků",
+  "minutes": 60,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "souhrny"
+  ],
+  "example_title": "Více statistik nad jednou hodnotou"
+}

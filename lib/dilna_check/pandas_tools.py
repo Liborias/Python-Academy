@@ -23,6 +23,8 @@ def equivalent(actual, expected, *, exact=False):
             return True
     except (AssertionError, TypeError, ValueError):
         return False
+    if isinstance(expected, (bool, np.bool_)):
+        return isinstance(actual, (bool, np.bool_)) and bool(actual) == bool(expected)
     if isinstance(expected, (list, tuple)):
         return type(actual) is type(expected) and len(actual) == len(expected) and all(
             equivalent(a, b, exact=exact) for a, b in zip(actual, expected))

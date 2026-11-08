@@ -1,0 +1,11 @@
+{
+  "title": "Seskupování pomocí groupby",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "souhrny"
+  ],
+  "example_title": "Součet pro každou skupinu"
+}

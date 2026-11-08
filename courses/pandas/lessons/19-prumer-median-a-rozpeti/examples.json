@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Vysoká hodnota posune průměr",
+    "description": "Průměr 258 a medián 11 popisují tatáž dostupná data.",
+    "code": "# %% Extrémní hodnota není automaticky chyba, ale ovlivní aritmetický průměr.\nimport pandas as pd\ns = pd.Series([10.0, 10.0, 12.0, 1000.0, None], name=\"mereni\", dtype=\"float64\")\nprint(\"Počet známých:\", s.count())\nprint(\"Průměr:\", s.mean(), \"Medián:\", s.median())\nprint(\"Minimum:\", s.min(), \"Maximum:\", s.max(), \"Rozpětí:\", s.max() - s.min())\n# Filtr nad průměrem popisuje výběr; neoznačuje automaticky vadné záznamy.\nprint(s.loc[s > s.mean()])\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Proč neprůměrovat průměry skupin",
+    "description": "Skupiny mají tři a jednu dostupnou hodnotu, proto prostý průměr průměrů nevyjde správně.",
+    "code": "# %% Přehled ukáže i počet známých hodnot, nejen samotný průměr.\nimport pandas as pd\ndf = pd.DataFrame({\"skupina\": [\"A\", \"A\", \"A\", \"B\"], \"hodnota\": [10.0, 10.0, 1000.0, 20.0]})\nprehled = df.groupby(\"skupina\", as_index=False, dropna=False, sort=True).agg(dostupne=(\"hodnota\", \"count\"), prumer=(\"hodnota\", \"mean\"), median=(\"hodnota\", \"median\"))\nprint(prehled)\n# 180 není průměr čtyř původních hodnot; celkový průměr je 260.\nprint(\"Prostý průměr skupinových průměrů:\", prehled[\"prumer\"].mean())\nprint(\"Průměr všech původních hodnot:\", df[\"hodnota\"].mean())\n"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Řádky, dostupné hodnoty a průměr",
+    "description": "Skupina B má dva řádky, ale jen jednu známou hodnotu.",
+    "code": "# %% Klíč i hodnota mohou chybět, řešíme je odděleně.\nimport pandas as pd\ndf = pd.DataFrame({\"skupina\": [\"B\", \"A\", \"B\", None, \"C\"], \"hodnota\": [10.0, 20.0, None, 5.0, None]})\nskupiny = df.groupby(\"skupina\", dropna=False, sort=True)\nprint(\"Řádků:\")\nprint(skupiny.size())\nprint(\"Známých hodnot:\")\nprint(skupiny[\"hodnota\"].count())\n# Skupina C existuje, ale její průměr je neznámý.\nprint(\"Průměry:\")\nprint(skupiny[\"hodnota\"].mean())\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Klíč jako index, nebo sloupec",
+    "description": "Zahrnutí neznámého produktu chrání přehled před tichým vynecháním řádku.",
+    "code": "# %% Stejné skupiny můžeme vrátit v různém tvaru.\nimport pandas as pd\ndf = pd.DataFrame({\"produkt\": [\"caj\", \"kava\", \"caj\", None], \"trzba\": [90.0, 180.0, 48.0, 25.0]})\nserie = df.groupby(\"produkt\", dropna=False, sort=True)[\"trzba\"].sum(min_count=1)\ntabulka = df.groupby(\"produkt\", as_index=False, dropna=False, sort=True)[\"trzba\"].sum(min_count=1)\nprint(serie)\n# As_index=False ponechává produkt ve sloupci, RangeIndex slouží jen k očíslování.\nprint(tabulka)\nprint(\"Sloupce:\", tabulka.columns.tolist())\nprint(\"Součet všech položek:\", df[\"trzba\"].sum())\n"
+  }
+]

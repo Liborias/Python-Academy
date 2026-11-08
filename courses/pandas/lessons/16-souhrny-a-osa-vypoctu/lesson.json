@@ -1,0 +1,11 @@
+{
+  "title": "Souhrny a osa výpočtu",
+  "minutes": 50,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "souhrny"
+  ],
+  "example_title": "Součty vybraných sloupců"
+}
