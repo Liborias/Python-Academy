@@ -151,7 +151,7 @@ zadáním a ověřte jej kontrolou daného úkolu. Zobrazení nic nevkládá do 
 neprovádí kontrolu a nemění značky splnění. Přepnutí úkolu panel zavře, vymaže
 předchozí zobrazení a ignoruje opožděnou odpověď jiného úkolu. Jednotlivá načtená
 řešení se drží jen v paměti aktuální stránky; obnovení stránky je znovu skryje.
-Všech 198 praktických lekcí a 252 doplňkových úkolů má řešení. Průvodce bez
+Všech 203 praktických lekcí a 268 doplňkových úkolů má řešení. Průvodce bez
 programového zadání ani plánovaný kurz panel nezobrazuje. Zpřístupnění dalšího
 kurzu nevyžaduje seznam povolených kurzů v kódu: rozhoduje existence jeho vzoru.
 
@@ -251,6 +251,40 @@ Exporty se otevírají přes Pillow: formát, cesta/Path, rozměry, DPI, skuteč
 fig.savefig a plt.savefig. Testy přijímají správné alternativy včetně ručního
 výpočtu četností/hustoty a odlišného vzhledu, neporovnávají snímky pixel po pixelu.
 Lekce 26–30 mají po třech ukázkách a pěti úkolech, každý s možným řešením.
+
+## CSV/XLSX a opakovatelný postup (od v0.65)
+Lekce 31–35 mají download_files=true v hlavním lesson.json. API lesson vrací bool,
+run jej stejně jako preview_images určí z hlavní lekce i pro doplňkové úkoly,
+nikoli z POST těla. Po dokončení poll vrací files:[{name,mime,data}] s base64
+pouze pro UTF-8 CSV (také BOM) a XLSX se základní ZIP strukturou sešitu.
+Do nabídky patří přiložené vstupy i vytvořené výstupy, včetně podsložek;
+helpery .py, poznámky a jiné typy souborů se nezpřístupňují. Maximum 6 souborů,
+2 MB každý a 4 MB celkem; symlinky se nepřebírají. Současný projektový běh
+může mít files i images. Tyto dva seznamy mají vlastní limity a zůstává
+původní token/Host/Origin ochrana. Server nepotřebuje pandas/openpyxl.
+
+Odkazy vznikají přes DOM s pevným MIME podle přípony a jménem jako text.
+Galerie souborů se vyčistí při změně úkolu/příkladu či novém běhu, nepřežije
+reload. Kód a postup zůstávají; nové odkazy vytvoří spuštění. Opožděný starý
+poll nepřepíše aktuální soubory. V editoru výstupy zůstávají v pracovní složce.
+
+Volitelný pandas_files.py kontroluje skutečné soubory nezávisle na studentově
+exportu: CSV čte csv.reader a porovnává hlavičky, uvozování, čárku v číslech,
+UTF-8/BOM a hodnoty; XLSX otevírá openpyxl a kontroluje listy, hlavičky,
+číselné hodnoty a skutečné textové typy kódů. Případy zahrnují jiný název
+listu, poznámku před hlavičkou, opačné pořadí sloupců, názvy listů mimo
+abecední pořadí, nuly, NA jako text, nový řádek/středník, přesná desetinná
+čísla a prázdné tabulky. Zdrojové soubory a vstupy se nesmějí měnit.
+
+Cisteni.py ve files každého úkolu 34 má přesné funkce řešení 34/1 a 34/2;
+Kavarna.py ve files 35 funkce projektu 20. Test hlídá AST shodu i vlastní
+samostatný běh se správnými soubory. Projekt 35 má tři navazující funkce,
+žádné tasks.json/examples.json, jeden vzor a pět kvízových otázek.
+Měsíční výběr kontroluje nezávislý cyklus včetně přestupného dne a konce
+roku, také skutečně opakované položky. Report se otevírá jako CSV/XLSX/PNG;
+Figure.savefig se při skutečném uložení sleduje kvůli ověření dat grafu,
+barva/písmo předepsané nejsou. Celkový test validátoru má pro rozšířený katalog
+limit 420 s; jednotlivé studentské běhy a CHECK_TIMEOUT zůstávají stejné.
 
 ## Odolné ukládání postupu (od v0.58)
 Web/js/store.js zachovává klíč dilna-python-v1 a dosavadní strukturu done,

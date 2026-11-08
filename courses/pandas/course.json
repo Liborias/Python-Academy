@@ -73,15 +73,26 @@
         "29-histogram-a-rozlozeni",
         "30-ulozeni-grafu-do-png"
       ]
+    },
+    {
+      "id": "m07",
+      "title": "Soubory a opakovatelný postup",
+      "lessons": [
+        "31-excel-a-textove-kody",
+        "32-export-csv-a-overeni",
+        "33-export-excel-a-vice-listu",
+        "34-opakovatelny-analyticky-postup",
+        "35-projekt-mesicni-prehled"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od prvního měření k Analytické dílně",
     "status": "draft",
     "level": 3,
-    "summary": "Prvních 30 lekcí je připravených: od Series po čištění, souhrny, spojování tabulek, časové řady a grafy. Samostatná témata mají tři ukázky a pět úkolů s možným řešením; projekt kavárny tvoří jeden celek.",
+    "summary": "Prvních 35 lekcí je připravených: od Series a čištění po souhrny, spojování, čas, grafy, CSV/Excel a měsíční přehled kavárny. Samostatná témata mají více ukázek a pět úkolů s možnými řešeními; projekty tvoří souvislé celky.",
     "placement": "Po Základech Pythonu; práce se soubory pomůže, notebook není povinný.",
     "difficulty_reason": "Úvod od 2/4, celek 3/4: popisky, datové typy, chybějící údaje, spojování, grafy a ověření výsledků.",
-    "duration": "Plán 42 lekcí, prvních 30 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
+    "duration": "Plán 42 lekcí, prvních 35 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
   }
 }

@@ -1,0 +1,12 @@
+{
+  "title": "Export Excelu a více listů",
+  "minutes": 60,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "soubory",
+    "openpyxl"
+  ],
+  "download_files": true,
+  "example_title": "Export do konkrétního listu"
+}

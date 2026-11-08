@@ -1,0 +1,12 @@
+{
+  "title": "Opakovatelný analytický postup",
+  "minutes": 65,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "soubory",
+    "openpyxl"
+  ],
+  "download_files": true,
+  "example_title": "Zopakovat čištění nad dalším CSV"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Projekt: měsíční přehled kavárny",
+  "minutes": 90,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "soubory",
+    "openpyxl"
+  ],
+  "download_files": true,
+  "example_title": "Měsíc od CSV po tabulku a graf",
+  "preview_images": true
+}

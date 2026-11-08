@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co zachrání kód 001, když je v sešitu uložen jako text?",
+    "options": [
+      "Čtení kod jako str.",
+      "Převod kod na float64.",
+      "Seřazení sloupců."
+    ],
+    "answer": 0,
+    "why": "Identifikátor není číselný počet; nuly chráníme už při čtení."
+  },
+  {
+    "q": "Co určuje sheet_name?",
+    "options": [
+      "Kódování UTF-8.",
+      "Který list sešitu čteme.",
+      "Počet řádků grafu."
+    ],
+    "answer": 1,
+    "why": "První list může být jen poznámka."
+  },
+  {
+    "q": "Co dělá keep_default_na=False v našich datech?",
+    "options": [
+      "Změní všechna čísla na nulu.",
+      "Přepočítá excelové vzorce.",
+      "Ponechá doslovné NA jako text."
+    ],
+    "answer": 2,
+    "why": "Význam chybějících údajů určuje pravidlo zdroje."
+  }
+]

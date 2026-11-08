@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Ceník a identifikátory zvlášť",
+    "description": "Jeden writer uloží dva listy místo přepsání prvního.",
+    "code": "# %% Knihovna\nimport pandas as pd\n# %% Tentýž sešit zůstává otevřený pro oba zápisy.\ndata=pd.read_csv(\"data.csv\",sep=\";\",decimal=\",\",encoding=\"utf-8\",keep_default_na=False,dtype={\"kod\":\"str\",\"nazev\":\"str\",\"cena\":\"float64\"})\nwith pd.ExcelWriter(\"dva_listy.xlsx\",engine=\"openpyxl\") as zapis:\n    data.to_excel(zapis,sheet_name=\"Ceník\",index=False)\n    data[[\"kod\"]].to_excel(zapis,sheet_name=\"Kódy\",index=False)\nwith pd.ExcelFile(\"dva_listy.xlsx\",engine=\"openpyxl\") as sesit:\n    print(sesit.sheet_names)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Přečíst hotový export znovu",
+    "description": "Kódy a význam hodnot ověří nové načtení konkrétního listu.",
+    "code": "# %% Knihovna\nimport pandas as pd\n# %% Kód 001 je text už před zápisem, nikoli zobrazovací formát čísla.\ndata=pd.DataFrame({\"kod\":[\"001\",\"NA\"],\"pocet\":[2,0]})\ndata.to_excel(\"textove_kody.xlsx\",sheet_name=\"Data\",engine=\"openpyxl\",index=False)\nnove=pd.read_excel(\"textove_kody.xlsx\",sheet_name=\"Data\",engine=\"openpyxl\",keep_default_na=False,dtype={\"kod\":\"str\",\"pocet\":\"int64\"})\nprint(nove)\nprint(nove.dtypes)\n"
+  }
+]

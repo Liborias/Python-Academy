@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Názvy a dva různé listy",
+    "description": "Jeden sešit, dva datové typy pro dva účely.",
+    "code": "# %% Otevření sešitu\nimport pandas as pd\n# %% Ceník a prodeje se čtou odděleně, kódy zůstávají text.\nwith pd.ExcelFile(\"dilna.xlsx\", engine=\"openpyxl\") as sesit:\n    print(sesit.sheet_names)\n    for name in [\"Ceník\", \"Prodeje\"]:\n        print(name)\n        print(pd.read_excel(sesit, sheet_name=name, keep_default_na=False, dtype={\"kod\":\"str\"}))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Poznámka není hlavička",
+    "description": "Zvolený list a skiprows vyjadřují pravidlo konkrétního zdroje.",
+    "code": "# %% Knihovna\nimport pandas as pd\n# %% První řádek je poznámka, až druhý hlavička.\ndata = pd.read_excel(\"dilna.xlsx\", sheet_name=\"S poznámkou\", skiprows=1, engine=\"openpyxl\", keep_default_na=False, dtype={\"kod\":\"str\", \"cena\":\"float64\"})\nprint(data)\nprint(data.dtypes)\n"
+  }
+]

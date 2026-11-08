@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "CSV nejprve jako text"
+  },
+  {
+    "id": "task-3",
+    "title": "Export v zadaném pořadí sloupců"
+  },
+  {
+    "id": "task-4",
+    "title": "UTF-8 s BOM pro některé importy"
+  },
+  {
+    "id": "task-5",
+    "title": "Ověřit skutečný obsah CSV"
+  }
+]

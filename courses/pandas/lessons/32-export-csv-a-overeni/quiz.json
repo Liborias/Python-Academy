@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč při exportu použít index=False?",
+    "options": [
+      "Smaže potřebný kod z tabulky.",
+      "Řádkové popisky nemají být novým datovým sloupcem.",
+      "Odstraní hlavičku sloupců."
+    ],
+    "answer": 1,
+    "why": "Datové sloupce a index jsou různé věci."
+  },
+  {
+    "q": "Proč nestačí join středníkem?",
+    "options": [
+      "CSV nesmí obsahovat český text.",
+      "Join vždy vytvoří Excel.",
+      "Pole může obsahovat středník, uvozovky i nový řádek."
+    ],
+    "answer": 2,
+    "why": "Uvozování a čtení má řešit CSV knihovna."
+  },
+  {
+    "q": "Zaručí BOM zachování nul při automatickém otevření v Excelu?",
+    "options": [
+      "Ne, BOM pomáhá s kódováním; typ kod je potřeba určit při importu.",
+      "Ano, mění všechny buňky na text.",
+      "Ano, určuje i desetinný oddělovač."
+    ],
+    "answer": 0,
+    "why": "Kódování, oddělovač a typy jsou samostatná rozhodnutí."
+  }
+]

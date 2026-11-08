@@ -7,10 +7,11 @@ export function makeConsole(box, { onDone } = {}) {
   box.classList.add('console');
   box.innerHTML = `<pre class="out" tabindex="0" aria-live="polite"></pre>
     <div class="plot-gallery" aria-label="Vytvořené grafy" hidden></div>
+    <div class="file-downloads" aria-label="Soubory CSV a Excel" hidden></div>
     <form class="stdin" hidden><label>Vstup: <input type="text" autocomplete="off" aria-label="Vstup pro input()"></label><button class="btn" type="submit">Odeslat</button></form>
     <div class="status" aria-live="polite"></div>`;
   const out = box.querySelector('.out'), gallery = box.querySelector('.plot-gallery'), form = box.querySelector('.stdin'),
-        inp = form.querySelector('input'), status = box.querySelector('.status');
+        downloads = box.querySelector('.file-downloads'), inp = form.querySelector('input'), status = box.querySelector('.status');
   let id = null, since = 0, timer = null, generation = 0;
   const api_ = { running: false };
 
@@ -39,6 +40,18 @@ export function makeConsole(box, { onDone } = {}) {
       note.textContent = p.image_notice; gallery.appendChild(note);
     }
     gallery.hidden = !gallery.childElementCount;
+    downloads.replaceChildren();
+    for (const file of p.files || []) {
+      const link = document.createElement('a');
+      link.href = `data:${file.mime};base64,${file.data}`;
+      link.download = file.name.split('/').pop(); link.textContent = `Stáhnout soubor: ${file.name}`;
+      downloads.appendChild(link);
+    }
+    if (p.file_notice) {
+      const note = document.createElement('p'); note.className = 'hint'; note.textContent = p.file_notice;
+      downloads.appendChild(note);
+    }
+    downloads.hidden = !downloads.childElementCount;
     status.textContent = msg; status.className = 'status ' + (p.exit === 0 && !p.timed_out ? 'ok' : 'bad');
     onDone && onDone(p);
   };
@@ -64,6 +77,7 @@ export function makeConsole(box, { onDone } = {}) {
     api_.stop();
     const version = ++generation;
     out.textContent = ''; gallery.replaceChildren(); gallery.hidden = true;
+    downloads.replaceChildren(); downloads.hidden = true;
     status.textContent = 'Běží…'; status.className = 'status';
     since = 0; form.hidden = false; api_.running = true;
     try {
@@ -82,7 +96,7 @@ export function makeConsole(box, { onDone } = {}) {
     api_.running = false; form.hidden = true;
     if (previousId) api('/api/run/stop', { id: previousId }).catch(() => {});
   };
-  api_.clear = () => { api_.stop(); out.textContent = ''; status.textContent = ''; gallery.replaceChildren(); gallery.hidden = true; };
+  api_.clear = () => { api_.stop(); out.textContent = ''; status.textContent = ''; gallery.replaceChildren(); gallery.hidden = true; downloads.replaceChildren(); downloads.hidden = true; };
 
   return api_;
 }

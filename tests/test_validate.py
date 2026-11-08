@@ -8,7 +8,7 @@ SRC = ROOT / "courses" / "zaklady"
 
 def run_validator(courses_dir):
     r = subprocess.run([sys.executable, str(ROOT / "tools" / "validate_courses.py"), "--courses-dir", str(courses_dir)],
-                       capture_output=True, text=True, timeout=300)
+                       capture_output=True, text=True, timeout=420)
     return r.returncode, r.stdout
 
 

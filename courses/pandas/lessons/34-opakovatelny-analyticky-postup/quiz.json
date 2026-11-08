@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč je cesta parametrem funkce?",
+    "options": [
+      "Stejný postup pak použijeme nad dalším zdrojem.",
+      "Aby se automaticky přepsal vstup.",
+      "Protože funkce nesmí vrátit tabulku."
+    ],
+    "answer": 0,
+    "why": "Načtení, čištění a výpočet mají být opakovatelné."
+  },
+  {
+    "q": "Co uděláme s doslovným místem NA?",
+    "options": [
+      "Vždy jej zaměníme za nulu.",
+      "Ponecháme jej, podle pravidla je to platný název.",
+      "Smažeme i všechny nulové hodnoty."
+    ],
+    "answer": 1,
+    "why": "Prázdný název je jiný případ než skutečný text NA."
+  },
+  {
+    "q": "Proč neodstranit stejné řádky automaticky?",
+    "options": [
+      "Concat vždy odstraní duplicity sám.",
+      "Každý zdroj musí mít unikátní hodnoty.",
+      "Mohou to být dvě platná měření."
+    ],
+    "answer": 2,
+    "why": "Pravidlo jedinečnosti závisí na významu zdroje."
+  }
+]

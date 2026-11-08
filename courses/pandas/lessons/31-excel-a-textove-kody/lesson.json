@@ -1,0 +1,12 @@
+{
+  "title": "Excel a textové kódy",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "soubory",
+    "openpyxl"
+  ],
+  "download_files": true,
+  "example_title": "Načíst konkrétní ceník"
+}

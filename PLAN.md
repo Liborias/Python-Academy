@@ -91,11 +91,11 @@ Pomocné moduly ve files/ navazují na předchozí vzorová řešení; jejich sh
 Pořadí od nejjednoduššího: Turtle (kreslení, tuple, spirograf) · Opakování typů a řetězců („zpět k základům“) · seznamy a slicing, `set`, rozbalování · Úvod do OOP (class, konstruktor, atributy, metody) · Čtyři pilíře, dědění, `super()`, dunder metody, MRO, `@property`, `@dataclass` (novinka) · Projekty: **Snake**, kvíz s API (Open Trivia DB, s mockem).
 
 ### F. Datová analýza v Pandas (42 lekcí)
-**Stav v0.64: 30 ze 42 lekcí hotovo v šesti modulech.**
+**Stav v0.65: 35 ze 42 lekcí hotovo v sedmi modulech.**
 První modul: Series a popisky · výpočty a zarovnání · loc/iloc · DataFrame · CSV.
-Samostatné lekce 1–19 a 21–30 mají tři přepínatelné ukázky a pět úkolů s kontrolou
-a možným řešením. Projekt 20 tvoří jeden celek se dvěma funkcemi a přiloženým CSV.
-Celkem 88 ukázek a 146 úkolů. Nové příkazy se vysvětlují před použitím.
+Samostatné lekce 1–19 a 21–34 mají tři přepínatelné ukázky a pět úkolů s kontrolou
+a možným řešením. Projekty 20 a 35 tvoří souvislé celky s vlastními zdroji a možným řešením.
+Celkem 101 ukázek a 167 úkolů. Nové příkazy se vysvětlují před použitím.
 Příprava před kurzem nabízí tři editory a .venv; notebook není povinný.
 Python 3.14.8/pandas 3.1.1/NumPy 2.5.4 ověřeny, instalace vybírá pandas>=3,<4.
 V prohlížeči i terminálu běží obyčejné .py, značky # %% jsou pro volitelné buňky.
@@ -113,8 +113,11 @@ validate/indikátor/suffixes, časový index a denní/měsíční resample.
 Šestý modul 26–30 hotov: Figure/Axes, popisky/legenda/měřítka, čáry/sloupce,
 scatter, histogram/četnosti/hustota a PNG i bez grafické plochy. Aplikace
 zobrazí náhledy a dovolí stáhnout skutečný PNG; kontroluje obsah grafů i exporty.
-Další blok 31–35: Excel, export CSV/Excelu, funkce pro opakovatelný postup
-a měsíční přehled kavárny s tabulkou a grafem. Zachovat více příkladů/úkolů s řešeními u samostatných témat;
+Sedmý modul 31–35 hotov: Excel a textové kódy, export/ověření CSV a XLSX,
+více listů, opakovatelný postup a měsíční projekt s CSV/XLSX/PNG. Aplikace
+nabízí stažení CSV/XLSX včetně zdrojů. Projekt 35 nemá nesouvisející varianty.
+Další blok 36–42: Analytická dílna, datový slovník, přehled čištění, propojení,
+souhrny, graf/zpráva, testy, volitelný notebook a předání. Zachovat možná řešení;
 navazující projektové kroky nerozdělovat na nesouvisející varianty.
 
 ### D. Okenní aplikace, API a e-maily (28 lekcí)

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Dva soubory stejným čištěním",
+    "description": "Stejná funkce zachová pořadí zdrojů i opakovaná měření.",
+    "code": "# %% Ověřené kroky\nimport pandas as pd\nfrom cisteni import zpracuj_mereni\n# %% Výsledky spojíme, zdrojové soubory se nemění.\ncasti=[zpracuj_mereni(p) for p in [\"mereni.csv\",\"dalsi.csv\"]]\nprint(pd.concat(casti,ignore_index=True))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Od zdroje po uložený souhrn",
+    "description": "Načtení, výpočet a export mají vlastní výsledek i dohledatelný soubor.",
+    "code": "# %% Ověřené kroky\nfrom cisteni import zpracuj_mereni, souhrn_mist\n# %% CSV je skutečný výstup, ne jen text zprávy.\nciste=zpracuj_mereni(\"mereni.csv\")\nsouhrn=souhrn_mist(ciste)\nsouhrn.to_csv(\"souhrn.csv\",sep=\";\",decimal=\",\",encoding=\"utf-8\",index=False)\nprint(souhrn)\nprint(\"Uloženo: souhrn.csv\")\n"
+  }
+]

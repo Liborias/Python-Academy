@@ -1,0 +1,12 @@
+{
+  "title": "Export CSV a ověření výsledku",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "soubory",
+    "openpyxl"
+  ],
+  "download_files": true,
+  "example_title": "Uložit čitelné CSV bez indexu"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak zapsat dvě tabulky do jednoho nového XLSX?",
+    "options": [
+      "Dvěma nezávislými zápisy do stejné cesty bez writeru.",
+      "Přejmenováním CSV na XLSX.",
+      "Jedním ExcelWriter ve with a dvěma to_excel."
+    ],
+    "answer": 2,
+    "why": "Writer drží společný sešit do dokončení všech listů."
+  },
+  {
+    "q": "Je číslo 1 s formátem 000 stejný typ jako text 001?",
+    "options": [
+      "Ne, formát mění zobrazení, ne hodnotu ani typ.",
+      "Ano, formát vždy změní číslo na text.",
+      "Ano, pokud list pojmenujeme Ceník."
+    ],
+    "answer": 0,
+    "why": "Typ identifikátoru chráníme od původního vstupu."
+  },
+  {
+    "q": "Stačí existence XLSX pro ověření exportu?",
+    "options": [
+      "Ano, i kdyby byl prázdný.",
+      "Ne, čteme správný list a porovnáváme obsah.",
+      "Ano, pořadí sloupců nemá význam."
+    ],
+    "answer": 1,
+    "why": "Soubor může existovat se špatnými hodnotami či jinou hlavičkou."
+  }
+]

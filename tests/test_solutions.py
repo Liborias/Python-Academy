@@ -31,7 +31,7 @@ class SolutionsTest(unittest.TestCase):
                 self.assertNotIn('code', task)
                 self.assertNotIn('check', task)
                 extras += task['has_solution']
-        self.assertEqual((originals, extras), (198, 252))
+        self.assertEqual((originals, extras), (203, 268))
 
     def test_every_reference_matches_selected_task(self):
         count = 0
@@ -46,7 +46,7 @@ class SolutionsTest(unittest.TestCase):
                 result = solution_view(ROOT/'courses', cid, lid, task)
                 self.assertEqual(result, {'course': cid, 'lesson': lid, 'task': task, 'code': (source/'solution.py').read_text('utf-8')})
                 count += 1
-        self.assertEqual(count, 450)
+        self.assertEqual(count, 471)
 
     def test_invalid_selection_guides_and_planned_courses(self):
         guides = [(d.parent.parent.name,d.name,None) for d in (ROOT/'courses/priprava/lessons').iterdir()]

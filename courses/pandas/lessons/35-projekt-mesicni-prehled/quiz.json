@@ -1,0 +1,52 @@
+[
+  {
+    "q": "Jak vybrat únor bez záměny délky měsíce?",
+    "options": [
+      "Přičíst vždy třicet dní.",
+      "Od první půlnoci včetně do začátku dalšího měsíce bez něj.",
+      "Vybrat celý kalendářní rok."
+    ],
+    "answer": 1,
+    "why": "MonthBegin zvládne různé délky měsíců i konec roku."
+  },
+  {
+    "q": "Co v tomto čistém zdroji znamenají dvě stejné položky?",
+    "options": [
+      "Jedna se vždy smaže.",
+      "Znamenají automaticky dva různé zákazníky.",
+      "Obě se započítají jako platné prodeje."
+    ],
+    "answer": 2,
+    "why": "Řádek je položka a podle pravidla není automaticky duplicitní chyba."
+  },
+  {
+    "q": "Jak vzniká řádková tržba?",
+    "options": [
+      "Kusy krát cena právě tohoto řádku.",
+      "Součet všech cen bez množství.",
+      "Tržba je vždy zisk."
+    ],
+    "answer": 0,
+    "why": "Cena může být u stejného produktu na různých řádcích jiná."
+  },
+  {
+    "q": "Jaký výsledek má měsíc bez jediného prodeje?",
+    "options": [
+      "Vymyšlený prodej za 1 Kč.",
+      "Prázdné souhrnné tabulky a celkové nuly.",
+      "Automaticky neznámá měření NaN."
+    ],
+    "answer": 1,
+    "why": "Zde jde o potvrzený čistý seznam prodejů, ne chybějící měření."
+  },
+  {
+    "q": "Proč kontrolovat i jednotlivé skupiny, nejen celkovou tržbu?",
+    "options": [
+      "Celkový součet nelze vypočítat.",
+      "Součet určuje barvu grafu.",
+      "Prohozené skupiny mohou mít stále stejný součet."
+    ],
+    "answer": 2,
+    "why": "Kontrolní součet sám negarantuje správný obsah přehledu."
+  }
+]

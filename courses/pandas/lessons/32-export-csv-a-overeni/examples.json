@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Středník a nový řádek v názvu",
+    "description": "Parser CSV zachová pole obsahující oddělovač i nový řádek.",
+    "code": "# %% Knihovny\nimport pandas as pd\nimport io\n# %% Uvozování tvoří knihovna, ne obyčejný join.\ndata = pd.DataFrame({\"kod\":[\"001\", \"NA\"], \"nazev\":[\"Čaj; med\", \"První\\ndruhý\"], \"hodnota\":[1.25,0.0]})\ntext = data.to_csv(sep=\";\", decimal=\",\", index=False)\nprint(text)\nprint(pd.read_csv(io.StringIO(text), sep=\";\", decimal=\",\", keep_default_na=False, dtype={\"kod\":\"str\", \"nazev\":\"str\", \"hodnota\":\"float64\"}))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Dvě kódování stejného obsahu",
+    "description": "BOM jsou bajty na začátku, ne nový datový sloupec.",
+    "code": "# %% Knihovny\nfrom pathlib import Path\nimport pandas as pd\n# %% Oba soubory obsahují stejná data s jinou značkou kódování.\ndata = pd.DataFrame({\"kod\":[\"001\"], \"nazev\":[\"Čaj\"], \"hodnota\":[1.25]})\nfor name, encoding in [(\"bez_bom.csv\",\"utf-8\"),(\"s_bom.csv\",\"utf-8-sig\")]:\n    data.to_csv(name,sep=\";\",decimal=\",\",encoding=encoding,index=False)\n    print(name,Path(name).read_bytes()[:12])\n"
+  }
+]
