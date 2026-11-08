@@ -151,7 +151,7 @@ zadáním a ověřte jej kontrolou daného úkolu. Zobrazení nic nevkládá do 
 neprovádí kontrolu a nemění značky splnění. Přepnutí úkolu panel zavře, vymaže
 předchozí zobrazení a ignoruje opožděnou odpověď jiného úkolu. Jednotlivá načtená
 řešení se drží jen v paměti aktuální stránky; obnovení stránky je znovu skryje.
-Všech 203 praktických lekcí a 268 doplňkových úkolů má řešení. Průvodce bez
+Všech 210 praktických lekcí a 268 doplňkových úkolů má řešení. Průvodce bez
 programového zadání ani plánovaný kurz panel nezobrazuje. Zpřístupnění dalšího
 kurzu nevyžaduje seznam povolených kurzů v kódu: rozhoduje existence jeho vzoru.
 
@@ -285,6 +285,44 @@ roku, také skutečně opakované položky. Report se otevírá jako CSV/XLSX/PN
 Figure.savefig se při skutečném uložení sleduje kvůli ověření dat grafu,
 barva/písmo předepsané nejsou. Celkový test validátoru má pro rozšířený katalog
 limit 420 s; jednotlivé studentské běhy a CHECK_TIMEOUT zůstávají stejné.
+
+## Závěrečná Analytická dílna (od v0.66)
+Lekce 36–42 tvoří sedm navazujících kroků bez tasks.json/examples.json, každý
+s jedním řešením a třemi otázkami. Files/predchozi.py má přesné funkce řešení
+všech předchozích kroků, shodu hlídá AST test. Data jsou vlastní smyšlené teploty,
+ne reprezentativní vzorek. Kod je text s nulami/NA, řádek jedno pozorování.
+Čištění vrací cista a odmitnuta s původním textem a prioritou důvodů; radek je
+pořadí záznamu od 1, nikoli fyzická CSV linka. Nuly a záporné konečné hodnoty
+zůstávají, inf/NaN se odmítnou. Neznámý kód se zvlášť oddělí při left merge,
+katalog se validuje many_to_one i pro nepoužité duplicity. Skupiny mají kod/nazev.
+
+Výstupy: stanice.csv, prehled.xlsx (Stanice/Dny/Nespárovaná/Odmítnutá),
+teploty.png a zprava.md. Ověřují se skutečné buňky a artists, záporná data
+se nesmějí skrýt. XLSX prázdný text chápe jako prázdnou buňku; audit DataFrame
+uchová přesný text. Celkový průměr je za jednotlivá spárovaná měření, nikoli
+prostý průměr skupin. Zpráva vymezí cvičný zdroj a příčinné závěry.
+
+Osm veřejných unittestů v test_dilna.py lze spustit s předanou funkcí nebo
+z pracovního reseni.py; v předaném projektu testují místní predchozi.py.
+Notebook 4.5 má unikátní id, čisté outputs/execution_count a dané zdroje pěti
+buněk. Kontrola ověřuje i serializaci JSON a metadata jádra. Skutečné ipykernel
+ověření restartuje jádro a provede všechny buňky; běžný skript zůstává
+rovnocennou možností. Při měnících se snapshotech helperů je třeba restart
+jádra (samotné reset proměnných nemaže cache importovaných modulů).
+
+Krok 42 vytvoří úplný adresář z podkladu projekt, přiloží skutečné vstupy,
+notebook a výstupy. Kontrola adresář přenese, odstraní PYTHONPATH Akademie,
+spustí jeho CLI i veřejné testy a znovu ověří data. Jiné soubory se nemažou.
+README obsahuje vlastní .venv, požadavky, spuštění a volitelné kroky Gitu;
+žádný git/publish příkaz se při běhu lekce automaticky neprovádí.
+
+Metadata download_formats=[".md",".ipynb"] povolují navíc pouze tyto formáty
+z pevného seznamu v serveru. Jiné přípony se ignorují i při chybném metadatu,
+POST tento výběr nezapíná. Výchozí CSV/XLSX režim dál nabízí max 6 souborů;
+projektový režim až 12, každý 2 MB/celkem 4 MB. Markdown se dekóduje jako
+UTF-8, notebook jako JSON s nbformat 4 a buňkami. Původní token/Host/Origin,
+DOM textové názvy a ochrana před starým pollem zůstávají. Výsledkem finálního
+předání je kompletní pracovní složka v editoru, nikoli distribuční ZIP.
 
 ## Odolné ukládání postupu (od v0.58)
 Web/js/store.js zachovává klíč dilna-python-v1 a dosavadní strukturu done,

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč do auditu ukládat původní text?",
+    "options": [
+      "Aby se všechny záznamy přepsaly nulou.",
+      "Aby šel důvod odmítnutí dohledat.",
+      "Protože datum nelze převést."
+    ],
+    "answer": 1,
+    "why": "Čištění má zůstat vysvětlitelné."
+  },
+  {
+    "q": "Stačí notna k odmítnutí nekonečné teploty?",
+    "options": [
+      "Ano, inf je vždy NaN.",
+      "Ano, pokud sloupec má jméno teplota.",
+      "Ne, potřebujeme také konečnost čísla."
+    ],
+    "answer": 2,
+    "why": "Isfinite odmítne NaN i nekonečna."
+  },
+  {
+    "q": "Co znamená radek ve výsledku?",
+    "options": [
+      "Pořadí vstupního záznamu od 1.",
+      "Vždy fyzický řádek textového souboru.",
+      "Původní libovolný index DataFrame."
+    ],
+    "answer": 0,
+    "why": "Pořadí záznamu je stabilní i při opakovaném indexu."
+  }
+]

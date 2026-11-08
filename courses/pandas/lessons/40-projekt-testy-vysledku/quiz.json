@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Stačí test shodného celkového součtu?",
+    "options": [
+      "Ano, všechny tabulky pak musejí být stejné.",
+      "Ne, jednotlivé skupiny i popisky mohou být špatně.",
+      "Ano, datové typy nemají význam."
+    ],
+    "answer": 1,
+    "why": "Kontrolujeme konkrétní obsah a strukturu."
+  },
+  {
+    "q": "Co znamená tolerance 1e-12?",
+    "options": [
+      "Zaokrouhlení všech řádků na celá čísla.",
+      "Vypnutí kontroly typů.",
+      "Malou povolenou odchylku čísel, ne libovolnou změnu obsahu."
+    ],
+    "answer": 2,
+    "why": "Popisky, pořadí a typy zůstávají součástí porovnání."
+  },
+  {
+    "q": "Proč potřebujeme i test chybného výsledku?",
+    "options": [
+      "Aby funkce return True nemohla vypadat jako správná kontrola.",
+      "Protože správné výsledky netestujeme.",
+      "Aby se zdrojová data smazala."
+    ],
+    "answer": 0,
+    "why": "Test musí umět odhalit chybu."
+  }
+]

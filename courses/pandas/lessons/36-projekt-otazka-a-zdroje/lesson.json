@@ -1,0 +1,15 @@
+{
+  "title": "Analytická dílna: otázka a zdroje",
+  "minutes": 45,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "projekt",
+    "analyza"
+  ],
+  "download_files": true,
+  "download_formats": [
+    ".md"
+  ],
+  "example_title": "Datový slovník a kontrola sloupců"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak spočítat celkový průměr z nerovně velkých skupin?",
+    "options": [
+      "Ze všech jednotlivých spárovaných měření.",
+      "Vždy prostým průměrem skupinových průměrů.",
+      "Součtem počtu stanic."
+    ],
+    "answer": 0,
+    "why": "Skupiny nemají automaticky stejnou váhu."
+  },
+  {
+    "q": "Proč neomezit graf teplot spodní mezí y=0?",
+    "options": [
+      "Protože °C nesmí být na ose.",
+      "Skryl by záporné průměry.",
+      "Protože PNG nezná znaménko."
+    ],
+    "answer": 1,
+    "why": "Záporná teplota je platný údaj."
+  },
+  {
+    "q": "Co u prázdného výběru uvede zpráva?",
+    "options": [
+      "Vždy 0 °C jako změřený výsledek.",
+      "Libovolnou teplotu vzoru.",
+      "Průměr neurčen, žádná spárovaná měření."
+    ],
+    "answer": 2,
+    "why": "Prázdná data neznamenají nulovou teplotu."
+  }
+]

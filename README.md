@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.65):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a prvních sedm modulů Datové analýzy (35 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.66):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a všech osm modulů Datové analýzy (42 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,13 +38,14 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Datová analýza — prvních třicet pět lekcí
+## Datová analýza — všech 42 lekcí
 
 Kurz začíná Series a popisky, výpočty podle indexu, výběrem loc/iloc,
 prvním DataFrame a načtením místních CSV. Samostatné lekce 1–19 a 21–34 mají tři přepínatelné
-ukázky a pět úkolů s vlastním zadáním, kontrolou a možným řešením. Projekt kavárny
-v lekci 20 a měsíční přehled v lekci 35 tvoří souvislé celky, každý s jednou ukázkou, řešením a pěti kvízovými otázkami.
-Celkem je připraveno 101 ukázek a 167 úkolů. Data jsou vlastní a smyšlená,
+ukázky a pět úkolů s vlastním zadáním, kontrolou a možným řešením. Projekty kavárny 20 a 35 i závěrečné kroky 36–42 tvoří souvislé celky,
+každý s jednou ukázkou a možným řešením. Kavárenské projekty mají po pěti
+kvízových otázkách, kroky Analytické dílny po třech.
+Celkem je připraveno 108 ukázek a 174 úkolů. Data jsou vlastní a smyšlená,
 u CSV procvičíte desetinnou čárku, hlavičku, UTF-8 a textové kódy s nulami.
 Výklad vysvětluje nové operace, význam výsledku i běžné omyly.
 
@@ -53,7 +54,7 @@ Po aktualizaci připravte závislosti příkazem
 Pomocník použije projektovou .venv; vyberte ji také v editoru.
 Instaluje pandas řady 3, matplotlib, openpyxl a ipykernel.
 Prvních pět modulů používá jen pandas, šestý přidává Matplotlib, sedmý také
-openpyxl pro Excel. Všech 35 lekcí běží bez internetu i grafické plochy.
+openpyxl pro Excel. Všech 42 lekcí běží bez internetu i grafické plochy.
 Grafy se ukládají do PNG; v souborových lekcích lze stáhnout i CSV/XLSX.
 Ověřeno na Pythonu 3.14.8 s pandas 3.1.1, NumPy 2.5.4, Matplotlib 3.11.2 a openpyxl 3.1.5.
 Soubory .py fungují přímo v aplikaci nebo terminálu; značky # %% umožní
@@ -86,8 +87,12 @@ V editoru PNG vznikne v pracovní složce procesu. Sedmý modul 31–35 učí
 XLSX s více listy a opakovatelný postup od čištění po souhrn. Měsíční projekt
 kavárny propojí výběr kalendářního měsíce, CSV, tři excelové listy a graf.
 V aplikaci lze stáhnout CSV/XLSX včetně přiložených zdrojů; po reloadu
-odkazy znovu vytvoří běh zachovaného kódu. Následuje závěrečný projekt
-Analytická dílna v lekcích 36–42.
+odkazy znovu vytvoří běh zachovaného kódu. Osmý modul 36–42 propojí vlastní
+cvičná měření teplot: datový slovník, audit čištění, nespárované kódy, souhrny,
+graf a zprávu s omezením závěrů. Přidá skutečné testy a volitelný notebook,
+který jde spustit od nového jádra. Poslední krok vytvoří samostatný projekt
+s README, požadavky, zdroji, skriptem a testy, ověřený také v jiné složce.
+Dokumenty MD a notebook IPYNB lze stáhnout přímo z těchto projektových lekcí.
 
 ## Okenní aplikace, API a e-maily — všech 28 lekcí připravených
 Kurz začíná oknem Tkinteru, popisky, tlačítky a formulářem se jménem.
@@ -209,8 +214,8 @@ Navazující mini-projekty a závěrečné testy tvoří vlastní celky.
 ## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
 variantu k právě vybranému zadání s připomenutím, že správných postupů může být více.
-Pomoc je dostupná pro všech 203 hlavních zadání napříč sedmi praktickými kurzy
-i 268 dalších úkolů v Základech a Datové analýze, celkem 471 řešení včetně projektů a závěrečných
+Pomoc je dostupná pro všech 210 hlavních zadání napříč sedmi praktickými kurzy
+i 268 dalších úkolů v Základech a Datové analýze, celkem 478 řešení včetně projektů a závěrečných
 programů. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
 Průvodce přípravou bez programovacího úkolu tento panel nemá.
 

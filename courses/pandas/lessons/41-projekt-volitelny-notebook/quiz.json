@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak ověřit notebook bez skrytého stavu?",
+    "options": [
+      "Spustit jen poslední buňku.",
+      "Podívat se pouze na starý uložený obrázek.",
+      "Restartovat jádro a spustit všechny buňky od začátku."
+    ],
+    "answer": 2,
+    "why": "Proměnné musí vzniknout z uloženého postupu."
+  },
+  {
+    "q": "Zaručuje název jádra správný interpreter?",
+    "options": [
+      "Ne, ověříme sys.executable a vybereme správnou .venv.",
+      "Ano, stačí přejmenovat notebook.",
+      "Ano, kernel je vždy systémový Python."
+    ],
+    "answer": 0,
+    "why": "Metadata nejsou instalace ani automatický výběr prostředí."
+  },
+  {
+    "q": "Je notebook v tomto kurzu povinný?",
+    "options": [
+      "Ano, CSV nelze číst ze skriptu.",
+      "Ne, stejnou analýzu provede běžný skript.",
+      "Ano, pouze notebook umí PNG."
+    ],
+    "answer": 1,
+    "why": "Volba rozhraní nemá měnit výpočet."
+  }
+]

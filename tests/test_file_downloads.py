@@ -82,6 +82,44 @@ class FileDownloadTest(unittest.TestCase):
             result=self.wait(RunManager(Path(temp)).start(code()+'raise ValueError("chyba")',download_files=True))
             self.assertNotEqual(result['exit'],0);self.assertEqual(len(result['files']),1)
 
+    def test_project_markdown_and_notebook_are_explicit_opt_in(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            (root/'README.md').write_text('# Český návod',encoding='utf-8')
+            notebook={'nbformat':4,'nbformat_minor':5,'cells':[],'metadata':{}}
+            (root/'analyza.ipynb').write_text(json.dumps(notebook),encoding='utf-8')
+            (root/'tajne.py').write_text('nevydávat')
+            self.assertEqual(collect_exports(root)[0],[])
+            files,notice=collect_exports(root,['.md','.ipynb','.py'])
+            self.assertFalse(notice);self.assertEqual({f['name'] for f in files},{'README.md','analyza.ipynb'})
+            self.assertEqual(json.loads(base64.b64decode(next(f['data'] for f in files if f['name'].endswith('.ipynb')))),notebook)
+            (root/'analyza.ipynb').write_text('{není JSON')
+            files,notice=collect_exports(root,['.md','.ipynb'])
+            self.assertEqual([f['name'] for f in files],['README.md']);self.assertTrue(notice)
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp)
+            for i in range(13):(root/f'{i}.md').write_text('# Výsledek',encoding='utf-8')
+            files,notice=collect_exports(root,['.md'])
+            self.assertEqual(len(files),12);self.assertTrue(notice)
+
+    def test_project_formats_come_from_server_metadata(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root=Path(temp);lesson=root/'courses/pokus/lessons/01-projekt';lesson.mkdir(parents=True)
+            (lesson/'lesson.json').write_text(json.dumps({'download_files':True,'download_formats':['.md','.ipynb','.py']}))
+            (lesson/'check.py').write_text('')
+            server=create_server(root,'127.0.0.1',0);threading.Thread(target=server.serve_forever,daemon=True).start()
+            def start(context):
+                c=http.client.HTTPConnection('127.0.0.1',server.server_address[1],timeout=10)
+                try:
+                    code='from pathlib import Path\nPath("README.md").write_text("Návod",encoding="utf-8")\nPath("tajne.py").write_text("nevydávat")'
+                    c.request('POST','/api/run',body=json.dumps({'code':code,**context}),headers={'X-Dilna-Token':server.token})
+                    r=c.getresponse();self.assertEqual(r.status,200);return self.wait(server.runs.get(json.loads(r.read())['id']))
+                finally:c.close()
+            try:
+                self.assertEqual([f['name'] for f in start({'course':'pokus','lesson':'01-projekt'})['files']],['README.md'])
+                self.assertNotIn('files',start({'download_files':True,'download_formats':['.md']}))
+            finally:server.runs.stop_all();server.shutdown();server.server_close()
+
     def test_api_main_lesson_opt_in_extra_tasks_and_token(self):
         with tempfile.TemporaryDirectory() as temp:
             root=Path(temp);lesson=root/'courses/pokus/lessons/01-soubory';lesson.mkdir(parents=True)

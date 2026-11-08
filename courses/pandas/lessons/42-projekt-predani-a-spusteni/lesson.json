@@ -1,0 +1,17 @@
+{
+  "title": "Analytická dílna: předání a spuštění",
+  "minutes": 65,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "projekt",
+    "analyza"
+  ],
+  "download_files": true,
+  "download_formats": [
+    ".md",
+    ".ipynb"
+  ],
+  "example_title": "Samostatně spustitelný projekt",
+  "preview_images": true
+}

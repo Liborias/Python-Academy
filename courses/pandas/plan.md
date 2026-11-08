@@ -1,6 +1,6 @@
 ## Datová analýza v Pandas
 
-**Připraveno 35 ze 42 lekcí.** Začneme vlastními měřeními a ceníkem malé kavárny. Postupně z nich vznikne Analytická dílna: od otázky přes kontrolu dat až po graf a srozumitelnou zprávu. Data jsou cvičná a smyšlená, součástí projektu; jejich získávání nebude záviset na cizí službě.
+**Připraveno všech 42 lekcí.** Začneme vlastními měřeními a ceníkem malé kavárny. Závěr tvoří samostatná Analytická dílna nad cvičnými měřeními teplot: od otázky přes kontrolu dat až po graf, srozumitelnou zprávu a předatelný projekt. Data jsou cvičná a smyšlená, součástí projektu; jejich získávání nebude záviset na cizí službě.
 
 Kurz navazuje na seznamy, slovníky, funkce a soubory ze Základů Pythonu. Úvod má náročnost 2/4, celek 3/4 kvůli datovým typům, chybějícím hodnotám, spojování tabulek a ověřování výsledků. Odhad je 25–35 hodin základního průchodu; další procvičování podle potřeby.
 
@@ -8,9 +8,9 @@ Kurz navazuje na seznamy, slovníky, funkce a soubory ze Základů Pythonu. Úvo
 
 Příprava před lekcemi nabízí Windows/macOS/Linux a VS Code/VSCodium/PyCharm. Použijte stejnou .venv pro editor i terminál. Instalaci obstará python tools/setup_env.py --courses pandas. Pandas řady 3 pracuje s tabulkami, matplotlib připraví grafy, openpyxl soubory Excelu a ipykernel volitelné notebooky či buňky. Prvních dvacet pět lekcí potřebuje pouze pandas; lekce 26–30 také Matplotlib.
 
-Prvních sedm modulů je ověřených na Pythonu 3.14.8 s pandas 3.1.1 a NumPy 2.5.4. Ověřená instalace obsahuje také matplotlib 3.11.2, openpyxl 3.1.5 a ipykernel 7.4.0; Matplotlib používáme v lekcích 26–30 a 35, openpyxl při práci s Excelem v modulu 31–35. Notebooky přijdou později. V prohlížeči spouštíme obyčejné .py soubory. Komentáře # %% dovolují volitelné rozdělení do buněk v podporovaném editoru. Vždy zůstává možnost spustit celý skript v terminálu. Notebook ani Anaconda nejsou podmínkou studia.
+Všech osm modulů je ověřených na Pythonu 3.14.8 s pandas 3.1.1 a NumPy 2.5.4. Ověřená instalace obsahuje také matplotlib 3.11.2, openpyxl 3.1.5 a ipykernel 7.4.0; Matplotlib používáme v lekcích 26–30, 35 a závěrečném projektu; openpyxl při práci s Excelem v modulu 31–35 i v závěru. Notebooky přijdou později. V prohlížeči spouštíme obyčejné .py soubory. Komentáře # %% dovolují volitelné rozdělení do buněk v podporovaném editoru. Vždy zůstává možnost spustit celý skript v terminálu. Notebook ani Anaconda nejsou podmínkou studia.
 
-Každá dostupná lekce vysvětluje nové operace před použitím. Samostatné lekce 1–19 a 21–34 mají tři přepínatelné ukázky a pět úkolů. Projekty kavárny 20 a 35 tvoří každý jeden celek s navazujícími funkcemi, přiloženými zdroji, řešením a pěti kvízovými otázkami; nemají nesouvisející varianty. Každý úkol nabízí možné řešení a kontrolu výsledku na různých vstupech. Jiný správný postup je v pořádku. Další běžná témata budou tento způsob procvičování zachovávat; navazující projektové kroky budou tvořit jeden celek. Odkrytí řešení nepřepisuje rozepsaný kód ani neoznačuje úkol za splněný.
+Každá dostupná lekce vysvětluje nové operace před použitím. Samostatné lekce 1–19 a 21–34 mají tři přepínatelné ukázky a pět úkolů. Projekty kavárny 20 a 35 tvoří každý jeden celek s navazujícími funkcemi, přiloženými zdroji, řešením a pěti kvízovými otázkami; nemají nesouvisející varianty. Každý úkol nabízí možné řešení a kontrolu výsledku na různých vstupech. Jiný správný postup je v pořádku. Závěrečné lekce 36–42 mají po jedné ukázce a jednom navazujícím zadání s možným řešením; nepotřebují nesouvisející varianty. Odkrytí řešení nepřepisuje rozepsaný kód ani neoznačuje úkol za splněný.
 
 ## Modul 1 — Od seznamu k datové tabulce
 
@@ -94,11 +94,11 @@ Výstup: několik čitelných grafů s popisem, co z nich lze a nelze vyvodit. R
 34. Funkce pro načtení, čištění a souhrn: stejný postup nad dalšími daty.
 35. Mini-projekt měsíčního přehledu kavárny s tabulkou a grafem.
 
-Výstup: opakovatelný postup, který vytváří nové výstupy a zachovává zdrojová data. Rozlišujete sešit/list/hlavičku, textový kód a číselný formát, UTF-8/BOM a správné uvozování CSV. Export bez indexu znovu načtete a porovnáte; ExcelWriter zavře společný zápis více listů. Čištění a souhrn mají vlastní funkce, nuly a platná opakování zůstávají. Měsíční projekt vybírá skutečný kalendářní měsíc a předá denní CSV, XLSX s listy Dny/Produkty/Celkem a PNG tržeb. Aplikace dovolí CSV/XLSX stáhnout včetně přiložených vstupů. Celkem je dostupných 101 ukázek a 167 úkolů. Další blok 36–42 propojí vše v Analytické dílně.
+Výstup: opakovatelný postup, který vytváří nové výstupy a zachovává zdrojová data. Rozlišujete sešit/list/hlavičku, textový kód a číselný formát, UTF-8/BOM a správné uvozování CSV. Export bez indexu znovu načtete a porovnáte; ExcelWriter zavře společný zápis více listů. Čištění a souhrn mají vlastní funkce, nuly a platná opakování zůstávají. Měsíční projekt vybírá skutečný kalendářní měsíc a předá denní CSV, XLSX s listy Dny/Produkty/Celkem a PNG tržeb. Aplikace dovolí CSV/XLSX stáhnout včetně přiložených vstupů. Návazný blok 36–42 propojí vše v Analytické dílně.
 
 ## Modul 8 — Projekt Analytická dílna
 
-**Plán: lekce 36–42.** Projektové kroky na sebe navazují.
+**Hotovo: lekce 36–42.** Každý krok má jednu ukázku, jedno navazující zadání, možné řešení a tři kvízové otázky.
 
 36. Otázka, datový slovník, jednotky, zdroje a očekávané sloupce.
 37. Načtení a čištění s přehledem odmítnutých či chybějících údajů.
@@ -108,4 +108,4 @@ Výstup: opakovatelný postup, který vytváří nové výstupy a zachovává zd
 41. Volitelný notebook: restart jádra a spuštění všech buněk od začátku; souběžný běžný skript.
 42. Předání projektu: README, závislosti, vstupy, výstupy a závěrečné ověření.
 
-Výstup: malý předatelný analytický projekt, který lze znovu spustit nad stejnými daty a ověřit jeho výsledky.
+Výstup: samostatný analytický projekt s daty, datovým slovníkem, README, závislostmi, skriptem, testy a volitelným notebookem. Rozlišujete neplatné záznamy, nespárované kódy a použitá měření; audit uchová původní text i důvod odmítnutí. Celkový průměr není prostý průměr nerovně velkých skupin, záporné teploty zůstávají viditelné. Výstupy CSV/XLSX/PNG/MD vznikají ze stejných přehledů. Notebook se ověřuje od restartu skutečného jádra, předaný adresář i v jiné složce bez importů Akademie. Dokumentace a IPYNB jsou ke stažení. Celkem má kurz 108 ukázek a 174 úkolů, všechny s možným řešením. Obsah je hotový k průchodu a korekturám, stav draft čeká na připomínky studentů.

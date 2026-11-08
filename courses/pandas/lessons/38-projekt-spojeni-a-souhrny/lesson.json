@@ -1,0 +1,15 @@
+{
+  "title": "Analytická dílna: spojení a souhrny",
+  "minutes": 65,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "projekt",
+    "analyza"
+  ],
+  "download_files": true,
+  "download_formats": [
+    ".md"
+  ],
+  "example_title": "Kódy stanic a skutečné souhrny"
+}

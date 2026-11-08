@@ -84,15 +84,28 @@
         "34-opakovatelny-analyticky-postup",
         "35-projekt-mesicni-prehled"
       ]
+    },
+    {
+      "id": "m08",
+      "title": "Projekt Analytická dílna",
+      "lessons": [
+        "36-projekt-otazka-a-zdroje",
+        "37-projekt-cisteni-s-auditem",
+        "38-projekt-spojeni-a-souhrny",
+        "39-projekt-graf-a-zprava",
+        "40-projekt-testy-vysledku",
+        "41-projekt-volitelny-notebook",
+        "42-projekt-predani-a-spusteni"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od prvního měření k Analytické dílně",
     "status": "draft",
     "level": 3,
-    "summary": "Prvních 35 lekcí je připravených: od Series a čištění po souhrny, spojování, čas, grafy, CSV/Excel a měsíční přehled kavárny. Samostatná témata mají více ukázek a pět úkolů s možnými řešeními; projekty tvoří souvislé celky.",
+    "summary": "Všech 42 lekcí je připravených: od Series a čištění přes souhrny, spojování, čas, grafy a CSV/Excel až po předanou Analytickou dílnu s testy a volitelným notebookem. Samostatná témata mají více procvičení s možnými řešeními; projekty tvoří navazující celky.",
     "placement": "Po Základech Pythonu; práce se soubory pomůže, notebook není povinný.",
     "difficulty_reason": "Úvod od 2/4, celek 3/4: popisky, datové typy, chybějící údaje, spojování, grafy a ověření výsledků.",
-    "duration": "Plán 42 lekcí, prvních 35 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
+    "duration": "Všech 42 lekcí je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
   }
 }

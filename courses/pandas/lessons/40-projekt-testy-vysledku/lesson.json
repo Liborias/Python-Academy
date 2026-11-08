@@ -1,0 +1,16 @@
+{
+  "title": "Analytická dílna: testy výsledků",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "projekt",
+    "analyza"
+  ],
+  "download_files": true,
+  "download_formats": [
+    ".md"
+  ],
+  "example_title": "Osm veřejných testů přehledu",
+  "preview_images": true
+}

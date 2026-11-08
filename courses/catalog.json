@@ -74,7 +74,7 @@
         "zaklady"
       ],
       "status": "draft",
-      "summary": "Prvních 35 z 42 lekcí: od Series a čištění po souhrny, spojování, čas, grafy a CSV/Excel. Dva projekty kavárny, více procvičení a možná řešení."
+      "summary": "Všech 42 lekcí: tabulky, čištění, souhrny, spojování, čas, grafy a CSV/Excel. Závěrečná Analytická dílna s auditem, testy, notebookem a předáním; možná řešení u všech úkolů."
     },
     {
       "id": "tkinter-api",

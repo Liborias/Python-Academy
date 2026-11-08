@@ -1,0 +1,15 @@
+{
+  "title": "Analytická dílna: čištění s přehledem",
+  "minutes": 75,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "projekt",
+    "analyza"
+  ],
+  "download_files": true,
+  "download_formats": [
+    ".md"
+  ],
+  "example_title": "Přijaté a odmítnuté záznamy"
+}

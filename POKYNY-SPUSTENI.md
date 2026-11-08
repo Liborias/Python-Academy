@@ -41,10 +41,13 @@ python tools/setup_env.py --courses pandas
 Nainstaluje pandas řady 3, matplotlib, openpyxl a ipykernel do stejné projektové
 .venv. Prvních 25 lekcí potřebuje pouze pandas, lekce 26–30 také Matplotlib.
 Modul 31–35 používá i openpyxl pro Excel; měsíční projekt propojí tabulky a graf.
+Závěr 36–42 má samostatnou Analytickou dílnu, testy a volitelný notebook.
+Všech 42 lekcí je připravených. Projekt nabízí také MD/IPYNB ke stažení.
 Soubory .py běží v aplikaci i terminálu bez grafické plochy. V aplikaci vzniknou
 náhledy PNG s možností stažení; v editoru obrázky najdete v pracovní složce procesu. Souborové lekce nabízejí
 také stažení CSV/XLSX včetně zdrojů; v editoru výstupy zůstávají na disku.
-Notebooky a buňky # %% jsou volitelné.
+Notebooky a buňky # %% jsou volitelné. Po změně projektových helperů
+restartujte jádro a spusťte buňky od začátku, ne pouze poslední buňku.
 Balíčky používá Python z .venv; zvolte jej také v editoru. Po instalaci aplikaci
 znovu spusťte. Ověřeno s Pythonem 3.14.8, pandas 3.1.1, Matplotlib 3.11.2 a openpyxl 3.1.5.
 

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč many_to_one?",
+    "options": [
+      "Aby neznámý kód dostal nulovou teplotu.",
+      "Aby se smazaly duplicitní položky měření.",
+      "Katalog smí mít nejvýše jeden řádek pro kod."
+    ],
+    "answer": 2,
+    "why": "Nejednoznačný katalog může násobit řádky."
+  },
+  {
+    "q": "Je neznámý kod chyba převodu teploty?",
+    "options": [
+      "Ne, patří do samostatného přehledu nespárovaných.",
+      "Ano, teplotu vždy vyplníme nulou.",
+      "Ano, takový řádek v auditu nepotřebujeme."
+    ],
+    "answer": 0,
+    "why": "Platnost záznamu a existence protějšku jsou odlišné věci."
+  },
+  {
+    "q": "Proč neseskupovat pouze podle názvu?",
+    "options": [
+      "Protože groupby neumí text.",
+      "Různé kódy mohou mít stejný název.",
+      "Protože názvy musejí být čísla."
+    ],
+    "answer": 1,
+    "why": "Identita stanice je kod."
+  }
+]

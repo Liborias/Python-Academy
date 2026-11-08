@@ -174,7 +174,8 @@ class Handler(SimpleHTTPRequestHandler):
                 meta = content._json(main_lesson / 'lesson.json', {}) if main_lesson else {}
                 run = self.srv.runs.start(body.get("code", ""), body.get("timeout", 20), body.get("stdin", ""),
                                           ld / "files" if ld else None, preview_images=meta.get('preview_images') is True,
-                                          download_files=meta.get('download_files') is True)
+                                          download_files=meta.get('download_files') is True,
+                                          download_formats=meta.get('download_formats', []))
             except ValueError as e:
                 return self._json(400, {"error": str(e)})
             except RuntimeError as e:

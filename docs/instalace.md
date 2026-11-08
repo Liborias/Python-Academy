@@ -42,13 +42,17 @@ Volitelná aktivace: `source .venv/bin/activate`. Pro Tkinter u Homebrew Pythonu
 Bez `--courses` pomocník připraví běžné balíčky všech kurzů: requests, beautifulsoup4, pygame-ce, pandas řady 3, matplotlib, openpyxl, ipykernel a aiosmtpd pro místní e-mailový záchyt. Pro začátečníka to není nutné. Příznak `--extras` přidá volitelné součásti zvoleného kurzu: PyInstaller pro balení v tkinter-api, qrcode a pyttsx3 pro pozdější projekty databaze. Jejich funkce a systémové závislosti se ověřují až v příslušném projektu.
 
 Pro Datovou analýzu použijte `python tools/setup_env.py --courses pandas`.
-Prvních 35 lekcí je připravených: prvních 25 používá pandas, grafy v lekcích
+Všech 42 lekcí je připravených: prvních 25 používá pandas, grafy v lekcích
 26–30 také Matplotlib a modul 31–35 openpyxl pro Excel. Měsíční projekt 35
-používá všechny tři knihovny; ipykernel zůstává pro volitelné notebooky. Instalace vybírá `pandas>=3,<4`. Grafy používají Figure a soubory PNG,
+používá všechny tři knihovny; závěrečná Analytická dílna 36–42 je propojí
+s testy a předáním. Ipykernel zůstává pro volitelný notebook v lekci 41. Instalace vybírá `pandas>=3,<4`. Grafy používají Figure a soubory PNG,
 nejde o samostatná okna; v aplikaci uvidíte náhled a odkaz ke stažení.
 Z editoru se PNG uloží do pracovní složky běžícího procesu. Souborové lekce
 nabízejí i stažení CSV/XLSX; přiložené vstupy se do pracovního editoru kopírují
-vedle reseni.py. Ověření Excelu: `python -c "import openpyxl; print(openpyxl.__version__)"`.
+vedle reseni.py. Závěrečný projekt nabízí také MD/IPYNB ke stažení.
+Při přechodu mezi kroky s jinou verzí helperů restartujte notebookové jádro;
+vyberte .venv a ověřte sys.executable. Notebook ani zobrazené jméno jádra
+nenahrazují instalaci závislostí. Ověření Excelu: `python -c "import openpyxl; print(openpyxl.__version__)"`.
 Ověření v projektové .venv: `python -c "import sys, pandas as pd; print(sys.version); print(pd.__version__)"`.
 Ověřeno: Python 3.14.8, pandas 3.1.1, NumPy 2.5.4 a Matplotlib 3.11.2 a openpyxl 3.1.5 na Linuxu.
 Matplotlib ověří `python -c "import matplotlib; print(matplotlib.__version__)"`.

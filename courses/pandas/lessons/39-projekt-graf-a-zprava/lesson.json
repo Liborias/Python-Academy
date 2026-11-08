@@ -1,0 +1,16 @@
+{
+  "title": "Analytická dílna: graf a zpráva",
+  "minutes": 70,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "projekt",
+    "analyza"
+  ],
+  "download_files": true,
+  "download_formats": [
+    ".md"
+  ],
+  "example_title": "Graf, tabulky a omezení zprávy",
+  "preview_images": true
+}

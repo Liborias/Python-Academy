@@ -7,6 +7,7 @@ na počítači studenta, protože proces dědí jeho grafické prostředí.
 import codecs
 import base64
 import io
+import json
 import os
 import shutil
 import struct
@@ -32,18 +33,22 @@ MAX_IMAGE_BYTES = 2_000_000
 MAX_IMAGES_BYTES = 4_000_000
 MAX_IMAGE_PIXELS = 8_000_000
 EXPORT_MIMES = {'.csv': 'text/csv;charset=utf-8',
-                '.xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}
+                '.xlsx': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                '.md': 'text/markdown;charset=utf-8', '.ipynb': 'application/x-ipynb+json'}
 
 
-def collect_exports(directory: Path) -> tuple[list[dict], str]:
-    """Soubory lekce i výstupy běhu, pouze malé UTF-8 CSV a sešity XLSX."""
+def collect_exports(directory: Path, extra_formats=()) -> tuple[list[dict], str]:
+    """Malé CSV/XLSX ze zdrojů i výstupů, volitelně UTF-8 MD a notebooky."""
+    extra = {s for s in ('.md', '.ipynb') if isinstance(extra_formats, (tuple, list)) and s in extra_formats}
+    allowed = {'.csv', '.xlsx'} | extra
+    limit = 12 if extra else 6
     files, total, skipped = [], 0, False
     for path in sorted(directory.rglob('*')):
         suffix = path.suffix.lower()
-        if suffix not in EXPORT_MIMES or path.is_symlink() or not path.is_file():
+        if suffix not in allowed or path.is_symlink() or not path.is_file():
             continue
         try:
-            if len(files) >= 6 or path.stat().st_size > MAX_IMAGE_BYTES:
+            if len(files) >= limit or path.stat().st_size > MAX_IMAGE_BYTES:
                 skipped = True
                 continue
             with path.open('rb') as stream:
@@ -51,8 +56,13 @@ def collect_exports(directory: Path) -> tuple[list[dict], str]:
             if len(data) > MAX_IMAGE_BYTES or total + len(data) > MAX_IMAGES_BYTES:
                 skipped = True
                 continue
-            if suffix == '.csv':
+            if suffix in {'.csv', '.md'}:
                 data.decode('utf-8-sig')
+            elif suffix == '.ipynb':
+                notebook = json.loads(data.decode('utf-8'))
+                if not isinstance(notebook, dict) or notebook.get('nbformat') != 4 or not isinstance(notebook.get('cells'), list):
+                    skipped = True
+                    continue
             else:
                 with zipfile.ZipFile(io.BytesIO(data)) as book:
                     if not {'[Content_Types].xml', 'xl/workbook.xml'}.issubset(book.namelist()):
@@ -61,9 +71,10 @@ def collect_exports(directory: Path) -> tuple[list[dict], str]:
             files.append({'name': path.relative_to(directory).as_posix(), 'mime': EXPORT_MIMES[suffix],
                           'data': base64.b64encode(data).decode('ascii')})
             total += len(data)
-        except (OSError, UnicodeError, zipfile.BadZipFile):
+        except (OSError, UnicodeError, ValueError, zipfile.BadZipFile):
             skipped = True
-    notice = ('Některé soubory nelze stáhnout. Podporujeme UTF-8 CSV a XLSX, nejvýše 6 souborů, '
+    types = 'UTF-8 CSV a XLSX' + (', MD' if '.md' in extra else '') + (', IPYNB' if '.ipynb' in extra else '')
+    notice = (f'Některé soubory nelze stáhnout. Tento režim podporuje {types}, nejvýše {limit} souborů, '
               '2 MB každý a 4 MB celkem. Větší soubory vytvořte během spuštění v editoru.') if skipped else ''
     return files, notice
 
@@ -116,7 +127,7 @@ def clean_env(extra: dict | None = None) -> dict:
 
 class Run:
     def __init__(self, code: str, workdir: Path, python: str, timeout: float, stdin: str = "", files: Path | None = None,
-                 preview_images: bool = False, download_files: bool = False):
+                 preview_images: bool = False, download_files: bool = False, download_formats=()):
         self.id = uuid.uuid4().hex
         self.chunks: list[tuple[str, str]] = []     # (kanál, text)
         self.size = 0
@@ -130,6 +141,7 @@ class Run:
         self.images: list[dict] = []
         self.image_notice = ''
         self.download_files = download_files
+        self.download_formats = download_formats
         self.files: list[dict] = []
         self.file_notice = ''
         self.dir = Path(tempfile.mkdtemp(prefix="run-", dir=workdir))
@@ -202,7 +214,7 @@ class Run:
         if self.preview_images:
             self.images, self.image_notice = collect_images(self.dir)
         if self.download_files:
-            self.files, self.file_notice = collect_exports(self.dir)
+            self.files, self.file_notice = collect_exports(self.dir, self.download_formats)
         shutil.rmtree(self.dir, ignore_errors=True)
         self.finished_at = time.monotonic()
 
@@ -256,7 +268,7 @@ class RunManager:
             del self.runs[rid]
 
     def start(self, code: str, timeout=DEFAULT_TIMEOUT, stdin: str = "", files: Path | None = None,
-              preview_images: bool = False, download_files: bool = False) -> Run:
+              preview_images: bool = False, download_files: bool = False, download_formats=()) -> Run:
         if not isinstance(code, str) or len(code) > MAX_CODE:
             raise ValueError("Kód je neplatný nebo příliš dlouhý.")
         try:
@@ -267,7 +279,7 @@ class RunManager:
             self._gc()
             if sum(1 for r in self.runs.values() if r.finished_at is None) >= MAX_ACTIVE:
                 raise RuntimeError("Běží příliš mnoho programů, počkejte na dokončení.")
-            run = Run(code, self.workdir, self.python, timeout, stdin if isinstance(stdin, str) else "", files, preview_images, download_files)
+            run = Run(code, self.workdir, self.python, timeout, stdin if isinstance(stdin, str) else "", files, preview_images, download_files, download_formats)
             self.runs[run.id] = run
             return run
 

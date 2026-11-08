@@ -91,11 +91,11 @@ Pomocné moduly ve files/ navazují na předchozí vzorová řešení; jejich sh
 Pořadí od nejjednoduššího: Turtle (kreslení, tuple, spirograf) · Opakování typů a řetězců („zpět k základům“) · seznamy a slicing, `set`, rozbalování · Úvod do OOP (class, konstruktor, atributy, metody) · Čtyři pilíře, dědění, `super()`, dunder metody, MRO, `@property`, `@dataclass` (novinka) · Projekty: **Snake**, kvíz s API (Open Trivia DB, s mockem).
 
 ### F. Datová analýza v Pandas (42 lekcí)
-**Stav v0.65: 35 ze 42 lekcí hotovo v sedmi modulech.**
+**Stav v0.66: všech 42 lekcí hotovo v osmi modulech.**
 První modul: Series a popisky · výpočty a zarovnání · loc/iloc · DataFrame · CSV.
 Samostatné lekce 1–19 a 21–34 mají tři přepínatelné ukázky a pět úkolů s kontrolou
-a možným řešením. Projekty 20 a 35 tvoří souvislé celky s vlastními zdroji a možným řešením.
-Celkem 101 ukázek a 167 úkolů. Nové příkazy se vysvětlují před použitím.
+a možným řešením. Projekty 20/35 a kroky 36–42 tvoří souvislé celky s vlastními zdroji a možným řešením.
+Celkem 108 ukázek a 174 úkolů. Nové příkazy se vysvětlují před použitím.
 Příprava před kurzem nabízí tři editory a .venv; notebook není povinný.
 Python 3.14.8/pandas 3.1.1/NumPy 2.5.4 ověřeny, instalace vybírá pandas>=3,<4.
 V prohlížeči i terminálu běží obyčejné .py, značky # %% jsou pro volitelné buňky.
@@ -116,9 +116,11 @@ zobrazí náhledy a dovolí stáhnout skutečný PNG; kontroluje obsah grafů i 
 Sedmý modul 31–35 hotov: Excel a textové kódy, export/ověření CSV a XLSX,
 více listů, opakovatelný postup a měsíční projekt s CSV/XLSX/PNG. Aplikace
 nabízí stažení CSV/XLSX včetně zdrojů. Projekt 35 nemá nesouvisející varianty.
-Další blok 36–42: Analytická dílna, datový slovník, přehled čištění, propojení,
-souhrny, graf/zpráva, testy, volitelný notebook a předání. Zachovat možná řešení;
-navazující projektové kroky nerozdělovat na nesouvisející varianty.
+Osmý modul 36–42 hotov: Analytická dílna nad měřeními teplot, datový slovník,
+audit čištění, neznámé kódy, souhrny a graf/zpráva. Osm veřejných testů, skutečně
+spustitelný notebook i obyčejný skript, kompletní předání ověřené v jiné složce.
+Každý krok má možné řešení, projekt nemá nesouvisející varianty. Další krok:
+obsahové korektury celého kurzu a připomínky studentů; stav draft zůstává.
 
 ### D. Okenní aplikace, API a e-maily (28 lekcí)
 Tkinter základy (okno, Label, Button, Entry, `pack`, `grid`, `place`, `ttk`) · Převodník měn · Úkolníček (Listbox, Scrollbar, ukládání do JSON) · API (REST, stavové kódy, chyby, `requests`) · Převodník měn 2.0 · E-maily přes lokální testovací server, Gmail volitelně · Balení do spustitelného souboru (PyInstaller, ověřit podporu Pythonu 3.14/3.15).

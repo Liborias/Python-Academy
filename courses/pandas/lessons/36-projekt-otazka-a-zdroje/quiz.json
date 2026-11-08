@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co ověřuje schéma?",
+    "options": [
+      "Přítomnost a jednoznačnost názvů sloupců.",
+      "Že každá teplota určitě dává smysl.",
+      "Že vzorek reprezentuje celou republiku."
+    ],
+    "answer": 0,
+    "why": "Struktura a význam hodnot jsou různé kontroly."
+  },
+  {
+    "q": "Je prázdný DataFrame se správnými sloupci chyba schématu?",
+    "options": [
+      "Ano, tabulka musí mít právě jeden řádek.",
+      "Ne, prázdný vstup může být platný.",
+      "Ano, každý sloupec je automaticky duplicitní."
+    ],
+    "answer": 1,
+    "why": "Přítomnost sloupců nezávisí na počtu záznamů."
+  },
+  {
+    "q": "Proč čteme kod jako text bez výchozího NA?",
+    "options": [
+      "Aby se vypočítalo počasí.",
+      "Aby se smazala hlavička.",
+      "Aby zůstaly nuly a doslovný kód NA."
+    ],
+    "answer": 2,
+    "why": "Identifikátor není číselný počet."
+  }
+]

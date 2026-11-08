@@ -7,7 +7,7 @@ export function makeConsole(box, { onDone } = {}) {
   box.classList.add('console');
   box.innerHTML = `<pre class="out" tabindex="0" aria-live="polite"></pre>
     <div class="plot-gallery" aria-label="Vytvořené grafy" hidden></div>
-    <div class="file-downloads" aria-label="Soubory CSV a Excel" hidden></div>
+    <div class="file-downloads" aria-label="Soubory ke stažení" hidden></div>
     <form class="stdin" hidden><label>Vstup: <input type="text" autocomplete="off" aria-label="Vstup pro input()"></label><button class="btn" type="submit">Odeslat</button></form>
     <div class="status" aria-live="polite"></div>`;
   const out = box.querySelector('.out'), gallery = box.querySelector('.plot-gallery'), form = box.querySelector('.stdin'),

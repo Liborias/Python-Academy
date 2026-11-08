@@ -1,0 +1,17 @@
+{
+  "title": "Analytická dílna: volitelný notebook",
+  "minutes": 50,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "projekt",
+    "analyza"
+  ],
+  "download_files": true,
+  "download_formats": [
+    ".md",
+    ".ipynb"
+  ],
+  "example_title": "Stejná analýza ve skriptu i notebooku",
+  "preview_images": true
+}

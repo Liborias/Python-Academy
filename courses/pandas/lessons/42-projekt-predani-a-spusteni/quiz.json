@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak poznáme předatelný projekt?",
+    "options": [
+      "Funguje v jiné složce s vlastními zdroji, požadavky a návodem.",
+      "Existuje jediný PNG bez kódu.",
+      "Pamatujeme si pořadí ručních zásahů."
+    ],
+    "answer": 0,
+    "why": "Druhý člověk musí být schopen výpočet zopakovat."
+  },
+  {
+    "q": "Které vstupy má sestavení přiložit?",
+    "options": [
+      "Vždy jen původní vzor bez ohledu na parametry.",
+      "Skutečné soubory předané funkci.",
+      "Pouze obrázek grafu."
+    ],
+    "answer": 1,
+    "why": "Přenesený projekt musí reprodukovat právě provedený výpočet."
+  },
+  {
+    "q": "Publikuje spuštění této lekce automaticky na GitHub?",
+    "options": [
+      "Ano, bez volby uživatele.",
+      "Ano, pokud je číslo stanice 001.",
+      "Ne, Git a vlastní publikace jsou samostatné kroky podle README."
+    ],
+    "answer": 2,
+    "why": "Sestavení lokálního adresáře není publikace."
+  }
+]
