@@ -140,12 +140,69 @@ with tempfile.TemporaryDirectory() as temp:
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
             if shots:
                 page.locator('.solution-help').screenshot(path=str(shots/'solution-mobile-dark.png'))
-            page.goto(f'{base}#/kurz/oop/17-navrh-expedicniho-centra')
-            page.wait_for_selector('.editor textarea')
+            courses = ['oop','soubory-web','pygame-1','turtle-oop','tkinter-api']
+            checked = 0
+            for cid in courses:
+                course = json.loads((root/'courses'/cid/'course.json').read_text('utf-8'))
+                lids = [lid for module in course['modules'] for lid in module['lessons']]
+                for index, lesson in enumerate(lids):
+                    page.goto(f'{base}#/kurz/{cid}/{lesson}')
+                    page.wait_for_selector('.editor textarea')
+                    panel = page.locator('.solution-help')
+                    assert panel.count() == 1 and not panel.evaluate('(el) => el.open')
+                    assert panel.locator('code').text_content() == ''
+                    draft = f'# Moje práce: {cid}/{lesson}\n'
+                    page.locator('.editor textarea').fill(draft)
+                    page.locator('.done-toggle input').set_checked(index % 2 == 0)
+                    before = page.evaluate('JSON.stringify(localStorage)')
+                    count = len(requests)
+                    open_solution()
+                    shown((root/'courses'/cid/'lessons'/lesson/'solution.py').read_text('utf-8').rstrip())
+                    assert len(requests) == count + 1
+                    assert page.locator('.editor textarea').input_value() == draft
+                    assert page.is_checked('.done-toggle input') == (index % 2 == 0)
+                    assert page.evaluate('JSON.stringify(localStorage)') == before
+                    assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
+                    checked += 1
+                page.reload()
+                page.wait_for_selector('.solution-help summary')
+                assert not page.locator('.solution-help').evaluate('(el) => el.open')
+                assert page.locator('.editor textarea').input_value() == draft
+                assert page.is_checked('.done-toggle input') == (index % 2 == 0)
+            assert checked == 128, checked
+            # Opožděný vzor předchozího kurzu se nesmí objevit v nové lekci.
+            page.goto(f'{base}#/kurz/oop/20-konzolove-expedicni-centrum')
+            page.wait_for_selector('.solution-help summary')
+            pending = []
+            def delayed_course(route):
+                query = parse_qs(urlsplit(route.request.url).query)
+                if query.get('course') == ['oop']:
+                    pending.append(route)
+                else:
+                    route.continue_()
+            page.route('**/api/solution?*', delayed_course)
+            open_solution()
+            page.wait_for_function("document.querySelector('.solution-status').textContent.includes('Načítám')")
+            page.goto(f'{base}#/kurz/tkinter-api/27-cesty-a-klavesove-zkratky')
+            page.wait_for_selector('.solution-help summary')
+            open_solution()
+            shown((root/'courses/tkinter-api/lessons/27-cesty-a-klavesove-zkratky/solution.py').read_text('utf-8').rstrip())
+            assert len(pending) == 1
+            pending[0].fulfill(status=200, content_type='application/json', body=json.dumps({'code':'# Opožděné OOP'}))
+            page.wait_for_timeout(100)
+            assert 'Opožděné OOP' not in page.locator('.solution-help code').inner_text()
+            page.unroute('**/api/solution?*', delayed_course)
+            if shots:
+                page.locator('.solution-help').screenshot(path=str(shots/'solution-all-courses-mobile.png'))
+            # Příprava má praktické průvodce bez programového úkolu.
+            guides = json.loads((root/'courses/priprava/course.json').read_text('utf-8'))
+            first_guide = guides['modules'][0]['lessons'][0]
+            page.goto(f'{base}#/kurz/priprava/{first_guide}')
+            page.wait_for_selector('.lesson h1')
             assert page.locator('.solution-help').count() == 0
             assert not errors, errors
             browser.close()
-        print('OK: lazy řešení Úkolů 1–5, race, opakování, kód jako text, projekty, závěrečný program, drafty/postup, klávesnice a mobil')
+        print('OK: řešení Úkolů 1–5 a všech 128 lekcí ostatních kurzů, zpoždění v úkolu i mezi kurzy, opakování, text, drafty/postup, klávesnice a mobil')
     finally:
         server.runs.stop_all()
         server.shutdown()

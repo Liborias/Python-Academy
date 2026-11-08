@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.56):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (28 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.57):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (28 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -154,11 +154,13 @@ kontrolu a pracovní soubor pro externí editor. Nových úkolů je celkem 136.
 vlastní značky úspěšného procvičení. „Začít znovu“ obnoví jen právě vybraný úkol.
 Mini-projekty 32–36, závěrečný test 40 a ostatní kurzy zůstávají beze změn.
 
-## Pomoc s řešením v Základech
+## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
 variantu k právě vybranému zadání s připomenutím, že správných postupů může být více.
-Pomoc je dostupná pro všech 40 hlavních zadání i 136 dalších úkolů, včetně projektů
-a závěrečného programu. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
+Pomoc je dostupná pro všech 168 hlavních zadání napříč šesti hotovými kurzy
+i 136 dalších úkolů v Základech, celkem 304 řešení včetně projektů a závěrečných
+programů. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
+Průvodce přípravou bez programovacího úkolu tento panel nemá.
 
 Při přepnutí Úkolu 1–5 se panel zavře a nabídne řešení nového zadání. Rozepsaný kód
 zůstává v editoru a postup se ukládá stejným způsobem jako dosud. Řešení se načítá

@@ -23,14 +23,12 @@ def _json(p: Path, default):
         return default
 
 
-def _has_solution(cid: str, directory: Path) -> bool:
-    return cid == "zaklady" and bool(_read(directory / "solution.py").strip())
+def _has_solution(directory: Path) -> bool:
+    return bool(_read(directory / "solution.py").strip())
 
 
 def solution_view(courses_dir: Path, cid: str, lid: str, task: str | None = None) -> dict | None:
-    """Vzorový kód Základů se načítá až při výslovném odkrytí řešení."""
-    if cid != "zaklady":
-        return None
+    """Vzorový kód vybraného úkolu se načítá až při odkrytí řešení."""
     directory = lesson_dir(courses_dir, cid, lid, task)
     if directory is None:
         return None
@@ -80,11 +78,11 @@ def lesson_view(courses_dir: Path, cid: str, lid: str) -> dict | None:
             "examples": _json(d / "examples.json", []),
             "exercise": _read(d / "exercise.py"), "quiz": _json(d / "quiz.json", []),
             "has_check": (d / "check.py").is_file(),
-            "has_solution": _has_solution(cid, d),
+            "has_solution": _has_solution(d),
             "tasks": [{"id": task["id"], "title": task["title"],
                        "md": _read(d / "tasks" / task["id"] / "exercise.md"),
                        "exercise": _read(d / "tasks" / task["id"] / "exercise.py"),
-                       "has_solution": _has_solution(cid, d / "tasks" / task["id"])}
+                       "has_solution": _has_solution(d / "tasks" / task["id"])}
                       for task in _json(d / "tasks.json", [])]}
 
 

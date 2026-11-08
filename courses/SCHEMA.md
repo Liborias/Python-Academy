@@ -137,13 +137,13 @@ ukázky i úkolu v prohlížeči. Chybějící či neplatná hodnota zachová v�
 20 sekund pro konzoli a 600 pro GUI. Kontrola řešení si ponechává vlastní limit.
 Závěrečné expediční centrum má 600 sekund pro ruční zadávání příkazů; Stop funguje dál.
 
-## Odkrývání řešení v Základech (od v0.49)
-Pro kurz zaklady vrací lesson API příznak `has_solution`, pokud existuje neprázdné
+## Odkrývání řešení (od v0.49, všechny kurzy od v0.57)
+Pro všechny kurzy vrací lesson API příznak `has_solution`, pokud existuje neprázdné
 solution.py. Totéž platí pro další úkoly. Web nabízí zavřený panel „Zobrazit možné
-řešení“; při otevření načte `GET /api/solution?course=zaklady&lesson=<id>&task=task-1`.
+řešení“; při otevření načte `GET /api/solution?course=<kurz>&lesson=<id>&task=task-1`.
 Vynechané task nebo task-1 čte solution.py z kořene lekce, task-2 až task-5 ze svého
 podadresáře. Vrací course, lesson, kanonické task a code. Neexistující/nesprávná
-volba nebo jiný kurz vrací 404. Endpoint používá stejné kontroly Host/Origin jako
+volba či chybějící řešení vrací 404. Endpoint používá stejné kontroly Host/Origin jako
 čtení lekce a neprovádí kód ani zápisy do workspace.
 
 Panel používá existující otestované vzory; při úpravě řešení ponechte shodu se
@@ -151,6 +151,9 @@ zadáním a ověřte jej kontrolou daného úkolu. Zobrazení nic nevkládá do 
 neprovádí kontrolu a nemění značky splnění. Přepnutí úkolu panel zavře, vymaže
 předchozí zobrazení a ignoruje opožděnou odpověď jiného úkolu. Jednotlivá načtená
 řešení se drží jen v paměti aktuální stránky; obnovení stránky je znovu skryje.
+Všech 168 praktických lekcí a 136 doplňkových úkolů má řešení. Průvodce bez
+programového zadání ani plánovaný kurz panel nezobrazuje. Zpřístupnění dalšího
+kurzu nevyžaduje seznam povolených kurzů v kódu: rozhoduje existence jeho vzoru.
 
 ## Úvodní Tkinter bez okna (od v0.50)
 `r = c.tk_run(actions=[{"action": "fill", "value": "  Ema  "},

@@ -57,7 +57,8 @@ with tempfile.TemporaryDirectory() as temp:
                 if kind=='gui':
                     assert 'otevře okno' in page.locator('.lesson .meta').inner_text()
                 assert page.locator('.quiz fieldset').count() == 3
-                assert page.locator('.solution-help').count() == 0
+                assert page.locator('.solution-help').count() == 1
+                assert not page.locator('.solution-help').evaluate('(panel) => panel.open')
                 page.click('[data-act="check"]')
                 page.wait_for_selector('.results .res.bad')
                 assert not page.is_checked('.done-toggle input')
