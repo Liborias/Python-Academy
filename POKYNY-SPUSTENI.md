@@ -39,10 +39,12 @@ Pro Datovou analýzu:
 python tools/setup_env.py --courses pandas
 ```
 Nainstaluje pandas řady 3, matplotlib, openpyxl a ipykernel do stejné projektové
-.venv. Prvních dvacet pět lekcí potřebuje pouze pandas a běží jako běžné .py soubory
-v aplikaci nebo terminálu. Notebooky a buňky # %% jsou volitelné.
+.venv. Prvních 25 lekcí potřebuje pouze pandas, lekce 26–30 také Matplotlib.
+Soubory .py běží v aplikaci i terminálu bez grafické plochy. V aplikaci vzniknou
+náhledy PNG s možností stažení; v editoru obrázky najdete v pracovní složce procesu.
+Notebooky a buňky # %% jsou volitelné.
 Balíčky používá Python z .venv; zvolte jej také v editoru. Po instalaci aplikaci
-znovu spusťte. Ověřený úvod používá Python 3.14.8 a pandas 3.1.1.
+znovu spusťte. Ověřeno s Pythonem 3.14.8, pandas 3.1.1 a Matplotlib 3.11.2.
 
 Bez --courses pomocník připraví běžné balíčky všech kurzů; --extras navíc
 volitelné PyInstaller, qrcode a pyttsx3. Instalace těchto součástí není nutná

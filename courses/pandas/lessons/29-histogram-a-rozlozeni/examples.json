@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Stejné hodnoty, jiné intervaly",
+    "description": "Změna hranic mění vzhled, původní měření zůstávají stejná.",
+    "code": "# %% Knihovna a samostatný obrázek\nfrom matplotlib.figure import Figure\n# %% Každý panel dostane stejný seznam měření.\nvalues = [0, 1, 2, 2, 3, 4, 6]\nfig = Figure(figsize=(8, 3), layout=\"constrained\")\nosy = fig.subplots(1, 2, sharey=True)\nfor ax, edges, title in zip(osy, [[0, 2, 4, 6], [0, 3, 6]], [\"Tři intervaly\", \"Dva intervaly\"]):\n    counts, _, _ = ax.hist(values, bins=edges)\n    ax.set(title=title, xlabel=\"Doba (min)\", ylabel=\"Četnost\")\n    print(title, counts.tolist())\nfig.suptitle(\"Stejných sedm cvičných měření\")\nfig.savefig(\"graf.png\", dpi=120)\nprint(\"Uloženo: graf.png\")\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Hustota není součet výšek",
+    "description": "Nestejné šířky: plochy sečtené přes intervaly dávají 1.",
+    "code": "# %% Knihovna a samostatný obrázek\nfrom matplotlib.figure import Figure\n# %% Četnosti jsou 1 a 3, šířky 1 a 3, hustoty obě 0.25.\nfig = Figure(layout=\"constrained\")\nax = fig.subplots()\ncounts, edges, _ = ax.hist([0, 1, 2, 4], bins=[0, 1, 4], density=True)\nax.set(title=\"Nestejné šířky intervalů\", xlabel=\"Doba (min)\", ylabel=\"Hustota (1/min)\")\nprint(\"Výšky:\", counts.tolist())\nprint(\"Součet ploch:\", sum(counts[i] * (edges[i+1]-edges[i]) for i in range(len(counts))))\nfig.savefig(\"graf.png\", dpi=120)\nprint(\"Uloženo: graf.png\")\n"
+  }
+]

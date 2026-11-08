@@ -1,0 +1,12 @@
+{
+  "title": "Figure, Axes a srozumitelné popisky",
+  "minutes": 50,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "matplotlib",
+    "grafy"
+  ],
+  "preview_images": true,
+  "example_title": "Připravit prázdný graf"
+}

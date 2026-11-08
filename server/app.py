@@ -170,8 +170,10 @@ class Handler(SimpleHTTPRequestHandler):
                 ld = lesson_dir(self.srv.courses_dir, str(body.get("course", "")), str(body.get("lesson", "")), body.get("task"))
                 if body.get("task") not in (None, "") and ld is None:
                     return self._json(404, {"error": "Úkol neexistuje."})
+                main_lesson = lesson_dir(self.srv.courses_dir, str(body.get("course", "")), str(body.get("lesson", "")))
+                meta = content._json(main_lesson / 'lesson.json', {}) if main_lesson else {}
                 run = self.srv.runs.start(body.get("code", ""), body.get("timeout", 20), body.get("stdin", ""),
-                                          ld / "files" if ld else None)
+                                          ld / "files" if ld else None, preview_images=meta.get('preview_images') is True)
             except ValueError as e:
                 return self._json(400, {"error": str(e)})
             except RuntimeError as e:

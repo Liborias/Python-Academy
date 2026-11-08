@@ -1,0 +1,12 @@
+{
+  "title": "Bodový graf a souvislosti",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "matplotlib",
+    "grafy"
+  ],
+  "preview_images": true,
+  "example_title": "Samostatné dvojice měření"
+}

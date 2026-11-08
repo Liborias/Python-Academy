@@ -27,7 +27,7 @@ export async function renderLesson(el, cid, lid) {
   el.innerHTML = `${crumbs}
     <article class="lesson">
       <h1>${esc(lesson.title)}</h1>
-      <div class="meta" style="margin-top:8px">${lesson.minutes ? `<span>asi ${lesson.minutes} min</span>` : ''}${gui ? '<span class="badge">otevře okno</span>' : ''}</div>
+      <div class="meta" style="margin-top:8px">${lesson.minutes ? `<span>asi ${lesson.minutes} min</span>` : ''}${gui ? '<span class="badge">otevře okno</span>' : ''}${lesson.preview_images ? '<span class="badge">náhled grafu</span>' : ''}</div>
       ${guide ? '<div class="note"><strong>Návrh lekce úvodního podkurzu.</strong> Postup proveďte na svém počítači. Zaškrtnutí je vlastní ověření, aplikace instalaci ani stav GitHubu nekontroluje.</div>' : ''}
       <div class="prose">${markdown(lesson.md)}</div>
       ${lesson.example ? `<section class="block"><h2>Ukázka</h2>
@@ -94,7 +94,7 @@ export async function renderLesson(el, cid, lid) {
         button.onclick = () => {
           const index = Number(button.dataset.example);
           if (index === selected) return;
-          exCon.stop();
+          exCon.clear();
           drafts[selected] = ex.get();
           selected = index;
           ex.set(drafts[selected]);
@@ -110,7 +110,7 @@ export async function renderLesson(el, cid, lid) {
     if (multipleExamples) {
       el.querySelector('[data-act="reset-ex"]').onclick = () => {
         if (confirm('Obnovit původní kód vybraného příkladu? Vaše úpravy tohoto příkladu se přepíšou.')) {
-          exCon.stop();
+          exCon.clear();
           ex.set(examples[selected].code);
         }
       };

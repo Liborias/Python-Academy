@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Stejný obsah při dvou DPI",
+    "description": "Rozměr v pixelech se zdvojnásobí v obou směrech.",
+    "code": "# %% Knihovna a samostatný obrázek\nfrom matplotlib.figure import Figure\n# %% Figsize v palcích zůstává stejný při obou exportech.\nfig = Figure(figsize=(6, 4), layout=\"constrained\")\nax = fig.subplots()\nax.plot([1, 2, 3], [8, 11, 9], marker=\"o\")\nax.set(title=\"Stejný obsah, různá velikost PNG\", xlabel=\"Den\", ylabel=\"Teplota (°C)\")\nfig.savefig(\"nahled.png\", dpi=100)\nfig.savefig(\"vetsi.png\", dpi=200)\nprint(\"nahled.png: 600 × 400; vetsi.png: 1200 × 800 pixelů\")\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Průhledný export s čitelnými popisky",
+    "description": "PNG zachová alfa kanál; podklad aplikace je bílý.",
+    "code": "# %% Knihovna a samostatný obrázek\nfrom matplotlib.figure import Figure\n# %% Transparent mění export, nikoli hodnoty nebo původní graf.\nfig = Figure(figsize=(6, 4), layout=\"constrained\")\nax = fig.subplots()\nax.plot([1, 2, 3], [8, 11, 9], marker=\"o\")\nax.set(title=\"Průhledné pozadí\", xlabel=\"Den\", ylabel=\"Teplota (°C)\")\nfig.savefig(\"pruhledne.png\", dpi=120, transparent=True)\nprint(\"Uloženo: pruhledne.png\")\n"
+  }
+]

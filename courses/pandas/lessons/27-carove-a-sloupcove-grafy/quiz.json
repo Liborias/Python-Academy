@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co udělá plot s nesetříděnými x?",
+    "options": [
+      "Vždy x sám seřadí.",
+      "Spojí body v dodaném pořadí.",
+      "Vždy vypočítá groupby."
+    ],
+    "answer": 1,
+    "why": "Pořadí či agregaci volíme před kreslením."
+  },
+  {
+    "q": "Proč má mít sloupcový graf počtů nulovou základnu?",
+    "options": [
+      "Nula automaticky opraví chybějící údaje.",
+      "Z nuly vznikne legenda.",
+      "Délka sloupce vyjadřuje velikost."
+    ],
+    "answer": 2,
+    "why": "Useknutí spodní části může přehánět rozdíly."
+  },
+  {
+    "q": "Jaký význam má NaN v čáře měření?",
+    "options": [
+      "Přeruší spojnici; není to nulové měření.",
+      "Je to vždy hodnota 0 °C.",
+      "Automaticky prokáže chybu senzoru."
+    ],
+    "answer": 0,
+    "why": "Odstranění nebo doplnění hodnoty by změnilo sdělení."
+  }
+]

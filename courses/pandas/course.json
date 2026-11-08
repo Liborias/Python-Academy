@@ -62,15 +62,26 @@
         "24-casovy-index-a-obdobi",
         "25-resample-a-casove-souhrny"
       ]
+    },
+    {
+      "id": "m06",
+      "title": "Graf jako odpověď",
+      "lessons": [
+        "26-figure-axes-a-popisky",
+        "27-carove-a-sloupcove-grafy",
+        "28-bodovy-graf-a-souvislosti",
+        "29-histogram-a-rozlozeni",
+        "30-ulozeni-grafu-do-png"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od prvního měření k Analytické dílně",
     "status": "draft",
     "level": 3,
-    "summary": "Prvních 25 lekcí je připravených: od Series po čištění, souhrny, spojování tabulek a časové řady. Samostatná témata mají tři ukázky a pět úkolů s možným řešením; projekt kavárny tvoří jeden celek.",
+    "summary": "Prvních 30 lekcí je připravených: od Series po čištění, souhrny, spojování tabulek, časové řady a grafy. Samostatná témata mají tři ukázky a pět úkolů s možným řešením; projekt kavárny tvoří jeden celek.",
     "placement": "Po Základech Pythonu; práce se soubory pomůže, notebook není povinný.",
     "difficulty_reason": "Úvod od 2/4, celek 3/4: popisky, datové typy, chybějící údaje, spojování, grafy a ověření výsledků.",
-    "duration": "Plán 42 lekcí, prvních 25 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
+    "duration": "Plán 42 lekcí, prvních 30 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
   }
 }

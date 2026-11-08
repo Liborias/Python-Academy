@@ -1,0 +1,12 @@
+{
+  "title": "Uložení grafu do PNG",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "matplotlib",
+    "grafy"
+  ],
+  "preview_images": true,
+  "example_title": "Uložit konkrétní obrázek"
+}

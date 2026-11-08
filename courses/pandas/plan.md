@@ -1,16 +1,16 @@
 ## Datová analýza v Pandas
 
-**Připraveno 25 ze 42 lekcí.** Začneme vlastními měřeními a ceníkem malé kavárny. Postupně z nich vznikne Analytická dílna: od otázky přes kontrolu dat až po graf a srozumitelnou zprávu. Data jsou cvičná a smyšlená, součástí projektu; jejich získávání nebude záviset na cizí službě.
+**Připraveno 30 ze 42 lekcí.** Začneme vlastními měřeními a ceníkem malé kavárny. Postupně z nich vznikne Analytická dílna: od otázky přes kontrolu dat až po graf a srozumitelnou zprávu. Data jsou cvičná a smyšlená, součástí projektu; jejich získávání nebude záviset na cizí službě.
 
 Kurz navazuje na seznamy, slovníky, funkce a soubory ze Základů Pythonu. Úvod má náročnost 2/4, celek 3/4 kvůli datovým typům, chybějícím hodnotám, spojování tabulek a ověřování výsledků. Odhad je 25–35 hodin základního průchodu; další procvičování podle potřeby.
 
 ## Prostředí a způsob práce
 
-Příprava před lekcemi nabízí Windows/macOS/Linux a VS Code/VSCodium/PyCharm. Použijte stejnou .venv pro editor i terminál. Instalaci obstará python tools/setup_env.py --courses pandas. Pandas řady 3 pracuje s tabulkami, matplotlib připraví grafy, openpyxl soubory Excelu a ipykernel volitelné notebooky či buňky. Prvních dvacet pět lekcí potřebuje pouze pandas.
+Příprava před lekcemi nabízí Windows/macOS/Linux a VS Code/VSCodium/PyCharm. Použijte stejnou .venv pro editor i terminál. Instalaci obstará python tools/setup_env.py --courses pandas. Pandas řady 3 pracuje s tabulkami, matplotlib připraví grafy, openpyxl soubory Excelu a ipykernel volitelné notebooky či buňky. Prvních dvacet pět lekcí potřebuje pouze pandas; lekce 26–30 také Matplotlib.
 
-Prvních pět modulů je ověřených na Pythonu 3.14.8 s pandas 3.1.1 a NumPy 2.5.4. Ověřená instalace obsahuje také matplotlib 3.11.2, openpyxl 3.1.5 a ipykernel 7.4.0; jejich konkrétní použití přijde v dalších blocích. V prohlížeči spouštíme obyčejné .py soubory. Komentáře # %% dovolují volitelné rozdělení do buněk v podporovaném editoru. Vždy zůstává možnost spustit celý skript v terminálu. Notebook ani Anaconda nejsou podmínkou studia.
+Prvních šest modulů je ověřených na Pythonu 3.14.8 s pandas 3.1.1 a NumPy 2.5.4. Ověřená instalace obsahuje také matplotlib 3.11.2, openpyxl 3.1.5 a ipykernel 7.4.0; Matplotlib používáme v lekcích 26–30, Excel a notebooky přijdou později. V prohlížeči spouštíme obyčejné .py soubory. Komentáře # %% dovolují volitelné rozdělení do buněk v podporovaném editoru. Vždy zůstává možnost spustit celý skript v terminálu. Notebook ani Anaconda nejsou podmínkou studia.
 
-Každá dostupná lekce vysvětluje nové operace před použitím. Samostatné lekce 1–19 a 21–25 mají tři přepínatelné ukázky a pět úkolů. Projekt kavárny v lekci 20 tvoří jeden celek se dvěma funkcemi, přiloženým CSV, řešením a pěti kvízovými otázkami; nemá nesouvisející varianty. Každý úkol nabízí možné řešení a kontrolu výsledku na různých vstupech. Jiný správný postup je v pořádku. Další běžná témata budou tento způsob procvičování zachovávat; navazující projektové kroky budou tvořit jeden celek. Odkrytí řešení nepřepisuje rozepsaný kód ani neoznačuje úkol za splněný.
+Každá dostupná lekce vysvětluje nové operace před použitím. Samostatné lekce 1–19 a 21–30 mají tři přepínatelné ukázky a pět úkolů. Projekt kavárny v lekci 20 tvoří jeden celek se dvěma funkcemi, přiloženým CSV, řešením a pěti kvízovými otázkami; nemá nesouvisející varianty. Každý úkol nabízí možné řešení a kontrolu výsledku na různých vstupech. Jiný správný postup je v pořádku. Další běžná témata budou tento způsob procvičování zachovávat; navazující projektové kroky budou tvořit jeden celek. Odkrytí řešení nepřepisuje rozepsaný kód ani neoznačuje úkol za splněný.
 
 ## Modul 1 — Od seznamu k datové tabulce
 
@@ -70,11 +70,11 @@ Výstup: odpovědi na konkrétní otázky doložené tabulkou a kontrolou počt�
 24. Časový index a výběr období se správným pořadím.
 25. Resample a souhrny za den či měsíc, prázdná období.
 
-Výstup: propojená data se zdokumentovanými klíči a pravidly pro časový souhrn. Rozlišujete reindex, concat a merge, kontrolujete kardinalitu přes validate i nespárované klíče pomocí indikátoru. Chybějící cena se neplete s neexistujícím produktem. Časový index má jednotku datetime64[us] bez časového pásma; umíte stabilní pořadí shod, přesný úsek, celý den, pravidelnou mřížku a denní i kalendářní měsíční agregaci. Prázdné období, samé NaN a skutečná nula mají odlišný význam. Celkem je dostupných 73 ukázek a 121 úkolů. Další blok 26–30 přidá grafy.
+Výstup: propojená data se zdokumentovanými klíči a pravidly pro časový souhrn. Rozlišujete reindex, concat a merge, kontrolujete kardinalitu přes validate i nespárované klíče pomocí indikátoru. Chybějící cena se neplete s neexistujícím produktem. Časový index má jednotku datetime64[us] bez časového pásma; umíte stabilní pořadí shod, přesný úsek, celý den, pravidelnou mřížku a denní i kalendářní měsíční agregaci. Prázdné období, samé NaN a skutečná nula mají odlišný význam. Návazný blok 26–30 přidá grafy.
 
 ## Modul 6 — Graf jako odpověď
 
-**Plán: lekce 26–30.**
+**Hotovo: lekce 26–30.** Každá má tři ukázky a pět úkolů s možnými řešeními.
 
 26. Matplotlib Figure/Axes: titulek, popisky, jednotky a legenda.
 27. Čárový a sloupcový graf: vývoj proti porovnání kategorií.
@@ -82,7 +82,7 @@ Výstup: propojená data se zdokumentovanými klíči a pravidly pro časový so
 29. Histogram a rozložení hodnot: volba intervalů a četnosti.
 30. Uložení PNG, čitelný rozměr a grafy i bez grafické plochy.
 
-Výstup: několik čitelných grafů s popisem, co z nich lze a nelze vyvodit.
+Výstup: několik čitelných grafů s popisem, co z nich lze a nelze vyvodit. Rozlišujete Figure a Axes, vývoj a kategorie, neúplné dvojice a nulové hodnoty, četnosti a hustotu. Stejné intervaly a stupnice pomáhají při porovnání; vzor bodů sám nedokazuje příčinu. PNG lze v aplikaci prohlédnout a stáhnout, z editoru uložit přímo do pracovní složky. Export procvičuje DPI, palce/pixely, průhlednost a tight rámeček; běží i bez okna. Kontrola ověřuje skutečné artists a soubory, barvu ani písmo nepředepisuje. Celkem je dostupných 88 ukázek a 146 úkolů. Další blok 31–35 přidá Excel, exporty a opakovatelný postup.
 
 ## Modul 7 — Soubory a opakovatelný postup
 

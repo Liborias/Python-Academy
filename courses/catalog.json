@@ -74,7 +74,7 @@
         "zaklady"
       ],
       "status": "draft",
-      "summary": "Prvních 25 z 42 lekcí: od Series a čištění po groupby, projekt kavárny, spojování tabulek a časové řady. Více ukázek/procvičení a možná řešení."
+      "summary": "Prvních 30 z 42 lekcí: od Series a čištění po groupby, projekt kavárny, spojování tabulek, časové řady a grafy. Více ukázek/procvičení a možná řešení."
     },
     {
       "id": "tkinter-api",

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Dvě skupiny bodů",
+    "description": "Tvar i legenda pomohou odlišit dvě skupiny.",
+    "code": "# %% Knihovna a samostatný obrázek\nfrom matplotlib.figure import Figure\n# %% Body nespojujeme podle pořadí řádků.\nfig = Figure(layout=\"constrained\")\nax = fig.subplots()\nax.scatter([1, 2, 3], [3, 4, 5], marker=\"o\", label=\"Skupina A\")\nax.scatter([1, 2, 3], [5, 3, 2], marker=\"^\", label=\"Skupina B\")\nax.set(title=\"Dvě cvičné skupiny\", xlabel=\"Doba (h)\", ylabel=\"Body\")\nax.legend()\nfig.savefig(\"graf.png\", dpi=120)\nprint(\"Uloženo: graf.png\")\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Nápadný bod se automaticky nemaže",
+    "description": "Stejná data ukazují i výrazně odlišné pozorování; nejprve hledáme vysvětlení.",
+    "code": "# %% Knihovna a samostatný obrázek\nfrom matplotlib.figure import Figure\n# %% Tento graf ukazuje dvojice, sám nevysvětluje příčinu vztahu.\nfig = Figure(layout=\"constrained\")\nax = fig.subplots()\nax.scatter([1, 2, 3, 4, 8], [5, 7, 6, 8, 2])\nax.set(title=\"Včetně nápadného pozorování\", xlabel=\"Doba učení (h)\", ylabel=\"Body v kvízu\")\nfig.savefig(\"graf.png\", dpi=120)\nprint(\"Uloženo: graf.png\")\n"
+  }
+]

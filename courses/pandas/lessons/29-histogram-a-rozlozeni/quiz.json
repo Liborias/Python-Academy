@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kam patří hodnota 4 při bins=[0, 2, 4]?",
+    "options": [
+      "Do posledního intervalu [2, 4].",
+      "Nikdy se nezapočítá.",
+      "Do obou intervalů."
+    ],
+    "answer": 0,
+    "why": "Poslední interval zahrnuje i pravou hranici."
+  },
+  {
+    "q": "Co má u density=True součet 1?",
+    "options": [
+      "Vždy prostý součet výšek.",
+      "Plochy sloupců: výška krát šířka.",
+      "Vždy počet původních měření."
+    ],
+    "answer": 1,
+    "why": "Při nestejných šířkách hustota není totéž co četnost ani podíl počtu."
+  },
+  {
+    "q": "Co při porovnání histogramů sjednotíme?",
+    "options": [
+      "Pouze barvu obrázku.",
+      "Počet NaN doplněním nul.",
+      "Hranice intervalů a pro srovnání četností také měřítko y."
+    ],
+    "answer": 2,
+    "why": "Vzhled závisí na dělení; četnosti navíc závisejí na velikosti skupin."
+  }
+]

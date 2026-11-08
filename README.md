@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.63):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a prvních pět modulů Datové analýzy (25 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.64):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a prvních šest modulů Datové analýzy (30 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,13 +38,13 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Datová analýza — prvních dvacet pět lekcí
+## Datová analýza — prvních třicet lekcí
 
 Kurz začíná Series a popisky, výpočty podle indexu, výběrem loc/iloc,
-prvním DataFrame a načtením místních CSV. Samostatné lekce 1–19 a 21–25 mají tři přepínatelné
+prvním DataFrame a načtením místních CSV. Samostatné lekce 1–19 a 21–30 mají tři přepínatelné
 ukázky a pět úkolů s vlastním zadáním, kontrolou a možným řešením. Projekt kavárny
 v lekci 20 tvoří jeden celek s ukázkou, řešením a pěti kvízovými otázkami.
-Celkem je připraveno 73 ukázek a 121 úkolů. Data jsou vlastní a smyšlená,
+Celkem je připraveno 88 ukázek a 146 úkolů. Data jsou vlastní a smyšlená,
 u CSV procvičíte desetinnou čárku, hlavičku, UTF-8 a textové kódy s nulami.
 Výklad vysvětluje nové operace, význam výsledku i běžné omyly.
 
@@ -52,8 +52,9 @@ Po aktualizaci připravte závislosti příkazem
 `python tools/setup_env.py --courses pandas` a znovu spusťte aplikaci.
 Pomocník použije projektovou .venv; vyberte ji také v editoru.
 Instaluje pandas řady 3, matplotlib, openpyxl a ipykernel.
-Prvních pět modulů používá jen pandas a běží bez internetu i grafické plochy.
-Ověřeno na Pythonu 3.14.8 s pandas 3.1.1 a NumPy 2.5.4.
+Prvních pět modulů používá jen pandas, šestý přidává Matplotlib.
+Všech třicet lekcí běží bez internetu i grafické plochy; grafy se ukládají do PNG.
+Ověřeno na Pythonu 3.14.8 s pandas 3.1.1, NumPy 2.5.4 a Matplotlib 3.11.2.
 Soubory .py fungují přímo v aplikaci nebo terminálu; značky # %% umožní
 volitelné buňky v podporovaném editoru. Notebook není povinný.
 Příprava nabízí VS Code, VSCodium i PyCharm.
@@ -75,7 +76,12 @@ ověření počtů i tržeb. Výsledky kontrolují také nezávislé součty v P
 Pátý modul 21–25 učí reindex a concat podle os, merge podle jednoho i více
 klíčů, validate, indikátor původu a překrývající se názvy. Časový index rozlišuje
 přesný úsek od celého dne; resample denní a měsíční souhrny, chybějící
-období i skutečnou nulu. Následují grafy v lekcích 26–30.
+období i skutečnou nulu. Šestý modul 26–30 přidává Figure/Axes a popisky,
+čáry a sloupce, scatter a omezení příčinných závěrů, histogramy/četnosti/hustotu
+a export PNG. Každý graf lze po běhu zobrazit v aplikaci a stáhnout.
+Náhledy patří aktuálnímu běhu; po reloadu je znovu vytvoříte spuštěním kódu.
+V editoru PNG vznikne v pracovní složce procesu. Následují soubory CSV/Excel
+a opakovatelný postup v lekcích 31–35.
 
 ## Okenní aplikace, API a e-maily — všech 28 lekcí připravených
 Kurz začíná oknem Tkinteru, popisky, tlačítky a formulářem se jménem.
@@ -186,10 +192,10 @@ Jeho id a uložené úpravy se nemění. Web používá SVG i ICO faviconu; při
 ikoně obnovte stránku pomocí Ctrl+F5. Soubory ikon mají v odkazech verzi pro cache.
 
 ## Pět úkolů na procvičení
-V běžných lekcích Základů (01–31 a 37–39) a lekcích 1–19 a 21–25 Datové analýzy
+V běžných lekcích Základů (01–31 a 37–39) a lekcích 1–19 a 21–30 Datové analýzy
 přepínají tlačítka **Úkol 1 až Úkol 5**
 mezi původním úkolem a čtyřmi novými. Každý má vlastní zadání, rozepsaný kód,
-kontrolu a pracovní soubor pro externí editor. Doplňkových úkolů je celkem 232.
+kontrolu a pracovní soubor pro externí editor. Doplňkových úkolů je celkem 252.
 Úkol 1 zachovává původní uložený kód i návaznost na splnění lekce. Nové úkoly mají
 vlastní značky úspěšného procvičení. „Začít znovu“ obnoví jen právě vybraný úkol.
 Navazující mini-projekty a závěrečné testy tvoří vlastní celky.
@@ -197,8 +203,8 @@ Navazující mini-projekty a závěrečné testy tvoří vlastní celky.
 ## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
 variantu k právě vybranému zadání s připomenutím, že správných postupů může být více.
-Pomoc je dostupná pro všech 193 hlavních zadání napříč sedmi praktickými kurzy
-i 232 dalších úkolů v Základech a Datové analýze, celkem 425 řešení včetně projektů a závěrečných
+Pomoc je dostupná pro všech 198 hlavních zadání napříč sedmi praktickými kurzy
+i 252 dalších úkolů v Základech a Datové analýze, celkem 450 řešení včetně projektů a závěrečných
 programů. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
 Průvodce přípravou bez programovacího úkolu tento panel nemá.
 

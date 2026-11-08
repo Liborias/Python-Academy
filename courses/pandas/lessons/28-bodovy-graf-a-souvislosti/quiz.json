@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak zachovat správné dvojice při čištění?",
+    "options": [
+      "Samostatně vyčistit a seřadit každý sloupec.",
+      "Nahradit všechny neznámé údaje nulou.",
+      "Vybírat oba sloupce a filtrovat jejich řádky společně."
+    ],
+    "answer": 2,
+    "why": "Každý bod musí pocházet ze stejného pozorování."
+  },
+  {
+    "q": "Prokazuje rostoucí vzor bodů příčinu?",
+    "options": [
+      "Ne, vztah může ovlivňovat další faktor.",
+      "Ano, samotný obrázek prokazuje účinek x na y.",
+      "Ano, pokud jsou značky velké."
+    ],
+    "answer": 0,
+    "why": "Graf popisuje dvojice; příčinný závěr vyžaduje další podklady."
+  },
+  {
+    "q": "Co udává s ve scatter?",
+    "options": [
+      "Poloměr v metrech datové osy.",
+      "Plochu značky v typografických bodech na druhou.",
+      "Počet intervalů histogramu."
+    ],
+    "answer": 1,
+    "why": "Velikost značky a jednotky datové osy jsou různé věci."
+  }
+]

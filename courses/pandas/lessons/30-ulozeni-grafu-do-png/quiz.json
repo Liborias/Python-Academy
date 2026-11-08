@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co způsobí změna DPI 100 na 200 při stejném figsize?",
+    "options": [
+      "Dvakrát více původních měření.",
+      "Dvojnásobnou šířku i výšku PNG v pixelech bez tight.",
+      "Vždy přesně dvojnásobnou velikost souboru v bajtech."
+    ],
+    "answer": 1,
+    "why": "Více pixelů nemění data, komprese nemá pevný poměr."
+  },
+  {
+    "q": "Proč ukládat přes fig.savefig?",
+    "options": [
+      "Aby se automaticky odeslal na GitHub.",
+      "Protože Path je jediná povolená přípona.",
+      "Výslovně ukládáme předaný obrázek."
+    ],
+    "answer": 2,
+    "why": "Globální aktuální Figure se může při více grafech lišit."
+  },
+  {
+    "q": "Co mění bbox_inches=\"tight\"?",
+    "options": [
+      "Ukládaný rámeček podle obsahu, a tím i rozměr PNG.",
+      "Hodnoty původních měření.",
+      "Datumy na text."
+    ],
+    "answer": 0,
+    "why": "Rámeček může zahrnout i text mimo původní plátno a přidá se pad_inches."
+  }
+]

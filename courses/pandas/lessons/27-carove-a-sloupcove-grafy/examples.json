@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Mezera zůstává mezerou",
+    "description": "NaN přeruší spojnici, neznamená nulové měření.",
+    "code": "# %% Knihovna a samostatný obrázek\nfrom matplotlib.figure import Figure\n# %% Použijeme skutečné dny, ne pořadí 0, 1, 2, 3.\nfig = Figure(layout=\"constrained\")\nax = fig.subplots()\nax.plot([1, 3, 7, 8], [8, float(\"nan\"), 9, 11], marker=\"o\")\nax.set(title=\"Chybějící teplota\", xlabel=\"Den\", ylabel=\"Teplota (°C)\")\nfig.savefig(\"graf.png\", dpi=120)\nprint(\"Uloženo: graf.png\")\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Vodorovné sloupce pro dlouhé názvy",
+    "description": "První kategorie nahoře a číselná stupnice od nuly.",
+    "code": "# %% Knihovna a samostatný obrázek\nfrom matplotlib.figure import Figure\n# %% Invertujeme směr osy, nikoli přiřazení hodnot kategoriím.\nfig = Figure(layout=\"constrained\")\nax = fig.subplots()\nax.barh([\"Čaj s medem\", \"Káva bez kofeinu\", \"Voda\"], [4, 7, 0])\nax.invert_yaxis()\nax.set_xlim(left=0)\nax.set(title=\"Cvičné objednávky\", xlabel=\"Počet\", ylabel=\"Nápoj\")\nfig.savefig(\"graf.png\", dpi=120)\nprint(\"Uloženo: graf.png\")\n"
+  }
+]

@@ -151,7 +151,7 @@ zadáním a ověřte jej kontrolou daného úkolu. Zobrazení nic nevkládá do 
 neprovádí kontrolu a nemění značky splnění. Přepnutí úkolu panel zavře, vymaže
 předchozí zobrazení a ignoruje opožděnou odpověď jiného úkolu. Jednotlivá načtená
 řešení se drží jen v paměti aktuální stránky; obnovení stránky je znovu skryje.
-Všech 193 praktických lekcí a 232 doplňkových úkolů má řešení. Průvodce bez
+Všech 198 praktických lekcí a 252 doplňkových úkolů má řešení. Průvodce bez
 programového zadání ani plánovaný kurz panel nezobrazuje. Zpřístupnění dalšího
 kurzu nevyžaduje seznam povolených kurzů v kódu: rozhoduje existence jeho vzoru.
 
@@ -218,6 +218,39 @@ prázdné dny, samé NaN a skutečnou nulu; měsíce používají MS, nikoli 30D
 Test_pandas_joins zahrnuje i správné alternativy, samostatné běhy všech řešení,
 pět úryvků výkladu a propojení ceníku s časovým souhrnem. Každá lekce 21–25
 má dvě doplňkové ukázky a čtyři doplňkové úkoly; projekt 20 zůstává jeden celek.
+
+## Grafy a náhledy PNG (od v0.64)
+Lekce 26–30 jsou kind=console a mají preview_images=true v lesson.json.
+API lesson vrací tento bool; API run určí režim z hlavní lekce i u task-2 až
+5. Příznak v těle run se nepoužívá. Ostatní běhy neimportují Matplotlib.
+Grafické běhy mají MPLBACKEND=Agg a zapisovatelnou cache v workspace/_run/_matplotlib.
+Použité skripty vytvářejí skutečný Figure a ukládají PNG bez volání plt.show.
+
+Runner před smazáním celé dočasné složky včetně podsložek načte PNG do paměti.
+Poll je vrací po dokončení jako images:[{name,data}] s base64 PNG a image_notice.
+Platí stávající token/Host/Origin ochrana; do odpovědi nejdou místní absolutní
+cesty ani libovolné soubory. Symlinky se nepřebírají. Maximum 6 PNG, každý
+2 MB a 8 milionů pixelů, celkem 4 MB. Kontroluje se hlavička a rozměry;
+server k tomu nepřidává závislost na Pillow/Matplotlib. Při vynechání náhledu
+vrátí vysvětlení. Toto omezuje náhled, nikoli samostatný export v editoru.
+
+Runner-client tvoří img s pevným data:image/png typem a textové popisky/odkazy
+pomocí DOM. Galerie se při novém běhu či změně úkolu/příkladu vyprázdní, stará
+opožděná odpověď díky generaci nemůže nahradit nový graf. PNG lze stáhnout;
+po reloadu nejsou obrázky uložené v localStorage, znovu je vytvoří běh kódu.
+Bílý podklad náhledu neodstraňuje průhlednost staženého PNG. Zveřejnění řešení
+zůstává samostatné čtení a nemění rozepsanou práci ani postup.
+
+Volitelný matplotlib_tools.py se importuje jen v grafických kontrolách.
+Kontroluje Figure/Axes a skutečné čáry, sloupce, body a histogramy podle dat,
+popisků, značek předepsaných úkolem, nulových základen a měřítek. Barva/písmo
+nejsou předepsané. Kontroly zachovávají původní tabulky/seznamy; úkoly pro
+úpravu existující Axes a export mají zvlášť ověřenou identitu a původní obsah.
+Exporty se otevírají přes Pillow: formát, cesta/Path, rozměry, DPI, skutečná
+čára, alfa kanál i tight rámeček. Cizí aktuální pyplot Figure odhaluje záměnu
+fig.savefig a plt.savefig. Testy přijímají správné alternativy včetně ručního
+výpočtu četností/hustoty a odlišného vzhledu, neporovnávají snímky pixel po pixelu.
+Lekce 26–30 mají po třech ukázkách a pěti úkolech, každý s možným řešením.
 
 ## Odolné ukládání postupu (od v0.58)
 Web/js/store.js zachovává klíč dilna-python-v1 a dosavadní strukturu done,

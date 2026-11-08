@@ -6,9 +6,10 @@ import { esc } from './util.js';
 export function makeConsole(box, { onDone } = {}) {
   box.classList.add('console');
   box.innerHTML = `<pre class="out" tabindex="0" aria-live="polite"></pre>
+    <div class="plot-gallery" aria-label="Vytvořené grafy" hidden></div>
     <form class="stdin" hidden><label>Vstup: <input type="text" autocomplete="off" aria-label="Vstup pro input()"></label><button class="btn" type="submit">Odeslat</button></form>
     <div class="status" aria-live="polite"></div>`;
-  const out = box.querySelector('.out'), form = box.querySelector('.stdin'),
+  const out = box.querySelector('.out'), gallery = box.querySelector('.plot-gallery'), form = box.querySelector('.stdin'),
         inp = form.querySelector('input'), status = box.querySelector('.status');
   let id = null, since = 0, timer = null, generation = 0;
   const api_ = { running: false };
@@ -23,6 +24,21 @@ export function makeConsole(box, { onDone } = {}) {
     const msg = p.timed_out ? 'Program běžel příliš dlouho a byl zastaven.'
       : p.stopped ? 'Zastaveno.' : p.exit === 0 ? 'Hotovo.' : `Program skončil s chybou (kód ${p.exit}).`;
     if (p.truncated) add('err', '\n[Výstup byl zkrácen.]');
+    gallery.replaceChildren();
+    for (const plot of p.images || []) {
+      const figure = document.createElement('figure'), img = document.createElement('img');
+      const caption = document.createElement('figcaption'), link = document.createElement('a');
+      img.src = `data:image/png;base64,${plot.data}`;
+      img.alt = `Graf ze souboru ${plot.name}`;
+      link.href = img.src; link.download = plot.name.split('/').pop();
+      link.textContent = `Stáhnout PNG: ${plot.name}`;
+      caption.appendChild(link); figure.append(img, caption); gallery.appendChild(figure);
+    }
+    if (p.image_notice) {
+      const note = document.createElement('p'); note.className = 'hint';
+      note.textContent = p.image_notice; gallery.appendChild(note);
+    }
+    gallery.hidden = !gallery.childElementCount;
     status.textContent = msg; status.className = 'status ' + (p.exit === 0 && !p.timed_out ? 'ok' : 'bad');
     onDone && onDone(p);
   };
@@ -47,7 +63,8 @@ export function makeConsole(box, { onDone } = {}) {
   api_.run = async (code, timeout = 20, ctx = {}) => {
     api_.stop();
     const version = ++generation;
-    out.textContent = ''; status.textContent = 'Běží…'; status.className = 'status';
+    out.textContent = ''; gallery.replaceChildren(); gallery.hidden = true;
+    status.textContent = 'Běží…'; status.className = 'status';
     since = 0; form.hidden = false; api_.running = true;
     try {
       const run = await api('/api/run', { code, timeout, course: ctx.course, lesson: ctx.lesson, task: ctx.task });
@@ -65,7 +82,7 @@ export function makeConsole(box, { onDone } = {}) {
     api_.running = false; form.hidden = true;
     if (previousId) api('/api/run/stop', { id: previousId }).catch(() => {});
   };
-  api_.clear = () => { api_.stop(); out.textContent = ''; status.textContent = ''; };
+  api_.clear = () => { api_.stop(); out.textContent = ''; status.textContent = ''; gallery.replaceChildren(); gallery.hidden = true; };
 
   return api_;
 }

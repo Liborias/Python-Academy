@@ -5,7 +5,10 @@ posílat vstup pro input() a běh zastavit. Okno aplikace (Tkinter, Pygame) se o
 na počítači studenta, protože proces dědí jeho grafické prostředí.
 """
 import codecs
+import base64
 import os
+import shutil
+import struct
 import subprocess
 import sys
 import tempfile
@@ -22,6 +25,40 @@ DEFAULT_TIMEOUT = 20
 MAX_TIMEOUT = 600             # okenní aplikace potřebují delší limit
 MAX_ACTIVE = 4
 KEEP_FINISHED = 60            # sekund, po které se hotový běh drží pro poslední poll
+MAX_IMAGES = 6
+MAX_IMAGE_BYTES = 2_000_000
+MAX_IMAGES_BYTES = 4_000_000
+MAX_IMAGE_PIXELS = 8_000_000
+
+
+def collect_images(directory: Path) -> tuple[list[dict], str]:
+    """Načte malé PNG vytvořené během běhu; server nepotřebuje grafické knihovny."""
+    images, total, skipped = [], 0, False
+    for path in sorted(directory.rglob('*.png')):
+        if path.is_symlink() or not path.is_file():
+            continue
+        try:
+            size = path.stat().st_size
+            if len(images) >= MAX_IMAGES or size > MAX_IMAGE_BYTES or total + size > MAX_IMAGES_BYTES:
+                skipped = True
+                continue
+            with path.open('rb') as stream:
+                data = stream.read(MAX_IMAGE_BYTES + 1)
+            if total + len(data) > MAX_IMAGES_BYTES or len(data) > MAX_IMAGE_BYTES or len(data) < 33 or data[:8] != b'\x89PNG\r\n\x1a\n' or data[12:16] != b'IHDR':
+                skipped = True
+                continue
+            width, height = struct.unpack('>II', data[16:24])
+            if not width or not height or width * height > MAX_IMAGE_PIXELS:
+                skipped = True
+                continue
+            images.append({'name': path.relative_to(directory).as_posix(),
+                           'data': base64.b64encode(data).decode('ascii')})
+            total += len(data)
+        except OSError:
+            skipped = True
+    notice = ('Některé náhledy se nezobrazily. Podporujeme nejvýše 6 PNG, 2 MB a 8 milionů pixelů '
+              'na obrázek, dohromady 4 MB. Zkuste menší rozměr nebo DPI; soubory lze uložit i v editoru.') if skipped else ''
+    return images, notice
 
 # Proměnné prostředí, které podproces smí zdědit (žádná hesla ani klíče).
 ENV_ALLOW = {
@@ -41,7 +78,8 @@ def clean_env(extra: dict | None = None) -> dict:
 
 
 class Run:
-    def __init__(self, code: str, workdir: Path, python: str, timeout: float, stdin: str = "", files: Path | None = None):
+    def __init__(self, code: str, workdir: Path, python: str, timeout: float, stdin: str = "", files: Path | None = None,
+                 preview_images: bool = False):
         self.id = uuid.uuid4().hex
         self.chunks: list[tuple[str, str]] = []     # (kanál, text)
         self.size = 0
@@ -51,12 +89,20 @@ class Run:
         self.exit_code: int | None = None
         self.finished_at: float | None = None
         self.lock = threading.Lock()
+        self.preview_images = preview_images
+        self.images: list[dict] = []
+        self.image_notice = ''
         self.dir = Path(tempfile.mkdtemp(prefix="run-", dir=workdir))
         copy_files(files, self.dir)
         (self.dir / "main.py").write_text(code, encoding="utf-8")
+        extra_env = None
+        if preview_images:
+            cache = workdir / '_matplotlib'
+            cache.mkdir(exist_ok=True)
+            extra_env = {'MPLBACKEND': 'Agg', 'MPLCONFIGDIR': str(cache.resolve())}
         self.proc = subprocess.Popen(
             [python, "-u", "-X", "utf8", "main.py"],
-            cwd=self.dir, env=clean_env(),
+            cwd=self.dir, env=clean_env(extra_env),
             stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
             **({"creationflags": 0x08000000} if sys.platform == "win32" else {}),
         )
@@ -113,13 +159,10 @@ class Run:
         for t in self.threads[:2]:
             t.join(timeout=1)
         self.exit_code = self.proc.returncode
+        if self.preview_images:
+            self.images, self.image_notice = collect_images(self.dir)
+        shutil.rmtree(self.dir, ignore_errors=True)
         self.finished_at = time.monotonic()
-        try:
-            for f in self.dir.iterdir():
-                f.unlink()
-            self.dir.rmdir()
-        except OSError:
-            pass
 
     def _kill(self):
         try:
@@ -146,9 +189,12 @@ class Run:
         with self.lock:
             new = [{"ch": c, "text": t} for c, t in self.chunks[since:]]
             n = len(self.chunks)
-        return {"chunks": new, "next": n, "done": self.finished_at is not None,
+        result = {"chunks": new, "next": n, "done": self.finished_at is not None,
                 "exit": self.exit_code, "timed_out": self.timed_out,
                 "truncated": self.truncated, "stopped": self.stopped}
+        if result['done'] and self.preview_images:
+            result.update(images=self.images, image_notice=self.image_notice)
+        return result
 
 
 class RunManager:
@@ -165,7 +211,8 @@ class RunManager:
                     if run.finished_at and now - run.finished_at > KEEP_FINISHED]:
             del self.runs[rid]
 
-    def start(self, code: str, timeout=DEFAULT_TIMEOUT, stdin: str = "", files: Path | None = None) -> Run:
+    def start(self, code: str, timeout=DEFAULT_TIMEOUT, stdin: str = "", files: Path | None = None,
+              preview_images: bool = False) -> Run:
         if not isinstance(code, str) or len(code) > MAX_CODE:
             raise ValueError("Kód je neplatný nebo příliš dlouhý.")
         try:
@@ -176,7 +223,7 @@ class RunManager:
             self._gc()
             if sum(1 for r in self.runs.values() if r.finished_at is None) >= MAX_ACTIVE:
                 raise RuntimeError("Běží příliš mnoho programů, počkejte na dokončení.")
-            run = Run(code, self.workdir, self.python, timeout, stdin if isinstance(stdin, str) else "", files)
+            run = Run(code, self.workdir, self.python, timeout, stdin if isinstance(stdin, str) else "", files, preview_images)
             self.runs[run.id] = run
             return run
 

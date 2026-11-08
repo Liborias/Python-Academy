@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak se liší Figure od Axes?",
+    "options": [
+      "Figure je celý obrázek, Axes jeho kreslicí oblast.",
+      "Axes je balíček pro instalaci Figure.",
+      "Oba názvy vždy znamenají jednu osu x."
+    ],
+    "answer": 0,
+    "why": "Jeden Figure může obsahovat více Axes; každá má vlastní x i y."
+  },
+  {
+    "q": "Co vytvoří legendu z label čar?",
+    "options": [
+      "Samotné nastavení figsize.",
+      "ax.legend()",
+      "fig.set_size_inches()."
+    ],
+    "answer": 1,
+    "why": "Label pojmenuje řadu, legend vytvoří vysvětlení v grafu."
+  },
+  {
+    "q": "Kolik pixelů má 6 × 4 palce při DPI 100 bez tight?",
+    "options": [
+      "6 × 4.",
+      "100 × 100.",
+      "600 × 400."
+    ],
+    "answer": 2,
+    "why": "Rozměr v palcích násobíme DPI v obou směrech."
+  }
+]

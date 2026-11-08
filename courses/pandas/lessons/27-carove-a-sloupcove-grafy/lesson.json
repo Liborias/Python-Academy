@@ -1,0 +1,12 @@
+{
+  "title": "Čárové a sloupcové grafy",
+  "minutes": 60,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "matplotlib",
+    "grafy"
+  ],
+  "preview_images": true,
+  "example_title": "Vývoj podle pořadí měření"
+}

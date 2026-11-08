@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Legenda vysvětluje dvě řady",
+    "description": "Různé značky a názvy se čtou i bez rozlišení barev.",
+    "code": "# %% Knihovna a samostatný obrázek\nfrom matplotlib.figure import Figure\n# %% Obě řady patří do stejné oblasti.\nfig = Figure(figsize=(6, 4), layout=\"constrained\")\nax = fig.subplots()\nax.plot([1, 2, 3], [8, 11, 9], marker=\"o\", label=\"Ráno\")\nax.plot([1, 2, 3], [6, 8, 7], marker=\"s\", label=\"Večer\")\nax.set(title=\"Cvičné teploty\", xlabel=\"Den\", ylabel=\"Teplota (°C)\")\nax.legend()\nfig.savefig(\"graf.png\", dpi=120)\nprint(\"Uloženo: graf.png\")\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Dva panely, jeden obrázek",
+    "description": "Titulek Figure patří celku, každá Axes má vlastní obsah.",
+    "code": "# %% Knihovna a samostatný obrázek\nfrom matplotlib.figure import Figure\n# %% Jedna řada a dvě kreslicí oblasti.\nfig = Figure(figsize=(8, 3), layout=\"constrained\")\nleva, prava = fig.subplots(1, 2)\nleva.plot([1, 2, 3], [8, 11, 9], marker=\"o\")\nleva.set(title=\"Vývoj\", xlabel=\"Den\", ylabel=\"Teplota (°C)\")\nprava.bar([\"Čaj\", \"Káva\"], [4, 7])\nprava.set(title=\"Objednávky\", xlabel=\"Nápoj\", ylabel=\"Počet\")\nprava.set_ylim(bottom=0)\nfig.suptitle(\"Dva pohledy na cvičná data\")\nfig.savefig(\"graf.png\", dpi=120)\nprint(\"Uloženo: graf.png\")\n"
+  }
+]
