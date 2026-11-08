@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co přidává ChybaPole k běžné ValueError?",
+    "options": [
+      "Označení pole pro srozumitelnou zprávu a fokus.",
+      "Automatické odeslání opravené zprávy.",
+      "Ověření existence schránky na internetu."
+    ],
+    "answer": 0,
+    "why": "Výjimka nese popis i pole; GUI pak rozhodne, co zobrazit a kam umístit fokus."
+  },
+  {
+    "q": "Co se stane při zrušení nového výběru přílohy?",
+    "options": [
+      "Předchozí příloha i náhled zůstanou zachované.",
+      "Smaže se celý koncept.",
+      "Okamžitě se odešle starší příloha."
+    ],
+    "answer": 0,
+    "why": "Prázdná odpověď dialogu ukončí callback před změnou modelu."
+  },
+  {
+    "q": "Co obsahuje zpráva po úspěšném sestavení s přílohou?",
+    "options": [
+      "Načtené bajty přílohy, nezávislé na pozdější změně souboru.",
+      "Jen cestu, kterou si SMTP samo později otevře.",
+      "Pouze obrázek náhledu."
+    ],
+    "answer": 0,
+    "why": "Add_attachment uloží data do zprávy. Každé další sestavení načte soubor znovu."
+  }
+]

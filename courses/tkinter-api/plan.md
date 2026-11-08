@@ -1,6 +1,6 @@
 ## Okenní aplikace, API a e-maily
 
-Z plánovaných 28 lekcí je hotových prvních 20. Kurz začíná Tkinterem, potom propojí okna se soubory, HTTP API a přípravou e-mailů. Celková náročnost je 3/4; úvod navazuje na základní funkce a podmínky. Doporučené Základy Pythonu a Soubory a web pomohou, samostatný OOP je užitečný, ale úvod jej nevyžaduje. Turtle ani Pygame nejsou potřeba.
+Z plánovaných 28 lekcí je hotových prvních 24. Kurz začíná Tkinterem, potom propojí okna se soubory, HTTP API a přípravou e-mailů. Celková náročnost je 3/4; úvod navazuje na základní funkce a podmínky. Doporučené Základy Pythonu a Soubory a web pomohou, samostatný OOP je užitečný, ale úvod jej nevyžaduje. Turtle ani Pygame nejsou potřeba.
 
 Každá hotová lekce obsahuje výklad nových konstrukcí před použitím, komentovanou ukázku, samostatné zadání, vzor, automatickou kontrolu a tři kvízové otázky. Kontroly ověřují nastavení a chování, skutečný vzhled se zkouší také v Tk. Okno vzniká na počítači s Pythonem, nikoli uvnitř webové stránky.
 
@@ -69,10 +69,14 @@ Výstup: česká zpráva s ověřenými hlavičkami, příloha a skutečný SMTP
 
 ## Modul 6 — Projekt Korespondenční dílna
 
+**Hotovo: lekce 21–24.** Všechny mají okno; model a souborové funkce fungují i bez něj.
+
 21. Model zprávy a okno pro příjemce, předmět, text a náhled.
 22. Ověření vstupů a příloh, srozumitelná chyba u konkrétního pole.
 23. Odeslání do lokálního záchytu bez blokování, stav probíhající operace a ochrana před dvojím kliknutím.
-24. Celý průchod včetně odmítnutí, místního zachycení a nového pokusu řízeného uživatelem.
+24. Celý průchod včetně uložení neúplného konceptu do JSON, ověření před načtením a zápisu přes dočasný soubor; odmítnutí, místní zachycení a nový pokus řízený uživatelem.
+
+Výstup: Korespondenční dílna uchová rozpracovanou práci, ověří zprávu a předá samostatný snímek včetně bajtů přílohy. Během přenosu lze dál psát, výsledek novou práci nepřepíše. Zrušení a chyba souboru zachovají pole, přílohu i náhled. Po nejistém výsledku další přenos vyžaduje ruční kontrolu záchytu; načtení jiného konceptu ji neobchází. JSON obsahuje cestu přílohy, nikoli její obsah či přihlašovací údaje.
 
 ## Modul 7 — Testy, balení a předání
 
@@ -83,4 +87,4 @@ Výstup: česká zpráva s ověřenými hlavičkami, příloha a skutečný SMTP
 
 ## Hranice rozsahu
 
-První blok nic neodesílá na síť. HTTP příklady 13–16 mají výslovný místní zdroj a testovací režimy. E-mailové příklady 17–20 používají místní záchyt bez přeposílání; textové hodnoty ani hesla se nebudou vkládat do zdrojových souborů jako skutečné přihlašovací údaje. Produkční hromadné rozesílání, složitá autentizace a automatické nasazení nepatří do tohoto kurzu.
+První blok nic neodesílá na síť. HTTP příklady 13–16 mají výslovný místní zdroj a testovací režimy. E-mailové příklady a projekt 17–24 používají místní záchyt bez přeposílání; textové hodnoty ani hesla se nebudou vkládat do zdrojových souborů jako skutečné přihlašovací údaje. Produkční hromadné rozesílání, složitá autentizace a automatické nasazení nepatří do tohoto kurzu.

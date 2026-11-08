@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč dovolíme uložit koncept s nedopsanou adresou?",
+    "options": [
+      "Aby šla rozpracovaná práce později opravit a dokončit.",
+      "Protože uložením se adresa stane existující schránkou.",
+      "Protože JSON nepotřebuje žádná pravidla typů."
+    ],
+    "answer": 0,
+    "why": "Uložený koncept musí mít správnou strukturu, ale odeslatelnost ověřuje až sestavení zprávy."
+  },
+  {
+    "q": "Kdy callback přepíše formulář načtenými údaji?",
+    "options": [
+      "Až po úspěšném načtení a ověření celého modelu.",
+      "Hned po otevření dialogu.",
+      "Postupně ještě před kontrolou dalších polí."
+    ],
+    "answer": 0,
+    "why": "Úplný kandidát umožňuje zachovat rozepsanou práci při chybě kteréhokoli pozdějšího pole."
+  },
+  {
+    "q": "Co soubor konceptu obsahuje o příloze?",
+    "options": [
+      "Absolutní cestu; samotný obsah přílohy se nekopíruje.",
+      "Trvale uložené bajty i přístupové heslo.",
+      "Potvrzení doručení přílohy do schránky."
+    ],
+    "answer": 0,
+    "why": "Před předáním se soubor načte znovu. Po přesunu nebo smazání je třeba vybrat platnou přílohu."
+  }
+]

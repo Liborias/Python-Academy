@@ -345,6 +345,28 @@ w.mainloop()
         self.assertEqual(r.widgets('entry',1)[0]['value'],'Původní')
         self.assertEqual(r.widgets('entry',3)[0]['value'],'Nové')
 
+    def test_named_fields_are_independent_and_readonly_is_preserved(self):
+        source = '''import tkinter as tk
+from tkinter import ttk
+w=tk.Tk()
+ttk.Entry(w,name="prijemce").pack()
+ttk.Entry(w,name="predmet").pack()
+tk.Text(w,name="telo").pack()
+tk.Text(w,name="nahled",state="disabled").pack()
+w.mainloop()
+'''
+        r=self.run_prog(source,actions=[{'action':'fill','name':'predmet','value':'Český předmět'},
+            {'action':'fill','name':'prijemce','value':'a@example.test'},
+            {'action':'fill_text','name':'telo','value':'A\nB\n'},
+            {'action':'fill_text','name':'nahled','value':'Nesmí se změnit'}])
+        self.assertIsNone(r.error)
+        values={w['name']:w['value'] for w in r.widgets(index=-1) if 'value' in w}
+        self.assertEqual(values,{'prijemce':'a@example.test','predmet':'Český předmět','telo':'A\nB\n','nahled':''})
+        for action in [{'action':'fill','value':'nejednoznačné'},
+                       {'action':'fill','name':'chybi','value':'chybí'},
+                       {'action':'fill_text','value':'nejednoznačné'}]:
+            self.assertEqual(self.run_prog(source,actions=[action]).error['type'],'TclError')
+
     def test_extra_environment_applies_only_to_student_process(self):
         before=os.environ.get('DILNA_SMTP_TIMEOUT')
         r=self.run_prog('''import os

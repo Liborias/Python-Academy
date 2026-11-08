@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co dostává pracovník pro SMTP přenos?",
+    "options": [
+      "Hotovou zprávu a obyčejné hodnoty nastavení, bez Tk widgetů.",
+      "Entry, ze kterého si sám přečte příjemce.",
+      "Pouze cestu k příloze bez jejího načtení."
+    ],
+    "answer": 0,
+    "why": "Snímek připravuje hlavní vlákno; pracovník provede přenos a vloží stav do fronty."
+  },
+  {
+    "q": "Co se stane při psaní dalšího textu během přenosu?",
+    "options": [
+      "Formulář se změní, právě předávaný snímek zůstane původní.",
+      "Již předané bajty na serveru se průběžně přepisují.",
+      "Program musí všechna pole vymazat."
+    ],
+    "answer": 0,
+    "why": "Objekt zprávy vznikl před startem pracovníka a po předání jej neměníme."
+  },
+  {
+    "q": "K čemu slouží nutna_kontrola po timeoutu?",
+    "options": [
+      "Vyžádá ruční kontrolu záchytu před dalším pokusem.",
+      "Automaticky odešle zprávu podruhé.",
+      "Potvrzuje, že server určitě nic nepřevzal."
+    ],
+    "answer": 0,
+    "why": "Ztracené potvrzení je nejistý výsledek. Kontrola záchytu pomůže rozhodnout a připomene možnost duplicity."
+  }
+]

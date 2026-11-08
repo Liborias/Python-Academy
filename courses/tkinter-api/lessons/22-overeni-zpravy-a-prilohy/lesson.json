@@ -1,0 +1,12 @@
+{
+  "title": "Ověření konceptu a přílohy",
+  "minutes": 60,
+  "kind": "gui",
+  "tags": [
+    "tkinter",
+    "projekt",
+    "koncept",
+    "email"
+  ],
+  "example_title": "Chyba u pole a připravená zpráva"
+}

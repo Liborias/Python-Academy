@@ -55,15 +55,25 @@
         "19-prilohy-a-vyber-souboru",
         "20-nastaveni-smtp-a-chyby"
       ]
+    },
+    {
+      "id": "m06",
+      "title": "Projekt Korespondenční dílna",
+      "lessons": [
+        "21-koncept-a-formular",
+        "22-overeni-zpravy-a-prilohy",
+        "23-predani-snimku-na-pozadi",
+        "24-projekt-korespondencni-dilna"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od prvního okna ke Korespondenční dílně",
     "status": "draft",
     "level": 3,
-    "summary": "Prvních dvacet lekcí je připravených: okna, soubory, API, převodník a e-maily s přílohami v místním SMTP záchytu. Další části propojí Korespondenční dílnu a předání aplikace.",
+    "summary": "Prvních 24 lekcí je připravených: okna, soubory, API, e-maily a projekt Korespondenční dílna s ukládáním konceptů. Navážou vlastní testy a předání aplikace.",
     "placement": "Po Základech Pythonu; soubory/JSON a OOP pomohou v pozdějších částech.",
     "difficulty_reason": "Úvod od 2/4, celek 3/4: události, spolupráce GUI s daty a sítí, odmítnuté operace a testy.",
-    "duration": "Plán 28 lekcí, prvních 20 je dostupných. Odhad 16–22 hodin včetně projektů."
+    "duration": "Plán 28 lekcí, prvních 24 je dostupných. Odhad 16–22 hodin včetně projektů."
   }
 }

@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.54):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (20 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.55):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (24 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,7 +38,7 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Okenní aplikace, API a e-maily — prvních dvacet lekcí
+## Okenní aplikace, API a e-maily — prvních 24 lekcí
 Kurz začíná oknem Tkinteru, popisky, tlačítky a formulářem se jménem.
 Navazuje rámečky Frame a změnou rozměrů, ovládáním přes Enter, propojenými
 proměnnými a přepínači. První projekt převádí kilometry a metry: výpočet funguje
@@ -56,6 +56,12 @@ Pátý blok učí EmailMessage, český náhled, SMTP obálku, přílohy a konfi
 z prostředí. Zprávy míří výhradně do místního záchytu bez osobní schránky.
 Ukázka rozlišuje přijetí, odmítnutí i ztrátu potvrzení po převzetí; po timeoutu
 neopakuje odesílání automaticky. Zrušení či chyba přílohy zachová předchozí zprávu.
+Šestý blok propojuje Korespondenční dílnu: samostatný koncept, formulář,
+ověření konkrétních polí a předání hotového snímku do místního SMTP.
+Během přenosu lze dál psát bez změny předávané zprávy. Koncept se ukládá
+do JSON i neúplný; načtení při chybě zachová rozepsaná pole, přílohu i náhled.
+Zápis přes dočasný soubor chrání před poškozením původního cíle při chybě
+před nahrazením. Příloha se ukládá jako cesta, její obsah se do konceptu nekopíruje.
 Každá lekce vysvětluje nové příkazy před použitím a obsahuje ukázku, úkol,
 automatickou kontrolu chování a kvíz. Příprava kurzu pomůže ověřit Tkinter
 ve zvoleném editoru; prvních dvanáct lekcí nepotřebuje další pip balíčky,
@@ -65,8 +71,8 @@ jsou součástí lekcí; starý modul smtpd v Pythonu 3.14 není.
 Okno se otevře na počítači, kde běží Python, vedle prohlížeče s učebnicí.
 
 Celá osnova 28 lekcí je v rozbalitelném panelu kurzu a v
-[plánu kurzu](courses/tkinter-api/plan.md). Navazovat bude projekt Korespondenční
-dílna, ověření celku a později balení aplikace.
+[plánu kurzu](courses/tkinter-api/plan.md). Navazovat budou vlastní testy,
+ověření celku, předání a volitelné balení aplikace.
 Tyto navazující lekce zatím nejsou připravené. Náročnost celku je 3/4,
 první okna jsou vhodná po Základech Pythonu.
 

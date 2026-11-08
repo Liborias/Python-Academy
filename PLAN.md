@@ -315,11 +315,17 @@ používá balíček aiosmtpd 1.4.6 ověřený na Pythonu 3.14.8, žádné osobn
 přenosu rozlišuje přijetí, odmítnutí i ztrátu potvrzení po převzetí, bez
 automatického opakování. Server zprávy ukládá jen v paměti a nikam je nepředává.
 
-Další dávka 21–24: model konceptu zprávy a okno Korespondenční dílny,
-ověření adres/předmětu/příloh, předání neměnného snímku pracovníkovi,
-ochrana proti druhému kliknutí a úplný průchod přes místní záchyt.
-Zachovat vysvětlení nejistého výsledku a ručně řízeného nového pokusu.
-Přílohy i model připravovat tak, aby chybějící soubor nezničil koncept a pomalá
-práce neblokovala Tk. Použít existující ověřené pomocníky a hlídat jejich kopie.
+Ve v0.55 dokončena dávka 21–24: Korespondenční dílna s odděleným konceptem,
+ověřením polí, přílohou a místním SMTP. Hlavní vlákno sestaví samostatnou zprávu
+včetně bajtů přílohy a po předání ji nemění. Během přenosu lze dál psát,
+výsledek nepřepíše novou práci. Nejistý výsledek vyžaduje ruční kontrolu před
+dalším pokusem. Uložení neúplného konceptu do JSON používá dočasný soubor
+a os.replace; neplatné načtení ani zrušení nenahrazuje formulář.
+
+Další dávka 25–28: vlastní testy modelu, spolupráce a GUI, volitelné balení,
+cesty k datům a předání hotového projektu. PyInstaller nejprve ověřit pro
+Python 3.14.8; nepředstírat přenositelnost balíčku mezi operačními systémy.
+Rozlišit zdroje zabalené aplikace od uživatelských konceptů a příloh.
+Zachovat vysvětlení výsledků SMTP, ruční kontrolu a stávající rozhraní helperů.
 Externí zprávu neposílat bez výslovného zadání uživatele. Zachovat ID a postup
 starších kurzů. Dodávka přes GitHub/main bez ZIPů a publikace prostředí.

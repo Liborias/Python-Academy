@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč koncept dovoluje nedopsanou adresu?",
+    "options": [
+      "Je to rozpracovaná práce; pravidla předání ověříme později.",
+      "Každá adresa s @ vždy existuje.",
+      "Slovník neumí uchovávat úplnou adresu."
+    ],
+    "answer": 0,
+    "why": "Ukládání a úpravy rozpracovaného textu mají jiný účel než ověření zprávy před přenosem."
+  },
+  {
+    "q": "Co vrátí get(\"1.0\", \"end-1c\") u Text?",
+    "options": [
+      "Text bez automatického posledního řádku Tk, s uživatelovými řádky.",
+      "Text bez všech mezer a Enterů.",
+      "Pouze první řádek."
+    ],
+    "answer": 0,
+    "why": "End-1c vynechá jediný znak přidaný widgetem. Vlastní text zůstane zachovaný."
+  },
+  {
+    "q": "Kdy se mají číst aktuální hodnoty polí?",
+    "options": [
+      "V callbacku po uživatelově kliknutí.",
+      "Pouze při vytvoření okna.",
+      "Z pracovního SMTP vlákna."
+    ],
+    "answer": 0,
+    "why": "Callback čte nové hodnoty v hlavním vlákně, až když je uživatel potřebuje použít."
+  }
+]

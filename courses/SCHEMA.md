@@ -285,3 +285,39 @@ skutečném Tk ověřuje výběr/výměnu přílohy, zrušení a chybu bez ztrá
 zprávy a odezvu při skutečném SMTP, odmítnutí i timeoutu s již uloženou zprávou.
 Odpovědi výběru souboru řídí test; vzhled nativního dialogu tím ověřen není.
 Veřejná SMTP služba, přihlášení a doručení do skutečné schránky sem nepatří.
+
+### Korespondenční dílna a více polí (v0.55)
+Akce `fill` a `fill_text` přijímají volitelné `name`, například
+`{"action":"fill","name":"prijemce","value":"jan@example.test"}` nebo
+`{"action":"fill_text","name":"telo","value":"A\nB\n"}`. Filtruje vnitřní
+jméno z konstruktoru widgetu (`name="prijemce"`), nikoli proměnnou Pythonu.
+Snapshot obsahuje name. Bez jména zůstává původní požadavek jediného viditelného
+widgetu daného druhu. Chybějící nebo nejednoznačný cíl vyvolá TclError;
+disabled/readonly se nadále neupravuje. Stejný filtr podporuje select/scroll.
+
+Lekce 21 zachovává surové texty neúplného konceptu. Lekce 22 sestaví novou
+EmailMessage a chyby předá přes ChybaPole s pole. Lekce 23 předává hotový snímek
+včetně bytes přílohy pracovníkovi: formulář během přenosu zůstává editovatelný,
+ale předávaný objekt už aplikace nemění. Nejde o neměnný datový typ EmailMessage.
+Po nejistém výsledku další přenos vyžaduje ruční kontrolu záchytu, bez deduplikace.
+Tuto podmínku nesmí obejít ani načtení dalšího konceptu v lekci 24.
+
+Koncept JSON v 24 má verze=1 (skutečný int, nikoli bool) a koncept se čtyřmi
+textovými poli. Dovoluje neúplné údaje a neexistující absolutní cestu přílohy;
+relativní cestu odmítá. Příloha ani SMTP nastavení a výsledky přenosu se do souboru
+nekopírují. Uložení připraví celý obsah před zápisem, zavře dočasný soubor ve
+stejné složce a použije os.replace s úklidem ve finally. Ověření modelu a chyba
+před nahrazením zachovají původní cíl. Nejde o záruku obnovy po výpadku napájení.
+Načtení ověří celý model před první změnou formuláře; při chybě/zrušení ponechá
+pole, přílohu i náhled. Platný prázdný model je přípustný a pole vyprázdní.
+
+Test_tkinter_correspondence hlídá 18 přesných pomocných kopií: ve files 22–24
+koncept.py ze solution 21, zpravy.py ze 17 a prilohy.py z 19; v 23/24 navíc
+priprava.py z 22, odesilani.py z 18, nastaveni.py z 20, cvicna_posta.py ze shared;
+ve 24 také prenos.py z 23. Při změně zdrojového řešení aktualizovat návaznosti.
+Skutečné Tk/SMTP v tests/tkinter_correspondence_real_smoke.py ověřuje všechna
+čtyři okna, zachování při souborové chybě i skutečně přijaté hlavičky, tělo
+a bytes přílohy při změně formuláře a souboru během čekání. Odpovědi výběru
+souboru jsou řízené testem; vzhled nativního dialogu se netestuje. Chromium
+e2e_tkinter_correspondence.py ověřuje kontroly, workspace, reload a mobil,
+včetně zachování rozepsané starší SMTP lekce a jejího splnění.

@@ -1,0 +1,12 @@
+{
+  "title": "Projekt Korespondenční dílna: uložený koncept",
+  "minutes": 90,
+  "kind": "gui",
+  "tags": [
+    "tkinter",
+    "projekt",
+    "koncept",
+    "email"
+  ],
+  "example_title": "Od rozpracovaného JSON ke zprávě v záchytu"
+}

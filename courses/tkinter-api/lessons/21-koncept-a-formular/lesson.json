@@ -1,0 +1,12 @@
+{
+  "title": "Koncept zprávy a formulář",
+  "minutes": 45,
+  "kind": "gui",
+  "tags": [
+    "tkinter",
+    "projekt",
+    "koncept",
+    "email"
+  ],
+  "example_title": "Formulář a ručně obnovovaný náhled"
+}

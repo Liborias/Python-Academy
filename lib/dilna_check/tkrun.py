@@ -278,6 +278,8 @@ class Tk(Widget):
             pump()
             if action.get('action') == 'fill':
                 entries = [w for w in widgets if isinstance(w, Entry) and shown(w)]
+                if 'name' in action:
+                    entries = [w for w in entries if w.options.get('name') == action['name']]
                 if len(entries) != 1:
                     raise TclError('Vyplnění vyžaduje právě jedno viditelné Entry')
                 entries[0].delete(0, 'end')
@@ -294,6 +296,8 @@ class Tk(Widget):
             elif action.get('action') in ('select', 'fill_text', 'scroll'):
                 kind = action.get('kind', {'select': 'listbox', 'fill_text': 'text', 'scroll': 'scrollbar'}[action['action']])
                 targets = [w for w in widgets if w.kind == kind and shown(w)]
+                if 'name' in action:
+                    targets = [w for w in targets if w.options.get('name') == action['name']]
                 if len(targets) != 1:
                     raise TclError(f'Akce vyžaduje právě jeden viditelný {kind}')
                 target = targets[0]
@@ -558,7 +562,7 @@ def snapshot():
     for w in widgets:
         if not w.alive:
             continue
-        item = {'id': w.id, 'kind': w.kind, 'parent': w.master.id if w.master else None,
+        item = {'id': w.id, 'name': w.options.get('name', ''), 'kind': w.kind, 'parent': w.master.id if w.master else None,
                 'manager': w.manager, 'layout': dict(w.layout), 'order': w.order,
                 'visible': shown(w), 'text': str(w.cget('text')),
                 'focused': w is focused, 'bindings': sorted(w.bindings),

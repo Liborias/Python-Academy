@@ -1,0 +1,12 @@
+{
+  "title": "Snímek zprávy a přenos na pozadí",
+  "minutes": 75,
+  "kind": "gui",
+  "tags": [
+    "tkinter",
+    "projekt",
+    "koncept",
+    "email"
+  ],
+  "example_title": "Psaní dalšího konceptu během SMTP"
+}
