@@ -1,6 +1,6 @@
 ## Okenní aplikace, API a e-maily
 
-Z plánovaných 28 lekcí je hotových prvních 24. Kurz začíná Tkinterem, potom propojí okna se soubory, HTTP API a přípravou e-mailů. Celková náročnost je 3/4; úvod navazuje na základní funkce a podmínky. Doporučené Základy Pythonu a Soubory a web pomohou, samostatný OOP je užitečný, ale úvod jej nevyžaduje. Turtle ani Pygame nejsou potřeba.
+Všech 28 lekcí je obsahově hotových; stav zůstává draft pro vyzkoušení studenty a připomínky. Kurz začíná Tkinterem, potom propojí okna se soubory, HTTP API a přípravou e-mailů. Celková náročnost je 3/4; úvod navazuje na základní funkce a podmínky. Doporučené Základy Pythonu a Soubory a web pomohou, samostatný OOP je užitečný, ale úvod jej nevyžaduje. Turtle ani Pygame nejsou potřeba.
 
 Každá hotová lekce obsahuje výklad nových konstrukcí před použitím, komentovanou ukázku, samostatné zadání, vzor, automatickou kontrolu a tři kvízové otázky. Kontroly ověřují nastavení a chování, skutečný vzhled se zkouší také v Tk. Okno vzniká na počítači s Pythonem, nikoli uvnitř webové stránky.
 
@@ -80,10 +80,14 @@ Výstup: Korespondenční dílna uchová rozpracovanou práci, ověří zprávu 
 
 ## Modul 7 — Testy, balení a předání
 
-25. Testy výpočtů a spolupráce, simulovaná síť a praktické GUI scénáře.
-26. PyInstaller jako volitelná cesta; ověření verze Pythonu a sestavení pro cílový systém.
-27. Cesty k datům, čitelné chyby, klávesnice a kontrolní seznam na skutečném počítači.
-28. Předvedení hotové aplikace, README, vlastní vysvětlení návrhu a závěrečné ověření.
+**Hotovo: lekce 25–28.** Lekce 25/26/28 mají konzolovou ukázku, 27 skutečné okno; hotové finální okno je také v pracovních souborech 28 jako aplikace.py.
+
+25. Pět vlastních unittest scénářů nad modelem a spoluprací, řízené chyby bez skutečného SMTP a odhalování osmi záměrných chyb.
+26. Seznam argumentů pro volitelné balení bez spouštění sestavení v kontrole; PyInstaller 6.22.3 a Python 3.14.8 ověřeny na Linuxu.
+27. Data podle __file__, uživatelská cesta v dialogu, chyby zdroje bez ztráty práce a Ctrl+S/Ctrl+O/Ctrl+Enter s vazbou před třídní obsluhou Text.
+28. Kompletní pracovní projekt s README, scénáři, testy a volitelným sestavením; závěrečná zkouška čte skutečnou SMTP obálku, český obsah a přílohy ze záchytu, deset kvízových otázek.
+
+Výstup: ověřitelný projekt ke spuštění z Pythonu a volitelně jako celá distribuční složka pro konkrétní systém. Sestavení zahrne data a finální sestavit.py přidá README i scénáře. Přijetí, odmítnutí a nejisté potvrzení mají odlišné výsledky. Automatické kontroly doplňují praktické scénáře na počítači studenta.
 
 ## Hranice rozsahu
 

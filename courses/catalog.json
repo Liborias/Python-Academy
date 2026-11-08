@@ -86,7 +86,7 @@
         "soubory-web"
       ],
       "status": "draft",
-      "summary": "Prvních 24 z 28 lekcí: okna, úkolníček, API, e-maily a Korespondenční dílna s uložením konceptů a místním SMTP. Dále testy a předání."
+      "summary": "Všech 28 lekcí: okna, úkolníček, API, místní e-maily, Korespondenční dílna, vlastní testy a předání. Balení je volitelné; obsah čeká na připomínky."
     },
     {
       "id": "pygame-2",

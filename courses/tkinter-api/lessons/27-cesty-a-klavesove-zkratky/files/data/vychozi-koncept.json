@@ -1,0 +1,9 @@
+{
+  "verze": 1,
+  "koncept": {
+    "prijemce": "jan@example.test",
+    "predmet": "Pozdrav z dokončené dílny",
+    "text": "Dobrý den,\nzkouším předání projektu.\n",
+    "priloha": ""
+  }
+}

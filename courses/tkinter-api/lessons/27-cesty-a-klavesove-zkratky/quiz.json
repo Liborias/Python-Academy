@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Podle čeho najdeme přibalenou složku data?",
+    "options": [
+      "Podle __file__ modulu, vedle kterého má být.",
+      "Vždy podle aktuálního pracovního adresáře.",
+      "Podle náhodně vybraného konceptu."
+    ],
+    "answer": 0,
+    "why": "Pracovní složka se může změnit, umístění zdroje určuje program."
+  },
+  {
+    "q": "Proč klávesový callback vrací break?",
+    "options": [
+      "Zastaví další zpracování, například vložení řádku nebo druhý dialog.",
+      "Vyvolá automatický další SMTP pokus.",
+      "Ukončí vždy celý Python."
+    ],
+    "answer": 0,
+    "why": "Break zde znamená návratový text pro obsluhu události Tk, nikoli příkaz cyklu."
+  },
+  {
+    "q": "Co dělá Ctrl+Enter v této aplikaci?",
+    "options": [
+      "Ověří zprávu a obnoví náhled bez předání.",
+      "Okamžitě předá zprávu a smaže formulář.",
+      "Odstraní všechny přílohy."
+    ],
+    "answer": 0,
+    "why": "Předání má samostatné tlačítko; ověření samo síťovou operaci nespouští."
+  }
+]

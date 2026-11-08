@@ -289,6 +289,13 @@ class Tk(Widget):
                 if len(buttons) != 1:
                     raise TclError(f"Tlačítko {action.get('text')!r} není jednoznačně dostupné")
                 invoke_callback(buttons[0].invoke, origin='click')
+            elif action.get('action') == 'focus':
+                targets = [w for w in widgets if shown(w) and w.kind == action.get('kind', 'entry')]
+                if 'name' in action:
+                    targets = [w for w in targets if w.options.get('name') == action['name']]
+                if len(targets) != 1:
+                    raise TclError('Fokus vyžaduje právě jeden viditelný cíl')
+                targets[0].focus_set()
             elif action.get('action') == 'key':
                 if focused is None or not shown(focused):
                     raise TclError('Klávesa potřebuje viditelný widget s fokusem')

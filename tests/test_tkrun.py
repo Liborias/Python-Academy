@@ -367,6 +367,28 @@ w.mainloop()
                        {'action':'fill_text','value':'nejednoznačné'}]:
             self.assertEqual(self.run_prog(source,actions=[action]).error['type'],'TclError')
 
+    def test_named_focus_and_control_binding_stop_before_root(self):
+        source='''import tkinter as tk
+from tkinter import ttk
+w=tk.Tk()
+a=ttk.Entry(w,name="prijemce");a.pack()
+t=tk.Text(w,name="telo");t.pack()
+l=ttk.Label(w,text="Čekám");l.pack()
+def save(event):
+    l.configure(text="Uloženo z těla")
+    return "break"
+t.bind("<Control-s>",save)
+w.bind("<Control-s>",lambda event:l.configure(text="Druhé volání"))
+w.mainloop()
+'''
+        r=self.run_prog(source,actions=[{'action':'focus','kind':'text','name':'telo'},
+                                       {'action':'key','sequence':'<Control-s>'}])
+        self.assertIsNone(r.error)
+        self.assertTrue(r.widgets('text',1)[0]['focused'])
+        self.assertEqual(r.widgets('label',2)[0]['text'],'Uloženo z těla')
+        bad=self.run_prog(source,actions=[{'action':'focus','name':'chybi'}])
+        self.assertEqual(bad.error['type'],'TclError')
+
     def test_extra_environment_applies_only_to_student_process(self):
         before=os.environ.get('DILNA_SMTP_TIMEOUT')
         r=self.run_prog('''import os

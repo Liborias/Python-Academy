@@ -65,15 +65,25 @@
         "23-predani-snimku-na-pozadi",
         "24-projekt-korespondencni-dilna"
       ]
+    },
+    {
+      "id": "m07",
+      "title": "Testy, balení a předání",
+      "lessons": [
+        "25-vlastni-testy-dilny",
+        "26-volitelne-baleni-aplikace",
+        "27-cesty-a-klavesove-zkratky",
+        "28-predani-a-zaverecne-overeni"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od prvního okna ke Korespondenční dílně",
     "status": "draft",
     "level": 3,
-    "summary": "Prvních 24 lekcí je připravených: okna, soubory, API, e-maily a projekt Korespondenční dílna s ukládáním konceptů. Navážou vlastní testy a předání aplikace.",
+    "summary": "Všech 28 lekcí je připravených: okna, soubory, API, místní e-maily, Korespondenční dílna, vlastní testy a předání s volitelným balením. Obsah čeká na připomínky studentů.",
     "placement": "Po Základech Pythonu; soubory/JSON a OOP pomohou v pozdějších částech.",
     "difficulty_reason": "Úvod od 2/4, celek 3/4: události, spolupráce GUI s daty a sítí, odmítnuté operace a testy.",
-    "duration": "Plán 28 lekcí, prvních 24 je dostupných. Odhad 16–22 hodin včetně projektů."
+    "duration": "Všech 28 lekcí je dostupných. Odhad 16–22 hodin včetně projektů."
   }
 }

@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.55):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (24 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.56):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40) a Okenní aplikace, API a e-maily (28 z 28). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,7 +38,7 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Okenní aplikace, API a e-maily — prvních 24 lekcí
+## Okenní aplikace, API a e-maily — všech 28 lekcí připravených
 Kurz začíná oknem Tkinteru, popisky, tlačítky a formulářem se jménem.
 Navazuje rámečky Frame a změnou rozměrů, ovládáním přes Enter, propojenými
 proměnnými a přepínači. První projekt převádí kilometry a metry: výpočet funguje
@@ -62,6 +62,12 @@ Během přenosu lze dál psát bez změny předávané zprávy. Koncept se uklá
 do JSON i neúplný; načtení při chybě zachová rozepsaná pole, přílohu i náhled.
 Zápis přes dočasný soubor chrání před poškozením původního cíle při chybě
 před nahrazením. Příloha se ukládá jako cesta, její obsah se do konceptu nekopíruje.
+Závěrečný blok přidává vlastní unittest testy s řízenými chybami, přípravu
+argumentů pro volitelné balení, cesty ke zdrojům nezávislé na pracovní složce
+a Ctrl+S/Ctrl+O/Ctrl+Enter. Hotový projekt obsahuje README, praktické scénáře,
+testy i závěrečnou zkoušku jednoho skutečného místního předání. PyInstaller
+6.22.3 byl ověřen s Pythonem 3.14.8 na Linuxu včetně spuštění s přibaleným Tk
+a daty; Windows/macOS vyžadují vlastní sestavení a ověření.
 Každá lekce vysvětluje nové příkazy před použitím a obsahuje ukázku, úkol,
 automatickou kontrolu chování a kvíz. Příprava kurzu pomůže ověřit Tkinter
 ve zvoleném editoru; prvních dvanáct lekcí nepotřebuje další pip balíčky,
@@ -71,10 +77,10 @@ jsou součástí lekcí; starý modul smtpd v Pythonu 3.14 není.
 Okno se otevře na počítači, kde běží Python, vedle prohlížeče s učebnicí.
 
 Celá osnova 28 lekcí je v rozbalitelném panelu kurzu a v
-[plánu kurzu](courses/tkinter-api/plan.md). Navazovat budou vlastní testy,
-ověření celku, předání a volitelné balení aplikace.
-Tyto navazující lekce zatím nejsou připravené. Náročnost celku je 3/4,
-první okna jsou vhodná po Základech Pythonu.
+[plánu kurzu](courses/tkinter-api/plan.md). Obsah je dokončený a čeká na
+vyzkoušení a připomínky studentů; stav zůstává draft. Náročnost celku je 3/4,
+první okna jsou vhodná po Základech Pythonu. Balení je volitelné a k běžnému
+studiu ani automatickým kontrolám není PyInstaller potřeba.
 
 ## Samostatný OOP kurz — všech dvacet lekcí připravených
 V katalogu je vedle Základů samostatná karta **Objektově orientované programování v praxi**.

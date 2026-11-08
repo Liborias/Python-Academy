@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co vrací prikaz_sestaveni?",
+    "options": [
+      "Seznam argumentů, který sám nic nespouští.",
+      "Jeden příkaz určený pro shell=True.",
+      "Hotový program pro všechny systémy."
+    ],
+    "answer": 0,
+    "why": "Seznam zachová cesty s mezerami. Skutečné spuštění je samostatný vědomý krok."
+  },
+  {
+    "q": "Co předáváme při sestavení s --onedir?",
+    "options": [
+      "Celou vytvořenou složku včetně přibalených součástí.",
+      "Jen samotný spustitelný soubor bez _internal.",
+      "Pouze pracovní adresář build."
+    ],
+    "answer": 0,
+    "why": "Výsledný program používá součásti vedle sebe; build je pracovní výstup sestavení."
+  },
+  {
+    "q": "Proč použít stejný interpreter pro instalaci, testy a sestavení?",
+    "options": [
+      "Aby stavba viděla stejné závislosti jako ověřený projekt.",
+      "Protože PyInstaller opraví každý chybný zdrojový kód.",
+      "Protože pak linuxový výsledek automaticky běží ve Windows."
+    ],
+    "answer": 0,
+    "why": "Sys.executable a -m pomohou udržet stejný Python i prostředí. Cílový systém se ověřuje zvlášť."
+  }
+]

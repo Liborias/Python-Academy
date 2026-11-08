@@ -321,3 +321,55 @@ a bytes přílohy při změně formuláře a souboru během čekání. Odpovědi
 souboru jsou řízené testem; vzhled nativního dialogu se netestuje. Chromium
 e2e_tkinter_correspondence.py ověřuje kontroly, workspace, reload a mobil,
 včetně zachování rozepsané starší SMTP lekce a jejího splnění.
+
+### Vlastní testy a dokončený projekt (v0.56)
+Tk_run má akci `{"action":"focus","kind":"text","name":"telo"}`. Vybere
+jediný viditelný cíl podle kind (výchozí entry) a volitelného name a nastaví
+fokus; neexistující/nejasný cíl je TclError. Následná key může použít například
+`<Control-s>`. Vlastní vazba widgetu s návratem break zastaví cestu k oknu.
+Náhrada stále neimplementuje třídní vazby skutečného Text: kontrola 27 proto
+ověřuje také přítomnost vlastních vazeb na něm. Skutečné chování před třídou
+ověřuje tkinter_finish_real_smoke.py v reálném Tk.
+
+Lekce 25 je konzolová. TestDilna má alespoň pět vlastních testů, žádné skip ani
+expectedFailure. Kontrola sadu načte znovu pro každou z osmi dočasných změn
+veřejných funkcí modelu/pracovníka; musí zachytit chybu, jinak nestačí. Běžný
+unittest přehled včetně OK je na stderr; rozhoduje návratový kód a výsledek.
+Testy používají dočasné soubory a řízenou náhradu přenosu. Skutečnou síť ani
+vykreslení tím neprohlašovat za ověřené.
+
+Lekce 26 je konzolový plán argumentů, ne automatická instalace/stavba.
+Prikaz_sestaveni vrací seznam, interpreter ponechá jako jeden argument a
+vrací absolutní vstup/výstupy. Volby onedir/console a případné --add-data
+vycházejí z ověřené verze PyInstalleru 6.22.3. Kontroly neimportují ani
+nespouštějí PyInstaller, v requires_packages kurzu není. Ruční sestavit.py
+spustí seznam přes subprocess.run(check=True) bez shellu.
+
+Lekce 27 je GUI. Cesty zdrojů se odvozují od __file__, výchozí cesta dialogů
+od zadaného domova; nic se při výpočtu nezapisuje. Vadný/chybějící zdroj
+nenahrazuje formulář. Ctrl+S/O/Enter mají vlastní vazbu i na Entry/Text a
+vracejí break. Enter s Control pouze ověřuje náhled, síť spouští tlačítko.
+Busy chrání také klávesové callbacky a Načíst ukázku. Data jsou vedle modulu,
+ve frozen balíčku uvnitř _internal; uživatelské soubory se tam neukládají.
+
+Lekce 28 je konzolová závěrečná zkouška jednoho skutečného místního předání.
+Souhrn čte data a obálku ze zachyceného záznamu, nikoli původního konceptu.
+Jiný stav než prijato nebo počet odlišný od jedné je RuntimeError, bez retry.
+Nejistý stav se odmítá i tehdy, když už záchyt zprávu má. Finální okno je ve
+files/aplikace.py, spolu s testy, README, SCENARE a požadavky. Sestavit.py po
+úspěšné stavbě přidává do výsledku README a scénáře; souborový zápis konceptu
+a potřeba kontroly po nejistém výsledku zůstávají stejné jako v 24.
+
+Test_tkinter_finish hlídá 39 přesných kopií: ve files 25–28 osm starších
+řešení (koncept 21, zpravy 17, prilohy 19, priprava 22, prenos 23, odesilani 18,
+nastaveni 20, dilna 24) a cvicna_posta ze shared, ve 28 navíc aplikace ze 27,
+baleni ze 26 a test_projekt z 25. Při opravě rozhraní aktualizovat návaznosti.
+Kvíz 28 má deset otázek, ostatní tři. E2e kontroluje i vnořenou složku data.
+
+PyInstaller 6.22.3 byl skutečně sestaven a spuštěn na Linuxu s Pythonem 3.14.8
+a Tk 9.0, ze zdrojové cesty s mezerou a jiného cwd. Zobrazená ukázka pocházela
+z přibaleného data, skutečné SMTP skončilo jednou zprávou v místním záchytu.
+Automatický běh source GUI navíc ověřuje klávesy v Text, chyby souborů, odezvu,
+nezměněný snímek i nejistý výsledek. Volbu cest řídí test, vzhled nativního
+dialogu neověřuje. Windows/macOS a jejich binární balení vyžadují vlastní
+zkoušku. Stav hotového obsahu 28/28 je dál draft pro připomínky studentů.

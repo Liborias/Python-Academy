@@ -322,10 +322,16 @@ výsledek nepřepíše novou práci. Nejistý výsledek vyžaduje ruční kontro
 dalším pokusem. Uložení neúplného konceptu do JSON používá dočasný soubor
 a os.replace; neplatné načtení ani zrušení nenahrazuje formulář.
 
-Další dávka 25–28: vlastní testy modelu, spolupráce a GUI, volitelné balení,
-cesty k datům a předání hotového projektu. PyInstaller nejprve ověřit pro
-Python 3.14.8; nepředstírat přenositelnost balíčku mezi operačními systémy.
-Rozlišit zdroje zabalené aplikace od uživatelských konceptů a příloh.
-Zachovat vysvětlení výsledků SMTP, ruční kontrolu a stávající rozhraní helperů.
+Ve v0.56 dokončena dávka 25–28 a celý kurz tkinter-api (28/28, draft).
+Vlastní unittest testy musí odhalit osm konkrétních chyb, plán balení vrací
+oddělené argumenty bez automatického spuštění, cesty zdrojů používají
+__file__ a klávesové zkratky zachytí Text před jeho třídní vazbou. Finální
+projekt má README, scénáře, testy, ukázkový koncept a skutečnou místní SMTP
+zkoušku. PyInstaller 6.22.3/Python 3.14.8 ověřen sestavením a spuštěním na
+Linuxu s přibalenými daty i SMTP, včetně cesty s mezerou a jiného cwd.
+
+Další doporučený krok: vyzkoušení hotového kurzu, korektury podle zpětné vazby
+a ověření na systému studenta. Nový podkurz nezačínat automaticky. Zachovat
+ruční kontrolu po nejistém SMTP výsledku, rozhraní helperů a návazné kopie.
 Externí zprávu neposílat bez výslovného zadání uživatele. Zachovat ID a postup
 starších kurzů. Dodávka přes GitHub/main bez ZIPů a publikace prostředí.

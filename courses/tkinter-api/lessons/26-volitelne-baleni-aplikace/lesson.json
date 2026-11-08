@@ -1,0 +1,11 @@
+{
+  "title": "Volitelné balení aplikace",
+  "minutes": 60,
+  "kind": "console",
+  "tags": [
+    "projekt",
+    "testy",
+    "predani"
+  ],
+  "example_title": "Argumenty sestavení bez spuštění PyInstalleru"
+}

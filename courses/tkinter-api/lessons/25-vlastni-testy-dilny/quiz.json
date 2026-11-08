@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená úspěch testu s nahrazeným SMTP přenosem?",
+    "options": [
+      "Ověřili jsme řízenou spolupráci kódu; skutečná síť má samostatnou zkoušku.",
+      "Doručení do skutečné schránky je zaručené.",
+      "Okno bylo určitě správně vykreslené."
+    ],
+    "answer": 0,
+    "why": "Řízené výsledky pomohou ověřit argumenty a reakce, ale samy neprovádějí SMTP ani vykreslování."
+  },
+  {
+    "q": "Co ověřit po neúspěšném nahrazení uloženého konceptu?",
+    "options": [
+      "Výjimku, původní obsah cíle a úklid dočasného souboru.",
+      "Jen to, že se funkce zavolala.",
+      "Pouze existenci titulku okna."
+    ],
+    "answer": 0,
+    "why": "Chyba má zachovat starší práci, proto čteme skutečný soubor i po selhání."
+  },
+  {
+    "q": "Proč kontrola spouští testy i nad záměrně chybnými moduly?",
+    "options": [
+      "Ověří, zda testy odhalí konkrétní chyby.",
+      "Aby se chyby uložily do vašeho projektu.",
+      "Aby nahradila všechna budoucí ověření."
+    ],
+    "answer": 0,
+    "why": "Náhrady jsou dočasné. Test bez ověření by nad správnou i chybnou funkcí prošel stejně."
+  }
+]

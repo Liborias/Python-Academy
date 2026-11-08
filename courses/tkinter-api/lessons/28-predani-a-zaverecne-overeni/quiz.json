@@ -1,0 +1,102 @@
+[
+  {
+    "q": "Kde se mají měnit Tk widgety?",
+    "options": [
+      "V hlavním vlákně, výsledek pracovníka přijde přes frontu.",
+      "Přímo ve SMTP pracovníkovi.",
+      "V libovolném vlákně bez omezení."
+    ],
+    "answer": 0,
+    "why": "Tk zůstává v hlavní smyčce, síťová práce jí předává obyčejný výsledek."
+  },
+  {
+    "q": "Co obsahuje snímek zprávy s přílohou před startem pracovníka?",
+    "options": [
+      "Hotové hlavičky, tělo i načtené bajty přílohy.",
+      "Jen odkaz na aktuální Entry a cestu souboru.",
+      "Pouze titulek okna."
+    ],
+    "answer": 0,
+    "why": "Pozdější úpravy formuláře či disku už tento objekt nemění."
+  },
+  {
+    "q": "Co může znamenat timeout po předání těla zprávy?",
+    "options": [
+      "Server ji mohl přijmout a klient nedostal potvrzení.",
+      "Server určitě nic nepřijal.",
+      "Příjemce zprávu určitě přečetl."
+    ],
+    "answer": 0,
+    "why": "Nejisté potvrzení vyžaduje kontrolu před vědomým dalším pokusem."
+  },
+  {
+    "q": "Co ukládá JSON konceptu o příloze?",
+    "options": [
+      "Cestu, nikoli obsah přílohy.",
+      "Přístupové heslo SMTP.",
+      "Potvrzení přečtení."
+    ],
+    "answer": 0,
+    "why": "Před novým sestavením se soubor znovu načte a ověří."
+  },
+  {
+    "q": "Kdy se mají po načtení měnit pole formuláře?",
+    "options": [
+      "Až po ověření celého kandidáta.",
+      "Postupně ještě před kontrolou dalších polí.",
+      "Hned při otevření dialogu."
+    ],
+    "answer": 0,
+    "why": "Chyba pozdějšího pole nesmí zničit dosavadní rozepsanou práci."
+  },
+  {
+    "q": "Jak uložit změny konceptu bezpečněji při běžné chybě zápisu?",
+    "options": [
+      "Připravit obsah, zavřít dočasný soubor a až pak nahradit cíl.",
+      "Nejdřív vyprázdnit původní soubor.",
+      "Ignorovat všechny výjimky."
+    ],
+    "answer": 0,
+    "why": "Chyba před nahrazením má ponechat původní cíl a úklid nemá nechat dočasné zbytky."
+  },
+  {
+    "q": "Co ověřuje závěrečný souhrn?",
+    "options": [
+      "Údaje zprávy, kterou skutečně zaznamenal místní záchyt.",
+      "Jen to, co bylo původně ve formuláři.",
+      "Doručení do osobní schránky na internetu."
+    ],
+    "answer": 0,
+    "why": "BytesParser a SMTP obálka poskytují přijatá data, ne odhad z odesílaného konceptu."
+  },
+  {
+    "q": "Kde ukládat vlastní koncepty u sestavené aplikace?",
+    "options": [
+      "Na uživatelem vybranou zapisovatelnou cestu mimo přibalené zdroje.",
+      "Vždy do interních souborů balíčku.",
+      "Pouze do pracovní mezipaměti PyInstalleru."
+    ],
+    "answer": 0,
+    "why": "Uživatelská práce má být oddělená od zdrojů a pracovních souborů sestavení."
+  },
+  {
+    "q": "Co platí pro program sestavený na Linuxu?",
+    "options": [
+      "Windows a macOS vyžadují vlastní sestavení a ověření.",
+      "Stačí přejmenovat výsledek na .exe.",
+      "Automaticky funguje na každém systému."
+    ],
+    "answer": 0,
+    "why": "Balení zachovává závislost na cílovém systému a jeho kompatibilitě."
+  },
+  {
+    "q": "Stačí několik zelených testů k prokázání všech vlastností okna?",
+    "options": [
+      "Ověřují konkrétní scénáře; doplňujeme skutečné GUI a praktické zkoušky.",
+      "Ano, jakýkoli zelený test ověří celou aplikaci.",
+      "Nejlépe je testy vůbec nespouštět."
+    ],
+    "answer": 0,
+    "why": "Každý typ zkoušky má svůj rozsah. README má uvádět to, co se skutečně ověřilo."
+  }
+]
