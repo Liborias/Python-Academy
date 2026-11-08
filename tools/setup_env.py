@@ -22,7 +22,7 @@ PACKAGES = {
     "pygame-1": ["pygame-ce"],
     "turtle-oop": ["requests"],
     "pandas": ["pandas", "matplotlib", "openpyxl", "ipykernel"],
-    "tkinter-api": ["requests"],
+    "tkinter-api": ["requests", "aiosmtpd>=1.4.6,<2"],
     "pygame-2": ["pygame-ce"],
     "databaze": [],
 }

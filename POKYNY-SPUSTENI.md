@@ -86,5 +86,11 @@ nebo `.\` pro cestu v aktuálním adresáři.
 volba pro pozdější volitelné balíčky (PyInstaller, QR kódy, řeč). Výchozí instalace
 je neinstaluje. Systémový Tkinter se přes pip neinstaluje.
 
+V kurzu Okenní aplikace, API a e-maily je od lekce 13 potřeba requests a od
+lekce 18 také aiosmtpd pro místní SMTP záchyt. Připraví je
+`python tools/setup_env.py --courses tkinter-api`. Pro doplnění do již existující
+.venv lze použít její Python s `-m pip install "aiosmtpd>=1.4.6,<2"`.
+E-mailová cvičení nepotřebují osobní schránku, zprávy zůstávají na 127.0.0.1.
+
 V katalogu začněte konceptem „Začínáme: prostředí, projekt a Git“. GitHub a virtuální
 server jsou až další témata; pro běžné procvičování nejsou potřeba.

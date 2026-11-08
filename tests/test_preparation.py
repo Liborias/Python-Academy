@@ -29,7 +29,7 @@ class PreparationTest(unittest.TestCase):
         self.assertIsNone(course_preparation('../zaklady'))
 
     def test_optional_packages_are_opt_in(self):
-        self.assertEqual(wanted('tkinter-api'), ['requests'])
+        self.assertEqual(wanted('tkinter-api'), ['requests', 'aiosmtpd>=1.4.6,<2'])
         self.assertEqual(wanted('databaze'), [])
         self.assertIn('pyinstaller', wanted('tkinter-api', extras=True))
         self.assertIn('qrcode[pil]', wanted('databaze', extras=True))

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jaký typ mají hodnoty os.environ?",
+    "options": [
+      "Textové řetězce, proto převádíme port a timeout.",
+      "Vždy čísla float.",
+      "Vždy objekty SMTP."
+    ],
+    "answer": 0,
+    "why": "Prostředí poskytuje text, aplikace ověřuje jeho význam a rozsah."
+  },
+  {
+    "q": "Dokazuje timeout, že server zprávu nepřevzal?",
+    "options": [
+      "Ano, vždy.",
+      "Ne, server ji mohl přijmout před ztrátou potvrzení.",
+      "Pouze při české příloze."
+    ],
+    "answer": 1,
+    "why": "Automatické opakování by proto mohlo vytvořit duplicitní zprávu."
+  },
+  {
+    "q": "Co má program udělat po nejistém výsledku?",
+    "options": [
+      "Okamžitě nekonečně opakovat odeslání.",
+      "Smazat zachycené zprávy.",
+      "Zobrazit stav a nechat uživatele ověřit záchyt před dalším pokusem."
+    ],
+    "answer": 2,
+    "why": "Cvičení dává přednost pravdivému stavu před tvrzením, že nic nebylo převzato."
+  }
+]

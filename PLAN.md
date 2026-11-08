@@ -309,9 +309,17 @@ Lekce 13/14 jsou konzolová příprava backendu, 15/16 skutečná okna. Kurzy js
 výslovně smyšlené a vždy ukazují zdroj a datum. API i JSON soubor mají různá
 cvičná data. Widgety používá jen hlavní vlákno, pracovník předává hotová data.
 
-Další dávka 17–20: EmailMessage a náhled české zprávy, SMTP pouze do místního
-záchytu, přílohy a zrušitelný výběr souboru, konfigurace služby a její chyby.
-Nejprve připravit předvídatelný místní SMTP záchyt bez osobní schránky;
-skutečnou externí zprávu neposílat bez výslovného zadání uživatele. Ověřit
-podporu Pythonu 3.14 u případné pomocné závislosti místo použití zrušeného smtpd.
-Zachovat ID a postup starších kurzů. Dodávka přes GitHub/main bez ZIPů a publikace prostředí.
+Ve v0.54 dokončena dávka 17–20: EmailMessage a český náhled, SMTP pouze do
+místního záchytu, přílohy s omezeným čtením a konfigurace prostředí. Záchyt
+používá balíček aiosmtpd 1.4.6 ověřený na Pythonu 3.14.8, žádné osobní účty. Výsledek
+přenosu rozlišuje přijetí, odmítnutí i ztrátu potvrzení po převzetí, bez
+automatického opakování. Server zprávy ukládá jen v paměti a nikam je nepředává.
+
+Další dávka 21–24: model konceptu zprávy a okno Korespondenční dílny,
+ověření adres/předmětu/příloh, předání neměnného snímku pracovníkovi,
+ochrana proti druhému kliknutí a úplný průchod přes místní záchyt.
+Zachovat vysvětlení nejistého výsledku a ručně řízeného nového pokusu.
+Přílohy i model připravovat tak, aby chybějící soubor nezničil koncept a pomalá
+práce neblokovala Tk. Použít existující ověřené pomocníky a hlídat jejich kopie.
+Externí zprávu neposílat bez výslovného zadání uživatele. Zachovat ID a postup
+starších kurzů. Dodávka přes GitHub/main bez ZIPů a publikace prostředí.

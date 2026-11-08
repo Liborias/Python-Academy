@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená přijetí zprávy SMTP serverem?",
+    "options": [
+      "Že server zprávu převzal; nemusí to znamenat konečné doručení nebo přečtení.",
+      "Že ji příjemce právě přečetl.",
+      "Že byly automaticky ověřeny všechny osobní účty."
+    ],
+    "answer": 0,
+    "why": "V našem záchytu zůstane pouze v paměti a žádné další doručování neprobíhá."
+  },
+  {
+    "q": "Kdo řeší tečku na začátku řádku při SMTP přenosu?",
+    "options": [
+      "Musíme každou tečku smazat z těla.",
+      "Smtplib při serializaci DATA.",
+      "Tkinter při vykreslení."
+    ],
+    "answer": 1,
+    "why": "Protokolové dot-stuffing řeší knihovna; text těla ponecháme správný."
+  },
+  {
+    "q": "Proč používáme aiosmtpd místo smtpd?",
+    "options": [
+      "Protože smtplib neumí češtinu.",
+      "Aby zpráva musela odejít na internet.",
+      "Protože starý serverový modul smtpd už v Pythonu 3.14 není."
+    ],
+    "answer": 2,
+    "why": "Klient smtplib zůstává standardní součástí, pro místní server používáme ověřený pomocný balíček."
+  }
+]

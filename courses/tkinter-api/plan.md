@@ -1,14 +1,14 @@
 ## Okenní aplikace, API a e-maily
 
-Z plánovaných 28 lekcí je hotových prvních 16. Kurz začíná Tkinterem, potom propojí okna se soubory, HTTP API a přípravou e-mailů. Celková náročnost je 3/4; úvod navazuje na základní funkce a podmínky. Doporučené Základy Pythonu a Soubory a web pomohou, samostatný OOP je užitečný, ale úvod jej nevyžaduje. Turtle ani Pygame nejsou potřeba.
+Z plánovaných 28 lekcí je hotových prvních 20. Kurz začíná Tkinterem, potom propojí okna se soubory, HTTP API a přípravou e-mailů. Celková náročnost je 3/4; úvod navazuje na základní funkce a podmínky. Doporučené Základy Pythonu a Soubory a web pomohou, samostatný OOP je užitečný, ale úvod jej nevyžaduje. Turtle ani Pygame nejsou potřeba.
 
 Každá hotová lekce obsahuje výklad nových konstrukcí před použitím, komentovanou ukázku, samostatné zadání, vzor, automatickou kontrolu a tři kvízové otázky. Kontroly ověřují nastavení a chování, skutečný vzhled se zkouší také v Tk. Okno vzniká na počítači s Pythonem, nikoli uvnitř webové stránky.
 
 ## Prostředí a průběh
 
-Vstupní příprava nabízí Windows, macOS a Linux i VS Code, VSCodium a PyCharm. Tkinter je systémová součást instalace Pythonu/Tk, ne pip balíček. Prvních dvanáct lekcí používá jen standardní knihovnu; requests je potřeba od lekce 13 pro HTTP část a PyInstaller je volitelný až pro balení. Stejný interpreter z .venv musí fungovat v terminálu i editoru. Ověření: python -m tkinter na grafické ploše.
+Vstupní příprava nabízí Windows, macOS a Linux i VS Code, VSCodium a PyCharm. Tkinter je systémová součást instalace Pythonu/Tk, ne pip balíček. Prvních dvanáct lekcí používá jen standardní knihovnu; requests je potřeba od lekce 13 pro HTTP část a od lekce 18 aiosmtpd pro místní SMTP záchyt (ověřeno 1.4.6 na Pythonu 3.14.8). PyInstaller je volitelný až pro balení. Stejný interpreter z .venv musí fungovat v terminálu i editoru. Ověření: python -m tkinter na grafické ploše.
 
-Základní projekty půjdou vyzkoušet s místními daty. Síťová část dostane předvídatelné odpovědi a chyby pro testování. E-mailová část nejprve použije lokální záchytný server a cvičné adresy, aby nepotřebovala osobní schránku. Přístup k reálné službě a konkrétní závislosti se ověří při realizaci příslušných lekcí.
+Základní projekty půjdou vyzkoušet s místními daty. Síťová část má předvídatelné místní odpovědi a chyby. E-mailová část používá místní záchytný server a cvičné adresy bez osobní schránky. Přístup k reálné službě a konkrétní závislosti se ověří při realizaci příslušných lekcí.
 
 Celkový odhad je 16–22 hodin včetně procvičování a projektů. Témata budeme doplňovat po menších blocích, přesná rozhraní vysvětlíme před úkoly.
 
@@ -58,10 +58,14 @@ Výstup: převodník měn se dvěma jasně označenými místními zdroji a date
 
 ## Modul 5 — E-maily nejdříve lokálně
 
+**Hotovo: lekce 17–20.** První dvě jsou konzolové, 19/20 mají okno.
+
 17. EmailMessage, hlavičky, předmět, český text a náhled zprávy.
 18. SMTP a lokální záchytný server, zachycení zprávy bez osobní schránky.
 19. Přílohy a výběr souboru, typ obsahu, zrušený dialog a chybějící soubor.
-20. Nastavení služby a chybové stavy, údaje z prostředí; reálná schránka jako volitelné rozšíření.
+20. Nastavení místního SMTP z prostředí, přijetí/odmítnutí/nejisté potvrzení; potřeby reálné služby vysvětlené bez externího odeslání.
+
+Výstup: česká zpráva s ověřenými hlavičkami, příloha a skutečný SMTP přenos do místního záchytu. Zrušení zachová koncept a timeout nevyvolá automatické opakování.
 
 ## Modul 6 — Projekt Korespondenční dílna
 
@@ -79,4 +83,4 @@ Výstup: převodník měn se dvěma jasně označenými místními zdroji a date
 
 ## Hranice rozsahu
 
-První blok nic neodesílá na síť. HTTP příklady 13–16 mají výslovný místní zdroj a testovací režimy. E-mailové příklady budou mít také místní záchyt; textové hodnoty ani hesla se nebudou vkládat do zdrojových souborů jako skutečné přihlašovací údaje. Produkční hromadné rozesílání, složitá autentizace a automatické nasazení nepatří do tohoto kurzu.
+První blok nic neodesílá na síť. HTTP příklady 13–16 mají výslovný místní zdroj a testovací režimy. E-mailové příklady 17–20 používají místní záchyt bez přeposílání; textové hodnoty ani hesla se nebudou vkládat do zdrojových souborů jako skutečné přihlašovací údaje. Produkční hromadné rozesílání, složitá autentizace a automatické nasazení nepatří do tohoto kurzu.

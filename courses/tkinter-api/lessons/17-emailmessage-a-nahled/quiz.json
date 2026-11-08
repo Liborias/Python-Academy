@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Odešle EmailMessage samo zprávu do schránky?",
+    "options": [
+      "Ne, drží data; odeslání je samostatný krok.",
+      "Ano, nastavením To.",
+      "Pouze při českém předmětu."
+    ],
+    "answer": 0,
+    "why": "Vytvoření, serializace a náhled neotevírají SMTP spojení."
+  },
+  {
+    "q": "Proč jsou nové řádky v předmětu odmítnuté?",
+    "options": [
+      "Protože by nešlo použít UTF-8.",
+      "Mohly by měnit strukturu hlaviček.",
+      "Protože předmět smí obsahovat jen čísla."
+    ],
+    "answer": 1,
+    "why": "Více řádků patří do těla, hlavička musí zachovat jednoznačný význam."
+  },
+  {
+    "q": "Dokazuje platný tvar adresy existenci schránky?",
+    "options": [
+      "Ano, knihovna ji vždy kontaktuje.",
+      "Pouze u domény .test.",
+      "Ne, parser ověřuje tvar, ne existenci a doručitelnost."
+    ],
+    "answer": 2,
+    "why": "Cvičné .test adresy používáme bez skutečné osobní schránky."
+  }
+]

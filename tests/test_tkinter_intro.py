@@ -103,7 +103,7 @@ stav.pack(padx=16, pady=12)''')]
     def test_outline_preparation_and_quizzes(self):
         c = json.loads((BASE.parent/'course.json').read_text('utf-8'))
         self.assertEqual(c['modules'][0]['lessons'], IDS)
-        self.assertEqual(c['requires_packages'], ['requests'])
+        self.assertEqual(c['requires_packages'], ['requests', 'aiosmtpd>=1.4.6,<2'])
         self.assertEqual(c['learning_plan']['level'], 3)
         catalog = json.loads((ROOT/'courses/catalog.json').read_text('utf-8'))['courses']
         row = next(r for r in catalog if r['id'] == 'tkinter-api')

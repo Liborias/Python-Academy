@@ -1,0 +1,11 @@
+{
+  "title": "Nastavení SMTP a nejistý výsledek přenosu",
+  "minutes": 60,
+  "kind": "gui",
+  "tags": [
+    "email",
+    "smtp",
+    "tkinter"
+  ],
+  "example_title": "Přijetí, odmítnutí a opožděné potvrzení"
+}

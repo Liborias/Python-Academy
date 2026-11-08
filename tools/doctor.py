@@ -46,7 +46,7 @@ except Exception as e:
     add(NO, "tkinter", f"{type(e).__name__}; Linux: sudo apt install python3-tk")
 
 module("pygame", "pygame-ce")
-for mod, pip in [("pandas", None), ("matplotlib", None), ("openpyxl", None), ("requests", None),
+for mod, pip in [("pandas", None), ("matplotlib", None), ("openpyxl", None), ("requests", None), ("aiosmtpd", '"aiosmtpd>=1.4.6,<2"'),
                  ("bs4", "beautifulsoup4"), ("qrcode", "qrcode[pil]"), ("pyttsx3", None)]:
     module(mod, pip, optional=True)
 

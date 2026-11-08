@@ -282,7 +282,7 @@ class Checker:
             return PgResult(crashed=err[-1] if err else "program nespustil")
         return PgResult(**json.loads(out.read_text(encoding="utf-8")))
 
-    def tk_run(self, actions=(), timeout: float = 10, max_steps: int = 100000, *, calls=(), run_name="__main__", dialogs=(), http=None) -> TkResult:
+    def tk_run(self, actions=(), timeout: float = 10, max_steps: int = 100000, *, calls=(), run_name="__main__", dialogs=(), http=None, extra_env=None) -> TkResult:
         """Spustí Tkinter bez okna s akcemi, odpověďmi dialogů a voláním funkcí."""
         import tempfile
         with tempfile.TemporaryDirectory(prefix="tk-") as temp:
@@ -293,6 +293,8 @@ class Checker:
             (tmp / "spec.json").write_text(json.dumps(spec), encoding="utf-8")
             out = tmp / "out.json"
             env = dict(os.environ, PYTHONUTF8="1", PYTHONIOENCODING="utf-8")
+            if extra_env:
+                env.update(extra_env)
             try:
                 p = subprocess.run([sys.executable, "-u", "-X", "utf8", str(Path(__file__).with_name("tkrun.py")),
                                     str(self.student), str(tmp / "spec.json"), str(out)], capture_output=True,

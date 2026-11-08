@@ -1,0 +1,2 @@
+Česká poznámka k Pythonu.
+Zkoušíme přílohy.

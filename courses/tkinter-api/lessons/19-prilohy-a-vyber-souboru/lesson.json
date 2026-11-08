@@ -1,0 +1,11 @@
+{
+  "title": "Přílohy a zrušený výběr souboru",
+  "minutes": 50,
+  "kind": "gui",
+  "tags": [
+    "email",
+    "smtp",
+    "tkinter"
+  ],
+  "example_title": "Příloha se nejprve připraví v náhledu"
+}

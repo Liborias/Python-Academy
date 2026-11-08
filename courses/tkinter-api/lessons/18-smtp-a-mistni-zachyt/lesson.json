@@ -1,0 +1,11 @@
+{
+  "title": "SMTP a místní záchyt zpráv",
+  "minutes": 45,
+  "kind": "console",
+  "tags": [
+    "email",
+    "smtp",
+    "tkinter"
+  ],
+  "example_title": "Zpráva zachycená bez osobní schránky"
+}

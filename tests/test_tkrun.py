@@ -345,6 +345,16 @@ w.mainloop()
         self.assertEqual(r.widgets('entry',1)[0]['value'],'Původní')
         self.assertEqual(r.widgets('entry',3)[0]['value'],'Nové')
 
+    def test_extra_environment_applies_only_to_student_process(self):
+        before=os.environ.get('DILNA_SMTP_TIMEOUT')
+        r=self.run_prog('''import os
+import tkinter as tk
+w=tk.Tk();tk.Label(w,text=os.environ["DILNA_SMTP_TIMEOUT"]).pack();w.mainloop()
+''',extra_env={'DILNA_SMTP_TIMEOUT':'0.05'})
+        self.assertIsNone(r.error)
+        self.assertEqual(r.widgets('label')[0]['text'],'0.05')
+        self.assertEqual(os.environ.get('DILNA_SMTP_TIMEOUT'),before)
+
 
 if __name__ == '__main__':
     unittest.main()

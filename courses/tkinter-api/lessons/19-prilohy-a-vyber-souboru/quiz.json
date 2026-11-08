@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč čteme soubor v režimu rb?",
+    "options": [
+      "Abychom zachovali původní bajty bez převodu textového kódování.",
+      "Aby se automaticky poslal na internet.",
+      "Abychom vždy získali řetězec str."
+    ],
+    "answer": 0,
+    "why": "Příloha může být textová i binární; její obsah uchováváme jako bytes."
+  },
+  {
+    "q": "Co má být filename přílohy?",
+    "options": [
+      "Celá cesta včetně uživatelského jména.",
+      "Pouze název souboru, například poznamka.txt.",
+      "Vždy obsah prvního řádku."
+    ],
+    "answer": 1,
+    "why": "Path.name nedává příjemci místní adresářovou strukturu."
+  },
+  {
+    "q": "Kdy nahradíme dosavadní přílohu v GUI?",
+    "options": [
+      "Ještě před otevřením dialogu.",
+      "Při každé chybě.",
+      "Až po úspěšném načtení a přípravě nového kandidáta."
+    ],
+    "answer": 2,
+    "why": "Zrušení i chyba musí zachovat poslední platnou zprávu."
+  }
+]

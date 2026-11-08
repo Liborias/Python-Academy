@@ -2,7 +2,8 @@
   "id": "tkinter-api",
   "title": "Okenní aplikace, API a e-maily",
   "requires_packages": [
-    "requests"
+    "requests",
+    "aiosmtpd>=1.4.6,<2"
   ],
   "modules": [
     {
@@ -44,15 +45,25 @@
         "15-vlakno-fronta-a-after",
         "16-projekt-prevodnik-men"
       ]
+    },
+    {
+      "id": "m05",
+      "title": "E-maily nejdříve lokálně",
+      "lessons": [
+        "17-emailmessage-a-nahled",
+        "18-smtp-a-mistni-zachyt",
+        "19-prilohy-a-vyber-souboru",
+        "20-nastaveni-smtp-a-chyby"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od prvního okna ke Korespondenční dílně",
     "status": "draft",
     "level": 3,
-    "summary": "Prvních šestnáct lekcí je připravených: formuláře, soubory, úkolníček, místní HTTP API a převodník měn s načítáním na pozadí. Další části přidají e-maily a závěrečný projekt.",
+    "summary": "Prvních dvacet lekcí je připravených: okna, soubory, API, převodník a e-maily s přílohami v místním SMTP záchytu. Další části propojí Korespondenční dílnu a předání aplikace.",
     "placement": "Po Základech Pythonu; soubory/JSON a OOP pomohou v pozdějších částech.",
     "difficulty_reason": "Úvod od 2/4, celek 3/4: události, spolupráce GUI s daty a sítí, odmítnuté operace a testy.",
-    "duration": "Plán 28 lekcí, prvních 16 je dostupných. Odhad 16–22 hodin včetně projektů."
+    "duration": "Plán 28 lekcí, prvních 20 je dostupných. Odhad 16–22 hodin včetně projektů."
   }
 }

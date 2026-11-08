@@ -252,3 +252,36 @@ server jen na 127.0.0.1 a volném portu; přidá pro tuto dobu loopback do obou
 variant NO_PROXY se zachováním ostatních položek a potom vrátí původní hodnoty.
 `kurzy.py` v 15/16 je kopie solution.py lekce 14; shodu hlídá test. Při změně
 rozhraní aktualizujte návaznosti. Žádné cvičné kurzy nevydávejte za dnešní tržní data.
+
+### E-mail a místní SMTP (v0.54)
+Lekce 17/18 jsou konzolové; validátor skutečně vytvoří zprávu a v 18 ji předá
+místnímu SMTP. Lekce 19/20 mají GUI. `test_tkinter_mail.py` ověřuje UTF-8,
+hlavičky proti SMTP obálce, přesné bajty přílohy, chyby před změnou zprávy,
+konfiguraci i skutečné odmítnutí a ztracené potvrzení. Neprovádí externí odesílání.
+
+`shared/cvicna_posta.py` a jeho přesné kopie ve files 18/20 používají aiosmtpd
+na 127.0.0.1 a volném portu. Ověřeno s aiosmtpd 1.4.6/Pythonem 3.14.8;
+rozsah instalace je `aiosmtpd>=1.4.6,<2`. Pomocný `_Controller._trigger_server`
+doplňuje skutečný port před úvodním spojením při port=0. Používá neveřejný bod
+knihovny: při upgradu ověřte start, přenos i ukončení skutečného serveru.
+Záchyt zprávy nepřeposílá, uchovává je jen v paměti a přístup k seznamu chrání
+zámkem. Režim pomalu uloží zprávu před opožděným potvrzením; timeout klienta
+proto není důkazem, že ji server nepřevzal. Žádné automatické opakování přenosu.
+
+Zpravy.py ve files 18–20 je přesná kopie řešení 17 a odesilani.py ve files 20
+kopie řešení 18. Shodu těchto čtyř a dvou kopií záchytu hlídá test. Úpravy
+rozhraní musí aktualizovat návazné lekce. Náhled zprávy je dekódovaný text;
+nenahrazuje serializovaný MIME přenos a nevypisuje binární přílohu jako text.
+
+`c.tk_run(..., extra_env={"DILNA_SMTP_TIMEOUT":"0.05"})` předá řetězcové
+proměnné pouze studentskému podprocesu, rodičovské prostředí nemění. Slouží
+k ověřování konfigurace a skutečných místních SMTP scénářů, nikoli k náhradě
+SMTP falešnými výsledky. Nemění seznam povolených proměnných v běžném běhu
+aplikace. Zkoušku vlastních DILNA_SMTP_* provádějte přímo v terminálu/editoru
+a po změně prostředí program znovu spusťte, jak vysvětluje lekce 20.
+
+`python tests/tkinter_mail_real_smoke.py` vyžaduje grafickou plochu. Ve
+skutečném Tk ověřuje výběr/výměnu přílohy, zrušení a chybu bez ztráty předchozí
+zprávy a odezvu při skutečném SMTP, odmítnutí i timeoutu s již uloženou zprávou.
+Odpovědi výběru souboru řídí test; vzhled nativního dialogu tím ověřen není.
+Veřejná SMTP služba, přihlášení a doručení do skutečné schránky sem nepatří.
