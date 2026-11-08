@@ -10,16 +10,21 @@ from pandas.testing import assert_frame_equal, assert_series_equal
 
 def equivalent(actual, expected, *, exact=False):
     """Porovná i popisky, názvy, dtype a NaN; běžná aritmetika má malou toleranci."""
+    # Výstupní freq je nepovinné odvozené metadata; skutečné časy se porovnávají.
+    # Exact hlídá zachování vstupu včetně freq a typů prázdných indexů obou os.
     try:
         if isinstance(expected, pd.DataFrame):
             assert_frame_equal(actual, expected, check_exact=exact, rtol=1e-12, atol=1e-12,
-                               check_index_type=True if exact or len(expected.index) else False)
+                               check_index_type=True if exact or len(expected.index) else False,
+                               check_column_type=True if exact or len(expected.columns) else False,
+                               check_freq=exact)
             return True
         if isinstance(expected, pd.Series):
             # U prázdného výsledku bez popisků mohou konstruktor slovníku a seznamu
             # odvodit různé typy prázdného indexu. Dtype hodnot a jména se kontrolují.
             assert_series_equal(actual, expected, check_exact=exact, rtol=1e-12, atol=1e-12,
-                                check_index_type=True if exact or len(expected.index) else False)
+                                check_index_type=True if exact or len(expected.index) else False,
+                                check_freq=exact)
             return True
     except (AssertionError, TypeError, ValueError):
         return False

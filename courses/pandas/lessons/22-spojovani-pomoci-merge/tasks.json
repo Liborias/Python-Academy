@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Jen položky se známým klíčem"
+  },
+  {
+    "id": "task-3",
+    "title": "Předaný název klíče"
+  },
+  {
+    "id": "task-4",
+    "title": "Klíče s různými názvy"
+  },
+  {
+    "id": "task-5",
+    "title": "Cena platná pro den i produkt"
+  }
+]

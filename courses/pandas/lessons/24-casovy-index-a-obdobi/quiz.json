@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak zahrnout celý den včetně mikrosekund před půlnocí?",
+    "options": [
+      "Od první půlnoci včetně do další půlnoci bez ní.",
+      "Použít konec 23:59:59 bez dalších zlomků.",
+      "Zahrnout také půlnoc následujícího dne."
+    ],
+    "answer": 0,
+    "why": "Polootevřený interval zachová poslední mikrosekundy a nepřidá nový den."
+  },
+  {
+    "q": "Co udělá reindex na denní mřížku s chybějícím dnem?",
+    "options": [
+      "Sečte všechna měření daného dne.",
+      "Vytvoří NaN bez agregace.",
+      "Sám doplní poslední známou hodnotu."
+    ],
+    "answer": 1,
+    "why": "Agregace patří k resample; reindex pouze přiřazuje existující hodnoty k požadovaným popiskům."
+  },
+  {
+    "q": "Jak zachovat důležitý časový index jako sloupec?",
+    "options": [
+      "Reset_index(drop=True), který čas zahodí.",
+      "Převést všechny časové hodnoty na nulu.",
+      "Reset_index bez drop=True."
+    ],
+    "answer": 2,
+    "why": "Bez drop=True se pojmenovaný časový index přesune do prvního sloupce."
+  }
+]

@@ -51,15 +51,26 @@
         "19-prumer-median-a-rozpeti",
         "20-projekt-prehled-kavarny"
       ]
+    },
+    {
+      "id": "m05",
+      "title": "Spojte tabulky a čas",
+      "lessons": [
+        "21-zarovnani-a-concat",
+        "22-spojovani-pomoci-merge",
+        "23-klice-a-kontrola-spojeni",
+        "24-casovy-index-a-obdobi",
+        "25-resample-a-casove-souhrny"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od prvního měření k Analytické dílně",
     "status": "draft",
     "level": 3,
-    "summary": "Prvních dvacet lekcí je připravených: od Series a čištění po souhrny, groupby, statistiku a projekt kavárny. Samostatná témata mají tři ukázky a pět úkolů s možným řešením; projekt tvoří jeden celek.",
+    "summary": "Prvních 25 lekcí je připravených: od Series po čištění, souhrny, spojování tabulek a časové řady. Samostatná témata mají tři ukázky a pět úkolů s možným řešením; projekt kavárny tvoří jeden celek.",
     "placement": "Po Základech Pythonu; práce se soubory pomůže, notebook není povinný.",
     "difficulty_reason": "Úvod od 2/4, celek 3/4: popisky, datové typy, chybějící údaje, spojování, grafy a ověření výsledků.",
-    "duration": "Plán 42 lekcí, prvních 20 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
+    "duration": "Plán 42 lekcí, prvních 25 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
   }
 }

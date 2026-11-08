@@ -1,0 +1,11 @@
+{
+  "title": "Časový index a období",
+  "minutes": 60,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "cas"
+  ],
+  "example_title": "Seřazený časový index"
+}

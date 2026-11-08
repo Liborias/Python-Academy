@@ -151,7 +151,7 @@ zadáním a ověřte jej kontrolou daného úkolu. Zobrazení nic nevkládá do 
 neprovádí kontrolu a nemění značky splnění. Přepnutí úkolu panel zavře, vymaže
 předchozí zobrazení a ignoruje opožděnou odpověď jiného úkolu. Jednotlivá načtená
 řešení se drží jen v paměti aktuální stránky; obnovení stránky je znovu skryje.
-Všech 188 praktických lekcí a 212 doplňkových úkolů má řešení. Průvodce bez
+Všech 193 praktických lekcí a 232 doplňkových úkolů má řešení. Průvodce bez
 programového zadání ani plánovaný kurz panel nezobrazuje. Zpřístupnění dalšího
 kurzu nevyžaduje seznam povolených kurzů v kódu: rozhoduje existence jeho vzoru.
 
@@ -160,8 +160,11 @@ Lekce pandas používají volitelný lib/dilna_check/pandas_tools.py. Základní
 dilna_check tím nezískává závislost na pandas. Check_cases porovnává skutečné
 Series/DataFrame přes pandas.testing včetně typu, pořadí, popisků a názvu;
 aritmetika má toleranci 1e-12, kontrola zachování vstupu je přesná. U prázdného
-výsledku bez popisků se nevyžaduje konkrétní typ prázdného indexu odvozený
-konstruktorem, dtype hodnot a jména se kontrolují dál. Readonly_files hlídá,
+výsledku bez popisků se nevyžaduje konkrétní typ prázdného indexu řádků
+ani sloupců odvozený konstruktorem; dtype hodnot a jména se kontrolují dál.
+Výstupní časové indexy se porovnávají podle skutečných hodnot, jednotky a názvu,
+nikoli nepovinného metadata freq: správný ručně vytvořený index může mít freq=None.
+Přesná kontrola zachování vstupu dál zahrnuje i freq a typ prázdných indexů. Readonly_files hlídá,
 že načtené CSV nezmizí ani se nezmění. Případy mají zahrnovat prázdné vstupy,
 NaN, jiné názvy/pořadí a čísla, která odhalí předčasné zaokrouhlení.
 
@@ -199,6 +202,22 @@ Projekt pandas 20 je jedna úloha se dvěma funkcemi a bez examples.json/tasks.j
 Má vlastní files/prodeje.csv a README. Checker počítá očekávané přehledy
 nezávislým cyklem a kontroluje i poškozené souhrny, přesné počty a toleranci
 částek. Samotné kontrolní součty nezaručují správné jednotlivé skupiny.
+
+Lekce 21–25 ověřují zarovnání podle popisků, obě osy concat, opakované záznamy
+a počet řádků i při prázdném průniku sloupců. Merge rozlišuje left/inner/outer,
+různé názvy klíče, dvojici klíčů, suffixes a categorical indikátor původu.
+Validate má odhalit i nepoužitý duplicitní pravý klíč; kontroluje se konkrétní
+MergeError a zachování obou vstupů při odmítnutí. Neexistující protějšek
+se nesmí určovat podle NaN v ceně známého produktu.
+
+Časové úkoly používají datetime64[us] bez NaT a časového pásma, stabilitu
+shod ověřuje i 40 řádků. Přesný úsek zahrnuje obě hranice; celý den zahrnuje
+poslední mikrosekundu, ale ne další půlnoc. Mřížka reindex nemá doplňovat
+předchozí hodnotu ani agregovat. Resample rozlišuje min_count=1, size/count/mean,
+prázdné dny, samé NaN a skutečnou nulu; měsíce používají MS, nikoli 30D či ms.
+Test_pandas_joins zahrnuje i správné alternativy, samostatné běhy všech řešení,
+pět úryvků výkladu a propojení ceníku s časovým souhrnem. Každá lekce 21–25
+má dvě doplňkové ukázky a čtyři doplňkové úkoly; projekt 20 zůstává jeden celek.
 
 ## Odolné ukládání postupu (od v0.58)
 Web/js/store.js zachovává klíč dilna-python-v1 a dosavadní strukturu done,

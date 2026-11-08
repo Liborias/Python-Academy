@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Připojit další řádky"
+  },
+  {
+    "id": "task-3",
+    "title": "Sloupce zarovnané podle indexu"
+  },
+  {
+    "id": "task-4",
+    "title": "Připojit jen společné sloupce"
+  },
+  {
+    "id": "task-5",
+    "title": "Připojit Series bez ztráty popisků"
+  }
+]

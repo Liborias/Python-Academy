@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co zachovává left spojení?",
+    "options": [
+      "Pouze spárované řádky.",
+      "Všechny řádky levé tabulky.",
+      "Vždy všechny pravé řádky bez levých."
+    ],
+    "answer": 1,
+    "why": "Nespárovaný levý klíč zůstane a nové pravé hodnoty budou chybějící."
+  },
+  {
+    "q": "Cena závisí na dni i produktu. Jaký klíč použít?",
+    "options": [
+      "Pouze produkt bez ohledu na den.",
+      "Pořadová čísla obou tabulek.",
+      "Dvojici den a produkt."
+    ],
+    "answer": 2,
+    "why": "Spojení musí respektovat obě hodnoty určující konkrétní cenu."
+  },
+  {
+    "q": "K čemu slouží left_on a right_on?",
+    "options": [
+      "Pro různě pojmenované klíče na obou stranách.",
+      "K odstranění všech indexů z projektu.",
+      "K přepočtu desetinné čárky."
+    ],
+    "answer": 0,
+    "why": "Hodnoty lze propojit i bez přejmenování jejich zdrojových sloupců."
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Záznamy proti známým hodnotám",
+    "description": "Prázdný den a den se samými neznámými údaji odliší size a count.",
+    "code": "# %% U 1. února jsou tři záznamy, z nich dva mají hodnotu.\nimport pandas as pd\nidx = pd.DatetimeIndex([\"2026-02-01 08:00\", \"2026-02-01 08:00\", \"2026-02-01 12:00\", \"2026-02-03 00:00\", \"2026-02-04 08:00\"], name=\"cas\").as_unit(\"us\")\ndf = pd.DataFrame({\"hodnota\": [1.0, 2.0, None, 0.0, None]}, index=idx)\nprint(df.resample(\"D\", closed=\"left\", label=\"left\").agg(radky=(\"hodnota\", \"size\"), dostupne=(\"hodnota\", \"count\"), prumer=(\"hodnota\", \"mean\")))\n# Součty bez jediného známého údaje ponecháme jako NaN, skutečná nula zůstane.\nprint(df[\"hodnota\"].resample(\"D\", closed=\"left\", label=\"left\").sum(min_count=1))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Kalendářní měsíce a přestupný den",
+    "description": "MS jsou začátky měsíců, nikoli pevné třicetidenní bloky.",
+    "code": "# %% Únor 2024 má 29 dní a březen v tomto zdroji nemá žádný záznam.\nimport pandas as pd\nidx = pd.DatetimeIndex([\"2024-01-31 23:59:59\", \"2024-02-29 23:59:59\", \"2024-04-01 00:00:00\"], name=\"cas\").as_unit(\"us\")\ns = pd.Series([2.0, 3.0, 4.0], index=idx, name=\"mereni\", dtype=\"float64\")\n# Prázdný březen je NaN, každý štítek odpovídá začátku kalendářního měsíce.\nprint(s.resample(\"MS\", closed=\"left\", label=\"left\").sum(min_count=1))\n"
+  }
+]

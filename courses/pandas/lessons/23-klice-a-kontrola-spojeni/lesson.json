@@ -1,0 +1,11 @@
+{
+  "title": "Klíče a kontrola spojení",
+  "minutes": 65,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "spojovani"
+  ],
+  "example_title": "Ověřený ceník bez násobení prodejů"
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Stejné řádky, různé sloupce",
+    "description": "Outer ponechá sjednocení sloupců, inner jen společné.",
+    "code": "# %% Concat připojí všechny zdrojové řádky, bez odstraňování shod.\nimport pandas as pd\na = pd.DataFrame({\"rano\": [18.0, 21.0], \"vecer\": [20.0, 22.0]}, index=[\"A\", \"B\"])\nb = pd.DataFrame({\"vecer\": [19.0], \"vlhkost\": [65.0]}, index=[\"A\"])\nprint(\"Sjednocení sloupců:\")\nprint(pd.concat([a, b], ignore_index=True, join=\"outer\"))\n# Při vnitřním zarovnání zůstane pouze společný sloupec vecer.\nprint(\"Společné sloupce:\")\nprint(pd.concat([a, b], ignore_index=True, join=\"inner\"))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Sloupce podle názvu místa",
+    "description": "Jiné pořadí indexů nesmí prohodit ranní a večerní měření.",
+    "code": "# %% Hodnoty se při axis=1 spojují podle popisků, nikoli pořadí.\nimport pandas as pd\na = pd.DataFrame({\"rano\": [18.0, 21.0]}, index=[\"Brno\", \"Praha\"])\nb = pd.DataFrame({\"vecer\": [17.0, 20.0]}, index=[\"Zlín\", \"Brno\"])\nprint(pd.concat([a, b], axis=1, join=\"outer\").sort_index())\n# Připojení Series pod sebe naopak zachová i opakovaný popisek Brno.\ns = pd.Series([18.0, 21.0], index=[\"Brno\", \"Praha\"], name=\"teplota\", dtype=\"float64\")\nt = pd.Series([19.0], index=[\"Brno\"], name=\"teplota\", dtype=\"float64\")\nprint(pd.concat([s, t]))\n"
+  }
+]

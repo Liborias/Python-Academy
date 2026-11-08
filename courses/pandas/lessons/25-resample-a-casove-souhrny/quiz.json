@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jaký je denní součet samých NaN při min_count=1?",
+    "options": [
+      "Vždy 0.0.",
+      "NaN.",
+      "Počet všech záznamů."
+    ],
+    "answer": 1,
+    "why": "Potřebujeme alespoň jednu známou hodnotu, skutečnou nulu nezaměňujeme za neznámé údaje."
+  },
+  {
+    "q": "Co znamená resample(\"MS\")?",
+    "options": [
+      "Pevné úseky třiceti dní.",
+      "Milisekundy jako malé ms.",
+      "Kalendářní měsíce označené začátkem měsíce."
+    ],
+    "answer": 2,
+    "why": "Velikost písmen je důležitá: MS je Month Start, ms milisekundy."
+  },
+  {
+    "q": "Den má dva záznamy a oba NaN. Jaké jsou size a count?",
+    "options": [
+      "Size 2 a count 0.",
+      "Obě hodnoty 0.",
+      "Size 0 a count 2."
+    ],
+    "answer": 0,
+    "why": "Počet záznamů se liší od počtu dostupných měřených hodnot."
+  }
+]

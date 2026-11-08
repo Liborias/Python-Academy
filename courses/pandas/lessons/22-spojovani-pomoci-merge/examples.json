@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Left proti inner",
+    "description": "Nespárovaná novinka zůstane v left výsledku s neznámou cenou.",
+    "code": "# %% Pořadí ceníku neodpovídá pořadí prodejů.\nimport pandas as pd\nprodeje = pd.DataFrame({\"produkt\": [\"caj\", \"kava\", \"novinka\"], \"kusy\": [2, 3, 1]})\ncenik = pd.DataFrame({\"produkt\": [\"kava\", \"caj\"], \"cena\": [60.0, 45.0]})\nprint(\"Všechny prodeje:\")\nprint(prodeje.merge(cenik, on=\"produkt\", how=\"left\", sort=False))\n# Inner má jiný význam: nespárovaný prodej vynechá.\nprint(\"Pouze spárované prodeje:\")\nprint(prodeje.merge(cenik, on=\"produkt\", how=\"inner\", sort=False))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Cena závisí i na dni",
+    "description": "Dvojice klíčů určuje právě jeden platný cenový záznam.",
+    "code": "# %% Stejný produkt má každý den jinou cenu.\nimport pandas as pd\nprodeje = pd.DataFrame({\"den\": [\"2026-11-02\", \"2026-11-01\"], \"produkt\": [\"caj\", \"caj\"], \"kusy\": [1, 3]})\ncenik = pd.DataFrame({\"den\": [\"2026-11-01\", \"2026-11-02\"], \"produkt\": [\"caj\", \"caj\"], \"cena\": [45.0, 48.0]})\nprint(prodeje.merge(cenik, on=[\"den\", \"produkt\"], how=\"left\", sort=False))\n# Různé názvy jediného klíče lze zadat pomocí left_on a right_on.\na = pd.DataFrame({\"kod\": [\"B\", \"A\"], \"kusy\": [1, 2]})\nb = pd.DataFrame({\"id\": [\"A\"], \"nazev\": [\"Čaj\"]})\nprint(a.merge(b, left_on=\"kod\", right_on=\"id\", how=\"left\", sort=False))\n"
+  }
+]

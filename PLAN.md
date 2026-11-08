@@ -91,11 +91,11 @@ Pomocné moduly ve files/ navazují na předchozí vzorová řešení; jejich sh
 Pořadí od nejjednoduššího: Turtle (kreslení, tuple, spirograf) · Opakování typů a řetězců („zpět k základům“) · seznamy a slicing, `set`, rozbalování · Úvod do OOP (class, konstruktor, atributy, metody) · Čtyři pilíře, dědění, `super()`, dunder metody, MRO, `@property`, `@dataclass` (novinka) · Projekty: **Snake**, kvíz s API (Open Trivia DB, s mockem).
 
 ### F. Datová analýza v Pandas (42 lekcí)
-**Stav v0.62: 20 ze 42 lekcí hotovo ve čtyřech modulech.**
+**Stav v0.63: 25 ze 42 lekcí hotovo v pěti modulech.**
 První modul: Series a popisky · výpočty a zarovnání · loc/iloc · DataFrame · CSV.
-Samostatné lekce 1–19 mají tři přepínatelné ukázky a pět úkolů s kontrolou
+Samostatné lekce 1–19 a 21–25 mají tři přepínatelné ukázky a pět úkolů s kontrolou
 a možným řešením. Projekt 20 tvoří jeden celek se dvěma funkcemi a přiloženým CSV.
-Celkem 58 ukázek a 96 úkolů. Nové příkazy se vysvětlují před použitím.
+Celkem 73 ukázek a 121 úkolů. Nové příkazy se vysvětlují před použitím.
 Příprava před kurzem nabízí tři editory a .venv; notebook není povinný.
 Python 3.14.8/pandas 3.1.1/NumPy 2.5.4 ověřeny, instalace vybírá pandas>=3,<4.
 V prohlížeči i terminálu běží obyčejné .py, značky # %% jsou pro volitelné buňky.
@@ -108,7 +108,10 @@ Druhý modul 6–10 hotov: sloupce, tabulkové loc/iloc, masky, stabilní sort_v
 více klíčů, NaN/reset_index a změny přes loc/Copy-on-Write v pandas 3.
 Třetí modul 11–15 hotov: chybějící údaje, převody čísel a datumů, duplicity a čištění textu.
 Čtvrtý modul 16–20 hotov: souhrny, groupby, více agregací, statistika a mini-projekt kavárny.
-Další blok 21–25: zarovnání/concat, merge/klíče/validate a časový index/resample. Zachovat více příkladů/úkolů s řešeními u samostatných témat;
+Pátý modul 21–25 hotov: zarovnání/concat, merge podle jednoho i více klíčů,
+validate/indikátor/suffixes, časový index a denní/měsíční resample.
+Další blok 26–30: Figure/Axes, čárové a sloupcové grafy, bodový graf, histogram
+a uložení PNG i bez grafické plochy. Zachovat více příkladů/úkolů s řešeními u samostatných témat;
 navazující projektové kroky nerozdělovat na nesouvisející varianty.
 
 ### D. Okenní aplikace, API a e-maily (28 lekcí)

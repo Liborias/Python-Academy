@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Počet záznamů v každém dni"
+  },
+  {
+    "id": "task-3",
+    "title": "Denní průměry známých hodnot"
+  },
+  {
+    "id": "task-4",
+    "title": "Souhrny kalendářních měsíců"
+  },
+  {
+    "id": "task-5",
+    "title": "Denní počet a průměr v jedné tabulce"
+  }
+]

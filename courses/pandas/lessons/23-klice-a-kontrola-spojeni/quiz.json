@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co kontroluje validate=\"many_to_one\"?",
+    "options": [
+      "Že se každý levý klíč určitě spáruje.",
+      "Že je pravá cena vždy větší než nula.",
+      "Jedinečnost pravého klíče, levý se opakovat smí."
+    ],
+    "answer": 2,
+    "why": "Validate kontroluje očekávanou kardinalitu, nespárované klíče hledáme zvlášť."
+  },
+  {
+    "q": "Známý produkt má v ceníku cenu NaN. Jaký bude indikátor po spárování?",
+    "options": [
+      "both",
+      "left_only jen kvůli ceně",
+      "right_only bez levého řádku"
+    ],
+    "answer": 0,
+    "why": "Existence klíče a dostupnost jeho ceny jsou dvě různé vlastnosti."
+  },
+  {
+    "q": "Jak se v pandas mohou chovat dva chybějící klíče při merge?",
+    "options": [
+      "Nikdy se nespárují jako při běžném očekávání SQL NULL.",
+      "Mohou se spárovat navzájem.",
+      "Vždy se přejmenují na produkt nula."
+    ],
+    "answer": 1,
+    "why": "Neznámé identifikátory vyžadují vlastní pravidlo; naše úkoly jim předcházejí známými klíči."
+  }
+]

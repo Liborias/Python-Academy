@@ -1,0 +1,11 @@
+{
+  "title": "Spojování pomocí merge",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "spojovani"
+  ],
+  "example_title": "Doplnit cenu podle produktu"
+}

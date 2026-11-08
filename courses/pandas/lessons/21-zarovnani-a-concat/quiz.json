@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co udělá reindex s požadovaným dosud neexistujícím popiskem?",
+    "options": [
+      "Vytvoří místo s NaN.",
+      "Vždy vyvolá KeyError jako loc.",
+      "Automaticky použije předchozí hodnotu."
+    ],
+    "answer": 0,
+    "why": "Reindex umožní změnit osu i o nové neznámé pozice; zde nic nedoplňujeme."
+  },
+  {
+    "q": "Podle čeho zarovnává concat s axis=1 řádky?",
+    "options": [
+      "Pouze podle pořadí.",
+      "Podle indexových popisků.",
+      "Podle výšky hodnot."
+    ],
+    "answer": 1,
+    "why": "Při připojování sloupců se druhá osa, tedy řádky, zarovnává podle indexu."
+  },
+  {
+    "q": "Co zaručí ignore_index=True při připojování řádků?",
+    "options": [
+      "Automatické odstranění duplicit.",
+      "Výběr řádků podle společného produktu.",
+      "Nový pořadový RangeIndex."
+    ],
+    "answer": 2,
+    "why": "Concat připojuje řádky; jedinečnost záznamů ani hodnotové spojení tím nevznikají."
+  }
+]

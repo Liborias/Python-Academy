@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Celý den až k další půlnoci",
+    "description": "Měření s mikrosekundami patří ještě předchozímu dni.",
+    "code": "# %% Pevné 23:59:59 by ztratilo poslední mikrosekundy dne.\nimport pandas as pd\nidx = pd.DatetimeIndex([\"2026-02-01 00:00:00\", \"2026-02-01 23:59:59.999999\", \"2026-02-02 00:00:00\"], name=\"cas\").as_unit(\"us\")\ndf = pd.DataFrame({\"mereni\": [1.0, 2.0, 3.0]}, index=idx)\nzacatek = pd.Timestamp(\"2026-02-01\")\nkonec = zacatek + pd.Timedelta(days=1)\n# Nová půlnoc je z intervalu vynechaná, první se zahrne.\nprint(df.loc[(df.index >= zacatek) & (df.index < konec)])\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Mřížka a čas zpět ve sloupci",
+    "description": "Reindex vytvoří neznámý den bez automatického výpočtu či doplnění hodnoty.",
+    "code": "# %% Zdroj obsahuje právě jedno známé měření pro každý svůj den.\nimport pandas as pd\ns = pd.Series([18.0, 19.0], index=pd.DatetimeIndex([\"2026-02-01\", \"2026-02-03\"], name=\"den\").as_unit(\"us\"), name=\"teplota\", dtype=\"float64\")\nmrizka = pd.date_range(\"2026-02-01\", \"2026-02-03\", freq=\"D\", name=\"den\").as_unit(\"us\")\npravidelne = s.reindex(mrizka)\nprint(pravidelne)\n# Reset_index bez drop=True vrátí důležitý čas do běžného sloupce.\nprint(pravidelne.to_frame().reset_index())\n"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Nejednoznačný ceník se odmítne",
+    "description": "Bez validace by jeden prodej vytvořil více řádků.",
+    "code": "# %% Dvě ceny pro stejný klíč porušují předpoklad ceníku.\nimport pandas as pd\nprodeje = pd.DataFrame({\"produkt\": [\"caj\"], \"kusy\": [2]})\ncenik = pd.DataFrame({\"produkt\": [\"caj\", \"caj\"], \"cena\": [45.0, 48.0]})\nprint(\"Bez kontroly vznikne řádků:\", len(prodeje.merge(cenik, on=\"produkt\", how=\"left\")))\n# Chybu pouze zobrazíme; zdroje neupravujeme ani nevybíráme náhodnou cenu.\ntry:\n    prodeje.merge(cenik, on=\"produkt\", how=\"left\", validate=\"many_to_one\")\nexcept pd.errors.MergeError:\n    print(\"Nejednoznačný ceník: nejprve vyřešte význam duplicitního klíče.\")\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Indikátor a chybějící klíč",
+    "description": "NaN ceny u známého klíče je něco jiného než left_only.",
+    "code": "# %% A má protějšek s neznámou cenou, B jej nemá.\nimport pandas as pd\na = pd.DataFrame({\"kod\": [\"A\", \"B\", None], \"hodnota\": [1.0, 2.0, 3.0]})\nb = pd.DataFrame({\"kod\": [\"A\", \"C\", None], \"cena\": [None, 30.0, 9.0]})\nspojene = a.merge(b, on=\"kod\", how=\"outer\", sort=True, indicator=True)\nprint(spojene)\nprint(\"Jen levé klíče:\")\nprint(spojene.loc[spojene[\"_merge\"] == \"left_only\"])\n# Pandas zde spáruje i dva chybějící klíče; není to běžné pravidlo SQL NULL.\nprint(\"Spárované chybějící klíče:\")\nprint(spojene.loc[spojene[\"kod\"].isna(), [\"kod\", \"cena\", \"_merge\"]])\n"
+  }
+]

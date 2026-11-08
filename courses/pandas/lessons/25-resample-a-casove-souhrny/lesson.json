@@ -1,0 +1,11 @@
+{
+  "title": "Resample a časové souhrny",
+  "minutes": 60,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "cas"
+  ],
+  "example_title": "Denní součty bez vymyšlených nul"
+}

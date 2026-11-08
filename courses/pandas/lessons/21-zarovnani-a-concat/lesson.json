@@ -1,0 +1,11 @@
+{
+  "title": "Zarovnání a concat",
+  "minutes": 50,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "spojovani"
+  ],
+  "example_title": "Hodnoty podle nového seznamu popisků"
+}
