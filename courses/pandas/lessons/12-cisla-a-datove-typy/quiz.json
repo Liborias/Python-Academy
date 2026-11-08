@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co dělá errors=\"coerce\" v to_numeric?",
+    "options": [
+      "Neplatný zápis převede na chybějící údaj.",
+      "Opraví překlep na správné číslo.",
+      "Převede každou chybu na nulu."
+    ],
+    "answer": 0,
+    "why": "Coerce neopravuje význam dat; neúspěšné převody je třeba zkontrolovat."
+  },
+  {
+    "q": "Jaký je rozdíl mezi Int64 a int64?",
+    "options": [
+      "Int64 s velkým I dovoluje pd.NA.",
+      "Jsou to vždy stejné typy.",
+      "Int64 znamená textový identifikátor."
+    ],
+    "answer": 0,
+    "why": "Nullable typ Int64 uchová celé počty i neznámý údaj bez náhrady nulou."
+  },
+  {
+    "q": "Proč u kódu 001 neprovést číselný převod?",
+    "options": [
+      "Počáteční nuly mohou být součástí identifikátoru.",
+      "Žádný text se na čísla převést nedá.",
+      "To_numeric převádí pouze datumy."
+    ],
+    "answer": 0,
+    "why": "Volba typu vychází z významu sloupce, ne jen z toho, jak vypadá."
+  }
+]

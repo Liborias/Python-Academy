@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Bílé znaky a koncová jednotka",
+    "description": "Vnitřní mezery a přípony měníme dvěma různými, výslovnými pravidly.",
+    "code": "# %% Regulární výraz sjednotí mezery, tabulátory a nové řádky.\nimport pandas as pd\nmista = pd.Series([\"  Nové   Město \", \"Žďár\\tnad\\nSázavou\", None], name=\"misto\", dtype=\"str\")\nprint(mista.str.strip().str.replace(r\"\\s+\", \" \", regex=True))\n# Removesuffix odstraní jen přesný konec, nikoli jednotku uprostřed či na začátku.\nhmotnost = pd.Series([\" 12 kg \", \"kg12\", \"12 kg navíc\", None], name=\"hmotnost\", dtype=\"str\")\nprint(hmotnost.str.strip().str.removesuffix(\"kg\").str.strip())\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Čistý sloupec a zachovaný vstup",
+    "description": "Prázdná hodnota se mění na NaN jen podle zvoleného pravidla.",
+    "code": "# %% Poznámka se nemá čistit stejně jako název místa.\nimport pandas as pd\ndf = pd.DataFrame({\"misto\": [\" PRAHA \", \"  \", None, \"Brno\"], \"poznamka\": [\" Zachovat \", \"Text\", \"X\", \"Y\"]})\nvysledek = df.copy()\nvysledek[\"misto\"] = vysledek[\"misto\"].str.strip().str.lower()\n# Series.replace mění celou prázdnou hodnotu, nikoli libovolnou část textu.\nvysledek[\"misto\"] = vysledek[\"misto\"].replace(\"\", float(\"nan\"))\nprint(vysledek)\nprint(\"Původní tabulka:\")\nprint(df)\n"
+  }
+]

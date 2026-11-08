@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Čárka a přehled chybných textů",
+    "description": "Převod má známý formát a původní chybějící údaj není překlep.",
+    "code": "# %% Zdroj používá desetinnou čárku, bez oddělovačů tisíců.\nimport pandas as pd\ns = pd.Series([\"12,5\", \"-0,25\", \"chyba\", None, \"0\"], name=\"cena\", dtype=\"str\")\ncisla = pd.to_numeric(s.str.replace(\",\", \".\", regex=False), errors=\"coerce\").astype(\"float64\")\nprint(cisla)\n# Maska odliší neplatný existující text od původně chybějícího údaje.\nchybne = cisla.isna() & s.notna()\nprint(\"Problematické vstupy:\")\nprint(s.loc[chybne])\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Počty a textové kódy",
+    "description": "Int64 s velkým I dovoluje pd.NA, kód 001 zůstává textem.",
+    "code": "# %% Převádíme jen sloupce, pro které známe cílový typ.\nimport pandas as pd\ndf = pd.DataFrame({\"kusy\": [\"2\", None, \"0\"], \"cena\": [\"12.5\", \"0\", \"3.0\"], \"kod\": [\"001\", \"007\", \"010\"]})\nvysledek = df.astype({\"kusy\": \"Int64\", \"cena\": \"float64\"})\nprint(vysledek)\nprint(vysledek.dtypes)\n# Kódy nebyly převedeny na čísla a jejich nuly zůstaly zachované.\nprint(\"Původní typy:\")\nprint(df.dtypes)\n"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Chybí, nebo je to prázdný text?",
+    "description": "Isna neoznačuje nulu ani prázdný řetězec; doplníme jen poznámku.",
+    "code": "# %% Nula je platná hodnota, prázdný text zatím také.\nimport pandas as pd\ndf = pd.DataFrame({\"teplota\": [0.0, None, 18.5], \"poznamka\": [\"\", None, \"slunce\"]}, index=[\"C\", \"A\", \"B\"])\nprint(df.isna())\nprint(\"Chybějící údaje ve sloupcích:\")\nprint(df.isna().sum())\n# Náhrada poznámky nemění neznámou teplotu ani původní tabulku.\nprint(df.fillna({\"poznamka\": \"neuvedeno\"}))\nprint(\"Původní data:\")\nprint(df)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Povinné údaje a poslední stav",
+    "description": "Dropna posuzuje jen určené sloupce, ffill potřebuje známého předchůdce.",
+    "code": "# %% Pro tento přehled vyžadujeme místo, nikoli poznámku.\nimport pandas as pd\ndf = pd.DataFrame({\"misto\": [\"Brno\", None, \"Praha\"], \"poznamka\": [None, \"X\", \"\"]}, index=[\"C\", \"A\", \"B\"])\nprint(df.dropna(subset=[\"misto\"]))\nprint(df[[\"misto\"]].isna().any(axis=1))\n# Stav podle zadání platí do změny; na začátku jej ještě neznáme.\nstav = pd.Series([None, \"otevřeno\", None, \"zavřeno\", None], name=\"stav\", dtype=\"str\")\nprint(stav.ffill())\n"
+  }
+]

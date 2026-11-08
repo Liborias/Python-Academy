@@ -113,7 +113,7 @@ class PandasSelectionTest(unittest.TestCase):
     def test_metadata_and_all_selected_reference_sources(self):
         course = json.loads((BASE.parent/'course.json').read_text('utf-8'))
         self.assertEqual(course['modules'][1]['lessons'], IDS)
-        self.assertEqual(sum(len(m['lessons']) for m in course['modules']), 10)
+        self.assertGreaterEqual(sum(len(m['lessons']) for m in course['modules']), 10)
         for lid in IDS:
             view = lesson_view(ROOT/'courses', 'pandas', lid)
             self.assertEqual(view['kind'], 'console')

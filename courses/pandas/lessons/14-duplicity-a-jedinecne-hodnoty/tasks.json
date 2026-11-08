@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Poslední záznam pro klíč"
+  },
+  {
+    "id": "task-3",
+    "title": "Označit všechny výskyty duplicity"
+  },
+  {
+    "id": "task-4",
+    "title": "Jedinečné hodnoty v původním pořadí"
+  },
+  {
+    "id": "task-5",
+    "title": "Počty včetně chybějících hodnot"
+  }
+]

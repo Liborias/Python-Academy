@@ -1,0 +1,11 @@
+{
+  "title": "Datumy a čas",
+  "minutes": 60,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "cisteni"
+  ],
+  "example_title": "Datum s určeným formátem"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená %m v datumovém formátu?",
+    "options": [
+      "Měsíc.",
+      "Minuty.",
+      "Mikrosekundy."
+    ],
+    "answer": 0,
+    "why": "Minuty jsou %M s velkým M; malé m je měsíc."
+  },
+  {
+    "q": "Které datum je platné?",
+    "options": [
+      "29.02.2024.",
+      "29.02.2026.",
+      "31.02.2026."
+    ],
+    "answer": 0,
+    "why": "Rok 2024 je přestupný, únor však nikdy nemá 31 dní."
+  },
+  {
+    "q": "Co znamená NaT?",
+    "options": [
+      "Chybějící datum nebo čas.",
+      "Datum s nulovým rokem.",
+      "Textový název časového pásma."
+    ],
+    "answer": 0,
+    "why": "NaT rozeznává isna; může vzniknout i z neplatného zápisu při coerce."
+  }
+]

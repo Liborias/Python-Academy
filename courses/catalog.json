@@ -74,7 +74,7 @@
         "zaklady"
       ],
       "status": "draft",
-      "summary": "Prvních 10 z 42 lekcí: Series, DataFrame, CSV, výběr, filtrování, řazení a změny dat. Tři ukázky a pět úkolů s možnými řešeními v každé lekci."
+      "summary": "Prvních 15 z 42 lekcí: od Series, CSV a výběru po čištění dat, čísla, datumy, duplicity a texty. Tři ukázky a pět úkolů s možnými řešeními v každé lekci."
     },
     {
       "id": "tkinter-api",

@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Datum i čas bez časového pásma"
+  },
+  {
+    "id": "task-3",
+    "title": "Rok jako celé číslo s NA"
+  },
+  {
+    "id": "task-4",
+    "title": "Výběr uzavřeného období"
+  },
+  {
+    "id": "task-5",
+    "title": "Neplatné datum proti chybějícímu"
+  }
+]

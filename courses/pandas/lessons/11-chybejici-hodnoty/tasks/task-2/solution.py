@@ -1,0 +1,13 @@
+# %% Knihovny
+import pandas as pd
+
+
+# %% Funkce pro úkol
+def dopln_hodnoty(tabulka, vyplne):
+    return tabulka.fillna(vyplne)
+
+
+# %% Vlastní ověření: při importu se tento blok neprovede.
+if __name__ == "__main__":
+    df = pd.DataFrame({"misto": ["Brno", None, ""], "teplota": [0.0, None, 18.5]}, index=["C", "A", "B"])
+    print(dopln_hodnoty(df, {"misto": "neuvedeno"}))

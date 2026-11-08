@@ -1,14 +1,14 @@
 ## Datová analýza v Pandas
 
-**Připraveno 10 ze 42 lekcí.** Začneme vlastními měřeními a ceníkem malé kavárny. Postupně z nich vznikne Analytická dílna: od otázky přes kontrolu dat až po graf a srozumitelnou zprávu. Data jsou cvičná a smyšlená, součástí projektu; jejich získávání nebude záviset na cizí službě.
+**Připraveno 15 ze 42 lekcí.** Začneme vlastními měřeními a ceníkem malé kavárny. Postupně z nich vznikne Analytická dílna: od otázky přes kontrolu dat až po graf a srozumitelnou zprávu. Data jsou cvičná a smyšlená, součástí projektu; jejich získávání nebude záviset na cizí službě.
 
 Kurz navazuje na seznamy, slovníky, funkce a soubory ze Základů Pythonu. Úvod má náročnost 2/4, celek 3/4 kvůli datovým typům, chybějícím hodnotám, spojování tabulek a ověřování výsledků. Odhad je 25–35 hodin základního průchodu; další procvičování podle potřeby.
 
 ## Prostředí a způsob práce
 
-Příprava před lekcemi nabízí Windows/macOS/Linux a VS Code/VSCodium/PyCharm. Použijte stejnou .venv pro editor i terminál. Instalaci obstará python tools/setup_env.py --courses pandas. Pandas řady 3 pracuje s tabulkami, matplotlib připraví grafy, openpyxl soubory Excelu a ipykernel volitelné notebooky či buňky. Prvních deset lekcí potřebuje pouze pandas.
+Příprava před lekcemi nabízí Windows/macOS/Linux a VS Code/VSCodium/PyCharm. Použijte stejnou .venv pro editor i terminál. Instalaci obstará python tools/setup_env.py --courses pandas. Pandas řady 3 pracuje s tabulkami, matplotlib připraví grafy, openpyxl soubory Excelu a ipykernel volitelné notebooky či buňky. Prvních patnáct lekcí potřebuje pouze pandas.
 
-První dva moduly jsou ověřené na Pythonu 3.14.8 s pandas 3.1.1 a NumPy 2.5.4. Ověřená instalace obsahuje také matplotlib 3.11.2, openpyxl 3.1.5 a ipykernel 7.4.0; jejich konkrétní použití přijde v dalších blocích. V prohlížeči spouštíme obyčejné .py soubory. Komentáře # %% dovolují volitelné rozdělení do buněk v podporovaném editoru. Vždy zůstává možnost spustit celý skript v terminálu. Notebook ani Anaconda nejsou podmínkou studia.
+První tři moduly jsou ověřené na Pythonu 3.14.8 s pandas 3.1.1 a NumPy 2.5.4. Ověřená instalace obsahuje také matplotlib 3.11.2, openpyxl 3.1.5 a ipykernel 7.4.0; jejich konkrétní použití přijde v dalších blocích. V prohlížeči spouštíme obyčejné .py soubory. Komentáře # %% dovolují volitelné rozdělení do buněk v podporovaném editoru. Vždy zůstává možnost spustit celý skript v terminálu. Notebook ani Anaconda nejsou podmínkou studia.
 
 Každá dostupná lekce vysvětluje nové operace před použitím a má tři přepínatelné ukázky a pět samostatných úkolů. Každý úkol nabízí možné řešení a kontrolu výsledku na různých vstupech. Jiný správný postup je v pořádku. Další běžná témata budou tento způsob procvičování zachovávat; navazující projektové kroky budou tvořit jeden celek. Odkrytí řešení nepřepisuje rozepsaný kód ani neoznačuje úkol za splněný.
 
@@ -34,11 +34,11 @@ Výstup: načtená tabulka místních měření, ve které rozumíte řádkům, 
 9. Řazení podle hodnot a více klíčů, pořadí a chybějící hodnoty.
 10. Nové sloupce a cílené změny přes loc: Copy-on-Write v pandas 3 bez řetězeného přiřazení.
 
-Výstup: přehled vybraných měření a ceník s vypočtenými částkami. Rozlišujete Series/DataFrame, popisky/pozice, &/| a sort_index/sort_values. Umíte stabilní řazení, umístění NaN, zachování indexu a změnu přes loc v samostatné kopii. Návazný blok 11–15 se zaměří na čištění a datové typy.
+Výstup: přehled vybraných měření a ceník s vypočtenými částkami. Rozlišujete Series/DataFrame, popisky/pozice, &/| a sort_index/sort_values. Umíte stabilní řazení, umístění NaN, zachování indexu a změnu přes loc v samostatné kopii. Návazný blok 11–15 přidává čištění a datové typy.
 
 ## Modul 3 — Data nejsou vždy čistá
 
-**Plán: lekce 11–15.**
+**Hotovo: lekce 11–15.** Každá má tři ukázky a pět úkolů s možnými řešeními.
 
 11. isna, fillna a dropna: chybějící údaj není nula.
 12. Datové typy a to_numeric: ověřit převod i neplatné hodnoty.
@@ -46,7 +46,7 @@ Výstup: přehled vybraných měření a ceník s vypočtenými částkami. Rozl
 14. Duplicitní záznamy, jedinečné hodnoty a pravidlo pro ponechání řádku.
 15. Textové sloupce: mezery, velikost písmen a čištění bez ztráty původních dat.
 
-Výstup: vyčištěná kopie tabulky a vysvětlení každé provedené změny.
+Výstup: vyčištěná kopie tabulky a vysvětlení každé provedené změny. Rozlišujete chybějící údaj, prázdný text a neplatný zápis. Umíte Int64 s pd.NA, datumový formát a NaT, pravidlo klíče duplicit i cílené čištění textu. Původní data zachováte pro porovnání. Další modul 16–20 naváže souhrny a groupby.
 
 ## Modul 4 — Ptejte se na souvislosti
 

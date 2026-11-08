@@ -2,6 +2,7 @@
 .prose{margin-top:18px}
 .prose h2{font-size:1.4rem;margin:26px 0 8px}.prose h3{font-size:1.15rem;margin:20px 0 6px}
 .prose p,.prose ul,.prose ol{margin:10px 0}.prose li{margin:3px 0}
+.prose p code,.prose li code{overflow-wrap:anywhere}
 .block{margin-top:30px}.block h2{font-size:1.25rem;margin-bottom:10px}
 pre.code{background:var(--code-bg);color:var(--code-ink);border:1px solid var(--code-line);border-radius:10px;padding:14px 16px;font-family:var(--f-code);font-size:.9rem;line-height:1.55;tab-size:4;overflow:auto;margin:12px 0}
 pre.code code{background:none;border:0;padding:0;color:inherit;font-size:inherit}

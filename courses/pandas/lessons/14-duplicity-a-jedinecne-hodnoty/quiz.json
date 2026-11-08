@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co posuzuje drop_duplicates bez subset?",
+    "options": [
+      "Hodnoty všech datových sloupců, nikoli index.",
+      "Pouze řádkový index.",
+      "Jen první sloupec."
+    ],
+    "answer": 0,
+    "why": "Pravidlo klíče můžeme změnit pomocí subset."
+  },
+  {
+    "q": "Co znamená keep=\"last\"?",
+    "options": [
+      "Poslední výskyt v aktuálním pořadí tabulky.",
+      "Vždy nejnovější datum.",
+      "Obrátit všechny řádky."
+    ],
+    "answer": 0,
+    "why": "Pokud chceme rozhodovat podle času, musíme nejprve určit odpovídající pořadí."
+  },
+  {
+    "q": "Jak započítat i chybějící hodnoty bez řazení četností?",
+    "options": [
+      "value_counts(dropna=False, sort=False).",
+      "Pouze len bez dalších údajů.",
+      "drop_duplicates(keep=False)."
+    ],
+    "answer": 0,
+    "why": "Dropna=False zahrne chybějící skupinu a sort=False ponechá pořadí prvního výskytu."
+  }
+]

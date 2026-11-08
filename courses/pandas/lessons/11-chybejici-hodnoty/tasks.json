@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Doplnění vybraných sloupců"
+  },
+  {
+    "id": "task-3",
+    "title": "Řádky s úplnými povinnými údaji"
+  },
+  {
+    "id": "task-4",
+    "title": "Chybí alespoň jeden údaj"
+  },
+  {
+    "id": "task-5",
+    "title": "Poslední známý stav"
+  }
+]

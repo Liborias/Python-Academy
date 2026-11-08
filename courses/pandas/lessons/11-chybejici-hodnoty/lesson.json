@@ -1,0 +1,11 @@
+{
+  "title": "Chybějící hodnoty nejsou nuly",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "cisteni"
+  ],
+  "example_title": "Počet chybějících údajů"
+}

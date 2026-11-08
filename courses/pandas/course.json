@@ -29,15 +29,26 @@
         "09-razeni-podle-hodnot",
         "10-nove-sloupce-a-zmeny-pres-loc"
       ]
+    },
+    {
+      "id": "m03",
+      "title": "Data nejsou vždy čistá",
+      "lessons": [
+        "11-chybejici-hodnoty",
+        "12-cisla-a-datove-typy",
+        "13-datumy-a-cas",
+        "14-duplicity-a-jedinecne-hodnoty",
+        "15-cisteni-textovych-sloupcu"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od prvního měření k Analytické dílně",
     "status": "draft",
     "level": 3,
-    "summary": "Prvních deset lekcí je připravených: od Series a CSV po výběr, filtrování, řazení a cílené změny. Každá má tři ukázky a pět úkolů s možným řešením.",
+    "summary": "Prvních patnáct lekcí je připravených: od Series a CSV přes výběr a změny po chybějící údaje, převody, datumy, duplicity a čištění textu. Každá má tři ukázky a pět úkolů s možným řešením.",
     "placement": "Po Základech Pythonu; práce se soubory pomůže, notebook není povinný.",
     "difficulty_reason": "Úvod od 2/4, celek 3/4: popisky, datové typy, chybějící údaje, spojování, grafy a ověření výsledků.",
-    "duration": "Plán 42 lekcí, prvních 10 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
+    "duration": "Plán 42 lekcí, prvních 15 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
   }
 }

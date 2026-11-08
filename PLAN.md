@@ -91,10 +91,10 @@ Pomocné moduly ve files/ navazují na předchozí vzorová řešení; jejich sh
 Pořadí od nejjednoduššího: Turtle (kreslení, tuple, spirograf) · Opakování typů a řetězců („zpět k základům“) · seznamy a slicing, `set`, rozbalování · Úvod do OOP (class, konstruktor, atributy, metody) · Čtyři pilíře, dědění, `super()`, dunder metody, MRO, `@property`, `@dataclass` (novinka) · Projekty: **Snake**, kvíz s API (Open Trivia DB, s mockem).
 
 ### F. Datová analýza v Pandas (42 lekcí)
-**Stav v0.60: 10 ze 42 lekcí hotovo ve dvou modulech.**
+**Stav v0.61: 15 ze 42 lekcí hotovo ve třech modulech.**
 První modul: Series a popisky · výpočty a zarovnání · loc/iloc · DataFrame · CSV.
-Každá z deseti lekcí má tři přepínatelné ukázky a pět samostatných úkolů s kontrolou
-a dostupným možným řešením (30 ukázek, 50 úkolů). Nové příkazy se vysvětlují před použitím.
+Každá z patnácti lekcí má tři přepínatelné ukázky a pět samostatných úkolů s kontrolou
+a dostupným možným řešením (45 ukázek, 75 úkolů). Nové příkazy se vysvětlují před použitím.
 Příprava před kurzem nabízí tři editory a .venv; notebook není povinný.
 Python 3.14.8/pandas 3.1.1/NumPy 2.5.4 ověřeny, instalace vybírá pandas>=3,<4.
 V prohlížeči i terminálu běží obyčejné .py, značky # %% jsou pro volitelné buňky.
@@ -105,7 +105,8 @@ výběr a změny · čištění · groupby a souhrny · spojení a čas · grafy
 a opakovatelný postup · projekt Analytická dílna. Úvod 2/4, celek 3/4.
 Druhý modul 6–10 hotov: sloupce, tabulkové loc/iloc, masky, stabilní sort_values,
 více klíčů, NaN/reset_index a změny přes loc/Copy-on-Write v pandas 3.
-Další blok 11–15: chybějící údaje, převody čísel a datumů, duplicity a čištění textu. Zachovat více příkladů/úkolů s řešeními u samostatných témat;
+Třetí modul 11–15 hotov: chybějící údaje, převody čísel a datumů, duplicity a čištění textu.
+Další blok 16–20: souhrny, groupby, více agregací, statistika a mini-projekt kavárny. Zachovat více příkladů/úkolů s řešeními u samostatných témat;
 navazující projektové kroky nerozdělovat na nesouvisející varianty.
 
 ### D. Okenní aplikace, API a e-maily (28 lekcí)

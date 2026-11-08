@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co změní str.strip()?",
+    "options": [
+      "Bílé znaky na okrajích textu.",
+      "Všechny mezery uvnitř i okolo slov.",
+      "Automaticky všechna velká písmena."
+    ],
+    "answer": 0,
+    "why": "Vnitřní mezery a velikost písmen vyžadují vlastní operace."
+  },
+  {
+    "q": "Co odstraní str.removesuffix(\"kg\")?",
+    "options": [
+      "Jednu přesnou příponu kg na konci.",
+      "Všechny výskyty kg kdekoli.",
+      "Libovolné dva poslední znaky."
+    ],
+    "answer": 0,
+    "why": "Nejde o globální nahrazení ani regulární výraz."
+  },
+  {
+    "q": "Co je prázdný text po strip?",
+    "options": [
+      "Stále textová hodnota, dokud neurčíme pravidlo náhrady.",
+      "Vždy automaticky NaN.",
+      "Vždy celé číslo nula."
+    ],
+    "answer": 0,
+    "why": "Záměnu prázdného pole za chybějící údaj provádíme výslovně."
+  }
+]

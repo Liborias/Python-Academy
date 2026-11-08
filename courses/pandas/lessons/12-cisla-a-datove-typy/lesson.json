@@ -1,0 +1,11 @@
+{
+  "title": "Čísla a datové typy",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "cisteni"
+  ],
+  "example_title": "Čísla z textu"
+}

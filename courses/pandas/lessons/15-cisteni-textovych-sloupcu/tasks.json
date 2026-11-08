@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Jedna mezera mezi slovy"
+  },
+  {
+    "id": "task-3",
+    "title": "Odstranit jen koncovou příponu"
+  },
+  {
+    "id": "task-4",
+    "title": "Prázdný text změnit na chybějící údaj"
+  },
+  {
+    "id": "task-5",
+    "title": "Čistit jen zvolený sloupec"
+  }
+]

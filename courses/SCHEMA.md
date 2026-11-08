@@ -53,7 +53,7 @@ Validátor spustí každou variantu, vyžaduje úspěšné dokončení a nejmén
 Původní `example.py` se zachovává jako první ukázka. Tlačítka se zobrazí pouze u lekcí
 s dalšími příklady. Jejich editor je upravitelný a každá varianta má vlastní
 rozepsaný kód v localStorage. Přepnutí neovlivňuje úkol, jeho kontrolu ani postup studenta.
-Varianty jsou v Základech, lekce 01–31 a 37–39, a v prvních deseti lekcích
+Varianty jsou v Základech, lekce 01–31 a 37–39, a v prvních patnácti lekcích
 Datové analýzy. Nevytvářejí se automaticky pro navazující projektové kroky.
 
 ## Koncept úvodního podkurzu (od v0.35)
@@ -151,7 +151,7 @@ zadáním a ověřte jej kontrolou daného úkolu. Zobrazení nic nevkládá do 
 neprovádí kontrolu a nemění značky splnění. Přepnutí úkolu panel zavře, vymaže
 předchozí zobrazení a ignoruje opožděnou odpověď jiného úkolu. Jednotlivá načtená
 řešení se drží jen v paměti aktuální stránky; obnovení stránky je znovu skryje.
-Všech 178 praktických lekcí a 176 doplňkových úkolů má řešení. Průvodce bez
+Všech 183 praktických lekcí a 196 doplňkových úkolů má řešení. Průvodce bez
 programového zadání ani plánovaný kurz panel nezobrazuje. Zpřístupnění dalšího
 kurzu nevyžaduje seznam povolených kurzů v kódu: rozhoduje existence jeho vzoru.
 
@@ -175,6 +175,18 @@ indexem. Při požadavku na stabilitu řazení zahrňte delší vstup se shodami
 krátký může dát stejné pořadí i s nestabilním algoritmem. Úpravy tabulek mají
 zachovat původní vstup a přiřazení Series má respektovat popisky. Testy
 nevyžadují konkrétní zápis, přijímají alternativní správné postupy.
+
+Lekce 11–15 rozlišují NaN/NA/NaT od nuly, prázdného textu a neplatného
+existujícího zápisu. Přehled počtů výslovně vrací int64 i bez sloupců;
+datumové převody mají určený formát, errors="coerce" a jednotku datetime64[us].
+Kontroly zahrnují přestupný rok, nemožný čas, obě hranice období, pravidlo
+prvního/posledního výskytu duplicit, četnosti chybějících hodnot a doslovnou
+koncovou příponu. Čištění má zachovat neupravované hodnoty i zdrojové vstupy.
+Textové příklady ověřujte také s tabulátorem, novým řádkem, diakritikou a NaN.
+
+Dlouhý inline code v odstavci či seznamu prose se může zalomit pomocí
+overflow-wrap:anywhere (lesson.css). Samostatné pre.code zachovává původní
+řádky a vlastní posouvání; mobilní zkouška ověřuje šířku stránky i toto chování.
 
 ## Odolné ukládání postupu (od v0.58)
 Web/js/store.js zachovává klíč dilna-python-v1 a dosavadní strukturu done,

@@ -1,0 +1,11 @@
+{
+  "title": "Čištění textových sloupců",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "cisteni"
+  ],
+  "example_title": "Okraje a malá písmena"
+}

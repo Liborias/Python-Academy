@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Celý řádek proti klíči",
+    "description": "Stejný produkt s jinou cenou není stejný celý záznam.",
+    "code": "# %% Index je zde popisek, pravidlo duplicit určují datové sloupce.\nimport pandas as pd\ndf = pd.DataFrame({\"kod\": [\"A\", \"B\", \"A\", \"B\"], \"cena\": [10.0, 20.0, 10.0, 25.0]}, index=[\"r3\", \"r1\", \"r2\", \"r0\"])\nprint(\"První celé záznamy:\")\nprint(df.drop_duplicates(keep=\"first\"))\n# Poslední podle kódu znamená podle současného pořadí, nikoli automaticky data.\nprint(\"Poslední záznamy pro kód:\")\nprint(df.drop_duplicates(subset=[\"kod\"], keep=\"last\"))\nprint(\"Všechny řádky s opakovaným kódem:\")\nprint(df.loc[df.duplicated(subset=[\"kod\"], keep=False)])\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Pořadí kategorií a jejich počty",
+    "description": "Jedinečné hodnoty a četnosti zachovají pořadí prvního výskytu.",
+    "code": "# %% Prázdný text je v tomto příkladu samostatná platná kategorie.\nimport pandas as pd\ns = pd.Series([\"B\", \"A\", \"B\", \"\", \"C\", \"A\"], name=\"misto\", dtype=\"str\")\nprint(s.drop_duplicates().tolist())\nt = pd.Series([\"B\", \"A\", \"B\", None, \"C\", None], name=\"misto\", dtype=\"str\")\npocty = t.value_counts(dropna=False, sort=False)\nprint(pocty)\n# Chybějící údaje byly započteny také, takže součet četností odpovídá délce.\nprint(\"Součet četností:\", pocty.sum(), \"Počet vstupů:\", len(t))\n"
+  }
+]

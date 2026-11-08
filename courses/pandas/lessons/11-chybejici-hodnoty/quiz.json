@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co označí isna u hodnot 0.0, NaN a prázdného textu?",
+    "options": [
+      "Jen NaN.",
+      "Všechny tři hodnoty.",
+      "Jen nulu."
+    ],
+    "answer": 0,
+    "why": "Nula i prázdný text jsou hodnoty; pravidlo pro prázdné pole musíme určit zvlášť."
+  },
+  {
+    "q": "Co znamená dropna(subset=[\"misto\"])?",
+    "options": [
+      "Vynechat řádky, kterým chybí místo.",
+      "Odstranit sloupec misto.",
+      "Vynechat řádky s prázdnou poznámkou."
+    ],
+    "answer": 0,
+    "why": "Subset určuje sloupce posuzované při rozhodování o řádcích."
+  },
+  {
+    "q": "Co udělá ffill s úvodní chybějící hodnotou?",
+    "options": [
+      "Ponechá ji chybějící, protože nemá známého předchůdce.",
+      "Vždy ji doplní nulou.",
+      "Najde poslední hodnotu po seřazení indexu."
+    ],
+    "answer": 0,
+    "why": "Ffill používá předchozí známý stav v aktuálním pořadí a samo neřadí."
+  }
+]
