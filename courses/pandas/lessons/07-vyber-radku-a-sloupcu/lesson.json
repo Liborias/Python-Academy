@@ -1,0 +1,11 @@
+{
+  "title": "Výběr řádků a sloupců",
+  "minutes": 50,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "tabulky"
+  ],
+  "example_title": "Obdélník podle popisků"
+}

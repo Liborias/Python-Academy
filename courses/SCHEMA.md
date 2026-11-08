@@ -53,7 +53,7 @@ Validátor spustí každou variantu, vyžaduje úspěšné dokončení a nejmén
 Původní `example.py` se zachovává jako první ukázka. Tlačítka se zobrazí pouze u lekcí
 s dalšími příklady. Jejich editor je upravitelný a každá varianta má vlastní
 rozepsaný kód v localStorage. Přepnutí neovlivňuje úkol, jeho kontrolu ani postup studenta.
-Varianty jsou v Základech, lekce 01–31 a 37–39, a v prvních pěti lekcích
+Varianty jsou v Základech, lekce 01–31 a 37–39, a v prvních deseti lekcích
 Datové analýzy. Nevytvářejí se automaticky pro navazující projektové kroky.
 
 ## Koncept úvodního podkurzu (od v0.35)
@@ -151,7 +151,7 @@ zadáním a ověřte jej kontrolou daného úkolu. Zobrazení nic nevkládá do 
 neprovádí kontrolu a nemění značky splnění. Přepnutí úkolu panel zavře, vymaže
 předchozí zobrazení a ignoruje opožděnou odpověď jiného úkolu. Jednotlivá načtená
 řešení se drží jen v paměti aktuální stránky; obnovení stránky je znovu skryje.
-Všech 173 praktických lekcí a 156 doplňkových úkolů má řešení. Průvodce bez
+Všech 178 praktických lekcí a 176 doplňkových úkolů má řešení. Průvodce bez
 programového zadání ani plánovaný kurz panel nezobrazuje. Zpřístupnění dalšího
 kurzu nevyžaduje seznam povolených kurzů v kódu: rozhoduje existence jeho vzoru.
 
@@ -168,6 +168,13 @@ NaN, jiné názvy/pořadí a čísla, která odhalí předčasné zaokrouhlení.
 Doplňkový úkol dědí pouze vlastní files/, nikoli files/ kořene lekce.
 Potřebné CSV proto vložte i k příslušnému tasks/task-N/files/. Ověřte nejen
 volání funkcí kontrolou, ale také skutečný samostatný běh ukázky řešení.
+
+Lekce 6–10 ověřují také tvar Series/DataFrame/skalár, prázdné a opakované
+výběry, číselné popisky proti pozicím, hranice filtrů a masku s přeházeným
+indexem. Při požadavku na stabilitu řazení zahrňte delší vstup se shodami;
+krátký může dát stejné pořadí i s nestabilním algoritmem. Úpravy tabulek mají
+zachovat původní vstup a přiřazení Series má respektovat popisky. Testy
+nevyžadují konkrétní zápis, přijímají alternativní správné postupy.
 
 ## Odolné ukládání postupu (od v0.58)
 Web/js/store.js zachovává klíč dilna-python-v1 a dosavadní strukturu done,

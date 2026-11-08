@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Interval a alespoň jedna podmínka",
+    "description": "Vypište masky a porovnejte & s |.",
+    "code": "# %% Závorky oddělí obě porovnání před jejich spojením.\nimport pandas as pd\ndf = pd.DataFrame({\"teplota\": [10.0, 20.0, 30.0], \"vlhkost\": [80.0, 60.0, 45.0]}, index=[\"C\", \"A\", \"B\"])\ninterval = (df[\"teplota\"] >= 10) & (df[\"teplota\"] <= 20)\nhorko_nebo_vlhko = (df[\"teplota\"] >= 25) | (df[\"vlhkost\"] >= 80)\nprint(interval)\nprint(df.loc[interval])\n# Stačí jedna podmínka; řádek se při splnění obou nezdvojí.\nprint(df.loc[horko_nebo_vlhko])\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Kategorie a přeházená maska",
+    "description": "Isin hledá hodnoty, předaná bool Series se zarovná podle indexu.",
+    "code": "# %% Pořadí povolených kategorií nepřerovnává řádky.\nimport pandas as pd\ndf = pd.DataFrame({\"misto\": [\"Brno\", \"Praha\", \"Zlín\"], \"teplota\": [10.0, 20.0, 30.0]}, index=[\"C\", \"A\", \"B\"])\nkategorie = df[\"misto\"].isin([\"Zlín\", \"Brno\"])\nprint(df.loc[kategorie])\nprint(\"Ostatní místa:\")\nprint(df.loc[~kategorie])\n# True pro B a A se uplatní u těchto popisků, nikoli na první a třetí pozici.\nmaska = pd.Series([True, False, True], index=[\"B\", \"C\", \"A\"], dtype=bool)\nprint(\"Podle samostatné masky:\")\nprint(df.loc[maska])\n"
+  }
+]

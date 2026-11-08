@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Podmíněná změna v kopii",
+    "description": "Změní se jen vybrané ceny a vstup zůstane původní.",
+    "code": "# %% Samostatná kopie uchová původní tabulku pro porovnání.\nimport pandas as pd\ndf = pd.DataFrame({\"cena\": [45.0, 60.0, 25.0], \"kusy\": [5, 3, 2]}, index=[\"caj\", \"kava\", \"voda\"])\nvysledek = df.copy()\nmaska = vysledek[\"cena\"] >= 45\nvysledek.loc[maska, \"cena\"] = vysledek.loc[maska, \"cena\"] - 5\n# Assign vrátí další tabulku s vypočteným sloupcem, vstup df nepřepisuje.\nprehled = vysledek.assign(trzba=vysledek[\"cena\"] * vysledek[\"kusy\"])\nprint(prehled)\nprint(\"Původní ceny:\")\nprint(df[\"cena\"])\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Series se zarovná, kopie se oddělí",
+    "description": "Jiný indexový pořádek nepřehodí ceny a změna vybrané Series neupraví tabulku.",
+    "code": "# %% Přiřazení Series používá popisky, nikoli její pořadí.\nimport pandas as pd\ndf = pd.DataFrame({\"cena\": [45.0, 60.0, 25.0]}, index=[\"caj\", \"kava\", \"voda\"])\nnove = pd.Series([26.0, 47.0, 62.0], index=[\"voda\", \"caj\", \"kava\"], dtype=\"float64\")\nvysledek = df.copy()\nvysledek[\"cena\"] = nove\nprint(vysledek)\n# V pandas 3 se odvozená Series při zápisu chová odděleně.\nceny = df[\"cena\"]\nceny.loc[\"caj\"] = 999.0\nprint(\"Změněná Series:\")\nprint(ceny)\nprint(\"Původní tabulka:\")\nprint(df)\n"
+  }
+]

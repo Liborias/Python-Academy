@@ -1,0 +1,11 @@
+{
+  "title": "Filtrování pomocí masek",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "tabulky"
+  ],
+  "example_title": "Od zadaného limitu včetně"
+}

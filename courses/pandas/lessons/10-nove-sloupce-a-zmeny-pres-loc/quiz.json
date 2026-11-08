@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená vysledek = tabulka bez copy?",
+    "options": [
+      "Obě jména označují tentýž objekt.",
+      "Vznikne nezávislá tabulka.",
+      "Vznikne Series se všemi sloupci."
+    ],
+    "answer": 0,
+    "why": "Nové jméno samo nekopíruje data; následný zápis mění tentýž objekt."
+  },
+  {
+    "q": "Jak cíleně změnit cenu vybraných řádků?",
+    "options": [
+      "Jedním vysledek.loc[maska, \"cena\"] = hodnota.",
+      "Řetězeným vysledek[\"cena\"][maska] = hodnota.",
+      "Změnit název celé Series."
+    ],
+    "answer": 0,
+    "why": "Loc vyjádří cíl na obou osách jedním přiřazením, což odpovídá pandas 3."
+  },
+  {
+    "q": "Co rozhoduje při vysledek[\"cena\"] = nove, je-li nove Series?",
+    "options": [
+      "Popisky indexu Series.",
+      "Jen pořadí hodnot Series.",
+      "Name Series přejmenuje sloupec cena."
+    ],
+    "answer": 0,
+    "why": "Series se přiřazuje podle indexu; převod na seznam by tento význam změnil."
+  }
+]

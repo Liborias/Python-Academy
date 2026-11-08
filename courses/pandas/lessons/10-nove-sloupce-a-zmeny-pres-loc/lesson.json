@@ -1,0 +1,11 @@
+{
+  "title": "Nové sloupce a změny přes loc",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "tabulky"
+  ],
+  "example_title": "Nový sloupec s tržbou"
+}

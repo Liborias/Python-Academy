@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Shodné ceny a chybějící cena",
+    "description": "Stabilita zachová pořadí B před A, NaN zůstane na konci i sestupně.",
+    "code": "# %% Druhá a třetí položka mají stejnou cenu, záměrně jiné kódy.\nimport pandas as pd\ndf = pd.DataFrame({\"cena\": [30.0, 10.0, 10.0, None], \"kod\": [\"D\", \"B\", \"A\", \"C\"]}, index=[\"r3\", \"r1\", \"r4\", \"r2\"])\nserazene = df.sort_values(\"cena\", ascending=False, kind=\"stable\", na_position=\"last\")\nprint(serazene)\n# Nový index je samostatná volba; drop=True nepřidá sloupec se starým indexem.\nprint(serazene.reset_index(drop=True))\nprint(\"Původní index:\", df.index.tolist())\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Dva klíče a nejlevnější výběr",
+    "description": "Při stejné ceně rozhodne vyšší počet, head patří až za řazení.",
+    "code": "# %% Cena je hlavní klíč, počet rozhoduje pouze při shodě.\nimport pandas as pd\ndf = pd.DataFrame({\"cena\": [60.0, 45.0, 25.0, 45.0], \"kusy\": [3, 5, 2, 8]}, index=[\"K\", \"C\", \"V\", \"D\"])\nprint(df.sort_values([\"cena\", \"kusy\"], ascending=[True, False]))\n# Pro dvě nejlevnější položky se shodami v původním pořadí použijeme stabilitu.\nprint(df.sort_values(\"cena\", kind=\"stable\").head(2))\n"
+  }
+]

@@ -18,15 +18,26 @@
         "04-prvni-dataframe",
         "05-csv-a-prvni-pruzkum"
       ]
+    },
+    {
+      "id": "m02",
+      "title": "Vyberte jen to, co potřebujete",
+      "lessons": [
+        "06-sloupce-series-a-dataframe",
+        "07-vyber-radku-a-sloupcu",
+        "08-filtrovani-pomoci-masek",
+        "09-razeni-podle-hodnot",
+        "10-nove-sloupce-a-zmeny-pres-loc"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od prvního měření k Analytické dílně",
     "status": "draft",
     "level": 3,
-    "summary": "Prvních pět lekcí je připravených: Series, výpočty, loc/iloc, DataFrame a místní CSV. Každá má tři ukázky a pět úkolů s možným řešením.",
+    "summary": "Prvních deset lekcí je připravených: od Series a CSV po výběr, filtrování, řazení a cílené změny. Každá má tři ukázky a pět úkolů s možným řešením.",
     "placement": "Po Základech Pythonu; práce se soubory pomůže, notebook není povinný.",
     "difficulty_reason": "Úvod od 2/4, celek 3/4: popisky, datové typy, chybějící údaje, spojování, grafy a ověření výsledků.",
-    "duration": "Plán 42 lekcí, prvních 5 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
+    "duration": "Plán 42 lekcí, prvních 10 je dostupných. Odhad 25–35 hodin základu; doplňkové úkoly podle potřeby."
   }
 }

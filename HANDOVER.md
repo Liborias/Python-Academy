@@ -1,5 +1,15 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.60 (8. 11. 2026): Datová analýza 10/42
+
+Pokračování pandas na zadání uživatele. Hotov druhý modul 6–10: sloupce a rozdíl Series/DataFrame, výběr na obou osách loc/iloc, bool masky (&/|/~ a isin), stabilní sort_values/více klíčů/NaN/reset_index a nové sloupce či cílené změny přes loc v pandas 3. Každá nová lekce má tři přepínatelné ukázky a pět úkolů s vlastním zadáním, kontrolou a možným řešením. Kurz nyní 10/42, 30 ukázek a 50 úkolů; celá aplikace 178 hlavních + 176 doplňkových řešení = 354. Všechny nové příkazy se vysvětlují před použitím. Závislosti zůstávají stejné, stačí dosavadní pandas>=3,<4 v projektové .venv. Ověřeno na Pythonu 3.14.8/pandas 3.1.1/NumPy 2.5.4.
+
+Nových osm skupin test_pandas_selection odmítá 38 chybných variant a přijímá 25 správných alternativ všech 25 úkolů. Kontrolují i zachování vstupní tabulky/masky, přiřazení podle popisků, stabilní shody, NaN a samotný Copy-on-Write ve skutečném pandas. Stabilitu prověřují také 40prvkové vstupy; krátký příklad může náhodou dát stejné pořadí i s nestabilním algoritmem. Všech 25 solution.py se spouští také samostatně. Nové ukázky nepotřebují pomocné soubory ani síť. Volitelný pandas_tools.py se neměnil, základní checker se dál obejde bez importu pandas.
+
+E2e_pandas_selection prošlo všech 15 nových ukázek, 25 šablon/řešení i samostatných běhů, workspace, přesné odkrytí vzoru, drafty, procvičení, reload a mobil. Kód/splnění předchozí lekce CSV zůstaly zachované. Prošly regrese e2e_pandas_intro (první modul) a e2e_solutions (138 ostatních lekcí). Skutečné ipykernel provedlo všech 30 ukázek prvních dvou modulů po buňkách v čistém jmenném prostoru. Nativní VS Code/VSCodium/PyCharm tím nejsou otestované. Celkový validátor: 193 lekcí, 0 chyb a upozornění; výsledek celé unittest sady v posledním STATUS.md. Snímky/protokoly mimo repo v /workspace/scratch/pandas-selection-work.
+
+Další blok 11–15: isna/fillna/dropna, převody čísel a datových typů, to_datetime, duplicity a čištění textů. Nadále více ukázek/úkolů a možná řešení u samostatných témat; navazující projekty tvoří celek. Zachovat starší ID a postup. Dodávka commit/push do main bez ZIPů a publikace cloudového prostředí. Historické pokyny níže nejsou aktuálním zadáním.
+
 ## Aktuální v0.59 (8. 11. 2026): Datová analýza 5/42
 
 Uživatel výslovně zahájil Datovou analýzu s více příklady/procvičováním a možnými řešeními od začátku. Tím pro pandas nahrazuje starší pokyn nezačínat nový kurz automaticky. Hotovo prvních pět lekcí: Series/popisky, výpočty/zarovnání, loc/iloc, DataFrame a místní CSV. Každá má tři přepínatelné ukázky a pět úkolů s kontrolou a možným řešením. Celkem 15 ukázek/25 úkolů; v celé aplikaci 173 hlavních + 156 doplňkových řešení = 329. Kurz je draft s úplnou osnovou 42 lekcí v plan.md/panelu; další témata zatím nejsou dostupná. Úvod 2/4, celek 3/4.

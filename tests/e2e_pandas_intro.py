@@ -43,8 +43,9 @@ with tempfile.TemporaryDirectory() as temp:
             assert 'Rozpracováno' in card.inner_text() and '0 / 42 lekcí' in card.inner_text()
             card.click()
             page.wait_for_selector('.mod li')
-            assert page.locator('.mod li').count() == 5
-            assert '5 z 42 lekcí připraveno' in page.locator('.learning-plan').inner_text()
+            available = sum(len(m['lessons']) for m in json.loads((root/'courses/pandas/course.json').read_text('utf-8'))['modules'])
+            assert page.locator('.mod li').count() == available
+            assert f'{available} z 42 lekcí připraveno' in page.locator('.learning-plan').inner_text()
             page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("pandas řady 3")')
             page.locator('.learning-plan summary').click()
             assert 'Modul 8' in page.locator('.learning-plan').inner_text()
@@ -140,7 +141,7 @@ with tempfile.TemporaryDirectory() as temp:
             assert page.is_checked('.done-toggle input')
             assert not errors, errors
             browser.close()
-        print('OK: pandas 5/42, plán/příprava, 15 skutečných ukázek, 25 šablon/řešení, vlastní CSV, workspace, drafty/postup a mobil')
+        print('OK: pandas úvod 1–5, plán/příprava, 15 skutečných ukázek, 25 šablon/řešení, vlastní CSV, workspace, drafty/postup a mobil')
     finally:
         server.runs.stop_all()
         server.shutdown()

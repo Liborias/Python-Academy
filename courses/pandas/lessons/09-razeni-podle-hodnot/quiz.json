@@ -1,0 +1,32 @@
+[
+  {
+    "q": "K čemu slouží kind=\"stable\" při řazení podle jednoho sloupce?",
+    "options": [
+      "Zachová původní pořadí řádků se shodnou hodnotou.",
+      "Změní všechny popisky na pořadová čísla.",
+      "Vždy zahodí NaN."
+    ],
+    "answer": 0,
+    "why": "Stabilita dává jednoznačné pravidlo při shodách."
+  },
+  {
+    "q": "Kam patří NaN při ascending=False a na_position=\"last\"?",
+    "options": [
+      "Na konec.",
+      "Automaticky na začátek.",
+      "Mezi záporné ceny jako nula."
+    ],
+    "answer": 0,
+    "why": "Umístění chybějících hodnot se volí samostatně od směru řazení."
+  },
+  {
+    "q": "Jak získat dvě nejlevnější položky?",
+    "options": [
+      "Nejprve seřadit podle ceny, pak head(2).",
+      "Jen head(2) nad libovolným vstupem.",
+      "Resetovat index a vzít poslední dva řádky."
+    ],
+    "answer": 0,
+    "why": "Head nevyhledává minimum, pouze zkrátí aktuální pořadí."
+  }
+]

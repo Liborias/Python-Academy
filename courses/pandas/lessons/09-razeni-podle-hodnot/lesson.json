@@ -1,0 +1,11 @@
+{
+  "title": "Řazení podle hodnot",
+  "minutes": 50,
+  "kind": "console",
+  "tags": [
+    "pandas",
+    "data",
+    "tabulky"
+  ],
+  "example_title": "Stabilní řazení tabulky"
+}

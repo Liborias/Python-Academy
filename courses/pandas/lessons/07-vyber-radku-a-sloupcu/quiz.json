@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená tabulka.loc[radky, sloupce]?",
+    "options": [
+      "Nejdřív popisky řádků, pak názvy sloupců.",
+      "Nejdřív pozice sloupců, pak řádků.",
+      "Vždy jednu buňku."
+    ],
+    "answer": 0,
+    "why": "Loc vybírá podle popisků na obou osách."
+  },
+  {
+    "q": "Index je [20, 0, 10]. Který řádek vybere iloc[0]?",
+    "options": [
+      "První, s popiskem 20.",
+      "Prostřední, s popiskem 0.",
+      "Žádný, index musí začínat nulou."
+    ],
+    "answer": 0,
+    "why": "Iloc pracuje s pořadovou pozicí, ne s hodnotou indexového popisku."
+  },
+  {
+    "q": "Co vrátí loc[\"A\", \"teplota\"] při jedinečných osách?",
+    "options": [
+      "Samotnou hodnotu buňky.",
+      "Vždy DataFrame 1 × 1.",
+      "Seznam všech teplot."
+    ],
+    "answer": 0,
+    "why": "Jednotlivý popisek na obou osách dává skalární hodnotu."
+  }
+]

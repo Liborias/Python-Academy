@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak spojit dvě masky tak, aby platily obě?",
+    "options": [
+      "Pomocí & se závorkami kolem porovnání.",
+      "Pomocí Python and nad celými Series.",
+      "Sečíst jejich textové názvy."
+    ],
+    "answer": 0,
+    "why": "Operátor & kombinuje bool hodnoty pro jednotlivé řádky."
+  },
+  {
+    "q": "Co udělá isin([\"Praha\", \"Brno\", \"Praha\"])?",
+    "options": [
+      "Vybere odpovídající řádky bez zdvojení kvůli seznamu.",
+      "Každou Prahu vrátí dvakrát.",
+      "Přerovná řádky podle seznamu."
+    ],
+    "answer": 0,
+    "why": "Isin vytváří masku členství; řádky si zachovají původní pořadí."
+  },
+  {
+    "q": "Maska Series má stejné popisky v jiném pořadí. Jak ji použije loc?",
+    "options": [
+      "Zarovná ji podle popisků.",
+      "Použije pouze její pořadové pozice.",
+      "Přejmenuje index tabulky."
+    ],
+    "answer": 0,
+    "why": "Při úplném jedinečném indexu se True/False spojí se správným řádkem."
+  }
+]

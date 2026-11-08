@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co vrátí tabulka[[\"teplota\"]]?",
+    "options": [
+      "DataFrame s jedním sloupcem.",
+      "Vždy Series.",
+      "Běžný seznam všech teplot."
+    ],
+    "answer": 0,
+    "why": "Vnější závorky vybírají z tabulky a vnitřní vytvářejí seznam názvů."
+  },
+  {
+    "q": "Co určuje pořadí při tabulka[[\"b\", \"a\"]]?",
+    "options": [
+      "Seznam: nejprve b, potom a.",
+      "Vždy původní pořadí sloupců.",
+      "Abecední řazení všech řádků."
+    ],
+    "answer": 0,
+    "why": "Seznam názvů určuje vybrané sloupce i jejich výsledné pořadí."
+  },
+  {
+    "q": "Co změní rename(columns={\"teplota\": \"teplota_c\"})?",
+    "options": [
+      "Název sloupce ve vrácené tabulce.",
+      "Teplotu převede na jinou jednotku.",
+      "Přepíše řádkový index."
+    ],
+    "answer": 0,
+    "why": "Přejmenování není výpočet a columns označuje osu sloupců."
+  }
+]

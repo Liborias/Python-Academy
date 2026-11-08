@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Series proti tabulce",
+    "description": "Porovnejte počet os i název výsledného sloupce.",
+    "code": "# %% Jediný název vybírá Series, seznam názvů DataFrame.\nimport pandas as pd\ndf = pd.DataFrame({\"misto\": [\"Brno\", \"Praha\"], \"teplota\": [18.5, 21.0]}, index=[\"B\", \"A\"])\ns = df[\"teplota\"]\njeden = df[[\"teplota\"]]\n# Shape u Series má jednu položku, u DataFrame dvě.\nprint(\"Series:\", s.shape, s.name, s.dtype)\nprint(\"DataFrame:\", jeden.shape, jeden.columns.tolist())\nprint(jeden)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Pořadí a nové názvy",
+    "description": "Seznam určuje pořadí sloupců, rename mění pouze popisky.",
+    "code": "# %% Sloupce lze vybrat v jiném pořadí.\nimport pandas as pd\ndf = pd.DataFrame({\"misto\": [\"Brno\", \"Praha\"], \"teplota\": [18.5, 21.0]})\nprehled = df[[\"teplota\", \"misto\"]].rename(columns={\"teplota\": \"teplota_c\"})\n# Původní názvy se nemění; prázdný výběr zachová oba řádky.\nprint(prehled)\nprint(\"Původní sloupce:\", df.columns.tolist())\nprint(\"Bez sloupců:\", df[[]].shape)\n"
+  }
+]
