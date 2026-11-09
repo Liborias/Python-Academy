@@ -1,5 +1,15 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.67 (9. 11. 2026): Čísla řádků a komentování v editoru
+
+Na výslovné zadání uživatele dokončeno číslování řádků ve společném createEditor pro úkoly a ukázky včetně readonly. Samostatný levý sloupec není součástí textarea, má aria-hidden a nejde vybírat; kopírování obsahuje pouze kód. Počet zahrnuje prázdný koncový řádek, mění se při psaní/set/přepínání a šířka roste s počtem číslic. Čísla a zvýraznění se posouvají svisle společně, při vodorovném posunu zůstávají čísla vlevo; při přepočtu výšky se zachovává posun. Uložené klíče kódu a postupu se nemění.
+
+Dosavadní Ctrl+/ podporuje řádek i blok; rozšířeno o Ctrl+Shift+7 podle fyzického Digit7 pro české klávesnice a stejné varianty s Cmd. Alt/AltGr se nezachytává. Komentování zachová odsazení, kurzor a směr výběru, přesně vynechá další řádek při výběru končícím na jeho začátku, zvládne prázdný první řádek i odsazený prázdný řádek. Prázdné řádky uvnitř bloku zůstanou; smíšený blok se celý zakomentuje, plně zakomentovaný odkomentuje. Opraven lineStart pro index 0 před úvodním newline. Používá stejný undo mechanismus execCommand jako ostatní chytré úpravy.
+
+Tlačítko ? vysvětluje čísla a obě zkratky pro jeden/více řádků včetně Cmd. Na mobilu se tabulka nápovědy mění na jeden sloupec. Chromium e2e_editor_lines ověřuje skutečné klávesy, výběr/kurzor, komentáře, undo/redo, vložení i kopii více než 1000 řádků ze schránky, oba posuvníky a skutečné souřadnice čísel/zvýrazněného textu, přepínání ukázek/úkolů, readonly, reload/postup a šířky 1100/380/320. Velké Locator.fill dokončovalo vložení, ale vypršel jeho automatizační timeout; test proto používá běžné vložení ze schránky. Zarovnání porovnává skutečné glyphy: computed lineHeight je zaokrouhlený a po 999 řádcích vytvářel falešný rozdíl. Regrese e2e_editor a e2e_tasks prošly. Snímky editoru a mobilní nápovědy prohlédnuty; protokoly/snímky mimo repo v /workspace/scratch/editor-lines-work. Události Ctrl/Cmd ověřené v Chromiu/Linuxu, nativní macOS se tím netestuje.
+
+Obsah kurzů pokračuje ve stavu v0.66 níže (Datová analýza 42/42). Dodávka commit/push do main bez ZIPů a bez publikace cloudového prostředí. Další práci určí připomínky uživatele; nový kurz automaticky nezačínat.
+
 ## Aktuální v0.66 (8. 11. 2026): Datová analýza 42/42, Analytická dílna
 
 Hotov závěrečný modul pandas 36–42 jako jeden souvislý projekt: otázka a zdroje, čištění s auditem, spojování/souhrny, graf/zpráva, testy, volitelný notebook a předání. Každý krok má jednu ukázku, jedno zadání se šablonou/kontrolou/možným řešením a tři kvízové otázky. Projektové kroky nemají examples.json ani tasks.json. Ověřené předchozí funkce jsou vždy přiložené v predchozi.py; AST test hlídá přesnou návaznost a shodu s předaným projektem. Kurz nyní 42/42, 108 ukázek a 174 úkolů; aplikace 210 hlavních + 268 doplňkových řešení = 478. Stav draft zůstává pro připomínky studentů. Starší ID, uložený kód a klíče postupu se nemění.

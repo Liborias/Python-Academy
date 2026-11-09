@@ -5,7 +5,7 @@ import { contextAt } from './context.js';
 const IND = '    ';
 const PAIRS = { '(': ')', '[': ']', '{': '}' };
 const CLOSERS = new Set([')', ']', '}']);
-const lineStart = (v, i) => v.lastIndexOf('\n', i - 1) + 1;
+const lineStart = (v, i) => i > 0 ? v.lastIndexOf('\n', i - 1) + 1 : 0;
 const lineEnd = (v, i) => { const e = v.indexOf('\n', i); return e < 0 ? v.length : e; };
 
 export function attachSmart(ta, { onRun, onChange }) {
@@ -91,12 +91,35 @@ export function attachSmart(ta, { onRun, onChange }) {
   const dedent = () => eachLine((l) => l.replace(/^( {1,4}|\t)/, ''));
   const toggleComment = () => {
     const v = ta.value, s = ta.selectionStart, en = ta.selectionEnd;
+    const direction = ta.selectionDirection;
     const a = lineStart(v, s), b = lineEnd(v, en > s && v[en - 1] === '\n' ? en - 1 : en);
     const ls = v.slice(a, b).split('\n'), act = ls.filter((l) => l.trim());
     const allCom = act.length && act.every((l) => /^\s*#/.test(l));
-    const min = Math.min(...act.map((l) => l.match(/^ */)[0].length), 1e9);
-    const out = ls.map((l) => !l.trim() ? l : allCom ? l.replace(/^(\s*)# ?/, '$1') : l.slice(0, min) + '# ' + l.slice(min)).join('\n');
-    replace(a, b, out, out.length); ta.setSelectionRange(a, a + out.length);
+    const min = act.length ? Math.min(...act.map((l) => l.match(/^[ \t]*/)[0].length)) : ls[0].length;
+    const edits = []; let offset = a;
+    const out = ls.map((l) => {
+      const start = offset; offset += l.length + 1;
+      if (!l.trim() && ls.length > 1) return l;
+      const prefix = allCom ? l.match(/^([ \t]*)# ?/) : null;
+      const at = prefix ? prefix[1].length : min, removed = prefix ? prefix[0].length - at : 0;
+      const added = allCom ? '' : '# ';
+      edits.push({ at: start + at, removed, added: added.length });
+      return l.slice(0, at) + added + l.slice(at + removed);
+    }).join('\n');
+    if (out === v.slice(a, b)) return;
+    // Zachovat původní výběr i kurzor; koncový začátek dalšího řádku se nekomentuje.
+    const moved = (pos) => {
+      let delta = 0;
+      for (const edit of edits) {
+        if (pos < edit.at) break;
+        if (pos <= edit.at + edit.removed) return edit.at + delta + edit.added;
+        delta += edit.added - edit.removed;
+      }
+      return pos + delta;
+    };
+    replace(a, b, out, moved(s) - a);
+    ta.setSelectionRange(moved(s), moved(en), direction);
+    ta.dispatchEvent(new Event('dilna-caret'));
   };
   const format = () => {
     const before = ta.value, after = formatCode(before);
@@ -117,7 +140,7 @@ export function attachSmart(ta, { onRun, onChange }) {
       if (s !== en && v.slice(s, en).includes('\n')) return indent();
       const col = s - lineStart(v, s);
       replace(s, en, ' '.repeat(4 - (col % 4)));
-    } else if (mod && e.key === '/') { e.preventDefault(); toggleComment(); }
+    } else if (mod && !e.altKey && (e.key === '/' || (e.shiftKey && e.code === 'Digit7'))) { e.preventDefault(); toggleComment(); }
     else if (mod && e.key === ']') { e.preventDefault(); indent(); }
     else if (mod && e.key === '[') { e.preventDefault(); dedent(); }
     else if (mod && e.key === 'Enter') { e.preventDefault(); onRun && onRun(); }

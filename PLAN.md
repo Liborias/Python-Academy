@@ -216,7 +216,7 @@ Každý krok je navržený tak, aby se vešel do **zhruba 25 000 tokenů** (psan
 | F3 | Knihovna `dilna_check` (kontrola výstupu, simulovaný vstup, volání funkcí studenta, AST kontroly, pygame bez okna), `/api/check`, `tools/doctor.py` (zkontroluje Python, venv, Tk, pygame-ce, pandas, `codium`) | 20 k |
 | F4 | Web: `index.html`, CSS (tokeny, světlý a tmavý režim), router, **katalog podkurzů** s obtížností a postupem | 20 k |
 | F5 | Web: stránka lekce (vlastní jednoduchý Markdown, příklad se spuštěním, okno vstupu, kvíz, výzva s kontrolou, otevření ve VSCodium) | 22 k |
-| F6 | Editor pro Python: zvýraznění, odsazování 4 mezery a po `:`, závorky, našeptávač (klíčová slova, vestavěné funkce, úryvky), zarovnání, nápověda v okně | 22 k |
+| F6 | Editor pro Python: čísla řádků, komentování řádku/bloku (Ctrl+/ a Ctrl+Shift+7, na Macu Cmd), zvýraznění, odsazování 4 mezery a po `:`, závorky, našeptávač (klíčová slova, vestavěné funkce, úryvky), zarovnání, nápověda v okně | 22 k |
 | F7 | Prostředí: `.vscode/` (doporučená rozšíření z Open VSX, nastavení, úlohy `tasks.json`, `launch.json`), `docs/instalace` pro Windows, macOS a Linux, stránka „Příprava prostředí“ v aplikaci, kontrolní seznam rozšíření a záložní řešení | 18 k |
 | F8 | Pilotní podkurz (3 lekce), `validate_courses.py`, e2e testy v prohlížeči, bezpečnostní testy serveru | 20 k |
 | F9 | Zabalení do ZIP, README, doručení | 8 k |

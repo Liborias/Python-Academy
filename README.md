@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.66):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a všech osm modulů Datové analýzy (42 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.67):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a všech osm modulů Datové analýzy (42 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -210,6 +210,20 @@ kontrolu a pracovní soubor pro externí editor. Doplňkových úkolů je celkem
 Úkol 1 zachovává původní uložený kód i návaznost na splnění lekce. Nové úkoly mají
 vlastní značky úspěšného procvičení. „Začít znovu“ obnoví jen právě vybraný úkol.
 Navazující mini-projekty a závěrečné testy tvoří vlastní celky.
+
+## Práce s kódem v aplikaci
+
+Editory ukázek a úkolů mají vlevo čísla řádků, která se aktualizují při psaní
+a posouvají spolu s kódem. Při kopírování se přenese pouze kód.
+
+**Ctrl+/ nebo Ctrl+Shift+7** přidá nebo odebere komentář `#` na aktuálním řádku.
+Pro více řádků nejprve označte blok a použijte stejnou zkratku. Pokud jsou všechny
+neprázdné řádky označeného bloku zakomentované, zkratka je odkomentuje;
+jinak zakomentuje celý blok. Prázdné řádky uvnitř bloku a odsazení zůstanou zachované.
+Na Macu použijte **Cmd** místo Ctrl. Druhá zkratka je praktická na české klávesnici.
+
+Přehled zkratek otevře tlačítko **?** v pravém horním rohu pracovního editoru.
+Nápověda vysvětluje také odsazování, našeptávání, spuštění a vrácení změn.
 
 ## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
