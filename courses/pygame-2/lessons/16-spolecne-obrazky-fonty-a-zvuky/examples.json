@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Kopie chrání společný obrázek",
+    "description": "Kopie chrání společný obrázek.",
+    "code": "# Pygame-ce importujeme jako pygame; import modelu neotevírá okno.\nimport os\nos.environ.setdefault('PYGAME_HIDE_SUPPORT_PROMPT', '1')\nimport math\nimport pygame\nfrom podklady import robot, snimky, pas_snimku, tvar, Bod, BARVY, CvicnyRezim, priprav_media\nfrom nahled import karta, obrazky, radek, uloz\n\nclass BankaObrazu:\n    def __init__(self, nacti):\n        self.nacti = nacti\n        self._obrazy = {}\n\n    def obraz(self, jmeno):\n        if jmeno not in self._obrazy:\n            self._obrazy[jmeno] = self.nacti(jmeno).copy()\n        return self._obrazy[jmeno].copy()\n\n# Program připraví skutečný PNG; nejde o animované herní okno.\nif __name__ == '__main__':\n    plocha = karta('Banka obrázků s vlastními kopiemi')\n    volani = []\n\n    def nacti(jmeno):\n        volani.append(jmeno)\n        return robot()\n    banka = BankaObrazu(nacti)\n    a = banka.obraz('hrac')\n    a.fill((230, 110, 90))\n    b = banka.obraz('hrac')\n    obrazky(plocha, [(a, 'Upravená kopie'), (b, 'Nezměněný zdroj')])\n    print('Načtení:', len(volani))\n    radek(plocha, 'Změna jedné vrácené kopie nepoškodí další.')\n    uloz(plocha)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Dvě nezávislé banky",
+    "description": "Dvě nezávislé banky.",
+    "code": "# Pygame-ce importujeme jako pygame; import modelu neotevírá okno.\nimport os\nos.environ.setdefault('PYGAME_HIDE_SUPPORT_PROMPT', '1')\nimport math\nimport pygame\nfrom podklady import robot, snimky, pas_snimku, tvar, Bod, BARVY, CvicnyRezim, priprav_media\nfrom nahled import karta, obrazky, radek, uloz\n\nclass BankaObrazu:\n    def __init__(self, nacti):\n        self.nacti = nacti\n        self._obrazy = {}\n\n    def obraz(self, jmeno):\n        if jmeno not in self._obrazy:\n            self._obrazy[jmeno] = self.nacti(jmeno).copy()\n        return self._obrazy[jmeno].copy()\n\n# Program připraví skutečný PNG; nejde o animované herní okno.\nif __name__ == '__main__':\n    plocha = karta('Banka obrázků s vlastními kopiemi')\n    volani = []\n\n    def nacti(jmeno):\n        volani.append(jmeno)\n        return robot()\n    a = BankaObrazu(nacti)\n    b = BankaObrazu(nacti)\n    obrazky(plocha, [(a.obraz('hrac'), 'První banka'), (b.obraz('hrac'), 'Druhá banka')])\n    print('Načtení:', len(volani))\n    radek(plocha, 'Dvě banky mají vlastní cache; zdroj načtou každá zvlášť.')\n    uloz(plocha)\n"
+  }
+]

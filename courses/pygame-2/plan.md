@@ -1,8 +1,8 @@
 ## Pygame 2: od objektu ke třem vlastním hrám
 
-**Připraveno prvních 15 z 30 lekcí.** Navazujeme na Pygame 1 a základní OOP. Herní kód rozdělíme na objekty, kterým rozumíme a jejichž chování umíme ověřit. Obtížnost úvodu je 3/4, celku 4/4: čas, spolupráce objektů, kolize a řízení herních stavů. Předpoklady jsou doporučení, nikoli zamčené vstupy. Samostatný OOP kurz pomůže stejně jako OOP z Turtle.
+**Připraveno prvních 20 z 30 lekcí.** Navazujeme na Pygame 1 a základní OOP. Herní kód rozdělíme na objekty, kterým rozumíme a jejichž chování umíme ověřit. Obtížnost úvodu je 3/4, celku 4/4: čas, spolupráce objektů, kolize a řízení více herních stavů. Předpoklady jsou doporučení, nikoli zamčené vstupy. Samostatný OOP kurz pomůže stejně jako OOP z Turtle.
 
-V prvním modulu má každá lekce tři přepínatelné ukázky a pět úkolů s možným řešením a vlastní kontrolou. V úvodu je **15 ukázek a 25 úkolů**. Projekty Meteority a Chyť robota přidávají po pěti ukázkách a návazných zadáních s řešeními: celkem **25 ukázek a 35 úkolů**. Ukázky prvního modulu kreslí skutečné Surface a ukládají PNG přímo v aplikaci; nejde ještě o animované herní okno. Oba projekty už otevírají skutečné herní okno; po jeho zavření lze zobrazit poslední PNG. Navazující projekty tvoří souvislé kroky, bez nesouvisejících variant.
+V prvním modulu má každá lekce tři přepínatelné ukázky a pět úkolů s možným řešením a vlastní kontrolou. V úvodu je **15 ukázek a 25 úkolů**. Projekty Meteority a Chyť robota přidávají po pěti ukázkách a návazných zadáních s řešeními. Součásti větší hry 16–20 mají dalších 15 ukázek a 25 úkolů: celkem **40 ukázek a 60 úkolů**. Samostatné pokusy ukládají skutečné Surface do PNG; nejde o animované herní okno. Oba projekty už otevírají skutečné herní okno; po jeho zavření lze zobrazit poslední PNG. Navazující projekty tvoří souvislé kroky, bez nesouvisejících variant.
 
 ## Prostředí
 
@@ -40,7 +40,9 @@ Výstup: malé testovatelné herní součásti a obrázkové náhledy výsledku.
 14. Časový limit, kola a obtížnost.
 15. Celá hra s nabídkou a restartem.
 
-## Modul 4 — Součásti větší hry (lekce 16–20, plán)
+## Modul 4 — Součásti větší hry (lekce 16–20)
+
+**Hotovo: lekce 16–20.** Laboratoř samostatných součástí s PNG 720×420; v každé lekci tři ukázky, pět úkolů a možná řešení. Cache a kopie, animace s časem, masky a volba přesnosti, světové/obrazovkové souřadnice, viditelnost a clip, kompozice režimů. Zvuk je volitelný, základní pokusy neotevírají mixer ani displej. Přiložený vlastní tón lze místně vyzkoušet přes prehraj_ton.py --play; zkouška má časový limit. Závěr 20/5 má volitelnou živou dílnu ovládanou myší/P/M/Esc po uložení reseni.py. Podrobně vysvětlené vstupy, operace i výsledky.
 
 16. Správa společných obrázků, fontů a zvuků.
 17. Animace s časem a změnou snímků.
@@ -64,4 +66,4 @@ Výstup: malé testovatelné herní součásti a obrázkové náhledy výsledku.
 29. Spuštění z čisté složky, závislosti a volitelné balení pro vlastní systém.
 30. Vlastní varianta hry a závěrečné předání s návodem.
 
-Odhad celku 18–25 hodin plus vlastní úpravy. PyInstaller nebo webové balení jsou volitelné, jejich možnosti a systémové limity ověříme při realizaci příslušné lekce. Aktuálně se neinstalují. Dalším krokem je modul Součásti větší hry 16–20.
+Odhad celku 18–25 hodin plus vlastní úpravy. PyInstaller nebo webové balení jsou volitelné, jejich možnosti a systémové limity ověříme při realizaci příslušné lekce. Aktuálně se neinstalují. Dalším krokem je modul Hon na dronech 21–25.

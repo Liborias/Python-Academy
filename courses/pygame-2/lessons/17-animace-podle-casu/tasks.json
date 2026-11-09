@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Animace přehraná jednou"
+  },
+  {
+    "id": "task-3",
+    "title": "Výřezy z pásu snímků"
+  },
+  {
+    "id": "task-4",
+    "title": "Sprite s měnícím se obrázkem"
+  },
+  {
+    "id": "task-5",
+    "title": "Animace podle stavu"
+  }
+]

@@ -37,15 +37,26 @@
         "14-roboti-cas-a-vlny",
         "15-roboti-nabidka-a-restart"
       ]
+    },
+    {
+      "id": "m04",
+      "title": "Součásti větší hry",
+      "lessons": [
+        "16-spolecne-obrazky-fonty-a-zvuky",
+        "17-animace-podle-casu",
+        "18-masky-a-presnost-kolize",
+        "19-svet-a-kamera",
+        "20-skladani-hernich-rezimu"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od herního objektu ke třem vlastním hrám",
     "status": "draft",
     "level": 4,
-    "summary": "Prvních 15 z 30 lekcí: herní objekty, hotové Meteority a Chyť robota s pohybujícími se cíli, přesností, vlnami a časem. Všechny úkoly mají možná řešení.",
+    "summary": "Prvních 20 z 30 lekcí: herní objekty, dvě hotové hry a laboratoř zdrojů, animací, masek, kamery a herních režimů. Více procvičení s možnými řešeními.",
     "placement": "Po Pygame 1 a základech OOP; samostatný OOP kurz pomůže, nic se nezamyká.",
     "difficulty_reason": "Začátek 3/4, celý kurz 4/4: spolupráce objektů, čas, kolize a řízení více herních stavů.",
-    "duration": "Plán 30 lekcí, prvních 15 dostupných. Odhad celku 18–25 hodin plus vlastní úpravy."
+    "duration": "Plán 30 lekcí, prvních 20 dostupných. Odhad celku 18–25 hodin plus vlastní úpravy."
   }
 }

@@ -1,0 +1,12 @@
+{
+  "title": "Masky a přesnost kolize",
+  "minutes": 45,
+  "kind": "console",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "soucasti"
+  ],
+  "example_title": "Sprite s vlastní maskou"
+}

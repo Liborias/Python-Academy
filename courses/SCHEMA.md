@@ -687,3 +687,57 @@ podporovaný místním Markdownem. CSS a JS nejsou změněné. Samostatný SDL
 offscreen smoke s event.post/get a původním rendererem ověřuje nabídku, klik,
 pauzu/pokračování, konec na čas i životy, restart a návrat. Fyzická myš/klávesnice,
 nativní editory a Windows/macOS vyžadují vlastní ověření.
+
+## Pygame 2, Součásti větší hry (od v0.71)
+
+Modul m04 má lekce 16–20: zdroje, animace, masky, kamera a herní režimy.
+V každé tři ukázky a pět samostatných úkolů s řešeními, bez dělení dosavadních
+projektů na varianty. Kind console, preview_images=true, PNG soucasti.png
+720×420; žádná nekonečná smyčka v hlavních ukázkách. Kurz draft 20/30, celkem
+40 ukázek/60 úkolů. Globálně 230 hlavních + 308 dalších řešení = 538;
+154 doplňkových ukázek. Nové ID nepřepisují starší klíče postupu.
+
+Podklady.py a nahled.py jsou samostatné stejné kopie u všech úkolů. Vlastní
+grafika ze Surface, lokální BMP a krátký PCM WAV z wave/struct. Priprav_media
+vytvoří media vedle helperu a existující soubory nepřepisuje, bez závislosti na cwd.
+Podklady generují data až při výslovném volání, import modelů neotevírá displej
+ani mixer. Žádné cizí obrázky, síťová data nebo nové knihovny; pygame-ce nadále
+stačí. Vybrané úkoly mají zdroje.py/animator.py/masky.py/kamera.py/ovladace.py/
+rezimy.py s přesnými definicemi potřebných předchozích řešení; shodu hlídá AST.
+
+BankaObrazu a BankaVelikosti chrání cache vlastními kopiemi, BankaFontu vědomě
+sdílí font podle velikosti. Zvuky má injektovanou továrnu, vypnutí bez volání,
+omezení hlasitosti, cache úspěšného načtení, kontrolu kanálu z play a úzký
+pygame.error fallback. Mixer sám neinicializuje. Volitelný prehraj_ton.py vyžaduje
+--play, zařízení otevírá v potomkovi s limitem 5 s; bez přepínače jen vypíše návod.
+Dummy audio ověřuje WAV a mixer, nikoli slyšitelnost. Nativní cloudový Pulse
+nevytvořil konfigurační složku a nereagoval; ohraničený helper skončil po 5 s.
+
+Animace uchovává celé kroky a zbytek, při hranici toleruje chybu float.
+Jednorázová animace skončí až po intervalu posledního snímku. Výřezy jsou kopie,
+změna image aktualizuje rect se zachováním aktuálního středu. Masky testují
+alfa > práh či RGB colorkey, rozdíl počátků včetně záporného offsetu, obnovu po
+změně obrazu a skutečné dvojice; Rect/kruh/maska mají různá pravidla dotyku.
+Kamera odděluje svět a obrazovku včetně offsetu výhledu, desetinné polohy,
+malého světa, viditelnosti bez mazání a průniku clip s obnovením v finally.
+Zásobník režimů posouvá jen vršek a kreslí odspodu; nabídka obsahuje tlačítka,
+řidič přijímá akce, vytváří nové světy a nepoškozuje staré ani při chybě továrny.
+
+Úkol 20/5 navíc obsahuje ziva_dilna.py. Po uložení reseni.py spustí jedinou
+místní smyčku 720×420 s myší/P/M/Esc, skutečný model ze studentského souboru,
+bez zvuku a s rezimy-zive.png při normálním ukončení. Běžné spouštění v aplikaci
+nadále běží jako console a ukládá statický pokus; bonus se automaticky nespouští.
+Potřebuje místní grafickou plochu na hostiteli Pythonu, nikoli webový canvas.
+
+Volitelný dilna_check/soucasti.py používá vlastní geometrii, pixely, časové vstupy
+a protokoly továrny/režimů. Kontroluje cache/identitu/kopie, hranice alfa,
+asymetrické masky, různé velikosti snímků, zachování zdrojů/pořadí, průnik clip
+a jeho obnovení při chybě, delegování jen na aktivní režim a bezpečné přechody.
+Každá kontrola také skutečně spustí hlavní soubor a ověří PNG. Devět skupin
+test_soucasti zahrnuje 50 odmítnutých chybných a 25 přijatých správných variant,
+40 samostatných běhů (25 řešení, deset dalších ukázek, pět úryvků výkladu),
+AST podklady, skutečný dummy mixer/PCM WAV a bonusovou SDL smyčku.
+Chromium prochází všech 15 ukázek/25 úkolů a mobil 380/320 včetně otevřených
+řešení. CSS, JS, serverové API ani limity se nemění. Nativní offscreen smyčka
+ověřuje skutečný framebuffer a frontu událostí; fyzická myš/klávesnice,
+slyšitelnost a Windows/macOS vyžadují vlastní zkoušku.

@@ -34,7 +34,7 @@ python tools/setup_env.py --dry-run
 ```
 Základní podkurz **Základy** žádné balíčky nepotřebuje.
 
-Pro Pygame 2 (dostupné lekce 1–15):
+Pro Pygame 2 (dostupné lekce 1–20):
 ```
 python tools/setup_env.py --courses pygame-2
 ```
@@ -51,6 +51,12 @@ Chyť robota 11–15 používá stejné prostředí a místní okno, cíle chyt�
 tlačítkem myši. V lekci 15 Mezerník spustí lov nebo vrátí výsledek do nabídky,
 P pozastaví/pokračuje, R začne nový lov a Esc ukončí program. Běžné zavření
 uloží `roboti.png`. Žádné další balíčky se neinstalují.
+Součásti větší hry 16–20 tvoří samostatné pokusy bez okna a povinného zvuku,
+s PNG `soucasti.png`. Po uložení do pracovní složky je v lekci 16 volitelný
+`python prehraj_ton.py --play` (krátký vlastní tón, limit zařízení 5 s).
+V Úkolu 5 lekce 20 lze po uložení reseni.py spustit `python ziva_dilna.py`:
+myš spustí dílnu, P pauza, M nabídka, Esc/křížek konec. Potřebuje místní
+grafickou plochu, zvuk nepoužívá. Použijte stejný Python z .venv.
 Ověřeno Python 3.14.8/pygame-ce 2.5.8.
 
 Pro Datovou analýzu:

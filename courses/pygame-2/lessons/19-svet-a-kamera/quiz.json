@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co při posunu kamery zůstává stejné?",
+    "options": [
+      "Světové souřadnice objektů.",
+      "Obrazovkové souřadnice všech bodů.",
+      "Levý horní roh výhledu ve světě."
+    ],
+    "answer": 0,
+    "why": "Pohled mění převod pro kreslení, ne celý herní svět."
+  },
+  {
+    "q": "Proč při převodu přičíst roh výhledu?",
+    "options": [
+      "Aby se změnila rychlost hráče.",
+      "Výhled může být na obrazovce posunutý například kvůli HUD.",
+      "Aby se smazaly neviditelné objekty."
+    ],
+    "answer": 1,
+    "why": "Kamera nemusí kreslit od levého horního rohu celého okna."
+  },
+  {
+    "q": "Proč obnovit clip v finally?",
+    "options": [
+      "Aby byla kamera stále uprostřed.",
+      "Aby se zvýšil počet pixelů.",
+      "Aby po chybě nezůstal omezený výřez dalšímu kreslení."
+    ],
+    "answer": 2,
+    "why": "Výřez je stav plochy, který musíme vrátit volajícímu."
+  }
+]

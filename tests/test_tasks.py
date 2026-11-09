@@ -31,7 +31,7 @@ class TasksTest(unittest.TestCase):
                 self.assertNotIn('solution', task)
                 self.assertNotIn('check', task)
                 self.assertTrue(task['md'] and task['exercise'])
-        self.assertEqual(total, 288)
+        self.assertEqual(total, 308)
 
     def test_selection_and_traversal(self):
         root = ROOT / 'courses'

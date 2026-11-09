@@ -1,0 +1,12 @@
+{
+  "title": "Svět a kamera",
+  "minutes": 50,
+  "kind": "console",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "soucasti"
+  ],
+  "example_title": "Kamera sleduje bod"
+}

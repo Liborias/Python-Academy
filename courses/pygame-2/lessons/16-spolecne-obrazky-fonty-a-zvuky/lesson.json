@@ -1,0 +1,12 @@
+{
+  "title": "Společné obrázky, fonty a volitelný zvuk",
+  "minutes": 45,
+  "kind": "console",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "soucasti"
+  ],
+  "example_title": "Banka obrázků s vlastními kopiemi"
+}

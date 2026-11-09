@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jaký offset dostane první maska pro druhou?",
+    "options": [
+      "Druhý rect minus první rect.",
+      "Vždy součet středů.",
+      "Vždy (0,0)."
+    ],
+    "answer": 0,
+    "why": "Masky mají lokální souřadnice, offset je rozdíl jejich počátků ve světě."
+  },
+  {
+    "q": "Kdy obnovit masku?",
+    "options": [
+      "Při každém přesunu stejného obrazu.",
+      "Po změně podoby obrázku nebo jeho rozměru.",
+      "Jen po restartu počítače."
+    ],
+    "answer": 1,
+    "why": "Přesun mění rect, ale nová podoba potřebuje novou mapu pixelů."
+  },
+  {
+    "q": "Je maska vždy nejlepší pravidlo kolize?",
+    "options": [
+      "Ano, vždy je nejrychlejší.",
+      "Ano, hra nikdy nesmí použít kruh.",
+      "Ne, přesnost i cena mají odpovídat pravidlům hry."
+    ],
+    "answer": 2,
+    "why": "Jednoduchý tvar může být rychlejší a herně srozumitelnější."
+  }
+]

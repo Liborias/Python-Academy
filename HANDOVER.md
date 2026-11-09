@@ -1,5 +1,78 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.71 (9. 11. 2026): Součásti větší hry 16–20
+
+Na pokyn „pokračuj“ dokončen m04 Pygame 2. Pět samostatných témat: 16 cache
+obrázků/fontů/velikostí, volitelný zvuk a sada zdrojů; 17 smyčka/jednorázová
+animace/pás snímků/Sprite/stavové animace; 18 maska/offset/obnova/dvojice/tři
+pravidla kolize; 19 sledování kamery/převody/viditelnost/clip; 20 zásobník/pauza/
+tlačítko/nabídka/řidič přechodů. V každé tři ukázky, pět úkolů s vlastním zadáním,
+šablonou/kontrolou/možným řešením a tři kvízové otázky. Projekty 6–15 zůstávají
+souvislé. Kurz draft, dostupných 20/30, celkem 40 ukázek a 60 úkolů. Globálně
+230 hlavních + 308 dalších řešení = 538, doplňkových ukázek 154. Obtížnost 4/4,
+úvod 3/4. ID starších lekcí a úložné klíče zachovány.
+
+Nové lekce kind console/preview_images=true, skutečné PNG soucasti.png 720×420,
+bez automatické GUI smyčky nebo otevírání mixeru. Výklad to rozlišuje od živých
+her: náhledy jsou zaznamenané fáze, PNG se nepohybuje. Vlastní Surface/BMP/WAV,
+žádné cizí obrázky, síťová data či nové balíčky; stále pygame-ce 2.5.8/Python 3.14.8.
+Podklady.py vytvoří media vedle helperu přes __file__, existující soubory neobnovuje
+automaticky. Výstupní PNG je v pracovní složce. Každý úkol má úplné vlastní
+podklady; potřebné starší definice v zdroje.py/animator.py/masky.py/kamera.py/
+ovladace.py/rezimy.py jsou přesné AST kopie. Import modelu neotevírá okno/mixer.
+
+Cache obrázků chrání načtený vzor i vracené výsledky kopiemi, fonty sdílíme
+vědomě a velikosti obrazu cachujeme podle dvojice rozměrů. Zvuky mají injektovanou
+továrnu, vypnutí bez volání, cache úspěšného načtení, hlasitost 0..1, kontrolu
+kanálu a pouze pygame.error fallback. Volitelný prehraj_ton.py --play otevře
+zařízení v potomkovi s limitem 5 s, bez --play nic nepřehraje. Skutečný dummy
+mixer dekódoval vlastní mono PCM WAV a přijal kanál; fyzická slyšitelnost nebyla
+ověřena. Nativní cloudový Pulse nemohl vytvořit /home/agent/.config/pulse a
+nereagoval. Ohraničený helper se korektně ukončil za 5.03 s. Nic se kvůli tomu
+neinstalovalo, tichý průchod kurzem funguje. První ruční neomezená diagnostika
+byla ukončena, její proces už neběží.
+
+Animace dohání celé intervaly a zachová zbytek, hranici float toleruje; jednorázová
+končí po celém posledním intervalu. Výřezy vlastní pixely, Sprite zachová aktuální
+střed při nové velikosti. Masky testují alfa > práh (včetně rovnosti), RGB colorkey
+a asymetrické offsety; po změně obrazu obnoví rect i masku. Dvojice zachovají
+identity/skupiny. Kamera drží světové polohy, počítá offset výhledu/desetinný
+posun/malý svět, vyřazuje pro kreslení bez mazání a obnoví původní clip i při
+chybě. Řidič režimů deleguje podle kompozice, mění svět až po úspěšné továrně.
+Kolizní pokusy 18/2 a 18/5 navíc zobrazují společnou polohu kruhu a robota v otvoru.
+
+Úkol 20/5 má po uložení reseni.py volitelnou ziva_dilna.py: jediné místní okno
+720×420, klik na Spustit dílnu, P pauza/pokračování, M z hraní do nabídky,
+Esc/křížek konec, normální zavření uloží rezimy-zive.png. Čte skutečný RidicScen
+ze studentského souboru. Běžné tlačítko Spustit zůstává konzolovým PNG pokusem;
+bonus vyžaduje místní grafickou plochu na hostiteli Pythonu a nepřenáší se do webu.
+
+Devět skupin test_soucasti prošlo: 50 odmítnutých chybných variant, 25 přijatých
+jiných zápisů, AST/přesná řešení, 40 běhů řešení/ukázek/pěti úryvků, skutečný
+dummy mixer/WAV a bonusová SDL smyčka. Doplňující cílený test masek prošel i po
+rozšíření hodnot alfa přesně na prahu. Validátor všech 20 lekcí Pygame 2 má
+0 chyb/upozornění. Chromium e2e_soucasti prošlo všech 15 ukázek/25 úkolů,
+šablony/vzory/PNG/stažení, soubory ve workspace, číslování, přepínání/reload,
+zachování rozepsané lekce 15/splnění a mobil 380/320 u každého úkolu včetně
+otevřeného řešení. Regrese e2e_roboti a e2e_solutions (190 ostatních lekcí) prošly.
+Native offscreen smoke ověřil nabídku/klik/hraní/pauzu a zamrzlý čas/pokračování/
+nabídku/nový svět/QUIT v pauze přes skutečný framebuffer a SDL frontu. Snímky
+animace/kolizí/kamery, pauzy i mobilních panelů prohlédnuty. Fyzická myš/klávesnice,
+slyšitelnost a Windows/macOS vyžadují vlastní zkoušku. Celá unittest sada:
+**337 testů OK bez přeskočených, 970 s**, včetně celkové validace 245 lekcí.
+Hlavní pokusy v 65 nových programech mají čitelnější samostatné řádky, ověřena
+shoda AST před/po formátování. Podrobnosti viz poslední STATUS.md;
+logy/snímky mimo repo v /workspace/scratch/components-work.
+
+Aktualizovány katalog/panel/plán 20/30, profil přípravy všech editorů,
+README/PLAN/SCHEMA/instalace/spuštění a počty v testech. Server/API/JS/CSS a limity
+beze změny. Další krok na další pokyn: **Hon na dronech 21–25** podle plánu,
+spolupracující Hra/Hrac/Dron, pronásledování/rozestupy, vlny, bezpečná zóna,
+pauza/restart a ladění hratelného celku. Jeden souvislý projekt s řešením každého
+kroku, bez nesouvisejících variant. Využít nové součásti podle potřeb hry, zvuk
+může zůstat volitelný. Odhad 15–20 tisíc tokenů. Dodávka commit/push do main,
+bez ZIPů a bez publikace cloudového prostředí. Historické zápisy nejsou nové zadání.
+
 ## Aktuální v0.70 (9. 11. 2026): Chyť robota 11–15
 
 Na pokyn „pokračuj prosím“ dokončen další modul Pygame 2 podle plánu. Jeden

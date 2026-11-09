@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Kamera na okraji světa",
+    "description": "Kamera na okraji světa.",
+    "code": "# Pygame-ce importujeme jako pygame; import modelu neotevírá okno.\nimport os\nos.environ.setdefault('PYGAME_HIDE_SUPPORT_PROMPT', '1')\nimport math\nimport pygame\nfrom podklady import robot, snimky, pas_snimku, tvar, Bod, BARVY, CvicnyRezim, priprav_media\nfrom nahled import karta, obrazky, radek, uloz\n\nclass Kamera:\n    def __init__(self, vyhled, svet):\n        self.vyhled = pygame.Rect(vyhled)\n        self.svet = pygame.Rect(svet)\n        self.posun = pygame.Vector2(self.svet.topleft)\n\n    def sleduj(self, bod):\n        x = bod[0] - self.vyhled.width / 2\n        y = bod[1] - self.vyhled.height / 2\n        max_x = max(self.svet.left, self.svet.right - self.vyhled.width)\n        max_y = max(self.svet.top, self.svet.bottom - self.vyhled.height)\n        self.posun.x = max(self.svet.left, min(max_x, x))\n        self.posun.y = max(self.svet.top, min(max_y, y))\n\n# Program připraví skutečný PNG; nejde o animované herní okno.\nif __name__ == '__main__':\n    plocha = karta('Kamera sleduje bod')\n    k = Kamera((60, 100, 600, 260), (-200, -100, 1400, 800))\n    k.sleduj((5000, 5000))\n    pygame.draw.rect(plocha, (35, 60, 85), k.vyhled)\n    radek(plocha, f'Pravý dolní okraj: posun {tuple(k.posun)}')\n    print('Posun po omezení:', tuple(k.posun))\n    uloz(plocha)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Svět menší než výhled",
+    "description": "Svět menší než výhled.",
+    "code": "# Pygame-ce importujeme jako pygame; import modelu neotevírá okno.\nimport os\nos.environ.setdefault('PYGAME_HIDE_SUPPORT_PROMPT', '1')\nimport math\nimport pygame\nfrom podklady import robot, snimky, pas_snimku, tvar, Bod, BARVY, CvicnyRezim, priprav_media\nfrom nahled import karta, obrazky, radek, uloz\n\nclass Kamera:\n    def __init__(self, vyhled, svet):\n        self.vyhled = pygame.Rect(vyhled)\n        self.svet = pygame.Rect(svet)\n        self.posun = pygame.Vector2(self.svet.topleft)\n\n    def sleduj(self, bod):\n        x = bod[0] - self.vyhled.width / 2\n        y = bod[1] - self.vyhled.height / 2\n        max_x = max(self.svet.left, self.svet.right - self.vyhled.width)\n        max_y = max(self.svet.top, self.svet.bottom - self.vyhled.height)\n        self.posun.x = max(self.svet.left, min(max_x, x))\n        self.posun.y = max(self.svet.top, min(max_y, y))\n\n# Program připraví skutečný PNG; nejde o animované herní okno.\nif __name__ == '__main__':\n    plocha = karta('Kamera sleduje bod')\n    k = Kamera((60, 100, 600, 260), (-50, -20, 200, 100))\n    k.sleduj((500, 400))\n    pygame.draw.rect(plocha, (35, 60, 85), k.vyhled)\n    plocha.blit(robot(), (110, 130))\n    radek(plocha, f'Malý svět kotvíme vlevo nahoře: {tuple(k.posun)}')\n    print('Posun malého světa:', tuple(k.posun))\n    uloz(plocha)\n"
+  }
+]

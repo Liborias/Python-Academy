@@ -59,8 +59,8 @@ Matplotlib ověří `python -c "import matplotlib; print(matplotlib.__version__)
 Editor musí mít zvolené stejné prostředí. Všechny úvodní .py soubory běží také
 v terminálu; podpora buněk `# %%` a notebooků závisí na editoru a rozšířeních.
 
-Pygame 2 má připravených patnáct lekcí: pět o herních objektech a spolupráci
-tříd, pět kroků hry Meteority a pět kroků hry Chyť robota. `python tools/setup_env.py --courses pygame-2` doplní stejné pygame-ce
+Pygame 2 má připravených dvacet lekcí: herní objekty, Meteority, Chyť robota
+a Součásti větší hry. `python tools/setup_env.py --courses pygame-2` doplní stejné pygame-ce
 jako Pygame 1. V .venv ověřte `python -c "import sys, pygame; print(sys.executable); print(pygame.version.ver)"`.
 Ověřeno Python 3.14.8/pygame-ce 2.5.8. První modul vytváří skutečné PNG ze Surface
 a nepotřebuje okno ani zvuk; aplikace obrázek zobrazí a dovolí stáhnout, editor jej
@@ -75,6 +75,11 @@ okně. V lekci 15 Mezerník spouští lov nebo vrací výsledek do nabídky, P
 pozastaví/pokračuje, R vytvoří nový lov a Esc ukončí program. Po běžném
 zavření vznikne `roboti.png` se stejnou možností stažení. Použijte stejný
 interpreter a podklady ve pracovní složce, žádné nové závislosti nepřibyly.
+Laboratoř 16–20 ukládá `soucasti.png` bez okna a bez zvukového zařízení.
+V lekci 16 lze z uložené pracovní složky volitelně spustit vlastní tón přes
+`python prehraj_ton.py --play`; bez přepínače se nepřehraje, nereagující
+zařízení má limit 5 s. To není povinná podmínka kurzu. U 20/5 je po uložení
+reseni.py navíc `python ziva_dilna.py`, místní okno s myší/P/M/Esc bez zvuku.
 
 > Instalujte **pygame-ce**, v kódu používejte `import pygame`. Nekombinujte jej ve stejném prostředí s původním balíčkem pygame.
 

@@ -1,0 +1,12 @@
+{
+  "title": "Animace podle času",
+  "minutes": 50,
+  "kind": "console",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "soucasti"
+  ],
+  "example_title": "Animace ve smyčce"
+}

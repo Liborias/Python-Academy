@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Změna prahu alfa",
+    "description": "Změna prahu alfa.",
+    "code": "# Pygame-ce importujeme jako pygame; import modelu neotevírá okno.\nimport os\nos.environ.setdefault('PYGAME_HIDE_SUPPORT_PROMPT', '1')\nimport math\nimport pygame\nfrom podklady import robot, snimky, pas_snimku, tvar, Bod, BARVY, CvicnyRezim, priprav_media\nfrom nahled import karta, obrazky, radek, uloz\n\nclass MaskovySprite(pygame.sprite.Sprite):\n    def __init__(self, obraz, roh, prah=127):\n        super().__init__()\n        self.image = obraz.copy()\n        self.rect = self.image.get_rect(topleft=roh)\n        self.mask = pygame.mask.from_surface(self.image, prah)\n\n# Program připraví skutečný PNG; nejde o animované herní okno.\nif __name__ == '__main__':\n    plocha = karta('Sprite s vlastní maskou')\n    obraz = pygame.Surface((80, 80), pygame.SRCALPHA)\n    obraz.fill((80, 180, 255, 100))\n    a = MaskovySprite(obraz, (0, 0), 127)\n    b = MaskovySprite(obraz, (0, 0), 50)\n    obrazky(plocha, [(obraz, 'Alfa 100'), (a.mask.to_surface(), 'Práh 127'), (b.mask.to_surface(), 'Práh 50')])\n    print('Pixely:', a.mask.count(), b.mask.count())\n    radek(plocha, 'Alfa musí být větší než práh; vzhled a kolizní pravidlo se liší.')\n    uloz(plocha)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Průhlednost barevným klíčem",
+    "description": "Průhlednost barevným klíčem.",
+    "code": "# Pygame-ce importujeme jako pygame; import modelu neotevírá okno.\nimport os\nos.environ.setdefault('PYGAME_HIDE_SUPPORT_PROMPT', '1')\nimport math\nimport pygame\nfrom podklady import robot, snimky, pas_snimku, tvar, Bod, BARVY, CvicnyRezim, priprav_media\nfrom nahled import karta, obrazky, radek, uloz\n\nclass MaskovySprite(pygame.sprite.Sprite):\n    def __init__(self, obraz, roh, prah=127):\n        super().__init__()\n        self.image = obraz.copy()\n        self.rect = self.image.get_rect(topleft=roh)\n        self.mask = pygame.mask.from_surface(self.image, prah)\n\n# Program připraví skutečný PNG; nejde o animované herní okno.\nif __name__ == '__main__':\n    plocha = karta('Sprite s vlastní maskou')\n    obraz = pygame.Surface((80, 80))\n    obraz.fill((255, 0, 255))\n    pygame.draw.circle(obraz, (80, 180, 255), (40, 40), 30)\n    obraz.set_colorkey((255, 0, 255))\n    a = MaskovySprite(obraz, (0, 0))\n    obrazky(plocha, [(obraz, 'Barevný klíč'), (a.mask.to_surface(), 'Maska s klíčem')])\n    print('Pevné pixely:', a.mask.count())\n    radek(plocha, 'Barevný klíč je další způsob průhlednosti; maska jej respektuje.')\n    uloz(plocha)\n"
+  }
+]

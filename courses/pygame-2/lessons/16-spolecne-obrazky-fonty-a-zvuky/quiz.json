@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč obrázky vracíme z cache jako kopie?",
+    "options": [
+      "Aby úprava jednoho objektu nepoškodila další.",
+      "Aby pokaždé četly disk.",
+      "Aby se otevřelo nové okno."
+    ],
+    "answer": 0,
+    "why": "Sdílíme načtený vzor, vlastní měnitelné výsledky chrání jeho pixely."
+  },
+  {
+    "q": "Co patří do klíče pro změněnou velikost?",
+    "options": [
+      "Jen šířka.",
+      "Dvojice šířka a výška.",
+      "Jméno aktuálního monitoru."
+    ],
+    "answer": 1,
+    "why": "Odlišné výšky nesmějí omylem vrátit tentýž výsledek."
+  },
+  {
+    "q": "Sound.play vrátil kanál. Co tím víme?",
+    "options": [
+      "Že byl zvuk fyzicky slyšet.",
+      "Že se přehrával přes web.",
+      "Že bylo přehrání přijato, slyšitelnost závisí na zařízení."
+    ],
+    "answer": 2,
+    "why": "Mixer neověřuje hlasitost reproduktorů ani lidský poslech."
+  }
+]

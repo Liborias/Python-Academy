@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Které vrstvy se aktualizují v zásobníku?",
+    "options": [
+      "Jen vrchní; kreslit se mohou všechny odspodu.",
+      "Vždy všechny, i pod pauzou.",
+      "Jen spodní."
+    ],
+    "answer": 0,
+    "why": "Pauza zachová viditelný podklad, ale jeho čas neposouvá."
+  },
+  {
+    "q": "Je Nabidka zvláštní druh Tlacitko?",
+    "options": [
+      "Ano, musí po něm dědit.",
+      "Ne, obsahuje tlačítka a používá jejich rozhraní.",
+      "Ne, musí být globální proměnná."
+    ],
+    "answer": 1,
+    "why": "Kompozice vyjadřuje vztah obsahuje, nikoli je druhem."
+  },
+  {
+    "q": "Kdo vytvoří nový režim po akci tlačítka?",
+    "options": [
+      "Každé tlačítko spustí vlastní smyčku.",
+      "Text popisku sám otevře okno.",
+      "Řidič scén přes předanou továrnu."
+    ],
+    "answer": 2,
+    "why": "Součásti vracejí požadavky, přechody řídí jedno místo."
+  }
+]

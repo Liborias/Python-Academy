@@ -1,0 +1,5 @@
+### Řidič přechodů mezi režimy
+
+Vytvořte `RidicScen(zasobnik, vytvor)` s předaným zasobnik, továrnou vytvor(jmeno) a bezi=True. Zpracuj vždy přijme QUIT a nastaví bezi=False; jinak po ukončení nic nepředává. Za běhu získá akci od vrchního režimu přes zásobník. 'konec' ukončí běh, 'zpet' odebere vršek, 'pauza' vloží vytvor('pauza'). 'hra' nebo 'nabidka' nejprve vytvoří nový režim a potom nový ZasobnikRezimu; starý zásobník ani jeho objekty nemění. None a neznámou akci ignoruje bez volání továrny. Výjimku továrny předá dál bez částečného přechodu.
+
+Update předává čas zásobníku jen při bezi=True. Kresli předává plochu zásobníku i pro poslední snímek. Připravené režimy jsou v rezimy.py. Po uložení správného reseni.py můžete z této pracovní složky spustit `python ziva_dilna.py`: kliknutí na Spustit dílnu, P pauza/pokračování, M nabídka, Esc/křížek konec. Je to místní nativní okno, ne webový canvas; normální ukončení uloží rezimy-zive.png. Tato volitelná smyčka se nespouští během běžné kontroly ani při importu.

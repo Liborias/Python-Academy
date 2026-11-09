@@ -1,0 +1,12 @@
+{
+  "title": "Skládání herních režimů",
+  "minutes": 55,
+  "kind": "console",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "soucasti"
+  ],
+  "example_title": "Zásobník herních režimů"
+}

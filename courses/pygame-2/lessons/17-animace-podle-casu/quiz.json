@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč uchovat zbytek času?",
+    "options": [
+      "Jinak by se animace postupně zpomalovala.",
+      "Aby se zvětšovaly snímky.",
+      "Aby se vypnul modulo operátor."
+    ],
+    "answer": 0,
+    "why": "Nevyužitý čas patří do další aktualizace."
+  },
+  {
+    "q": "Kdy končí tři snímky po 0,1 s?",
+    "options": [
+      "V 0,2 s.",
+      "V 0,3 s, po plném trvání posledního snímku.",
+      "Hned po vytvoření."
+    ],
+    "answer": 1,
+    "why": "Příchod na poslední index ještě není dokončení jeho intervalu."
+  },
+  {
+    "q": "Co udělat při změně obrázku spritu na jiný rozměr?",
+    "options": [
+      "Vždy vrátit objekt na začátek světa.",
+      "Jen přepsat image a rect ignorovat.",
+      "Přestavět rect a zachovat aktuální střed."
+    ],
+    "answer": 2,
+    "why": "Rozměr rect se automaticky nezmění s přiřazením image."
+  }
+]
