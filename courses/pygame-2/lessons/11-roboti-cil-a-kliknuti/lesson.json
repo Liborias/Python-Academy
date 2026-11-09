@@ -1,0 +1,14 @@
+{
+  "title": "Chyť robota: cíl a místo kliknutí",
+  "minutes": 45,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "mys",
+    "roboti"
+  ],
+  "example_title": "První tři roboti v dílně"
+}

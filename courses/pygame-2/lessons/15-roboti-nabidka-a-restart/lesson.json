@@ -1,0 +1,14 @@
+{
+  "title": "Chyť robota: nabídka, pauza a nový lov",
+  "minutes": 50,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "mys",
+    "roboti"
+  ],
+  "example_title": "Hotová hra se začátkem a výsledkem"
+}

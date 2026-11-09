@@ -59,8 +59,8 @@ Matplotlib ověří `python -c "import matplotlib; print(matplotlib.__version__)
 Editor musí mít zvolené stejné prostředí. Všechny úvodní .py soubory běží také
 v terminálu; podpora buněk `# %%` a notebooků závisí na editoru a rozšířeních.
 
-Pygame 2 má připravených deset lekcí: pět o herních objektech a spolupráci
-tříd a pět kroků projektu Meteority. `python tools/setup_env.py --courses pygame-2` doplní stejné pygame-ce
+Pygame 2 má připravených patnáct lekcí: pět o herních objektech a spolupráci
+tříd, pět kroků hry Meteority a pět kroků hry Chyť robota. `python tools/setup_env.py --courses pygame-2` doplní stejné pygame-ce
 jako Pygame 1. V .venv ověřte `python -c "import sys, pygame; print(sys.executable); print(pygame.version.ver)"`.
 Ověřeno Python 3.14.8/pygame-ce 2.5.8. První modul vytváří skutečné PNG ze Surface
 a nepotřebuje okno ani zvuk; aplikace obrázek zobrazí a dovolí stáhnout, editor jej
@@ -70,6 +70,11 @@ Při místním spuštění aktivujte herní okno kliknutím a použijte šipky.
 V závěrečné lekci 10 je P pauza, R nový let, Esc konec. Zavření okna uloží
 `meteority.png`, v aplikaci i s možností stažení; tlačítko Stop ukončuje proces
 bez záruky uložení. Zvuk ani jiné balíčky zatím nejsou potřeba.
+Chyť robota 11–15 potřebuje také myš, levým tlačítkem chytáte cíle v místním
+okně. V lekci 15 Mezerník spouští lov nebo vrací výsledek do nabídky, P
+pozastaví/pokračuje, R vytvoří nový lov a Esc ukončí program. Po běžném
+zavření vznikne `roboti.png` se stejnou možností stažení. Použijte stejný
+interpreter a podklady ve pracovní složce, žádné nové závislosti nepřibyly.
 
 > Instalujte **pygame-ce**, v kódu používejte `import pygame`. Nekombinujte jej ve stejném prostředí s původním balíčkem pygame.
 

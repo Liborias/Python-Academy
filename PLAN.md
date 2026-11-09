@@ -129,7 +129,7 @@ Tkinter základy (okno, Label, Button, Entry, `pack`, `grid`, `place`, `ttk`) ·
 SQL základy (SQLite) · CRUD z Pythonu · **parametrizované dotazy a SQL injection** · venv a git (Git je ve VSCodium zabudovaný) · Tkinter a databáze (evidence kroužků místo učitelů) · BMI tracker · registrace a přihlášení (scrypt) · text na řeč (offline) · komprese souborů (`zlib`, `base64`) · kontrolní číslice (Luhn na zkušebních číslech) · generátor QR kódů · volitelně PostgreSQL + psycopg 3 + connection pool.
 
 ### G2. Pygame 2: hry s třídami (30 lekcí)
-**Stav v0.69: prvních 10 z 30 lekcí připravených.** Modul Herní objekty, které jdou
+**Stav v0.70: prvních 15 z 30 lekcí připravených.** Modul Herní objekty, které jdou
 ověřit: Sprite/image/rect, Vector2 a dt, Group/update/draw, kolize a stav hry.
 Každá má tři ukázky a pět úkolů s kontrolou a možným řešením, celkem 15/25.
 První blok ukládá obrázkové náhledy z opravdových Surface; bez okna a zvuku.
@@ -137,12 +137,17 @@ Příprava instaluje pygame-ce do stejné .venv pro VS Code/VSCodium/PyCharm,
 ověřeno Python 3.14.8/pygame-ce 2.5.8. Úvod 3/4, celek 4/4.
 Hotov také modul 6–10: hratelné Meteority, vstup/dt, vznik meteoritů,
 zásahy/nezranitelnost, skóre/štít, pauza a restart. Každý krok má jeden úkol,
-ukázku a možné řešení; projekt tvoří souvislý celek. Celkem 20 ukázek a 30 úkolů.
-Hra používá nativní okno na počítači s Pythonem, bez zvuku; běžné zavření uloží PNG.
-Úplný plán je v courses/pygame-2/plan.md a panelu kurzu. Další modul 11–15:
-Chyť robota, události myši, pohyblivé cíle, zásahy a životy, čas a obtížnost,
-souhrn a restart. Zachovat návaznost projektu a řešení každého kroku,
-nepřidávat nesouvisející varianty. Odhad dalšího kroku 15–20 tisíc tokenů.
+ukázku a možné řešení; projekt tvoří souvislý celek. Hotov také Chyť robota 11–15:
+souřadnice kliknutí, kruhový výběr navrchu, různé pohyby přes společné rozhraní,
+účtování bodů/životů/přesnosti, časový limit/vlny a nabídka/pauza/výsledek/restart.
+Opět jeden úkol, ukázka a řešení na krok. Celkem 25 ukázek a 35 úkolů.
+Obě hry používají nativní okno na počítači s Pythonem, bez zvuku;
+běžné zavření uloží PNG. Úplný plán je v courses/pygame-2/plan.md a panelu kurzu.
+Další modul 16–20: Součásti větší hry — správa obrázků/fontů/zvuků,
+animace s časem, přesnost kolizí, kamera/souřadnice a skládání herních režimů.
+V samostatných tématech přidat více ukázek a úkolů s řešeními, pokud dávají
+smysl; u návazného celku zachovat souvislý projekt. Před zavedením zvuku ověřit
+možnosti místního audia i kontroly bez zařízení. Odhad dalšího kroku 15–20 tisíc tokenů.
 
 Tři hry místo Harryho Pottera (všechny nové, všechna grafika kreslená kódem):
 1. **Meteority**: uhýbání před padajícími meteority, životy, skóre, štít jako bonus (náhrada za „Goblet of Fire“).

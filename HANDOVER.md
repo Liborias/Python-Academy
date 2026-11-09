@@ -1,5 +1,61 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.70 (9. 11. 2026): Chyť robota 11–15
+
+Na pokyn „pokračuj prosím“ dokončen další modul Pygame 2 podle plánu. Jeden
+navazující projekt: 11 Robot/kruh/horní cíl a místo kliknutí, 12 Hlidac/Kyvac
+a polymorfní pohyb, 13 Lov s body/životy/přesností, 14 Kolo s herním časem a
+rychlejšími vlnami, 15 Hra s nabídkou/pauzou/výsledkem/restartem. Každý krok má
+jednu ukázku, šablonu/úkol/kontrolu/možné řešení a tři kvízové otázky. Bez dalších
+nesouvisejících variant. Kurz draft, dostupných 15/30, 25 ukázek/35 úkolů,
+obtížnost celku 4/4 (úvod 3/4). Globálně 225 hlavních + 288 dalších řešení = 513.
+
+Stále jen pygame-ce 2.5.8/Python 3.14.8 a stejná .venv pro terminál/editor.
+Nové lekce kind gui/preview_images=true, místní okno 720×520, v závěru Mezerník
+start/návrat z výsledku, P pauza, R nový lov, Esc/QUIT konec. Levé tlačítko chytá
+podle udalost.pos, nikoli pozdějšího mouse.get_pos; při překrytí jen horní cíl.
+Kruh používá viditelný rect.center, hrana se počítá. Kill odstraní chycený objekt
+ze všech skupin, skóre používá jeho hodnotu a přesnost podíl zásahů/pokusů.
+Bez životů či cílů se kliky neúčtují. Další vlna zachová čas a čítače, počet
+nejvýše šest, rychlost nejvýše 220 px/s, perioda nejméně 0.7 s. Konec zmrazí model.
+
+Předchozí modely jsou v files/predchozi.py jako přesné AST kopie, stejně jako
+v Meteoritech. Sestava.py poskytuje obal rozpracovaným krokům, herni_okno.py
+skutečný renderer/smyčku. Import modelu neotevírá GUI, smyčka běží pod __main__.
+Update před událostmi zabrání bodování po vypršení času stejného snímku;
+dt=min(tick(60)/1000,0.05) je herní čas, v pauze se neposouvá. Restart vytváří
+nové Kolo(seed) bez změny starých skupin; seed=None může začít novou posloupnost.
+Běžné zavření uloží poslední roboti.png před pygame.quit, web jej zobrazí/stáhne,
+Stop to nezaručuje. Živé okno je na hostiteli Pythonu, vyžaduje místní plochu,
+myš a klávesnici; nepřenáší se do webu. Vlastní grafika, bez zvuku/sítě/účtů.
+
+Nový dilna_check/roboti.py prověřuje reálné typy, pixely, nezávislé geometrické
+a časové vstupy i RNG orákulum, následně skutečný pgrun s kliknutím/zavřením/PNG.
+Devět skupin test_roboti má 44 odmítnutých chybných variant a 16 správných
+alternativ, AST návaznost a pomocné soubory, přesné řešení, pět Python úryvků
+a test pořadí čas/klik ve skutečné smyčce. Cílená sada i validátor všech 15 lekcí
+Pygame 2 prošly. Mobilní kontrola odhalila dlouhé vzorce v textu 12/14: opravené
+mezery a inline kód, všechny nové lekce prošly šířkou 320 i s řešením.
+Přehled přechodů je seznam, protože místní Markdown nepodporuje tabulky.
+Samostatný SDL offscreen smoke všech pěti původních vstupních souborů s reálnou
+frontou událostí/framebufferem prošel: klik, životy, normální ukončení/PNG a v
+závěru nabídka/start/pauza/pokračování/oba konce/restart/návrat. Snímky prohlédnuty.
+Fyzická myš/klávesnice, Windows/macOS a nativní editory tím nejsou ověřené.
+Celá unittest sada: **328 testů OK bez přeskočených, 965 s**, včetně celkové
+validace 240 lekcí. Prošly Chromium e2e_roboti, e2e_meteority a e2e_solutions
+(185 ostatních lekcí). Podrobnosti viz poslední STATUS.md; logy/snímky mimo repo
+v /workspace/scratch/robot-work.
+
+Aktualizovány katalog/panel/plán 15/30, profil přípravy, instalace/spuštění,
+README/PLAN/SCHEMA a testové počty. Původní ID a úložné klíče zachovány.
+Další krok na další pokyn: **Součásti větší hry 16–20** — sdílené obrázky/fonty/
+zvuky, animace s časem, přesnost kolizí, kamera a souřadnice, herní režimy.
+Samostatným tématům přidat více smysluplných ukázek/úkolů s řešeními; návazné
+projekty zachovat jako celek. Před zavedením audia ověřit zvuková zařízení a
+kontrolu bez nich, žádné zbytečné nové knihovny. Odhad 15–20 tisíc tokenů.
+Dodávka commit/push do main bez ZIPů a bez publikace cloudového prostředí.
+Historické zápisy níže nejsou nové zadání.
+
 ## Aktuální v0.69 (9. 11. 2026): Meteority 6–10
 
 Na pokyn „Pokračuj“ dokončen druhý modul Pygame 2, první souvislá živá hra.

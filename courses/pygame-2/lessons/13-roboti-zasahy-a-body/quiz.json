@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co započítáme jako pokus?",
+    "options": [
+      "Levý MOUSEBUTTONDOWN při životech a existujících cílech.",
+      "Každý pohyb myši.",
+      "Stisk i uvolnění stejného tlačítka."
+    ],
+    "answer": 0,
+    "why": "Ostatní události ani dokončený lov nemění čítače."
+  },
+  {
+    "q": "Dva zásahy, tři pokusy, 30 bodů: jaká je přesnost?",
+    "options": [
+      "10 %.",
+      "Přibližně 66,7 %.",
+      "30 %."
+    ],
+    "answer": 1,
+    "why": "Podíl je 100×2/3, bodová hodnota do přesnosti nevstupuje."
+  },
+  {
+    "q": "Co udělá robot.kill?",
+    "options": [
+      "Vymaže všechny roboty.",
+      "Odebere robota pouze z jedné zvolené skupiny.",
+      "Odebere téhož robota ze všech jeho skupin."
+    ],
+    "answer": 2,
+    "why": "Kill mění členství konkrétního spritu, ostatní cíle zachová."
+  }
+]

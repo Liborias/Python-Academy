@@ -1,0 +1,14 @@
+{
+  "title": "Chyť robota: čas a rychlejší vlny",
+  "minutes": 55,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "mys",
+    "roboti"
+  ],
+  "example_title": "Třicet sekund na záchranu robotů"
+}

@@ -34,7 +34,7 @@ python tools/setup_env.py --dry-run
 ```
 Základní podkurz **Základy** žádné balíčky nepotřebuje.
 
-Pro Pygame 2 (dostupné lekce 1–10):
+Pro Pygame 2 (dostupné lekce 1–15):
 ```
 python tools/setup_env.py --courses pygame-2
 ```
@@ -47,6 +47,10 @@ plocha. Okno se nepřenáší ze vzdáleného serveru do prohlížeče. Aktivujt
 kliknutím a pohybujte lodí šipkami. V lekci 10 P přepíná pauzu, R restartuje
 a Esc ukončí hru. Běžné zavření uloží poslední `meteority.png` do pracovní složky
 a aplikace jej nabídne ke stažení; Stop tento snímek nezaručuje. Zvuk není potřeba.
+Chyť robota 11–15 používá stejné prostředí a místní okno, cíle chytáte levým
+tlačítkem myši. V lekci 15 Mezerník spustí lov nebo vrátí výsledek do nabídky,
+P pozastaví/pokračuje, R začne nový lov a Esc ukončí program. Běžné zavření
+uloží `roboti.png`. Žádné další balíčky se neinstalují.
 Ověřeno Python 3.14.8/pygame-ce 2.5.8.
 
 Pro Datovou analýzu:

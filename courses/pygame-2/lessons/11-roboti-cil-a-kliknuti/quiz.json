@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Odkud vzít místo zásahu při stisku myši?",
+    "options": [
+      "Z udalost.pos příslušného MOUSEBUTTONDOWN.",
+      "Z webových souřadnic stránky.",
+      "Vždy z pozdějšího get_pos."
+    ],
+    "answer": 0,
+    "why": "Událost uchovává pozici daného stisku, kurzor se mohl mezitím posunout."
+  },
+  {
+    "q": "Dva kruhy se překrývají. Který cíl vybereme?",
+    "options": [
+      "Vždy prvního ve skupině.",
+      "Posledního nakresleného, který obsahuje bod.",
+      "Oba za jediný stisk."
+    ],
+    "answer": 1,
+    "why": "Obrácené pořadí sprites odpovídá výběru viditelného horního cíle."
+  },
+  {
+    "q": "Proč nestačí Rect.collidepoint?",
+    "options": [
+      "Nefunguje v Pythonu.",
+      "Vyžaduje internet.",
+      "Přijal by také některé průhledné rohy kruhového cíle."
+    ],
+    "answer": 2,
+    "why": "Používáme vzdálenost od rect.center nejvýše radius; přesný dotyk platí."
+  }
+]

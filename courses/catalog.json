@@ -98,7 +98,7 @@
         "pygame-1"
       ],
       "status": "draft",
-      "summary": "Prvních 10 z 30 lekcí: herní objekty a hotová hra Meteority s životy, štítem, skóre, pauzou a restartem. Možná řešení všech úkolů.",
+      "summary": "Prvních 15 z 30 lekcí: herní objekty a hotové hry Meteority a Chyť robota. Pohyb, kolize, myš, skóre, čas, pauza a restart; úkoly s možnými řešeními.",
       "planned_lessons": 30
     },
     {

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co při přechodu do další vlny zachováme?",
+    "options": [
+      "Čas, životy i všechny čítače Lov.",
+      "Jen barvu okna.",
+      "Pouze počet robotů."
+    ],
+    "answer": 0,
+    "why": "Vlna mění cíle a obtížnost, není to nový lov."
+  },
+  {
+    "q": "Proč čas aktualizujeme před kliknutími snímku?",
+    "options": [
+      "Aby čas tekl i po ukončení programu.",
+      "Aby kliknutí po vypršení limitu už nebodovalo.",
+      "Aby se vymazala událost QUIT."
+    ],
+    "answer": 1,
+    "why": "Kolo při nule skončí a následný klik už stav nezmění."
+  },
+  {
+    "q": "Co poskytne vlastní random.Random(seed)?",
+    "options": [
+      "Společný stav náhody pro celý počítač.",
+      "Kryptografické losování.",
+      "Opakovatelnou posloupnost vlastního kola pro stejné seed."
+    ],
+    "answer": 2,
+    "why": "Generátor patří instanci a pokračuje i mezi jejími vlnami."
+  }
+]

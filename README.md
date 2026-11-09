@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.69):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně projektu Meteority (10 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a všech osm modulů Datové analýzy (42 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.70):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně her Meteority a Chyť robota (15 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a všech osm modulů Datové analýzy (42 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,7 +38,7 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Pygame 2 — herní objekty a Meteority
+## Pygame 2 — herní objekty a dvě vlastní hry
 
 Nový kurz propojuje OOP s herními objekty. První modul vysvětluje Sprite a jeho
 image/rect, přesný pohyb přes Vector2 a čas, Group/update/draw, kolize a stav hry
@@ -47,7 +47,13 @@ pět úkolů s vlastním zadáním/kontrolou/možným řešením a tři kvízov�
 Navazující projekt **Meteority, lekce 6–10**, postupně přidává pohyb lodě,
 proud meteoritů, životy a ochranu po zásahu, skóre a štít, pauzu a restart.
 Každý krok má jednu ukázku, vlastní úkol s možným řešením a tři kvízové otázky.
-Celkem zatím **20 ukázek a 30 úkolů**. Úvod má obtížnost 3/4, celek 4/4.
+
+Projekt **Chyť robota, lekce 11–15**, vysvětluje souřadnice kliknutí, kruhový
+výběr horního cíle, dědění a různé pohyby přes společné rozhraní, skóre,
+přesnost, životy, časový limit a rychlejší vlny. Závěr propojí nabídku,
+pauzu, výsledek a nový lov. Opět jedna ukázka, úkol s řešením a tři kvízové
+otázky v každém kroku. Celkem zatím **25 ukázek a 35 úkolů**.
+Úvod má obtížnost 3/4, celek 4/4.
 
 `python tools/setup_env.py --courses pygame-2` připraví pygame-ce do stejné
 projektové .venv; v kódu používáme import pygame. Ověřeno na Pythonu 3.14.8
@@ -64,8 +70,14 @@ serveru se okno nepřenáší do prohlížeče; pro hraní spusťte projekt mís
 Okno nejprve aktivujte kliknutím. Při běžném zavření se uloží poslední snímek
 `meteority.png`, který aplikace nabídne ke stažení. Tlačítko Stop v aplikaci
 ukončí proces a uložení snímku nezaručuje. Zvuk ani další balíčky nejsou potřeba.
-Vlastní grafika vzniká kódem bez cizích obrázků a síťových dat. Panel kurzu nabízí
-plán všech 30 lekcí včetně her Chyť robota a Hon na dronech. Dostupných je prvních deset.
+
+Chyť robota také otevírá místní okno; cíle chytáte levým tlačítkem myši.
+V lekci 15 **Mezerník** spustí lov nebo vrátí výsledek do nabídky, **P** přepíná
+pauzu, **R** začne nový lov a **Esc** ukončí program. Běžné zavření uloží
+`roboti.png`. Herní čas se v pauze neodečítá a další vlna neobnovuje životy
+ani skóre. Vlastní grafika obou her vzniká kódem bez cizích obrázků a síťových
+dat. Panel kurzu nabízí plán všech 30 lekcí včetně hry Hon na dronech.
+Dostupných je prvních patnáct, dále následují Součásti větší hry 16–20.
 
 ## Datová analýza — všech 42 lekcí
 
@@ -257,8 +269,8 @@ Nápověda vysvětluje také odsazování, našeptávání, spuštění a vráce
 ## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
 variantu k právě vybranému zadání s připomenutím, že správných postupů může být více.
-Pomoc je dostupná pro všech 220 hlavních zadání napříč osmi praktickými kurzy
-i 288 dalších úkolů v Základech, Datové analýze a Pygame 2, celkem 508 řešení včetně projektů a závěrečných
+Pomoc je dostupná pro všech 225 hlavních zadání napříč osmi praktickými kurzy
+i 288 dalších úkolů v Základech, Datové analýze a Pygame 2, celkem 513 řešení včetně projektů a závěrečných
 programů. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
 Průvodce přípravou bez programovacího úkolu tento panel nemá.
 

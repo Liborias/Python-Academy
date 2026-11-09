@@ -1,0 +1,14 @@
+{
+  "title": "Chyť robota: jedno rozhraní, různé pohyby",
+  "minutes": 55,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "mys",
+    "roboti"
+  ],
+  "example_title": "Hlídači a kývač ve společné skupině"
+}

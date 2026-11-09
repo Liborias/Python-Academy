@@ -95,10 +95,10 @@ with tempfile.TemporaryDirectory() as temp:
             assert page.locator('.run-console .plot-gallery').is_hidden()
             page.click('[data-act="stop"]');page.wait_for_function('document.querySelector(".run-console .status").textContent==="Zastaveno."')
             page.goto(f'{base}#/kurz/pygame-2');page.wait_for_selector('.mod li')
-            assert page.locator('.mod li').count()==10 and page.locator('.mod li.done').count()==6
-            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Prvních 10 z 30")')
+            assert page.locator('.mod li').count()==15 and page.locator('.mod li.done').count()==6
+            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Prvních 15 z 30")')
             page.locator('.learning-plan summary').click();text=page.locator('.learning-plan').inner_text()
-            assert 'Hotovo: lekce 6–10.' in text and '20 ukázek a 30 úkolů' in text
+            assert 'Hotovo: lekce 6–10.' in text and '25 ukázek a 35 úkolů' in text
             if shots:page.screenshot(path=str(shots/'meteority-course-desktop.png'),full_page=True)
             page.goto(f'{base}#/kurz/pygame-2/05-stav-hry-pauza-a-restart');page.wait_for_selector('.editor textarea')
             assert page.locator('.editor textarea').input_value()==previous and page.is_checked('.done-toggle input')

@@ -1,0 +1,14 @@
+{
+  "title": "Chyť robota: zásahy, body a přesnost",
+  "minutes": 45,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "mys",
+    "roboti"
+  ],
+  "example_title": "Počítadlo zásahů a minutých kliknutí"
+}

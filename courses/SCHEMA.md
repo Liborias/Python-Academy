@@ -635,3 +635,55 @@ událostmi, PNG/stažení, dlouhý běh a Stop, workspace, readonly, mobil a zac
 postupu. Samostatný SDL offscreen běh ověřuje herní smyčku, pauzu/konec/restart
 a framebuffer bez náhrady displeje testovacím modulem. Fyzická klávesnice,
 nativní editory a Windows/macOS vyžadují vlastní ověření.
+
+## Pygame 2, projekt Chyť robota (od v0.70)
+
+Course pygame-2 má dostupných 15/30 lekcí, stav draft, celkem 25 ukázek/35 úkolů.
+Modul 11–15 je jeden projekt, každý krok kind=gui, preview_images=true, jedna
+ukázka/úkol/řešení, tři kvízové otázky, bez dalších examples/tasks. Celkem aplikace
+225 hlavních + 288 dalších řešení = 513. Žádné nové závislosti, API ani změny
+uložených ID; instalace stále pygame-ce do stejné .venv.
+
+Robot je skutečný Sprite s vlastní image/Vector2 a kruhovým obsahuje kolem
+zaokrouhleného rect.center. Najdi_robota vrací poslední původní zasažený objekt
+v pořadí kreslení, bez změny skupiny. Hlidac/Kyvac dědí Robot a přepisují
+update(dt,hranice): odraz s ořezem celého obrázku a sinus od pevné kotvy. Přebytky
+pohybu při odrazu vědomě zahazujeme; nejde o přesnou simulaci více odrazů.
+Lov má vlastní Group se sdílenými sprity, přijímá jen levý MOUSEBUTTONDOWN a
+udalost.pos, jeden zásah odstraní přes kill ze všech skupin. Skóre používá body
+robota, přesnost počty zásahů/pokusů bez zaokrouhlení; po nule nebo bez cílů se
+další kliky neúčtují. Ostatní události nemění stav.
+
+Kolo skládá Lov, vlastní hranice/RNG, herní čas a číslované vlny. Nová vlna
+nemění čas, životy ani čítače; počet nejvýše šest, vodorovná rychlost hlídače
+nejvýše 220 px/s, perioda kývače nejméně 0.7 s. Stejný seed opakuje posloupnost,
+None při novém kole volí náhodný začátek. Po konci čas, objekty, čítače i RNG
+zůstávají stejné. Hra začíná nabídkou bez Kolo, podporuje Mezerník/P/R/Esc a
+stavy nabidka/hra/pauza/vysledek. Restart vytváří celý nový svět se stejným seedem,
+staré skupiny ani výsledky nemění. QUIT je aktivní ve všech stavech.
+
+Files/predchozi.py od lekce 12 jsou přesné předchozí modely, AST shodu hlídá
+test. Podklady.py/sestava.py/herni_okno.py jsou v každém kroku stejné samostatné
+kopie vedle studentského souboru; vše vzniká bez otevření okna při importu.
+Vstupní soubor pod __main__ spouští tutéž skutečnou hru. Smyčka 720×520 nejprve
+provede update(dt), pak čte události, kreslí a flip; limit vyprší před kliknutím
+téhož snímku. Dt=min(tick(60)/1000,0.05) představuje herní čas, dlouhou prodlevu
+záměrně celou nezapočítá. Běžné ukončení uloží roboti.png před pygame.quit,
+Stop uložení nezaručuje. Živá hra vyžaduje místní plochu/myš/klávesnici, není
+canvas uvnitř prohlížeče, zvuk zatím nevyužívá.
+
+Volitelný dilna_check/roboti.py má nezávislé geometrické/časové případy a RNG
+orákulum. Kontroluje hranice kruhu/rohy, pořadí/identity, kopie zdrojů, všechny
+odrazy i malé kroky, fázi/periodu/kotvu, skutečnou Group, události bez atributů,
+kill členství, vážené body proti přesnosti, stropy vln, konec a nezávislý restart.
+Následuje pgrun s kliknutím do viditelného cíle při jiné aktuální pozici kurzoru,
+reálnými pixely/texty, zavřením a PNG. Devět testových skupin zahrnuje 44
+odmítnutých chybných variant a 16 přijatých alternativ, helpery, pět samostatných
+úryvků výkladu a skutečnou smyčku s vypršením před kliknutím téhož snímku.
+
+Mobilní kontroly sledují i otevřené řešení a výklad; dlouhé vzorce mají mezery
+nebo inline code s již existujícím zalamováním, přehled přechodů používá seznam
+podporovaný místním Markdownem. CSS a JS nejsou změněné. Samostatný SDL
+offscreen smoke s event.post/get a původním rendererem ověřuje nabídku, klik,
+pauzu/pokračování, konec na čas i životy, restart a návrat. Fyzická myš/klávesnice,
+nativní editory a Windows/macOS vyžadují vlastní ověření.

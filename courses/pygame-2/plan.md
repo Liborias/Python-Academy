@@ -1,12 +1,12 @@
 ## Pygame 2: od objektu ke třem vlastním hrám
 
-**Připraveno prvních 10 z 30 lekcí.** Navazujeme na Pygame 1 a základní OOP. Herní kód rozdělíme na objekty, kterým rozumíme a jejichž chování umíme ověřit. Obtížnost úvodu je 3/4, celku 4/4: čas, spolupráce objektů, kolize a řízení herních stavů. Předpoklady jsou doporučení, nikoli zamčené vstupy. Samostatný OOP kurz pomůže stejně jako OOP z Turtle.
+**Připraveno prvních 15 z 30 lekcí.** Navazujeme na Pygame 1 a základní OOP. Herní kód rozdělíme na objekty, kterým rozumíme a jejichž chování umíme ověřit. Obtížnost úvodu je 3/4, celku 4/4: čas, spolupráce objektů, kolize a řízení herních stavů. Předpoklady jsou doporučení, nikoli zamčené vstupy. Samostatný OOP kurz pomůže stejně jako OOP z Turtle.
 
-V prvním modulu má každá lekce tři přepínatelné ukázky a pět úkolů s možným řešením a vlastní kontrolou. V úvodu je **15 ukázek a 25 úkolů**. Projekt Meteority přidává pět ukázek a pět návazných zadání s řešeními: celkem **20 ukázek a 30 úkolů**. Ukázky prvního modulu kreslí skutečné Surface a ukládají PNG přímo v aplikaci; nejde ještě o animované herní okno. Meteority v druhém modulu už otevírají skutečné herní okno; po jeho zavření lze zobrazit poslední PNG. Navazující projekty tvoří souvislé kroky, bez nesouvisejících variant.
+V prvním modulu má každá lekce tři přepínatelné ukázky a pět úkolů s možným řešením a vlastní kontrolou. V úvodu je **15 ukázek a 25 úkolů**. Projekty Meteority a Chyť robota přidávají po pěti ukázkách a návazných zadáních s řešeními: celkem **25 ukázek a 35 úkolů**. Ukázky prvního modulu kreslí skutečné Surface a ukládají PNG přímo v aplikaci; nejde ještě o animované herní okno. Oba projekty už otevírají skutečné herní okno; po jeho zavření lze zobrazit poslední PNG. Navazující projekty tvoří souvislé kroky, bez nesouvisejících variant.
 
 ## Prostředí
 
-Použijte Python 3.14 a stejnou .venv pro terminál i VS Code, VSCodium nebo PyCharm. `python tools/setup_env.py --courses pygame-2` připraví pygame-ce, v kódu import pygame. Ověřeno na Pythonu 3.14.8 a pygame-ce 2.5.8. Vlastní grafiku kreslíme kódem, žádné cizí obrázky, účty ani síťová data nepotřebujeme. Prvních pět lekcí funguje bez grafické plochy a zvuku; Meteority vyžadují místní grafickou plochu, zvuk nepotřebují. Nativní editory mají společný připravený postup instalace před lekcemi.
+Použijte Python 3.14 a stejnou .venv pro terminál i VS Code, VSCodium nebo PyCharm. `python tools/setup_env.py --courses pygame-2` připraví pygame-ce, v kódu import pygame. Ověřeno na Pythonu 3.14.8 a pygame-ce 2.5.8. Vlastní grafiku kreslíme kódem, žádné cizí obrázky, účty ani síťová data nepotřebujeme. Prvních pět lekcí funguje bez grafické plochy a zvuku; Meteority a Chyť robota vyžadují místní grafickou plochu a klávesnici, druhá hra také myš. Zvuk nepotřebují. Nativní editory mají společný připravený postup instalace před lekcemi.
 
 ## Modul 1 — Herní objekty, které jdou ověřit
 
@@ -30,7 +30,9 @@ Výstup: malé testovatelné herní součásti a obrázkové náhledy výsledku.
 9. Skóre, bonusový štít a přehledný stav kola.
 10. Celá hra Meteority: pauza, konec a nový pokus.
 
-## Modul 3 — Chyť robota (lekce 11–15, plán)
+## Modul 3 — Chyť robota (lekce 11–15)
+
+**Hotovo: lekce 11–15.** Jeden návazný projekt s řešením každého kroku. Vlastní roboti, kruhový výběr navrchu podle pozice kliknutí, hlídač a kývač se společným rozhraním, přesnost oddělená od bodů, další vlny bez resetu čítačů a 30 herních sekund. Okno 720×520, levé tlačítko, v závěru Mezerník pro nabídku/start, P pro pauzu, R pro nový lov, Esc pro konec. Při běžném zavření vznikne roboti.png. Modely se importují bez okna; čas se vyhodnotí před kliknutími stejného snímku.
 
 11. Cíle a pozice myši z události.
 12. Pohyb robotů, směry a různá chování přes společné rozhraní.
@@ -62,4 +64,4 @@ Výstup: malé testovatelné herní součásti a obrázkové náhledy výsledku.
 29. Spuštění z čisté složky, závislosti a volitelné balení pro vlastní systém.
 30. Vlastní varianta hry a závěrečné předání s návodem.
 
-Odhad celku 18–25 hodin plus vlastní úpravy. PyInstaller nebo webové balení jsou volitelné, jejich možnosti a systémové limity ověříme při realizaci příslušné lekce. Aktuálně se neinstalují. Dalším krokem je modul Chyť robota 11–15.
+Odhad celku 18–25 hodin plus vlastní úpravy. PyInstaller nebo webové balení jsou volitelné, jejich možnosti a systémové limity ověříme při realizaci příslušné lekce. Aktuálně se neinstalují. Dalším krokem je modul Součásti větší hry 16–20.

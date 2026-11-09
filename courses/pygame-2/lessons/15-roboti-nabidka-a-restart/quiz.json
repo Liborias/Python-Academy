@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Má nabídka už odečítat čas kola?",
+    "options": [
+      "Ne, kolo zatím ani neexistuje.",
+      "Ano, jinak by čas neběžel přesně.",
+      "Jen při pohybu myši."
+    ],
+    "answer": 0,
+    "why": "Nový lov vytvoří Kolo až po Mezerníku."
+  },
+  {
+    "q": "Co znamená restart?",
+    "options": [
+      "Jen nastavit zivoty=3.",
+      "Vytvořit nové Kolo se stejným seedem.",
+      "Znovu otevřít druhé okno."
+    ],
+    "answer": 1,
+    "why": "Obnoví se svět, čas, náhoda i čítače; starý svět nezměníme."
+  },
+  {
+    "q": "Jak přejdeme z výsledku zpět do nabídky?",
+    "options": [
+      "Pohybem myši.",
+      "Klávesou P.",
+      "Mezerníkem; kolo nastavíme na None."
+    ],
+    "answer": 2,
+    "why": "R spouští nový lov rovnou, P přepíná pouze hraní a pauzu."
+  }
+]

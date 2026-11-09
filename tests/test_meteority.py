@@ -118,7 +118,7 @@ class MeteorityTest(unittest.TestCase):
 
     def test_scope_helper_snapshots_and_exact_possible_solutions(self):
         course=json.loads((BASE.parent/'course.json').read_text())
-        self.assertEqual(course['modules'][-1]['lessons'],IDS)
+        self.assertEqual(next(m for m in course['modules'] if m['id'] == 'm02')['lessons'],IDS)
         previous={}
         for i,lid in enumerate(IDS):
             d=BASE/lid;view=lesson_view(ROOT/'courses','pygame-2',lid)

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co provede Group.update(dt,hranice)?",
+    "options": [
+      "Předá stejné argumenty metodě každého spritu.",
+      "Vytvoří novou skupinu.",
+      "Samo všem objektům nastaví shodný pohyb."
+    ],
+    "answer": 0,
+    "why": "Hlídač, kývač i stojící robot mohou mít jiné update se stejným rozhraním."
+  },
+  {
+    "q": "Od čeho počítáme novou sinusovou polohu kývače?",
+    "options": [
+      "Od předchozí zaokrouhlené pozice.",
+      "Od neměnné kotvy a celkového herního času.",
+      "Od aktuální polohy kurzoru."
+    ],
+    "answer": 1,
+    "why": "Přičítání výchylek k minulé poloze by způsobilo jiný pohyb."
+  },
+  {
+    "q": "Proč držet pozice ve Vector2 a zaokrouhlovat až rect?",
+    "options": [
+      "Aby byl obrázek stále větší.",
+      "Aby se zrušil čas.",
+      "Aby malé desetinné posuny nezmizely."
+    ],
+    "answer": 2,
+    "why": "Rect má celočíselné souřadnice, model potřebuje uchovat i zlomky pixelů."
+  }
+]
