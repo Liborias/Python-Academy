@@ -1,0 +1,11 @@
+{
+  "title": "Skupiny: update, draw a život objektu",
+  "minutes": 40,
+  "kind": "console",
+  "tags": [
+    "pygame",
+    "oop"
+  ],
+  "preview_images": true,
+  "example_title": "Celá letka jedním voláním"
+}

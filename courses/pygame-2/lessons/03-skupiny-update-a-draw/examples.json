@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Prázdná letka",
+    "description": "Stejné rozhraní funguje i bez členů.",
+    "code": "# Knihovna pygame-ce se importuje jménem pygame.\nimport os\nos.environ.setdefault(\"PYGAME_HIDE_SUPPORT_PROMPT\", \"1\")\nimport pygame\nfrom zaklad import ZakladSprite\nfrom nahled import nahled\nfrom pohyb import PohyblivaLod\n\ndef posun_skupinu(skupina, dt):\n    skupina.update(dt)\n    return sorted(objekt.rect.center for objekt in skupina)\n\n# Pozorujeme jiný vstup stejného modelu.\nskupina = pygame.sprite.Group()\nprint('Prázdná skupina:', posun_skupinu(skupina, 0.5))\nnahled(skupina, 'Prázdná letka')\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Sdílený člen",
+    "description": "Členství neznamená kopii objektu.",
+    "code": "# Knihovna pygame-ce se importuje jménem pygame.\nimport os\nos.environ.setdefault(\"PYGAME_HIDE_SUPPORT_PROMPT\", \"1\")\nimport pygame\nfrom zaklad import ZakladSprite\nfrom nahled import nahled\nfrom pohyb import PohyblivaLod\n\ndef posun_skupinu(skupina, dt):\n    skupina.update(dt)\n    return sorted(objekt.rect.center for objekt in skupina)\n\n# Pozorujeme jiný vstup stejného modelu.\na = PohyblivaLod((140, 180), (80, 0))\nprvni = pygame.sprite.Group(a); druha = pygame.sprite.Group(a)\nposun_skupinu(prvni, 1)\nprint('Stejný objekt:', next(iter(druha)) is a, a.rect.center)\nnahled(druha, 'Sdílené členství')\n"
+  }
+]

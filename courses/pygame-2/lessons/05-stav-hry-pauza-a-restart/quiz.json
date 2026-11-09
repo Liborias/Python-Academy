@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co má v pauze pokračovat?",
+    "options": [
+      "Zpracování událostí, včetně zavření okna.",
+      "Pohyb všech nepřátel bez omezení.",
+      "Automatické vytváření nekonečných smyček."
+    ],
+    "answer": 0,
+    "why": "Pozastavujeme aktualizaci světa, ne reakce na vstup."
+  },
+  {
+    "q": "Kdy má jednorázový časovač vrátit True?",
+    "options": [
+      "V každém kroku po dosažení nuly.",
+      "Jen při přechodu z kladného času na nulu.",
+      "Pouze při restartu."
+    ],
+    "answer": 1,
+    "why": "Opakované True by například spouštělo bonus stále znovu."
+  },
+  {
+    "q": "Proč předat NovaHra funkci tvorba bez závorek?",
+    "options": [
+      "Aby se funkce nikdy nedala zavolat.",
+      "Aby se stará skupina musela vyprázdnit.",
+      "Aby si hra mohla nový svět vytvořit až při konstrukci a restartu."
+    ],
+    "answer": 2,
+    "why": "Předáváme postup, nikoli jediný už vytvořený svět."
+  }
+]

@@ -34,6 +34,16 @@ python tools/setup_env.py --dry-run
 ```
 Základní podkurz **Základy** žádné balíčky nepotřebuje.
 
+Pro úvod Pygame 2:
+```
+python tools/setup_env.py --courses pygame-2
+```
+Instaluje stejné pygame-ce jako Pygame 1, nikoli původní balíček pygame.
+Prvních pět lekcí má obrázkové náhledy z Surface bez okna a zvuku. PNG lze
+prohlédnout/stáhnout v aplikaci; v editoru zůstává v pracovní složce.
+Vyberte stejnou .venv ve VS Code, VSCodium nebo PyCharm. Další herní moduly
+budou potřebovat místní grafickou plochu. Ověřeno Python 3.14.8/pygame-ce 2.5.8.
+
 Pro Datovou analýzu:
 ```
 python tools/setup_env.py --courses pandas

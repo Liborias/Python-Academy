@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co určuje rect.center?",
+    "options": [
+      "Polohu středu objektu ve světě.",
+      "Barvu pixelu uprostřed image.",
+      "Počet členů ve skupině."
+    ],
+    "answer": 0,
+    "why": "Image jsou pixely obrázku, rect jeho umístění."
+  },
+  {
+    "q": "Proč zavolat inicializaci rodiče Sprite?",
+    "options": [
+      "Aby se program automaticky spustil ve smyčce.",
+      "Aby Sprite připravil i vnitřní členství ve skupinách.",
+      "Protože jinak nelze importovat pygame."
+    ],
+    "answer": 1,
+    "why": "Rodič připravuje část objektu, kterou dědíme."
+  },
+  {
+    "q": "Co udělá přímé přiřazení téhož Surface dvěma objektům?",
+    "options": [
+      "Vždy vytvoří dvě nezávislé kopie.",
+      "Zabrání vykreslení.",
+      "Oba budou odkazovat na stejná pixelová data."
+    ],
+    "answer": 2,
+    "why": "Samostatný obrázek vytvoří Surface.copy nebo nový Surface."
+  }
+]

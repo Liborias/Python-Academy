@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Dvě nezávislé lodě",
+    "description": "Pohyb rect jedné lodě nezmění druhou.",
+    "code": "# Knihovna pygame-ce se importuje jménem pygame.\nimport os\nos.environ.setdefault(\"PYGAME_HIDE_SUPPORT_PROMPT\", \"1\")\nimport pygame\nfrom zaklad import ZakladSprite\nfrom nahled import nahled\n\nclass Lod(pygame.sprite.Sprite):\n    def __init__(self, stred):\n        super().__init__()\n        self.image = pygame.Surface((32, 24), pygame.SRCALPHA)\n        self.image.fill((80, 180, 255))\n        self.rect = self.image.get_rect(center=stred)\n\n# Pozorujeme jiný vstup stejného modelu.\na = Lod((150, 160)); b = Lod((340, 220))\na.rect.move_ip(40, 0)\nprint('Dvě polohy:', a.rect.center, b.rect.center)\nnahled([a, b], 'Nezávislé objekty')\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Souřadnice obrázku",
+    "description": "Přesun mění rect, obrázek si ponechá rozměr.",
+    "code": "# Knihovna pygame-ce se importuje jménem pygame.\nimport os\nos.environ.setdefault(\"PYGAME_HIDE_SUPPORT_PROMPT\", \"1\")\nimport pygame\nfrom zaklad import ZakladSprite\nfrom nahled import nahled\n\nclass Lod(pygame.sprite.Sprite):\n    def __init__(self, stred):\n        super().__init__()\n        self.image = pygame.Surface((32, 24), pygame.SRCALPHA)\n        self.image.fill((80, 180, 255))\n        self.rect = self.image.get_rect(center=stred)\n\n# Pozorujeme jiný vstup stejného modelu.\na = Lod((120, 120)); a.rect.center = (420, 240)\nprint('Obraz:', a.image.get_size(), 'poloha:', a.rect.center)\nnahled([a], 'Stejný obrázek na jiném místě')\n"
+  }
+]

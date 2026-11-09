@@ -140,7 +140,7 @@ with tempfile.TemporaryDirectory() as temp:
             assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')
             if shots:
                 page.locator('.solution-help').screenshot(path=str(shots/'solution-mobile-dark.png'))
-            courses = ['oop','soubory-web','pygame-1','turtle-oop','tkinter-api','pandas']
+            courses = ['oop','soubory-web','pygame-1','turtle-oop','tkinter-api','pandas','pygame-2']
             checked = 0
             for cid in courses:
                 course = json.loads((root/'courses'/cid/'course.json').read_text('utf-8'))
@@ -169,7 +169,7 @@ with tempfile.TemporaryDirectory() as temp:
                 assert not page.locator('.solution-help').evaluate('(el) => el.open')
                 assert page.locator('.editor textarea').input_value() == draft
                 assert page.is_checked('.done-toggle input') == (index % 2 == 0)
-            assert checked == 170, checked
+            assert checked == 175, checked
             # Opožděný vzor předchozího kurzu se nesmí objevit v nové lekci.
             page.goto(f'{base}#/kurz/oop/20-konzolove-expedicni-centrum')
             page.wait_for_selector('.solution-help summary')
@@ -202,7 +202,7 @@ with tempfile.TemporaryDirectory() as temp:
             assert page.locator('.solution-help').count() == 0
             assert not errors, errors
             browser.close()
-        print('OK: řešení Úkolů 1–5 a všech 170 lekcí ostatních kurzů, zpoždění v úkolu i mezi kurzy, opakování, text, drafty/postup, klávesnice a mobil')
+        print('OK: řešení Úkolů 1–5 a všech 175 lekcí ostatních kurzů, zpoždění v úkolu i mezi kurzy, opakování, text, drafty/postup, klávesnice a mobil')
     finally:
         server.runs.stop_all()
         server.shutdown()

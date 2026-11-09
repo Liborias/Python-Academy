@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jaký posun dá 80 px/s během 0,25 s?",
+    "options": [
+      "20 pixelů.",
+      "80 pixelů.",
+      "320 pixelů."
+    ],
+    "answer": 0,
+    "why": "Rychlost násobíme časem v sekundách."
+  },
+  {
+    "q": "Proč má být pozice také Vector2?",
+    "options": [
+      "Aby pygame přestalo používat rect.",
+      "Aby se zachovaly i pohyby menší než pixel.",
+      "Protože Vector2 automaticky otevře okno."
+    ],
+    "answer": 1,
+    "why": "Rect jen odvozujeme z přesnější polohy pro kreslení a kolize."
+  },
+  {
+    "q": "Proč normalizovat směr (1, 1)?",
+    "options": [
+      "Aby se změnil na nulový vektor.",
+      "Aby byla zrušena rychlost.",
+      "Aby diagonála neměla vyšší rychlost než ostatní směry."
+    ],
+    "answer": 2,
+    "why": "Nenulový normalizovaný vektor má délku 1."
+  }
+]

@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.67):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a všech osm modulů Datové analýzy (42 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.68):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), úvod Pygame 2 (5 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a všech osm modulů Datové analýzy (42 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -37,6 +37,26 @@ Každý podkurz včetně plánovaných má před lekcemi přípravu s volbou sys
 seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená stránka Příprava prostředí
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
+
+## Pygame 2 — prvních pět lekcí
+
+Nový kurz propojuje OOP s herními objekty. První modul vysvětluje Sprite a jeho
+image/rect, přesný pohyb přes Vector2 a čas, Group/update/draw, kolize a stav hry
+s pauzou, časovačem a restartem. Každá lekce má tři přepínatelné ukázky,
+pět úkolů s vlastním zadáním/kontrolou/možným řešením a tři kvízové otázky.
+Celkem zatím **15 ukázek a 25 úkolů**. Úvod má obtížnost 3/4, celek 4/4.
+
+`python tools/setup_env.py --courses pygame-2` připraví pygame-ce do stejné
+projektové .venv; v kódu používáme import pygame. Ověřeno na Pythonu 3.14.8
+s pygame-ce 2.5.8. Příprava před kurzem má postup pro VS Code, VSCodium a PyCharm.
+Zvolte stejný interpreter pro editor i terminál.
+
+První modul kreslí skutečné Surface do PNG, které aplikace zobrazí a dovolí
+stáhnout. V editoru se obrázek uloží do pracovní složky. Jde o poslední stav po
+provedených krocích, animované okno přijde v následujícím projektu Meteority.
+Úvod nepotřebuje grafickou plochu ani zvuk; živé hry později ano. Vlastní grafika
+vzniká kódem bez cizích obrázků a síťových dat. Panel kurzu nabízí plán všech
+30 lekcí včetně her Chyť robota a Hon na dronech. Dostupných je zatím prvních pět.
 
 ## Datová analýza — všech 42 lekcí
 
@@ -203,10 +223,10 @@ Jeho id a uložené úpravy se nemění. Web používá SVG i ICO faviconu; při
 ikoně obnovte stránku pomocí Ctrl+F5. Soubory ikon mají v odkazech verzi pro cache.
 
 ## Pět úkolů na procvičení
-V běžných lekcích Základů (01–31 a 37–39) a lekcích 1–19 a 21–34 Datové analýzy
+V běžných lekcích Základů (01–31 a 37–39) a lekcích 1–19 a 21–34 Datové analýzy i prvních pěti lekcích Pygame 2
 přepínají tlačítka **Úkol 1 až Úkol 5**
 mezi původním úkolem a čtyřmi novými. Každý má vlastní zadání, rozepsaný kód,
-kontrolu a pracovní soubor pro externí editor. Doplňkových úkolů je celkem 268.
+kontrolu a pracovní soubor pro externí editor. Doplňkových úkolů je celkem 288.
 Úkol 1 zachovává původní uložený kód i návaznost na splnění lekce. Nové úkoly mají
 vlastní značky úspěšného procvičení. „Začít znovu“ obnoví jen právě vybraný úkol.
 Navazující mini-projekty a závěrečné testy tvoří vlastní celky.
@@ -228,8 +248,8 @@ Nápověda vysvětluje také odsazování, našeptávání, spuštění a vráce
 ## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
 variantu k právě vybranému zadání s připomenutím, že správných postupů může být více.
-Pomoc je dostupná pro všech 210 hlavních zadání napříč sedmi praktickými kurzy
-i 268 dalších úkolů v Základech a Datové analýze, celkem 478 řešení včetně projektů a závěrečných
+Pomoc je dostupná pro všech 215 hlavních zadání napříč osmi praktickými kurzy
+i 288 dalších úkolů v Základech, Datové analýze a Pygame 2, celkem 503 řešení včetně projektů a závěrečných
 programů. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
 Průvodce přípravou bez programovacího úkolu tento panel nemá.
 

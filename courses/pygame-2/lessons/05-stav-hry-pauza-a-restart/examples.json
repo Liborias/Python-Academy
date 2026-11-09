@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Ukončení i v pauze",
+    "description": "QUIT se zpracuje bez ohledu na pauzu.",
+    "code": "# Knihovna pygame-ce se importuje jménem pygame.\nimport os\nos.environ.setdefault(\"PYGAME_HIDE_SUPPORT_PROMPT\", \"1\")\nimport pygame\nfrom zaklad import ZakladSprite\nfrom nahled import nahled\nfrom pohyb import PohyblivaLod\n\nclass HerniStav:\n    def __init__(self):\n        self.bezi = True\n        self.pauza = False\n\n    def zpracuj(self, udalost):\n        if udalost.type == pygame.QUIT:\n            self.bezi = False\n        elif self.bezi and udalost.type == pygame.KEYDOWN and udalost.key == pygame.K_p:\n            self.pauza = not self.pauza\n\n    def update(self, skupina, dt):\n        if self.bezi and not self.pauza:\n            skupina.update(dt)\n\n# Pozorujeme jiný vstup stejného modelu.\nstav = HerniStav(); stav.zpracuj(pygame.event.Event(pygame.KEYDOWN, key=pygame.K_p))\nstav.zpracuj(pygame.event.Event(pygame.QUIT))\nskupina = pygame.sprite.Group(PohyblivaLod((180, 180), (80, 0)))\nstav.update(skupina, 3)\nprint('Běží:', stav.bezi, 'poloha:', next(iter(skupina)).rect.center)\nnahled(skupina, 'Ukončení v pauze')\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Nezávislé stavy",
+    "description": "Pauza jedné hry nepozastaví jinou instanci.",
+    "code": "# Knihovna pygame-ce se importuje jménem pygame.\nimport os\nos.environ.setdefault(\"PYGAME_HIDE_SUPPORT_PROMPT\", \"1\")\nimport pygame\nfrom zaklad import ZakladSprite\nfrom nahled import nahled\nfrom pohyb import PohyblivaLod\n\nclass HerniStav:\n    def __init__(self):\n        self.bezi = True\n        self.pauza = False\n\n    def zpracuj(self, udalost):\n        if udalost.type == pygame.QUIT:\n            self.bezi = False\n        elif self.bezi and udalost.type == pygame.KEYDOWN and udalost.key == pygame.K_p:\n            self.pauza = not self.pauza\n\n    def update(self, skupina, dt):\n        if self.bezi and not self.pauza:\n            skupina.update(dt)\n\n# Pozorujeme jiný vstup stejného modelu.\na = HerniStav(); b = HerniStav()\na.zpracuj(pygame.event.Event(pygame.KEYDOWN, key=pygame.K_p))\nskupina = pygame.sprite.Group(PohyblivaLod((120, 180), (80, 0)))\nb.update(skupina, 1)\nprint('Pauzy:', a.pauza, b.pauza)\nnahled(skupina, 'Druhá instance dál běží')\n"
+  }
+]

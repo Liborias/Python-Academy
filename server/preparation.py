@@ -8,9 +8,9 @@ PROFILES = {
         'system': 'Stačí Python a terminál. Git nainstalujete až pro modul Verzování. GitHub účet ani server nejsou potřeba pro první lekce.',
     },
     'oop': {
-        'focus': 'Samostatný OOP kurz je zatím koncept. Pro budoucí konzolové příklady bude stačit standardní knihovna Pythonu.',
+        'focus': 'Samostatný OOP kurz má všech 20 lekcí připravených. Konzolové příklady a expediční projekt používají standardní knihovnu Pythonu.',
         'verify': 'import sys; print(sys.executable); print(sys.version)',
-        'system': 'Nepotřebujete Turtle, Pygame, grafické prostředí, Docker ani účet u externí služby. Nejprve zvládněte základní funkce a datové struktury. Výukové lekce a projekt tohoto kurzu zatím nejsou vytvořené.',
+        'system': 'Nepotřebujete Turtle, Pygame, grafické prostředí, Docker ani účet u externí služby. Nejprve zvládněte základní funkce a datové struktury. Kurz vede od prvních objektů přes dědění, kompozici a testy až po expediční centrum.',
     },
     'zaklady': {
         'focus': 'Čistý Python: proměnné, cykly a funkce. Žádné další pip balíčky nejsou potřeba.',
@@ -43,9 +43,9 @@ PROFILES = {
         'system': 'Tkinter ověřte na grafické ploše pomocí Pythonu z .venv s volbou -m tkinter. Na Debianu/Ubuntu potřebujete odpovídající python3-tk; na Homebrew python-tk@3.14. E-mailové lekce používají místní záchyt bez osobní schránky a bez hesla. Všech 28 lekcí je připravených, včetně API, Korespondenční dílny, vlastních testů, cest k datům a předání. Balení zůstává volitelné; PyInstaller 6.22.3 byl ověřen s Pythonem 3.14.8 na Linuxu, jiný cílový systém je nutné sestavit a vyzkoušet zvlášť. Okno se otevře na počítači s Pythonem, nikoli uvnitř webové stránky; v prostředí bez grafické plochy ho nelze zobrazit. Cvičné API z files/cvicne_api.py se spouští automaticky jen na 127.0.0.1, vyžaduje povolení místních spojení a nezávisí na internetu. Záchyt z files/cvicna_posta.py potřebuje aiosmtpd (ověřeno 1.4.6 na Pythonu 3.14.8), naslouchá jen na 127.0.0.1 a zprávy neodesílá dál. Modul smtpd v Pythonu 3.14 již není. Konfiguraci DILNA_SMTP_* zkoušejte při přímém spuštění v terminálu či editoru.',
     },
     'pygame-2': {
-        'focus': 'Stejné pygame-ce jako v Pygame 1; znalost tříd se hodí z Turtle a OOP.',
+        'focus': 'Stejné pygame-ce jako v Pygame 1, v kódu import pygame. Hodí se základní třídy ze samostatného OOP nebo Turtle. První modul používá Sprite, Surface, Vector2, Group a události bez otevírání okna.',
         'verify': 'import pygame; print(pygame.version.ver)',
-        'system': 'Potřebujete místní grafickou plochu, klávesnici a případně zvuk. Běžný vzdálený server bez plochy herní okno nezobrazí. Kurz je zatím plánovaný.',
+        'system': 'Prvních 5 z 30 lekcí je připravených: obraz/poloha, pohyb s časem, skupiny, kolize a herní stavy. V tomto modulu se skutečné Surface ukládají do PNG; aplikace je zobrazí a dovolí stáhnout, v editoru zůstanou v pracovní složce. Každá lekce má tři ukázky a pět úkolů s možným řešením. První blok nepotřebuje grafickou plochu ani zvuk, živé hry dalších modulů je potřebovat budou. Vyberte stejnou .venv ve VS Code, VSCodium nebo PyCharm. Ověřeno na Pythonu 3.14.8 a pygame-ce 2.5.8; nativní okno samotný import neověřuje. Dalším modulem budou Meteority 6–10. Vlastní grafiku kreslíme kódem bez síťových dat.',
     },
     'databaze': {
         'focus': 'SQLite je v modulu sqlite3 standardní knihovny. Základní databázový kurz nepotřebuje PostgreSQL ani databázový server.',

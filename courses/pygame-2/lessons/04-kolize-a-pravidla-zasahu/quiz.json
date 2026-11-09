@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Dva Rect se pouze dotýkají hranou. Je colliderect True?",
+    "options": [
+      "Ne, musí mít společnou plochu.",
+      "Ano, každý dotyk stačí.",
+      "Záleží na barvě image."
+    ],
+    "answer": 0,
+    "why": "Rect vyžaduje kladný plošný průnik."
+  },
+  {
+    "q": "Co znamená True ve spritecollide(hrac, skupina, True)?",
+    "options": [
+      "Vrátit jen bool.",
+      "Na zasažených spustit kill.",
+      "Zapnout vždy kruhovou kolizi."
+    ],
+    "answer": 1,
+    "why": "Třetí argument řídí odstraňování, ne tvar testu."
+  },
+  {
+    "q": "Dva kruhy mají vzdálenost středů rovnou součtu radius. Co stanoví collide_circle?",
+    "options": [
+      "Vždy záleží jen na rect.",
+      "Žádný zásah, stejně jako u hran Rect.",
+      "Podle tohoto kruhového pravidla jde o zásah."
+    ],
+    "answer": 2,
+    "why": "Kruhové pravidlo používá vzdálenost nejvýše součet poloměrů."
+  }
+]

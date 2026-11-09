@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Pouhý dotyk hran",
+    "description": "Rect vyžaduje kladnou plochu průniku.",
+    "code": "# Knihovna pygame-ce se importuje jménem pygame.\nimport os\nos.environ.setdefault(\"PYGAME_HIDE_SUPPORT_PROMPT\", \"1\")\nimport pygame\nfrom zaklad import ZakladSprite\nfrom nahled import nahled\nfrom pohyb import PohyblivaLod\n\ndef zasahy(hrac, nepratele):\n    return pygame.sprite.spritecollide(hrac, nepratele, False)\n\n# Pozorujeme jiný vstup stejného modelu.\nhrac = ZakladSprite((200, 180)); cil = ZakladSprite((232, 180))\nskupina = pygame.sprite.Group(cil)\nprint('Dotyk hran, zásahů:', len(zasahy(hrac, skupina)))\nnahled([hrac, cil], 'Dotyk hran není rect kolize')\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Více zásahů najednou",
+    "description": "Jediné volání může najít více nepřátel.",
+    "code": "# Knihovna pygame-ce se importuje jménem pygame.\nimport os\nos.environ.setdefault(\"PYGAME_HIDE_SUPPORT_PROMPT\", \"1\")\nimport pygame\nfrom zaklad import ZakladSprite\nfrom nahled import nahled\nfrom pohyb import PohyblivaLod\n\ndef zasahy(hrac, nepratele):\n    return pygame.sprite.spritecollide(hrac, nepratele, False)\n\n# Pozorujeme jiný vstup stejného modelu.\nhrac = ZakladSprite((200, 180))\nskupina = pygame.sprite.Group(ZakladSprite((190, 175)), ZakladSprite((210, 185)))\nprint('Zásahy:', len(zasahy(hrac, skupina)), 'zůstali:', len(skupina))\nnahled([hrac, *skupina], 'Dva zásahy bez odstraňování')\n"
+  }
+]

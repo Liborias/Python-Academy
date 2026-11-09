@@ -97,8 +97,9 @@
         "turtle-oop",
         "pygame-1"
       ],
-      "status": "planned",
-      "summary": "Meteority, Chyť robota, Hon na dronech, OOP ve hrách."
+      "status": "draft",
+      "summary": "Prvních 5 z 30 lekcí: herní objekty, pohyb, skupiny, kolize a pauza. Více ukázek a úkolů s řešeními; následují tři vlastní hry.",
+      "planned_lessons": 30
     },
     {
       "id": "databaze",

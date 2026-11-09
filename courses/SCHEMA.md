@@ -572,3 +572,28 @@ Automatický běh source GUI navíc ověřuje klávesy v Text, chyby souborů, o
 nezměněný snímek i nejistý výsledek. Volbu cest řídí test, vzhled nativního
 dialogu neověřuje. Windows/macOS a jejich binární balení vyžadují vlastní
 zkoušku. Stav hotového obsahu 28/28 je dál draft pro připomínky studentů.
+
+
+## Pygame 2, první modul (od v0.68)
+
+Course pygame-2 má první modul 1–5, draft a plán 30 lekcí (level 4, úvod 3).
+Každá lekce je console s preview_images=true: v prvním modulu jde o deterministické
+modely a obrázkové náhledy, nikoli smyčku nativního okna. Example.py a dvě další
+konzolové varianty kreslí skutečné Surface do nahled.png 640×360. Režim PNG se
+sdílí s grafy; UI používá obecné názvy obrázek, nikoli pouze graf. Server a limity
+se nemění, nové závislosti nejsou potřeba (pouze stávající pygame-ce).
+
+Každá lekce má čtyři další tasks s vlastním zadáním, šablonou, kontrolou a řešením.
+Files obsahuje zaklad.py, nahled.py a od třetí lekce pohyb.py s přesnou třídou
+PohyblivaLod z řešení 2/1; shodu hlídá AST test. Soubory se kopírují vedle reseni.py,
+check.py přidává pracovní adresář do sys.path. Import modelu nevytváří okno.
+Volitelný pygame2_intro.py používá skutečné Sprite/Surface/Vector2/Group a vlastní
+vstupní objekty; funkční správnost ověřuje na více případech, ne konkrétním AST.
+Zahrnuje desetinný pohyb, dt=0, záporné směry, prázdné/sdílené skupiny, identitu,
+pixely a nezměněné zdroje, dotyk hran/kruhů, kill všech členství, opakované události,
+pauzu, jednorázový časovač a tvorbu nového světa bez poškození staré skupiny.
+
+Navazující projekty zůstávají souvislé celky; případné budoucí příklady nativních
+her musí mít kind=gui a odpovídající headless kontrolu. Neprovádět GUI smyčku při
+importu přes c.load. První blok se ověřuje bez SDL okna, nativní editory/OS se tím
+netestují. Global counts: 215 hlavních + 288 dalších řešení = 503.

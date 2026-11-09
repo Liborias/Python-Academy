@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Drobné kroky se neztratí",
+    "description": "Nezaokrouhlujte desetinnou pozici po každém snímku.",
+    "code": "# Knihovna pygame-ce se importuje jménem pygame.\nimport os\nos.environ.setdefault(\"PYGAME_HIDE_SUPPORT_PROMPT\", \"1\")\nimport pygame\nfrom zaklad import ZakladSprite\nfrom nahled import nahled\n\nclass PohyblivaLod(ZakladSprite):\n    def __init__(self, stred, rychlost):\n        super().__init__(stred)\n        self.pozice = pygame.Vector2(stred)\n        self.rychlost = pygame.Vector2(rychlost)\n\n    def update(self, dt):\n        self.pozice += self.rychlost * dt\n        self.rect.center = (round(self.pozice.x), round(self.pozice.y))\n\n# Pozorujeme jiný vstup stejného modelu.\na = PohyblivaLod((120, 180), (1, 0))\nfor _ in range(100):\n    a.update(0.01)\nprint('Pozice:', tuple(a.pozice), 'rect:', a.rect.center)\nnahled([a], 'Sto malých kroků')\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Stejný čas, jiné kroky",
+    "description": "Při konstantní rychlosti záleží na celkovém čase.",
+    "code": "# Knihovna pygame-ce se importuje jménem pygame.\nimport os\nos.environ.setdefault(\"PYGAME_HIDE_SUPPORT_PROMPT\", \"1\")\nimport pygame\nfrom zaklad import ZakladSprite\nfrom nahled import nahled\n\nclass PohyblivaLod(ZakladSprite):\n    def __init__(self, stred, rychlost):\n        super().__init__(stred)\n        self.pozice = pygame.Vector2(stred)\n        self.rychlost = pygame.Vector2(rychlost)\n\n    def update(self, dt):\n        self.pozice += self.rychlost * dt\n        self.rect.center = (round(self.pozice.x), round(self.pozice.y))\n\n# Pozorujeme jiný vstup stejného modelu.\na = PohyblivaLod((120, 140), (80, 0)); b = PohyblivaLod((120, 240), (80, 0))\na.update(1)\nfor _ in range(4):\n    b.update(0.25)\nprint('Stejné x:', a.pozice.x, b.pozice.x)\nnahled([a, b], 'Sekunda jednou a čtyřikrát')\n"
+  }
+]

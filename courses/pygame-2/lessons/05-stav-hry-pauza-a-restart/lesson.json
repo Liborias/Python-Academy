@@ -1,0 +1,11 @@
+{
+  "title": "Stav hry: pauza, časovač a restart",
+  "minutes": 45,
+  "kind": "console",
+  "tags": [
+    "pygame",
+    "oop"
+  ],
+  "preview_images": true,
+  "example_title": "Model hry, který jde ověřit"
+}

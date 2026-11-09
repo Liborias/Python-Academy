@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co udělá Group.update(dt)?",
+    "options": [
+      "Předá dt metodě update každého člena.",
+      "Automaticky změní všechny objekty na stejnou třídu.",
+      "Smaže pozadí okna."
+    ],
+    "answer": 0,
+    "why": "Samotný význam aktualizace určuje třída člena."
+  },
+  {
+    "q": "Co udělá sprite.kill()?",
+    "options": [
+      "Zaručeně zničí všechny Python reference na objekt.",
+      "Odstraní sprite ze všech jeho skupin.",
+      "Smaže jen jeho obrázek."
+    ],
+    "answer": 1,
+    "why": "Objekt může dále existovat v proměnné."
+  },
+  {
+    "q": "Jedna loď patří do dvou skupin. Kolik objektů představuje?",
+    "options": [
+      "Dva, jeden pro každé členství.",
+      "Vždy tři.",
+      "Stále jeden, pokud jde o tentýž Sprite."
+    ],
+    "answer": 2,
+    "why": "Skupiny uchovávají členství, nekopírují herní objekty."
+  }
+]

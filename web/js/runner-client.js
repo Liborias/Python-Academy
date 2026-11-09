@@ -6,7 +6,7 @@ import { esc } from './util.js';
 export function makeConsole(box, { onDone } = {}) {
   box.classList.add('console');
   box.innerHTML = `<pre class="out" tabindex="0" aria-live="polite"></pre>
-    <div class="plot-gallery" aria-label="Vytvořené grafy" hidden></div>
+    <div class="plot-gallery" aria-label="Vytvořené obrázky" hidden></div>
     <div class="file-downloads" aria-label="Soubory ke stažení" hidden></div>
     <form class="stdin" hidden><label>Vstup: <input type="text" autocomplete="off" aria-label="Vstup pro input()"></label><button class="btn" type="submit">Odeslat</button></form>
     <div class="status" aria-live="polite"></div>`;
@@ -30,7 +30,7 @@ export function makeConsole(box, { onDone } = {}) {
       const figure = document.createElement('figure'), img = document.createElement('img');
       const caption = document.createElement('figcaption'), link = document.createElement('a');
       img.src = `data:image/png;base64,${plot.data}`;
-      img.alt = `Graf ze souboru ${plot.name}`;
+      img.alt = `Obrázek ze souboru ${plot.name}`;
       link.href = img.src; link.download = plot.name.split('/').pop();
       link.textContent = `Stáhnout PNG: ${plot.name}`;
       caption.appendChild(link); figure.append(img, caption); gallery.appendChild(figure);

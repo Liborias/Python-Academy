@@ -59,6 +59,13 @@ Matplotlib ověří `python -c "import matplotlib; print(matplotlib.__version__)
 Editor musí mít zvolené stejné prostředí. Všechny úvodní .py soubory běží také
 v terminálu; podpora buněk `# %%` a notebooků závisí na editoru a rozšířeních.
 
+Pygame 2 má připravený první modul, pět lekcí o herních objektech a spolupráci
+tříd. `python tools/setup_env.py --courses pygame-2` doplní stejné pygame-ce
+jako Pygame 1. V .venv ověřte `python -c "import sys, pygame; print(sys.executable); print(pygame.version.ver)"`.
+Ověřeno Python 3.14.8/pygame-ce 2.5.8. První modul vytváří skutečné PNG ze Surface
+a nepotřebuje okno ani zvuk; aplikace obrázek zobrazí a dovolí stáhnout, editor jej
+uloží do pracovní složky. Živé hry v dalších modulech budou vyžadovat grafickou plochu.
+
 > Instalujte **pygame-ce**, v kódu používejte `import pygame`. Nekombinujte jej ve stejném prostředí s původním balíčkem pygame.
 
 Pro každý vlastní projekt mimo Dílnu vytvořte jeho vlastní `.venv`. Výběr interpreteru v editoru, terminálu a případně notebookovém jádru musí mířit do stejného prostředí.
