@@ -1,0 +1,89 @@
+import pygame
+import random
+from podklady import HRANICE, obraz_lodi, obraz_meteoritu
+
+class Hrac(pygame.sprite.Sprite):
+    def __init__(self, stred, hranice):
+        super().__init__()
+        self.image = obraz_lodi()
+        self.rect = self.image.get_rect(center=(round(stred[0]), round(stred[1])))
+        self.radius = 14
+        self.pozice = pygame.Vector2(stred)
+        self.hranice = hranice.copy()
+        self.rychlost = 240
+
+    def update(self, smer, dt):
+        vektor = pygame.Vector2(smer)
+        if vektor.length_squared() > 0:
+            vektor = vektor.normalize()
+        self.pozice += vektor * self.rychlost * dt
+        pul_sirky, pul_vysky = self.rect.width / 2, self.rect.height / 2
+        self.pozice.x = max(self.hranice.left + pul_sirky, min(self.hranice.right - pul_sirky, self.pozice.x))
+        self.pozice.y = max(self.hranice.top + pul_vysky, min(self.hranice.bottom - pul_vysky, self.pozice.y))
+        self.rect.center = (round(self.pozice.x), round(self.pozice.y))
+
+def precti_smer(klavesy):
+    return pygame.Vector2(int(klavesy[pygame.K_RIGHT]) - int(klavesy[pygame.K_LEFT]),
+                          int(klavesy[pygame.K_DOWN]) - int(klavesy[pygame.K_UP]))
+
+class Meteorit(pygame.sprite.Sprite):
+    def __init__(self, stred, polomer, rychlost):
+        super().__init__()
+        self.radius = polomer
+        self.image = obraz_meteoritu(polomer)
+        self.rect = self.image.get_rect(center=(round(stred[0]), round(stred[1])))
+        self.pozice = pygame.Vector2(stred)
+        self.rychlost = rychlost
+
+    def update(self, dt):
+        self.pozice.y += self.rychlost * dt
+        self.rect.center = (round(self.pozice.x), round(self.pozice.y))
+
+class ProudMeteoritu:
+    def __init__(self, rng, interval=0.65):
+        if interval <= 0:
+            raise ValueError('Interval musí být kladný.')
+        self.rng = rng
+        self.interval = interval
+        self.cas = 0.0
+        self.objekty = pygame.sprite.Group()
+        self.minulo = 0
+
+    def vytvor(self, hranice):
+        polomer = self.rng.randint(12, 26)
+        x = self.rng.randint(hranice.left + polomer, hranice.right - polomer)
+        rychlost = self.rng.randint(90, 160)
+        meteorit = Meteorit((x, hranice.top - polomer), polomer, rychlost)
+        self.objekty.add(meteorit)
+        return meteorit
+
+    def update(self, dt, hranice):
+        self.objekty.update(dt)
+        for meteorit in self.objekty.sprites():
+            if meteorit.rect.top >= hranice.bottom:
+                meteorit.kill()
+                self.minulo += 1
+        self.cas += dt
+        while self.cas >= self.interval:
+            self.cas -= self.interval
+            self.vytvor(hranice)
+
+class Zdravi:
+    def __init__(self, pocet=3, ochrana=1.0):
+        self.zivoty = pocet
+        self.ochrana = ochrana
+        self.nezranitelnost = 0.0
+
+    def tick(self, dt):
+        self.nezranitelnost = max(0, self.nezranitelnost - dt)
+
+    def zasah(self):
+        if self.zivoty == 0 or self.nezranitelnost > 0:
+            return False
+        self.zivoty -= 1
+        self.nezranitelnost = self.ochrana
+        return True
+
+def zpracuj_zasahy(hrac, proud, zdravi):
+    zasahy = pygame.sprite.spritecollide(hrac, proud.objekty, True, pygame.sprite.collide_circle)
+    return zdravi.zasah() if zasahy else False

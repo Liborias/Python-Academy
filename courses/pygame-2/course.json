@@ -15,15 +15,26 @@
         "04-kolize-a-pravidla-zasahu",
         "05-stav-hry-pauza-a-restart"
       ]
+    },
+    {
+      "id": "m02",
+      "title": "Projekt Meteority",
+      "lessons": [
+        "06-meteority-hrac-a-smycka",
+        "07-meteority-proud-kamenu",
+        "08-meteority-zivoty-a-ochrana",
+        "09-meteority-skore-a-stit",
+        "10-meteority-pauza-a-restart"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od herního objektu ke třem vlastním hrám",
     "status": "draft",
     "level": 4,
-    "summary": "Prvních 5 z 30 lekcí: Sprite, plynulý pohyb, skupiny, kolize a stav hry. Tři obrázkové ukázky a pět úkolů s možnými řešeními v každé lekci. Následují Meteority, Chyť robota a Hon na dronech.",
+    "summary": "Prvních 10 z 30 lekcí: herní objekty, pohyb, skupiny, kolize a hotové Meteority s životy, štítem, skóre, pauzou a restartem. Úvod má více procvičení; projekt tvoří navazující kroky s řešeními.",
     "placement": "Po Pygame 1 a základech OOP; samostatný OOP kurz pomůže, nic se nezamyká.",
     "difficulty_reason": "Začátek 3/4, celý kurz 4/4: spolupráce objektů, čas, kolize a řízení více herních stavů.",
-    "duration": "Plán 30 lekcí, prvních 5 dostupných. Odhad celku 18–25 hodin plus vlastní úpravy."
+    "duration": "Plán 30 lekcí, prvních 10 dostupných. Odhad celku 18–25 hodin plus vlastní úpravy."
   }
 }

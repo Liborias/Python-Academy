@@ -1,5 +1,60 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.69 (9. 11. 2026): Meteority 6–10
+
+Na pokyn „Pokračuj“ dokončen druhý modul Pygame 2, první souvislá živá hra.
+06 Hrac a smyčka/šipky/dt/hranice celého obrázku, 07 Meteorit a proud s předaným
+RNG/časovým zbytkem/odstraněním, 08 Zdravi a kruhové dávkové zásahy/nezranitelnost,
+09 Kolo se skóre za minuté kameny a štítem, 10 Hra s pauzou/koncem/restartem.
+Každý krok má jeden příklad, úkol se šablonou/kontrolou/možným řešením a tři
+kvízové otázky; bez nesouvisejících variant. Kurz je draft, dostupných 10/30,
+celkem 20 ukázek/30 úkolů, obtížnost dál 4/4 (úvod 3/4). Globálně 220 hlavních
++ 288 doplňkových řešení = 508. Starší ID, drafty a postup zůstávají stejné.
+
+Nové lekce jsou kind gui, preview_images=true, bez nových závislostí (pygame-ce).
+Skutečné okno 640×480 vzniká přes společné herni_okno.py na hostiteli Pythonu,
+nikoli uvnitř prohlížeče. První modul dál funguje bez okna; pro hraní hry Meteority
+je potřeba místní grafická plocha, zvuk nepotřebujeme. Od kroku 10 šipky/P/R/Esc.
+Při normálním zavření se před pygame.quit uloží poslední meteority.png, který
+web nabídne ke stažení. Stop ukončí proces bez záruky PNG. Smyčka zpracovává
+události i při pauze a po ztrátě životů; dt=min(tick(60)/1000,0.05). Sprity se
+kreslí s clip na hrací plochu, aby nový kámen nezakryl HUD. Podklady jsou vlastní
+kresby; žádné účty, síťová data, externí obrázky ani zvukové soubory.
+
+Files/predchozi.py obsahuje přesné předchozí modely (AST shodu hlídá test),
+sestava.py dává rozpracovaným krokům společný obal. Pomocné soubory se kopírují
+vedle studentského kódu. Import modelu neotevírá GUI; entrypoint pod __main__
+spouští tutéž skutečnou hru. Proud nejprve posune staré kameny, potom vytvoří nové;
+bonusy mají stejné pravidlo. Skóre=minulo, nikoli opakované přičítání. V jednom
+kroku se nejprve sebere štít, potom vyhodnotí zásahy; během ochrany se štít
+nespotřebuje. Restart vytváří nový Kolo(seed), staré skupiny neničí. Seed=7
+zopakuje náhodnou posloupnost, None při novém kole žádá nový náhodný začátek.
+
+Volitelný dilna_check/meteority.py ověřuje skutečné typy, geometrii/pixely,
+desetinný čas/pohyb, libovolné hranice, předanou náhodu, pořadí aktualizací,
+kill všech členství, dávkové zásahy, ochranu, bonusy, konec a nezávislý restart.
+Následuje skutečný pgrun se vstupem, uzavřením a PNG. Osm testových skupin
+obsahuje 40 odmítnutých chyb a 15 přijatých alternativ, pomocné soubory,
+pět samostatných Python úryvků a 60snímkové běhy bez přesahu kamenů do HUD.
+Validátor všech 235 lekcí prošel bez chyb/upozornění. Chromium e2e_meteority
+prošlo všech pět šablon/řešení, deset skutečných SDL běhů s řízenými událostmi
+a PNG/stažením, skutečný dlouhý běh a Stop, workspace, readonly, reload,
+postup, plán/přípravu a mobil 380/320. Regrese e2e_pygame2_intro (15 ukázek,
+25 úkolů) a e2e_solutions (180 ostatních lekcí) prošly. Samostatný SDL offscreen
+smoke všech pěti kroků s reálnou SDL smyčkou/událostmi/framebufferem ověřil
+normální ukončení, pauzu, konec a restart; snímky i mobil vizuálně prohlédnuty.
+Fyzická klávesnice, nativní editory a Windows/macOS se tím netestují. Protokoly
+a snímky jsou mimo repo v /workspace/scratch/meteority-work. Celá unittest sada:
+**319 testů OK, bez přeskočených, 991 s**; podrobnosti v posledním STATUS.md.
+
+Aktualizovány katalog, příprava, plán a dokumentace instalace/spuštění/schématu
+i testové počty. Další krok na další pokyn: **Chyť robota 11–15** podle
+courses/pygame-2/plan.md — cíle a myš z události, chování pohybu, kliknutí/body/
+životy, čas/kola/obtížnost, nabídka a restart. Opět souvislý projekt s řešením
+každého kroku, kind gui se smyčkou pod __main__, kontrolou modelů i skutečného
+GUI běhu. Odhad 15–20 tisíc tokenů. Dodávka commit/push do main, bez ZIPů
+a bez publikace cloudového prostředí. Historické zápisy níže nejsou nové zadání.
+
 ## Aktuální v0.68 (9. 11. 2026): Pygame 2, herní objekty 1–5
 
 Na výslovný pokyn „Pokračuj prosím další kapitolou“ zahájen další plánovaný kurz v pořadí katalogu: Pygame 2. Hotov první pětilekcový modul Herní objekty, které jdou ověřit: 01 Sprite/image/rect, 02 Vector2 a dt, 03 Group/update/draw, 04 obdélníkové/kruhové kolize, 05 stav hry/pauza/časovač/restart. V každé jsou tři přepínatelné ukázky a pět samostatných úkolů se zadáním/šablonou/kontrolou/možným řešením a třemi kvízovými otázkami. Celkem 15 ukázek, 25 úkolů. Katalog i panel: draft, 5/30 dostupných, celek level 4, úvod 3. Aplikace má 215 hlavních + 288 doplňkových řešení = 503.

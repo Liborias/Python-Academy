@@ -1,0 +1,13 @@
+{
+  "title": "Meteority: hráč a herní smyčka",
+  "minutes": 50,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "meteority"
+  ],
+  "example_title": "Letový trénink se šipkami"
+}

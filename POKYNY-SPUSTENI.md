@@ -34,15 +34,20 @@ python tools/setup_env.py --dry-run
 ```
 Základní podkurz **Základy** žádné balíčky nepotřebuje.
 
-Pro úvod Pygame 2:
+Pro Pygame 2 (dostupné lekce 1–10):
 ```
 python tools/setup_env.py --courses pygame-2
 ```
 Instaluje stejné pygame-ce jako Pygame 1, nikoli původní balíček pygame.
 Prvních pět lekcí má obrázkové náhledy z Surface bez okna a zvuku. PNG lze
 prohlédnout/stáhnout v aplikaci; v editoru zůstává v pracovní složce.
-Vyberte stejnou .venv ve VS Code, VSCodium nebo PyCharm. Další herní moduly
-budou potřebovat místní grafickou plochu. Ověřeno Python 3.14.8/pygame-ce 2.5.8.
+Vyberte stejnou .venv ve VS Code, VSCodium nebo PyCharm. Meteority 6–10 otevírají
+živé okno na počítači, kde běží Python; pro hraní je potřeba místní grafická
+plocha. Okno se nepřenáší ze vzdáleného serveru do prohlížeče. Aktivujte je
+kliknutím a pohybujte lodí šipkami. V lekci 10 P přepíná pauzu, R restartuje
+a Esc ukončí hru. Běžné zavření uloží poslední `meteority.png` do pracovní složky
+a aplikace jej nabídne ke stažení; Stop tento snímek nezaručuje. Zvuk není potřeba.
+Ověřeno Python 3.14.8/pygame-ce 2.5.8.
 
 Pro Datovou analýzu:
 ```

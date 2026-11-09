@@ -1,0 +1,13 @@
+{
+  "title": "Meteority: skóre a bonusový štít",
+  "minutes": 55,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "meteority"
+  ],
+  "example_title": "Štít před ztrátou života"
+}

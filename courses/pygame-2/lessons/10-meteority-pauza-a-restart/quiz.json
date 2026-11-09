@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč má být i v pauze čten event.get?",
+    "options": [
+      "Aby šlo pokračovat, restartovat nebo zavřít okno.",
+      "Aby se skrytě dál posouval svět.",
+      "Aby se automaticky instaloval pygame."
+    ],
+    "answer": 0,
+    "why": "Pozastavuje se aktualizace modelu, ne reakce aplikace."
+  },
+  {
+    "q": "Co má při R vzniknout?",
+    "options": [
+      "Jen tři životy ve starém světě.",
+      "Nové Kolo s čistými objekty, časy a skóre.",
+      "Další okno se starými meteority."
+    ],
+    "answer": 1,
+    "why": "Restart musí obnovit celý herní stav."
+  },
+  {
+    "q": "Konec kola a ukončení programu znamenají co?",
+    "options": [
+      "Vždy přesně totéž.",
+      "Po konci kola se už nesmí číst žádný vstup.",
+      "Po konci kola lze stále přijmout R nebo zavření okna."
+    ],
+    "answer": 2,
+    "why": "Nulové životy zmrazí kolo; bezi=False ukončí aplikaci."
+  }
+]

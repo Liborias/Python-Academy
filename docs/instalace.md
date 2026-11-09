@@ -59,12 +59,17 @@ Matplotlib ověří `python -c "import matplotlib; print(matplotlib.__version__)
 Editor musí mít zvolené stejné prostředí. Všechny úvodní .py soubory běží také
 v terminálu; podpora buněk `# %%` a notebooků závisí na editoru a rozšířeních.
 
-Pygame 2 má připravený první modul, pět lekcí o herních objektech a spolupráci
-tříd. `python tools/setup_env.py --courses pygame-2` doplní stejné pygame-ce
+Pygame 2 má připravených deset lekcí: pět o herních objektech a spolupráci
+tříd a pět kroků projektu Meteority. `python tools/setup_env.py --courses pygame-2` doplní stejné pygame-ce
 jako Pygame 1. V .venv ověřte `python -c "import sys, pygame; print(sys.executable); print(pygame.version.ver)"`.
 Ověřeno Python 3.14.8/pygame-ce 2.5.8. První modul vytváří skutečné PNG ze Surface
 a nepotřebuje okno ani zvuk; aplikace obrázek zobrazí a dovolí stáhnout, editor jej
-uloží do pracovní složky. Živé hry v dalších modulech budou vyžadovat grafickou plochu.
+uloží do pracovní složky. Meteority potřebují grafickou plochu na počítači,
+kde běží Python; okno hry se nepřenáší ze serveru do webové stránky.
+Při místním spuštění aktivujte herní okno kliknutím a použijte šipky.
+V závěrečné lekci 10 je P pauza, R nový let, Esc konec. Zavření okna uloží
+`meteority.png`, v aplikaci i s možností stažení; tlačítko Stop ukončuje proces
+bez záruky uložení. Zvuk ani jiné balíčky zatím nejsou potřeba.
 
 > Instalujte **pygame-ce**, v kódu používejte `import pygame`. Nekombinujte jej ve stejném prostředí s původním balíčkem pygame.
 

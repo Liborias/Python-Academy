@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Z čeho pochází skóre?",
+    "options": [
+      "Z počtu meteoritů, které celé minuly plochu spodem.",
+      "Z počtu vykreslených snímků.",
+      "Ze všech kolizí s lodí."
+    ],
+    "answer": 0,
+    "why": "Používáme proud.minulo; náraz není úspěšné minutí."
+  },
+  {
+    "q": "Co se vyhodnotí dřív při současném sebrání štítu a nárazu?",
+    "options": [
+      "Náraz, aby štít neměl smysl.",
+      "Sebrání štítu podle výslovného pořadí této hry.",
+      "Náhodně podle barvy."
+    ],
+    "answer": 1,
+    "why": "Pořadí operací tvoří část herních pravidel."
+  },
+  {
+    "q": "Co se stane se štítem při zásahu během nezranitelnosti?",
+    "options": [
+      "Vždy se spotřebuje.",
+      "Změní se na dva štíty.",
+      "Zůstane aktivní."
+    ],
+    "answer": 2,
+    "why": "Během ochrany neodečítáme život ani štít."
+  }
+]

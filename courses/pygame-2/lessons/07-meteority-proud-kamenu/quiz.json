@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč předat samostatný generátor rng?",
+    "options": [
+      "Aby šlo řídit a zopakovat posloupnost bez změny globálního generátoru.",
+      "Aby se x nikdy neměnilo.",
+      "Protože pygame jinak neumí Rect."
+    ],
+    "answer": 0,
+    "why": "Závislost na náhodě je výslovná a ověřitelná."
+  },
+  {
+    "q": "Co má zůstat po vytvoření celých intervalů?",
+    "options": [
+      "Vždy nula bez ohledu na krok.",
+      "Nezpracovaný zbytek času.",
+      "Poslední přehraná hudba."
+    ],
+    "answer": 1,
+    "why": "Jinak se dlouhodobě posune frekvence vzniku objektů."
+  },
+  {
+    "q": "Kdy se právě vytvořený meteorit v našem pravidle poprvé pohne?",
+    "options": [
+      "Ještě před vytvořením.",
+      "Vždy přesně za sekundu.",
+      "V dalším update kroku."
+    ],
+    "answer": 2,
+    "why": "Nejprve se aktualizují původní členové, nové přidáme na konci."
+  }
+]

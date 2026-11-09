@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč se Clock.tick dělí 1000?",
+    "options": [
+      "Převádí milisekundy na sekundy.",
+      "Převádí pixely na body.",
+      "Aby smyčka vytvořila 1000 oken."
+    ],
+    "answer": 0,
+    "why": "Rychlost je v px/s, proto potřebuje čas v sekundách."
+  },
+  {
+    "q": "Jaké údaje vrátí precti_smer při levé i pravé šipce?",
+    "options": [
+      "x=2, pohyb dvakrát rychleji.",
+      "x=0, protější směry se ruší.",
+      "Nesmí vrátit žádnou hodnotu."
+    ],
+    "answer": 1,
+    "why": "Směr x je pravá minus levá."
+  },
+  {
+    "q": "Co otevře herní okno?",
+    "options": [
+      "Samotné načtení definice Hrac.",
+      "Stažení PNG v prohlížeči.",
+      "Python při spuštění spustit pod __main__."
+    ],
+    "answer": 2,
+    "why": "Modely lze importovat bez okna; živé okno potřebuje plochu na počítači s Pythonem."
+  }
+]

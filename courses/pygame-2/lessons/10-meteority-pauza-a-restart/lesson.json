@@ -1,0 +1,13 @@
+{
+  "title": "Meteority: pauza, konec a nový let",
+  "minutes": 50,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "meteority"
+  ],
+  "example_title": "Hotová hra Meteority"
+}

@@ -596,4 +596,42 @@ pauzu, jednorázový časovač a tvorbu nového světa bez poškození staré sk
 Navazující projekty zůstávají souvislé celky; případné budoucí příklady nativních
 her musí mít kind=gui a odpovídající headless kontrolu. Neprovádět GUI smyčku při
 importu přes c.load. První blok se ověřuje bez SDL okna, nativní editory/OS se tím
-netestují. Global counts: 215 hlavních + 288 dalších řešení = 503.
+netestují. Počty při zavedení prvního modulu: 215 hlavních + 288 dalších řešení = 503.
+
+## Pygame 2, projekt Meteority (od v0.69)
+
+Course pygame-2 má dostupných 10/30 lekcí, stav draft. Modul 6–10 tvoří jeden
+navazující projekt: Hrac/precti_smer, Meteorit/ProudMeteoritu, Zdravi a zásahy,
+Kolo se skóre/štítem, Hra s pauzou/koncem/restartem. Každý krok má kind=gui,
+preview_images=true, jeden example.py, exercise.py/check.py/solution.py a tři
+kvízové otázky; bez dalších examples/tasks. Celkem kurz 20 ukázek a 30 úkolů.
+Globálně 220 hlavních + 288 dalších řešení = 508. ID a klíče postupu beze změny.
+
+Files/podklady.py kreslí vlastní grafiku; sestava.py skládá rozpracované kroky.
+Od lekce 7 obsahuje predchozi.py přesné předchozí třídy a funkce; shodu ověřuje
+AST test. Od lekce 9 je bonus.py. Všechny závislosti jsou místní, import modelu
+neotevírá okno. Skutečné GUI se spouští až pod __main__ přes herni_okno.spustit.
+Společná smyčka čte skutečné události/klávesy, Clock.tick(60) převádí ms na s
+a omezí dt na 0.05 s. Kreslení spritů má clip na hrací plochu, aby nově vznikající
+objekty nepřekryly HUD. Běžné ukončení uloží poslední skutečný snímek 640×480
+do meteority.png před pygame.quit; Stop přes ukončení procesu snímek nezaručuje.
+Okno vzniká na hostiteli Pythonu, bez přenosu do prohlížeče; nutná grafická plocha,
+zatím bez zvuku. Server/API/limity jsou beze změny (GUI timeout 600 s).
+
+Volitelný dilna_check/meteority.py používá reálné pygame a nezávislé vstupy:
+normalizaci/float/hranice celého obrázku, injektované RNG a přesné pořadí tahů,
+časový zbytek a dohánění více vzniků, pohyb existujících objektů, kill všech
+členství a kumulované minutí. Zásahy ověřuje kruhovou geometrií včetně rozdílu
+proti Rect, jedna dávka ubere nejvýše jeden život, nezranitelnost má konečný čas.
+Skóre je počet minutých kamenů, bonus vzniká po šesti sekundách a sbírá se před
+zásahy, štít se při nezranitelnosti nespotřebuje. Konec zmrazí model, pauza ponechá
+události aktivní a restart vytvoří nový svět se stejným seed bez ničení starého.
+Následuje skutečný pgrun běh vstupního souboru včetně zavření a PNG; chybějící
+GUI entrypoint neprojde. Osm skupin testů zahrnuje 40 odmítnutých chyb a 15
+přijatých jiných zápisů, přesné helpery, pixelové kontroly i pět Python úryvků.
+
+Chromium ověřuje všech pět kroků, ukázky i řešení, skutečné SDL běhy s řízenými
+událostmi, PNG/stažení, dlouhý běh a Stop, workspace, readonly, mobil a zachování
+postupu. Samostatný SDL offscreen běh ověřuje herní smyčku, pauzu/konec/restart
+a framebuffer bez náhrady displeje testovacím modulem. Fyzická klávesnice,
+nativní editory a Windows/macOS vyžadují vlastní ověření.

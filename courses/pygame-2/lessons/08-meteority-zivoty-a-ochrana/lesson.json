@@ -1,0 +1,13 @@
+{
+  "title": "Meteority: životy a nezranitelnost",
+  "minutes": 45,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "meteority"
+  ],
+  "example_title": "Jeden život za dávku zásahů"
+}

@@ -1,0 +1,13 @@
+{
+  "title": "Meteority: proud padajících kamenů",
+  "minutes": 55,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "meteority"
+  ],
+  "example_title": "Řízené vytváření meteoritů"
+}

@@ -98,7 +98,7 @@
         "pygame-1"
       ],
       "status": "draft",
-      "summary": "Prvních 5 z 30 lekcí: herní objekty, pohyb, skupiny, kolize a pauza. Více ukázek a úkolů s řešeními; následují tři vlastní hry.",
+      "summary": "Prvních 10 z 30 lekcí: herní objekty a hotová hra Meteority s životy, štítem, skóre, pauzou a restartem. Možná řešení všech úkolů.",
       "planned_lessons": 30
     },
     {

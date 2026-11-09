@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč krátká nezranitelnost?",
+    "options": [
+      "Aby trvající kontakt neodečítal život při každém snímku.",
+      "Aby se už žádná kolize nikdy nevyhodnocovala.",
+      "Aby narostlo skóre při nárazu."
+    ],
+    "answer": 0,
+    "why": "Detekce a přijetí poškození jsou dvě různé věci."
+  },
+  {
+    "q": "Co udělá odmítnutý zásah s odpočtem ochrany?",
+    "options": [
+      "Vždy ho obnoví na plnou délku.",
+      "Neprodlouží jej.",
+      "Změní jej na záporný."
+    ],
+    "answer": 1,
+    "why": "Odpočet mění tick, plnou ochranu zapíná pouze přijaté poškození."
+  },
+  {
+    "q": "Dávka více kamenů zasáhne loď v jednom kroku. Co se stane?",
+    "options": [
+      "Každý musí odečíst samostatný život.",
+      "Přičtou se body za minutí.",
+      "Kameny zmizí, odečte se nejvýše jeden život."
+    ],
+    "answer": 2,
+    "why": "Zdravotní pravidlo a odstranění zásahů fungují společně."
+  }
+]
