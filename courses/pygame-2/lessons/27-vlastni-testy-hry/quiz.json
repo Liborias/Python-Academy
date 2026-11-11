@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co dokazuje test assertTrue(True)?",
+    "options": [
+      "Že diagonála je správná.",
+      "Že testovaný model je bez chyb.",
+      "Sám o sobě žádné chování modelu."
+    ],
+    "answer": 2,
+    "why": "Test musí porovnat skutečný výsledek s nezávislým očekáváním."
+  },
+  {
+    "q": "Které ověření se hodí pro desetinný posun?",
+    "options": [
+      "assertAlmostEqual s přiměřenou tolerancí.",
+      "Pouze název třídy.",
+      "Žádné, desetinná čísla nelze testovat."
+    ],
+    "answer": 0,
+    "why": "Výpočty float mohou mít malou odchylku zápisu."
+  },
+  {
+    "q": "Proč musí sada projít na správném modelu?",
+    "options": [
+      "Aby nemusela odhalovat chyby.",
+      "Test, který vždy selže, není užitečný důkaz chyby hry.",
+      "Aby se smazaly staré výsledky."
+    ],
+    "answer": 1,
+    "why": "Dobrá sada odliší správné chování od porušeného pravidla."
+  }
+]

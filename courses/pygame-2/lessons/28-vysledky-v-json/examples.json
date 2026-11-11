@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Bool není počet dat",
+    "description": "Bool není počet dat.",
+    "code": "# Samostatná součást předání; import nic nespouští.\nimport os\nfrom pathlib import Path\nimport json\nimport tempfile\nfrom vysledky_podklady import platny_vysledek, vyber_vysledky, serad_vysledky, nacti_vysledky\n\ndef platny_vysledek(zaznam):\n    return (isinstance(zaznam, dict)\n            and isinstance(zaznam.get('jmeno'), str)\n            and 1 <= len(zaznam['jmeno'].strip()) <= 24\n            and type(zaznam.get('body')) is int\n            and zaznam['body'] >= 0\n            and type(zaznam.get('uspech')) is bool)\n\n# Samostatné spuštění; import nic nespouští.\nif __name__ == '__main__':\n    print(platny_vysledek({'jmeno': 'Ada', 'body': True, 'uspech': False}))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Prázdné a příliš dlouhé jméno",
+    "description": "Prázdné a příliš dlouhé jméno.",
+    "code": "# Samostatná součást předání; import nic nespouští.\nimport os\nfrom pathlib import Path\nimport json\nimport tempfile\nfrom vysledky_podklady import platny_vysledek, vyber_vysledky, serad_vysledky, nacti_vysledky\n\ndef platny_vysledek(zaznam):\n    return (isinstance(zaznam, dict)\n            and isinstance(zaznam.get('jmeno'), str)\n            and 1 <= len(zaznam['jmeno'].strip()) <= 24\n            and type(zaznam.get('body')) is int\n            and zaznam['body'] >= 0\n            and type(zaznam.get('uspech')) is bool)\n\n# Samostatné spuštění; import nic nespouští.\nif __name__ == '__main__':\n    for jmeno in ['   ', 'A' * 25, 'Ema']:\n        print(repr(jmeno), platny_vysledek({'jmeno': jmeno, 'body': 0, 'uspech': False}))\n"
+  }
+]

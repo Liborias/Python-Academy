@@ -141,11 +141,11 @@ with tempfile.TemporaryDirectory() as temp:
             page.wait_for_function('document.querySelector(".run-console .status").textContent==="Zastaveno."')
             page.goto(f'{base}#/kurz/pygame-2')
             page.wait_for_selector('.mod li')
-            assert page.locator('.mod li').count() == 25 and page.locator('.mod li.done').count() == 6
-            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Prvních 25 z 30")')
+            assert page.locator('.mod li').count() == 30 and page.locator('.mod li.done').count() == 6
+            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Všech 30 lekcí")')
             page.locator('.learning-plan summary').click()
             text = page.locator('.learning-plan').inner_text()
-            assert 'Hotovo: lekce 11–15.' in text and '45 ukázek a 65 úkolů' in text
+            assert 'Hotovo: lekce 11–15.' in text and '58 ukázek a 86 úkolů' in text
             if shots:
                 page.screenshot(path=str(shots/'roboti-course-desktop.png'), full_page=True)
             page.goto(f'{base}#/kurz/pygame-2/{old_id}')

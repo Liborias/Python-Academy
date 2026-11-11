@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kdy ukládáme dokončený pokus?",
+    "options": [
+      "Při každém vykreslení.",
+      "Jednou podle identity dokončeného kola.",
+      "Při každém stisku šipky."
+    ],
+    "answer": 1,
+    "why": "Obrazovka výsledku běží mnoho snímků, záznam má vzniknout jednou."
+  },
+  {
+    "q": "Kde čekat výsledky i při dalším místním spuštění?",
+    "options": [
+      "Ve stálé uložené pracovní složce projektu, v data/vysledky.json.",
+      "V každé nové dočasné kopii běhu.",
+      "V hlavním repozitáři všech studentů."
+    ],
+    "answer": 0,
+    "why": "Běžné webové spuštění používá dočasnou složku; pro paměť použijte uložený projekt."
+  },
+  {
+    "q": "Co udělá chyba zápisu s rozehranou aplikací?",
+    "options": [
+      "Musí smazat tabulku.",
+      "Přidá výsledek za každý snímek.",
+      "Zobrazí zprávu, zachová původní tabulku a hra může pokračovat."
+    ],
+    "answer": 2,
+    "why": "Chybu zachytíme na hranici aplikace; nižší zápis chrání starší soubor."
+  }
+]

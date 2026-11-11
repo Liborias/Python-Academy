@@ -1,0 +1,11 @@
+{
+  "title": "Platný herní výsledek",
+  "minutes": 60,
+  "kind": "console",
+  "tags": [
+    "pygame",
+    "oop",
+    "predani"
+  ],
+  "example_title": "Platný herní výsledek"
+}

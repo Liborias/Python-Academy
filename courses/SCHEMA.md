@@ -801,3 +801,73 @@ a zachování starší práce. Native offscreen kontrola používá skutečný S
 display, události a kreslení všech pěti smyček, nabídku/pauzu/pokračování,
 tři výsledky a restart. Vstupy jsou skriptované, fyzická klávesnice
 a Windows/macOS tím nejsou ověřeny. Serverové API, JS, CSS a limity beze změny.
+
+## Pygame 2, Ověření a předání (od v0.73)
+
+Modul 26–30 dokončuje všech 30 lekcí kurzu; status zůstává draft do připomínek.
+Témata 26–29 jsou console: tři ukázky a pět úkolů s vlastními šablonami,
+kontrolami a možnými řešeními; závěr 30 je jeden návazný GUI projekt,
+preview_images=true, limit 600 s. Nově 13 ukázek/21 úkolů, celkem 58/86.
+Globálně 240 hlavních + 324 doplňkových řešení = 564, doplňkových ukázek 162;
+celkem 255 lekcí včetně 15 úvodních průvodců. ID/postup starších lekcí zachované.
+
+Model_hry.py ve scénářích/testech/předání obsahuje přesné definice z 21–25,
+včetně Hra a skutečného zásobníku/cache zdrojů. Import neotevírá okno/mixer.
+Scenare.snimek vytváří hodnotový záznam s časem/pozicí/bodováním/životy/vlnou/
+drony/koncem. Prehraj řídí čas, směr i seed bez čekání. Dvojice stop nesdílí
+seznamy ani slovníky; stejný seed není slibem shody při jiném modelu/vstupech.
+Nástroje pro čas/plán vstupu/souhrn cesty mají nezávislá veřejná rozhraní.
+
+Lekce 27 učí vlastní unittest. Sestav_sadu pokaždé vrátí novou TestSuite,
+správný model projde, známá vada musí vyvolat selhání či chybu; přeskočení nestačí.
+Kontrola dočasně změní chování veřejných tříd v model_hry, znovu načte sadu,
+spustí ji bez okna a v finally obnoví model. Nehodnotí názvy metod nebo shodu
+zdroje. Pokrývá čas/diagonálu/hranice, omezený štít, dávky/priority zásahu,
+novou vlnu, pauzu/restart/QUIT, seed/skupiny/kotvu/zmrazení po konci.
+Hlavní blok skutečně provede TextTestRunner a vrátí odpovídající kód procesu.
+
+JSON má verze přesně int 1 a vysledky jako list. Záznam vyžaduje jméno po strip
+1–24 znaků, body přesně nezáporný int (bool ne), uspech přesně bool.
+Vyber_vysledky kopíruje/normalizuje; řazení je úspěch, body sestupně, casefold
+jména vzestupně a stabilní shody. Nejde o české slovníkové řazení.
+Nacti vrátí [] pro chybějící/neplatný JSON/verzi/UTF-8, jiný OSError předá.
+Čtení nepoškodí původní bajty. Uloz zapíše celý UTF-8 dokument do jedinečného
+temp souboru vedle cíle, uzavře jej a os.replace nahradí cíl, finally uklidí.
+Chyba nahrazení zachová původní soubor. Neřeší souběžné zápisy ani všechny
+výpadky napájení. Vysledky.py/podklady a cesty.py jsou přesné AST kopie řešení 28/29.
+
+Lekce 29 pouze připravuje absolutní cesty a seznamy argumentů; samotné funkce
+nevytvářejí soubory a nespouštějí instalaci/stavbu. Příkazy zachovají mezery,
+předaný Python a nepoužívají shell=True. Hra.py je připravený projekt z 25,
+over_projekt.py spustí přiložené testy se správným cwd i při zavolání odjinud.
+V úkolu 29/4 sestavit.py importuje studentovu prikaz_baleni z reseni.py a sestaví
+hra.py; v 30 využije hotovou cesty a sestaví studentovu reseni.py. PyInstaller 6.22.3
+je volitelný, onedir/console/clean/noconfirm a vlastní dist/build/spec.
+Uživatelské JSON není přibalený zdroj; nová stavba nahrazuje výstup, výsledky
+před ní zkopírujte mimo dist. Předává se celá složka, ne přenesená .venv.
+
+HraSPoradim přidává pojmenovaného kurýra, vlastní rychlost (výchozí 260)
+a nejlepší pětici výsledků, při zachování ostatních pravidel a ovládání.
+Načítá při konstrukci bez zápisu, novy_let deleguje a upraví rychlost hráče,
+update po rodiči jednou na identitu kola zapíše výsledek. Zaznamená i prohru.
+Při OSError zůstane stará tabulka a srozumitelná zpráva, tentýž pokus se
+nezkouší znovu každý snímek. Kreslení deleguje a přidá profil/stav i tabulku
+v nabídce. Výsledky nejsou dělené podle rychlosti; změna profilu je cvičení
+v úpravě hry. Nejsou měřítkem srovnatelnosti různých podmínek.
+
+Trvalejší výsledky patří do uložené pracovní složky, vedle programu v data/
+vysledky.json; při frozen vychází cesta ze sys.executable. Běžný webový běh
+je dočasný. Normální SDL QUIT uloží droni.png, Stop to nezaručí. Skutečná
+grafická plocha je na hostiteli Pythonu, nepřenáší se do webu.
+
+Test_predani_hry ověřuje 50 chybných variant/sad a chybějící GUI vstup,
+jiné správné zápisy, přesná řešení/AST podkladů, 32 konzolových běhů a úryvek
+závěru, čistou kopii s testy a skutečný SDL vstup s PNG. Kontroly používají
+skutečné modely/souborový systém, samostatné očekávané hodnoty a řízené chyby.
+Chromium prochází 13 ukázek/21 úkolů, řešení bez změny práce, běhy/PNG/stažení,
+workspace včetně testy/NAVOD, reload/postup a mobil 380/320. Regrese 200 ostatních
+lekcí a původního projektu 21–25 pokrývá zachování UI i starší práce.
+PyInstaller 6.22.3 skutečně sestavil onedir na Linuxu/Pythonu 3.14.8; hotová binárka
+běžela se skutečným SDL offscreen/Clock/fonty/PNG a skriptovanými SDL událostmi,
+normálně zavřela, dokončila prohru, uložila ji jednou a znovu načetla.
+Fyzická klávesnice, Windows/macOS ani plná instalace příjemce tím nejsou ověřeny.

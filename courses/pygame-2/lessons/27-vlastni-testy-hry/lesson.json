@@ -1,0 +1,11 @@
+{
+  "title": "Testy hráče: čas, diagonála a hranice",
+  "minutes": 65,
+  "kind": "console",
+  "tags": [
+    "pygame",
+    "oop",
+    "predani"
+  ],
+  "example_title": "Testy hráče: čas, diagonála a hranice"
+}

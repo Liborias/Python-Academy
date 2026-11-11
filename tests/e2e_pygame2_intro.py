@@ -90,8 +90,8 @@ with tempfile.TemporaryDirectory() as temp:
                     page.locator('.solution-help').screenshot(path=str(shots / 'pygame2-solution-mobile.png'))
                 page.set_viewport_size({'width': 1100, 'height': 900})
             page.goto(f'{base}#/kurz/pygame-2'); page.wait_for_selector('.mod li')
-            assert page.locator('.mod li').count() == 25 and page.locator('.mod li.done').count() == 5
-            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Prvních 25 z 30")')
+            assert page.locator('.mod li').count() == 30 and page.locator('.mod li.done').count() == 5
+            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Všech 30 lekcí")')
             page.locator('.learning-plan summary').click()
             plan = page.locator('.learning-plan').inner_text()
             assert '15 ukázek a 25 úkolů' in plan and 'Meteority' in plan

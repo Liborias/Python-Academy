@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Jiná aréna, stejné pravidlo",
+    "description": "Jiná aréna, stejné pravidlo.",
+    "code": "# Každý pokus vytváří vlastní objekt a ověřuje jeho skutečné chování.\n# Sada musí přijmout správný model a odhalit porušené pravidlo.\nimport unittest\nimport pygame\nimport model_hry as model\n\nclass TestHrace(unittest.TestCase):\n    def test_cas_a_nulovy_vstup(self):\n        p = model.Hrac((200, 200), pygame.Rect(0, 0, 800, 600))\n        p.update((0, 0), 0.05)\n        self.assertEqual(tuple(p.pozice), (200, 200))\n        p.update((1, 0), 0.025)\n        self.assertAlmostEqual(p.pozice.x, 206)\n\n    def test_diagonala_ma_stejnou_rychlost(self):\n        p = model.Hrac((200, 200), pygame.Rect(0, 0, 800, 600))\n        p.update((1, 1), 0.05)\n        self.assertAlmostEqual((p.pozice - (200, 200)).length(), 12)\n\n    def test_cely_obraz_zustane_uvnitr(self):\n        hranice = pygame.Rect(-60, -40, 600, 420)\n        for smer in [(1, 1), (-1, -1)]:\n            with self.subTest(smer=smer):\n                p = model.Hrac(hranice.center, hranice)\n                p.update(smer, 10)\n                self.assertTrue(hranice.contains(p.rect))\n\ndef sestav_sadu():\n    return unittest.defaultTestLoader.loadTestsFromTestCase(TestHrace)\n\nif __name__ == '__main__':\n    vysledek = unittest.TextTestRunner(verbosity=2).run(sestav_sadu())\n    raise SystemExit(0 if vysledek.wasSuccessful() else 1)\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Jiný časový krok",
+    "description": "Jiný časový krok.",
+    "code": "# Každý pokus vytváří vlastní objekt a ověřuje jeho skutečné chování.\n# Sada musí přijmout správný model a odhalit porušené pravidlo.\nimport unittest\nimport pygame\nimport model_hry as model\n\nclass TestHrace(unittest.TestCase):\n    def test_cas_a_nulovy_vstup(self):\n        p = model.Hrac((200, 200), pygame.Rect(0, 0, 800, 600))\n        p.update((0, 0), 0.05)\n        self.assertEqual(tuple(p.pozice), (200, 200))\n        p.update((1, 0), 0.0125)\n        self.assertAlmostEqual(p.pozice.x, 203)\n\n    def test_diagonala_ma_stejnou_rychlost(self):\n        p = model.Hrac((200, 200), pygame.Rect(0, 0, 800, 600))\n        p.update((1, 1), 0.05)\n        self.assertAlmostEqual((p.pozice - (200, 200)).length(), 12)\n\n    def test_cely_obraz_zustane_uvnitr(self):\n        hranice = pygame.Rect(10, 20, 500, 300)\n        for smer in [(1, 1), (-1, -1)]:\n            with self.subTest(smer=smer):\n                p = model.Hrac(hranice.center, hranice)\n                p.update(smer, 10)\n                self.assertTrue(hranice.contains(p.rect))\n\ndef sestav_sadu():\n    return unittest.defaultTestLoader.loadTestsFromTestCase(TestHrace)\n\nif __name__ == '__main__':\n    vysledek = unittest.TextTestRunner(verbosity=2).run(sestav_sadu())\n    raise SystemExit(0 if vysledek.wasSuccessful() else 1)\n"
+  }
+]

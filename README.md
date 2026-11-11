@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.72):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně tří her a Součástí větší hry (25 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a všech osm modulů Datové analýzy (42 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.73):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně tří her, vlastních testů a předání (30 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a všech osm modulů Datové analýzy (42 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -62,7 +62,11 @@ Projekt **Hon na dronech, lekce 21–25**, propojí hráče a svět, pronásledo
 s rozestupy, postupně vznikající vlny, životy a přístav s omezeným štítem.
 Závěr přidá nabídku, pauzu, výsledek a nový let přes zásobník režimů.
 Každý krok má jednu ukázku, úkol s možným řešením a tři kvízové otázky.
-Celkem zatím **45 ukázek a 65 úkolů**.
+**Ověření a předání, lekce 26–30**, přidává opakovatelné scénáře, vlastní unittest,
+JSON výsledky, cesty a volitelné balení. Témata 26–29 mají tři ukázky a pět úkolů
+s řešeními. Závěrečná Kurýrská směna propojí vlastní rychlost hráče s pamětí
+pěti nejlepších výsledků; tvoří jeden návazný projekt s řešením.
+Celkem **58 ukázek a 86 úkolů**.
 Úvod má obtížnost 3/4, celek 4/4.
 
 `python tools/setup_env.py --courses pygame-2` připraví pygame-ce do stejné
@@ -86,8 +90,7 @@ V lekci 15 **Mezerník** spustí lov nebo vrátí výsledek do nabídky, **P** p
 pauzu, **R** začne nový lov a **Esc** ukončí program. Běžné zavření uloží
 `roboti.png`. Herní čas se v pauze neodečítá a další vlna neobnovuje životy
 ani skóre. Vlastní grafika všech her vzniká kódem bez cizích obrázků a síťových
-dat. Panel kurzu nabízí plán všech 30 lekcí. Dostupných je prvních 25,
-dále následuje Ověření a předání hry 26–30.
+dat. Panel kurzu popisuje všech 30 dostupných lekcí; obsah čeká na připomínky studentů.
 
 Laboratoř 16–20 ukládá obrázkové pokusy do `soucasti.png`; zobrazují skutečné
 pixely a zaznamenané fáze, PNG samo není animované okno. Funguje bez displeje
@@ -106,6 +109,22 @@ vlny. Přístav chrání nejvýše 2,5 sekundy, energie se obnovuje pouze mimo n
 Čekání v přístavu samo nestačí k výhře. V tréninku 23 lze klávesou **N**
 spustit další vlnu; v hotové misi se vlny střídají automaticky. Běžné zavření
 uloží `droni.png`; Stop uložení nezaručuje. Další balíčky ani zvuk nejsou potřeba.
+
+V závěru kurzu scénáře a vlastní testy pracují se skutečným modelem bez okna.
+Testy musí odlišit správnou hru od úmyslných vad. JSON úlohy vysvětlují typy,
+verzi formátu, chybný soubor a nahrazení hotovým zápisem bez zničení starších dat.
+Kurýrská směna 30 používá stejné ovládání jako Hon na dronech a ukáže profil
+kurýra, stav zápisu a v nabídce nejlepší výsledek. Jedno dokončené kolo se zapíše
+právě jednou; chyba přístupu se zobrazí bez ztráty původní tabulky.
+
+Pro paměť mezi spuštěními uložte pracovní složku a spusťte její reseni.py
+v editoru. Výsledky jsou v data/vysledky.json vedle programu. Běžné spuštění
+v prohlížeči používá dočasnou kopii; jeho soubory nejsou trvalé úložiště.
+Over_projekt.py provede přiložené testy modelu, NAVOD.md popisuje předání.
+PyInstaller 6.22.3 je volitelný; sestavit.py se spouští vědomě po testech.
+Sestavení onedir a skutečná SDL smyčka byly ověřeny na Linuxu s Pythonem 3.14.8.
+Předávejte celou distribuční složku; Windows/macOS potřebují vlastní sestavení
+a zkoušku. Pro běžný průchod nejsou další balíčky ani zvuk povinné.
 
 ## Datová analýza — všech 42 lekcí
 
@@ -272,10 +291,10 @@ Jeho id a uložené úpravy se nemění. Web používá SVG i ICO faviconu; při
 ikoně obnovte stránku pomocí Ctrl+F5. Soubory ikon mají v odkazech verzi pro cache.
 
 ## Pět úkolů na procvičení
-V běžných lekcích Základů (01–31 a 37–39) a lekcích 1–19 a 21–34 Datové analýzy i prvních pěti lekcích Pygame 2
+V běžných lekcích Základů (01–31 a 37–39) a lekcích 1–19 a 21–34 Datové analýzy i lekcích 1–5, 16–20 a 26–29 Pygame 2
 přepínají tlačítka **Úkol 1 až Úkol 5**
 mezi původním úkolem a čtyřmi novými. Každý má vlastní zadání, rozepsaný kód,
-kontrolu a pracovní soubor pro externí editor. Doplňkových úkolů je celkem 288.
+kontrolu a pracovní soubor pro externí editor. Doplňkových úkolů je celkem 324.
 Úkol 1 zachovává původní uložený kód i návaznost na splnění lekce. Nové úkoly mají
 vlastní značky úspěšného procvičení. „Začít znovu“ obnoví jen právě vybraný úkol.
 Navazující mini-projekty a závěrečné testy tvoří vlastní celky.
@@ -297,8 +316,8 @@ Nápověda vysvětluje také odsazování, našeptávání, spuštění a vráce
 ## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
 variantu k právě vybranému zadání s připomenutím, že správných postupů může být více.
-Pomoc je dostupná pro všech 235 hlavních zadání napříč osmi praktickými kurzy
-i 308 dalších úkolů v Základech, Datové analýze a Pygame 2, celkem 543 řešení včetně projektů a závěrečných
+Pomoc je dostupná pro všech 240 hlavních zadání napříč osmi praktickými kurzy
+i 324 dalších úkolů v Základech, Datové analýze a Pygame 2, celkem 564 řešení včetně projektů a závěrečných
 programů. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
 Průvodce přípravou bez programovacího úkolu tento panel nemá.
 

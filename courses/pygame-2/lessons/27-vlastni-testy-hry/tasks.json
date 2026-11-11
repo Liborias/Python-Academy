@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Testy omezeného štítu"
+  },
+  {
+    "id": "task-3",
+    "title": "Testy zásahů a pořadí konce"
+  },
+  {
+    "id": "task-4",
+    "title": "Testy pauzy, restartu a zavření"
+  },
+  {
+    "id": "task-5",
+    "title": "Regrese náhody, skupin a hlídače"
+  }
+]

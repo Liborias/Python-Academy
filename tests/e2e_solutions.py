@@ -147,7 +147,8 @@ with tempfile.TemporaryDirectory() as temp:
                 lids = [lid for module in course['modules'] for lid in module['lessons']]
                 for index, lesson in enumerate(lids):
                     page.goto(f'{base}#/kurz/{cid}/{lesson}')
-                    page.wait_for_selector('.editor textarea')
+                    title = json.loads((root/'courses'/cid/'lessons'/lesson/'lesson.json').read_text('utf-8'))['title']
+                    page.wait_for_function('(title)=>document.querySelector(".lesson h1")?.textContent===title', arg=title)
                     panel = page.locator('.solution-help')
                     assert panel.count() == 1 and not panel.evaluate('(el) => el.open')
                     assert panel.locator('code').text_content() == ''
@@ -169,7 +170,7 @@ with tempfile.TemporaryDirectory() as temp:
                 assert not page.locator('.solution-help').evaluate('(el) => el.open')
                 assert page.locator('.editor textarea').input_value() == draft
                 assert page.is_checked('.done-toggle input') == (index % 2 == 0)
-            assert checked == 195, checked
+            assert checked == 200, checked
             # Opožděný vzor předchozího kurzu se nesmí objevit v nové lekci.
             page.goto(f'{base}#/kurz/oop/20-konzolove-expedicni-centrum')
             page.wait_for_selector('.solution-help summary')
@@ -202,7 +203,7 @@ with tempfile.TemporaryDirectory() as temp:
             assert page.locator('.solution-help').count() == 0
             assert not errors, errors
             browser.close()
-        print('OK: řešení Úkolů 1–5 a všech 195 lekcí ostatních kurzů, zpoždění v úkolu i mezi kurzy, opakování, text, drafty/postup, klávesnice a mobil')
+        print('OK: řešení Úkolů 1–5 a všech 200 lekcí ostatních kurzů, zpoždění v úkolu i mezi kurzy, opakování, text, drafty/postup, klávesnice a mobil')
     finally:
         server.runs.stop_all()
         server.shutdown()

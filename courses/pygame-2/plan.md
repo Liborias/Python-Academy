@@ -1,8 +1,8 @@
 ## Pygame 2: od objektu ke třem vlastním hrám
 
-**Připraveno prvních 25 z 30 lekcí.** Navazujeme na Pygame 1 a základní OOP. Herní kód rozdělíme na objekty, kterým rozumíme a jejichž chování umíme ověřit. Obtížnost úvodu je 3/4, celku 4/4: čas, spolupráce objektů, kolize a řízení více herních stavů. Předpoklady jsou doporučení, nikoli zamčené vstupy. Samostatný OOP kurz pomůže stejně jako OOP z Turtle.
+**Připraveno všech 30 lekcí. Obsah čeká na připomínky studentů.** Navazujeme na Pygame 1 a základní OOP. Herní kód rozdělíme na objekty, kterým rozumíme a jejichž chování umíme ověřit. Obtížnost úvodu je 3/4, celku 4/4: čas, spolupráce objektů, kolize a řízení více herních stavů. Předpoklady jsou doporučení, nikoli zamčené vstupy. Samostatný OOP kurz pomůže stejně jako OOP z Turtle.
 
-V prvním modulu má každá lekce tři přepínatelné ukázky a pět úkolů s možným řešením a vlastní kontrolou. V úvodu je **15 ukázek a 25 úkolů**. Projekty Meteority a Chyť robota přidávají po pěti ukázkách a návazných zadáních s řešeními. Součásti větší hry 16–20 mají dalších 15 ukázek a 25 úkolů. Hon na dronech přidává pět návazných kroků: celkem **45 ukázek a 65 úkolů**. Samostatné pokusy ukládají skutečné Surface do PNG; nejde o animované herní okno. Tři projekty už otevírají skutečná herní okna a po zavření zachovají poslední PNG. Navazující projekty tvoří souvislé kroky, bez nesouvisejících variant.
+V prvním modulu má každá lekce tři přepínatelné ukázky a pět úkolů s možným řešením a vlastní kontrolou. V úvodu je **15 ukázek a 25 úkolů**. Projekty Meteority a Chyť robota přidávají po pěti ukázkách a návazných zadáních s řešeními. Součásti větší hry 16–20 mají dalších 15 ukázek a 25 úkolů. Hon na dronech přidává pět návazných kroků: Závěr 26–29 má dalších 12 ukázek a 20 úkolů, poslední projekt jeden návazný krok. Celkem **58 ukázek a 86 úkolů**. Samostatné pokusy ukládají skutečné Surface do PNG; nejde o animované herní okno. Tři projekty už otevírají skutečná herní okna a po zavření zachovají poslední PNG. Navazující projekty tvoří souvislé kroky, bez nesouvisejících variant.
 
 ## Prostředí
 
@@ -60,7 +60,9 @@ Výstup: malé testovatelné herní součásti a obrázkové náhledy výsledku.
 24. Bezpečná zóna, životy a pravidla konce mise.
 25. Hra jako řidič nabídky, letu, pauzy, výsledku a restartu.
 
-## Modul 6 — Ověření a předání (lekce 26–30, plán)
+## Modul 6 — Ověření a předání (lekce 26–30)
+
+**Hotovo: lekce 26–30.** Samostatná témata 26–29 mají tři ukázky a pět úkolů s možnými řešeními, závěrečná Kurýrská směna jeden projekt. Opakujeme skutečné modely se seedem, píšeme testy, které odhalí záměrné vady, ukládáme verzované JSON výsledky a bezpečně nahradíme soubor. Cesty a příkazy nejprve připravujeme bez spuštění. Kurýrská směna mění rychlost kurýra a jednou na dokončené kolo uloží nejlepší výsledky. Připravené testy a NAVOD.md usnadní předání.
 
 26. Deterministické scénáře: řízený čas, vstup a náhoda.
 27. Vlastní testy pohybu, kolizí a stavů.
@@ -68,4 +70,4 @@ Výstup: malé testovatelné herní součásti a obrázkové náhledy výsledku.
 29. Spuštění z čisté složky, závislosti a volitelné balení pro vlastní systém.
 30. Vlastní varianta hry a závěrečné předání s návodem.
 
-Odhad celku 18–25 hodin plus vlastní úpravy. PyInstaller nebo webové balení jsou volitelné, jejich možnosti a systémové limity ověříme při realizaci příslušné lekce. Aktuálně se neinstalují. Dalším krokem je Ověření a předání 26–30.
+Odhad celku 18–25 hodin plus vlastní úpravy. PyInstaller 6.22.3 je volitelný, základ potřebuje pouze pygame-ce. Běžné ukázky stavbu nespouštějí; pomocník sestavit.py ji provede až při vědomém místním spuštění. Onedir předáváme jako celou složku. Zdejší Linux zkoušky neověřují Windows/macOS ani fyzickou klávesnici. Pro trvalé výsledky spusťte uloženou pracovní složku, běžný webový běh je dočasný. Kurz je obsahově hotov; další krok je revize a zpětná vazba.

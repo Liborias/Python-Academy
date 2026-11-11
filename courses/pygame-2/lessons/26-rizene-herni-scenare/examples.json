@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Stejná posloupnost vstupů",
+    "description": "Stejná posloupnost vstupů.",
+    "code": "# Pygame-ce používáme jako pygame. Import sám neotevírá herní okno.\nimport os\nos.environ.setdefault('PYGAME_HIDE_SUPPORT_PROMPT', '1')\nimport math\nimport pygame\nfrom pathlib import Path\nfrom model_hry import Hrac, Dron, HlidacBodu, Vlny, StitZakladny, Kolo, Hra\nfrom scenare import snimek\n\ndef prehraj(seed, kroky):\n    kolo = Kolo(seed)\n    stopa = [snimek(kolo)]\n    for smer, dt in kroky:\n        kolo.update(smer, dt)\n        stopa.append(snimek(kolo))\n    return stopa\n\n# Samostatné spuštění; import nic nespouští.\nif __name__ == '__main__':\n    a, b = prehraj(17, [((0, 1), 0.05)] * 25), prehraj(17, [((0, 1), 0.05)] * 25)\n    print('Stejné stopy:', a == b)\n    print(a[-1])\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Vlny při nehybném hráči",
+    "description": "Vlny při nehybném hráči.",
+    "code": "# Pygame-ce používáme jako pygame. Import sám neotevírá herní okno.\nimport os\nos.environ.setdefault('PYGAME_HIDE_SUPPORT_PROMPT', '1')\nimport math\nimport pygame\nfrom pathlib import Path\nfrom model_hry import Hrac, Dron, HlidacBodu, Vlny, StitZakladny, Kolo, Hra\nfrom scenare import snimek\n\ndef prehraj(seed, kroky):\n    kolo = Kolo(seed)\n    stopa = [snimek(kolo)]\n    for smer, dt in kroky:\n        kolo.update(smer, dt)\n        stopa.append(snimek(kolo))\n    return stopa\n\n# Samostatné spuštění; import nic nespouští.\nif __name__ == '__main__':\n    stopa = prehraj(23, [((0, 0), 0.05)] * 100)\n    print('Začátek:', stopa[0])\n    print('Po pěti sekundách:', stopa[-1])\n"
+  }
+]

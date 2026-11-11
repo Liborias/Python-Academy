@@ -59,7 +59,7 @@ Matplotlib ověří `python -c "import matplotlib; print(matplotlib.__version__)
 Editor musí mít zvolené stejné prostředí. Všechny úvodní .py soubory běží také
 v terminálu; podpora buněk `# %%` a notebooků závisí na editoru a rozšířeních.
 
-Pygame 2 má připravených 25 lekcí: herní objekty, Meteority, Chyť robota,
+Pygame 2 má připravených všech 30 lekcí: herní objekty, Meteority, Chyť robota,
 Součásti větší hry a Hon na dronech. `python tools/setup_env.py --courses pygame-2` doplní stejné pygame-ce
 jako Pygame 1. V .venv ověřte `python -c "import sys, pygame; print(sys.executable); print(pygame.version.ver)"`.
 Ověřeno Python 3.14.8/pygame-ce 2.5.8. První modul vytváří skutečné PNG ze Surface
@@ -87,6 +87,17 @@ Přístav poskytne nejvýše 2,5 s ochrany a dobíjí se mimo něj.
 Jen v tréninku 23 spustí N další vlnu; v hotové misi je střídá čas.
 Normální zavření vytvoří `droni.png`, tlačítko Stop to nezaručuje. Nové balíčky
 ani zvuk nejsou potřeba; okno běží na hostiteli Pythonu, nikoli ve webové stránce.
+
+Lekce 26–29 přidávají scénáře, vlastní testy, verzovaný JSON a příkazy k předání;
+nepotřebují grafickou plochu ani další povinné knihovny. Kurýrská směna 30
+propojí vlastní rychlost hráče a paměť pěti výsledků. Uložte pracovní složku,
+spusťte python over_projekt.py a python reseni.py ve stejné .venv. Trvalé
+výsledky budou v data/vysledky.json vedle programu, webový běh je dočasný.
+PyInstaller 6.22.3 je volitelný; instalace python -m pip install "pyinstaller==6.22.3"
+a python sestavit.py skutečně připraví onedir výstup. Zde ověřeno na Linuxu;
+Windows/macOS vyžadují vlastní stavbu a zkoušku. Předává se celá složka,
+nikoli přenesená .venv. Příkazy a jednotlivé přepínače vysvětluje lekce 29,
+pracovní složka má NAVOD.md. Základní kurz balení nevyžaduje.
 
 > Instalujte **pygame-ce**, v kódu používejte `import pygame`. Nekombinujte jej ve stejném prostředí s původním balíčkem pygame.
 

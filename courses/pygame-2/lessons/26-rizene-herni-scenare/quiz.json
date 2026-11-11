@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co kromě seedu potřebujeme pro opakování herního pokusu?",
+    "options": [
+      "Stejnou posloupnost směrů i časových kroků.",
+      "Jinou grafickou kartu.",
+      "Pouze stejný název souboru."
+    ],
+    "answer": 0,
+    "why": "Vývoj modelu závisí na vstupu a čase, ne pouze na náhodě."
+  },
+  {
+    "q": "Proč ukládáme hodnotový snímek místo odkazu na kolo?",
+    "options": [
+      "Aby vzniklo druhé okno.",
+      "Pozdější změny modelu nemají přepsat historii.",
+      "Aby se vypnul Python."
+    ],
+    "answer": 1,
+    "why": "Snímek vlastní své hodnoty a zachová dřívější stav."
+  },
+  {
+    "q": "Zaručuje seed=None stejný nový pokus?",
+    "options": [
+      "Ano, vždy.",
+      "Jen při pauze.",
+      "Ne, volí nový náhodný začátek."
+    ],
+    "answer": 2,
+    "why": "Pro opakování použijte konkrétní seed a stejné vstupy."
+  }
+]

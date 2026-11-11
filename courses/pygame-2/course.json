@@ -59,15 +59,26 @@
         "24-droni-zakladna-a-zivoty",
         "25-droni-hra-pauza-a-vysledek"
       ]
+    },
+    {
+      "id": "m06",
+      "title": "Ověření a předání hry",
+      "lessons": [
+        "26-rizene-herni-scenare",
+        "27-vlastni-testy-hry",
+        "28-vysledky-v-json",
+        "29-priprava-a-baleni-hry",
+        "30-kuryrska-smena-a-predani"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od herního objektu ke třem vlastním hrám",
     "status": "draft",
     "level": 4,
-    "summary": "Prvních 25 z 30 lekcí: herní součásti a tři hotové hry včetně Honu na dronech s pronásledováním, vlnami, přístavem a výsledkem. Všechny úkoly mají možná řešení.",
+    "summary": "Všech 30 lekcí: herní objekty, tři hry, součásti větší hry, vlastní testy, JSON výsledky a předání Kurýrské směny. Všechny úkoly mají možná řešení.",
     "placement": "Po Pygame 1 a základech OOP; samostatný OOP kurz pomůže, nic se nezamyká.",
     "difficulty_reason": "Začátek 3/4, celý kurz 4/4: spolupráce objektů, čas, kolize a řízení více herních stavů.",
-    "duration": "Plán 30 lekcí, prvních 25 dostupných. Odhad celku 18–25 hodin plus vlastní úpravy."
+    "duration": "Všech 30 lekcí je dostupných. Odhad celku 18–25 hodin plus vlastní úpravy."
   }
 }

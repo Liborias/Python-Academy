@@ -1,5 +1,112 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.73 (11. 11. 2026): Ověření a předání, Pygame 2 dokončen
+
+Na pokyn „pkračuj“ dokončen závěrečný modul 26–30 podle plánu. Kurz má
+všech 30 lekcí, stav draft do připomínek studentů, obtížnost 4/4 (úvod 3/4).
+Témata 26–29: tři ukázky/pět úkolů, každé zadání vlastní šablona/kontrola/možné
+řešení. Závěr 30: jeden návazný projekt s řešením, bez nesouvisejících variant.
+Nově 13 ukázek/21 úkolů; celý kurz 58 ukázek/86 úkolů. Globálně 240 hlavních
++ 324 doplňkových řešení = 564, doplňkových ukázek 162. Celkem 255 lekcí včetně 15
+průvodců. Starší ID, obsah, klíče postupu a rozepsaná práce se nemění.
+
+Nové ID:
+- 26-rizene-herni-scenare
+- 27-vlastni-testy-hry
+- 28-vysledky-v-json
+- 29-priprava-a-baleni-hry
+- 30-kuryrska-smena-a-predani
+
+Lekce 26: řízený replay skutečného Kolo z 25, snímek počátku i každého kroku,
+rozdělení času, držené vstupy, celá dráha proti vzdálenosti začátku/konce,
+nezávislé stopy. Seed opakuje losování pouze ve stejném modelu se stejnými
+vstupy a kroky; None není opakovatelný seed. Snimek vytváří hodnotový slovník.
+
+Lekce 27: vlastní unittest pro hráče, štít, zásahy/priority konce, vlny,
+pauzu/restart/QUIT, seed/skupiny/hlídače/zmrazení. Sestav_sadu vrací novou
+TestSuite. Kontrola přijme správný model a vyžaduje odhalení každé známé vady
+přes změněné veřejné chování. Nehodnotí jména metod ani text implementace;
+prázdná, přeskočená, vždy úspěšná ani vždy selhávající sada nestačí.
+Hlavní blok provede sadu a vrátí její návratový kód, unittest může psát stderr.
+
+Lekce 28: JSON verze přesně int 1, seznam výsledků se jménem 1–24 znaků po strip,
+body nezáporný přesný int (bool ne), uspech přesný bool. Čisté kopie, pořadí
+úspěch/body sestupně/casefold jméno a stabilní shody, limit. Chybějící/rozbitý
+JSON/UTF-8 či verze vrátí [], jiný OSError se předává. Samotné čtení původní
+bajty nemění. Zápis přes jedinečný dočasný soubor ve stejném adresáři, zavření
+před os.replace a úklid ve finally. Chyba nahrazení zachová starší soubor.
+Jednoduché pořadí není úložiště pro souběžné procesy ani české slovníkové řazení.
+
+Lekce 29: kořen podle __file__/sys.executable při frozen, kontrola souborů,
+seznamy argumentů se stejným Pythonem pro běh, volitelnou stavbu a unittest.
+Funkce pouze připravují hodnoty, neinstalují/nespouštějí/nepíší soubory.
+Podklady mají skutečnou hra.py z 25, requirements, testy a NAVOD.md.
+Over_projekt.py funguje i při spuštění odjinud díky správnému cwd.
+Sestavit.py v 29/4 importuje studentovu prikaz_baleni z reseni.py a staví hra.py;
+v 30 hotová cesty.py staví studentovu reseni.py. PyInstaller 6.22.3 volitelný,
+--onedir/--console/--clean/--noconfirm a vlastní dist/build/spec. Vysvětlené
+příkazy pro .venv, instalaci, testy, spuštění i všechny přepínače balení.
+Předává se celá distribuční složka, nová stavba nahrazuje starý výstup:
+vlastní výsledky před ní zkopírovat mimo dist. Nekopírovat cizí .venv.
+
+Kurýrská směna 30: HraSPoradim(Hra), vlastní jméno/rychlost (výchozí 260)
+a nejlepších pět dokončených pokusů. Zbytek pravidel z 25 beze změny, stejně
+Mezerník/šipky/WASD/P/R/Esc. Konstruktor načte, novy_let vytvoří nový svět
+a nastaví rychlost, update po rodiči jednou na identitu kola uloží i prohru,
+kresli deleguje a přidá profil/stav/tabulku. Chyba čtení/zápisu má zprávu
+a nezničí původní tabulku, neopakuje se každý snímek. Různé rychlosti nemají
+oddělené pořadí, slouží k vlastnímu experimentu. V nabídce je vidět všech pět
+řádků i nejdelší povolené jméno, ověřeno skutečným renderem.
+
+Model_hry.py obsahuje přesné definice z 21–25, stejné banky/cache/zásobník.
+Vysledky.py/podklady a cesty.py jsou AST kopie řešení 28/29. Import neotevírá
+displej/mixer ani nezapisuje výsledky. Konzolová témata 26–29 nepotřebují plochu,
+30 je GUI/preview_images/limit 600 s, droni.png při normálním QUIT.
+Pro trvalé výsledky je nutné uložit pracovní složku a v editoru spustit její
+reseni.py: data/vysledky.json vedle programu. Webový běh je dočasný, okno patří
+hostiteli Pythonu, nepřenáší se ze serveru do webu. Stop nezaručuje PNG.
+Stejný Python 3.14.8/pygame-ce 2.5.8, žádné nové povinné knihovny nebo audio.
+
+Osm skupin test_predani_hry prošlo: 50 chybných variant/sad odmítnuto, navíc
+chybějící GUI vstup; jiné správné zápisy přijaty. Kontroly skutečného modelu
+a disku, řízená chyba os.replace, sady proti vadám, AST návaznost, přesná
+řešení, 32 konzolových běhů+úryvek 30, čistá kopie s over_projekt ze cizího cwd
+a skutečný SDL vstup/PNG/read-only helpery. Cílený validátor 30 lekcí:
+0 chyb/upozornění. Celková unittest sada na Pythonu 3.14.8/Linux:
+**354 testů OK bez přeskočených, 1032 s**, včetně celkové validace 255 lekcí.
+Starší ResourceWarning z pomocných procesů/souborů nejsou selhání; místní
+HTTP/SMTP testovací servery byly povolené. Po sjednocení vstupu hra.py se
+společným modelem a odstranění nesouvisejících pomocníků sestavení z 26/27
+prošlo znovu všech osm cílených skupin (17 s). Obě varianty balení 29/4 a 30
+byly skutečně sestaveny a binárky prošly skriptovaným SDL během/QUIT/PNG.
+
+Chromium e2e_predani_hry prošlo 13 ukázek/21 úkolů, odmítnuté šablony/
+přijaté vzory, lazy řešení bez změny práce/postupu, skutečné běhy včetně
+unittest a SDL/PNG/stažení, workspace s testy/NAVOD, reload/splnění,
+plán/přípravu 30/30 a mobil 380/320. Opraven dlouhý prostý text události v 27/4
+pro úzký mobil. Prošly e2e_droni a e2e_solutions (200 ostatních lekcí);
+druhý test nyní čeká na titul právě požadované lekce, ne na zbylý editor
+předchozí stránky při přepnutí hash routy. Serverové API/JS/CSS beze změny.
+
+PyInstaller 6.22.3 skutečně sestavil onedir na Linuxu/Pythonu 3.14.8 pro 29/4 i 30.
+Binárka 30 běžela s reálným SDL offscreen, fonty, Clock a PNG. Testovací C helper
+LD_PRELOAD pouze přidává SDL klávesy/QUIT, nemění model, čas, render ani disk;
+krátký běh/pauza/restart/normální zavření, celá čekající mise do prohry,
+jediný zápis a znovunačtení ve druhém procesu prošly. Finální render doplněn
+o všech pět řádků pořadí; binárka znovu sestavena a zkoušena s plnou tabulkou.
+Fyzická klávesnice, Windows/macOS a instalace příjemce tím nejsou ověřeny.
+Xvfb/xdotool ani sudo zde nejsou; nic se neinstalovalo, použito SDL offscreen.
+Snímky menu/plné tabulky/pauzy i mobilních řešení/PNG prohlédnuté.
+Logy a snímky mimo repo v /workspace/scratch/pygame2-finish-work.
+
+Aktualizované katalog/kurz/plán 30/30, příprava všech editorů, dokumentace
+a počty v testech. Dodávka commit/push do main bez ZIPů a bez publikace
+cloudového prostředí. Na další pokyn lze zahájit další plánovaný kurz
+**Databáze a projekty**, první blok SQLite: prostředí/databáze, tabulka,
+parametrizované dotazy, čtení a transakce. Základ využít sqlite3 ze standardní
+knihovny, více ukázek/úkolů s možnými řešeními u samostatných témat;
+navazující projekty ponechat souvislé. Historické zápisy nejsou nové zadání.
+
 ## Aktuální v0.72 (11. 11. 2026): Hon na dronech 21–25
 
 Na pokyn „pokračuj“ dokončen m05 Pygame 2 jako jeden souvislý projekt:

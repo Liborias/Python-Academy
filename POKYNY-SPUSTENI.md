@@ -34,7 +34,7 @@ python tools/setup_env.py --dry-run
 ```
 Základní podkurz **Základy** žádné balíčky nepotřebuje.
 
-Pro Pygame 2 (dostupné lekce 1–25):
+Pro Pygame 2 (dostupné všechny lekce 1–30):
 ```
 python tools/setup_env.py --courses pygame-2
 ```
@@ -64,6 +64,14 @@ tři desetisekundové vlny. Štít přístavu má 2,5 s a dobíjí se pouze mimo
 V tréninku 23 je N další vlna, v hotové misi se střídají automaticky.
 Běžné zavření uloží `droni.png`; Stop soubor nezaručuje. Nové závislosti
 ani zvuk nejsou potřeba, okno se ze vzdáleného Pythonu do prohlížeče nepřenáší.
+Závěr 26–29 má konzolové scénáře, unittest, JSON výsledky a příkazy k předání.
+Kurýrská směna 30 je živá varianta s profilem a tabulkou pěti výsledků.
+Pro trvalé data/vysledky.json uložte pracovní složku a spusťte v ní reseni.py;
+běžný webový běh používá dočasné soubory. python over_projekt.py provede
+přiložené testy modelu; vlastní testy doplňte do testy. Volitelný PyInstaller 6.22.3
+nainstalujte jen pro stavbu ve stejné .venv; python sestavit.py spustí skutečné
+sestavení onedir. Celou distribuční složku ponechte pohromadě. Ověřen Linux,
+Windows/macOS vyžadují vlastní sestavení a zkoušku. Podrobnosti v lekci 29 a NAVOD.md.
 Ověřeno Python 3.14.8/pygame-ce 2.5.8.
 
 Pro Datovou analýzu:

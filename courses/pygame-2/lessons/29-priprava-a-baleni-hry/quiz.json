@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč pro spuštění používáme seznam argumentů?",
+    "options": [
+      "Mezery v cestě zůstanou součástí jediného argumentu.",
+      "Aby se automaticky otevřel internet.",
+      "Aby nebyl potřeba Python."
+    ],
+    "answer": 0,
+    "why": "Subprocess dostane jednotlivé argumenty bez slepování shellového řetězce."
+  },
+  {
+    "q": "Co předáváme po PyInstaller --onedir?",
+    "options": [
+      "Pouze první soubor s náhodnou příponou.",
+      "Celou distribuční složku včetně interních knihoven.",
+      "Projektovou .venv z jiného počítače."
+    ],
+    "answer": 1,
+    "why": "Sestavený program potřebuje všechny součásti svého onedir výstupu."
+  },
+  {
+    "q": "Dokazuje linuxová stavba funkčnost na Windows?",
+    "options": [
+      "Ano, vždy.",
+      "Jen při shodném skóre.",
+      "Ne, stavíme a zkoušíme na cílovém systému."
+    ],
+    "answer": 2,
+    "why": "Balení i grafické závislosti závisejí na operačním systému."
+  }
+]

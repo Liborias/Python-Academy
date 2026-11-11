@@ -129,7 +129,7 @@ Tkinter základy (okno, Label, Button, Entry, `pack`, `grid`, `place`, `ttk`) ·
 SQL základy (SQLite) · CRUD z Pythonu · **parametrizované dotazy a SQL injection** · venv a git (Git je ve VSCodium zabudovaný) · Tkinter a databáze (evidence kroužků místo učitelů) · BMI tracker · registrace a přihlášení (scrypt) · text na řeč (offline) · komprese souborů (`zlib`, `base64`) · kontrolní číslice (Luhn na zkušebních číslech) · generátor QR kódů · volitelně PostgreSQL + psycopg 3 + connection pool.
 
 ### G2. Pygame 2: hry s třídami (30 lekcí)
-**Stav v0.72: prvních 25 z 30 lekcí připravených.** Modul Herní objekty, které jdou
+**Stav v0.73: všech 30 lekcí připravených, čekají na připomínky.** Modul Herní objekty, které jdou
 ověřit: Sprite/image/rect, Vector2 a dt, Group/update/draw, kolize a stav hry.
 Každá má tři ukázky a pět úkolů s kontrolou a možným řešením, celkem 15/25.
 První blok ukládá obrázkové náhledy z opravdových Surface; bez okna a zvuku.
@@ -149,14 +149,16 @@ Hotov Hon na dronech 21–25: hráč/svět, pronásledování s rozestupy,
 řízené vlny, životy a omezený štít přístavu, nabídka/pauza/výsledek/restart.
 Každý krok má jeden úkol, ukázku a možné řešení. Cíl šest dat za tři vlny
 nutí hráče opustit přístav; pokračování neztrácí zdraví ani skóre.
-Celkem 45 ukázek a 65 úkolů. Všechny tři hry používají nativní okno na počítači s Pythonem, bez zvuku;
+Celkem 58 ukázek a 86 úkolů. Všechny tři hry používají nativní okno na počítači s Pythonem, bez zvuku;
 běžné zavření uloží PNG. Úplný plán je v courses/pygame-2/plan.md a panelu kurzu.
-Další modul 26–30: Ověření a předání hry — opakovatelné scénáře se seedem,
-vlastní testy modelu, skóre v JSON včetně chybějícího/poškozeného souboru,
-spuštění v čistém prostředí a volitelné zabalení pro vlastní operační systém,
-vlastní varianta a závěrečné předání. Každý krok s možným řešením; samostatná
-témata doplnit více příklady, navazující projekt zachovat souvislý.
-Odhad dalšího kroku 15–20 tisíc tokenů.
+Hotov také závěr 26–30: opakovatelné scénáře skutečného modelu, vlastní unittest
+ověřované proti vadám, verzované JSON výsledky a bezpečný zápis, cesty a příkazy
+pro spuštění/testy/volitelné balení. Témata 26–29 mají tři ukázky/pět úkolů
+s řešeními. Kurýrská směna 30 propojuje vlastní rychlost, načtení výsledků a jeden
+zápis na dokončený pokus. Uložená pracovní složka drží výsledky mezi spuštěními;
+webový běh je dočasný. PyInstaller 6.22.3 je volitelný, onedir stavba i skutečná
+SDL smyčka ověřeny na Linuxu; Windows/macOS vyžadují vlastní sestavení a zkoušku.
+Další krok je revize a zpětná vazba; případný kurz Databáze začít na další pokyn.
 
 Tři hry místo Harryho Pottera (všechny nové, všechna grafika kreslená kódem):
 1. **Meteority**: uhýbání před padajícími meteority, životy, skóre, štít jako bonus (náhrada za „Goblet of Fire“).

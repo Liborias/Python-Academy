@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč nestačí isinstance(True, int) pro počet bodů?",
+    "options": [
+      "Protože True je také instance int.",
+      "Protože JSON neumí čísla.",
+      "Protože jméno musí být anglicky."
+    ],
+    "answer": 0,
+    "why": "Pro počet používáme přesný typ int a vyloučíme bool."
+  },
+  {
+    "q": "Co se má stát s poškozeným souborem při čtení?",
+    "options": [
+      "Automaticky se smaže.",
+      "Vrátíme prázdná data a původní bajty necháme beze změny.",
+      "Přepíše se při každém snímku."
+    ],
+    "answer": 1,
+    "why": "Čtení samo nemaže původní obsah; chyba přístupu se předává dál."
+  },
+  {
+    "q": "Proč zavřeme dočasný soubor před os.replace?",
+    "options": [
+      "Kvůli barvě hráče.",
+      "Aby se zrušila verze JSON.",
+      "Aby byl celý zápis hotový a nahrazení fungovalo i na Windows."
+    ],
+    "answer": 2,
+    "why": "Nahrazujeme až dokončený soubor a při chybě zachováme starý cíl."
+  }
+]

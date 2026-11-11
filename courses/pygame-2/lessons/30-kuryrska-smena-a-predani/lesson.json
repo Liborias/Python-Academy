@@ -1,0 +1,12 @@
+{
+  "title": "Kurýrská směna: vlastní rychlost a paměť výsledků",
+  "minutes": 75,
+  "kind": "gui",
+  "tags": [
+    "pygame",
+    "oop",
+    "predani"
+  ],
+  "example_title": "Kurýrská směna: vlastní rychlost a paměť výsledků",
+  "preview_images": true
+}

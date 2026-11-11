@@ -1,0 +1,11 @@
+{
+  "title": "Cesta projektu a zabalené hry",
+  "minutes": 50,
+  "kind": "console",
+  "tags": [
+    "pygame",
+    "oop",
+    "predani"
+  ],
+  "example_title": "Cesta projektu a zabalené hry"
+}

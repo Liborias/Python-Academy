@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Čistý seznam bez sdílených slovníků"
+  },
+  {
+    "id": "task-3",
+    "title": "Pořadí výsledků a stabilní shody"
+  },
+  {
+    "id": "task-4",
+    "title": "Čtení verzovaného JSON"
+  },
+  {
+    "id": "task-5",
+    "title": "Zápis bez zničení staršího souboru"
+  }
+]

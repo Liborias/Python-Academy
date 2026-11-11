@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Cesta zabaleného programu",
+    "description": "Cesta zabaleného programu.",
+    "code": "# Samostatná součást předání; import nic nespouští.\nimport os\nfrom pathlib import Path\nimport sys\nimport tempfile\n\ndef koren_aplikace(soubor, spustitelny, zmrazeno=False):\n    zdroj = spustitelny if zmrazeno else soubor\n    return Path(zdroj).resolve().parent\n\n# Samostatné spuštění; import nic nespouští.\nif __name__ == '__main__':\n    print(koren_aplikace('/zdroje/reseni.py', '/hry/KuryrskaSmena/hra', True))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Nezávislost na pracovním adresáři",
+    "description": "Nezávislost na pracovním adresáři.",
+    "code": "# Samostatná součást předání; import nic nespouští.\nimport os\nfrom pathlib import Path\nimport sys\nimport tempfile\n\ndef koren_aplikace(soubor, spustitelny, zmrazeno=False):\n    zdroj = spustitelny if zmrazeno else soubor\n    return Path(zdroj).resolve().parent\n\n# Samostatné spuštění; import nic nespouští.\nif __name__ == '__main__':\n    a = Path('/vlastni projekt/reseni.py')\n    b = Path('/python/python')\n    print(koren_aplikace(a, b, False))\n"
+  }
+]
