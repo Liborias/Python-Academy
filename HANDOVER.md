@@ -1,5 +1,119 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.76 (11. 11. 2026): Evidence kroužků 11–15
+
+Dokončen m03 kurzu Databáze a projekty: datová vrstva, Tkinter formulář,
+výběr/úpravy/mazání, přihlášky s kapacitou a vlastní testy. Pět návazných kroků,
+každý jedna ukázka/úkol s možným řešením a tři kvízy, bez nesouvisejících variant.
+Kurz draft 15/32, celkem 33 ukázek/51 úkolů. Úvod 2/4, celek 4/4. Globálně
+255 hlavních + 360 dalších řešení = 615, doplňkových ukázek 180; 270 lekcí
+včetně 15 průvodců. Starší ID, klíče postupu a rozepsaná práce zachovány.
+
+Nové ID:
+- 11-datova-vrstva-krouzku
+- 12-formular-a-pridani-krouzku
+- 13-upravy-a-mazani-krouzku
+- 14-prihlasky-a-kapacita
+- 15-dokonceni-a-testy-evidence
+
+11 a 15 kind console/limit 20 s; 12–14 kind gui/běžný limit 600 s, bez změny
+runtime/limitů. Python 3.12+ kvůli autocommit, ověřeno Python 3.14.8/SQLite
+3.53.1/Tk 9.0 na Linuxu. Nové pip balíčky, server, účty ani internet nejsou
+potřeba. Pro okna systémový Tk a grafická plocha: python -m tkinter otevře
+testovací okno. VS Code/VSCodium/PyCharm a terminál stejná .venv. Windows
+Tcl/Tk v instalaci Pythonu, Linux odpovídající python3-tk, macOS oficiální
+Python s Tk. Příprava kurzu i každý NAVOD.md vysvětlují postup.
+
+Model EvidenceKrouzku vlastní spojení i celé transakce; UI nepíše SQL.
+Soubor priprava.py zapne/ověří FK před transakcí, vrátí autocommit=False, vytvoří
+krouzky(id,nazev UNIQUE NOT NULL,kapacita kladný uložený integer) a prihlasky
+(id,krouzek_id FK RESTRICT,clen,UNIQUE(krouzek_id,clen)). Kontrola požadovaných
+sloupců není migrace ani úplný audit libovolné cizí DB. Nepoužívat klub.sqlite3.
+Model normalizuje krajní mezery a přijímá přesný kladný int bez bool.
+Seznam má pořadí id, výsledek pridej je lastrowid; další spojení vidí commit.
+
+Formulář převádí text přes cti_kapacitu a volá model. Chyba převodu, duplicita
+nebo plnost zachová vstupy; teprve úspěšný zápis obnoví seznam a vyčistí pole.
+Index Listboxu se mapuje na skutečné id v self.data; po smazání se id
+nepřečíslují. Uprav/smaz vrací bool, chybějící výběr má vysvětlení.
+Kapacita neklesne pod počet přihlášek, kroužek s členy chrání RESTRICT.
+
+Přihlášení kontroluje kapacitu a vloží člena v jedné transakci; nejprve
+plnost, proto duplicitní jméno v plném kroužku hlásí plnost. Jinak duplicitní
+přihláška je IntegrityError. Stejné přesné jméno smí být v jiném kroužku;
+stejnojmenné osoby v témže kroužku tento cvičný model nerozlišuje.
+Odhlášení používá vlastní id přihlášky, lze opakovat s False. Souhrn LEFT JOIN
+počítá p.id a nechává prázdné kroužky s nulou. Modely jsou pro jednoho místního
+správce, bez síťové souběžnosti/retry SQLITE_BUSY. Přihlášky se odhlášením
+mažou, na rozdíl od historie výpůjček v projektu 10.
+
+Návaznost: model_zaklad.py = definice 11, formular.py = 12, upravy.py = 13,
+prihlasky.py = 14; shodné AST tříd hlídá test. Pomocník nedoplňuje odpověď
+právě probíraného úkolu. Každý import je bez otevření DB a okna.
+Pohled.py řeší pouze rozložení, spousteni.py životnost okna/spojení.
+
+Spustit v lekcích 12–14 otevře paměťovou ukázku se dvěma kroužky. Okno je
+na počítači s Pythonem, ne uvnitř webové stránky. Pro vlastní data uložit
+pracovní složku, dokončit reseni.py a v terminálu se stejnou .venv:
+
+```powershell
+python spust_krouzky.py --help
+python spust_krouzky.py
+```
+
+Help nevytvoří DB ani okno. Spouštěč 12–14 importuje studentovu Aplikace/Model;
+v 12 model z předchozí 11. Výchozí krouzky.sqlite3 leží vedle spouštěče, i při
+jiném cwd. --db CESTA zvolí jiný soubor, rodičovská složka už musí existovat.
+Každá uložená lekce má svou složku; pro pokračování se stejnými záznamy použít
+--db s absolutní cestou k předchozí evidenci. Schéma 11–15 je stejné.
+Nová vlastní DB začíná prázdná, demo se do ní nevkládá. Webový běh je dočasný.
+
+Lekce 15: reseni.py obsahuje vytvor_sadu(Model), vrací nespouštěnou TestSuite
+s alespoň šesti testy. Každý test vlastní TemporaryDirectory a model, addCleanup
+zavře model před odstraněním složky. Testuje trvalost po reopen, jedinečnost
+názvu, plnost, duplicitního člena, nižší kapacitu a ochranu/odhlášení/mazání.
+Sadu lze napsat různě; kontrola ji provede také nad šesti cíleně porouchanými
+modely. Všechny jejich poruchy musí odhalit, správný model projde bez skip.
+Python reseni.py vypíše testy/OK, kód 0 při úspěchu, 1 při selhání. Nesmí
+pracovat s vlastními daty. Spouštěč spust_krouzky.py v 15 používá hotové GUI/model z 14,
+protože úkolem 15 jsou testy, nikoli opětovné skládání GUI.
+
+Ověření: validátor 15 lekcí bez chyb/upozornění, pět vzorů přijato/pět šablon
+odmítnuto. Devět test_krouzky skupin OK: 26 chybných variant odmítnuto,
+pět jiných správných zápisů přijato, AST návaznosti/importy bez I/O, pět
+výukových úryvků a dva konzolové vzory samostatně, --help bez DB/okna.
+Celková unittest sada Python 3.14.8/Linux: **380 testů OK bez přeskočených,
+1025 s**, včetně validace všech 270 lekcí. Místní HTTP/SMTP servery povolené;
+starší ResourceWarning ze souborů/procesů nejsou selhání testů. Po zpřesnění
+kontroly okamžitého commit prošlo všech devět cílených skupin znovu.
+Čitelné víceřádkové SQL má shodné AST jako původní zápis.
+
+Chromium e2e_krouzky OK: pět lekcí, lazy řešení bez změny kódu/postupu,
+šablony/vzory, skutečné GUI start/stop i oba konzolové běhy, workspace/helpery,
+reload/splnění a mobil 380/320. Zachována rozepsaná lekce 10 i splnění.
+Regrese bloku 6–10 (13/21) a řešení dalších 215 praktických lekcí prošly.
+Prošla i příprava všech 10 profilů, volby 3 systémů × 3 editorů a mobilní zobrazení.
+
+Skutečný Tk 9.0 ověřen přes již instalovaný Xorg dummy (DISPLAY=:97, bez
+nových instalací nebo změny konfigurace prostředí). Native_krouzky.py spustil
+uložené spouštěče 12–15 v osmi procesech, ovládal skutečné Entry/Listbox/Button,
+zkontroloval data po zavření novým SQLite spojením a v novém GUI procesu.
+Devátý proces otevřel evidenci z 14 spouštěčem 15 přes --db. Velikosti
+880x740/680x600 bez ořezaných widgetů, ověřeny české názvy/mezery/apostrof,
+chyby, výběr po mezerách v id, kapacita a uvolnění místa. Nativní okno i mobilní
+řešení prohlédnuty. Windows/macOS a menu nativních editorů tím nejsou ověřeny.
+Logy/snímky mimo repo: /workspace/scratch/tkinter-db-work.
+
+Aktualizované katalog/kurz/plány/příprava/README/instalace/spuštění/počty testů.
+Serverové API, JS/CSS a limity se nemění. Commit/push do main, bez ZIPů
+nebo publikace cloudového prostředí.
+
+Další krok na další pokyn: **Databáze 16–20, BMI tracker** podle plánu.
+Jeden samostatný projekt, výpočty/jednotky, data měření/SQLite, výpisy a souhrny,
+dokončení, testy/export/kopie DB. Vždy možné řešení, další varianty tam, kde
+jsou vhodné pro samostatné procvičení. Pozdější plán není implementovaný.
+Historické zápisy níže nejsou novým zadáním.
+
 ## Aktuální v0.75 (11. 11. 2026): Databáze a projekty, SQLite 6–10
 
 Dokončen m02 podle plánu: NULL/typové afinity/textové filtry, souhrny,

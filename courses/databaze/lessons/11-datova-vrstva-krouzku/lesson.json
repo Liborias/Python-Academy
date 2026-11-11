@@ -1,0 +1,11 @@
+{
+  "title": "Datová vrstva evidence kroužků",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "projekt",
+    "model"
+  ],
+  "example_title": "Datová vrstva evidence kroužků"
+}

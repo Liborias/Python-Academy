@@ -1012,3 +1012,65 @@ konzoli, reload a mobil 380/320. Starší rozepsaná lekce 5 i postup zachovány
 Regrese prvních 15/25 a řešení dalších 210 lekcí. API/JS/CSS a limity beze změny.
 Celková unittest sada 371 testů OK bez přeskočených na Pythonu 3.14.8/Linux,
 1033 s, včetně validace všech 265 lekcí.
+
+## Databáze a projekty, Evidence kroužků 11–15 (od v0.76)
+
+M03 je návazný projekt: model, formulář, výběr/úpravy/mazání, přihlášky,
+vlastní testy. Každý krok má jednu ukázku/úkol s možným řešením a tři kvízy,
+bez nesouvisejících variant. Kurz draft 15/32, celkem 33 ukázek/51 úkolů.
+11/15 console (20 s), 12–14 gui (běžných 600 s). Python 3.12+, ověřeno
+3.14.8/SQLite 3.53.1/Tk 9.0. Bez pip instalací, okna vyžadují systémový Tk
+s grafickou plochou. Příprava všech editorů a NAVOD.md obsahují ověření.
+
+Model vlastní spojení i transakce; GUI předává běžné hodnoty bez SQL.
+Priprava.py zapíná FK před autocommit=False, při selhání zavře spojení.
+Krouzky(id,nazev UNIQUE NOT NULL,kapacita NOT NULL CHECK typeof integer >0),
+prihlasky(id,krouzek_id NOT NULL FK RESTRICT,clen NOT NULL,UNIQUE(krouzek_id,clen)).
+IF NOT EXISTS a kontrola požadovaných sloupců nejsou migrace ani úplný audit
+cizí databáze. Nový soubor krouzky.sqlite3, nepoužívat klub.sqlite3.
+Názvy se ořezávají, velikost písmen je významná; API má přesný kladný int bez
+bool. Čtení může ukončit vlastní transakci modelu, close je opakovatelné.
+
+Pridej/seznam v 11, uprav/smaz v 13 a prihlasky/prihlas/odhlas/souhrn v 14.
+Datové změny jsou parametrizované, výslovné pořadí podle id. Rowcount se
+překládá na bool, chybějící mazání False. Kapacita neklesne pod přihlášky,
+RESTRICT chrání kroužek. Přihlášení kontroluje nejprve kapacitu a pak INSERT,
+stejné jméno v témže kroužku je jinak IntegrityError. Odhlášení odstraní řádek,
+nejde o historii výpůjček. LEFT JOIN/COUNT(p.id) zachová prázdný kroužek s nulou.
+Stejnojmenné osoby v témže kroužku potřebují v jiném návrhu vlastní id člena;
+tento projekt je záměrně místní a pro jednoho správce, bez retry/síťového serveru.
+
+GUI používá mapu self.data a self.clenove, nikoli index+1 či text položky.
+Po chybě zůstávají vstupy, po úspěchu se obnoví databázový výpis. Návazné
+model_zaklad/formular/upravy/prihlasky přebírají definice předchozích řešení,
+shodu AST hlídá test. Helper neobsahuje odpověď právě řešeného úkolu.
+Pohled.py skládá widgety, spousteni.py spravuje jedno okno/jedno spojení;
+import bez otevření databáze nebo Tk okna.
+
+Ukázky 12–14 běží v paměti se dvěma kroužky. Spouštěč spust_krouzky.py v uložené složce
+12–14 importuje studentovo GUI/model, v 12 model z 11. Vlastní krouzky.sqlite3
+je vedle spouštěče i při jiném cwd, --db CESTA volí jiný soubor se stávajícím
+rodičem. --help nevytváří DB/okno. Uložené lekce mají oddělené složky,
+pro pokračování se stejnými daty absolutní --db na předchozí soubor;
+schéma 11–15 stejné. Webový běh je dočasný, okno běží u serveru Pythonu.
+
+Lekce 15 žádá vytvor_sadu(Model) -> unittest.TestSuite s alespoň šesti případy.
+Sada používá předaný Model, každý případ vlastní dočasnou složku/model;
+addCleanup pořadí uzavře spojení před mazáním. Trvalost po close/reopen,
+duplicity názvu/přihlášky, plnost, snížení kapacity, ochrana a opakované
+odhlášení/mazání. Správný model musí projít bez skip, šest cílených poruch
+musí být odhalených. Názvy metod/strukturu sady kontrola neurčuje. Hlavní
+blok spustí testy a nastaví kód 0/1. Spouštěč 15 používá hotové GUI/model z 14.
+
+Kontrola krouzky.py používá skutečný SQLite a měřicí spojení, nezávislé
+výsledky, druhé spojení/reopen, prázdné souhrny a nesouvislá id. Tk kontroly
+ověřují formulářové scénáře bez grafiky; skutečné vykreslení testuje zvlášť
+native_krouzky.py. Devět unit skupin: 26 chybných variant/pět alternativ,
+AST/helpery/import bez I/O, pět úryvků/dva konzolové vzory a --help. Chromium:
+pět řešení, skutečný GUI start/stop i konzolové běhy, workspace/reload/mobil
+380/320, zachovaný starší postup. Native: osm GUI procesů/čtyři spouštěče,
+trvalá DB/nové otevření a devátý proces --db mezi 14/15, rozměry 880x740/680x600
+na Tk 9.0/Linux. Windows/macOS tím netestované. API/JS/CSS a limity beze změny.
+Celková unittest sada: 380 testů OK bez přeskočených na Pythonu 3.14.8/Linux,
+1025 s, včetně validace všech 270 lekcí. Okamžité potvrzení každé operace
+ověřuje jiné skutečné spojení před následným čtením modelem.

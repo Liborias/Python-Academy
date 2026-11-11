@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Je index 0 totožný s id 1?",
+    "options": [
+      "Ne, klíč čteme z dat vybraného řádku.",
+      "Vždy ano.",
+      "Jen po smazání."
+    ],
+    "answer": 0,
+    "why": "Databázové klíče se po smazání nepřečíslují."
+  },
+  {
+    "q": "Co znamená novy() ve formuláři?",
+    "options": [
+      "Vloží řádek.",
+      "Zruší výběr a připraví pole.",
+      "Smaže databázi."
+    ],
+    "answer": 1,
+    "why": "Samotné připravení formuláře není datová změna."
+  },
+  {
+    "q": "Proč chrání RESTRICT kroužek?",
+    "options": [
+      "Kvůli grafice.",
+      "Aby kapacita byla text.",
+      "Aby smazáním nezmizely existující přihlášky."
+    ],
+    "answer": 2,
+    "why": "Nejprve je potřeba členy odhlásit."
+  }
+]

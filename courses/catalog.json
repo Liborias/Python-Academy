@@ -111,7 +111,7 @@
         "tkinter-api"
       ],
       "status": "draft",
-      "summary": "Prvních 10 z 32 lekcí: SQLite, dotazy a souhrny, cizí klíče a JOIN. Konzolová klubovní evidence s půjčováním a vracením; všechny úkoly mají možná řešení.",
+      "summary": "Prvních 15 z 32 lekcí: SQLite a konzolová evidence, nově okenní evidence kroužků v Tkinteru. Přihlášky, kapacita, úpravy a vlastní testy; všechna zadání s možnými řešeními.",
       "planned_lessons": 32
     }
   ]

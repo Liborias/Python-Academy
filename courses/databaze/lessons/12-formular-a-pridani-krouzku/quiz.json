@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kdy vyčistit název v poli?",
+    "options": [
+      "Teprve po úspěšném uložení.",
+      "Ještě před validací.",
+      "Při každé chybě."
+    ],
+    "answer": 0,
+    "why": "Chybu lze opravit bez ztráty rozepsané práce."
+  },
+  {
+    "q": "Co vrací Entry.get()?",
+    "options": [
+      "Vždy int.",
+      "Text.",
+      "SQL kurzor."
+    ],
+    "answer": 1,
+    "why": "Kapacitu musíme výslovně převést a ověřit."
+  },
+  {
+    "q": "Který běh uchová vlastní záznamy?",
+    "options": [
+      "Paměťová ukázka.",
+      "Import pohledu.",
+      "Uložený spust_krouzky.py se souborem."
+    ],
+    "answer": 2,
+    "why": "Ukázka a dočasná webová kopie nejsou vlastní trvalá evidence."
+  }
+]

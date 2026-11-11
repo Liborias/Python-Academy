@@ -2,7 +2,7 @@
 
 Plán: PLAN.md. Nový rozhovor začněte slovem „pokračuj“, přečtu tento soubor.
 
-Nejnovější stav: v0.75 na konci tohoto souboru, SQLite v Databázích včetně vazeb a klubovní konzole (10/32). Pygame 2 má všech 30 lekcí a Datová analýza všech 42; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
+Nejnovější stav: v0.76 na konci tohoto souboru, Databáze včetně okenní evidence kroužků a vlastních testů (15/32). Pygame 2 má všech 30 lekcí a Datová analýza všech 42; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
 
 ## Rozhodnutí
 - Stažitelná složka, spouští se `python start.py` (potvrzeno implicitně, uživatel řekl „pokračuj“).
@@ -974,3 +974,56 @@ Revizi provedl samostatný agent bez znalosti mých závěrů (23 nálezů). Opr
   a limity beze změny. Dodávka commit/push do main bez ZIPů/cloud publikace.
 - Další krok na další pokyn: Databáze 11–15, Tkinter evidence kroužků.
   Jeden návazný projekt s řešeními, další příklady tam, kde dávají smysl.
+
+## v0.76 (11. 11. 2026): Evidence kroužků s Tkinterem 11–15
+
+- Dokončen m03: datová vrstva, formulář, výběr/úpravy/mazání, přihlášky
+  s kapacitou, dokončení a šest vlastních unittest. Pět návazných kroků,
+  každý s ukázkou/úkolem/možným řešením a třemi kvízy. Kurz draft 15/32,
+  33 ukázek/51 úkolů, úvod 2/4, celek 4/4. Globálně 255 hlavních + 360 dalších
+  řešení = 615, doplňkových ukázek 180; 270 lekcí včetně 15 průvodců.
+  Starší ID, postup i rozepsaná práce zachovány.
+- Python 3.12+, ověřeno 3.14.8/SQLite 3.53.1/Tk 9.0. Bez nových pip knihoven,
+  účtů/serveru/sítě. Pro 12–14 systémový Tk a grafická plocha, python -m tkinter
+  ověří okno; vysvětlené instalace a stejná .venv ve všech editorech/terminálu.
+  11/15 console (20 s), 12–14 gui (600 s), původní běhové limity.
+- Model vlastní SQLite spojení/transakce, GUI nemá SQL. Kladný přesný int,
+  strip názvy, UNIQUE/FK RESTRICT a skutečné id místo indexu. Chyba zachová
+  formulář, plnost a snížení kapacity rozhodují skutečná data. Přihlášky mají
+  vlastní id, odhlášení je opakovatelné, LEFT JOIN zachová prázdné kroužky.
+  Stejnojmenné osoby ve stejném kroužku cvičný model nerozliší, pro jednoho
+  místního správce. Návazné helpery odpovídají AST předchozích řešení.
+- Paměťová ukázka má dvě položky; uložený spust_krouzky.py importuje studentovo
+  GUI/model a používá krouzky.sqlite3 vedle sebe. --help bez DB/okna, --db CESTA
+  pro jiné umístění, rodič musí existovat. Každá lekce má vlastní složku;
+  pro pokračování se stejnými záznamy použít absolutní --db do předchozího
+  projektu. Schéma 11–15 stejné, starý klub.sqlite3 nepoužívat. Webový běh
+  je dočasný. V 15 reseni.py spouští vlastní izolované testy, spouštěč hotové
+  GUI/model z 14. Testy nikdy nepoužívají vlastní data studenta.
+- Vytvor_sadu(Model) vrací alespoň šest unittest případů a nic nespouští;
+  správný model projde, šest cílených poruch musí být odhalených. Trvalost
+  po reopen, jedinečnost, plnost, duplicita, kapacita a ochrana mazání.
+  TemporaryDirectory/addCleanup zavřou spojení před úklidem. Program vrací
+  0/1 podle výsledku. Každý úkol má NAVOD.md a vysvětlení příkazů.
+- Validátor všech 15 lekcí: 0 chyb/upozornění, pět vzorů přijato/pět šablon
+  odmítnuto. Devět nových unit skupin OK: 26 vadných variant odmítnuto,
+  pět alternativ přijato, AST/helpery, import bez I/O, sedm samostatných běhů
+  (pět úryvků/dva konzolové vzory), --help bez DB a okna.
+- Kompletní unittest sada Python 3.14.8/Linux: **380 testů OK bez přeskočených,
+  1025 s**, včetně validace všech 270 lekcí. Místní HTTP/SMTP servery povolené;
+  starší ResourceWarning ze souborů/procesů nejsou selhání. Zpřesněná kontrola
+  commit každé operace ihned druhým spojením má devět cílených skupin znovu OK.
+  Víceřádkové SQL bylo upravené jen v zápisu se shodným AST.
+- Chromium e2e_krouzky OK: řešení/úkoly, GUI start/stop, konzole, workspace,
+  reload/postup a mobil 380/320; zachována rozepsaná lekce 10. Regrese 6–10
+  (13/21) a řešení dalších 215 lekcí prošly. Prošla i příprava všech 10 profilů, volby 3 systémů × 3 editorů a mobilní zobrazení.
+- Native_krouzky.py: skutečné Tk 9.0 přes stávající Xorg dummy, bez instalací,
+  osm GUI procesů/čtyři uložené spouštěče, soubory a nové otevření; devátý
+  proces --db propojí záznamy 14 a 15. Velikosti 880x740/680x600, skutečné
+  widgety, chyby/kapacita/nesouvislá id/mezery/apostrof. Nativní okno a mobil
+  prohlédnuty. Windows/macOS a nativní editory netestovány. Logy/snímky mimo
+  repo v /workspace/scratch/tkinter-db-work.
+- Aktualizované katalog/kurz/plány/příprava/dokumentace/počty. API/JS/CSS
+  a limity beze změny. Dodávka commit/push do main, bez ZIPů/cloud publikace.
+- Další krok na další pokyn: Databáze 16–20, samostatný BMI tracker dle plánu,
+  s možnými řešeními a dalšími variantami tam, kde dávají smysl.

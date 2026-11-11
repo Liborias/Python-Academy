@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co hlídá plnost?",
+    "options": [
+      "Model nad aktuálními řádky v transakci.",
+      "Jen text popisku.",
+      "Název tlačítka."
+    ],
+    "answer": 0,
+    "why": "Počet v okně nemusí být aktuálním stavem databáze."
+  },
+  {
+    "q": "Co počítat po LEFT JOIN?",
+    "options": [
+      "COUNT(*).",
+      "COUNT(p.id).",
+      "Délku názvu."
+    ],
+    "answer": 1,
+    "why": "Prázdný kroužek musí mít nulu přihlášek."
+  },
+  {
+    "q": "Podle čeho odhlásit člena?",
+    "options": [
+      "Podle pořadí kroužku.",
+      "Podle náhodného jména.",
+      "Podle id vybrané přihlášky."
+    ],
+    "answer": 2,
+    "why": "Přihláška má vlastní klíč odlišný od klíče kroužku."
+  }
+]

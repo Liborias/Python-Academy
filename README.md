@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.75):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně tří her, vlastních testů a předání (30 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28), všech osm modulů Datové analýzy (42 ze 42) a Databáze včetně klubovní evidence (10 ze 32). Dokončené kurzy čekají na připomínky studentů. Další kapitoly Databází jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.76):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně tří her, vlastních testů a předání (30 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28), všech osm modulů Datové analýzy (42 ze 42) a Databáze včetně okenní evidence kroužků (15 ze 32). Dokončené kurzy čekají na připomínky studentů. Další kapitoly Databází jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,7 +38,7 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Databáze a projekty — prvních deset lekcí SQLite
+## Databáze a projekty — SQLite a okenní evidence, prvních 15 lekcí
 
 První modul 1–5 učí spojení, paměť/soubor, tabulky a pravidla hodnot,
 parametrizované změny, čtení a transakce. Následují NULL/COALESCE,
@@ -46,10 +46,12 @@ doslovné hledání proti LIKE a typové afinity, souhrny/GROUP BY/HAVING,
 cizí klíče a INNER/LEFT JOIN. Samostatné lekce 1–9 mají tři ukázky a pět
 úkolů s vlastním zadáním, šablonou, kontrolou a možným řešením.
 Projekt 10 tvoří jeden souvislý celek s řešením. V každé lekci jsou tři kvízové
-otázky; celkem **28 ukázek a 46 úkolů**, z toho 15/25 v prvním bloku.
-Úvod 2/4, celek 4/4; panel popisuje plán 32 lekcí, dostupných deset.
+otázky; první dva bloky mají **28 ukázek a 46 úkolů**, z toho 15/25 v prvním bloku.
+Návazná evidence kroužků 11–15 přidává pět kroků s řešeními, celkem **33 ukázek a 51 úkolů**.
+Úvod 2/4, celek 4/4; panel popisuje plán 32 lekcí, dostupných patnáct.
 
-Stačí standardní sqlite3, bez dalších balíčků, serveru, internetu a grafiky.
+Databázové části používají standardní sqlite3, bez pip balíčků, serveru a internetu.
+Okna 12–14 navíc potřebují Tkinter a grafickou plochu; `python -m tkinter` ji ověří.
 Python 3.12+ s výslovným autocommit; ověřeno Python 3.14.8/SQLite 3.53.1.
 Příprava má postup pro VS Code/VSCodium/PyCharm ve stejné .venv.
 `closing` zavírá spojení, `with con` řeší commit/rollback. Vazby se zapínají
@@ -72,7 +74,20 @@ reseni.py provede paměťovou ukázku, spust_klub.py pracuje se skutečným soub
 vedle skriptu. Podrobné příkazy pro kategorie, pomůcky, půjčení a vrácení
 jsou v lekci a NAVOD.md. Použijte skutečná id z výstupu, --db CESTA před názvem
 příkazu vybere jiný soubor. Běžné spuštění v prohlížeči je dočasné.
-Další blok 11–15 přidá okenní evidenci kroužků s Tkinterem.
+**Evidence kroužků 11–15** odděluje model od Tkinter widgetů, přidává formulář,
+úpravy a mazání podle skutečných id, přihlášky s kapacitou a šest vlastních testů.
+Vstupy se při chybě neztrácejí; kroužek s přihláškami nelze smazat, kapacitu
+nelze snížit pod obsazenost. Každý krok má možné řešení, bez nesouvisejících variant.
+Pro okna vyberte Python s Tk (Windows Tcl/Tk, Linux odpovídající python3-tk,
+macOS oficiální Python); Tkinter se neinstaluje přes pip. Ověřeno Tk 9.0.
+Okno běží na počítači s Pythonem, nevykresluje se uvnitř webové stránky.
+
+V uložené složce lekcí 12–14 `python reseni.py` otevře paměťovou ukázku,
+`python spust_krouzky.py` vlastní prázdnou evidenci se souborem krouzky.sqlite3
+vedle skriptu. `--help` popíše volby bez vytvoření okna či souboru, `--db CESTA`
+vybere jinou databázi; rodič musí existovat. V 15 reseni.py spouští izolované
+testy, spouštěč používá dokončené GUI z 14. Testy nezasahují do vlastní evidence.
+Dalším blokem je BMI tracker 16–20.
 
 ## Pygame 2 — herní objekty a tři vlastní hry
 
@@ -352,8 +367,8 @@ Nápověda vysvětluje také odsazování, našeptávání, spuštění a vráce
 ## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
 variantu k právě vybranému zadání s připomenutím, že správných postupů může být více.
-Pomoc je dostupná pro všech 250 hlavních zadání napříč devíti praktickými kurzy
-i 360 dalších úkolů v Základech, Datové analýze, Pygame 2 a Databázích, celkem 610 řešení včetně projektů a závěrečných
+Pomoc je dostupná pro všech 255 hlavních zadání napříč devíti praktickými kurzy
+i 360 dalších úkolů v Základech, Datové analýze, Pygame 2 a Databázích, celkem 615 řešení včetně projektů a závěrečných
 programů. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
 Průvodce přípravou bez programovacího úkolu tento panel nemá.
 

@@ -1,0 +1,11 @@
+{
+  "title": "Přihlášky členů a kapacita",
+  "minutes": 80,
+  "kind": "gui",
+  "tags": [
+    "sqlite",
+    "projekt",
+    "tkinter"
+  ],
+  "example_title": "Přihlášky členů a kapacita"
+}

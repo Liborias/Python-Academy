@@ -1,0 +1,11 @@
+{
+  "title": "Výběr, úpravy a mazání kroužků",
+  "minutes": 75,
+  "kind": "gui",
+  "tags": [
+    "sqlite",
+    "projekt",
+    "tkinter"
+  ],
+  "example_title": "Výběr, úpravy a mazání kroužků"
+}

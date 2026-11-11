@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč v testu zavřít a znovu otevřít model?",
+    "options": [
+      "Odhalíme chybějící potvrzení trvalých dat.",
+      "Aby zmizela data.",
+      "Aby se test přeskočil."
+    ],
+    "answer": 0,
+    "why": "Čtení původním spojením může vidět i nepotvrzené změny."
+  },
+  {
+    "q": "Co má vrátit vytvor_sadu?",
+    "options": [
+      "Výpis do souboru.",
+      "Nespouštěnou TestSuite s případy.",
+      "Tk okno."
+    ],
+    "answer": 1,
+    "why": "Spuštění a vyhodnocení dělá až hlavní blok."
+  },
+  {
+    "q": "Která data použít pro test?",
+    "options": [
+      "Vlastní jedinou ostrou evidenci.",
+      "Soubor dalšího studenta.",
+      "Nový dočasný soubor pro každý případ."
+    ],
+    "answer": 2,
+    "why": "Testy se nesmí navzájem ovlivňovat ani změnit vaše vlastní záznamy."
+  }
+]

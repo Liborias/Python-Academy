@@ -24,15 +24,26 @@
         "09-spojovani-tabulek",
         "10-projekt-klubovni-evidence"
       ]
+    },
+    {
+      "id": "m03",
+      "title": "Evidence kroužků s Tkinterem",
+      "lessons": [
+        "11-datova-vrstva-krouzku",
+        "12-formular-a-pridani-krouzku",
+        "13-upravy-a-mazani-krouzku",
+        "14-prihlasky-a-kapacita",
+        "15-dokonceni-a-testy-evidence"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od SQLite ke klubovním projektům",
     "status": "draft",
     "level": 4,
-    "summary": "Prvních 10 z 32 lekcí: základy SQLite, NULL/typy, souhrny, cizí klíče a JOIN. Konzolová klubovní evidence propojí pomůcky a výpůjčky; všechna zadání mají možná řešení.",
+    "summary": "Prvních 15 z 32 lekcí: SQLite, vazby a konzolová evidence; nově návazná okenní evidence kroužků s přihláškami, kapacitou a vlastními testy. Všechna zadání mají možná řešení.",
     "placement": "Základy Pythonu pro úvod; práce se soubory a později Tkinter pro navazující projekty. Nic se nezamyká.",
     "difficulty_reason": "Úvod 2/4, celek 4/4: SQL, vlastnictví spojení, transakce, vazby a spolupráce databáze s aplikací.",
-    "duration": "Plán 32 lekcí, prvních 10 dostupných. Odhad celku 20–30 hodin plus vlastní úpravy."
+    "duration": "Plán 32 lekcí, prvních 15 dostupných. Odhad celku 20–30 hodin plus vlastní úpravy."
   }
 }

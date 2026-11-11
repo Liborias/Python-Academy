@@ -34,7 +34,7 @@ python tools/setup_env.py --dry-run
 ```
 Základní podkurz **Základy** žádné balíčky nepotřebuje.
 
-Pro Databáze a projekty (prvních 10 z 32 lekcí SQLite):
+Pro Databáze a projekty (prvních 15 z 32 lekcí):
 ```
 python tools/setup_env.py --courses databaze
 python -c "import sys, sqlite3; print(sys.executable); print(sqlite3.sqlite_version)"
@@ -42,7 +42,7 @@ python -c "import sys, sqlite3; print(sys.executable); print(sqlite3.sqlite_vers
 První příkaz připraví projektovou .venv bez dalších povinných balíčků,
 druhý ověří vybraný interpreter a SQLite. Ve VS Code/VSCodium/PyCharm
 zvolte stejný Python. Vyžadujeme Python 3.12+, ověřeno 3.14.8/SQLite 3.53.1.
-Server, účet, síť ani grafická plocha nejsou potřeba. V lekcích jsou
+Server, účet ani síť nejsou potřeba. Pro okna 12–14 potřebujete Tk a grafickou plochu. V lekcích jsou
 vysvětlené SQL příkazy, parametry, vlastnictví spojení a commit/rollback.
 Ukázky používají :memory: či TemporaryDirectory. Pro vlastní trvalou evidenci
 uložte pracovní složku a spusťte reseni.py v editoru s vlastní cestou k souboru;
@@ -54,6 +54,24 @@ klub.sqlite3 vedle skriptu, --db CESTA před příkazem zvolí jiný soubor.
 Kategorie/pomucka/pujcit/vratit/prehled/vypujcky jsou vysvětlené v lekci 10.
 Starý sklad z 1–5 se nemigruje, vazby se zapínají před transakcí. Volitelné QR/řeč/PostgreSQL
 patří až k dalším plánovaným tématům a pro tento blok se neinstalují.
+
+Evidence kroužků 11–15 je jeden projekt s možnými řešeními. Pro okna:
+```
+python -m tkinter
+```
+Příkaz otevře zkušební okno, zavřete ho křížkem. Windows: Python s Tcl/Tk;
+Linux: python3-tk pro správný Python; macOS: oficiální Python s Tk.
+Tkinter se neinstaluje přes pip. Vyberte stejnou .venv v editoru i terminálu.
+V uložené složce lekcí 12–14 po dokončení reseni.py:
+```
+python spust_krouzky.py --help
+python spust_krouzky.py
+```
+Help popíše volby, druhý příkaz otevře vlastní prázdnou evidenci s trvalým
+krouzky.sqlite3 vedle spouštěče. --db CESTA zvolí jiný soubor, rodič už musí
+existovat. Běžný reseni.py je paměťová ukázka. V lekci 15 reseni.py spouští
+šest vašich izolovaných testů, spust_krouzky.py otevře hotové GUI z 14.
+Okno se nezobrazuje uvnitř webové stránky, běží na počítači se serverem Pythonu.
 
 Pro Pygame 2 (dostupné všechny lekce 1–30):
 ```

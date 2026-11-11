@@ -1,0 +1,11 @@
+{
+  "title": "Formulář: přidáváme kroužek",
+  "minutes": 60,
+  "kind": "gui",
+  "tags": [
+    "sqlite",
+    "projekt",
+    "tkinter"
+  ],
+  "example_title": "Formulář: přidáváme kroužek"
+}

@@ -1,12 +1,12 @@
 ## Databáze a projekty: od souboru ke klubovní evidenci
 
-**Připraveno prvních 10 z 32 lekcí.** Úvod má obtížnost 2/4, celek 4/4:
+**Připraveno prvních 15 z 32 lekcí.** Úvod má obtížnost 2/4, celek 4/4:
 základní funkce Pythonu stačí pro první SQL, později přibudou vazby, transakce,
 Tkinter a spolupráce součástí. Předpoklady jsou doporučení, nic se nezamyká.
 
 Každá z pěti samostatných lekcí má tři přepínatelné ukázky, pět úkolů
 s vlastním zadáním/šablonou/kontrolou/možným řešením a tři kvízové otázky.
-V prvním bloku je **15 ukázek a 25 úkolů**. Témata 6–9 přidávají tři ukázky/pět úkolů na lekci a projekt 10 jeden souvislý krok. Celkem **28 ukázek a 46 úkolů**. Navazující projekty tvoří souvislé kroky,
+V prvním bloku je **15 ukázek a 25 úkolů**. Témata 6–9 přidávají tři ukázky/pět úkolů na lekci a projekt 10 jeden souvislý krok. První dva bloky mají **28 ukázek a 46 úkolů**. Evidence kroužků 11–15 přidává pět návazných kroků, celkem **33 ukázek a 51 úkolů**. Navazující projekty tvoří souvislé kroky,
 bez nesouvisejících variant, vždy s možným řešením.
 
 ## Prostředí
@@ -48,7 +48,11 @@ a viditelnost změn druhým spojením. Přijetí řešení nezávisí na přesn�
 9. JOIN/LEFT JOIN a vztahy mezi tabulkami.
 10. Souvislý konzolový mini-projekt klubovní evidence.
 
-## Modul 3 — Evidence kroužků s Tkinterem (lekce 11–15, plán)
+## Modul 3 — Evidence kroužků s Tkinterem (lekce 11–15)
+
+**Hotovo: lekce 11–15.** Jeden návazný projekt s řešením každého kroku. Model vlastní SQLite spojení a transakce; GUI předává hodnoty, po chybě zachová vstupy. Výběr používá skutečné id i po mazání. Přihlášky hlídají kapacitu, duplicity, ochranu před smazáním a souhrny včetně prázdných kroužků. Závěr píše šest vlastních unittest případů, které kontrola zkusí i nad porouchanými modely.
+
+Pro okna 12–14 ověřte `python -m tkinter`: potřebujete Tk a místní grafickou plochu. Bez nových pip balíčků. Ukázka používá paměť, uložený `spust_krouzky.py` nový `krouzky.sqlite3` vedle skriptu. --help nevytváří okno ani soubor; --db CESTA mění cestu. V závěru `python reseni.py` spustí izolované testy, spouštěč otevře hotové GUI z 14. Staré soubory jiných projektů se nemigrují.
 
 11. Datová vrstva aplikace a oddělení SQL od widgetů.
 12. Formulář a přidání kroužku.
@@ -88,5 +92,5 @@ a viditelnost změn druhým spojením. Přijetí řešení nezávisí na přesn�
 Pozdější témata zatím nejsou implementovaná. Tkinter vyžaduje místní grafickou
 plochu, offline řeč dostupné systémové hlasy a QR další knihovnu. Volitelné
 PostgreSQL potřebuje vlastní dostupný server a nastavení přístupu.
-Nic z toho se pro prvních deset lekcí neinstaluje ani nespouští.
-Odhad celku 20–30 hodin plus procvičení. Dalším krokem je okenní evidence kroužků 11–15.
+Pro prvních patnáct lekcí se neinstalují pip balíčky; pro okna je potřeba dostupný systémový Tk.
+Odhad celku 20–30 hodin plus procvičení. Dalším krokem je BMI tracker 16–20.

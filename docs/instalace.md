@@ -59,12 +59,12 @@ Matplotlib ověří `python -c "import matplotlib; print(matplotlib.__version__)
 Editor musí mít zvolené stejné prostředí. Všechny úvodní .py soubory běží také
 v terminálu; podpora buněk `# %%` a notebooků závisí na editoru a rozšířeních.
 
-Databáze a projekty mají prvních 10 z 32 lekcí SQLite. Standardní sqlite3
+Databáze a projekty mají prvních 15 z 32 lekcí. Standardní sqlite3
 nepotřebuje pip balíčky, síťový server ani grafickou plochu. Použijte
 `python tools/setup_env.py --courses databaze` a ve všech editorech i terminálu
 vyberte stejnou .venv. Ověřte `python -c "import sys, sqlite3; print(sys.executable); print(sqlite3.sqlite_version)"`.
 Python 3.12+ umožňuje výslovný autocommit; ověřeno 3.14.8/SQLite 3.53.1.
-Kurz má 28 ukázek/46 úkolů s možnými řešeními a vysvětluje SQL,
+Kurz má 33 ukázek/51 úkolů s možnými řešeními a vysvětluje SQL,
 parametry, čtení, close proti commit/rollback a celé transakce.
 Ukázky jsou paměťové či dočasné. Pro trvalou databázi uložte pracovní složku,
 použijte v editoru vlastní cestu a spusťte python reseni.py. Běžné spuštění
@@ -74,6 +74,15 @@ procvičení, konzolový projekt 10 je souvislý. Uložená složka projektu má
 spust_klub.py: --help vypíše možnosti, prehled data. Půjčení a vrácení používají
 id z výstupu. Nový klub.sqlite3 leží vedle skriptu, --db CESTA před příkazem
 vybere jiný soubor. Staré schéma z 1–5 se automaticky nepřevádí.
+Evidence kroužků 11–15 je návazný projekt s modely, formuláři, úpravami,
+přihláškami a vlastními unittest. Okna 12–14 navíc potřebují Tkinter:
+`python -m tkinter` otevře ověřovací okno. Windows: zapnuté Tcl/Tk v instalaci
+Pythonu; Linux: python3-tk odpovídajícího Pythonu; macOS: oficiální Python s Tk.
+Neinstalujte tkinter přes pip. Okno běží na počítači s Pythonem, ne uvnitř webu.
+Uložený `python spust_krouzky.py` používá nový krouzky.sqlite3 vedle skriptu,
+--db CESTA vybere jinou cestu a rodič už musí existovat. --help nic nevytváří.
+Reseni.py v 12–14 je paměťová ukázka, v 15 spouští testy v dočasných složkách;
+spouštěč v 15 používá dokončený model i GUI z 14. Vlastní data se netestují.
 QR, offline řeč a PostgreSQL jsou pozdější volitelné části, zatím nejsou potřeba.
 
 Pygame 2 má připravených všech 30 lekcí: herní objekty, Meteority, Chyť robota,

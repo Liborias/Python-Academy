@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč model nezná Entry?",
+    "options": [
+      "Lze ho použít a testovat bez okna.",
+      "Bez Entry nefunguje SQLite.",
+      "Aby nešel uložit soubor."
+    ],
+    "answer": 0,
+    "why": "Model pracuje s běžnými hodnotami, GUI je pouze předá."
+  },
+  {
+    "q": "Co udělá with con?",
+    "options": [
+      "Zavře celé okno.",
+      "Řeší commit nebo rollback, ne close.",
+      "Vždy zahodí úspěch."
+    ],
+    "answer": 1,
+    "why": "Životnost spojení a hranice transakce jsou odlišné."
+  },
+  {
+    "q": "Jaké kapacity přijímá API?",
+    "options": [
+      "Každý text.",
+      "Také True.",
+      "Kladný přesný int bez bool."
+    ],
+    "answer": 2,
+    "why": "Text z formuláře se převádí před voláním modelu."
+  }
+]
