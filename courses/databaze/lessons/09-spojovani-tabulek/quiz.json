@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co navíc zachová LEFT JOIN proti INNER JOIN?",
+    "options": [
+      "Levé řádky bez shody vpravo.",
+      "Jen duplicitní půjčení.",
+      "Pouze řádky s největším id."
+    ],
+    "answer": 0,
+    "why": "Chybějící pravé sloupce budou NULL."
+  },
+  {
+    "q": "Čím spočítáme pomůcky i u prázdné kategorie?",
+    "options": [
+      "COUNT(*), vždy dá0.",
+      "COUNT(p.id).",
+      "Součtem názvů."
+    ],
+    "answer": 1,
+    "why": "COUNT(*) napočítá i řádek levého spojení bez pomůcky."
+  },
+  {
+    "q": "Jak posoudit pomůcku s aktivním i vráceným půjčením?",
+    "options": [
+      "Je bez aktivního, protože má vrácený řádek.",
+      "Smazat ji.",
+      "Stále má aktivní půjčení."
+    ],
+    "answer": 2,
+    "why": "NOT EXISTS se ptá na nepřítomnost jakéhokoli aktivního záznamu."
+  }
+]

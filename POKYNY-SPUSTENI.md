@@ -34,7 +34,7 @@ python tools/setup_env.py --dry-run
 ```
 Základní podkurz **Základy** žádné balíčky nepotřebuje.
 
-Pro Databáze a projekty (prvních 5 z 32 lekcí SQLite):
+Pro Databáze a projekty (prvních 10 z 32 lekcí SQLite):
 ```
 python tools/setup_env.py --courses databaze
 python -c "import sys, sqlite3; print(sys.executable); print(sqlite3.sqlite_version)"
@@ -46,8 +46,13 @@ Server, účet, síť ani grafická plocha nejsou potřeba. V lekcích jsou
 vysvětlené SQL příkazy, parametry, vlastnictví spojení a commit/rollback.
 Ukázky používají :memory: či TemporaryDirectory. Pro vlastní trvalou evidenci
 uložte pracovní složku a spusťte reseni.py v editoru s vlastní cestou k souboru;
-běžný webový běh je dočasný. Každá z prvních pěti lekcí má tři ukázky,
-pět úkolů s možnými řešeními a NAVOD.md. Volitelné QR/řeč/PostgreSQL
+běžný webový běh je dočasný. Samostatné lekce 1–9 mají tři ukázky,
+pět úkolů s možnými řešeními a NAVOD.md; projekt 10 je jeden celek.
+Po uložení projektu spustí python reseni.py paměťovou ukázku,
+python spust_klub.py --help popíše skutečnou konzoli. Ta používá nový
+klub.sqlite3 vedle skriptu, --db CESTA před příkazem zvolí jiný soubor.
+Kategorie/pomucka/pujcit/vratit/prehled/vypujcky jsou vysvětlené v lekci 10.
+Starý sklad z 1–5 se nemigruje, vazby se zapínají před transakcí. Volitelné QR/řeč/PostgreSQL
 patří až k dalším plánovaným tématům a pro tento blok se neinstalují.
 
 Pro Pygame 2 (dostupné všechny lekce 1–30):

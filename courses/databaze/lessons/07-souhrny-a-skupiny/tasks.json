@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Skupiny podle kategorie"
+  },
+  {
+    "id": "task-3",
+    "title": "COUNT a chybějící hodnoty"
+  },
+  {
+    "id": "task-4",
+    "title": "Skupiny vybrané pomocí HAVING"
+  },
+  {
+    "id": "task-5",
+    "title": "Průměr včetně nulových zásob"
+  }
+]

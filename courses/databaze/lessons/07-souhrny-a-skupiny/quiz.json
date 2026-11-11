@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co počítá COUNT(poznamka)?",
+    "options": [
+      "Hodnoty jiné než NULL, včetně prázdného textu.",
+      "Vždy všechny řádky.",
+      "Jen různé hodnoty."
+    ],
+    "answer": 0,
+    "why": "Počet všech řádků a počet vyplněných hodnot se mohou lišit."
+  },
+  {
+    "q": "Kam patří podmínka na SUM celé skupiny?",
+    "options": [
+      "Do názvu souboru.",
+      "Do HAVING.",
+      "Před INSERT."
+    ],
+    "answer": 1,
+    "why": "WHERE vybírá jednotlivé řádky před seskupením."
+  },
+  {
+    "q": "Jaký je AVG nad prázdnou tabulkou?",
+    "options": [
+      "Vždy0.",
+      "Vždy1.",
+      "NULL, v Pythonu None."
+    ],
+    "answer": 2,
+    "why": "Bez hodnot není průměr definovaný; nulu případně dosadíme vědomě."
+  }
+]

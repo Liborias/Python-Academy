@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co musí tvořit jeden celek při půjčení?",
+    "options": [
+      "Odečet dostupného kusu i vložení výpůjčky.",
+      "Jen vytištění zprávy.",
+      "Změna názvu skriptu."
+    ],
+    "answer": 0,
+    "why": "Jinak by chyba druhého zápisu mohla ztratit kus ze skladu."
+  },
+  {
+    "q": "Proč vracíme podle id výpůjčky?",
+    "options": [
+      "Aby se přidaly všechny kusy.",
+      "Aby se tentýž kus nevracel opakovaně.",
+      "Aby se smazala kategorie."
+    ],
+    "answer": 1,
+    "why": "Již vrácený nebo chybějící záznam vrátí False bez dalšího přičtení."
+  },
+  {
+    "q": "Která část pracuje s trvalým klub.sqlite3?",
+    "options": [
+      "Každá nová dočasná kopie běhu v prohlížeči.",
+      "Pouhý import helperu.",
+      "Uložená konzole spuštěná přes spust_klub.py."
+    ],
+    "answer": 2,
+    "why": "Ukázka tlačítkem v aplikaci je oddělený paměťový pokus."
+  }
+]

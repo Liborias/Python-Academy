@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "INNER JOIN vynechá nezařazenou krabici",
+    "description": "INNER JOIN vynechá nezařazenou krabici.",
+    "code": "# Používáme skutečné SQLite ze standardní knihovny, bez síťového serveru.\nimport sqlite3\nfrom contextlib import closing\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\n\nfrom podklady import priprav_texty, priprav_souhrny, priprav_vazby\nfrom relacni_schema import spojeni_s_vazbami\nfrom relacni_schema import vytvor_relacni_schema\n\ndef pomucky_s_kategorii(con):\n    return con.execute('''\n        SELECT p.id, p.nazev, p.kusy, k.nazev\n        FROM pomucky AS p JOIN kategorie AS k ON p.kategorie_id = k.id\n        ORDER BY p.id\n    ''').fetchall()\n\n# Ukázka se provede jen při spuštění souboru, nikoli při importu.\nif __name__ == '__main__':\n    with closing(spojeni_s_vazbami(':memory:')) as con:\n        with con:\n            priprav_vazby(con)\n            print(pomucky_s_kategorii(con))\n            print('Všechny pomůcky:', con.execute('SELECT COUNT(*) FROM pomucky').fetchone()[0])\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Kategorie má jméno i po přejmenování",
+    "description": "Kategorie má jméno i po přejmenování.",
+    "code": "# Používáme skutečné SQLite ze standardní knihovny, bez síťového serveru.\nimport sqlite3\nfrom contextlib import closing\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\n\nfrom podklady import priprav_texty, priprav_souhrny, priprav_vazby\nfrom relacni_schema import spojeni_s_vazbami\nfrom relacni_schema import vytvor_relacni_schema\n\ndef pomucky_s_kategorii(con):\n    return con.execute('''\n        SELECT p.id, p.nazev, p.kusy, k.nazev\n        FROM pomucky AS p JOIN kategorie AS k ON p.kategorie_id = k.id\n        ORDER BY p.id\n    ''').fetchall()\n\n# Ukázka se provede jen při spuštění souboru, nikoli při importu.\nif __name__ == '__main__':\n    with closing(spojeni_s_vazbami(':memory:')) as con:\n        with con:\n            priprav_vazby(con)\n            con.execute('UPDATE kategorie SET nazev=? WHERE id=?', ('Nové hry',2))\n            print(pomucky_s_kategorii(con))\n"
+  }
+]

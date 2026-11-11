@@ -1,12 +1,12 @@
 ## Databáze a projekty: od souboru ke klubovní evidenci
 
-**Připraveno prvních 5 z 32 lekcí.** Úvod má obtížnost 2/4, celek 4/4:
+**Připraveno prvních 10 z 32 lekcí.** Úvod má obtížnost 2/4, celek 4/4:
 základní funkce Pythonu stačí pro první SQL, později přibudou vazby, transakce,
 Tkinter a spolupráce součástí. Předpoklady jsou doporučení, nic se nezamyká.
 
 Každá z pěti samostatných lekcí má tři přepínatelné ukázky, pět úkolů
 s vlastním zadáním/šablonou/kontrolou/možným řešením a tři kvízové otázky.
-Celkem **15 ukázek a 25 úkolů**. Navazující projekty budou souvislé kroky,
+V prvním bloku je **15 ukázek a 25 úkolů**. Témata 6–9 přidávají tři ukázky/pět úkolů na lekci a projekt 10 jeden souvislý krok. Celkem **28 ukázek a 46 úkolů**. Navazující projekty tvoří souvislé kroky,
 bez nesouvisejících variant, vždy s možným řešením.
 
 ## Prostředí
@@ -38,7 +38,9 @@ Hodnoty jsou oddělené od textu SQL, i apostrofy a čeština zůstanou zachovan
 Kontrola používá skutečný SQLite stroj a ověří i návrat neúspěšné transakce
 a viditelnost změn druhým spojením. Přijetí řešení nezávisí na přesném zápisu SQL.
 
-## Modul 2 — Dotazy a vztahy (lekce 6–10, plán)
+## Modul 2 — Dotazy a vztahy (lekce 6–10)
+
+**Hotovo: lekce 6–10.** NULL/COALESCE, doslovné hledání proti LIKE a skutečné typové afinity; souhrny/COUNT/AVG/GROUP BY/HAVING; cizí klíče zapnuté před transakcí a SET NULL/RESTRICT; INNER/LEFT JOIN, prázdné kategorie a aktivní historie. Závěrečná Evidence vlastní celé transakce půjčení/vrácení i spojení. Ukázka běží v paměti, spust_klub.py z uložené složky pracuje s klub.sqlite3 a poskytuje skutečné CLI příkazy. Staré schéma z 1–5 se nemigruje. Každý úkol má možné řešení, projekt je jeden celek.
 
 6. NULL, typové afinity, porovnávání a textové filtry.
 7. Souhrny COUNT/SUM, GROUP BY a HAVING.
@@ -86,5 +88,5 @@ a viditelnost změn druhým spojením. Přijetí řešení nezávisí na přesn�
 Pozdější témata zatím nejsou implementovaná. Tkinter vyžaduje místní grafickou
 plochu, offline řeč dostupné systémové hlasy a QR další knihovnu. Volitelné
 PostgreSQL potřebuje vlastní dostupný server a nastavení přístupu.
-Nic z toho se pro prvních pět lekcí neinstaluje ani nespouští.
-Odhad celku 20–30 hodin plus procvičení. Dalším krokem je modul 6–10.
+Nic z toho se pro prvních deset lekcí neinstaluje ani nespouští.
+Odhad celku 20–30 hodin plus procvičení. Dalším krokem je okenní evidence kroužků 11–15.

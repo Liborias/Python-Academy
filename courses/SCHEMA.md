@@ -946,3 +946,69 @@ reload/splnění a mobil 380/320. Exportovaný studentský kód skutečně ulož
 nový proces je znovu přečte. Zachovává se starší rozepsaná Kurýrská směna.
 Regrese pokrývá řešení 205 ostatních lekcí a přípravu všech 10 kurzů/3 editorů/
 3 systémů. Serverové API, JS, CSS a časové limity se nemění.
+
+## Databáze a projekty, dotazy/vazby/konzole 6–10 (od v0.75)
+
+M02 přidává NULL/afinity/text, agregace/skupiny, cizí klíče, JOIN a konzolovou
+Evidence. Kurz draft 10/32, celkem 28 ukázek/46 úkolů. Lekce 6–9 po třech
+ukázkách a pěti úkolech se samostatným zadáním/šablonou/checkem/řešením;
+10 souvislý projekt s jedním řešením. Všude tři kvízy, console, limit 20 s.
+SQLite ze standardní knihovny, bez nových balíčků/GUI/sítě; Python 3.12+
+kvůli autocommit, ověřeno 3.14.8/SQLite 3.53.1. Starší ID/postup zůstávají.
+
+NULL/None se odlišuje od prázdného textu a řetězce 'NULL'. COALESCE nahradí
+jen NULL, instr hledá doslovně s rozlišením velikosti včetně %/_, LIKE je vzor
+s výchozím skládáním ASCII velikosti, nikoli českých písmen. Skutečný typeof
+porovnává sloupec bez typu a INTEGER afinitu včetně numerického textu,
+float, None/blob/bool. Zkus_typy vlastní a zavírá paměťové spojení.
+Agregace rozlišují COUNT(*)/COUNT(sloupec)/DISTINCT, nulu od NULL,
+prázdnou tabulku, NULL skupinu, AVG s nulami a HAVING včetně rovnosti hranice.
+
+Funkce 6–9 s předaným con nezavírají spojení ani neukončují cizí transakci.
+Spojeni_s_vazbami vrací vlastní živé spojení volajícímu: nejprve autocommit=True,
+PRAGMA foreign_keys=ON a ověření (1,), pak False. Při selhání close/reraise.
+Nové relační schéma: kategorie(id,nazev UNIQUE NOT NULL), pomucky
+(id,nazev UNIQUE NOT NULL,kusy NOT NULL,kategorie_id nullable FK SET NULL)
+a vypujcky(id,pomucka_id NOT NULL FK RESTRICT,clen NOT NULL,vraceno NOT NULL
+DEFAULT 0 CHECK 0/1). Kusy jsou dostupný počet s CHECK typeof integer a >=0.
+Afinita smí převést celý float/numerický text; přesný Python int bez bool
+je až pravidlo modelu. Kategorie smí zaniknout bez pomůcek, historii nelze
+odmazat přes pomůcku ani po vrácení. IF NOT EXISTS je idempotence, ne migrace.
+
+INNER/LEFT JOIN mají výslovné pořadí. Prázdná kategorie má počet/součet 0:
+COUNT(p.id), nikoli COUNT(*) po LEFT JOIN. NOT EXISTS vyloučí pomůcku
+s aktivní i vrácenou výpůjčkou; výpis člena ponechá jednotlivá id opakovaných
+půjčení, hodnoty jsou bind parametry. Helpery schema.py odpovídají přesně
+lekci 5; relacni_schema.py/operace.py/dotazy.py přebírají AST řešení 8–9.
+Tvůrce spojení a schématu nepřikládá vlastní odpověď v pomocném souboru.
+
+Evidence(cesta) vlastní spojení/transakce, strip názvy a přesný nezáporný int,
+podmíněný odečet + INSERT při půjčení a přírůstek + označení při vrácení.
+Chyba druhého zápisu vrátí první, druhé vrácení je False. Čtení může ukončit
+vlastní transakci; model není určen k vložení cizí napůl hotové práce do con.
+Close opakovatelný, další operace neotevírá spojení znovu. Příprava ověří
+požadované sloupce, staré nekompatibilní schéma odmítne bez trvalých změn;
+nejde o automatickou migraci ani komplexní audit libovolné cizí databáze.
+
+Hlavní blok modelu běží jako deterministická paměťová ukázka. Uložený
+spust_klub.py importuje studentovu Evidence z reseni.py a volá konzole.main;
+podpůrné soubory model nenahrazují. CLI má --help a --db CESTA před příkazem,
+kategorie/pomucka/prehled/pujcit/vypujcky/vratit. Výchozí klub.sqlite3 je vedle
+skriptu, rodičovská složka musí existovat. Bez příkazu přehled, --help bez
+vytvoření databáze, chyby kód 2. Dokumentace vysvětluje příkazy a skutečná ID.
+Webový běh je dočasný; trvalá konzole až v uložené složce. Import neotevírá DB.
+Každý úkol má NAVOD.md. Automatický retry/souběžný server se nezavádí.
+
+SQLite_vazby používá skutečný engine s měřicími Connection/Cursor ze sqlite_intro,
+nezávislé výsledky, kontrolu bind parametrů, rollback cizí práce a prázdné sady.
+Zkouší dvě Unicode velikosti, opakovaný počet uvnitř skupiny, SET NULL/RESTRICT,
+smíšenou historii, opakované půjčení, druhý proces, chyby druhého zápisu přes
+SQL triggery a zachování starého souboru. Devět nových unit skupin ověřuje
+46 chybných variant/21 správných alternativ, AST helperů a 34 samostatných běhů
+(21 řešení +8 dalších ukázek +5 úryvků). Samostatné procesy ověřují reálné CLI,
+trvalá data, --help, kódy chyb a volbu cesty. 21 šablon odmítnuto/vzorů přijato.
+Chromium ověřuje 13 ukázek/21 úkolů, skutečné běhy/checky/řešení, workspace,
+konzoli, reload a mobil 380/320. Starší rozepsaná lekce 5 i postup zachovány.
+Regrese prvních 15/25 a řešení dalších 210 lekcí. API/JS/CSS a limity beze změny.
+Celková unittest sada 371 testů OK bez přeskočených na Pythonu 3.14.8/Linux,
+1033 s, včetně validace všech 265 lekcí.

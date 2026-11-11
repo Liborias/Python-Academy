@@ -111,7 +111,7 @@
         "tkinter-api"
       ],
       "status": "draft",
-      "summary": "Prvních 5 z 32 lekcí: SQLite spojení, tabulky, parametrizované změny, čtení a transakce. Tři ukázky a pět úkolů s možnými řešeními v každé lekci; úvod bez dalších balíčků.",
+      "summary": "Prvních 10 z 32 lekcí: SQLite, dotazy a souhrny, cizí klíče a JOIN. Konzolová klubovní evidence s půjčováním a vracením; všechny úkoly mají možná řešení.",
       "planned_lessons": 32
     }
   ]

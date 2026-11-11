@@ -2,7 +2,7 @@
 
 Plán: PLAN.md. Nový rozhovor začněte slovem „pokračuj“, přečtu tento soubor.
 
-Nejnovější stav: v0.74 na konci tohoto souboru, nový úvod SQLite v Databázích (5/32). Pygame 2 má všech 30 lekcí a Datová analýza všech 42; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
+Nejnovější stav: v0.75 na konci tohoto souboru, SQLite v Databázích včetně vazeb a klubovní konzole (10/32). Pygame 2 má všech 30 lekcí a Datová analýza všech 42; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
 
 ## Rozhodnutí
 - Stažitelná složka, spouští se `python start.py` (potvrzeno implicitně, uživatel řekl „pokračuj“).
@@ -925,3 +925,52 @@ Revizi provedl samostatný agent bez znalosti mých závěrů (23 nálezů). Opr
 - Další krok na další pokyn: Databáze 6–10 — NULL/afinity/text, souhrny,
   cizí klíče, JOIN a konzolová evidence. Samostatná témata mají více ukázek/
   úkolů s možnými řešeními, návazný projekt 10 zůstane souvislý.
+
+## v0.75 (11. 11. 2026): Databáze, vazby a klubovní konzole 6–10
+
+- Dokončen m02: NULL/afinity/textové filtry, agregace/GROUP BY/HAVING,
+  cizí klíče/SET NULL/RESTRICT, JOIN/LEFT JOIN a klubovní Evidence.
+  Lekce 6–9 po třech ukázkách/pěti úkolech s možnými řešeními, 10 jeden
+  souvislý projekt s řešením. Všude tři kvízy. Nově 13/21, kurz celkem
+  28 ukázek/46 úkolů, draft 10/32, úvod 2/4 a celek 4/4.
+  Globálně 250 hlavních + 360 dalších řešení = 610, doplňkových ukázek 180;
+  265 lekcí včetně 15 průvodců. Starší ID, postup a rozepsaná práce zachovány.
+- Standardní sqlite3/Python 3.12+, ověřeno Python 3.14.8/SQLite 3.53.1,
+  bez nových instalací. Vše console s běžným limitem 20 s. Příprava pro
+  VS Code/VSCodium/PyCharm obsahuje nový blok a vysvětlení trvalých dat.
+- NULL není prázdný text, COALESCE mění jen chybějící hodnotu; doslovné
+  instr proti LIKE %/_, základní ASCII proti českým písmenům. Skutečná afinita
+  a typeof, prázdné souhrny, NULL skupina a COUNT sloupce proti COUNT(*).
+  Předané spojení a transakci 6–9 vlastní volající. Foreign keys se zapínají
+  před transakcí; kategorie se ruší SET NULL, historie chrání pomůcku
+  RESTRICT. JOIN počítá p.id, NOT EXISTS řeší i smíšenou historii.
+- Evidence vlastní spojení i celé operace: strip názvy, přesný int bez bool,
+  půjčení/vrácení atomicky, druhé vrácení False. Staré schéma nemigruje,
+  odmítnutí vrátí přípravu a zachová starý obsah. Návazné helpery mají přesné
+  AST předchozích řešení; úkol nepřikládá vlastní odpověď jako pomocník.
+- Spustit v aplikaci provede paměťovou ukázku. Uložený spust_klub.py
+  importuje studentovu Evidence; skutečné příkazy kategorie/pomucka/prehled/
+  pujcit/vypujcky/vratit zapisují klub.sqlite3 vedle skriptu. --db CESTA před
+  příkazem mění cestu, rodič musí existovat. --help soubor nevytváří, chyby
+  vrací kód 2. Použít skutečná ID z výpisů. Běžný webový běh je dočasný.
+  Každý úkol má NAVOD.md. Bez serverové souběžnosti či retry SQLITE_BUSY.
+- 21 vzorů přijato/21 šablon odmítnuto. Devět nových unit skupin OK:
+  46 chybných variant odmítnuto, 21 jiných správných zápisů přijato,
+  34 samostatných běhů, AST helperů, skutečné SQL chyby druhého zápisu
+  s rollback, reopen/soubory/staré schéma. Uložená konzole v oddělených
+  procesech včetně chyb, --help a jiné cesty. Validátor 10 lekcí bez chyb
+  a upozornění.
+- Kompletní unittest sada Python 3.14.8/Linux: **371 testů OK bez přeskočených,
+  1033 s** včetně validace všech 265 lekcí. Místní HTTP/SMTP povolené,
+  starší ResourceWarning z procesů/souborů nejsou selhání. Po závěrečné textové
+  změně přípravy také její čtyři cílené testy OK. Limity studentů beze změny.
+- Chromium e2e_sqlite_vazby OK: 13/21, skutečné běhy/kontroly/řešení,
+  workspace/helpery/konzole, reload/splnění a mobil 380/320. Zachována
+  rozepsaná lekce 5 i její postup. Regrese prvního bloku 15/25 a řešení
+  dalších 210 praktických lekcí prošly. Mobilní řešení/výstup prohlédnuty;
+  nativní editory/Windows/macOS se tím netestují. Logy a snímky mimo repo
+  v /workspace/scratch/sqlite-relations-work.
+- Aktualizované katalog/kurz/plány/příprava/dokumentace/počty. API/JS/CSS
+  a limity beze změny. Dodávka commit/push do main bez ZIPů/cloud publikace.
+- Další krok na další pokyn: Databáze 11–15, Tkinter evidence kroužků.
+  Jeden návazný projekt s řešeními, další příklady tam, kde dávají smysl.

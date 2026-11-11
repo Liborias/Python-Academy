@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Dvě vlastní spojení mají vazby zapnuté",
+    "description": "Dvě vlastní spojení mají vazby zapnuté.",
+    "code": "# Používáme skutečné SQLite ze standardní knihovny, bez síťového serveru.\nimport sqlite3\nfrom contextlib import closing\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\n\n\ndef spojeni_s_vazbami(cesta):\n    con = sqlite3.connect(cesta, autocommit=True)\n    try:\n        con.execute('PRAGMA foreign_keys = ON')\n        if con.execute('PRAGMA foreign_keys').fetchone()[0] != 1:\n            raise RuntimeError('Cizí klíče se nepodařilo zapnout.')\n        con.autocommit = False\n        return con\n    except Exception:\n        con.close()\n        raise\n\n# Ukázka se provede jen při spuštění souboru, nikoli při importu.\nif __name__ == '__main__':\n    with closing(spojeni_s_vazbami(':memory:')) as a, closing(spojeni_s_vazbami(':memory:')) as b:\n        print(a.execute('PRAGMA foreign_keys').fetchone()[0], b.execute('PRAGMA foreign_keys').fetchone()[0])\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Souborové spojení se stejnými pravidly",
+    "description": "Souborové spojení se stejnými pravidly.",
+    "code": "# Používáme skutečné SQLite ze standardní knihovny, bez síťového serveru.\nimport sqlite3\nfrom contextlib import closing\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\n\n\ndef spojeni_s_vazbami(cesta):\n    con = sqlite3.connect(cesta, autocommit=True)\n    try:\n        con.execute('PRAGMA foreign_keys = ON')\n        if con.execute('PRAGMA foreign_keys').fetchone()[0] != 1:\n            raise RuntimeError('Cizí klíče se nepodařilo zapnout.')\n        con.autocommit = False\n        return con\n    except Exception:\n        con.close()\n        raise\n\n# Ukázka se provede jen při spuštění souboru, nikoli při importu.\nif __name__ == '__main__':\n    with TemporaryDirectory() as adresar:\n        with closing(spojeni_s_vazbami(Path(adresar) / 'klub.sqlite3')) as con:\n            print('Vazby:', con.execute('PRAGMA foreign_keys').fetchone()[0])\n"
+  }
+]

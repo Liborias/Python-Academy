@@ -13,15 +13,26 @@
         "04-vyber-a-razeni-dat",
         "05-transakce-a-vraceni-zmen"
       ]
+    },
+    {
+      "id": "m02",
+      "title": "Dotazy, vztahy a klubovní evidence",
+      "lessons": [
+        "06-null-typy-a-textove-filtry",
+        "07-souhrny-a-skupiny",
+        "08-cizi-klice-a-vazby",
+        "09-spojovani-tabulek",
+        "10-projekt-klubovni-evidence"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od SQLite ke klubovním projektům",
     "status": "draft",
     "level": 4,
-    "summary": "Prvních 5 z 32 lekcí: spojení a soubor, pravidla tabulek, parametrizované změny, čtení a transakce. Tři ukázky a pět úkolů s možnými řešeními v každé lekci.",
+    "summary": "Prvních 10 z 32 lekcí: základy SQLite, NULL/typy, souhrny, cizí klíče a JOIN. Konzolová klubovní evidence propojí pomůcky a výpůjčky; všechna zadání mají možná řešení.",
     "placement": "Základy Pythonu pro úvod; práce se soubory a později Tkinter pro navazující projekty. Nic se nezamyká.",
     "difficulty_reason": "Úvod 2/4, celek 4/4: SQL, vlastnictví spojení, transakce, vazby a spolupráce databáze s aplikací.",
-    "duration": "Plán 32 lekcí, prvních 5 dostupných. Odhad celku 20–30 hodin plus vlastní úpravy."
+    "duration": "Plán 32 lekcí, prvních 10 dostupných. Odhad celku 20–30 hodin plus vlastní úpravy."
   }
 }

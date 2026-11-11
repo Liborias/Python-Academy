@@ -1,0 +1,11 @@
+{
+  "title": "Cizí klíče na každém spojení",
+  "minutes": 65,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "sql",
+    "vazby"
+  ],
+  "example_title": "Cizí klíče na každém spojení"
+}

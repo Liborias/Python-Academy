@@ -1,0 +1,11 @@
+{
+  "title": "NULL, prázdný text a chybějící poznámka",
+  "minutes": 50,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "sql",
+    "vazby"
+  ],
+  "example_title": "NULL, prázdný text a chybějící poznámka"
+}

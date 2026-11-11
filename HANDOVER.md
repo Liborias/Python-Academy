@@ -1,5 +1,111 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.75 (11. 11. 2026): Databáze a projekty, SQLite 6–10
+
+Dokončen m02 podle plánu: NULL/typové afinity/textové filtry, souhrny,
+cizí klíče, spojování tabulek a souvislý projekt klubovní evidence.
+Lekce 6–9 mají každá tři přepínatelné ukázky, pět samostatných úkolů
+se zadáním/šablonou/kontrolou/možným řešením a tři kvízy. Lekce 10 je jeden
+navazující projekt s řešením a třemi kvízy. Nově 13 ukázek/21 úkolů,
+kurz celkem 28/46, draft 10/32. Obtížnost úvodu 2/4, celku 4/4.
+Globálně 250 hlavních + 360 dalších řešení = 610, doplňkových ukázek 180;
+265 lekcí včetně 15 průvodců. Starší ID, postup i rozepsaná práce zachovány.
+
+Nové ID:
+- 06-null-typy-a-textove-filtry
+- 07-souhrny-a-skupiny
+- 08-cizi-klice-a-vazby
+- 09-spojovani-tabulek
+- 10-projekt-klubovni-evidence
+
+Všechny kind console, běžný limit 20 s. Standardní sqlite3, Python 3.12+
+kvůli výslovnému autocommit, ověřeno Python 3.14.8/SQLite 3.53.1.
+Žádné nové balíčky ani účty/server/síť/grafická plocha; příprava všech editorů
+aktualizována pro 10 lekcí. Tkinter/QR/offline řeč/PostgreSQL zůstávají plán.
+
+Lekce 6 odlišuje NULL/None od prázdného textu a řetězce 'NULL', COALESCE
+neničí prázdné hodnoty. Doslovné instr hledání rozlišuje velikost a zachovává
+%/_, LIKE je vykládá jako vzor; základní SQLite skládá velikost ASCII,
+nikoli českých písmen. Zkus_typy měří skutečný typeof bez typu proti INTEGER,
+včetně číselného textu, celého float, None, blob a generátoru vstupu.
+
+Lekce 7 má agregace/prázdnou tabulku, NULL skupinu, COUNT(*) proti COUNT(sloupec)
+a DISTINCT, HAVING včetně rovnosti hranice a AVG zahrnující nuly.
+Funkce s předaným con v 6–9 nezavírají spojení ani neukončují cizí transakci.
+Výjimky jsou zkus_typy (vlastní paměťové spojení zavře) a spojeni_s_vazbami
+(vrátí živé spojení, které vlastní volající).
+
+Cizí klíče se zapnou a ověří při autocommit=True před přepnutím na False.
+Selhání nastavení zavře spojení. Relační schéma má kategorie, pomucky
+s kategorie_id a vypujcky s pomucka_id; odstranění kategorie SET NULL,
+historie chrání pomůcku RESTRICT i po vrácení. Kusy jsou aktuálně dostupné
+množství, uložený typ integer s nezáporným CHECK. Afinita může převést
+číselný text či celý float; přesný Python int bez bool požaduje až API modelu.
+Schéma se opakuje bez mazání řádků a nepotvrzuje transakci volajícího.
+
+JOIN/LEFT JOIN mají výslovné pořadí, prázdná kategorie počet/součet 0,
+po LEFT JOIN se počítá p.id, nikoli COUNT(*). NOT EXISTS odliší souběžnou
+aktivní i vrácenou výpůjčku; výpis člena ponechá jednotlivá id opakovaných
+půjčení stejné pomůcky a používá parametr. Helpery relacni_schema/operace/
+dotazy mají přesné AST dřívějších řešení. Úkol nemá vlastní odpověď
+v přiloženém pomocném souboru.
+
+Evidence(cesta) vlastní spojení i celé transakce včetně krátkých čtení.
+Validuje neprázdné strip názvy a přesný nezáporný int, půjčení podmíněně
+odečte kus a vloží výpůjčku atomicky. Vrácení přičte kus nejvýše jednou.
+Chyba druhého zápisu vrátí první, historie zůstává. Close lze opakovat,
+metoda po close spojení neobnovuje. Staré schéma z 1–5 není migrované:
+kontrola sloupců odmítne nekompatibilní soubor, příprava se vrátí a zavře.
+Nejde o víceuživatelský server, automatický retry SQLITE_BUSY nepřidáván.
+
+Spustit v aplikaci provede pouze krátkou paměťovou ukázku. Pro trvalá data
+uložit pracovní složku a po dokončení Evidence spustit v jejím terminálu:
+
+```powershell
+python spust_klub.py --help
+python spust_klub.py kategorie "Sport"
+python spust_klub.py pomucka "Míč" 2 --kategorie 1
+python spust_klub.py prehled
+python spust_klub.py pujcit 1 "Žofie"
+python spust_klub.py vypujcky
+python spust_klub.py vratit 1
+```
+
+ID jsou příklad: použít skutečný výstup. Spouštěč importuje studentovu
+Evidence z reseni.py; konzole nepoužívá skrytý hotový model. Výchozí
+klub.sqlite3 leží vedle spouštěče i při jiném cwd. --db CESTA před příkazem
+zvolí jiný soubor, rodičovská složka musí existovat. --help soubor nevytváří,
+bez příkazu je přehled, chyba argumentu/dat vrací kód 2. Běžný webový běh
+je dočasný. Import modelu/helperů nevytváří databázi. Každý úkol má NAVOD.md.
+
+Ověření: 21 řešení přijato/21 šablon odmítnuto. Devět skupin nových unit
+testů odmítlo 46 chybných variant a přijalo 21 jiných správných zápisů.
+34 samostatných běhů (21 řešení, 8 dalších ukázek, 5 výukových úryvků),
+AST shody helperů, skutečné SQL triggery vyvolávající rollback, druhé
+spojení/reopen a nepoškozený starý soubor. Uložená konzole otestována
+samostatnými procesy včetně --help, chyb, alternativní cesty a návratů.
+Validátor 10 lekcí bez chyb/upozornění.
+Celková unittest sada na Pythonu 3.14.8/Linux: **371 testů OK bez přeskočených,
+1033 s**, včetně validace všech 265 lekcí. Místní HTTP/SMTP testovací servery
+byly povolené; starší ResourceWarning z procesů/souborů nejsou selhání testů.
+Po konečné textové úpravě přípravy prošly i její čtyři cílené testy.
+
+Chromium e2e_sqlite_vazby prošel: 13 ukázek/21 úkolů, kontroly, skutečné běhy,
+lazy řešení bez změny kódu/postupu, workspace/helpery/konzole, reload a mobil
+380/320. Zachována rozepsaná lekce 5 i splnění. Prošla regrese prvního bloku
+15/25 a zobrazení řešení dalších 210 praktických lekcí. Mobilní řešení
+a výstup projektu prohlédnuty. Nativní editory/Windows/macOS tím netestovány.
+Logy/snímky mimo repo v /workspace/scratch/sqlite-relations-work.
+
+Aktualizovány katalog/kurz/plán, příprava, dokumentace a počty testů.
+Serverové API, JS/CSS a limity se nemění. Dodávka commit/push do main,
+bez ZIPů a publikace cloudového prostředí.
+
+Další krok na další pokyn: **Databáze 11–15, Tkinter evidence kroužků** podle
+plánu. Jeden souvislý projekt s možnými řešeními, více variant pouze u témat,
+kde nejsou v rozporu s návazností. Počítat s místním grafickým prostředím;
+tato konzolová dodávka žádné nativní GUI netestuje. Historie níže není zadání.
+
 ## Aktuální v0.74 (11. 11. 2026): Databáze a projekty, SQLite 1–5
 
 Na pokyn „pokračuj“ zahájen další plánovaný kurz Databáze a projekty. Hotov m01:

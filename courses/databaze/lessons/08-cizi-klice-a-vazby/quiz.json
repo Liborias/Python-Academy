@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kdy zapneme foreign_keys?",
+    "options": [
+      "Na každém novém spojení před otevřením transakce.",
+      "Jen při pojmenování souboru.",
+      "Uvnitř již aktivní transakce."
+    ],
+    "answer": 0,
+    "why": "Zapnutí uvnitř transakce se neuplatní."
+  },
+  {
+    "q": "Co udělá ON DELETE SET NULL s pomůckou?",
+    "options": [
+      "Smaže historii půjčení.",
+      "Zachová pomůcku a zruší její zařazení.",
+      "Přejmenuje kategorii."
+    ],
+    "answer": 1,
+    "why": "Odkaz na kategorii je volitelný."
+  },
+  {
+    "q": "Chrání RESTRICT i vrácenou historii?",
+    "options": [
+      "Ne, jen aktivní půjčení.",
+      "Jen v paměti.",
+      "Ano, pokud řádek stále odkazuje na pomůcku."
+    ],
+    "answer": 2,
+    "why": "Rozhoduje existující odkaz, ne stav vraceno."
+  }
+]

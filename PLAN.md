@@ -126,17 +126,18 @@ obsahové korektury celého kurzu a připomínky studentů; stav draft zůstáv�
 Tkinter základy (okno, Label, Button, Entry, `pack`, `grid`, `place`, `ttk`) · Převodník měn · Úkolníček (Listbox, Scrollbar, ukládání do JSON) · API (REST, stavové kódy, chyby, `requests`) · Převodník měn 2.0 · E-maily přes lokální testovací server, Gmail volitelně · Balení do spustitelného souboru (PyInstaller, ověřit podporu Pythonu 3.14/3.15).
 
 ### E. Databáze a projekty (32 lekcí)
-**Stav v0.74: prvních 5 z 32 lekcí připravených.** Úvod SQLite učí spojení
-s pamětí/souborem, typy a omezení tabulek, parametrizované změny, čtení/řazení
-včetně Row a stránkování, transakce a rollback při neúspěšné dávce/přesunu.
-Každá lekce má tři ukázky/pět úkolů s možnými řešeními a tři kvízové otázky,
-celkem 15/25. Úvod 2/4, celek 4/4. Standardní sqlite3, bez povinných balíčků,
-serveru či grafické plochy. Python 3.12+, ověřeno Python 3.14.8/SQLite 3.53.1.
-Příprava všech editorů, vysvětlené příkazy a hranice vlastnictví spojení.
-Paměťové/dočasné pokusy neřeší trvalou evidenci; pro ni uložit pracovní složku
-a použít vlastní cestu v editoru. Další modul 6–10: NULL/afinity/text, souhrny,
-cizí klíče, JOIN a souvislá konzolová evidence. Úplný plán v panelu kurzu
-a courses/databaze/plan.md; budoucí témata zatím nejsou implementovaná.
+**Stav v0.75: prvních 10 z 32 lekcí připravených.** Úvod 1–5 pokrývá spojení,
+schéma/omezení, parametrizované změny, výběr a transakce. Hotov další modul 6–10:
+NULL/typové afinity/textové filtry, souhrny GROUP BY/HAVING, cizí klíče
+s aktivací před transakcí a SET NULL/RESTRICT, INNER/LEFT JOIN a konzolová
+klubovní evidence s atomickým půjčením/vrácením. Témata 1–9 mají tři ukázky/pět
+úkolů s řešeními, projekt 10 jeden souvislý krok. Celkem 28 ukázek/46 úkolů.
+Úvod 2/4, celek 4/4. Standardní sqlite3, Python 3.12+, ověřeno 3.14.8/SQLite 3.53.1,
+bez nových balíčků/serveru/grafiky. Příprava všech editorů a vysvětlení příkazů.
+Ukázky jsou paměťové, uložená konzole spust_klub.py používá nový klub.sqlite3.
+Staré schéma nemigruje. Další modul 11–15: datová vrstva a Tkinter formuláře,
+výběr/úpravy/mazání, přihlášky s vazbami a dokončení evidence kroužků.
+Celý plán v courses/databaze/plan.md; budoucí témata zatím nejsou hotová.
 
 SQL základy (SQLite) · CRUD z Pythonu · **parametrizované dotazy a SQL injection** · venv a Git (editor má podporu Gitu, samostatný Git musí být nainstalovaný) · Tkinter a databáze (evidence kroužků místo učitelů) · BMI tracker · registrace a přihlášení (scrypt) · text na řeč (offline) · komprese souborů (`zlib`, `base64`) · kontrolní číslice (Luhn na zkušebních číslech) · generátor QR kódů · volitelně PostgreSQL + psycopg 3 + connection pool.
 

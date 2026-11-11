@@ -100,7 +100,7 @@ class SQLiteIntroTest(unittest.TestCase):
 
     def test_scope_solutions_and_prepared_schema(self):
         course=json.loads((BASE.parent/'course.json').read_text())
-        self.assertEqual([lid for m in course['modules'] for lid in m['lessons']],IDS)
+        self.assertEqual(next(m for m in course['modules'] if m['id']=='m01')['lessons'],IDS)
         self.assertEqual(course['requires_packages'],[])
         definitions={}
         for task in range(4):

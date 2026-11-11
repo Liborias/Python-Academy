@@ -59,16 +59,21 @@ Matplotlib ověří `python -c "import matplotlib; print(matplotlib.__version__)
 Editor musí mít zvolené stejné prostředí. Všechny úvodní .py soubory běží také
 v terminálu; podpora buněk `# %%` a notebooků závisí na editoru a rozšířeních.
 
-Databáze a projekty mají prvních 5 z 32 lekcí SQLite. Standardní sqlite3
+Databáze a projekty mají prvních 10 z 32 lekcí SQLite. Standardní sqlite3
 nepotřebuje pip balíčky, síťový server ani grafickou plochu. Použijte
 `python tools/setup_env.py --courses databaze` a ve všech editorech i terminálu
 vyberte stejnou .venv. Ověřte `python -c "import sys, sqlite3; print(sys.executable); print(sqlite3.sqlite_version)"`.
 Python 3.12+ umožňuje výslovný autocommit; ověřeno 3.14.8/SQLite 3.53.1.
-První blok má 15 ukázek/25 úkolů s možnými řešeními a vysvětluje SQL,
+Kurz má 28 ukázek/46 úkolů s možnými řešeními a vysvětluje SQL,
 parametry, čtení, close proti commit/rollback a celé transakce.
 Ukázky jsou paměťové či dočasné. Pro trvalou databázi uložte pracovní složku,
 použijte v editoru vlastní cestu a spusťte python reseni.py. Běžné spuštění
 v prohlížeči je dočasné. NAVOD.md je součástí pracovních souborů.
+Nově NULL/afinity, souhrny, vazby a JOIN; samostatné lekce 1–9 mají více
+procvičení, konzolový projekt 10 je souvislý. Uložená složka projektu má
+spust_klub.py: --help vypíše možnosti, prehled data. Půjčení a vrácení používají
+id z výstupu. Nový klub.sqlite3 leží vedle skriptu, --db CESTA před příkazem
+vybere jiný soubor. Staré schéma z 1–5 se automaticky nepřevádí.
 QR, offline řeč a PostgreSQL jsou pozdější volitelné části, zatím nejsou potřeba.
 
 Pygame 2 má připravených všech 30 lekcí: herní objekty, Meteority, Chyť robota,

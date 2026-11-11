@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Relační schéma klubovního skladu"
+  },
+  {
+    "id": "task-3",
+    "title": "Pomůcka s volitelnou kategorií"
+  },
+  {
+    "id": "task-4",
+    "title": "Přesun pomůcky mezi kategoriemi"
+  },
+  {
+    "id": "task-5",
+    "title": "Smazání kategorie zachová pomůcky"
+  }
+]

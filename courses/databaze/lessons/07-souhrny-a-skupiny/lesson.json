@@ -1,0 +1,11 @@
+{
+  "title": "Souhrn celého skladu",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "sql",
+    "vazby"
+  ],
+  "example_title": "Souhrn celého skladu"
+}

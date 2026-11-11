@@ -1,0 +1,16 @@
+# Používáme skutečné SQLite ze standardní knihovny, bez síťového serveru.
+import sqlite3
+from contextlib import closing
+from pathlib import Path
+from tempfile import TemporaryDirectory
+
+from podklady import priprav_texty, priprav_souhrny, priprav_vazby
+
+def podle_vzoru(con, vzor):
+    return con.execute('SELECT id, nazev, kusy FROM pomucky WHERE nazev LIKE ? ORDER BY id', (vzor,)).fetchall()
+
+# Ukázka se provede jen při spuštění souboru, nikoli při importu.
+if __name__ == '__main__':
+    with closing(sqlite3.connect(':memory:', autocommit=True)) as con:
+        priprav_texty(con)
+        print(podle_vzoru(con, 'Karty%'))

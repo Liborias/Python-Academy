@@ -1,0 +1,11 @@
+{
+  "title": "INNER JOIN a přiřazené kategorie",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "sql",
+    "vazby"
+  ],
+  "example_title": "INNER JOIN a přiřazené kategorie"
+}

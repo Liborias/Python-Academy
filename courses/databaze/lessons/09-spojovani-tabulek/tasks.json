@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "LEFT JOIN zachová i nezařazené"
+  },
+  {
+    "id": "task-3",
+    "title": "Souhrn včetně prázdných kategorií"
+  },
+  {
+    "id": "task-4",
+    "title": "Pomůcky bez aktivní výpůjčky"
+  },
+  {
+    "id": "task-5",
+    "title": "Aktivní výpůjčky vybraného člena"
+  }
+]

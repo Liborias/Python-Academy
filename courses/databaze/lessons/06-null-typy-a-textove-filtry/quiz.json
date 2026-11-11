@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak vybereme chybějící hodnotu?",
+    "options": [
+      "Pomocí IS NULL.",
+      "Porovnáním s prázdným textem.",
+      "Pomocí = NULL jako běžné rovnosti."
+    ],
+    "answer": 0,
+    "why": "Běžné porovnání s NULL vrací neznámý výsledek."
+  },
+  {
+    "q": "Změní COALESCE ve výpisu uložený sloupec?",
+    "options": [
+      "Ano, přepíše celý soubor.",
+      "Ne, mění jen hodnotu výsledku dotazu.",
+      "Zruší vazby."
+    ],
+    "answer": 1,
+    "why": "Zobrazení náhrady není UPDATE."
+  },
+  {
+    "q": "Co dělá _ ve vzoru LIKE?",
+    "options": [
+      "Je vždy doslovné podtržítko.",
+      "Znamená prázdnou tabulku.",
+      "Zastupuje jeden znak."
+    ],
+    "answer": 2,
+    "why": "Doslovné hledání proto řeší samostatná funkce s instr."
+  }
+]

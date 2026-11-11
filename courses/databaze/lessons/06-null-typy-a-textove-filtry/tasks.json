@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Náhradní text pomocí COALESCE"
+  },
+  {
+    "id": "task-3",
+    "title": "Doslovné hledání části názvu"
+  },
+  {
+    "id": "task-4",
+    "title": "Textový vzor LIKE"
+  },
+  {
+    "id": "task-5",
+    "title": "Co skutečně uloží typová afinita"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "title": "Projekt: klubovní evidence v konzoli",
+  "minutes": 80,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "sql",
+    "vazby"
+  ],
+  "example_title": "Projekt: klubovní evidence v konzoli"
+}
