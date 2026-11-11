@@ -2,7 +2,7 @@
 
 Plán: PLAN.md. Nový rozhovor začněte slovem „pokračuj“, přečtu tento soubor.
 
-Nejnovější stav: v0.71 na konci tohoto souboru, Pygame 2 včetně Součástí větší hry (20/30). Datová analýza má všech 42 lekcí; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
+Nejnovější stav: v0.72 na konci tohoto souboru, Pygame 2 včetně Honu na dronech (25/30). Datová analýza má všech 42 lekcí; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
 
 ## Rozhodnutí
 - Stažitelná složka, spouští se `python start.py` (potvrzeno implicitně, uživatel řekl „pokračuj“).
@@ -769,3 +769,54 @@ Revizi provedl samostatný agent bez znalosti mých závěrů (23 nálezů). Opr
 - Chromium e2e_soucasti prošlo všech 15 ukázek/25 úkolů včetně odmítnutých šablon/přijatých vzorů, skutečného PNG/stažení, přesného odkrytí řešení bez přepsání práce, workspace/podkladů, číslování a přepínání/reloadu. Každý úkol prošel šířkami 380/320 s otevřeným řešením, původní rozepsaná lekce 15 a splnění zůstaly. Regrese e2e_roboti a e2e_solutions (190 ostatních lekcí) prošly. Náhledy animace, kolizí a kamery, nativní pauza a mobilní panel vizuálně prohlédnuty. Protokoly/snímky mimo repo v /workspace/scratch/components-work.
 - Aktualizovány katalog/panel/plán 20/30, příprava VS Code/VSCodium/PyCharm, README/PLAN/SCHEMA/instalace/spuštění/HANDOVER a počty v testech. Server/API/JS/CSS se nemění. Dodávka commit/push do main bez ZIPů a bez publikace cloudového prostředí.
 - Další krok na další pokyn: Hon na dronech 21–25 — Hra/Hrac/Dron, pronásledování a rozestupy, vlny protivníků, bezpečná zóna/pauza/restart a ladění hratelného celku. Jeden souvislý projekt s řešením každého kroku, bez nesouvisejících variant; nové součásti použít podle potřeb hry a zvuk ponechat volitelný. Odhad 15–20 tisíc tokenů.
+
+## v0.72 (11. 11. 2026): Hon na dronech 21–25
+
+- Dokončen m05 Pygame 2: hráč/svět/data, pronásledování/hlídači/rozestupy,
+  řízené vlny, životy/štít přístavu a nabídka/pauza/výsledek/restart.
+  Jeden návazný projekt, každý krok s jednou ukázkou, úkolem a možným řešením,
+  třemi kvízovými otázkami. Kurz draft 25/30, celkem 45 ukázek/65 úkolů.
+  Globálně 235 hlavních + 308 dalších řešení = 543; 154 doplňkových ukázek.
+  Starší ID, úložné klíče a rozepsaná práce zachovány.
+- Skutečné GUI 720×540, šipky/WASD, závěr Mezerník/P/R/Esc, N pro další vlnu
+  jen v tréninku 23. Normální zavření ukládá droni.png; Stop to nezaručuje.
+  Hostitel Pythonu potřebuje místní grafickou plochu, okno se nepřenáší do webu.
+  Python 3.14.8/pygame-ce 2.5.8, bez nových balíčků a povinného audia.
+- Cílem je šest cyklických dat a přežití tří desetisekundových vln, tři životy.
+  Přístav vyžaduje celý obraz, ochrana 2,5 s, obnova 0,5/s jen mimo zónu.
+  Kruhové dotyky včetně tečny, jeden život za dávku, 0,9 s nezranitelnosti.
+  Smrt má přednost před sběrem a vítězstvím; další vlna neobnovuje čítače.
+  Tři výsledky, po konci zmrazená i náhoda. Čekání v přístavu nevyhraje.
+  Pauza zachová přesný model/frontu/dobíjení bez dohánění času.
+- Podklady jsou úplné u každé lekce, predchozi.py kumuluje přesné dřívější
+  definice. Banky obrázků/fontů z 16 a zásobník z 20 mají shodné AST.
+  Pohyb dronů čte společný snímek a zapíše až nové polohy; pořadí nevadí.
+  Vlny vlastní RNG a konečný seznam bezpečných vstupů, náhrada bez losování.
+  Restart nejprve vytvoří nový svět, nemění starý, chyba konstrukce ho zachová.
+- Devět skupin test_droni OK: 36 chybných variant odmítnuto a 15 správných
+  alternativ přijato, navíc odmítnuté chybějící GUI, AST/soubory/řešení,
+  pět samostatných SDL běhů/PNG a pět Python úryvků výkladu. Kontroly používají
+  vlastní matematické výsledky a skutečný vstupní soubor s pixely/FPS/QUIT.
+  Opakovatelná cesta dokončí celou misi běžným vstupem; nečinnost nevyhraje.
+  Validátor všech 25 lekcí Pygame 2: 0 chyb/upozornění.
+- Kompletní unittest sada na Pythonu 3.14.8/Linux: **346 testů OK bez
+  přeskočených (994 s)** včetně celkové validace 250 lekcí. Běh měl povolené
+  místní HTTP/SMTP servery; starší ResourceWarning z pomocných procesů a souborů
+  nejsou selhání testů.
+- Chromium e2e_droni OK: pět šablon/vzorů, deset skutečných SDL běhů/PNG/stažení,
+  řešení bez změny kódu/postupu, workspace/číslování/readonly, reload/splnění,
+  plán/příprava 25/30 a mobil 380/320 včetně řešení. Dlouhý běh/Stop také prošel.
+  Prošly regrese e2e_soucasti (15 ukázek/25 úkolů) a e2e_solutions
+  (195 ostatních lekcí). Starší rozepsaná lekce 20 a splnění zachovány.
+- Native offscreen smoke OK ve všech pěti skutečných SDL smyčkách:
+  skriptovaný pohyb, nabídka, pauza/pokračování, tři výsledky a restart,
+  QUIT v pauze a PNG. Hra/pauza/výsledek i mobilní řešení vizuálně prohlédnuty.
+  Fyzická klávesnice a Windows/macOS tím nejsou ověřeny. Logy a snímky mimo
+  repo v /workspace/scratch/drones-work.
+- Aktualizované katalog/panel/plán, příprava všech editorů, dokumentace a počty
+  v testech; serverové API, JS, CSS a běhové limity beze změny. Dodávka
+  commit/push do main, bez ZIPů a publikace cloudového prostředí.
+- Další krok na další pokyn: Ověření a předání 26–30 — řízené scénáře,
+  vlastní testy, JSON skóre včetně chyb, čisté spuštění/volitelné balení
+  pro vlastní OS, vlastní varianta a návod. Možná řešení u všech kroků,
+  více příkladů u samostatných témat, navazující projekty ponechat souvislé.

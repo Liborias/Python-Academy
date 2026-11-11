@@ -1,0 +1,13 @@
+{
+  "title": "Hon na dronech: hráč a společný svět",
+  "minutes": 55,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "droni"
+  ],
+  "example_title": "Kurýr a první datové body"
+}

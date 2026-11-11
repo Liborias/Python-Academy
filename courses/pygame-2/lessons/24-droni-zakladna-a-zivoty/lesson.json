@@ -1,0 +1,13 @@
+{
+  "title": "Hon na dronech: přístav, štít a životy",
+  "minutes": 60,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "droni"
+  ],
+  "example_title": "Tři vlny s omezenou ochranou"
+}

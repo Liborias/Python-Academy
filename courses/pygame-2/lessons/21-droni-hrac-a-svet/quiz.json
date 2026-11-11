@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč normalizovat nenulový směr?",
+    "options": [
+      "Aby diagonála nebyla rychlejší.",
+      "Aby se vypnul čas.",
+      "Aby se hráč vrátil na začátek."
+    ],
+    "answer": 0,
+    "why": "Rychlost určuje zvláštní parametr."
+  },
+  {
+    "q": "Co vrací cil(hrac)?",
+    "options": [
+      "Posun celé skupiny.",
+      "Novou kopii požadovaného cíle.",
+      "Sdílený původní vektor."
+    ],
+    "answer": 1,
+    "why": "Určení cíle je oddělené od pohybu."
+  },
+  {
+    "q": "Co je Svet?",
+    "options": [
+      "Jen rozměr okna.",
+      "Nová smyčka pro každý objekt.",
+      "Kompozice hráče, dronů, dat, skóre a času."
+    ],
+    "answer": 2,
+    "why": "Svět sdružuje spolupracující části."
+  }
+]

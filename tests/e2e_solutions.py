@@ -169,7 +169,7 @@ with tempfile.TemporaryDirectory() as temp:
                 assert not page.locator('.solution-help').evaluate('(el) => el.open')
                 assert page.locator('.editor textarea').input_value() == draft
                 assert page.is_checked('.done-toggle input') == (index % 2 == 0)
-            assert checked == 190, checked
+            assert checked == 195, checked
             # Opožděný vzor předchozího kurzu se nesmí objevit v nové lekci.
             page.goto(f'{base}#/kurz/oop/20-konzolove-expedicni-centrum')
             page.wait_for_selector('.solution-help summary')
@@ -202,7 +202,7 @@ with tempfile.TemporaryDirectory() as temp:
             assert page.locator('.solution-help').count() == 0
             assert not errors, errors
             browser.close()
-        print('OK: řešení Úkolů 1–5 a všech 190 lekcí ostatních kurzů, zpoždění v úkolu i mezi kurzy, opakování, text, drafty/postup, klávesnice a mobil')
+        print('OK: řešení Úkolů 1–5 a všech 195 lekcí ostatních kurzů, zpoždění v úkolu i mezi kurzy, opakování, text, drafty/postup, klávesnice a mobil')
     finally:
         server.runs.stop_all()
         server.shutdown()

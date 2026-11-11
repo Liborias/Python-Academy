@@ -1,0 +1,13 @@
+{
+  "title": "Hon na dronech: hotová mise a herní režimy",
+  "minutes": 50,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "droni"
+  ],
+  "example_title": "Celá mise od nabídky po výsledek"
+}

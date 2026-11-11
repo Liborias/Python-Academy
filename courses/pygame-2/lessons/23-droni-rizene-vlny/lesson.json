@@ -1,0 +1,13 @@
+{
+  "title": "Hon na dronech: řízené vlny",
+  "minutes": 50,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "droni"
+  ],
+  "example_title": "Postupný příchod dronů"
+}

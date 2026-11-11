@@ -94,11 +94,11 @@ with tempfile.TemporaryDirectory() as temp:
                     page.locator('.solution-help').screenshot(path=str(shots / 'soucasti-solution-mobile.png'))
                 page.set_viewport_size({'width': 1100, 'height': 900})
             page.goto(f'{base}#/kurz/pygame-2'); page.wait_for_selector('.mod li')
-            assert page.locator('.mod li').count() == 20 and page.locator('.mod li.done').count() == 6
-            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Prvních 20 z 30")')
+            assert page.locator('.mod li').count() == 25 and page.locator('.mod li.done').count() == 6
+            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Prvních 25 z 30")')
             page.locator('.learning-plan summary').click()
             plan = page.locator('.learning-plan').inner_text()
-            assert 'Hotovo: lekce 16–20.' in plan and '40 ukázek a 60 úkolů' in plan
+            assert 'Hotovo: lekce 16–20.' in plan and '45 ukázek a 65 úkolů' in plan
             if shots:page.screenshot(path=str(shots / 'soucasti-course-desktop.png'), full_page=True)
             page.goto(f'{base}#/kurz/pygame-2/{IDS[0]}'); page.wait_for_selector('.editor textarea')
             page.click('[data-act="run-ex"]')

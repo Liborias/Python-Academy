@@ -1,5 +1,95 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.72 (11. 11. 2026): Hon na dronech 21–25
+
+Na pokyn „pokračuj“ dokončen m05 Pygame 2 jako jeden souvislý projekt:
+21 hráč/svět/data, 22 pronásledování/hlídači/rozestupy, 23 řízené vlny,
+24 životy/štít přístavu/konec mise, 25 nabídka/let/pauza/výsledek/restart.
+Každý krok má jednu ukázku, úkol se šablonou/kontrolou/možným řešením a tři
+kvízové otázky; bez nesouvisejících variant navazující hry. Kurz draft,
+dostupných 25/30, celkem 45 ukázek a 65 úkolů. Globálně 235 hlavních
++ 308 dalších řešení = 543; doplňkových ukázek 154. Celkem 250 lekcí
+včetně 15 průvodců. Obtížnost 4/4, úvod 3/4. Starší obsah, ID a úložné
+klíče se nemění, dříve rozepsaná práce a splnění se zachovají.
+
+Nové ID:
+- 21-droni-hrac-a-svet
+- 22-droni-pronasledovani-a-rozestupy
+- 23-droni-rizene-vlny
+- 24-droni-zakladna-a-zivoty
+- 25-droni-hra-pauza-a-vysledek
+
+Kind gui, preview_images=true, limit 600 s, skutečné okno 720×540.
+Šipky/WASD, závěr Mezerník start/nabídka, P pauza, R nový let, Esc/křížek
+konec. N zahájí další vlnu pouze v tréninku 23. Běžné zavření ukládá droni.png;
+Stop může proces ukončit bez obrázku. Okno běží na hostiteli Pythonu,
+nepřenáší se do webové stránky. Stejná .venv/Python 3.14.8/pygame-ce 2.5.8,
+žádné nové balíčky, povinný zvuk, cizí grafika nebo síťová data.
+
+Podklady jsou samostatné stejné kopie podklady.py/zdroje.py/zasobnik.py/
+sceny.py/sestava.py/herni_okno.py u každé lekce. Predchozi.py v 22–25
+kumuluje přesné definice předchozích řešení. Cache obrázků/fontů z 16/1–2
+a skutečný zásobník z 20/1 jsou převzaté beze změny definic; AST test hlídá
+návaznost. Import modelu neotevírá okno ani mixer. Renderer kreslí skutečný
+model, aktuální zónu a vrstvy; fonty se mezi běhy po pygame.quit obnoví.
+
+Hráč zachovává desetinný pohyb a normalizuje diagonálu. Drony čtou společný
+snímek původních poloh, poté všechny nové polohy zapíší; pořadí skupiny
+nemění výsledek. Hlídač měří dosah od kotvy. Vlny vlastní Random(seed),
+vybírají z osmi vstupů vzdálených nejméně 150 px, případně nejvzdálenější
+bez losování; dohánějí celé intervaly a ponechají zbytek. Nová vlna zachová
+Group a odstraní stará členství přes kill. Pohyb nových objektů je společný.
+
+Cíl mise: nejméně šest cyklických dat a přežití tří desetisekundových vln,
+tři životy. Přístav chrání jen celý obraz uvnitř zóny, energie 2,5 s,
+obnova 0,5/s pouze mimo zónu; částečná energie nepokrývá celý krok.
+Kontakty jsou kruhové včetně tečny, dávka odebere jeden život a spustí
+0,9 s nezranitelnosti, drony zůstanou. Smrtelný kontakt předchází sběru
+i úspěchu. Nová vlna neobnovuje životy, data, skóre či energii. Po konci
+se zmrazí i náhoda. Konec rozlišuje úspěch, nedostatek dat a ztrátu životů.
+Čekání v přístavu k výhře nestačí. Tick(60) převádíme na sekundy a dt
+omezujeme na 0,05; pauza zastaví model/frontu/dobíjení bez dohánění času.
+
+Menu/Let/PauzaLetu/Vysledek používají zásobník z 20: aktualizuje jen vršek,
+kreslí odspodu. Pokračování obnoví stejný let, restart vytvoří nový svět
+se seedem a původní model nemění. Neúspěšná konstrukce zachová starý stav.
+Stejný seed opakuje začátek, None dává nový náhodný začátek.
+
+Devět skupin test_droni prošlo: 36 chybných variant odmítnutých,
+15 jiných správných zápisů přijatých, navíc odmítnuté chybějící GUI,
+přesná řešení/helpery/AST, pět skutečných SDL běhů s PNG 720×540
+a pět samostatných Python úryvků výkladu. Opakovatelná cesta se seedem 23
+dokončí misi běžnými směry bez úprav životů; nečinný hráč nevyhraje.
+Kontrola používá vlastní matematiku, čas, geometrii, RNG a skutečné pixely,
+ne porovnávání zdrojového zápisu. Cílený validátor 25 lekcí: 0 chyb/upozornění.
+Celková unittest sada na Pythonu 3.14.8/Linux: **346 testů OK bez přeskočených,
+994 s**, včetně celkové validace 250 lekcí. Starší ResourceWarning z pomocných
+procesů a souborů nejsou selhání; místní HTTP/SMTP testovací servery byly povolené.
+
+Chromium e2e_droni prošlo pět odmítnutých šablon/přijatých řešení,
+deset skutečných SDL běhů/PNG/stažení, přesný vzor bez přepsání práce,
+workspace/číslování/readonly, kvízy, reload/splnění a mobil 380/320 včetně
+otevřeného řešení. Ověřen i dlouhý běh/Stop a zachovaná starší lekce 20.
+Prošly regrese e2e_soucasti (15 ukázek/25 úkolů) a e2e_solutions
+(195 ostatních lekcí). Native offscreen smoke prošel všech pět skutečných
+smyček, pohyb se skriptovaným vstupem, pauzu/pokračování, všechny tři
+výsledky, nabídku, restart a QUIT v pauze. Snímky hry, pauzy, výsledku
+a mobilního řešení prohlédnuty. Fyzická klávesnice a Windows/macOS vyžadují
+vlastní zkoušku. Logy/snímky mimo repo v /workspace/scratch/drones-work.
+
+Aktualizovány katalog/panel/plán 25/30, profil přípravy editorů,
+README/PLAN/SCHEMA/instalace/spuštění a počty v testech. Serverové API,
+JS, CSS a běhové limity se nemění. Dodávka commit/push do main bez ZIPů
+a publikace cloudového prostředí.
+
+Další krok na další pokyn: **Ověření a předání 26–30** — deterministické
+scénáře, vlastní testy modelu, JSON skóre včetně chybějícího/poškozeného
+souboru, čisté prostředí a volitelné balení pro vlastní OS, vlastní varianta
+a návod k předání. Více příkladů u samostatných témat, navazující projekt
+ponechat souvislý, vždy možné řešení. Odhad 15–20 tisíc tokenů.
+Historické zápisy níže nejsou novým zadáním.
+
+
 ## Aktuální v0.71 (9. 11. 2026): Součásti větší hry 16–20
 
 Na pokyn „pokračuj“ dokončen m04 Pygame 2. Pět samostatných témat: 16 cache

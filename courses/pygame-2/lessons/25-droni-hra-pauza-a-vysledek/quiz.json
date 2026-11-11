@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kdo dostává čas v pauze?",
+    "options": [
+      "Jen vrchní režim, který neposouvá kolo.",
+      "Všechny drony dál.",
+      "Nové druhé okno."
+    ],
+    "answer": 0,
+    "why": "Podklad se vykreslí, ale neposune."
+  },
+  {
+    "q": "Jak restartovat?",
+    "options": [
+      "Vymazat původní skupiny.",
+      "Vytvořit nové Kolo a zásobník.",
+      "Smazat postup kurzů."
+    ],
+    "answer": 1,
+    "why": "Starý model zůstane nezměněný."
+  },
+  {
+    "q": "Kdo přijme QUIT ve všech stavech?",
+    "options": [
+      "Jen dron.",
+      "Jen datový bod.",
+      "Hra před předáním do režimu."
+    ],
+    "answer": 2,
+    "why": "Jde o životní cyklus celé aplikace."
+  }
+]

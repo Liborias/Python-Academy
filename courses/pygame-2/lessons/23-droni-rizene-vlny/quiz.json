@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak ukončit hledání volného vstupu?",
+    "options": [
+      "Filtrovat konečný seznam a mít nejvzdálenější náhradu.",
+      "Losovat neomezeně.",
+      "Zrušit hráče."
+    ],
+    "answer": 0,
+    "why": "Malý svět nemusí umožnit požadovaný odstup."
+  },
+  {
+    "q": "Co s více celými intervaly?",
+    "options": [
+      "Vytvořit jen jeden objekt.",
+      "Dohnat je, dokud někdo čeká.",
+      "Vždy smazat zbytek."
+    ],
+    "answer": 1,
+    "why": "Fronta a zbytek času mají přesná pravidla."
+  },
+  {
+    "q": "Co obnoví zahaj?",
+    "options": [
+      "Všechny životy.",
+      "Skóre na nulu.",
+      "Drony a frontu, nikoli hráče a body."
+    ],
+    "answer": 2,
+    "why": "Nová vlna není restart mise."
+  }
+]

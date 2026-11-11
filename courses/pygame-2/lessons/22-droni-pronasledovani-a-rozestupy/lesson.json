@@ -1,0 +1,13 @@
+{
+  "title": "Hon na dronech: pronásledování a rozestupy",
+  "minutes": 60,
+  "kind": "gui",
+  "preview_images": true,
+  "tags": [
+    "pygame",
+    "oop",
+    "projekt",
+    "droni"
+  ],
+  "example_title": "Pronásledovatelé a strážce bodu"
+}

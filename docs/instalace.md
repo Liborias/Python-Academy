@@ -59,8 +59,8 @@ Matplotlib ověří `python -c "import matplotlib; print(matplotlib.__version__)
 Editor musí mít zvolené stejné prostředí. Všechny úvodní .py soubory běží také
 v terminálu; podpora buněk `# %%` a notebooků závisí na editoru a rozšířeních.
 
-Pygame 2 má připravených dvacet lekcí: herní objekty, Meteority, Chyť robota
-a Součásti větší hry. `python tools/setup_env.py --courses pygame-2` doplní stejné pygame-ce
+Pygame 2 má připravených 25 lekcí: herní objekty, Meteority, Chyť robota,
+Součásti větší hry a Hon na dronech. `python tools/setup_env.py --courses pygame-2` doplní stejné pygame-ce
 jako Pygame 1. V .venv ověřte `python -c "import sys, pygame; print(sys.executable); print(pygame.version.ver)"`.
 Ověřeno Python 3.14.8/pygame-ce 2.5.8. První modul vytváří skutečné PNG ze Surface
 a nepotřebuje okno ani zvuk; aplikace obrázek zobrazí a dovolí stáhnout, editor jej
@@ -80,6 +80,13 @@ V lekci 16 lze z uložené pracovní složky volitelně spustit vlastní tón p�
 `python prehraj_ton.py --play`; bez přepínače se nepřehraje, nereagující
 zařízení má limit 5 s. To není povinná podmínka kurzu. U 20/5 je po uložení
 reseni.py navíc `python ziva_dilna.py`, místní okno s myší/P/M/Esc bez zvuku.
+Hon na dronech 21–25 používá stejné prostředí a místní okno 720×540:
+šipky/WASD pohyb, v lekci 25 Mezerník start/návrat do nabídky, P pauza,
+R nový let, Esc konec. Cílem je šest dat a přežití tří desetisekundových vln.
+Přístav poskytne nejvýše 2,5 s ochrany a dobíjí se mimo něj.
+Jen v tréninku 23 spustí N další vlnu; v hotové misi je střídá čas.
+Normální zavření vytvoří `droni.png`, tlačítko Stop to nezaručuje. Nové balíčky
+ani zvuk nejsou potřeba; okno běží na hostiteli Pythonu, nikoli ve webové stránce.
 
 > Instalujte **pygame-ce**, v kódu používejte `import pygame`. Nekombinujte jej ve stejném prostředí s původním balíčkem pygame.
 

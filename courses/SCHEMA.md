@@ -741,3 +741,63 @@ Chromium prochází všech 15 ukázek/25 úkolů a mobil 380/320 včetně otevř
 řešení. CSS, JS, serverové API ani limity se nemění. Nativní offscreen smyčka
 ověřuje skutečný framebuffer a frontu událostí; fyzická myš/klávesnice,
 slyšitelnost a Windows/macOS vyžadují vlastní zkoušku.
+
+## Pygame 2, Hon na dronech (od v0.72)
+
+Lekce 21–25 tvoří jeden návazný GUI projekt: vlastní hráč/svět/data,
+pronásledování/hlídání/rozestupy, řízené vlny, životy/přístav a řidič režimů.
+Každý krok má jednu ukázku, jedno zadání/šablonu/kontrolu/možné řešení a tři
+kvízové otázky, bez nesouvisejících variant. Kind gui, preview_images=true,
+limit 600 s. Kurz draft 25/30, 45 ukázek/65 úkolů. Globálně 235 hlavních
++ 308 dalších řešení = 543, 154 doplňkových ukázek; celkem 250 lekcí
+včetně 15 průvodců. Starší ID, obsah a úložné klíče se nemění.
+
+Každá lekce má stejné podklady.py/zdroje.py/zasobnik.py/sceny.py/sestava.py/
+herni_okno.py. Predchozi.py v 22–25 kumuluje přesné definice předchozích
+kroků. BankaObrazu/BankaFontu jsou shodné s 16/1–2, ZasobnikRezimu s 20/1;
+AST test hlídá návaznost, neomezuje alternativní řešení studentů.
+Import modelů neotevírá displej ani mixer. Grafika vzniká ze Surface, bez
+cizích souborů, sítě, povinného zvuku nebo nových závislostí.
+
+Živé okno má 720×540, arénu Rect(24,90,672,390). Clock.tick(60), herní dt
+je nejvýše 0,05 s. Pohyb šipkami/WASD normalizuje směr a zachovává desetinnou
+polohu; hranice drží celý obrázek. Drony čtou společný snímek pozic,
+až pak se všechny posunou: výsledek nezávisí na pořadí. Hlídač měří dosah
+od neměnné kotvy. Vlny mají vlastní Random(seed), osm vstupů s odstupem
+nejméně 150 px, nejvzdálenější náhradní vstup bez losování, intervalovou
+frontu a oddělený pohyb. Zahájení další vlny zachová Group, kill odstraní
+stará členství. N je ruční další vlna pouze v tréninku 23.
+
+Kolo vlastní tři životy a štít přístavu na 2,5 herní sekundy; obnova 0,5/s
+jen mimo zónu. Zóna vyžaduje celý obraz hráče, ne jen střed. Kruhový dotyk
+včetně tečny je kontakt, současné kontakty ubírají jeden život, drony zůstávají;
+nezranitelnost 0,9 s se opakováním kontaktu neprodlužuje. Smrt má přednost před
+sběrem a koncem vlny. Sběr cyklí pět míst, nejvýše jeden bod na update.
+Cílem je nejméně šest bodů a přežití tří desetisekundových vln; nedostatek dat
+je jiný výsledek než ztráta životů. Další vlna neobnovuje životy/skóre/štít/data,
+po konci se zmrazí i náhoda. Čekání v přístavu k výhře nevede.
+
+Hra skládá Menu/Let/PauzaLetu/Vysledek přes zásobník z 20: vstup/update jen
+vršku, kreslení odspodu. Mezerník start/návrat, P pauza/pokračování,
+R nový svět mimo nabídku, Esc/QUIT konec všude. Pauza neakumuluje dluh času.
+Nový let se stejným seedem opakuje začátek a nemění původní model; nejprve
+se vytvoří náhrada, chyba konstrukce zachová starý stav. PNG droni.png
+vznikne při normálním zavření před pygame.quit, Stop uložení nezaručuje.
+Okno patří hostiteli Pythonu, ze vzdáleného serveru se nepřenáší do webu.
+
+Dilna_check/droni.py kontroluje skutečné modely přes vlastní matematický
+výpočet očekávaného výsledku: kopie/identity, čas, hranice, pořadí, kotvy,
+řízenou náhodu, přednost konce a zmrazení, vrstvy a atomický restart. Každá
+kontrola také spustí skutečný GUI vstupní soubor, čte pixely/framebuffer,
+ověří pohyb, drony, FPS, QUIT a PNG 720×540.
+Devět skupin test_droni zahrnuje 36 chybných variant a 15 jiných správných
+zápisů, navíc chybějící GUI vstup, AST podklady, pět samostatných běhů
+a pět spustitelných úryvků. Opakovatelná cesta vyhraje běžným vstupem
+bez úpravy životů; nečinný hráč nevyhraje.
+
+Chromium ověřuje všechny ukázky/úkoly, řešení bez změny editoru/postupu,
+skutečné SDL běhy/PNG/stažení, workspace, dlouhý běh/Stop, mobil 380/320
+a zachování starší práce. Native offscreen kontrola používá skutečný SDL
+display, události a kreslení všech pěti smyček, nabídku/pauzu/pokračování,
+tři výsledky a restart. Vstupy jsou skriptované, fyzická klávesnice
+a Windows/macOS tím nejsou ověřeny. Serverové API, JS, CSS a limity beze změny.

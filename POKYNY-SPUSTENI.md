@@ -34,7 +34,7 @@ python tools/setup_env.py --dry-run
 ```
 Základní podkurz **Základy** žádné balíčky nepotřebuje.
 
-Pro Pygame 2 (dostupné lekce 1–20):
+Pro Pygame 2 (dostupné lekce 1–25):
 ```
 python tools/setup_env.py --courses pygame-2
 ```
@@ -57,6 +57,13 @@ s PNG `soucasti.png`. Po uložení do pracovní složky je v lekci 16 volitelný
 V Úkolu 5 lekce 20 lze po uložení reseni.py spustit `python ziva_dilna.py`:
 myš spustí dílnu, P pauza, M nabídka, Esc/křížek konec. Potřebuje místní
 grafickou plochu, zvuk nepoužívá. Použijte stejný Python z .venv.
+Hon na dronech 21–25 otevírá místní okno 720×540. Šipky/WASD pohybují hráčem;
+v lekci 25 Mezerník spustí let nebo vrátí výsledek do nabídky, P přepíná pauzu,
+R začne nový let a Esc zavře program. Nasbírejte alespoň šest dat a přežijte
+tři desetisekundové vlny. Štít přístavu má 2,5 s a dobíjí se pouze mimo něj.
+V tréninku 23 je N další vlna, v hotové misi se střídají automaticky.
+Běžné zavření uloží `droni.png`; Stop soubor nezaručuje. Nové závislosti
+ani zvuk nejsou potřeba, okno se ze vzdáleného Pythonu do prohlížeče nepřenáší.
 Ověřeno Python 3.14.8/pygame-ce 2.5.8.
 
 Pro Datovou analýzu:

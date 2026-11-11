@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč kopírovat původní pozice všech?",
+    "options": [
+      "Kvůli nezávislosti výsledku na pořadí aktualizace.",
+      "Kvůli načítání z disku.",
+      "Kvůli smazání dronů."
+    ],
+    "answer": 0,
+    "why": "Všichni reagují na stejný snímek světa."
+  },
+  {
+    "q": "Od čeho hlídač měří dosah?",
+    "options": [
+      "Od okraje okna.",
+      "Od neměnné kotvy.",
+      "Od posledního souseda."
+    ],
+    "answer": 1,
+    "why": "Mimo její oblast se vrací domů."
+  },
+  {
+    "q": "Co se shodnými pozicemi?",
+    "options": [
+      "Dělit nulou.",
+      "Losovat směr podle pořadí.",
+      "Vynechat nulový rozdíl."
+    ],
+    "answer": 2,
+    "why": "Nevznikne dělení nulou ani skryté pořadí."
+  }
+]

@@ -1,12 +1,12 @@
 ## Pygame 2: od objektu ke třem vlastním hrám
 
-**Připraveno prvních 20 z 30 lekcí.** Navazujeme na Pygame 1 a základní OOP. Herní kód rozdělíme na objekty, kterým rozumíme a jejichž chování umíme ověřit. Obtížnost úvodu je 3/4, celku 4/4: čas, spolupráce objektů, kolize a řízení více herních stavů. Předpoklady jsou doporučení, nikoli zamčené vstupy. Samostatný OOP kurz pomůže stejně jako OOP z Turtle.
+**Připraveno prvních 25 z 30 lekcí.** Navazujeme na Pygame 1 a základní OOP. Herní kód rozdělíme na objekty, kterým rozumíme a jejichž chování umíme ověřit. Obtížnost úvodu je 3/4, celku 4/4: čas, spolupráce objektů, kolize a řízení více herních stavů. Předpoklady jsou doporučení, nikoli zamčené vstupy. Samostatný OOP kurz pomůže stejně jako OOP z Turtle.
 
-V prvním modulu má každá lekce tři přepínatelné ukázky a pět úkolů s možným řešením a vlastní kontrolou. V úvodu je **15 ukázek a 25 úkolů**. Projekty Meteority a Chyť robota přidávají po pěti ukázkách a návazných zadáních s řešeními. Součásti větší hry 16–20 mají dalších 15 ukázek a 25 úkolů: celkem **40 ukázek a 60 úkolů**. Samostatné pokusy ukládají skutečné Surface do PNG; nejde o animované herní okno. Oba projekty už otevírají skutečné herní okno; po jeho zavření lze zobrazit poslední PNG. Navazující projekty tvoří souvislé kroky, bez nesouvisejících variant.
+V prvním modulu má každá lekce tři přepínatelné ukázky a pět úkolů s možným řešením a vlastní kontrolou. V úvodu je **15 ukázek a 25 úkolů**. Projekty Meteority a Chyť robota přidávají po pěti ukázkách a návazných zadáních s řešeními. Součásti větší hry 16–20 mají dalších 15 ukázek a 25 úkolů. Hon na dronech přidává pět návazných kroků: celkem **45 ukázek a 65 úkolů**. Samostatné pokusy ukládají skutečné Surface do PNG; nejde o animované herní okno. Tři projekty už otevírají skutečná herní okna a po zavření zachovají poslední PNG. Navazující projekty tvoří souvislé kroky, bez nesouvisejících variant.
 
 ## Prostředí
 
-Použijte Python 3.14 a stejnou .venv pro terminál i VS Code, VSCodium nebo PyCharm. `python tools/setup_env.py --courses pygame-2` připraví pygame-ce, v kódu import pygame. Ověřeno na Pythonu 3.14.8 a pygame-ce 2.5.8. Vlastní grafiku kreslíme kódem, žádné cizí obrázky, účty ani síťová data nepotřebujeme. Prvních pět lekcí funguje bez grafické plochy a zvuku; Meteority a Chyť robota vyžadují místní grafickou plochu a klávesnici, druhá hra také myš. Zvuk nepotřebují. Nativní editory mají společný připravený postup instalace před lekcemi.
+Použijte Python 3.14 a stejnou .venv pro terminál i VS Code, VSCodium nebo PyCharm. `python tools/setup_env.py --courses pygame-2` připraví pygame-ce, v kódu import pygame. Ověřeno na Pythonu 3.14.8 a pygame-ce 2.5.8. Vlastní grafiku kreslíme kódem, žádné cizí obrázky, účty ani síťová data nepotřebujeme. Prvních pět lekcí funguje bez grafické plochy a zvuku; Meteority, Chyť robota a Hon na dronech vyžadují místní grafickou plochu a klávesnici, druhá hra také myš. Zvuk nepotřebují. Nativní editory mají společný připravený postup instalace před lekcemi.
 
 ## Modul 1 — Herní objekty, které jdou ověřit
 
@@ -50,13 +50,15 @@ Výstup: malé testovatelné herní součásti a obrázkové náhledy výsledku.
 19. Svět, kamera a souřadnice na obrazovce.
 20. Skládání herních režimů a přechodů, hranice vhodného dědění.
 
-## Modul 5 — Hon na dronech (lekce 21–25, plán)
+## Modul 5 — Hon na dronech (lekce 21–25)
 
-21. Hra, Hrac a Dron jako spolupracující třídy.
+**Hotovo: lekce 21–25.** Souvislý projekt se šesti datovými body jako cílem a třemi desetisekundovými vlnami. Hráč a drony, pronásledování/hlídání kotvy a rozestupy ze společného snímku, řízené vstupy, omezený štít přístavu, životy, nabídka/pauza/restart a tři výsledky. Každý krok má ukázku, úkol, možné řešení a tři otázky. Skutečné okno 720×540, šipky/WASD, závěr Mezerník/P/R/Esc, trénink 23 také N pro další vlnu. Využívá banky zdrojů z 16 a zásobník režimů z 20; bez dalších závislostí nebo zvuku. Běžné zavření ukládá droni.png. Modely se importují bez okna.
+
+21. Hrac, Dron a Svet jako spolupracující třídy.
 22. Pronásledování, rozestupy a několik chování dronů.
 23. Vlny protivníků a kontrolované vytváření objektů.
-24. Bezpečná zóna, pauza a restart.
-25. Hratelný celek a ladění pravidel podle skutečného hraní.
+24. Bezpečná zóna, životy a pravidla konce mise.
+25. Hra jako řidič nabídky, letu, pauzy, výsledku a restartu.
 
 ## Modul 6 — Ověření a předání (lekce 26–30, plán)
 
@@ -66,4 +68,4 @@ Výstup: malé testovatelné herní součásti a obrázkové náhledy výsledku.
 29. Spuštění z čisté složky, závislosti a volitelné balení pro vlastní systém.
 30. Vlastní varianta hry a závěrečné předání s návodem.
 
-Odhad celku 18–25 hodin plus vlastní úpravy. PyInstaller nebo webové balení jsou volitelné, jejich možnosti a systémové limity ověříme při realizaci příslušné lekce. Aktuálně se neinstalují. Dalším krokem je modul Hon na dronech 21–25.
+Odhad celku 18–25 hodin plus vlastní úpravy. PyInstaller nebo webové balení jsou volitelné, jejich možnosti a systémové limity ověříme při realizaci příslušné lekce. Aktuálně se neinstalují. Dalším krokem je Ověření a předání 26–30.

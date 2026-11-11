@@ -129,7 +129,7 @@ Tkinter základy (okno, Label, Button, Entry, `pack`, `grid`, `place`, `ttk`) ·
 SQL základy (SQLite) · CRUD z Pythonu · **parametrizované dotazy a SQL injection** · venv a git (Git je ve VSCodium zabudovaný) · Tkinter a databáze (evidence kroužků místo učitelů) · BMI tracker · registrace a přihlášení (scrypt) · text na řeč (offline) · komprese souborů (`zlib`, `base64`) · kontrolní číslice (Luhn na zkušebních číslech) · generátor QR kódů · volitelně PostgreSQL + psycopg 3 + connection pool.
 
 ### G2. Pygame 2: hry s třídami (30 lekcí)
-**Stav v0.71: prvních 20 z 30 lekcí připravených.** Modul Herní objekty, které jdou
+**Stav v0.72: prvních 25 z 30 lekcí připravených.** Modul Herní objekty, které jdou
 ověřit: Sprite/image/rect, Vector2 a dt, Group/update/draw, kolize a stav hry.
 Každá má tři ukázky a pět úkolů s kontrolou a možným řešením, celkem 15/25.
 První blok ukládá obrázkové náhledy z opravdových Surface; bez okna a zvuku.
@@ -144,14 +144,19 @@ Opět jeden úkol, ukázka a řešení na krok. Součásti větší hry 16–20 
 cache/zdroje, animace s časem, masky, kamera a skládání režimů. V samostatných
 lekcích tři ukázky/pět úkolů s řešeními, PNG 720×420 bez displeje a povinného audia.
 Volitelný krátký vlastní tón má ohraničenou zkoušku zařízení; závěr 20/5 má navíc
-živou dílnu myš/P/M/Esc po uložení reseni.py. Celkem 40 ukázek a 60 úkolů.
-Obě hry používají nativní okno na počítači s Pythonem, bez zvuku;
+živou dílnu myš/P/M/Esc po uložení reseni.py.
+Hotov Hon na dronech 21–25: hráč/svět, pronásledování s rozestupy,
+řízené vlny, životy a omezený štít přístavu, nabídka/pauza/výsledek/restart.
+Každý krok má jeden úkol, ukázku a možné řešení. Cíl šest dat za tři vlny
+nutí hráče opustit přístav; pokračování neztrácí zdraví ani skóre.
+Celkem 45 ukázek a 65 úkolů. Všechny tři hry používají nativní okno na počítači s Pythonem, bez zvuku;
 běžné zavření uloží PNG. Úplný plán je v courses/pygame-2/plan.md a panelu kurzu.
-Další modul 21–25: Hon na dronech — spolupracující Hra/Hrac/Dron,
-pronásledování a rozestupy, vlny protivníků, bezpečná zóna/pauza/restart,
-hratelný celek a ladění pravidel. Souvislý projekt s řešením každého kroku,
-bez nesouvisejících variant; využít nové součásti tam, kde pomohou hře.
-Zvuk může zůstat volitelný. Odhad dalšího kroku 15–20 tisíc tokenů.
+Další modul 26–30: Ověření a předání hry — opakovatelné scénáře se seedem,
+vlastní testy modelu, skóre v JSON včetně chybějícího/poškozeného souboru,
+spuštění v čistém prostředí a volitelné zabalení pro vlastní operační systém,
+vlastní varianta a závěrečné předání. Každý krok s možným řešením; samostatná
+témata doplnit více příklady, navazující projekt zachovat souvislý.
+Odhad dalšího kroku 15–20 tisíc tokenů.
 
 Tři hry místo Harryho Pottera (všechny nové, všechna grafika kreslená kódem):
 1. **Meteority**: uhýbání před padajícími meteority, životy, skóre, štít jako bonus (náhrada za „Goblet of Fire“).

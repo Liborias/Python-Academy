@@ -48,15 +48,26 @@
         "19-svet-a-kamera",
         "20-skladani-hernich-rezimu"
       ]
+    },
+    {
+      "id": "m05",
+      "title": "Projekt Hon na dronech",
+      "lessons": [
+        "21-droni-hrac-a-svet",
+        "22-droni-pronasledovani-a-rozestupy",
+        "23-droni-rizene-vlny",
+        "24-droni-zakladna-a-zivoty",
+        "25-droni-hra-pauza-a-vysledek"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od herního objektu ke třem vlastním hrám",
     "status": "draft",
     "level": 4,
-    "summary": "Prvních 20 z 30 lekcí: herní objekty, dvě hotové hry a laboratoř zdrojů, animací, masek, kamery a herních režimů. Více procvičení s možnými řešeními.",
+    "summary": "Prvních 25 z 30 lekcí: herní součásti a tři hotové hry včetně Honu na dronech s pronásledováním, vlnami, přístavem a výsledkem. Všechny úkoly mají možná řešení.",
     "placement": "Po Pygame 1 a základech OOP; samostatný OOP kurz pomůže, nic se nezamyká.",
     "difficulty_reason": "Začátek 3/4, celý kurz 4/4: spolupráce objektů, čas, kolize a řízení více herních stavů.",
-    "duration": "Plán 30 lekcí, prvních 20 dostupných. Odhad celku 18–25 hodin plus vlastní úpravy."
+    "duration": "Plán 30 lekcí, prvních 25 dostupných. Odhad celku 18–25 hodin plus vlastní úpravy."
   }
 }

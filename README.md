@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.71):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně her Meteority/Chyť robota a Součástí větší hry (20 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a všech osm modulů Datové analýzy (42 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.72):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně tří her a Součástí větší hry (25 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a všech osm modulů Datové analýzy (42 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,7 +38,7 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Pygame 2 — herní objekty a dvě vlastní hry
+## Pygame 2 — herní objekty a tři vlastní hry
 
 Nový kurz propojuje OOP s herními objekty. První modul vysvětluje Sprite a jeho
 image/rect, přesný pohyb přes Vector2 a čas, Group/update/draw, kolize a stav hry
@@ -56,7 +56,13 @@ otázky v každém kroku.
 
 **Součásti větší hry, lekce 16–20**, mají v každé lekci tři ukázky a pět úkolů
 s řešeními. Procvičíte cache obrázků/fontů, volitelný zvuk, animaci podle času,
-masky, převody kamery a skládání režimů. Celkem zatím **40 ukázek a 60 úkolů**.
+masky, převody kamery a skládání režimů.
+
+Projekt **Hon na dronech, lekce 21–25**, propojí hráče a svět, pronásledování
+s rozestupy, postupně vznikající vlny, životy a přístav s omezeným štítem.
+Závěr přidá nabídku, pauzu, výsledek a nový let přes zásobník režimů.
+Každý krok má jednu ukázku, úkol s možným řešením a tři kvízové otázky.
+Celkem zatím **45 ukázek a 65 úkolů**.
 Úvod má obtížnost 3/4, celek 4/4.
 
 `python tools/setup_env.py --courses pygame-2` připraví pygame-ce do stejné
@@ -79,9 +85,9 @@ Chyť robota také otevírá místní okno; cíle chytáte levým tlačítkem my
 V lekci 15 **Mezerník** spustí lov nebo vrátí výsledek do nabídky, **P** přepíná
 pauzu, **R** začne nový lov a **Esc** ukončí program. Běžné zavření uloží
 `roboti.png`. Herní čas se v pauze neodečítá a další vlna neobnovuje životy
-ani skóre. Vlastní grafika obou her vzniká kódem bez cizích obrázků a síťových
-dat. Panel kurzu nabízí plán všech 30 lekcí včetně hry Hon na dronech.
-Dostupných je prvních dvacet, dále následuje Hon na dronech 21–25.
+ani skóre. Vlastní grafika všech her vzniká kódem bez cizích obrázků a síťových
+dat. Panel kurzu nabízí plán všech 30 lekcí. Dostupných je prvních 25,
+dále následuje Ověření a předání hry 26–30.
 
 Laboratoř 16–20 ukládá obrázkové pokusy do `soucasti.png`; zobrazují skutečné
 pixely a zaznamenané fáze, PNG samo není animované okno. Funguje bez displeje
@@ -91,6 +97,15 @@ a standardní knihovnu. V lekci 16 lze místně vyzkoušet krátký tón příka
 pěti sekund. Bez přepínače se nic nepřehraje. Po uložení Úkolu 5 v lekci 20
 je navíc dostupná živá dílna `python ziva_dilna.py`: myš/P/M/Esc, místní
 grafická plocha, bez zvuku, poslední snímek `rezimy-zive.png`.
+
+Hon na dronech používá stejné místní prostředí a okno 720×540. Šipky nebo
+WASD pohybují kurýrem; v lekci 25 **Mezerník** spustí misi nebo vrátí výsledek
+do nabídky, **P** přepíná pauzu, **R** začne nový let a **Esc** ukončí program.
+Cílem je nasbírat alespoň šest zelených datových bodů a přežít tři desetisekundové
+vlny. Přístav chrání nejvýše 2,5 sekundy, energie se obnovuje pouze mimo něj.
+Čekání v přístavu samo nestačí k výhře. V tréninku 23 lze klávesou **N**
+spustit další vlnu; v hotové misi se vlny střídají automaticky. Běžné zavření
+uloží `droni.png`; Stop uložení nezaručuje. Další balíčky ani zvuk nejsou potřeba.
 
 ## Datová analýza — všech 42 lekcí
 
@@ -282,8 +297,8 @@ Nápověda vysvětluje také odsazování, našeptávání, spuštění a vráce
 ## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
 variantu k právě vybranému zadání s připomenutím, že správných postupů může být více.
-Pomoc je dostupná pro všech 230 hlavních zadání napříč osmi praktickými kurzy
-i 308 dalších úkolů v Základech, Datové analýze a Pygame 2, celkem 538 řešení včetně projektů a závěrečných
+Pomoc je dostupná pro všech 235 hlavních zadání napříč osmi praktickými kurzy
+i 308 dalších úkolů v Základech, Datové analýze a Pygame 2, celkem 543 řešení včetně projektů a závěrečných
 programů. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
 Průvodce přípravou bez programovacího úkolu tento panel nemá.
 

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kdy přístav chrání?",
+    "options": [
+      "Celý hráč je uvnitř a energie pokryje krok.",
+      "Při pouhém dotyku rect.",
+      "Jen podle barvy."
+    ],
+    "answer": 0,
+    "why": "Ochrana má konečnou kapacitu."
+  },
+  {
+    "q": "Co udělá dávka kontaktů?",
+    "options": [
+      "Odebere všechny životy.",
+      "Nejvýše jeden život a zapne nezranitelnost.",
+      "Přidá body."
+    ],
+    "answer": 1,
+    "why": "Pravidlo platí pro celou dávku."
+  },
+  {
+    "q": "Stačí jen přežít tři vlny?",
+    "options": [
+      "Ano, data jsou dekorace.",
+      "Stačí stát v přístavu.",
+      "Ne, je třeba nejméně šest dat."
+    ],
+    "answer": 2,
+    "why": "Výsledek rozlišuje přežití a splnění cíle."
+  }
+]
