@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Více řádků z generátoru"
+  },
+  {
+    "id": "task-3",
+    "title": "Změna jen vybrané pomůcky"
+  },
+  {
+    "id": "task-4",
+    "title": "Smazání podle identifikátoru"
+  },
+  {
+    "id": "task-5",
+    "title": "Konflikt názvu bez přepsání dat"
+  }
+]

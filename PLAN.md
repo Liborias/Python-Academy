@@ -126,7 +126,19 @@ obsahové korektury celého kurzu a připomínky studentů; stav draft zůstáv�
 Tkinter základy (okno, Label, Button, Entry, `pack`, `grid`, `place`, `ttk`) · Převodník měn · Úkolníček (Listbox, Scrollbar, ukládání do JSON) · API (REST, stavové kódy, chyby, `requests`) · Převodník měn 2.0 · E-maily přes lokální testovací server, Gmail volitelně · Balení do spustitelného souboru (PyInstaller, ověřit podporu Pythonu 3.14/3.15).
 
 ### E. Databáze a projekty (32 lekcí)
-SQL základy (SQLite) · CRUD z Pythonu · **parametrizované dotazy a SQL injection** · venv a git (Git je ve VSCodium zabudovaný) · Tkinter a databáze (evidence kroužků místo učitelů) · BMI tracker · registrace a přihlášení (scrypt) · text na řeč (offline) · komprese souborů (`zlib`, `base64`) · kontrolní číslice (Luhn na zkušebních číslech) · generátor QR kódů · volitelně PostgreSQL + psycopg 3 + connection pool.
+**Stav v0.74: prvních 5 z 32 lekcí připravených.** Úvod SQLite učí spojení
+s pamětí/souborem, typy a omezení tabulek, parametrizované změny, čtení/řazení
+včetně Row a stránkování, transakce a rollback při neúspěšné dávce/přesunu.
+Každá lekce má tři ukázky/pět úkolů s možnými řešeními a tři kvízové otázky,
+celkem 15/25. Úvod 2/4, celek 4/4. Standardní sqlite3, bez povinných balíčků,
+serveru či grafické plochy. Python 3.12+, ověřeno Python 3.14.8/SQLite 3.53.1.
+Příprava všech editorů, vysvětlené příkazy a hranice vlastnictví spojení.
+Paměťové/dočasné pokusy neřeší trvalou evidenci; pro ni uložit pracovní složku
+a použít vlastní cestu v editoru. Další modul 6–10: NULL/afinity/text, souhrny,
+cizí klíče, JOIN a souvislá konzolová evidence. Úplný plán v panelu kurzu
+a courses/databaze/plan.md; budoucí témata zatím nejsou implementovaná.
+
+SQL základy (SQLite) · CRUD z Pythonu · **parametrizované dotazy a SQL injection** · venv a Git (editor má podporu Gitu, samostatný Git musí být nainstalovaný) · Tkinter a databáze (evidence kroužků místo učitelů) · BMI tracker · registrace a přihlášení (scrypt) · text na řeč (offline) · komprese souborů (`zlib`, `base64`) · kontrolní číslice (Luhn na zkušebních číslech) · generátor QR kódů · volitelně PostgreSQL + psycopg 3 + connection pool.
 
 ### G2. Pygame 2: hry s třídami (30 lekcí)
 **Stav v0.73: všech 30 lekcí připravených, čekají na připomínky.** Modul Herní objekty, které jdou

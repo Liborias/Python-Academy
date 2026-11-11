@@ -1,0 +1,11 @@
+{
+  "title": "SQLite: spojení, soubor a vlastní prostředí",
+  "minutes": 45,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "sql",
+    "databaze"
+  ],
+  "example_title": "SQLite: spojení, soubor a vlastní prostředí"
+}

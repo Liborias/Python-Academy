@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená DEFAULT 0?",
+    "options": [
+      "Při vynechaném sloupci se použije nula.",
+      "Každé zadané NULL se změní na nulu.",
+      "Smaže se původní počet."
+    ],
+    "answer": 0,
+    "why": "Výchozí hodnota není totéž jako zákaz NULL."
+  },
+  {
+    "q": "Opraví IF NOT EXISTS staré odlišné schéma?",
+    "options": [
+      "Ano, přepíše všechny tabulky.",
+      "Ne, existující tabulku ponechá beze změny.",
+      "Jen když je název česky."
+    ],
+    "answer": 1,
+    "why": "Změna existující struktury vyžaduje samostatný postup."
+  },
+  {
+    "q": "Jak čteme chybějící SQLite NULL v Pythonu?",
+    "options": [
+      "Jako text NULL.",
+      "Vždy jako prázdný text.",
+      "Jako None."
+    ],
+    "answer": 2,
+    "why": "None a prázdný text mají odlišný význam."
+  }
+]

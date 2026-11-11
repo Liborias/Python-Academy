@@ -1,0 +1,11 @@
+{
+  "title": "Tabulka pomůcek a pravidla hodnot",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "sql",
+    "databaze"
+  ],
+  "example_title": "Tabulka pomůcek a pravidla hodnot"
+}

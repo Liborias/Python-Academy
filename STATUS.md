@@ -2,7 +2,7 @@
 
 Plán: PLAN.md. Nový rozhovor začněte slovem „pokračuj“, přečtu tento soubor.
 
-Nejnovější stav: v0.73 na konci tohoto souboru, Pygame 2 má všech 30 lekcí včetně testů, JSON výsledků a předání. Datová analýza má všech 42 lekcí; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
+Nejnovější stav: v0.74 na konci tohoto souboru, nový úvod SQLite v Databázích (5/32). Pygame 2 má všech 30 lekcí a Datová analýza všech 42; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
 
 ## Rozhodnutí
 - Stažitelná složka, spouští se `python start.py` (potvrzeno implicitně, uživatel řekl „pokračuj“).
@@ -877,3 +877,51 @@ Revizi provedl samostatný agent bez znalosti mých závěrů (23 nálezů). Opr
   prostředí/databáze, tabulka, parametrizované dotazy, čtení a transakce.
   Základ sqlite3 je ve standardní knihovně; samostatná témata mají více
   příkladů/úkolů s možnými řešeními, navazující projekty tvoří souvislé celky.
+
+## v0.74 (11. 11. 2026): Databáze a projekty, první SQLite 1–5
+
+- Zahájen další kurz: spojení/soubor, tabulky/omezení, parametrizované změny,
+  čtení/řazení a transakce/rollback nad vlastními klubovními daty.
+  Kurz draft 5/32, úvod 2/4, celek 4/4. Každá lekce má tři ukázky/pět úkolů
+  s vlastními zadáními/šablonami/kontrolami/možnými řešeními a tři kvízy.
+  Celkem 15/25. Globálně 245 hlavních + 344 dalších řešení = 589, doplňkových
+  ukázek 172. Celkem 260 lekcí včetně 15 průvodců. Starší ID/postup zachovány.
+- Standardní sqlite3, Python 3.12+, ověřeno Python 3.14.8/SQLite 3.53.1.
+  Bez nových pip balíčků, serveru, účtu, sítě a GUI. Kind console/limit 20 s.
+  SQLite v paměti či TemporaryDirectory se po ukázce uklidí; pro trvalý
+  soubor uložit pracovní složku a použít v editoru vlastní cestu.
+  Běžný webový běh je dočasný. Každý úkol má NAVOD.md.
+- Výklad vysvětluje SQL příkazy a parametry, cursor/řádky, typové afinity,
+  NULL/None/default, vlastníka spojení a transakce. Closing zavírá spojení,
+  with con řeší commit/rollback. Lekce 2–4 předané spojení ani transakci
+  neukončují; operace 5 vlastní celý celek při autocommit=False a vyžadují
+  žádnou jinou rozepsanou práci. Chyba druhé části vrátí i první změnu,
+  preview má rollback ve finally. Uložení ověřuje druhé skutečné spojení.
+- Schema/podklady navazují podle přesného AST na dřívější řešení.
+  Kontrola sleduje skutečné SQL i bind parametry přes Connection/Cursor,
+  podporuje cursor/named vazby, neporovnává text implementace.
+  Ověřuje schema/omezení/idempotenci, vlastní sqlitex proti internímu
+  prefixu, apostrofy/češtinu/mezery, lastrowid/rowcount, konflikty, pořadí,
+  prázdné výsledky, lokální Row, stránkování a přesný dostupný odběr.
+- Osm skupin test_sqlite_intro OK: 50 chybných variant odmítnuto, 25 jiných
+  správných zápisů přijato, přesná řešení/AST, 40 samostatných Python běhů
+  a jeden SQL blok, skutečný soubor/reopen/SQLite hlavička a rollback po
+  close bez commit. Validátor všech 5 lekcí: 0 chyb/upozornění.
+- Kompletní unittest sada na Pythonu 3.14.8/Linux: **362 testů OK bez
+  přeskočených (1029 s)** včetně celkové validace 260 lekcí. Místní HTTP/SMTP
+  testovací servery byly povolené; starší ResourceWarning z pomocných procesů
+  a souborů nejsou selhání testů. Limity studentů se nemění.
+- Chromium e2e_sqlite_intro OK: 15 ukázek/25 úkolů/řešení, skutečné běhy,
+  lazy vzor bez změny práce/postupu, workspace/helpery/NAVOD, číslování,
+  reload/splnění, plán/příprava 5/32 a mobil 380/320. Uložený studentský kód
+  skutečně vytvořil databázi, nový proces z ní znovu přečetl záznam.
+  Rozepsaná Kurýrská směna 30 a splnění zachovány. Regrese řešení 205 ostatních
+  lekcí a přípravy 10 kurzů/3 systémů/3 editorů prošly. Mobilní řešení/zadání
+  a panel kurzu prohlédnuty; nativní menu editorů/Windows/macOS se netestují.
+  Logy/snímky mimo repo v /workspace/scratch/sqlite-intro-work.
+- Aktualizované katalog/kurz/plán, příprava všech editorů, dokumentace a počty
+  testů. Pygame 2 nadále 30/30; serverové API/JS/CSS a limity beze změny.
+  Dodávka commit/push do main bez ZIPů a publikace cloudového prostředí.
+- Další krok na další pokyn: Databáze 6–10 — NULL/afinity/text, souhrny,
+  cizí klíče, JOIN a konzolová evidence. Samostatná témata mají více ukázek/
+  úkolů s možnými řešeními, návazný projekt 10 zůstane souvislý.

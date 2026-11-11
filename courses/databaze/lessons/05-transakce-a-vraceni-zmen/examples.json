@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Chyba druhého řádku vrátí první změnu",
+    "description": "Chyba druhého řádku vrátí první změnu.",
+    "code": "# SQLite je součást standardní knihovny; spojení nepotřebuje síťový server.\nimport sqlite3\nfrom contextlib import closing\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\n\nfrom schema import vytvor_pomucky, vytvor_kategorie, vytvor_udalosti\nfrom podklady import priprav_sklad, vyzaduj_transakce, kladny_pocet\n\ndef uloz_davku(con, radky):\n    vyzaduj_transakce(con)\n    with con:\n        con.executemany('INSERT INTO pomucky (nazev, kusy) VALUES (?, ?)', radky)\n\n# Při importu nic neotevíráme; ukázka pracuje jen s cvičnými daty.\nif __name__ == '__main__':\n    with TemporaryDirectory() as adresar:\n        cesta = Path(adresar) / 'sklad.sqlite3'\n        with closing(sqlite3.connect(cesta, autocommit=False)) as con:\n            vytvor_pomucky(con)\n            vytvor_udalosti(con)\n            con.commit()\n            try:\n                uloz_davku(con, [('Karty', 2), ('Lana', -1)])\n            except sqlite3.IntegrityError:\n                print('Dávka vrácena, nic z ní nezůstalo.')\n            print(con.execute('SELECT nazev, kusy FROM pomucky').fetchall())\n        with closing(sqlite3.connect(cesta, autocommit=True)) as pozorovatel:\n            print('Jiné spojení:', pozorovatel.execute('SELECT nazev, kusy FROM pomucky ORDER BY id').fetchall())\n\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Potvrzená dávka je vidět po znovunačtení",
+    "description": "Potvrzená dávka je vidět po znovunačtení.",
+    "code": "# SQLite je součást standardní knihovny; spojení nepotřebuje síťový server.\nimport sqlite3\nfrom contextlib import closing\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\n\nfrom schema import vytvor_pomucky, vytvor_kategorie, vytvor_udalosti\nfrom podklady import priprav_sklad, vyzaduj_transakce, kladny_pocet\n\ndef uloz_davku(con, radky):\n    vyzaduj_transakce(con)\n    with con:\n        con.executemany('INSERT INTO pomucky (nazev, kusy) VALUES (?, ?)', radky)\n\n# Při importu nic neotevíráme; ukázka pracuje jen s cvičnými daty.\nif __name__ == '__main__':\n    with TemporaryDirectory() as adresar:\n        cesta = Path(adresar) / 'sklad.sqlite3'\n        with closing(sqlite3.connect(cesta, autocommit=False)) as con:\n            vytvor_pomucky(con)\n            vytvor_udalosti(con)\n            con.commit()\n            uloz_davku(con, ((nazev, kusy) for nazev, kusy in [('Šachy', 2), ('Lana', 4)]))\n            print('Dávka potvrzena; na konci se dotáže jiné spojení.')\n        with closing(sqlite3.connect(cesta, autocommit=True)) as pozorovatel:\n            print('Jiné spojení:', pozorovatel.execute('SELECT nazev, kusy FROM pomucky ORDER BY id').fetchall())\n\n"
+  }
+]

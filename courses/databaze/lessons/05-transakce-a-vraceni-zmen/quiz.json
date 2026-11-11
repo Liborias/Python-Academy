@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co při chybě druhé části přesunu vrátí první změnu?",
+    "options": [
+      "Výjimka uvnitř transakčního kontextu vyvolá rollback.",
+      "Pouhý úspěšný return.",
+      "Smazání všech tabulek."
+    ],
+    "answer": 0,
+    "why": "Kontext při výjimce vrátí celou transakci."
+  },
+  {
+    "q": "Je autocommit=True vhodný pro náš with con celek více zápisů?",
+    "options": [
+      "Ano, zachrání ho vždy automaticky.",
+      "Ne, úlohy vyžadují autocommit=False.",
+      "Jen když je soubor malý."
+    ],
+    "answer": 1,
+    "why": "V autocommit režimu se jednotlivé změny mohou ukládat samostatně."
+  },
+  {
+    "q": "Co musí platit před voláním operace vlastnící celou transakci?",
+    "options": [
+      "Volající má co nejvíc nepotvrzených změn.",
+      "Spojení už musí být zavřené.",
+      "Volající nemá jinou nepotvrzenou práci."
+    ],
+    "answer": 2,
+    "why": "Jinak by commit či rollback ovlivnil i cizí rozepsané změny."
+  }
+]

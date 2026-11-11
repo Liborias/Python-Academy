@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co obsahuje zvláštní cesta :memory:?",
+    "options": [
+      "Databázi konkrétního spojení v paměti.",
+      "Soubor ve složce všech kurzů.",
+      "Účet na vzdáleném serveru."
+    ],
+    "answer": 0,
+    "why": "Po zavření tohoto spojení paměťová data zaniknou."
+  },
+  {
+    "q": "Zavře samotné with con spojení?",
+    "options": [
+      "Ano, vždy.",
+      "Ne, řeší transakci; zavření zajistí close nebo closing.",
+      "Pouze při SELECT."
+    ],
+    "answer": 1,
+    "why": "Životnost spojení a potvrzení transakce jsou dvě různé odpovědnosti."
+  },
+  {
+    "q": "Co vrací fetchone pro SELECT 2 + 3?",
+    "options": [
+      "Samotný text SQL.",
+      "Kurzoru jméno.",
+      "Jeden řádek jako n-tici (5,)."
+    ],
+    "answer": 2,
+    "why": "Pro samotnou hodnotu přečteme první prvek řádku."
+  }
+]

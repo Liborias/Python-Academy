@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.73):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně tří her, vlastních testů a předání (30 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28) a všech osm modulů Datové analýzy (42 ze 42). Dokončené kurzy čekají na připomínky studentů. Další podkurzy jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.74):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně tří her, vlastních testů a předání (30 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28), všech osm modulů Datové analýzy (42 ze 42) a nový úvod Databází (5 ze 32). Dokončené kurzy čekají na připomínky studentů. Další kapitoly Databází jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -37,6 +37,29 @@ Každý podkurz včetně plánovaných má před lekcemi přípravu s volbou sys
 seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená stránka Příprava prostředí
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
+
+## Databáze a projekty — prvních pět lekcí SQLite
+
+Nový kurz začíná klubovním skladem pomůcek. První modul vysvětluje spojení,
+paměťovou a souborovou databázi, CREATE TABLE a pravidla sloupců,
+parametrizované INSERT/UPDATE/DELETE, SELECT/WHERE/ORDER BY a transakce.
+Každá lekce má tři přepínatelné ukázky, pět úkolů s vlastním zadáním,
+šablonou, kontrolou a možným řešením a tři kvízové otázky.
+Celkem **15 ukázek a 25 úkolů**. Úvod má obtížnost 2/4, celek 4/4.
+Panel kurzu obsahuje plán 32 lekcí, dostupných je prvních pět.
+
+Stačí standardní sqlite3, bez dalších balíčků, databázového serveru a internetu.
+Používáme Python 3.12+ s výslovným autocommit; ověřeno Python 3.14.8/SQLite 3.53.1.
+Příprava před kurzem má postup pro VS Code, VSCodium a PyCharm ve stejné .venv.
+`closing` zavírá spojení, `with con` řeší commit/rollback: lekce vysvětlují,
+kdo spojení a transakci vlastní. Pátá lekce předvede potvrzení i úplný návrat
+neúspěšné dávky a ověří výsledek druhým spojením.
+
+Ukázky používají vlastní cvičná data v :memory: nebo TemporaryDirectory,
+takže se po nich uklidí. Pro trvalou databázi uložte pracovní složku a spusťte
+reseni.py v editoru s vlastní cestou k souboru. Webový běh je dočasný.
+SQL hodnoty se předávají jako parametry, apostrofy a čeština zůstanou zachované.
+Navazující blok 6–10 přidá typy/NULL, souhrny, vazby a spojování tabulek.
 
 ## Pygame 2 — herní objekty a tři vlastní hry
 
@@ -291,10 +314,10 @@ Jeho id a uložené úpravy se nemění. Web používá SVG i ICO faviconu; při
 ikoně obnovte stránku pomocí Ctrl+F5. Soubory ikon mají v odkazech verzi pro cache.
 
 ## Pět úkolů na procvičení
-V běžných lekcích Základů (01–31 a 37–39) a lekcích 1–19 a 21–34 Datové analýzy i lekcích 1–5, 16–20 a 26–29 Pygame 2
+V běžných lekcích Základů (01–31 a 37–39) a lekcích 1–19 a 21–34 Datové analýzy i lekcích 1–5, 16–20 a 26–29 Pygame 2 a v úvodních pěti lekcích Databází
 přepínají tlačítka **Úkol 1 až Úkol 5**
 mezi původním úkolem a čtyřmi novými. Každý má vlastní zadání, rozepsaný kód,
-kontrolu a pracovní soubor pro externí editor. Doplňkových úkolů je celkem 324.
+kontrolu a pracovní soubor pro externí editor. Doplňkových úkolů je celkem 344.
 Úkol 1 zachovává původní uložený kód i návaznost na splnění lekce. Nové úkoly mají
 vlastní značky úspěšného procvičení. „Začít znovu“ obnoví jen právě vybraný úkol.
 Navazující mini-projekty a závěrečné testy tvoří vlastní celky.
@@ -316,8 +339,8 @@ Nápověda vysvětluje také odsazování, našeptávání, spuštění a vráce
 ## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
 variantu k právě vybranému zadání s připomenutím, že správných postupů může být více.
-Pomoc je dostupná pro všech 240 hlavních zadání napříč osmi praktickými kurzy
-i 324 dalších úkolů v Základech, Datové analýze a Pygame 2, celkem 564 řešení včetně projektů a závěrečných
+Pomoc je dostupná pro všech 245 hlavních zadání napříč devíti praktickými kurzy
+i 344 dalších úkolů v Základech, Datové analýze, Pygame 2 a Databázích, celkem 589 řešení včetně projektů a závěrečných
 programů. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
 Průvodce přípravou bez programovacího úkolu tento panel nemá.
 

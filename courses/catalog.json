@@ -110,8 +110,9 @@
         "zaklady",
         "tkinter-api"
       ],
-      "status": "planned",
-      "summary": "SQLite, CRUD, bezpečné dotazy, Tkinter s databází, projekty."
+      "status": "draft",
+      "summary": "Prvních 5 z 32 lekcí: SQLite spojení, tabulky, parametrizované změny, čtení a transakce. Tři ukázky a pět úkolů s možnými řešeními v každé lekci; úvod bez dalších balíčků.",
+      "planned_lessons": 32
     }
   ]
 }

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jak předáme název s apostrofem?",
+    "options": [
+      "Jako oddělený parametr dotazu.",
+      "Přilepíme ho přímo za INSERT.",
+      "Smažeme apostrof."
+    ],
+    "answer": 0,
+    "why": "Parametrizace zachová hodnotu i oddělí data od příkazu."
+  },
+  {
+    "q": "Co zjistíme z rowcount po DELETE?",
+    "options": [
+      "Id poslední vložené pomůcky.",
+      "Počet smazaných řádků.",
+      "Počet tabulek v souboru."
+    ],
+    "answer": 1,
+    "why": "Lastrowid se používá u vložení, rowcount u změněných či smazaných řádků."
+  },
+  {
+    "q": "Zaručuje executemany samo návrat celé chybné dávky?",
+    "options": [
+      "Ano, bez ohledu na režim.",
+      "Jen u názvů bez mezer.",
+      "Ne, celek chrání správně vymezená transakce."
+    ],
+    "answer": 2,
+    "why": "Předchozí příkazy mohly proběhnout; potřebujeme commit/rollback celého celku."
+  }
+]

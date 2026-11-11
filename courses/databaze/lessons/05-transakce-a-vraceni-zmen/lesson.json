@@ -1,0 +1,11 @@
+{
+  "title": "Transakce: celá dávka, nebo nic",
+  "minutes": 65,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "sql",
+    "databaze"
+  ],
+  "example_title": "Transakce: celá dávka, nebo nic"
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Výchozí počet a vlastní identifikátor",
+    "description": "Výchozí počet a vlastní identifikátor.",
+    "code": "# SQLite je součást standardní knihovny; spojení nepotřebuje síťový server.\nimport sqlite3\nfrom contextlib import closing\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\n\ndef vytvor_pomucky(con):\n    con.execute('''\n        CREATE TABLE IF NOT EXISTS pomucky (\n            id INTEGER PRIMARY KEY,\n            nazev TEXT NOT NULL UNIQUE,\n            kusy INTEGER NOT NULL DEFAULT 0 CHECK (kusy >= 0)\n        )\n    ''')\n\n# Při importu nic neotevíráme; ukázka pracuje jen s cvičnými daty.\nif __name__ == '__main__':\n    with closing(sqlite3.connect(':memory:', autocommit=True)) as con:\n        vytvor_pomucky(con)\n        con.execute('INSERT INTO pomucky (nazev) VALUES (?)', ('Karty',))\n        print(con.execute('SELECT id, nazev, kusy FROM pomucky').fetchall())\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Pravidlo se stejným názvem nepovolí duplicitu",
+    "description": "Pravidlo se stejným názvem nepovolí duplicitu.",
+    "code": "# SQLite je součást standardní knihovny; spojení nepotřebuje síťový server.\nimport sqlite3\nfrom contextlib import closing\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\n\ndef vytvor_pomucky(con):\n    con.execute('''\n        CREATE TABLE IF NOT EXISTS pomucky (\n            id INTEGER PRIMARY KEY,\n            nazev TEXT NOT NULL UNIQUE,\n            kusy INTEGER NOT NULL DEFAULT 0 CHECK (kusy >= 0)\n        )\n    ''')\n\n# Při importu nic neotevíráme; ukázka pracuje jen s cvičnými daty.\nif __name__ == '__main__':\n    with closing(sqlite3.connect(':memory:', autocommit=True)) as con:\n        vytvor_pomucky(con)\n        con.execute('INSERT INTO pomucky (nazev, kusy) VALUES (?, ?)', ('Lana', 3))\n        try:\n            con.execute('INSERT INTO pomucky (nazev, kusy) VALUES (?, ?)', ('Lana', 8))\n        except sqlite3.IntegrityError:\n            print('Stejný název podruhé odmítnut.')\n        print(con.execute('SELECT nazev, kusy FROM pomucky').fetchall())\n"
+  }
+]

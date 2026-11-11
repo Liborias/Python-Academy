@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-2",
+    "title": "Pozdrav jako výsledek SQL dotazu"
+  },
+  {
+    "id": "task-3",
+    "title": "Počítání přes SQL parametry"
+  },
+  {
+    "id": "task-4",
+    "title": "Počet vlastních tabulek"
+  },
+  {
+    "id": "task-5",
+    "title": "Spojení vracíme volajícímu"
+  }
+]

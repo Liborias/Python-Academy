@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kdy se můžeme spolehnout na pořadí řádků?",
+    "options": [
+      "Když dotaz výslovně obsahuje jednoznačné ORDER BY.",
+      "Vždy v pořadí vložení.",
+      "Jen u tří řádků."
+    ],
+    "answer": 0,
+    "why": "Bez ORDER BY není pořadí součást slibu dotazu."
+  },
+  {
+    "q": "Co je prázdný výsledek fetchall?",
+    "options": [
+      "None.",
+      "Prázdný seznam.",
+      "Nula životů."
+    ],
+    "answer": 1,
+    "why": "Fetchall vrací seznam zbývajících řádků, fetchone může vrátit None."
+  },
+  {
+    "q": "Proč nastavit Row jen na místním kurzoru?",
+    "options": [
+      "Aby se databáze zavřela.",
+      "Aby se automaticky přepsalo id.",
+      "Aby se nezměnilo nastavení spojení pro ostatní volající."
+    ],
+    "answer": 2,
+    "why": "Spojení sdílí i jiné části programu, místní změna je přehlednější."
+  }
+]

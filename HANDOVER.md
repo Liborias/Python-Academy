@@ -1,5 +1,106 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.74 (11. 11. 2026): Databáze a projekty, SQLite 1–5
+
+Na pokyn „pokračuj“ zahájen další plánovaný kurz Databáze a projekty. Hotov m01:
+spojení/paměť/soubor, tabulky/omezení, parametrizované změny, čtení/řazení
+a celé transakce. Každá lekce má tři přepínatelné ukázky, pět úkolů s vlastním
+zadáním/šablonou/kontrolou/možným řešením a tři kvízové otázky. Celkem 15/25,
+kurz draft 5/32, obtížnost úvodu 2/4 a celku 4/4. Globálně 245 hlavních + 344
+doplňkových řešení = 589, doplňkových ukázek 172; celkem 260 lekcí včetně 15
+průvodců. Starší obsah, ID, klíče postupu i rozepsaná práce zachovány.
+
+Nové ID:
+- 01-sqlite-spojeni-a-soubor
+- 02-tabulky-a-omezeni
+- 03-parametrizovane-zmeny
+- 04-vyber-a-razeni-dat
+- 05-transakce-a-vraceni-zmen
+
+Všechny kind console, běžný limit 20 s, bez PNG či GUI. Python 3.12+ kvůli
+výslovnému autocommit, ověřeno Python 3.14.8/SQLite 3.53.1. SQLite je ve
+standardní knihovně; requires_packages=[], instalační profil bez povinných
+balíčků. Nic se pro tento blok neinstalovalo, není potřeba účet/server/síť
+ani grafická plocha. Tkinter/QR/offline řeč/PostgreSQL jsou pouze další plán.
+
+Téma klubovního skladu vysvětluje reálné SQL příkazy, význam parametrů
+a výsledků, rozdíl mezi close a commit/rollback a odpovědnosti volajícího.
+Hlavní ukázky používají :memory: či TemporaryDirectory a uklidí vlastní data.
+Pro trvalou databázi student uloží pracovní složku a v editoru zvolí vlastní
+cestu vedle reseni.py; běžný webový běh je dočasný. Každý úkol má NAVOD.md.
+Import studentova souboru ani schema/podklady neotevírá databázi.
+
+Lekce 1 získává verzi skutečným SQL, zavírá vlastní spojení a přijímá Path/text.
+Počet tabulek rozlišuje vlastní hlavní tabulky od view/index/sqlite_ prefixu;
+GLOB má doslovné _, LIKE zástupné (vlastní sqlitex se nesmí vynechat).
+Úkol 1/5 naopak vrací živé autocommit=True spojení, vlastník je volající.
+Closing řeší zavření, samotné with con řeší transakci, nikoli close.
+
+Lekce 2 vytváří pomucky/kategorie/vypujcky/udalosti s INTEGER PRIMARY KEY,
+NOT NULL/UNIQUE/DEFAULT/CHECK a volitelnou poznámkou. Rozlišené NULL/None
+od prázdného textu, DEFAULT od výslovného NULL a afinita od přesné validace.
+IF NOT EXISTS zachová řádky, nemigruje staré schéma. Funkce 2–4 vlastní
+transakci ani spojení neukončují. Schema.py pro 2/5 přebírá první dva úkoly,
+od 3 přesné definice prvních čtyř, shodu hlídá AST. Tvůrci tabulek 2/1–4
+nemají pomocník s hotovým řešením právě téhož zadání.
+
+Lekce 3 provádí INSERT/executemany/UPDATE/DELETE a konflikt názvu; hodnoty
+zůstávají bind parametry, i apostrofy/čeština/krajní mezery. Lastrowid je id
+vloženého řádku, rowcount počet odpovídajících změn i u stejné hodnoty UPDATE.
+Executemany samo nezaručuje atomicitu, chyby IntegrityError se nepohlcují.
+ON CONFLICT(nazev) DO NOTHING neskrývá CHECK/NOT NULL jako obecné OR IGNORE.
+
+Lekce 4 má výslovné sloupce a pořadí, fetchall=[] a fetchone=None, přísnou
+hranici zásob, lokální sqlite3.Row bez změny nastavení spojení a parametrické
+LIMIT/OFFSET s validací int bez bool. Řazení textu je základní SQLite,
+nikoli české slovníkové. Čtení nesmí potvrdit cizí rozepsanou práci.
+
+Lekce 5 vlastní celou vyšší operaci při autocommit=False. Volající před ní
+nemá jiné nepotvrzené změny. With con potvrdí úspěch/vrátí chybu, return není
+výjimka. Dávka/odběr/přesun/pomůcka+zpráva a zkušební rollback ve finally.
+Přesun do chybějícího cíle vrátí i již odebraný zdroj. Odběr přesně dostupného
+množství je platný. Autocommit=True se před změnou odmítá. Po commit/rollback
+Python v režimu False znovu otevře transakci, proto in_transaction nemusí
+přejít na False. Potvrzení zkouší skutečný druhý čtenář souboru.
+
+Osm skupin test_sqlite_intro OK: 50 chybných variant odmítnutých, 25 jiných
+správných zápisů přijatých včetně cursor/named parametrů/Row, přesná řešení
+a AST schema. Samostatně 40 běhů (25 řešení, 10 dalších ukázek, 5 Python úryvků)
+a jeden SQL blok. Reálný soubor se znovuotevře, po close se nepotvrzený zápis
+vrátí, ověřena SQLite hlavička. Validátor 5 lekcí: 0 chyb/upozornění.
+Celková unittest sada na Pythonu 3.14.8/Linux: **362 testů OK bez přeskočených,
+1029 s**, včetně celkové validace 260 lekcí. Místní HTTP/SMTP testovací servery
+byly povolené; starší ResourceWarning z pomocných procesů a souborů nejsou
+selhání testů. Běhové limity studentů se nemění.
+
+Kontrolní Connection/Cursor rozšiřují skutečný sqlite3 engine, nejsou maketa.
+Sledují oddělené parametry execute/executemany včetně generátorů a přijmou
+pojmenované i poziční vazby. Datové výsledky/schema/rollback/viditelnost
+ověřují samostatná očekávání, ne přesný text řešení.
+
+Chromium e2e_sqlite_intro OK: 15 ukázek/25 úkolů, odmítnuté šablony/přijaté
+vzory, skutečné běhy, lazy řešení bez změny kódu/postupu, workspace/helpery/
+NAVOD, číslování, reload/splnění, plán/příprava 5/32 a mobil 380/320. Exportovaný
+studentský kód skutečně vloží záznam do souboru a nový proces ho znovu přečte.
+Zachovaná rozepsaná Kurýrská směna 30 i její splnění. Prošly regrese řešení 205
+ostatních lekcí a přípravy 10 profilů/3 systémů/3 editorů. Snímky mobilního
+řešení/zadání i kurzu prohlédnuty. Nativní menu editorů a instalace na
+Windows/macOS tím nejsou ověřené; nejsou potřeba pro konzolovou zkoušku SQLite.
+Logy/snímky mimo repo v /workspace/scratch/sqlite-intro-work.
+
+Aktualizovány katalog/kurz/plán, příprava všech editorů, README/PLAN/SCHEMA/
+instalace/spuštění a počty testů. Pygame 2 zůstává 30/30; serverové API/JS/CSS
+a časové limity se nemění. Dodávka commit/push do main bez ZIPů a publikace
+cloudového prostředí.
+
+Další krok na další pokyn: **Databáze 6–10** podle nového panelu: NULL/afinity/
+textové filtry, souhrny GROUP BY/HAVING, cizí klíče a JOIN/LEFT JOIN,
+souvislá konzolová klubovní evidence. Samostatná témata s více příklady/
+úkoly a možnými řešeními, projekt 10 ponechat souvislý. Při zavádění vazeb
+pozor na PRAGMA foreign_keys mimo aktivní transakci, jinak se nezapne.
+Pozdější témata plánu 32 lekcí plánu zatím neimplementovaná. Historie níže není
+novým zadáním.
+
 ## Aktuální v0.73 (11. 11. 2026): Ověření a předání, Pygame 2 dokončen
 
 Na pokyn „pkračuj“ dokončen závěrečný modul 26–30 podle plánu. Kurz má

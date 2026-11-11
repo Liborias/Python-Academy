@@ -871,3 +871,78 @@ PyInstaller 6.22.3 skutečně sestavil onedir na Linuxu/Pythonu 3.14.8; hotová 
 běžela se skutečným SDL offscreen/Clock/fonty/PNG a skriptovanými SDL událostmi,
 normálně zavřela, dokončila prohru, uložila ji jednou a znovu načetla.
 Fyzická klávesnice, Windows/macOS ani plná instalace příjemce tím nejsou ověřeny.
+
+## Databáze a projekty, SQLite 1–5 (od v0.74)
+
+Nový kurz databaze má připravených 5 z 32 lekcí, status draft, level 4
+s úvodem 2/4. Modul m01: spojení/soubor, tabulky/omezení, parametrizované změny,
+výběr/řazení a transakce/rollback. Každá lekce je console s výchozím limitem 20 s,
+třemi ukázkami, pěti úkoly a třemi kvízovými otázkami; každé zadání má vlastní
+šablonu, kontrolu a možné řešení. Celkem 15 ukázek/25 úkolů. Globálně 245 hlavních
++ 344 doplňkových řešení = 589, doplňkových ukázek 172; celkem 260 lekcí včetně 15
+průvodců. Starší ID/postup se nemění. Plan.md popisuje zbytek kurzu o 32 lekcích jako plán.
+
+První blok používá pouze sqlite3/contextlib/pathlib/tempfile ze standardní
+knihovny. Requires_packages=[] a základ instalačního profilu zůstává prázdný.
+Python 3.12+ kvůli výslovnému autocommit, ověřeno Python 3.14.8/SQLite 3.53.1.
+Žádná síťová služba, povinné GUI, externí data či nové knihovny. Pozdější
+Tkinter/QR/řeč/PostgreSQL nejsou pro tento blok nainstalované ani implementované.
+
+Ukázky otevírají :memory: nebo soubor v TemporaryDirectory, po skončení uklidí
+vlastní data. Pro trvalý soubor musí student uložit pracovní složku a v editoru
+použít vlastní cestu; běžný webový běh je dočasný. NAVOD.md má každý úkol,
+schema.py/podklady.py potřebné úkoly odkazují beze změny na starší definice.
+Vytvoření tabulky 1–4 v lekci 2 nemá pomocník s řešením právě téhož úkolu,
+kombinovaný úkol 2/5 už vědomě přebírá definice dřívějších úkolů.
+Import modelů neotevírá databázi; vše se provádí až ve funkci nebo __main__.
+
+Verze získává skutečný SQL výsledek, pocet_tabulek počítá vlastní hlavní tabulky,
+vynechává pohledy/indexy a interní prefix sqlite_. GLOB pracuje s doslovným _,
+zatímco LIKE má _ jako zástupný znak; kontrola zahrnuje vlastní jméno sqlitex.
+Otevri_databazi vrací živé autocommit=True spojení, ostatní hodnotové funkce 1
+svá spojení zavírají. Contextlib.closing řeší close, samotné with con spojení
+nezavírá. Typové afinity SQLite se nezaměňují s úplnou validací Python hodnot.
+
+Tabulky: pomucky(id INTEGER PRIMARY KEY,nazev TEXT NOT NULL UNIQUE,
+kusy INTEGER NOT NULL DEFAULT 0 CHECK(kusy>=0)); kategorie s jedinečným názvem;
+vypujcky s textem pomůcky/člena a vraceno 0/1, udalosti s povinným popisem
+a volitelnou poznámkou. Příprava je idempotentní bez mazání řádků, neprovádí
+migraci starého schématu. Kontrola skutečně zkouší výchozí hodnoty, automatická
+id a chyby IntegrityError; CHECK sám nenahrazuje NOT NULL.
+
+V lekcích 2–4 vlastní spojení i transakci volající. Funkce je nezavírá ani
+nepotvrzuje/nevrací. Hodnoty jsou bind parametry INSERT/UPDATE/DELETE/SELECT;
+jména tabulek/sloupců pevná. Lastrowid slouží vložení, rowcount výběru změn,
+u stejné přiřazené hodnoty se v SQLite počítá nalezený řádek také.
+Konflikt názvu zachová starý počet, ostatní pravidla se nezamlčují OR IGNORE.
+Pořadí SELECT je výslovné, prázdné fetchall=[], fetchone=None. Řazení textu
+je základní SQLite, nikoli české slovníkové. Row je lokální kurzoru, stránkování
+validuje nezáporný přesný int bez bool. Čtecí funkce nesmí potvrdit cizí práci.
+
+Vyšší operace 5 vlastní celou transakci při autocommit=False; před jejich
+voláním nesmí být jiná nepotvrzená práce. With con potvrdí úspěch/vrátí chybu,
+return není výjimka. Dávka, odběr, přesun a pomůcka+událost se potvrzují jako
+celek; nemožný přesun vyvolá ValueError a vrátí i již odebraný zdroj.
+Zkušební dávka má rollback ve finally i při return/IntegrityError.
+Autocommit=True se před změnou odmítá. Python po commit/rollback v režimu False
+otevře novou transakci; in_transaction nemusí být False. Uložení ověřujeme
+druhým skutečným spojením k souboru, ne pouze čtením vlastního con.
+
+Dilna_check/sqlite_intro.py používá skutečný SQLite a měřicí Connection/Cursor:
+pozoruje oddělené parametry execute/executemany včetně generátorů a přijímá
+pojmenované i poziční vazby. Nevyžaduje konkrétní text SQL či jednu syntaxi.
+Datové výsledky, schema/omezení, vlastnictví a viditelnost jsou ověřené proti
+samostatným očekáváním; test vrací i nepovedenou dávku a zkouší přesný odběr
+dostupného množství. Connection/Cursor fungují nad skutečným enginem, nejde
+o maketu databáze. Pomocné schema definice mají shodné AST s řešeními 2.
+
+Osm skupin test_sqlite_intro odmítá 50 chybných variant a přijímá 25 jiných
+správných postupů (kurzor/connection, named parametry, řazení, Row).
+Samostatně běží 25 řešení + 10 dalších ukázek + 5 Python úryvků a jeden SQL blok.
+Reálný soubor ověřuje znovuotevření, SQLite hlavičku a návrat nepotvrzeného
+zápisu po close. Chromium ověřuje všech 15 ukázek/25 úkolů, odmítnuté šablony/
+přijaté vzory, lazy řešení bez změny kódu/postupu, skutečné běhy, workspace,
+reload/splnění a mobil 380/320. Exportovaný studentský kód skutečně uloží data,
+nový proces je znovu přečte. Zachovává se starší rozepsaná Kurýrská směna.
+Regrese pokrývá řešení 205 ostatních lekcí a přípravu všech 10 kurzů/3 editorů/
+3 systémů. Serverové API, JS, CSS a časové limity se nemění.

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Prázdná tabulka dává prázdný seznam",
+    "description": "Prázdná tabulka dává prázdný seznam.",
+    "code": "# SQLite je součást standardní knihovny; spojení nepotřebuje síťový server.\nimport sqlite3\nfrom contextlib import closing\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\n\nfrom schema import vytvor_pomucky, vytvor_kategorie, vytvor_udalosti\nfrom podklady import priprav_sklad, vyzaduj_transakce, kladny_pocet\n\ndef vypis_pomucky(con):\n    return con.execute('SELECT id, nazev, kusy FROM pomucky ORDER BY nazev, id').fetchall()\n\n# Při importu nic neotevíráme; ukázka pracuje jen s cvičnými daty.\nif __name__ == '__main__':\n    with closing(sqlite3.connect(':memory:', autocommit=True)) as con:\n        vytvor_pomucky(con)\n        print(vypis_pomucky(con))\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Velikost písmen a výslovné řazení",
+    "description": "Velikost písmen a výslovné řazení.",
+    "code": "# SQLite je součást standardní knihovny; spojení nepotřebuje síťový server.\nimport sqlite3\nfrom contextlib import closing\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\n\nfrom schema import vytvor_pomucky, vytvor_kategorie, vytvor_udalosti\nfrom podklady import priprav_sklad, vyzaduj_transakce, kladny_pocet\n\ndef vypis_pomucky(con):\n    return con.execute('SELECT id, nazev, kusy FROM pomucky ORDER BY nazev, id').fetchall()\n\n# Při importu nic neotevíráme; ukázka pracuje jen s cvičnými daty.\nif __name__ == '__main__':\n    with closing(sqlite3.connect(':memory:', autocommit=True)) as con:\n        vytvor_pomucky(con)\n        con.executemany('INSERT INTO pomucky (nazev, kusy) VALUES (?, ?)', [('míče', 1), ('Míče', 2), ('Lana', 3)])\n        print(vypis_pomucky(con))\n"
+  }
+]

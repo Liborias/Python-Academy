@@ -1,0 +1,14 @@
+[
+  {
+    "id": "varianta-1",
+    "title": "Databáze jako vlastní soubor",
+    "description": "Databáze jako vlastní soubor.",
+    "code": "# SQLite je součást standardní knihovny; spojení nepotřebuje síťový server.\nimport sqlite3\nfrom contextlib import closing\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\n\ndef verze_databaze(cesta):\n    with closing(sqlite3.connect(cesta, autocommit=True)) as con:\n        return con.execute('SELECT sqlite_version()').fetchone()[0]\n\n# Při importu nic neotevíráme; ukázka pracuje jen s cvičnými daty.\nif __name__ == '__main__':\n    with TemporaryDirectory() as adresar:\n        cesta = Path(adresar) / 'moje databaze.sqlite3'\n        print('SQLite:', verze_databaze(cesta))\n        print('Soubor vznikl:', cesta.is_file())\n"
+  },
+  {
+    "id": "varianta-2",
+    "title": "Existující obsah zůstane zachovaný",
+    "description": "Existující obsah zůstane zachovaný.",
+    "code": "# SQLite je součást standardní knihovny; spojení nepotřebuje síťový server.\nimport sqlite3\nfrom contextlib import closing\nfrom pathlib import Path\nfrom tempfile import TemporaryDirectory\n\ndef verze_databaze(cesta):\n    with closing(sqlite3.connect(cesta, autocommit=True)) as con:\n        return con.execute('SELECT sqlite_version()').fetchone()[0]\n\n# Při importu nic neotevíráme; ukázka pracuje jen s cvičnými daty.\nif __name__ == '__main__':\n    with TemporaryDirectory() as adresar:\n        cesta = Path(adresar) / 'klub.sqlite3'\n        with closing(sqlite3.connect(cesta, autocommit=True)) as con:\n            con.execute('CREATE TABLE poznamky (text TEXT)')\n            con.execute('INSERT INTO poznamky VALUES (?)', ('Moje poznámka',))\n        print('SQLite:', verze_databaze(cesta))\n        with closing(sqlite3.connect(cesta, autocommit=True)) as con:\n            print(con.execute('SELECT text FROM poznamky').fetchall())\n"
+  }
+]

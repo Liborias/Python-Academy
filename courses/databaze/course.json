@@ -1,0 +1,27 @@
+{
+  "id": "databaze",
+  "title": "Databáze a projekty",
+  "requires_packages": [],
+  "modules": [
+    {
+      "id": "m01",
+      "title": "SQLite: od spojení k transakci",
+      "lessons": [
+        "01-sqlite-spojeni-a-soubor",
+        "02-tabulky-a-omezeni",
+        "03-parametrizovane-zmeny",
+        "04-vyber-a-razeni-dat",
+        "05-transakce-a-vraceni-zmen"
+      ]
+    }
+  ],
+  "learning_plan": {
+    "title": "Od SQLite ke klubovním projektům",
+    "status": "draft",
+    "level": 4,
+    "summary": "Prvních 5 z 32 lekcí: spojení a soubor, pravidla tabulek, parametrizované změny, čtení a transakce. Tři ukázky a pět úkolů s možnými řešeními v každé lekci.",
+    "placement": "Základy Pythonu pro úvod; práce se soubory a později Tkinter pro navazující projekty. Nic se nezamyká.",
+    "difficulty_reason": "Úvod 2/4, celek 4/4: SQL, vlastnictví spojení, transakce, vazby a spolupráce databáze s aplikací.",
+    "duration": "Plán 32 lekcí, prvních 5 dostupných. Odhad celku 20–30 hodin plus vlastní úpravy."
+  }
+}

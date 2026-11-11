@@ -1,0 +1,11 @@
+{
+  "title": "Vložení pomocí parametrů",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "sql",
+    "databaze"
+  ],
+  "example_title": "Vložení pomocí parametrů"
+}
