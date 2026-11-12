@@ -64,8 +64,8 @@ with tempfile.TemporaryDirectory() as temp:
                 page.set_viewport_size({'width':1100,'height':900})
             assert examples==9
             page.goto(f'{base}#/kurz/databaze');page.wait_for_selector('.mod li')
-            assert page.locator('.mod li').count()==30 and page.locator('.mod li.done').count()==6
-            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Prvních 30 z 32")')
+            assert page.locator('.mod li').count()==32 and page.locator('.mod li.done').count()==6
+            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Všech 32 lekcí")')
             page.locator('.learning-plan summary').click()
             assert '49 ukázek a 61 úkolů' in page.locator('.learning-plan').inner_text()
             if shots:page.screenshot(path=str(shots/'ucty-course.png'),full_page=True)

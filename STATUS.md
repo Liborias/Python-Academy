@@ -2,7 +2,7 @@
 
 Plán: PLAN.md. Nový rozhovor začněte slovem „pokračuj“, přečtu tento soubor.
 
-Nejnovější stav: v0.79 na konci tohoto souboru, Databáze včetně vlastní půjčovny a předání (30/32). Pygame 2 má všech 30 lekcí a Datová analýza všech 42; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
+Nejnovější stav: v0.80 na konci tohoto souboru, Databáze mají všech32 lekcí včetně volitelného PostgreSQL. Pygame 2 má všech 30 lekcí a Datová analýza všech 42; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
 
 ## Rozhodnutí
 - Stažitelná složka, spouští se `python start.py` (potvrzeno implicitně, uživatel řekl „pokračuj“).
@@ -1168,3 +1168,46 @@ Revizi provedl samostatný agent bez znalosti mých závěrů (23 nálezů). Opr
 - Aktualizované katalog/kurz/plány/příprava/dokumentace/počty. Přímý commit/
   push do main, bez ZIPů/cloud publikace. Logy/snímky /workspace/scratch/predani-work.
 - Další krok na další pokyn: volitelné PostgreSQL31–32 podle plánu.
+
+## v0.80 (12. 11. 2026): Volitelný PostgreSQL závěr 31–32
+
+- Hotov m07 a všech32 lekcí Databází, draft do zpětné vazby. Nově6 ukázek/
+  2 návazná zadání s možnými řešeními a3 kvízy každá. Kurz62/68, globálně
+  272+360=632 řešení,192 doplňkových ukázek/287 lekcí včetně15 průvodců.
+  Starší ID, postup a rozepsaný kód zachované.
+- 31/32 console20s, příklady/kontrola vždy označená offline simulace, nezávislá
+  na PG* a bez pip balíčků. Neověřuje skutečné SQL/izolaci/souběh. Skutečný
+  server se zapíná až v uložené složce přepínačem --pripojit. API/JS/CSS/
+  runtime/limity se nemění. Python3.12+, ověřeno3.14.8.
+- Opt-in psycopg[binary,pool]>=3.2,<4, zde3.3.9/binary3.3.9/pool3.3.3;
+  --extras databaze přidává klienta/pool i dosavadní QR. Server se instaluje
+  zvlášť: NAVOD Windows/SQL Shell, macOS/Homebrew a Debian/Ubuntu, vlastní
+  role/DB a PG* nastavení. --heslo čte getpass bez echa, heslo nepatří do
+  zdrojů/argumentů/Gitu. Stejná .venv pro všechny editory/terminál.
+- 31 pridej_pg/prehled_pg: validace před SQL, oddělené %s/RETURNING, pořadí id,
+  kurzor a explicitní transaction, předané spojení zůstává volajícímu.
+- 32 prehled_z_poolu/pridej_davku: celá validace před lease, empty bez lease,
+  timeout3/jedno převzetí a vnější transakce celé dávky. Vnořená31 má savepoint,
+  pozdější chyba vrátí všechny řádky, id sekvence se nevrací. Funkce vrací
+  spojení i při chybě, con ani pool nezavírá. Model31 v podkladech32 přesný.
+- Spust_postgres.py: help/simulace bez DB, --pripojit vyžaduje PGHOST/PORT/
+  DATABASE/USER; init vytvoří akademie_pomucky bez mazání, pridat/prehled
+  importují studentovy funkce.31/32 stejné schéma, žádná migrace SQLite.
+  Pokus_davky.py32 ověří skutečnou dávku/rollback/zotavení, ponechá2 fiktivní
+  záznamy; bez flagu simulace. Pool min1/max3, explicit open/wait8, connect5,
+  lease3, autocommitTrue a close vlastníkem/úklid po neúspěšném startu.
+- Osm nových unit skupin a8 offline běhů OK, alternativní zápisy i chyby,
+  AST/helpery, lazy import, chybějící balíčky/nastavení, CLI bez driveru.
+  Skutečný PostgreSQL17.11/Docker: parametry, trvalost, rollback dávky/IDLE,
+  12 souběžných přehledů, max3/timeout čtvrtého, zotavení/close, CLI31/32
+  v dalších procesech a pokus_davky.py. Dvě Linux PTY autentizace --heslo
+  bez echa OK. Testovací unikátní schémata uklizena. Testovací kontejner byl zastaven a odstraněn, dočasná data v tmpfs i soukromá konfigurace přístupu uklizené.
+- Chromium31–32 OK:6/2/řešení, workspace/helpery/reload/starší30/plán32/32/
+  příprava/mobil380/320, řešení prohlédnutá. Regrese dalších232 řešení,
+  předání26–30 a přípravy10 profilů/3 systémů/3 editorů OK.
+- Celková unittest sada: 415 testů OK bez přeskočených, 1129 s na Python3.14.8/Linux, včetně validace všech287 lekcí. Konečná cílená sada8 testů také OK (3.4 s).
+- Validátor32:0 chyb/0 upozornění. Windows/macOS instalace/editory neověřené.
+- Aktualizované katalog/kurz/plány/příprava/docs/počty. Přímý commit/push main,
+  bez ZIP/cloud publikace. Protokoly/snímky /workspace/scratch/postgres-work.
+- Další krok: revize praktických kurzů/zpětná vazba, případně Z1 napříč kurzy
+  podle PLAN.md. Nehotový praktický podkurz už není; příprava je koncept15.

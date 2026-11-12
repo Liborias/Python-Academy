@@ -1,5 +1,108 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.80 (12. 11. 2026): Volitelný PostgreSQL závěr 31–32
+
+Dokončen m07 a všech32 lekcí Databází. Dvě návazná zadání s možnými řešeními
+od začátku, každá lekce má tři ukázky a tři kvízy. Nově6/2, celkem62 ukázek/
+68 úkolů, úvod2/4/celek4/4. Status draft do připomínek, stejné jako dřívější
+hotové podkurzy. Globálně272 hlavních +360 dalších =632 řešení, doplňkových
+ukázek192;287 lekcí včetně15 průvodců. Starší ID, kód i postup zachovány.
+
+Nové ID:
+- 31-postgresql-pripojeni-a-parametry
+- 32-pool-a-sprava-spojeni
+
+Console20s, základní příklady a kontrola vždy **označená simulace** dvou dotazů,
+bez sítě a pip balíčků, i při nastavených PG*. Není to obecný SQL stroj ani
+test skutečného souběhu/izolace. Poskytované helpery nejsou aktuální řešení;
+pg_model.py32 má přesné definice31. Žádné změny API/JS/CSS/runtime/limitů.
+Python3.12+, ověřeno3.14.8; předchozí1–30 zůstávají bez PostgreSQL.
+
+31: pridej_pg(con,nazev,kusy) validuje před transakcí/SQL, název strip1–100
+znaků, počet přesný int0–1000000 bez bool. Vlastní con.transaction a kurzor,
+INSERT s oddělenými %s/RETURNING id; vrací skutečné id. Prehled_pg(con,minimum=0)
+vrací list tuple(id,nazev,kusy), kusy>=minimum, pořadí id. Předané spojení
+funkce nezavírá, chybu předá; předpoklad otevřené autocommitTrue spojení.
+Simulace ověří i projekci/pořadí polí a id, různé správné správy kurzoru a
+pořadí INSERT sloupců fungují. Neemuluje obecnou syntaxi PostgreSQL.
+
+32: prehled_z_poolu ověří minimum před převzetím, pool.connection(timeout=3)
+vrátí spojení po bloku i chybě. Pridej_davku validuje celou list/tuple dávku
+≤100 dvojic před půjčením, prázdná[] bez převzetí; jedno spojení a vnější
+transaction kolem všech pridej_pg. Vnořené31 vytváří skutečné savepointy,
+pozdější konflikt vrátí celou dávku. Vrací id v pořadí vstupu, sekvence se po
+rollbacku nevrací a id mohou mít mezery. Funkce nezavírá con ani pool,
+nepolyká výjimku do prázdného seznamu. Simulace zachová stejná pravidla id.
+
+Pro skutečný server do stejné .venv VS Code/VSCodium/PyCharm/terminál:
+    python -m pip install "psycopg[binary,pool]>=3.2,<4"
+nebo v kořeni Akademie tools/setup_env.py --courses databaze --extras (přidá
+volitelné QR i psycopg). Instaluje klienta/libpq/pool, nikoli databázový server.
+Zde ověřeno psycopg3.3.9/binary3.3.9/pool3.3.3 a PostgreSQL17.11.
+
+NAVOD.md v obou složkách vysvětluje Windows instalátor/SQL Shell, Homebrew
+postgresql@17 a Debian/Ubuntu, službu a vlastní novou roli/DB. Psql \password
+nastaví heslo interaktivně, aplikace použije PGHOST/PGPORT/PGDATABASE/PGUSER,
+--heslo čte getpass bez echa. Libpq umí také soukromý PGPASSFILE. Heslo nepatří
+do argumentu, kódu, webu či Git souboru. Pro vzdálený server TLS dle správce,
+např. verify-full/kořenový certifikát. Windows/macOS instalace zde neověřená.
+
+Uložená dokončená31/32:
+    python spust_postgres.py --help
+    python spust_postgres.py
+    python spust_postgres.py --pripojit --heslo init
+    python spust_postgres.py --pripojit --heslo pridat "Karty O'Neil" 2
+    python spust_postgres.py --pripojit --heslo prehled
+Help nic nepřipojuje, bez přepínače pouze simulace. Skutečné připojení musí
+být výslovně --pripojit; nastavení bez čtyř PG* se odmítne. Init jen CREATE
+TABLE IF NOT EXISTS akademie_pomucky, nemigruje SQLite. Tabulka má BIGINT
+identity PK, názevTEXT UNIQUE NOT NULL, kusyINTEGER NOT NULL CHECK>=0.
+Schéma31/32 stejné; vlastní prázdná cvičná DB, žádné původní soubory se nemění.
+Pridat31 vloží řádek,32 předá jednořádkovou dávku studentově funkci.
+
+Pokus_davky.py32 --pripojit --heslo vloží dva nové fiktivní řádky, zkusí druhou
+dávku s pozdějším konfliktem a ověří její rollback i další použití poolu.
+Dva úspěšné záznamy v cvičné DB zůstanou, nic se automaticky nemaže. Bez flagu
+pouze simulace. Vlastník pool po použití zavře; jde o synchronní pool, nesdílí
+se mezi procesy a pro krátký CLI může být jednodušší jedno spojení.
+
+Pool helper min1/max3, open=False, open(wait=True,timeout=8), connect_timeout5,
+lease timeout3 a autocommitTrue; chyba úvodního open zavře pool. Obecná CLI
+diagnostika, návratový kód2. Všechna nastavení i příkazy jsou vysvětlené.
+
+Ověření:
+- Osm nových unit skupin OK: vzory/šablony, parametry/RETURNING/projekce/
+  vlastnictví, validace celé dávky/rollback/vrácení, chybné varianty a jiné
+  správné zápisy, lazy driver/pool open/wait/cleanup a chybějící volitelné
+  balíčky, AST předchozího modelu. Osm skutečných offline běhů včetně Python
+  úryvků s -S (bez site-packages). CLI help/simulace/nastavení bez driveru OK.
+- tests/postgresql_real_smoke.py --config SOUKROMY_JSON: skutečný PostgreSQL
+  17.11 v izolovaném místním Dockeru, unikátní schéma v finally uklizeno,
+  parametry/apostrof/SQL text, RETURNING, commit/reopen, rollback celé dávky,
+  IDLE po chybě,12 souběžných přehledů, max3 různá spojení/timeout čtvrtého,
+  zotavení/close, CLI31/32 v dalších procesech a skutečný pokus_davky.py OK.
+  Konfigurace testu s PG* je mimo repo, nikdy se nevypisuje.
+- Dvě skutečná Linux PTY přihlášení --heslo (31 init/32 dávka) bez echa OK;
+  autentizace heslem skutečně funguje. Dočasná schémata uklizena.
+- Chromium31–32:6 označených ukázek/2 úkoly/řešení, správné lazy zdroje bez
+  změny draftu, šablony odmítnuté/vzory přijaté, helpery/workspace/reload,
+  zachovaná rozepsaná30, plán32/32 a mobil380/320 OK. Mobilní řešení prohlédnuto.
+- Regrese Chromium: řešení dalších232 lekcí, předchozí26–30 včetně PNG/CSV
+  a příprava10 profilů/3 systémů/3 editorů OK.
+- Celková unittest sada: 415 testů OK bez přeskočených, 1129 s na Python3.14.8/Linux, včetně validace všech287 lekcí. Konečná cílená sada8 testů také OK (3.4 s).
+- Cílený validátor32 lekcí:0 chyb/0 upozornění.
+
+Pro práci s prostředím byl použit cloud-environment-runtime; nic se neměnilo
+v publikované konfiguraci. Oficiální Docker image postgres:17-bookworm,
+digest665dc7b37ac52a17e298511414c21d23ffa4e6a6ef6225b3e5d59c7afb35e994,
+jen dočasná testovací DB na127.0.0.1. Testovací kontejner byl zastaven a odstraněn, dočasná data v tmpfs i soukromá konfigurace přístupu uklizené.
+Logy/snímky mimo repo v /workspace/scratch/postgres-work. Aktualizované katalog/
+kurz/plán/příprava/docs/počty, přímý commit/push main, bez ZIP a cloud publikace.
+
+Další krok na další pokyn: revize hotových praktických kurzů a zpětná vazba,
+případně závěrečné ověření napříč kurzy (Z1 podle PLAN.md). Další nehotový
+praktický podkurz už není; příprava zůstává dříve schválený koncept15 průvodců.
+
 ## Aktuální v0.79 (12. 11. 2026): Malé nástroje a předání 26–30
 
 Hotov m06 Databází: Luhn, volitelné QR, vlastní testy půjčovny, cesty/záloha/

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "prazdny",
+    "title": "Prázdný a filtrovaný přehled",
+    "description": "Simulace rozliší prázdnou tabulku a filtr.",
+    "code": "# Spojení patří volajícímu; každá operace má vlastní transakční blok.\nfrom validace import nazev_pomucky, pocet_kusu\n\ndef pridej_pg(con, nazev, kusy):\n    nazev = nazev_pomucky(nazev)\n    kusy = pocet_kusu(kusy)\n    with con.transaction():\n        with con.cursor() as cur:\n            cur.execute(\n                'INSERT INTO akademie_pomucky(nazev,kusy) VALUES(%s,%s) RETURNING id',\n                (nazev,kusy))\n            return cur.fetchone()[0]\n\ndef prehled_pg(con, minimum=0):\n    minimum = pocet_kusu(minimum)\n    with con.transaction():\n        with con.cursor() as cur:\n            cur.execute(\n                'SELECT id,nazev,kusy FROM akademie_pomucky WHERE kusy >= %s ORDER BY id',\n                (minimum,))\n            return cur.fetchall()\n\n# Označená simulace, žádná síť ani přístupové údaje.\nfrom demonstrace import DemoSpojeni\nc=DemoSpojeni()\nprint('VÝUKOVÁ SIMULACE bez serveru.')\nprint('Prázdná:',prehled_pg(c))\npridej_pg(c,'Míč',2)\nprint('Minimum2:',prehled_pg(c,2))\nprint('Minimum3:',prehled_pg(c,3))\nc.close()\n"
+  },
+  {
+    "id": "parametry",
+    "title": "Apostrof zůstane hodnotou",
+    "description": "Označená simulace ukáže oddělené parametry.",
+    "code": "# Spojení patří volajícímu; každá operace má vlastní transakční blok.\nfrom validace import nazev_pomucky, pocet_kusu\n\ndef pridej_pg(con, nazev, kusy):\n    nazev = nazev_pomucky(nazev)\n    kusy = pocet_kusu(kusy)\n    with con.transaction():\n        with con.cursor() as cur:\n            cur.execute(\n                'INSERT INTO akademie_pomucky(nazev,kusy) VALUES(%s,%s) RETURNING id',\n                (nazev,kusy))\n            return cur.fetchone()[0]\n\ndef prehled_pg(con, minimum=0):\n    minimum = pocet_kusu(minimum)\n    with con.transaction():\n        with con.cursor() as cur:\n            cur.execute(\n                'SELECT id,nazev,kusy FROM akademie_pomucky WHERE kusy >= %s ORDER BY id',\n                (minimum,))\n            return cur.fetchall()\n\n# Označená simulace, žádná síť ani přístupové údaje.\nfrom demonstrace import DemoSpojeni\nc=DemoSpojeni()\nprint('VÝUKOVÁ SIMULACE bez serveru.')\npridej_pg(c,\"Karty O'Neil\",1)\nprint(prehled_pg(c))\nprint('SQL a parametry:',[u for u in c.udalosti if isinstance(u,tuple)])\nc.close()\n"
+  }
+]

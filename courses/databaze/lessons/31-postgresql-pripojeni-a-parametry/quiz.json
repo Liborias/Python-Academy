@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co znamená %s v psycopg dotazu?",
+    "options": [
+      "Místo pro odděleně předanou hodnotu.",
+      "Příkaz použít Pythonové % na řetězec SQL.",
+      "Zástupný název tabulky."
+    ],
+    "answer": 0,
+    "why": "Hodnoty zůstávají mimo text SQL."
+  },
+  {
+    "q": "Kdo zavře spojení předané pridej_pg?",
+    "options": [
+      "Vždy kurzor při fetchone.",
+      "Vlastník mimo tuto funkci.",
+      "PostgreSQL při každém SELECT."
+    ],
+    "answer": 1,
+    "why": "Funkce vlastní pouze svůj transakční blok a kurzor."
+  },
+  {
+    "q": "Jak získat přidělené id?",
+    "options": [
+      "Počet řádků plus jedna.",
+      "SQLite lastrowid platí pro všechny ovladače.",
+      "RETURNING id a přečtení výsledného řádku."
+    ],
+    "answer": 2,
+    "why": "Identity může mít mezery, neodhadujeme ho."
+  }
+]

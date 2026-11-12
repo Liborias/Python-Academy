@@ -1,6 +1,6 @@
 ## Databáze a projekty: od souboru ke klubovní evidenci
 
-**Připraveno prvních 30 z 32 lekcí.** Úvod má obtížnost 2/4, celek 4/4:
+**Připraveno všech 32 lekcí.** Úvod má obtížnost 2/4, celek 4/4:
 základní funkce Pythonu stačí pro první SQL, později přibudou vazby, transakce,
 Tkinter a spolupráce součástí. Předpoklady jsou doporučení, nic se nezamyká.
 
@@ -89,7 +89,7 @@ Bez dalších pip balíčků. Scrypt spotřebuje přibližně 128 MiB pracovní 
 ## Modul 6 — Malé nástroje a předání (lekce 26–30)
 
 **Hotovo: lekce 26–30.** Sedm ukázek/pět úkolů s možnými řešeními a třemi kvízy.
-Celý kurz má **56 ukázek a 66 úkolů**. Obecný Luhn zachová ASCII/úvodní nuly,
+Prvních šest bloků má **56 ukázek a 66 úkolů**. Obecný Luhn zachová ASCII/úvodní nuly,
 půjčovna navíc vyžaduje existující kladné id bez úvodních nul. Kontrolní číslice
 není identita ani oprávnění; QR obsah je otevřený text.
 
@@ -112,13 +112,35 @@ Ověřeno qrcode8.2/Pillow, čtení skutečných PNG nezávislým dekodérem.
 29. Cesty, backup API, čisté prostředí a předání.
 30. Vlastní varianta projektu a závěrečné ověření.
 
-## Modul 7 — Volitelná serverová databáze (lekce 31–32, plán)
+## Modul 7 — Volitelná serverová databáze (lekce 31–32)
+
+**Hotovo: lekce31–32.** Dvě souvislá zadání s možnými řešeními, šest ukázek
+pro různé případy, tři kvízy v každé. Celkem **62 ukázek a 68 úkolů**.
+Výukové ukázky/kontrola jsou označená simulace bez síťového připojení;
+skutečný PostgreSQL vyžaduje zvlášť server a psycopg[binary,pool]>=3.2,<4.
+Stejná .venv pro VS Code/VSCodium/PyCharm/terminál. NAVOD.md popisuje instalaci
+Windows/macOS/Linux, roli a DB, PG* nastavení a význam příkazů.
+
+Parametry %s oddělené od SQL, RETURNING id, autocommitTrue a explicitní
+transaction, kurzor a spojení s různými vlastníky. Pool min1/max3, explicitní
+open(wait=True), timeout převzetí3/připojení5/úvod8 sekund. Převzetí se vrací
+i při chybě, funkce pool nezavírá. Vnější transakce zahrnuje všechny INSERT,
+vnořená31 používá savepoint. Rollback řádků nevrací PostgreSQL sekvenci.
+
+Uložený spust_postgres.py připojí skutečný server až s --pripojit, --heslo
+čte getpass. Bez flagu pouze simulace. Init/pridat/prehled, stejné schéma
+31/32, žádná migrace SQLite. Pokus_davky.py32 ověří dvouřádkový zápis a rollback
+pozdějšího konfliktu; první dva fiktivní řádky v DB zůstanou. Pool nesdílíme
+mezi procesy a pro jednorázový skript není automaticky výhodnější.
+
+Ověřeno Python3.14.8/PostgreSQL17.11/psycopg3.3.9/pool3.3.3, skutečné SQL,
+trvalost/rollback, souběžné přehledy, timeout max3 a uložené CLI.
 
 31. PostgreSQL: jiné připojení a psycopg 3.
 32. Správa spojení a connection pool, srovnání s SQLite.
 
-PostgreSQL 31–32 zatím není implementovaný. Tkinter vyžaduje místní grafickou
-plochu, offline řeč dostupné systémové hlasy a QR další knihovnu. Volitelné
-PostgreSQL potřebuje vlastní dostupný server a nastavení přístupu.
-Jádro prvních třiceti lekcí nepotřebuje pip balíčky; pouze QR je volitelné, pro okna je potřeba systémový Tk.
-Odhad celku 20–30 hodin plus procvičení. Dalším krokem je volitelné PostgreSQL 31–32.
+Všech32 lekcí je připravených, status draft do připomínek studentů. Tkinter
+vyžaduje místní grafickou plochu, offline řeč dostupný systémový hlas a QR
+volitelnou knihovnu. PostgreSQL potřebuje vlastní server a psycopg klienta,
+není podmínkou předchozích lekcí. Odhad20–30 hodin plus vlastní úpravy.
+Dalším krokem je revize, vlastní varianta projektu a zpětná vazba.

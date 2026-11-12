@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co udělá konec with pool.connection()?",
+    "options": [
+      "Vrátí půjčené spojení do poolu.",
+      "Uzavře celý pool.",
+      "Vytvoří novou databázi."
+    ],
+    "answer": 0,
+    "why": "Pool vlastní volající, funkce si spojení jen půjčí."
+  },
+  {
+    "q": "Co zajistí atomickou víceřádkovou dávku?",
+    "options": [
+      "Jen max_size=3.",
+      "Vnější transaction kolem všech INSERT na jednom spojení.",
+      "Každý INSERT v samostatném potvrzeném spojení."
+    ],
+    "answer": 1,
+    "why": "Pozdější chyba musí vrátit i dřívější změny."
+  },
+  {
+    "q": "Co po neúspěšné dávce platí o id?",
+    "options": [
+      "Musí být znovu použito každé spotřebované id.",
+      "Id je totéž co pořadí v přehledu.",
+      "Sekvence může mít mezeru, přestože řádky byly vrácené."
+    ],
+    "answer": 2,
+    "why": "PostgreSQL sekvence se nevrací s rollbackem řádků."
+  }
+]

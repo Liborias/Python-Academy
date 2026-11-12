@@ -68,15 +68,23 @@
         "29-cesty-zaloha-a-predani",
         "30-moje-pujcovna-a-zaverecne-overeni"
       ]
+    },
+    {
+      "id": "m07",
+      "title": "Volitelně PostgreSQL a správa spojení",
+      "lessons": [
+        "31-postgresql-pripojeni-a-parametry",
+        "32-pool-a-sprava-spojeni"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od SQLite ke klubovním projektům",
     "status": "draft",
     "level": 4,
-    "summary": "Prvních 30 z 32 lekcí: SQLite a klubovní projekty, BMI, místní účty a vlastní půjčovna. Nově kontrolní číslice, volitelné QR, vlastní testy, záloha a předání. Všechna zadání s možnými řešeními.",
+    "summary": "Všech 32 lekcí: od SQLite ke klubovním projektům, BMI, místním účtům a vlastní půjčovně. Volitelný závěr PostgreSQL, parametrizované dotazy, transakce a connection pool. Všechna zadání s možnými řešeními.",
     "placement": "Základy Pythonu pro úvod; práce se soubory a později Tkinter pro navazující projekty. Nic se nezamyká.",
     "difficulty_reason": "Úvod 2/4, celek 4/4: SQL, vlastnictví spojení, transakce, vazby a spolupráce databáze s aplikací.",
-    "duration": "Plán 32 lekcí, prvních 30 dostupných. Odhad celku 20–30 hodin plus vlastní úpravy."
+    "duration": "Všech 32 lekcí dostupných. Odhad celku 20–30 hodin plus vlastní úpravy."
   }
 }

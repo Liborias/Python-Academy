@@ -1,0 +1,14 @@
+[
+  {
+    "id": "prazdna-davka",
+    "title": "Prázdná dávka šetří spojení",
+    "description": "Žádná práce nemusí půjčovat spojení.",
+    "code": "# Pool vlastní spojení, funkce si je pouze na chvíli půjčí.\nfrom validace import pocet_kusu, priprav_davku\nfrom pg_model import pridej_pg, prehled_pg\n\ndef prehled_z_poolu(pool, minimum=0):\n    minimum = pocet_kusu(minimum)\n    with pool.connection(timeout=3) as con:\n        return prehled_pg(con,minimum)\n\ndef pridej_davku(pool, pomucky):\n    pomucky = priprav_davku(pomucky)\n    if not pomucky:\n        return []\n    with pool.connection(timeout=3) as con:\n        with con.transaction():\n            return [pridej_pg(con,nazev,kusy) for nazev,kusy in pomucky]\n\n# Označená simulace, žádná síť ani přístupové údaje.\nfrom demonstrace import DemoPool\np=DemoPool()\nprint('VÝUKOVÁ SIMULACE bez serveru.')\nprint('ID:',pridej_davku(p,[]),'převzetí:',p.prevzeti)\nprint('Přehled:',prehled_z_poolu(p),'vrácení:',p.vraceni)\np.close()\n"
+  },
+  {
+    "id": "validace",
+    "title": "Chyba vstupu před převzetím",
+    "description": "Neplatný druhý řádek nevytvoří ani první.",
+    "code": "# Pool vlastní spojení, funkce si je pouze na chvíli půjčí.\nfrom validace import pocet_kusu, priprav_davku\nfrom pg_model import pridej_pg, prehled_pg\n\ndef prehled_z_poolu(pool, minimum=0):\n    minimum = pocet_kusu(minimum)\n    with pool.connection(timeout=3) as con:\n        return prehled_pg(con,minimum)\n\ndef pridej_davku(pool, pomucky):\n    pomucky = priprav_davku(pomucky)\n    if not pomucky:\n        return []\n    with pool.connection(timeout=3) as con:\n        with con.transaction():\n            return [pridej_pg(con,nazev,kusy) for nazev,kusy in pomucky]\n\n# Označená simulace, žádná síť ani přístupové údaje.\nfrom demonstrace import DemoPool\np=DemoPool()\nprint('VÝUKOVÁ SIMULACE bez serveru.')\ntry:pridej_davku(p,[('Míč',1),('Lano',-1)])\nexcept ValueError:print('Celý vstup odmítnut.')\nprint('Převzetí:',p.prevzeti,'řádky:',p.con.radky)\np.close()\n"
+  }
+]

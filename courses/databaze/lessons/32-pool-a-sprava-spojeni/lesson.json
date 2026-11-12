@@ -1,0 +1,11 @@
+{
+  "title": "Pool a správa spojení",
+  "minutes": 65,
+  "kind": "console",
+  "tags": [
+    "postgresql",
+    "volitelne",
+    "transakce"
+  ],
+  "example_title": "Celá dávka, rollback a vrácení spojení"
+}

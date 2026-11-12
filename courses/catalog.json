@@ -111,7 +111,7 @@
         "tkinter-api"
       ],
       "status": "draft",
-      "summary": "Prvních 30 z 32 lekcí: SQLite, klubovní projekty, místní účty a vlastní půjčovna. Nově Luhn, volitelné QR, vlastní testy, export, záloha a předání. Vysvětlené příkazy a možná řešení.",
+      "summary": "Všech 32 lekcí: SQLite, klubovní projekty, místní účty a vlastní půjčovna. Nově volitelné PostgreSQL, parametry, transakce a connection pool. Více ukázek, vysvětlené příkazy a možná řešení.",
       "planned_lessons": 32
     }
   ]

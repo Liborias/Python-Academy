@@ -126,8 +126,8 @@ obsahové korektury celého kurzu a připomínky studentů; stav draft zůstáv�
 Tkinter základy (okno, Label, Button, Entry, `pack`, `grid`, `place`, `ttk`) · Převodník měn · Úkolníček (Listbox, Scrollbar, ukládání do JSON) · API (REST, stavové kódy, chyby, `requests`) · Převodník měn 2.0 · E-maily přes lokální testovací server, Gmail volitelně · Balení do spustitelného souboru (PyInstaller, ověřit podporu Pythonu 3.14/3.15).
 
 ### E. Databáze a projekty (32 lekcí)
-**Stav v0.79: prvních 30 z 32 lekcí připravených.** SQLite a klubovní projekty
-1–15, BMI tracker 16–20, místní účty/soubory 21–25. Celkem 56 ukázek/66 úkolů
+**Stav v0.80: všech 32 lekcí připravených.** SQLite a klubovní projekty
+1–15, BMI tracker 16–20, místní účty/soubory 21–25. Celkem 62 ukázek/68 úkolů
 s možnými řešeními; samostatná témata mají více ukázek, projekty návazné kroky.
 Nově scrypt/sůl/compare_digest a pevný profil n=131072/r=8/p=1, registrace
 casefold/UNIQUE, přihlášení a vlastní poznámky. Sezení je paměťové, chybný
@@ -139,9 +139,12 @@ Python 3.12+, ověřeno 3.14.8/SQLite 3.53.1, bez nových pip knihoven. Scrypt
 potřebuje přibližně 128 MiB pracovní paměti. Pro dřívější okna systémový Tk,
 pro skutečnou řeč systémový hlas. Hotový blok26–30: Luhn, volitelné QR,
 vlastní testy, cesty/backup/předání a konzolová půjčovna s kartami a CSV.
-Pouze QR potřebuje qrcode[pil]>=8.2,<9, zbytek zůstává standardní knihovna.
-Další krok: volitelné PostgreSQL31–32.
-Celý plán v courses/databaze/plan.md, pozdější témata zatím neimplementovaná.
+Volitelný hotový závěr31–32 přidává PostgreSQL, %s/RETURNING, vlastnictví
+spojení a pool, celé dávky/rollback/savepoint/timeout. V aplikaci označená
+simulace, skutečně až uložený spust_postgres.py --pripojit s vlastní DB.
+QR má qrcode[pil]>=8.2,<9, PostgreSQL psycopg[binary,pool]>=3.2,<4 a samostatný
+server. Oba doplňky opt-in přes --extras, základ kurzu bez pip balíčků.
+Další krok: revize a připomínky, viz courses/databaze/plan.md.
 
 SQL základy (SQLite) · CRUD z Pythonu · **parametrizované dotazy a SQL injection** · venv a Git (editor má podporu Gitu, samostatný Git musí být nainstalovaný) · Tkinter a databáze (evidence kroužků místo učitelů) · BMI tracker · registrace a přihlášení (scrypt) · text na řeč (offline) · komprese souborů (`zlib`, `base64`) · kontrolní číslice (Luhn na zkušebních číslech) · generátor QR kódů · volitelně PostgreSQL + psycopg 3 + connection pool.
 
@@ -175,7 +178,7 @@ s řešeními. Kurýrská směna 30 propojuje vlastní rychlost, načtení výsl
 zápis na dokončený pokus. Uložená pracovní složka drží výsledky mezi spuštěními;
 webový běh je dočasný. PyInstaller 6.22.3 je volitelný, onedir stavba i skutečná
 SDL smyčka ověřeny na Linuxu; Windows/macOS vyžadují vlastní sestavení a zkoušku.
-Další krok je revize a zpětná vazba; případný kurz Databáze začít na další pokyn.
+Všechny plánované podkurzy včetně Databází jsou obsahově hotové; další krok je revize a zpětná vazba.
 
 Tři hry místo Harryho Pottera (všechny nové, všechna grafika kreslená kódem):
 1. **Meteority**: uhýbání před padajícími meteority, životy, skóre, štít jako bonus (náhrada za „Goblet of Fire“).

@@ -39,9 +39,9 @@ with tempfile.TemporaryDirectory() as temp:
             page.wait_for_selector('a.card[href="#/kurz/databaze"]')
             page.click('a.card[href="#/kurz/databaze"]')
             page.wait_for_selector('.mod li')
-            assert page.locator('.mod li').count()==30
+            assert page.locator('.mod li').count()==32
             assert not page.locator('.mod li.done').count()
-            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Prvních 30 z 32")')
+            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Všech 32 lekcí")')
             page.locator('.learning-plan summary').click()
             assert '15 ukázek a 25 úkolů' in page.locator('.learning-plan').inner_text()
             examples=tasks=0

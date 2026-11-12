@@ -39,7 +39,7 @@ Volitelná aktivace: `source .venv/bin/activate`. Pro Tkinter u Homebrew Pythonu
 
 `tools/setup_env.py --courses zaklady` vytvoří nebo použije společnou `.venv` tohoto výukového projektu bez dalších balíčků. `--courses soubory-web,pygame-1` doplní jen závislosti těchto kurzů. `--dry-run` vypíše plán a nic nezmění.
 
-Bez `--courses` pomocník připraví běžné balíčky všech kurzů: requests, beautifulsoup4, pygame-ce, pandas řady 3, matplotlib, openpyxl, ipykernel a aiosmtpd pro místní e-mailový záchyt. Pro začátečníka to není nutné. Příznak `--extras` přidá volitelné součásti zvoleného kurzu: PyInstaller pro balení v tkinter-api, qrcode[pil]>=8.2,<9 pro volitelné QR štítky v databaze. Jejich funkce a systémové závislosti se ověřují až v příslušném projektu.
+Bez `--courses` pomocník připraví běžné balíčky všech kurzů: requests, beautifulsoup4, pygame-ce, pandas řady 3, matplotlib, openpyxl, ipykernel a aiosmtpd pro místní e-mailový záchyt. Pro začátečníka to není nutné. Příznak `--extras` přidá volitelné součásti zvoleného kurzu: PyInstaller pro balení v tkinter-api, qrcode[pil]>=8.2,<9 pro QR a psycopg[binary,pool]>=3.2,<4 pro volitelný PostgreSQL v databaze. Jejich funkce a systémové závislosti se ověřují až v příslušném projektu.
 
 Pro Datovou analýzu použijte `python tools/setup_env.py --courses pandas`.
 Všech 42 lekcí je připravených: prvních 25 používá pandas, grafy v lekcích
@@ -59,12 +59,12 @@ Matplotlib ověří `python -c "import matplotlib; print(matplotlib.__version__)
 Editor musí mít zvolené stejné prostředí. Všechny úvodní .py soubory běží také
 v terminálu; podpora buněk `# %%` a notebooků závisí na editoru a rozšířeních.
 
-Databáze a projekty mají prvních 30 z 32 lekcí. Standardní sqlite3
+Databáze a projekty mají všech 32 lekcí. Standardní sqlite3
 nepotřebuje pip balíčky, síťový server ani grafickou plochu. Použijte
 `python tools/setup_env.py --courses databaze` a ve všech editorech i terminálu
 vyberte stejnou .venv. Ověřte `python -c "import sys, sqlite3; print(sys.executable); print(sqlite3.sqlite_version)"`.
 Python 3.12+ umožňuje výslovný autocommit; ověřeno 3.14.8/SQLite 3.53.1.
-Kurz má 56 ukázek/66 úkolů s možnými řešeními a vysvětluje SQL,
+Kurz má 62 ukázek/68 úkolů s možnými řešeními a vysvětluje SQL,
 parametry, čtení, close proti commit/rollback a celé transakce.
 Ukázky jsou paměťové či dočasné. Pro trvalou databázi uložte pracovní složku,
 použijte v editoru vlastní cestu a spusťte python reseni.py. Běžné spuštění
@@ -162,4 +162,40 @@ Uložený `spust_pujcovnu.py` ve 29/30 má vlastní pujcovna.sqlite3 vedle skrip
 --db CESTA před příkazem naváže na předchozí složku. `python overeni.py`
 spustí šest/osm izolovaných testů bez vlastních dat; --help nevytváří DB.
 Předávejte celou pracovní složku s helpery a NAVOD.md, na novém místě vytvořte
-novou .venv. Volitelné PostgreSQL 31–32 zůstává plánované.
+novou .venv. Volitelné PostgreSQL31–32 je hotové, skutečný server a přístup připravte podle jeho NAVOD.md.
+
+
+**Volitelný PostgreSQL závěr 31–32 je hotový.** Rozlišuje SQLite soubor a
+samostatný server, role/databáze, psycopg parametry %s, RETURNING id a vlastnictví
+spojení. Druhý krok přidává omezený connection pool, vrácení převzatého spojení,
+celou dávku a rollback při pozdějším konfliktu. Oba úkoly mají možné řešení,
+po třech ukázkách a třech kvízech. Celý kurz má **62 ukázek a 68 úkolů**.
+
+V aplikaci a při python reseni.py jde o **označenou výukovou simulaci** bez
+sítě; kontroluje parametry a řízení operací, nenahrazuje skutečný serverový test.
+Pro vlastní PostgreSQL uložte dokončenou pracovní složku. NAVOD.md vysvětluje
+Windows instalátor/SQL Shell, macOS Homebrew i Debian/Ubuntu, vlastní roli a DB,
+stejnou .venv v editorech, příkazy a co se při nich děje.
+
+```powershell
+python -m pip install "psycopg[binary,pool]>=3.2,<4"
+python spust_postgres.py --help
+python spust_postgres.py --pripojit --heslo init
+python spust_postgres.py --pripojit --heslo pridat "Karty O'Neil" 2
+python spust_postgres.py --pripojit --heslo prehled
+```
+
+Pip nainstaluje klienta, libpq a pool, samotný server se připravuje zvlášť.
+PGHOST, PGPORT, PGDATABASE a PGUSER určují vlastní přístup podle návodu.
+--heslo čte heslo přes getpass bez echa, za přepínač nepatří hodnota.
+Init vytvoří cvičnou tabulku bez mazání, další příkazy uloží/načtou skutečné
+řádky. Bez --pripojit se provede jen simulace. Schéma31/32 je stejné,
+SQLite soubory se nemigrují. Ve32 navíc `python pokus_davky.py --pripojit --heslo`
+vloží dva fiktivní řádky a ověří rollback druhé dávky i použití poolu po chybě.
+Pro jeden krátký CLI proces často stačí připojení z31; pool se mezi různými
+procesy nesdílí. --extras databaze instaluje oba volitelné doplňky, QR i psycopg.
+
+Ověřeno na Python3.14.8 se skutečným PostgreSQL17.11, psycopg3.3.9 a
+psycopg_pool3.3.3: trvalost, parametry, rollback dávky, souběžné přehledy,
+timeout při vyčerpaném poolu a uložené CLI. Server není nutný pro lekce1–30
+ani pro označené ukázky31/32. Všech32 lekcí je připravených k připomínkám.

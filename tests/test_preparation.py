@@ -33,6 +33,8 @@ class PreparationTest(unittest.TestCase):
         self.assertEqual(wanted('databaze'), [])
         self.assertIn('pyinstaller', wanted('tkinter-api', extras=True))
         self.assertIn('qrcode[pil]>=8.2,<9', wanted('databaze', extras=True))
+        self.assertIn('psycopg[binary,pool]>=3.2,<4', wanted('databaze', extras=True))
+        self.assertNotIn('psycopg[binary,pool]>=3.2,<4', wanted('all'))
         self.assertNotIn('pyinstaller', wanted('all'))
         self.assertEqual(wanted('pygame-1,pygame-2'), ['pygame-ce'])
 

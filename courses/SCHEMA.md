@@ -1224,3 +1224,41 @@ CLI/DB/backup/CSV. QR šest UTF-8 roundtrip a CLI přes nezávislý vývojový
 zxing-cpp3.1.1; dekodér není závislost výuky. Chromium7/5,PNG/CSV stažení,
 workspace/reload/starší postup/mobil380/320; regrese230 řešení/SQLite6–10/
 přípravy10 profilů OK. Celková unittest sada: 407 testů OK bez přeskočených, 1136 s na Python3.14.8/Linux, včetně validace všech285 lekcí. Cílená konečná sada9 testů navíc OK (6.6 s).
+
+## Databáze a projekty, volitelný PostgreSQL31–32 (od v0.80)
+
+M07, všech32 dostupných, draft do připomínek. Nově6 ukázek/2 návazné úkoly,
+celkem62/68, možné řešení a3 kvízy v každé. Globálně272+360=632 řešení/
+192 doplňkových ukázek/287 lekcí včetně15 průvodců. Starší ID/klíče stejné.
+Console20s, bez API/JS/CSS/runtime změn. Základ ukázek a kontrol je označená
+simulace konkrétních dotazů, ne obecný SQL engine ani serverový test.
+Nevyužívá PG* ani síť při běžném běhu. Volitelný skutečný PostgreSQL vyžaduje
+psycopg[binary,pool]>=3.2,<4 a vlastní server, předchozí1–30 jej nepotřebují.
+
+31 pridej_pg(con,nazev,kusy)->int RETURNING, prehled_pg(con,minimum=0)->list
+ tuple(id,nazev,kusy) seřazený id. Název strip1–100 znaků, kusy/minimum přesný
+int0–1000000 bez bool, validace před transaction/SQL. AutocommitTrue spojení
+vlastní volající, funkce jen explicitní transaction a kurzor. %s oddělené
+hodnoty, nikoli f-string/Python%, nepoužívá lastrowid. Empty přehled[].
+32 prehled_z_poolu/pridej_davku: validace před lease, timeout3, empty dávka[]
+bez převzetí, jinak jedno spojení a vnější transaction všech INSERT, vnořené31
+savepointy. Celý rollback/propagace chyby/vrácení lease, pool zůstane použitelný.
+Id v pořadí vstupu, PostgreSQL sekvence může mít mezery. Model31 převzat AST.
+
+Pool helper openFalse->open(waitTrue,timeout8), min1/max3/lease3/connect5,
+kwargs autocommitTrue, chyba startu close. Lazy import psycopg/pool, nastavení
+libpq přes PGHOST/PORT/DATABASE/USER. --heslo getpass, alternativně PGPASSFILE,
+bez výpisu hesla/argumentu/zdroje. Skutečný spouštěč jen s --pripojit,
+bez flagu simulace/help bez připojení. Init/pridat/prehled, akademie_pomucky
+(BIGINT identity PK,nazev TEXT UNIQUE NOT NULL,kusy INTEGER NOT NULL CHECK>=0),
+31/32 stejné schéma, bez migrace SQLite. Pokus_davky32 skutečný dvouřádkový
+zápis/rollback/zotavení se dvěma ponechanými fiktivními záznamy, bez flagu
+simulace. NAVOD dává příkazy a význam pro OS/server/role/.venv/editory.
+
+Osm unit skupin včetně chyb/alternativ, konfigurace/open/wait/cleanup a8 běhů
+bez site-packages, CLI/lazy import/AST. Skutečný PostgreSQL17.11 + psycopg3.3.9/
+pool3.3.3: trvalost/parametry/rollback/IDLE,12 souběžných přehledů, max3/timeout
+čtvrtého lease/zotavení/close, CLI31/32 a skutečný pokus. Dvě PTY autentizace
+bez echa. Chromium6/2/řešení/workspace/reload/starší30/plán32/mobil380/320,
+regrese232 řešení/předání26–30/přípravy. Validátor32:0/0.
+Celková unittest sada: 415 testů OK bez přeskočených, 1129 s na Python3.14.8/Linux, včetně validace všech287 lekcí. Konečná cílená sada8 testů také OK (3.4 s).

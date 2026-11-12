@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.79):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně tří her, vlastních testů a předání (30 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28), všech osm modulů Datové analýzy (42 ze 42) a Databáze včetně vlastní půjčovny a předání (30 ze 32). Dokončené kurzy čekají na připomínky studentů. Další kapitoly Databází jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.80):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně tří her, vlastních testů a předání (30 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28), všech osm modulů Datové analýzy (42 ze 42) a Databáze včetně volitelného PostgreSQL (32 ze 32). Dokončené kurzy čekají na připomínky studentů. Všechny praktické podkurzy jsou obsahově připravené, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,7 +38,7 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Databáze a projekty — SQLite a okenní evidence, prvních 30 lekcí
+## Databáze a projekty — SQLite a okenní evidence, všech 32 lekcí
 
 První modul 1–5 učí spojení, paměť/soubor, tabulky a pravidla hodnot,
 parametrizované změny, čtení a transakce. Následují NULL/COALESCE,
@@ -50,7 +50,7 @@ otázky; první dva bloky mají **28 ukázek a 46 úkolů**, z toho 15/25 v prvn
 Návazná evidence kroužků 11–15 přidává pět kroků s řešeními, první tři bloky mají **33 ukázek a 51 úkolů**.
 BMI tracker 16–20 přidává sedm ukázek a pět úkolů, první čtyři bloky mají **40 ukázek a 56 úkolů**.
 Místní účty/soubory 21–25 přidávají devět ukázek/pět úkolů, celkem **49 ukázek a 61 úkolů**.
-Úvod 2/4, celek 4/4; panel popisuje plán 32 lekcí, dostupných třicet.
+Úvod 2/4, celek 4/4; všech 32 lekcí je dostupných.
 
 Databázové části používají standardní sqlite3, bez pip balíčků, serveru a internetu.
 Okna 12–14 a 19 navíc potřebují Tkinter a grafickou plochu; `python -m tkinter` ji ověří.
@@ -151,7 +151,7 @@ Bez příkazu se vypíše přehled. Vlastní pujcovna.sqlite3 je vedle spouště
 --db CESTA před příkazem naváže na jinou uloženou složku. Rodič cíle musí
 existovat. --help nic nevytváří; chyby mají kód2. Webové běhy jsou dočasné.
 Předání kopíruje zdroje se všemi helpery a NAVOD.md, .venv se vytvoří znovu,
-vlastní data zvlášť. PostgreSQL 31–32 zůstává plánovaný volitelný závěr.
+vlastní data zvlášť. Navazuje hotový volitelný závěr PostgreSQL31–32.
 
 Pouze PNG v 27/30 potřebuje volitelnou knihovnu:
 
@@ -167,6 +167,42 @@ Bez knihovny se zobrazí návod; testy, databáze, CSV a záloha fungují dál.
 V kořeni Akademie lze také použít `python tools/setup_env.py --courses databaze --extras`.
 Po doplnění balíčku restartujte aplikaci. Zde ověřeno qrcode8.2/Pillow a skutečné
 přečtení PNG nezávislým dekodérem.
+
+
+**Volitelný PostgreSQL závěr 31–32 je hotový.** Rozlišuje SQLite soubor a
+samostatný server, role/databáze, psycopg parametry %s, RETURNING id a vlastnictví
+spojení. Druhý krok přidává omezený connection pool, vrácení převzatého spojení,
+celou dávku a rollback při pozdějším konfliktu. Oba úkoly mají možné řešení,
+po třech ukázkách a třech kvízech. Celý kurz má **62 ukázek a 68 úkolů**.
+
+V aplikaci a při python reseni.py jde o **označenou výukovou simulaci** bez
+sítě; kontroluje parametry a řízení operací, nenahrazuje skutečný serverový test.
+Pro vlastní PostgreSQL uložte dokončenou pracovní složku. NAVOD.md vysvětluje
+Windows instalátor/SQL Shell, macOS Homebrew i Debian/Ubuntu, vlastní roli a DB,
+stejnou .venv v editorech, příkazy a co se při nich děje.
+
+```powershell
+python -m pip install "psycopg[binary,pool]>=3.2,<4"
+python spust_postgres.py --help
+python spust_postgres.py --pripojit --heslo init
+python spust_postgres.py --pripojit --heslo pridat "Karty O'Neil" 2
+python spust_postgres.py --pripojit --heslo prehled
+```
+
+Pip nainstaluje klienta, libpq a pool, samotný server se připravuje zvlášť.
+PGHOST, PGPORT, PGDATABASE a PGUSER určují vlastní přístup podle návodu.
+--heslo čte heslo přes getpass bez echa, za přepínač nepatří hodnota.
+Init vytvoří cvičnou tabulku bez mazání, další příkazy uloží/načtou skutečné
+řádky. Bez --pripojit se provede jen simulace. Schéma31/32 je stejné,
+SQLite soubory se nemigrují. Ve32 navíc `python pokus_davky.py --pripojit --heslo`
+vloží dva fiktivní řádky a ověří rollback druhé dávky i použití poolu po chybě.
+Pro jeden krátký CLI proces často stačí připojení z31; pool se mezi různými
+procesy nesdílí. --extras databaze instaluje oba volitelné doplňky, QR i psycopg.
+
+Ověřeno na Python3.14.8 se skutečným PostgreSQL17.11, psycopg3.3.9 a
+psycopg_pool3.3.3: trvalost, parametry, rollback dávky, souběžné přehledy,
+timeout při vyčerpaném poolu a uložené CLI. Server není nutný pro lekce1–30
+ani pro označené ukázky31/32. Všech32 lekcí je připravených k připomínkám.
 
 ## Pygame 2 — herní objekty a tři vlastní hry
 
@@ -446,8 +482,8 @@ Nápověda vysvětluje také odsazování, našeptávání, spuštění a vráce
 ## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
 variantu k právě vybranému zadání s připomenutím, že správných postupů může být více.
-Pomoc je dostupná pro všech 270 hlavních zadání napříč devíti praktickými kurzy
-i 360 dalších úkolů v Základech, Datové analýze, Pygame 2 a Databázích, celkem 630 řešení včetně projektů a závěrečných
+Pomoc je dostupná pro všech 272 hlavních zadání napříč devíti praktickými kurzy
+i 360 dalších úkolů v Základech, Datové analýze, Pygame 2 a Databázích, celkem 632 řešení včetně projektů a závěrečných
 programů. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
 Průvodce přípravou bez programovacího úkolu tento panel nemá.
 
