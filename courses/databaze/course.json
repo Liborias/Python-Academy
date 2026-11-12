@@ -46,15 +46,26 @@
         "19-projekt-bmi-tracker",
         "20-export-zaloha-a-testy-trackeru"
       ]
+    },
+    {
+      "id": "m05",
+      "title": "Místní účty a soubory",
+      "lessons": [
+        "21-scrypt-sul-a-overeni-hesla",
+        "22-registrace-a-jedinecnost",
+        "23-mistni-prihlaseni-a-poznamky",
+        "24-volitelne-cteni-textu-offline",
+        "25-zlib-base64-a-prenos-poznamek"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od SQLite ke klubovním projektům",
     "status": "draft",
     "level": 4,
-    "summary": "Prvních 20 z 32 lekcí: SQLite, klubovní evidence, Tkinter kroužky a samostatný BMI tracker. Výpočet a jednotky, měření v čase, přehledy, vlastní okno, CSV a záloha; všechna zadání s možnými řešeními.",
+    "summary": "Prvních 25 z 32 lekcí: SQLite a klubovní projekty, BMI tracker, nově místní účty se scrypt a vlastními poznámkami, volitelná offline řeč a přenos přes zlib/Base64. Všechna zadání s možnými řešeními.",
     "placement": "Základy Pythonu pro úvod; práce se soubory a později Tkinter pro navazující projekty. Nic se nezamyká.",
     "difficulty_reason": "Úvod 2/4, celek 4/4: SQL, vlastnictví spojení, transakce, vazby a spolupráce databáze s aplikací.",
-    "duration": "Plán 32 lekcí, prvních 20 dostupných. Odhad celku 20–30 hodin plus vlastní úpravy."
+    "duration": "Plán 32 lekcí, prvních 25 dostupných. Odhad celku 20–30 hodin plus vlastní úpravy."
   }
 }

@@ -1,0 +1,11 @@
+{
+  "title": "Registrace a jedinečné jméno",
+  "minutes": 60,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "hesla",
+    "projekt"
+  ],
+  "example_title": "Registrace a jedinečné jméno"
+}

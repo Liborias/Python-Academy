@@ -1,0 +1,11 @@
+{
+  "title": "Volitelně: přečtení textu offline",
+  "minutes": 40,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "soubory",
+    "projekt"
+  ],
+  "example_title": "Volitelně: přečtení textu offline"
+}

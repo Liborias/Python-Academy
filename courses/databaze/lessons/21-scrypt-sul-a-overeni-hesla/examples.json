@@ -1,0 +1,14 @@
+[
+  {
+    "id": "nahodna-sul",
+    "title": "Stejné heslo, jiná sůl",
+    "description": "Porovnání dvou nezávislých odvození.",
+    "code": "# Ukládáme sůl a nákladně odvozený otisk, nikoli původní heslo.\nimport hashlib\nimport hmac\nimport secrets\nfrom pravidla import PARAMETRY, MAXMEM, over_heslo_text, over_zaznam\n\ndef vytvor_zaznam(heslo):\n    data = over_heslo_text(heslo)\n    sul = secrets.token_bytes(16)\n    otisk = hashlib.scrypt(data, salt=sul, n=PARAMETRY['n'], r=8, p=1,\n                          dklen=32, maxmem=MAXMEM)\n    return {**PARAMETRY, 'sul':sul.hex(), 'otisk':otisk.hex()}\n\ndef over_heslo(heslo, zaznam):\n    try:\n        data = over_heslo_text(heslo)\n    except ValueError:\n        return False\n    if not over_zaznam(zaznam):\n        return False\n    sul = bytes.fromhex(zaznam['sul'])\n    ocekavany = bytes.fromhex(zaznam['otisk'])\n    skutecny = hashlib.scrypt(data, salt=sul, n=PARAMETRY['n'], r=8, p=1,\n                              dklen=32, maxmem=MAXMEM)\n    return hmac.compare_digest(skutecny, ocekavany)\n\n# Samostatný pohled na pravidla stejného tématu.\na = vytvor_zaznam('Cvičná fráze pro lekci!')\nb = vytvor_zaznam('Cvičná fráze pro lekci!')\nprint('Jiná sůl:',a['sul']!=b['sul'])\nprint('Jiný otisk:',a['otisk']!=b['otisk'])\n"
+  },
+  {
+    "id": "poskozeny-zaznam",
+    "title": "Neplatný záznam se odmítne",
+    "description": "Chybná verze se nesmí stát návodem k drahému výpočtu.",
+    "code": "# Ukládáme sůl a nákladně odvozený otisk, nikoli původní heslo.\nimport hashlib\nimport hmac\nimport secrets\nfrom pravidla import PARAMETRY, MAXMEM, over_heslo_text, over_zaznam\n\ndef vytvor_zaznam(heslo):\n    data = over_heslo_text(heslo)\n    sul = secrets.token_bytes(16)\n    otisk = hashlib.scrypt(data, salt=sul, n=PARAMETRY['n'], r=8, p=1,\n                          dklen=32, maxmem=MAXMEM)\n    return {**PARAMETRY, 'sul':sul.hex(), 'otisk':otisk.hex()}\n\ndef over_heslo(heslo, zaznam):\n    try:\n        data = over_heslo_text(heslo)\n    except ValueError:\n        return False\n    if not over_zaznam(zaznam):\n        return False\n    sul = bytes.fromhex(zaznam['sul'])\n    ocekavany = bytes.fromhex(zaznam['otisk'])\n    skutecny = hashlib.scrypt(data, salt=sul, n=PARAMETRY['n'], r=8, p=1,\n                              dklen=32, maxmem=MAXMEM)\n    return hmac.compare_digest(skutecny, ocekavany)\n\n# Samostatný pohled na pravidla stejného tématu.\nz = vytvor_zaznam('Cvičná fráze pro lekci!')\nz['n'] = 2**30\nprint('Přijato:',over_heslo('Cvičná fráze pro lekci!',z))\n"
+  }
+]

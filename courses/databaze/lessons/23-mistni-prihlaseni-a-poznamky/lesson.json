@@ -1,0 +1,11 @@
+{
+  "title": "Místní přihlášení a vlastní poznámky",
+  "minutes": 80,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "hesla",
+    "projekt"
+  ],
+  "example_title": "Místní přihlášení a vlastní poznámky"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co udělá neúspěšný další pokus?",
+    "options": [
+      "Zruší starou identitu.",
+      "Ponechá předchozí účet.",
+      "Založí nový účet."
+    ],
+    "answer": 0,
+    "why": "Jinak by následná akce mohla použít starou identitu."
+  },
+  {
+    "q": "Podle čeho vybírat poznámky?",
+    "options": [
+      "Podle prvního řádku.",
+      "Podle id přihlášeného vlastníka.",
+      "Podle délky hesla."
+    ],
+    "answer": 1,
+    "why": "Ověření a filtrování oprávnění jsou odlišné kroky."
+  },
+  {
+    "q": "Jak se čte heslo v místní konzoli?",
+    "options": [
+      "Jako --heslo argument.",
+      "Ze zdrojového kódu.",
+      "Pomocí getpass."
+    ],
+    "answer": 2,
+    "why": "Znaky se při psaní nezobrazují."
+  }
+]

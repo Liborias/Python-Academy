@@ -34,7 +34,7 @@ python tools/setup_env.py --dry-run
 ```
 Základní podkurz **Základy** žádné balíčky nepotřebuje.
 
-Pro Databáze a projekty (prvních 20 z 32 lekcí):
+Pro Databáze a projekty (prvních 25 z 32 lekcí):
 ```
 python tools/setup_env.py --courses databaze
 python -c "import sys, sqlite3; print(sys.executable); print(sqlite3.sqlite_version)"
@@ -93,6 +93,24 @@ Rodič cíle musí existovat, cíl nesmí přepsat zdrojovou DB. Existující c�
 nahradí jen při úspěchu. Overeni.py má tři vlastní izolované testy, nečte vaše
 data. Export/záloha/help/testy nepotřebují Tkinter ani grafickou plochu.
 BMI je orientační ukazatel s mezemi interpretace popsanými v lekci 16.
+
+Místní účty 21–25 používají stejnou .venv a standardní knihovnu. Profil scrypt
+n=131072/r=8/p=1 potřebuje přibližně 128 MiB; podpora závisí na Pythonu.
+Po dokončení uložené 23 nebo 25:
+```
+python spust_ucty.py --help
+python spust_ucty.py registrace Zofie
+python spust_ucty.py prihlaseni Zofie
+```
+Heslo zadáte až přes getpass, ne do příkazu či reseni.py. Registrace dvakrát,
+přihlášení jednou. Menu 1 výpis, 2 nová poznámka, 3 odhlásit. Vlastní
+ucty.sqlite3 je vedle spouštěče, --db CESTA před příkazem naváže na jinou
+složku se stejným schématem 22/23/25. Webová ukázka je dočasná.
+V 25 přibude export/import Zofie soubor.txt, také s ověřením hesla. Přenáší
+jen poznámky, není to šifrování ani záloha účtů. Import přidává, původní nemaže.
+Řeč 24 je volitelná: python precti.py "Ukázka." je náhled, --mluv zvolí
+systémový hlas (Windows System.Speech, macOS say, Linux espeak-ng/espeak cs).
+Bez nových pip balíčků; skutečný hlas a reproduktor ověřte místně.
 
 Pro Pygame 2 (dostupné všechny lekce 1–30):
 ```

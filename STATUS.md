@@ -2,7 +2,7 @@
 
 Plán: PLAN.md. Nový rozhovor začněte slovem „pokračuj“, přečtu tento soubor.
 
-Nejnovější stav: v0.77 na konci tohoto souboru, Databáze včetně BMI trackeru s exportem/zálohou (20/32). Pygame 2 má všech 30 lekcí a Datová analýza všech 42; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
+Nejnovější stav: v0.78 na konci tohoto souboru, Databáze včetně místních účtů a přenosu poznámek (25/32). Pygame 2 má všech 30 lekcí a Datová analýza všech 42; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
 
 ## Rozhodnutí
 - Stažitelná složka, spouští se `python start.py` (potvrzeno implicitně, uživatel řekl „pokračuj“).
@@ -1077,3 +1077,51 @@ Revizi provedl samostatný agent bez znalosti mých závěrů (23 nálezů). Opr
 - Aktualizované katalog/kurz/plány/příprava/dokumentace/počty. API/JS/CSS
   a limity beze změny. Commit/push do main, bez ZIPů/cloud publikace.
 - Další krok na další pokyn: Databáze 21–25, místní účty a soubory podle plánu.
+
+## v0.78 (12. 11. 2026): Místní účty a soubory 21–25
+
+- Dokončen m05: scrypt/sůl/ověření, registrace, sezení/vlastní poznámky,
+  volitelná offline řeč a zlib/Base64 přenos. Každý z pěti úkolů má možné
+  řešení a tři kvízy, samostatné 21/25 po třech ukázkách. Nově 9/5, kurz
+  draft 25/32, 49 ukázek/61 úkolů. Úvod 2/4, celek 4/4. Globálně 265 hlavních
+  + 360 dalších řešení = 625, dalších ukázek 186; 280 lekcí včetně 15 průvodců.
+  Starší ID, postup a rozepsaná práce zachovány.
+- Standardní knihovna/Python 3.12+, ověřeno 3.14.8/SQLite 3.53.1. Vše console,
+  20 s, bez pip balíčků/serveru/sítě/GUI. Profil scrypt n=131072/r=8/p=1/dk32,
+  přibližně 128 MiB pracovní paměti/maxmem256, závisí na podpoře v Pythonu.
+  Stejná .venv ve všech editorech/terminálu, vysvětlené příkazy/NAVOD.md.
+- Heslo přesný UTF-8 text 12–256 znaků/do1024 bajtů, bez normalizace/strip,
+  nová secrets sůl16 a compare_digest. Verze/profil se ověří před výpočtem.
+  Jméno naopak strip/casefold, UNIQUE a okamžitý commit. Ukládá se jen profil/
+  sůl/otisk, seznam neukazuje ověřovací záznamy. Sezení (id,jméno)/None,
+  chybný pokus zruší starou identitu. Poznámky filtrují id vlastníka, dávka
+  v jedné transakci. Nejde o přihlášení Akademie, soubor chrání OS.
+- Uložený spust_ucty.py má vlastní ucty.sqlite3 vedle sebe, --db naváže na
+  předchozí složku (schéma 22/23/25 stejné). Registrace/přihlášení používají
+  getpass, ne heslo v argumentu/kódu. Menu 1 výpis/2 přidat/3 odhlásit,
+  CLI chyby2/přerušení130, help bez DB/vstupu, webové ukázky dočasné.
+- Řeč 24 je náhled, skutečné --mluv vyžaduje OS hlas; pevné argv, UTF-8 stdin,
+  timeout15/check=True, bez shell=True a sítě. Zde engine chybí: diagnostika
+  náhled0/nahled, hlas2/nedostupne. Úspěšná/chybová obsluha ověřená bez zvuku,
+  fyzický zvuk a Windows/macOS hlasy neověřené. Ostatní lekce engine nepotřebují.
+- Kodek z1: UTF-8/zlib/Base64, omezené rozbalení65536 bajtů/balíček100000 znaků,
+  neúplné/dodatečné/poškozené proudy se odmítají. Není šifrování ani záloha
+  účtu. Export/import s ověřením přenáší jen vlastní poznámky; atomický cíl,
+  jedna validovaná dávka, import přidává a opakování vytvoří kopie.
+- Devět nových unit skupin OK: 24 chybných variant/pět alternativ, skutečný
+  scrypt/SQLite, UNIQUE/commit/vlastník/odhlášení/SQL trigger, omezení kodeku,
+  mocky hlasu, AST/helpery a 14 samostatných běhů. Pět vzorů přijato/pět šablon
+  odmítnuto. Uložené CLI/DB/přenos ověřené dalšími procesy. Validátor25:0/0.
+- Celková unittest sada Python3.14.8/Linux: **398 testů OK bez přeskočených,
+  1120 s**, včetně validace všech280 lekcí. HTTP/SMTP povolené, starší
+  ResourceWarning nejsou selhání. Doplňková cílená řeč OK(0.745 s), včetně
+  skutečného subprocessu s diagnostikou v jiném kódování; errors=replace
+  zabrání pádu při čtení chybového výstupu, vstup zůstává ověřený UTF-8.
+- Chromium účty OK: 9/5, řešení/kontroly/běhy, workspace/reload/mobil380/320,
+  zachovaná rozepsaná20. Regrese řešení dalších225 lekcí OK. Prošly i regrese SQLite 6–10 a přípravy všech 10 profilů/3 systémů/3 editorů.
+- Terminálový test pěti Linux PTY procesů: skutečný getpass bez echa, login/
+  logout/neúspěch, přenos23→25 a vlastní DB. Mobilní řešení prohlédnuto.
+  Windows/macOS/hlas netestované. Logy/snímky mimo repo v /workspace/scratch/ucty-work.
+- Aktualizované katalog/kurz/plány/příprava/dokumentace/počty. API/JS/CSS
+  a limity beze změny. Commit/push do main bez ZIPů/cloud publikace.
+- Další krok na další pokyn: Databáze26–30, Malé nástroje a předání podle plánu.

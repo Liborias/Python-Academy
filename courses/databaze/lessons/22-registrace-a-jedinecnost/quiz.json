@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kdo definitivně hlídá jedinečnost?",
+    "options": [
+      "UNIQUE v databázi.",
+      "Pouze předchozí SELECT.",
+      "Délka hesla."
+    ],
+    "answer": 0,
+    "why": "Dvě registrace se mohou potkat."
+  },
+  {
+    "q": "Co se sjednocuje casefold?",
+    "options": [
+      "Heslo.",
+      "Jméno účtu.",
+      "Náhodná sůl."
+    ],
+    "answer": 1,
+    "why": "Heslo zachovává přesné bajty UTF-8."
+  },
+  {
+    "q": "Co vrací seznam účtů?",
+    "options": [
+      "Čitelná hesla.",
+      "Celé ověřovací JSON.",
+      "Jen id a jména."
+    ],
+    "answer": 2,
+    "why": "K výpisu nejsou ověřovací záznamy potřeba."
+  }
+]

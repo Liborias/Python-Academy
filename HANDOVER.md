@@ -1,5 +1,113 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.78 (12. 11. 2026): Místní účty a soubory 21–25
+
+Dokončen m05 Databáze a projekty: scrypt/sůl/ověření, registrace, sezení
+s vlastními poznámkami, volitelná offline řeč a zlib/Base64 přenos poznámek.
+Pět návazných úkolů s možnými řešeními a třemi kvízy; samostatné 21/25 mají
+tři přepínatelné ukázky, ostatní po jedné. Nově devět ukázek/pět úkolů,
+kurz draft 25/32, 49 ukázek/61 úkolů. Úvod 2/4, celek 4/4. Globálně 265 hlavních
++ 360 dalších řešení = 625, doplňkových ukázek 186; 280 lekcí včetně 15
+průvodců. Starší ID, klíče postupu a rozepsaná práce zachovány.
+
+Nové ID:
+- 21-scrypt-sul-a-overeni-hesla
+- 22-registrace-a-jedinecnost
+- 23-mistni-prihlaseni-a-poznamky
+- 24-volitelne-cteni-textu-offline
+- 25-zlib-base64-a-prenos-poznamek
+
+Všechno console, běžný limit 20 s; bez API/JS/CSS/runtime změn. Python 3.12+,
+ověřeno Python 3.14.8/SQLite 3.53.1. Standardní knihovna, žádné nové pip
+instalace ani server/účty/síť/grafika. Scrypt musí podporovat daný Python,
+profil n=131072/r=8/p=1/dklen=32 potřebuje přibližně 128 MiB, maxmem=256 MiB.
+Zde jeden výpočet přibližně 0.4 s. Příprava všech editorů a NAVOD.md popisují
+stejnou .venv, náklady, skutečný terminál a rozdíl demo/vlastní data.
+
+Heslo je přesný UTF-8 text 12–256 znaků/do 1024 bajtů, bez strip/normalizace.
+Sůl secrets.token_bytes(16), každý záznam nová; uložený slovník má pevnou verzi,
+profil, hex sůl/otisk. Neznámé/poškozené parametry se odmítnou před výpočtem.
+Over_heslo vrací bool a používá hmac.compare_digest, ne rychlý hash/šifrování.
+Příklady vypisují pouze fiktivní metadata a výsledky, ne heslo či celý otisk.
+Kontrola zachytí i správné from hashlib/hmac import aliasy.
+
+Registrace sjednocuje pouze jméno strip/casefold (1–64 znaků po sjednocení),
+UNIQUE je konečné pravidlo. Scrypt před krátkou zapisovací transakcí,
+parametrizovaný INSERT/lastrowid, ihned viditelný commit pro jiné spojení.
+Ucty vlastní DB a celé transakce. Uzivatele(id,jmeno UNIQUE,overeni JSON TEXT),
+poznamky(id,uzivatel_id FK ON DELETE CASCADE,text). Kontrola sloupců není
+migrace/audit cizí DB, nový ucty.sqlite3. Seznam účtů vrací jen id/jména.
+
+Sezení drží (id,jméno)/None, nikoli heslo. Nový pokus nejprve odhlásí starou
+identitu, nové spuštění je odhlášené. Neznámé platné jméno projde náhradním
+scrypt záznamem, neslibuje to shodné časy celého programu. Poznámky filtrují
+id vlastníka, nepřihlášená akce PermissionError. Zapis přijme validovaný seznam
+textů 1–2000 znaků s přesným obsahem, jedna transakce pro celou dávku; chyba
+druhého INSERT vrátí první. Sezení nevlastní spojení, zavře ho model.
+Místní cvičení nemění přihlašování webové Akademie. Poznámky nejsou šifrované,
+soubor DB dál chrání OS.
+
+Ve stálé uložené složce 23/25:
+
+```powershell
+python spust_ucty.py --help
+python spust_ucty.py registrace Zofie
+python spust_ucty.py prihlaseni Zofie
+```
+
+Heslo se čte getpass, nikoli argumentem nebo ze zdrojového kódu. Registrace
+potvrzení dvakrát, přihlášení jednou. Menu 1 výpis, 2 přidání, 3 odhlášení;
+chyba CLI 2, Ctrl+C 130. Vlastní DB vedle spouštěče i při jiném cwd; --db CESTA
+před příkazem naváže na předchozí složku se stejným schématem 22/23/25.
+Rodič musí existovat, nepoužívat DB starších projektů. Help bez DB/vstupu,
+webové ukázky používají paměť či TemporaryDirectory a fiktivní fráze.
+
+Řeč 24: precti(text,mluv=False) výchozí nahled bez subprocessu, --mluv explicitně
+zvolí místní systémový hlas. Windows powershell.exe/System.Speech, macOS say,
+Linux espeak-ng/espeak s cs. Pevné argv bez shell=True, text přes UTF-8 stdin,
+timeout 15 s/check=True. Chyba či chybějící hlas nedostupne, úspěšné převzetí
+precteno. Bez pyttsx3/pip/API. Reproduktor a výslovnost musí ověřit uživatel.
+Zde engine není instalovaný: skutečný --mluv vrací 2/nedostupne. Náhled a řízené
+úspěšné/chybové cesty ověřené, skutečný zvuk ani Windows/macOS hlasy neověřené.
+
+25: UTF-8 -> zlib -> Base64, prefix z1:, max 65536 rozbalených bajtů/100000
+znaků balíčku. Striktní kanonický Base64, max_length v decompress, dokončený
+proud a žádný připojený obsah/druhý proud, přísné UTF-8. Není šifrování.
+Uložené export/import Jmeno Soubor vždy ověří heslo a přenášejí jen poznámky,
+ne účet/otisky. Atomický export používá helper z 20, zdrojová DB nesmí být cílem.
+Import validuje celý JSON/dávku před jednou transakcí, přidává, staré nemaže;
+opakování vytvoří kopie. Spouštěč používá studentův kodek z reseni.py.
+
+`hesla.py`/`ucty.py`/`sezeni.py` přebírají přesné AST definic 21/22/23. Helper neobsahuje
+odpověď právě řešeného úkolu. Import bez DB/zvuku/vstupu. Devět nových unit skupin
+OK: 24 chybných variant odmítnuto/pět alternativ přijato, pět vzorů přijato/
+pět šablon odmítnuto, skutečný scrypt/SQLite, okamžitý commit/UNIQUE/vlastník,
+reset sezení a SQL trigger uprostřed dávky. Kodek testuje mezní UTF-8, truncation,
+trailing stream, poškozené bajty a měřený max_length. Řeč mockuje úspěch/chyby
+bez zvuku. 14 samostatných běhů (pět vzorů/pět úryvků/čtyři další ukázky),
+CLI/DB/export/import v dalších procesech. Validátor 25 lekcí bez chyb/upozornění.
+Celková unittest sada Python 3.14.8/Linux: **398 testů OK bez přeskočených,
+1120 s**, včetně validace všech 280 lekcí. Místní HTTP/SMTP testy povolené,
+starší ResourceWarning ze souborů/procesů nejsou selhání. Po doplnění čtení
+cizího kódování diagnostiky hlasu prošla cílená skupina řeči znovu (0.745 s),
+včetně skutečného podprocesu vracejícího neplatný UTF-8 chybový výstup.
+
+Chromium e2e_mistni_ucty OK: devět ukázek/pět úkolů, skutečné běhy a kontroly,
+lazy řešení bez změny kódu/postupu, workspace/helpery, reload/splnění,
+zachovaná rozepsaná 20 a mobil 380/320. Regrese řešení dalších 225 lekcí prošla.
+Prošly i regrese SQLite 6–10 a přípravy všech 10 profilů/3 systémů/3 editorů.
+Terminálový test: pět skutečných Linux PTY procesů, getpass bez echa, přihlášení/
+odhlášení, špatné heslo a přenos 23→25 nad stejnou DB. Záznamy přetrvaly nové
+procesy. Hlasová diagnostika náhled 0/nahled, --mluv 2/nedostupne. Mobilní řešení
+prohlédnuto. Windows/macOS a fyzický zvuk netestovány. Logy/snímky mimo repo
+v /workspace/scratch/ucty-work.
+
+Aktualizované katalog/kurz/plány/příprava/dokumentace/počty testů. Commit/push
+do main, bez ZIPů nebo publikace cloudového prostředí. Další krok na další
+pokyn: **Databáze 26–30, Malé nástroje a předání** — Luhn na zkušebních číslicích,
+volitelný QR, vlastní testy/izolované DB, cesty/backup/předání a vlastní varianta.
+Pozdější plán zatím neimplementovaný; historie níže není novým zadáním.
+
 ## Aktuální v0.77 (12. 11. 2026): BMI tracker 16–20
 
 Dokončen m04 Databáze a projekty: výpočet/jednotky/meze BMI, měření s datem,

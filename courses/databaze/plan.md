@@ -1,12 +1,12 @@
 ## Databáze a projekty: od souboru ke klubovní evidenci
 
-**Připraveno prvních 20 z 32 lekcí.** Úvod má obtížnost 2/4, celek 4/4:
+**Připraveno prvních 25 z 32 lekcí.** Úvod má obtížnost 2/4, celek 4/4:
 základní funkce Pythonu stačí pro první SQL, později přibudou vazby, transakce,
 Tkinter a spolupráce součástí. Předpoklady jsou doporučení, nic se nezamyká.
 
 Každá z pěti samostatných lekcí má tři přepínatelné ukázky, pět úkolů
 s vlastním zadáním/šablonou/kontrolou/možným řešením a tři kvízové otázky.
-V prvním bloku je **15 ukázek a 25 úkolů**. Témata 6–9 přidávají tři ukázky/pět úkolů na lekci a projekt 10 jeden souvislý krok. První dva bloky mají **28 ukázek a 46 úkolů**. Evidence kroužků 11–15 přidává pět návazných kroků, první tři bloky mají **33 ukázek a 51 úkolů**. BMI tracker 16–20 přidává sedm ukázek a pět návazných úkolů, celkem **40 ukázek a 56 úkolů**. Navazující projekty tvoří souvislé kroky,
+V prvním bloku je **15 ukázek a 25 úkolů**. Témata 6–9 přidávají tři ukázky/pět úkolů na lekci a projekt 10 jeden souvislý krok. První dva bloky mají **28 ukázek a 46 úkolů**. Evidence kroužků 11–15 přidává pět návazných kroků, první tři bloky mají **33 ukázek a 51 úkolů**. BMI tracker 16–20 přidává sedm ukázek a pět návazných úkolů, první čtyři bloky mají **40 ukázek a 56 úkolů**. Místní účty a soubory 21–25 přidávají devět ukázek a pět úkolů, celkem **49 ukázek a 61 úkolů**. Navazující projekty tvoří souvislé kroky,
 bez nesouvisejících variant, vždy s možným řešením.
 
 ## Prostředí
@@ -72,7 +72,13 @@ Bez nových pip balíčků; pro okno Tk a grafická plocha. Ukázky jsou dočasn
 19. Dokončení samostatného trackeru.
 20. Testy, export a kopie databáze.
 
-## Modul 5 — Místní účty a soubory (lekce 21–25, plán)
+## Modul 5 — Místní účty a soubory (lekce 21–25)
+
+**Hotovo: lekce 21–25.** Pevný scrypt profil n=131072/r=8/p=1, nová sůl, ověření přes compare_digest; registrace s Unicode casefold a UNIQUE; sezení s vlastním id a poznámkami. Chybný pokus zruší starou identitu, dávka se uloží celá nebo vůbec. Samostatná témata scrypt/kodek mají tři ukázky, každý krok má možné řešení a tři kvízy.
+
+Volitelná offline řeč 24 běží standardně jako náhled. Skutečné --mluv vyžaduje systémový hlas (Windows System.Speech, macOS say, Linux espeak-ng/espeak cs), bez pip či online API. Kodek 25 vysvětluje UTF-8/zlib/Base64, verzi a omezené rozbalení; přenáší jen vlastní poznámky, ne hesla. Místní konzole spust_ucty.py používá nový ucty.sqlite3 vedle spouštěče, --db naváže na jinou uloženou složku. Heslo čte getpass, nikdy argument příkazu. Export/import ověří přihlášení a import přidá jednu validovanou dávku.
+
+Bez dalších pip balíčků. Scrypt spotřebuje přibližně 128 MiB pracovní paměti; podporu musí mít daný Python. Nejde o přihlášení webové Akademie, soubor DB dál chrání operační systém. Všechny pokyny v lekcích a NAVOD.md.
 
 21. Standardní scrypt, salt a kontrola hesla.
 22. Registrace a jedinečnost uživatele.
@@ -96,5 +102,5 @@ Bez nových pip balíčků; pro okno Tk a grafická plocha. Ukázky jsou dočasn
 Pozdější témata zatím nejsou implementovaná. Tkinter vyžaduje místní grafickou
 plochu, offline řeč dostupné systémové hlasy a QR další knihovnu. Volitelné
 PostgreSQL potřebuje vlastní dostupný server a nastavení přístupu.
-Pro prvních dvacet lekcí se neinstalují pip balíčky; pro okna je potřeba dostupný systémový Tk.
-Odhad celku 20–30 hodin plus procvičení. Dalším krokem jsou místní účty a soubory 21–25.
+Pro prvních pětadvacet lekcí se neinstalují pip balíčky; pro okna je potřeba dostupný systémový Tk.
+Odhad celku 20–30 hodin plus procvičení. Dalším krokem jsou malé nástroje a předání 26–30.

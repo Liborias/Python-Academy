@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co provede výchozí běh?",
+    "options": [
+      "Pouze náhled bez zvuku.",
+      "Automaticky nainstaluje hlas.",
+      "Online přenos."
+    ],
+    "answer": 0,
+    "why": "Skutečný hlas je výslovná volba."
+  },
+  {
+    "q": "Jak předat čtený text?",
+    "options": [
+      "Vložit jej do shell příkazu.",
+      "Jako UTF-8 stdin programu s pevným argv.",
+      "Jako heslo."
+    ],
+    "answer": 1,
+    "why": "Data se nestanou příkazem."
+  },
+  {
+    "q": "Co znamená chybějící hlas?",
+    "options": [
+      "Všechny lekce přestanou fungovat.",
+      "Je nutný webový účet.",
+      "Nedostupne, náhled dál funguje."
+    ],
+    "answer": 2,
+    "why": "Tato část je volitelná a offline."
+  }
+]

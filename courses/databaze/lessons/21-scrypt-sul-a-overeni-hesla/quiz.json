@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč ukládáme sůl?",
+    "options": [
+      "Pro zopakování stejného odvození při ověření.",
+      "Je to heslo v jiném zápisu.",
+      "Pro odšifrování hesla."
+    ],
+    "answer": 0,
+    "why": "Sůl není tajná a pro každé vytvoření je nová."
+  },
+  {
+    "q": "Co udělat s neznámými parametry záznamu?",
+    "options": [
+      "Spustit je bez kontroly.",
+      "Odmítnout je před výpočtem.",
+      "Vypsat heslo."
+    ],
+    "answer": 1,
+    "why": "Soubor nesmí řídit neomezené nároky scrypt."
+  },
+  {
+    "q": "Jak porovnat otisky?",
+    "options": [
+      "Base64.",
+      "Převodem na malá písmena.",
+      "Hmac.compare_digest."
+    ],
+    "answer": 2,
+    "why": "Použijeme standardní porovnání odvozených bajtů."
+  }
+]

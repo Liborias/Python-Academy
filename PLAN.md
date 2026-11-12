@@ -126,21 +126,19 @@ obsahové korektury celého kurzu a připomínky studentů; stav draft zůstáv�
 Tkinter základy (okno, Label, Button, Entry, `pack`, `grid`, `place`, `ttk`) · Převodník měn · Úkolníček (Listbox, Scrollbar, ukládání do JSON) · API (REST, stavové kódy, chyby, `requests`) · Převodník měn 2.0 · E-maily přes lokální testovací server, Gmail volitelně · Balení do spustitelného souboru (PyInstaller, ověřit podporu Pythonu 3.14/3.15).
 
 ### E. Databáze a projekty (32 lekcí)
-**Stav v0.77: prvních 20 z 32 lekcí připravených.** SQLite základy 1–5,
-vazby/JOIN a klubovní konzole 6–10, Tkinter kroužky 11–15 a BMI tracker 16–20.
-Celkem 40 ukázek/56 úkolů s možnými řešeními. Samostatná témata mají více
-procvičení, návazné projekty souvislé kroky. Výpočet BMI má tři ukázky:
-jednotky, nezaokrouhlené hranice a neplatné vstupy. Tracker ukládá datum/kg/cm/
-poznámku, filtruje období a souhrny, má okno s českou čárkou a zachováním vstupů.
-BMI je orientační dospělý ukazatel, ne individuální zdravotní hodnocení.
-Závěr exportuje UTF-8 CSV a celou SQLite DB přes backup API; cílový soubor se
-nahradí až po úspěchu, nesmí být zdrojovou DB. Tři izolované testy overeni.py.
-Python 3.12+, ověřeno 3.14.8/SQLite 3.53.1/Tk 9.0, bez nových pip balíčků.
-Pro okna 12–14/19 dostupný Tk a grafická plocha, ověřit python -m tkinter.
-Příprava všech editorů a vysvětlení příkazů. Uložené spouštěče používají vlastní
-klub.sqlite3/krouzky.sqlite3/bmi.sqlite3 vedle sebe; --db naváže na starší složku.
-Další modul 21–25: místní účty a soubory. Celý plán v courses/databaze/plan.md,
-pozdější témata zatím neimplementovaná.
+**Stav v0.78: prvních 25 z 32 lekcí připravených.** SQLite a klubovní projekty
+1–15, BMI tracker 16–20, místní účty/soubory 21–25. Celkem 49 ukázek/61 úkolů
+s možnými řešeními; samostatná témata mají více ukázek, projekty návazné kroky.
+Nově scrypt/sůl/compare_digest a pevný profil n=131072/r=8/p=1, registrace
+casefold/UNIQUE, přihlášení a vlastní poznámky. Sezení je paměťové, chybný
+pokus zruší starou identitu, dávka je atomická. Volitelná řeč offline je
+náhled a výslovné --mluv pro systémový hlas. Zlib/Base64 přenáší jen poznámky,
+není šifrování, rozbalení je omezené. Uložená konzole používá getpass a vlastní
+ucty.sqlite3, --db naváže na předchozí složku; nemění přihlášení Akademie.
+Python 3.12+, ověřeno 3.14.8/SQLite 3.53.1, bez nových pip knihoven. Scrypt
+potřebuje přibližně 128 MiB pracovní paměti. Pro dřívější okna systémový Tk,
+pro skutečnou řeč systémový hlas. Další modul 26–30: malé nástroje a předání.
+Celý plán v courses/databaze/plan.md, pozdější témata zatím neimplementovaná.
 
 SQL základy (SQLite) · CRUD z Pythonu · **parametrizované dotazy a SQL injection** · venv a Git (editor má podporu Gitu, samostatný Git musí být nainstalovaný) · Tkinter a databáze (evidence kroužků místo učitelů) · BMI tracker · registrace a přihlášení (scrypt) · text na řeč (offline) · komprese souborů (`zlib`, `base64`) · kontrolní číslice (Luhn na zkušebních číslech) · generátor QR kódů · volitelně PostgreSQL + psycopg 3 + connection pool.
 

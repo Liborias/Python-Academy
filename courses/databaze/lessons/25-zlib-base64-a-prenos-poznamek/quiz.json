@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Je Base64 šifrování?",
+    "options": [
+      "Ne, je to přenosový zápis.",
+      "Ano, heslo není potřeba.",
+      "Ano, spolu se zlib vždy."
+    ],
+    "answer": 0,
+    "why": "Obsah lze běžně zpětně dekódovat."
+  },
+  {
+    "q": "Kdy omezit velikost rozbalení?",
+    "options": [
+      "Až po neomezeném rozbalení.",
+      "Už v decompress pomocí max_length.",
+      "Nikdy."
+    ],
+    "answer": 1,
+    "why": "Limit je součástí formátu i práce s pamětí."
+  },
+  {
+    "q": "Co přidává import?",
+    "options": [
+      "Účet a jeho heslo.",
+      "Přepíše původní databázi.",
+      "Vlastní poznámky jako jednu ověřenou dávku."
+    ],
+    "answer": 2,
+    "why": "Staré poznámky zůstávají, opakování může vytvořit kopie."
+  }
+]

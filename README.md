@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.77):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně tří her, vlastních testů a předání (30 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28), všech osm modulů Datové analýzy (42 ze 42) a Databáze včetně BMI trackeru (20 ze 32). Dokončené kurzy čekají na připomínky studentů. Další kapitoly Databází jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.78):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně tří her, vlastních testů a předání (30 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28), všech osm modulů Datové analýzy (42 ze 42) a Databáze včetně místních účtů a přenosu poznámek (25 ze 32). Dokončené kurzy čekají na připomínky studentů. Další kapitoly Databází jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,7 +38,7 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Databáze a projekty — SQLite a okenní evidence, prvních 20 lekcí
+## Databáze a projekty — SQLite a okenní evidence, prvních 25 lekcí
 
 První modul 1–5 učí spojení, paměť/soubor, tabulky a pravidla hodnot,
 parametrizované změny, čtení a transakce. Následují NULL/COALESCE,
@@ -48,8 +48,9 @@ cizí klíče a INNER/LEFT JOIN. Samostatné lekce 1–9 mají tři ukázky a p�
 Projekt 10 tvoří jeden souvislý celek s řešením. V každé lekci jsou tři kvízové
 otázky; první dva bloky mají **28 ukázek a 46 úkolů**, z toho 15/25 v prvním bloku.
 Návazná evidence kroužků 11–15 přidává pět kroků s řešeními, první tři bloky mají **33 ukázek a 51 úkolů**.
-BMI tracker 16–20 přidává sedm ukázek a pět úkolů, celkem **40 ukázek a 56 úkolů**.
-Úvod 2/4, celek 4/4; panel popisuje plán 32 lekcí, dostupných dvacet.
+BMI tracker 16–20 přidává sedm ukázek a pět úkolů, první čtyři bloky mají **40 ukázek a 56 úkolů**.
+Místní účty/soubory 21–25 přidávají devět ukázek/pět úkolů, celkem **49 ukázek a 61 úkolů**.
+Úvod 2/4, celek 4/4; panel popisuje plán 32 lekcí, dostupných pětadvacet.
 
 Databázové části používají standardní sqlite3, bez pip balíčků, serveru a internetu.
 Okna 12–14 a 19 navíc potřebují Tkinter a grafickou plochu; `python -m tkinter` ji ověří.
@@ -99,8 +100,30 @@ V závěru `python spust_bmi.py export mereni.csv` přenese tabulku,
 `python spust_bmi.py zaloha kopie.sqlite3` vytvoří celou DB přes backup API.
 CSV je UTF-8 se středníkem, čísla mají tečku; cíl se nahradí až po úspěchu,
 nesmí jím být zdrojová DB. `python overeni.py` spustí tři izolované testy.
-Help/export/záloha/testy v 20 nepotřebují grafické importy. Další blok 21–25
-přidá místní účty a soubory.
+Help/export/záloha/testy v 20 nepotřebují grafické importy. Navazující blok 21–25 s místními účty a soubory je hotový.
+
+**Místní účty 21–25** učí scrypt/sůl/otisk, Unicode sjednocení jména a UNIQUE,
+sezení a poznámky podle id vlastníka. Heslo se neukládá, neosekává a při skutečné
+registraci/přihlášení se čte getpass. Scrypt profil N=131072/r=8/p=1 používá
+přibližně 128 MiB pracovní paměti; bez nových pip knihoven. Samostatná témata
+hesel a kodeku mají více ukázek, každý krok možné řešení.
+
+V uložené složce dokončené 23/25:
+```
+python spust_ucty.py --help
+python spust_ucty.py registrace Zofie
+python spust_ucty.py prihlaseni Zofie
+```
+Vlastní ucty.sqlite3 je vedle spouštěče, --db CESTA před příkazem naváže na
+předchozí složku. Menu vypíše/přidá poznámku/odhlásí. Nový běh je odhlášený,
+chybný pokus zruší starou identitu. Nemění se přihlášení webové Akademie.
+V 25 export/import po ověření hesla přenese vlastní poznámky přes zlib/Base64;
+nejde o šifrování či zálohu účtů, import přidává a opakování vytvoří kopie.
+
+Volitelná řeč 24 je výchozím náhledem bez zvuku. `python precti.py "Ukázka." --mluv`
+zvolí systémový offline hlas, pokud existuje: Windows System.Speech, macOS say,
+Linux espeak-ng/espeak s cs. Bez pip/API. Neposílají se hesla, text jde přes stdin
+bez shellu. Chybějící hlas ostatní lekce neblokuje. Další blok je 26–30.
 
 ## Pygame 2 — herní objekty a tři vlastní hry
 
@@ -380,8 +403,8 @@ Nápověda vysvětluje také odsazování, našeptávání, spuštění a vráce
 ## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
 variantu k právě vybranému zadání s připomenutím, že správných postupů může být více.
-Pomoc je dostupná pro všech 260 hlavních zadání napříč devíti praktickými kurzy
-i 360 dalších úkolů v Základech, Datové analýze, Pygame 2 a Databázích, celkem 620 řešení včetně projektů a závěrečných
+Pomoc je dostupná pro všech 265 hlavních zadání napříč devíti praktickými kurzy
+i 360 dalších úkolů v Základech, Datové analýze, Pygame 2 a Databázích, celkem 625 řešení včetně projektů a závěrečných
 programů. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
 Průvodce přípravou bez programovacího úkolu tento panel nemá.
 

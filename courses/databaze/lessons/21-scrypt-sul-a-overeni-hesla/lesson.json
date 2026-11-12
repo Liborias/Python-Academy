@@ -1,0 +1,11 @@
+{
+  "title": "Scrypt, sůl a ověření hesla",
+  "minutes": 60,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "hesla",
+    "projekt"
+  ],
+  "example_title": "Scrypt, sůl a ověření hesla"
+}

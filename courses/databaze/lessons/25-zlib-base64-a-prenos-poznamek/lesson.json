@@ -1,0 +1,11 @@
+{
+  "title": "Zlib, Base64 a přenos poznámek",
+  "minutes": 75,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "soubory",
+    "projekt"
+  ],
+  "example_title": "Zlib, Base64 a přenos poznámek"
+}

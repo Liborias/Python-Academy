@@ -1128,3 +1128,55 @@ Celkový běh 389 testů/1035 s: 388 OK a zastaralý test rozsahu ukázek/úkol�
 opraven s následnými čtyřmi test_tasks OK; devět numericky zpřesněných BMI
 skupin také OK. Validace všech 275 lekcí prošla, celý běh po izolované opravě
 testu neopakován. Původní časové limity zůstávají.
+
+## Databáze a projekty, Místní účty a soubory 21–25 (od v0.78)
+
+M05: scrypt/sůl/ověření, registrace, sezení/poznámky, volitelná řeč offline,
+zlib/Base64 přenos. Pět úkolů s možnými řešeními a třemi kvízy; 21/25 mají
+po třech ukázkách, jiné kroky jednu. Kurz draft25/32, 49 ukázek/61 úkolů.
+Všechno console20s, bez API/JS/CSS/runtime změn. Python3.12+, ověřeno3.14.8/
+SQLite3.53.1, standardní knihovna, bez nových pip balíčků.
+
+Heslo přesný UTF-8 text12–256 znaků/do1024 bajtů bez strip/normalizace,
+secrets sůl16 bajtů, scrypt n131072/r8/p1/dk32/maxmem256MiB (pracovní paměť
+přibližně128MiB). Záznam má pevný profil/verzi/sul/otisk v hex; poškozený
+záznam se odmítne před výpočtem, compare_digest porovnává bajty. Nejde o
+šifrování/rychlý hash. Jméno je naopak strip/casefold a UNIQUE v DB.
+
+Uzivatele(id,jmeno TEXT UNIQUE NOT NULL,overeni TEXT NOT NULL), poznamky
+(id,uzivatel_id FK CASCADE NOT NULL,text NOT NULL). FK zapnuté před False,
+model vlastní celé transakce, scrypt před INSERT, okamžitý commit vidí nové
+spojení. Sezení drží jen id/jméno/None a nevlastní spojení; nový neúspěšný
+pokus zruší starou identitu. Poznámky pouze vlastníka, bez identity PermissionError.
+Dávka validovaná před jedním executemany/commit, chyba druhého zápisu vrátí první.
+Neznámý účet použije veřejný náhradní záznam; neslibuje stejné časy programu.
+Místní cvičení nemění autentizaci Akademie; DB a běžné textové poznámky chrání OS.
+
+Spust_ucty.py ve23/25 importuje studentovo sezení či kodek, vlastní ucty.sqlite3
+vedle skriptu, --db před příkazem naváže na jinou složku se stejným schématem.
+Help bez DB/vstupu, heslo getpass bez echa, registrace dvakrát/login jednou.
+Menu1/2/3, chyby2/Ctrl+C130, ukázky dočasné. Heslo nepatří do argumentů/kódu.
+
+Řeč24: default nahled bez subprocessu, --mluv explicitně Windows System.Speech/
+macOS say/Linux espeak-ng či espeak cs. Pevné argv, UTF-8 stdin, timeout15/check,
+bez shell=True/sítě. Chyba nedostupne, úspěšné převzetí precteno. Fyzický zvuk
+zde není ověřený, engine není instalovaný; náhled/fallback a řízené větve ano.
+
+Kodek25 je UTF-8/zlib/Base64 z1:, max65536 bajtů rozbaleného textu/100000 znaků
+balíčku. Strict canonical Base64, max_length v decompress, eof bez unused_data/
+unconsumed_tail a přísné UTF-8. Není šifrování. Export přenáší jen JSON poznámek,
+ne hesla/otisky; atomický cíl nesmí být zdrojová DB. Import validuje celý formát
+před jednou dávkou, přidává a opakováním vzniknou kopie. Helpery hesla/ucty/sezeni
+mají AST předchozích řešení; import bez DB/zvuku/vstupu.
+
+Devět nových unit skupin:24 chyb odmítnuto/pět alternativ, skutečný scrypt/SQLite,
+sůl/přesná hesla/profil/compare, UNIQUE/commit/oddělení uživatelů/rollback,
+14 samostatných běhů a uložené CLI/DB/přenos. Chromium9 ukázek/5 úkolů,
+řešení/běhy/workspace/reload/mobil380/320 a starší postup. Pět skutečných Linux
+PTY procesů ověřuje getpass bez echa, přihlášení/odhlášení/neúspěch a přenos
+23→25 nad stejnou DB. Hlasová diagnostika nahled0/nedostupne2. Windows/macOS
+hlasy a fyzický reproduktor neověřené.
+Celková unittest sada 398 testů OK bez přeskočených na Python3.14.8/Linux,
+1120 s včetně validace všech280 lekcí. Cílená řeč znovu OK i se skutečným
+podprocesem vracejícím neplatné UTF-8 diagnostiky; errors=replace chrání její
+čtení, vstupní text je validovaný předem. API/JS/CSS a limity beze změny.
