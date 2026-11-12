@@ -49,7 +49,7 @@ V archivu je sedm učebnic (celkem asi 600 videolekcí). Každá se stane samost
 | E-maily přes Gmail | přihlášení běžným heslem | Běžné heslo Google od 5/2025 nepřijímá. Je nutné dvoufázové ověření a **heslo aplikace**, nebo OAuth. Limit 500 zpráv denně ([Nylas](https://developer.nylas.com/docs/cookbook/email/gmail-smtp-settings/)). | Výuka přes lokální testovací SMTP server (nic se neodešle, nic se neriskuje). Gmail jako volitelná lekce, heslo jen v proměnné prostředí. |
 | Web scraping | Senam.cz, cizí PDF | Cizí weby se mění a scraping může porušovat podmínky. | Cvičné weby určené pro scraping, místní HTML ukázky pro offline testy, lekce o `robots.txt` a etice. |
 | Veřejná API | měny, ISS, „urážky“ | Dostupnost se mění a „urážky“ nejsou vhodné pro výuku. | Každé API ověřit při psaní lekce. Ke každému **mock server** s uloženými odpověďmi, aby lekce fungovala offline a testy byly stabilní. Téma „urážky“ nahradí „rada dne“. |
-| Text na řeč | gTTS (online služba Google) | Spolehlivost neověřena. | Hlavní varianta offline (`pyttsx3`), gTTS volitelně. Ověřit při psaní lekce. |
+| Text na řeč | Systémový hlas offline, standardní subprocess | Ve 24 připraven náhled a explicitní --mluv. | Windows System.Speech, macOS say, Linux espeak-ng/espeak cs; fyzický zvuk ověří uživatel. Bez pyttsx3/gTTS. |
 | Hesla | hashování | Zásadní je správný postup. | `hashlib.scrypt` se solí, žádné MD5 ani SHA bez soli. |
 | Pythonový výstup do souborů | `open("x.txt")` | Od Pythonu 3.15 je UTF-8 výchozí, dříve záleželo na systému (Windows). | Učíme vždy `encoding="utf-8"`. |
 
@@ -126,8 +126,8 @@ obsahové korektury celého kurzu a připomínky studentů; stav draft zůstáv�
 Tkinter základy (okno, Label, Button, Entry, `pack`, `grid`, `place`, `ttk`) · Převodník měn · Úkolníček (Listbox, Scrollbar, ukládání do JSON) · API (REST, stavové kódy, chyby, `requests`) · Převodník měn 2.0 · E-maily přes lokální testovací server, Gmail volitelně · Balení do spustitelného souboru (PyInstaller, ověřit podporu Pythonu 3.14/3.15).
 
 ### E. Databáze a projekty (32 lekcí)
-**Stav v0.78: prvních 25 z 32 lekcí připravených.** SQLite a klubovní projekty
-1–15, BMI tracker 16–20, místní účty/soubory 21–25. Celkem 49 ukázek/61 úkolů
+**Stav v0.79: prvních 30 z 32 lekcí připravených.** SQLite a klubovní projekty
+1–15, BMI tracker 16–20, místní účty/soubory 21–25. Celkem 56 ukázek/66 úkolů
 s možnými řešeními; samostatná témata mají více ukázek, projekty návazné kroky.
 Nově scrypt/sůl/compare_digest a pevný profil n=131072/r=8/p=1, registrace
 casefold/UNIQUE, přihlášení a vlastní poznámky. Sezení je paměťové, chybný
@@ -137,7 +137,10 @@ není šifrování, rozbalení je omezené. Uložená konzole používá getpass
 ucty.sqlite3, --db naváže na předchozí složku; nemění přihlášení Akademie.
 Python 3.12+, ověřeno 3.14.8/SQLite 3.53.1, bez nových pip knihoven. Scrypt
 potřebuje přibližně 128 MiB pracovní paměti. Pro dřívější okna systémový Tk,
-pro skutečnou řeč systémový hlas. Další modul 26–30: malé nástroje a předání.
+pro skutečnou řeč systémový hlas. Hotový blok26–30: Luhn, volitelné QR,
+vlastní testy, cesty/backup/předání a konzolová půjčovna s kartami a CSV.
+Pouze QR potřebuje qrcode[pil]>=8.2,<9, zbytek zůstává standardní knihovna.
+Další krok: volitelné PostgreSQL31–32.
 Celý plán v courses/databaze/plan.md, pozdější témata zatím neimplementovaná.
 
 SQL základy (SQLite) · CRUD z Pythonu · **parametrizované dotazy a SQL injection** · venv a Git (editor má podporu Gitu, samostatný Git musí být nainstalovaný) · Tkinter a databáze (evidence kroužků místo učitelů) · BMI tracker · registrace a přihlášení (scrypt) · text na řeč (offline) · komprese souborů (`zlib`, `base64`) · kontrolní číslice (Luhn na zkušebních číslech) · generátor QR kódů · volitelně PostgreSQL + psycopg 3 + connection pool.

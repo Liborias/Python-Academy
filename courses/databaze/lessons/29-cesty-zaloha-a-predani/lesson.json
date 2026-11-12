@@ -1,0 +1,11 @@
+{
+  "title": "Cesty, záloha a předání složky",
+  "minutes": 60,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "projekt",
+    "predani"
+  ],
+  "example_title": "Cesty, záloha a předání složky"
+}

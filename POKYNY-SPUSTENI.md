@@ -34,7 +34,7 @@ python tools/setup_env.py --dry-run
 ```
 Základní podkurz **Základy** žádné balíčky nepotřebuje.
 
-Pro Databáze a projekty (prvních 25 z 32 lekcí):
+Pro Databáze a projekty (prvních 30 z 32 lekcí):
 ```
 python tools/setup_env.py --courses databaze
 python -c "import sys, sqlite3; print(sys.executable); print(sqlite3.sqlite_version)"
@@ -170,7 +170,7 @@ Balíčky používá Python z .venv; zvolte jej také v editoru. Po instalaci ap
 znovu spusťte. Ověřeno s Pythonem 3.14.8, pandas 3.1.1, Matplotlib 3.11.2 a openpyxl 3.1.5.
 
 Bez --courses pomocník připraví běžné balíčky všech kurzů; --extras navíc
-volitelné PyInstaller, qrcode a pyttsx3. Instalace těchto součástí není nutná
+volitelné PyInstaller a qrcode[pil]>=8.2,<9. Instalace těchto součástí není nutná
 pro úvod Datové analýzy.
 
 Volitelně rozšíření pro VSCodium:
@@ -232,3 +232,47 @@ E-mailová cvičení nepotřebují osobní schránku, zprávy zůstávají na 12
 
 V katalogu začněte konceptem „Začínáme: prostředí, projekt a Git“. GitHub a virtuální
 server jsou až další témata; pro běžné procvičování nejsou potřeba.
+
+
+**Malé nástroje a předání 26–30** přidávají Luhnovu kontrolní číslici,
+volitelné QR štítky, vlastní testy a dokončenou konzolovou půjčovnu.
+Nově sedm ukázek/pět úkolů s možnými řešeními, celkem **56 ukázek a 66 úkolů**.
+Testy hlídají i poruchy modelu, zavření/nové otevření a návrat neúspěšné
+transakce. Karty ukazují skutečná id a jen aktivní výpůjčky; CSV zachová češtinu,
+středníky i uvozovky. SQLite backup vytvoří samostatnou kopii databáze.
+
+Po dokončení uložené 30 ve stejné .venv:
+
+```powershell
+python overeni.py
+python spust_pujcovnu.py pridat "Míč" 2
+python spust_pujcovnu.py pujcit 18 "Žofie"
+python spust_pujcovnu.py vypujcky
+python spust_pujcovnu.py vratit 1
+python spust_pujcovnu.py export stitky.csv
+python spust_pujcovnu.py zaloha kopie.sqlite3
+```
+
+Overeni spustí osm izolovaných testů, pridat založí pomůcku, pujcit odečte
+jeden kus a vypíše id výpůjčky, vratit ho vrátí nejvýše jednou. Kód 18 a id1
+jsou příklady pro novou prázdnou DB; použijte skutečné hodnoty z výstupu.
+Bez příkazu se vypíše přehled. Vlastní pujcovna.sqlite3 je vedle spouštěče,
+--db CESTA před příkazem naváže na jinou uloženou složku. Rodič cíle musí
+existovat. --help nic nevytváří; chyby mají kód2. Webové běhy jsou dočasné.
+Předání kopíruje zdroje se všemi helpery a NAVOD.md, .venv se vytvoří znovu,
+vlastní data zvlášť. PostgreSQL 31–32 zůstává plánovaný volitelný závěr.
+
+Pouze PNG v 27/30 potřebuje volitelnou knihovnu:
+
+```powershell
+python -m pip install "qrcode[pil]>=8.2,<9"
+python spust_pujcovnu.py qr 1 stitek.png
+```
+
+Pip nainstaluje QR generátor a Pillow do zvoleného Pythonu, příkaz qr vytvoří
+místní štítek pro existující předmět. Obsah je text PY-AKADEMIE:PUJ:18, bez
+otevírání adres či síťových požadavků. Luhn není oprávnění a QR není šifrování.
+Bez knihovny se zobrazí návod; testy, databáze, CSV a záloha fungují dál.
+V kořeni Akademie lze také použít `python tools/setup_env.py --courses databaze --extras`.
+Po doplnění balíčku restartujte aplikaci. Zde ověřeno qrcode8.2/Pillow a skutečné
+přečtení PNG nezávislým dekodérem.

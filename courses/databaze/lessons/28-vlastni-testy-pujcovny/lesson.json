@@ -1,0 +1,11 @@
+{
+  "title": "Vlastní testy půjčovny",
+  "minutes": 75,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "projekt",
+    "predani"
+  ],
+  "example_title": "Vlastní testy půjčovny"
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "preklep",
+    "title": "Změna jedné číslice",
+    "description": "Kontrola zachytí jednoduchý překlep.",
+    "code": "# Zkušební inventární číslo má na konci jednu kontrolní číslici.\nfrom pravidla_kodu import telo_kodu\n\ndef kontrolni_cislice(telo):\n    telo = telo_kodu(telo)\n    soucet = 0\n    for index, znak in enumerate(reversed(telo)):\n        cislo = int(znak)\n        if index % 2 == 0:\n            cislo *= 2\n            if cislo > 9:\n                cislo -= 9\n        soucet += cislo\n    return str((-soucet) % 10)\n\ndef platny_kod(kod):\n    if not isinstance(kod,str) or not 2<=len(kod)<=33 or not all('0'<=c<='9' for c in kod):\n        return False\n    return kontrolni_cislice(kod[:-1]) == kod[-1]\n\n# Samostatný pohled na kontrolní číslici, pouze zkušební data.\nkod='12'+kontrolni_cislice('12')\nprint(kod,platny_kod(kod))\nprint(kod[:-1]+'0',platny_kod(kod[:-1]+'0'))\n"
+  },
+  {
+    "id": "omezeni",
+    "title": "Co Luhn nezaručí",
+    "description": "Přeházení 09 a 90 může zůstat platné.",
+    "code": "# Zkušební inventární číslo má na konci jednu kontrolní číslici.\nfrom pravidla_kodu import telo_kodu\n\ndef kontrolni_cislice(telo):\n    telo = telo_kodu(telo)\n    soucet = 0\n    for index, znak in enumerate(reversed(telo)):\n        cislo = int(znak)\n        if index % 2 == 0:\n            cislo *= 2\n            if cislo > 9:\n                cislo -= 9\n        soucet += cislo\n    return str((-soucet) % 10)\n\ndef platny_kod(kod):\n    if not isinstance(kod,str) or not 2<=len(kod)<=33 or not all('0'<=c<='9' for c in kod):\n        return False\n    return kontrolni_cislice(kod[:-1]) == kod[-1]\n\n# Samostatný pohled na kontrolní číslici, pouze zkušební data.\nprint('1099:',platny_kod('1099'))\nprint('1909:',platny_kod('1909'))\nprint('Platná kontrola sama nepotvrzuje správný předmět.')\n"
+  }
+]

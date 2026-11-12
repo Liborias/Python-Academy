@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co má ověřit test chyby druhého SQL zápisu?",
+    "options": [
+      "Že se vrátí také první změna.",
+      "Jen to, že program něco vytiskl.",
+      "Že se uloží první změna a druhá přeskočí."
+    ],
+    "answer": 0,
+    "why": "Operace musí být atomická."
+  },
+  {
+    "q": "Proč používá sada předanou třídu?",
+    "options": [
+      "Aby si každý test mohl vybrat jiný pevně zapsaný model.",
+      "Lze ověřit správný i porouchaný model.",
+      "Aby nebylo potřeba kontrolovat výsledky."
+    ],
+    "answer": 1,
+    "why": "Testy musí poruchy skutečně odhalit."
+  },
+  {
+    "q": "Jaká data použít pro testy?",
+    "options": [
+      "Jedinou ostrou DB.",
+      "Databázi spolužáka.",
+      "Vlastní dočasný soubor pro každý případ."
+    ],
+    "answer": 2,
+    "why": "Případy se nemají navzájem ovlivňovat."
+  }
+]

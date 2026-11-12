@@ -2,7 +2,7 @@
 
 Česká výuková aplikace pro Python. Každá učebnice je samostatný podkurz, studovat lze v libovolném pořadí, nic se nezamyká. Kód píšete ve VS Code, VSCodium, PyCharm nebo přímo v aplikaci, aplikace ho spouští a kontroluje.
 
-**Stav (v0.78):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně tří her, vlastních testů a předání (30 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28), všech osm modulů Datové analýzy (42 ze 42) a Databáze včetně místních účtů a přenosu poznámek (25 ze 32). Dokončené kurzy čekají na připomínky studentů. Další kapitoly Databází jsou plánované, viz `PLAN.md` a `STATUS.md`.
+**Stav (v0.79):** úvodní koncept přípravy (15 průvodců), Základy (40 lekcí), samostatné OOP (20 ze 20), Soubory a web (22), Pygame 1 (18), Pygame 2 včetně tří her, vlastních testů a předání (30 ze 30), Turtle/OOP (40 ze 40), Okenní aplikace, API a e-maily (28 z 28), všech osm modulů Datové analýzy (42 ze 42) a Databáze včetně vlastní půjčovny a předání (30 ze 32). Dokončené kurzy čekají na připomínky studentů. Další kapitoly Databází jsou plánované, viz `PLAN.md` a `STATUS.md`.
 
 ## Aktualizace z GitHubu
 
@@ -38,7 +38,7 @@ seznamem konkrétních balíčků a příkazy pro ověření. Rozšířená str�
 obsahuje i návody pro všechny tři editory. Tlačítko „Otevřít ve VSCodium“ v samotné lekci
 má původní funkci; v jiném editoru otevřete vypsaný soubor ručně.
 
-## Databáze a projekty — SQLite a okenní evidence, prvních 25 lekcí
+## Databáze a projekty — SQLite a okenní evidence, prvních 30 lekcí
 
 První modul 1–5 učí spojení, paměť/soubor, tabulky a pravidla hodnot,
 parametrizované změny, čtení a transakce. Následují NULL/COALESCE,
@@ -50,7 +50,7 @@ otázky; první dva bloky mají **28 ukázek a 46 úkolů**, z toho 15/25 v prvn
 Návazná evidence kroužků 11–15 přidává pět kroků s řešeními, první tři bloky mají **33 ukázek a 51 úkolů**.
 BMI tracker 16–20 přidává sedm ukázek a pět úkolů, první čtyři bloky mají **40 ukázek a 56 úkolů**.
 Místní účty/soubory 21–25 přidávají devět ukázek/pět úkolů, celkem **49 ukázek a 61 úkolů**.
-Úvod 2/4, celek 4/4; panel popisuje plán 32 lekcí, dostupných pětadvacet.
+Úvod 2/4, celek 4/4; panel popisuje plán 32 lekcí, dostupných třicet.
 
 Databázové části používají standardní sqlite3, bez pip balíčků, serveru a internetu.
 Okna 12–14 a 19 navíc potřebují Tkinter a grafickou plochu; `python -m tkinter` ji ověří.
@@ -123,7 +123,50 @@ nejde o šifrování či zálohu účtů, import přidává a opakování vytvo�
 Volitelná řeč 24 je výchozím náhledem bez zvuku. `python precti.py "Ukázka." --mluv`
 zvolí systémový offline hlas, pokud existuje: Windows System.Speech, macOS say,
 Linux espeak-ng/espeak s cs. Bez pip/API. Neposílají se hesla, text jde přes stdin
-bez shellu. Chybějící hlas ostatní lekce neblokuje. Další blok je 26–30.
+bez shellu. Chybějící hlas ostatní lekce neblokuje. Navazuje hotový blok 26–30.
+
+**Malé nástroje a předání 26–30** přidávají Luhnovu kontrolní číslici,
+volitelné QR štítky, vlastní testy a dokončenou konzolovou půjčovnu.
+Nově sedm ukázek/pět úkolů s možnými řešeními, celkem **56 ukázek a 66 úkolů**.
+Testy hlídají i poruchy modelu, zavření/nové otevření a návrat neúspěšné
+transakce. Karty ukazují skutečná id a jen aktivní výpůjčky; CSV zachová češtinu,
+středníky i uvozovky. SQLite backup vytvoří samostatnou kopii databáze.
+
+Po dokončení uložené 30 ve stejné .venv:
+
+```powershell
+python overeni.py
+python spust_pujcovnu.py pridat "Míč" 2
+python spust_pujcovnu.py pujcit 18 "Žofie"
+python spust_pujcovnu.py vypujcky
+python spust_pujcovnu.py vratit 1
+python spust_pujcovnu.py export stitky.csv
+python spust_pujcovnu.py zaloha kopie.sqlite3
+```
+
+Overeni spustí osm izolovaných testů, pridat založí pomůcku, pujcit odečte
+jeden kus a vypíše id výpůjčky, vratit ho vrátí nejvýše jednou. Kód 18 a id1
+jsou příklady pro novou prázdnou DB; použijte skutečné hodnoty z výstupu.
+Bez příkazu se vypíše přehled. Vlastní pujcovna.sqlite3 je vedle spouštěče,
+--db CESTA před příkazem naváže na jinou uloženou složku. Rodič cíle musí
+existovat. --help nic nevytváří; chyby mají kód2. Webové běhy jsou dočasné.
+Předání kopíruje zdroje se všemi helpery a NAVOD.md, .venv se vytvoří znovu,
+vlastní data zvlášť. PostgreSQL 31–32 zůstává plánovaný volitelný závěr.
+
+Pouze PNG v 27/30 potřebuje volitelnou knihovnu:
+
+```powershell
+python -m pip install "qrcode[pil]>=8.2,<9"
+python spust_pujcovnu.py qr 1 stitek.png
+```
+
+Pip nainstaluje QR generátor a Pillow do zvoleného Pythonu, příkaz qr vytvoří
+místní štítek pro existující předmět. Obsah je text PY-AKADEMIE:PUJ:18, bez
+otevírání adres či síťových požadavků. Luhn není oprávnění a QR není šifrování.
+Bez knihovny se zobrazí návod; testy, databáze, CSV a záloha fungují dál.
+V kořeni Akademie lze také použít `python tools/setup_env.py --courses databaze --extras`.
+Po doplnění balíčku restartujte aplikaci. Zde ověřeno qrcode8.2/Pillow a skutečné
+přečtení PNG nezávislým dekodérem.
 
 ## Pygame 2 — herní objekty a tři vlastní hry
 
@@ -403,8 +446,8 @@ Nápověda vysvětluje také odsazování, našeptávání, spuštění a vráce
 ## Pomoc s řešením ve všech kurzech
 Pod úkolem je rozbalovací ovladač **Zobrazit možné řešení**. Ukáže jednu ověřenou
 variantu k právě vybranému zadání s připomenutím, že správných postupů může být více.
-Pomoc je dostupná pro všech 265 hlavních zadání napříč devíti praktickými kurzy
-i 360 dalších úkolů v Základech, Datové analýze, Pygame 2 a Databázích, celkem 625 řešení včetně projektů a závěrečných
+Pomoc je dostupná pro všech 270 hlavních zadání napříč devíti praktickými kurzy
+i 360 dalších úkolů v Základech, Datové analýze, Pygame 2 a Databázích, celkem 630 řešení včetně projektů a závěrečných
 programů. Kód má zvýrazněnou syntaxi a dá se běžně označit a zkopírovat.
 Průvodce přípravou bez programovacího úkolu tento panel nemá.
 

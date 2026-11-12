@@ -28,7 +28,7 @@ PACKAGES = {
 }
 
 
-OPTIONAL_PACKAGES = {"tkinter-api": ["pyinstaller"], "databaze": ["qrcode[pil]", "pyttsx3"]}
+OPTIONAL_PACKAGES = {"tkinter-api": ["pyinstaller"], "databaze": ["qrcode[pil]>=8.2,<9"]}
 
 
 def venv_python(root: Path, venv_dir: str = ".venv") -> Path:

@@ -1,5 +1,106 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.79 (12. 11. 2026): Malé nástroje a předání 26–30
+
+Hotov m06 Databází: Luhn, volitelné QR, vlastní testy půjčovny, cesty/záloha/
+předání a vlastní varianta projektu. Pět návazných úkolů s možnými řešeními
+od začátku a třemi kvízy. Samostatná 26 má tři přepínatelné ukázky, ostatní
+po jedné. Nově7/5, celý kurz draft30/32, **56 ukázek/66 úkolů**. Úvod2/4,
+celek4/4. Globálně270 hlavních +360 dalších =630 řešení, doplňkových ukázek188;
+285 lekcí včetně15 průvodců. Starší ID, kód a postup zachované.
+
+Nové stabilní ID:
+- 26-luhn-a-inventarni-cislice
+- 27-volitelne-qr-stitky
+- 28-vlastni-testy-pujcovny
+- 29-cesty-zaloha-a-predani
+- 30-moje-pujcovna-a-zaverecne-overeni
+
+Vše console20s, bez změn API/JS/CSS/runtime/limitů. Python3.12+ kvůli
+autocommit, ověřeno3.14.8/SQLite3.53.1. Základ standardní knihovna, pouze PNG
+má volitelný **qrcode[pil]>=8.2,<9** (ověřeno qrcode8.2/Pillow). Instalace
+python -m pip install "qrcode[pil]>=8.2,<9" do stejné .venv pro všechny editory
+a terminál; nebo tools/setup_env.py --courses databaze --extras. V přípravě
+odstraněn dříve plánovaný pyttsx3, řeč24 využívá systémový hlas. Nové povinné
+balíčky ani cloud konfigurace nejsou. Instalaci QR pro místní ověření umožnila
+zděděná síťová proxy. Žádná publikace prostředí ani ZIP.
+
+26: kontrolni_cislice přijímá ASCII text1–32, zachovává úvodní nuly, vrací str.
+Platny_kod vrací bool pro ASCII2–33; kontrola odhalí jednočíselné překlepy,
+ale 1099 i1909 projdou (09↔90). Není identita ani oprávnění. Půjčovna má užší
+kanonické kladné SQLite id bez nul a vyžaduje existující předmět.
+
+27: qr_png validuje neprázdné přesné UTF-8 do512 bajtů včetně okrajových mezer,
+PNG přípona/absolutní Path. Lazy qrcode/Pillow, chybějící knihovna vrátí None
+bez zápisu. QR profil M/box6/border4/fit, černá/bílá a explicitní PNG při save.
+Bezpečný soubor z20 nahrazuje cíl až po úspěchu, chrání zdroj včetně hardlinku.
+Preview_images ukáže PNG ke stažení; generování je offline, nic se neotevírá.
+Nezávislý zxing-cpp3.1.1 dekodér je pouze vývojový smoke, není závislost kurzu.
+
+28: vytvor_sadu(Pujcovna) vrací alespoň6 unittest případů, nespouští je při
+sestavení. Testuje předanou třídu, dočasný soubor pro každý případ, close před
+úklidem. Kontrola vyzkouší správný model i6 poruch (commit/stock/return/checksum/
+apostrof/rollback). Trigger ABORT ověří vrácení odečtu po chybě INSERT.
+Model dědí přesnou Evidence z10, doplňuje inventární kód a pujc_kod. Luhn z26.
+Nejde o schema migraci, nový pujcovna.sqlite3. Datové helpery jsou předchozí
+řešení, žádné aktuální řešení úkolu není ukryté v podkladech.
+
+29: cesty_projektu počítá bez IO, výchozí DB vedle spouštěče i z jiného cwd;
+zadaná relativní --db je vůči cwd. Zaloha přes Connection.backup včetně paměti,
+atomický cíl a zavřené cílové spojení. Předání kopíruje všechny zdroje/NAVOD.md,
+.venv se tvoří znovu, data zvlášť a gitignore; bez ZIP. V lekci Windows venv
+příkazy i význam a cesta pro macOS/Linux.
+
+30: MojePujcovna.karty LEFT JOIN + aktivní v ON + COUNT(v.id); skutečné sparse
+id, dostupné/aktivní/celkem a prázdné pomůcky. Souhrn tři počty, CSV UTF-8/
+středník/exact keys a hodnoty, citování, atomický cíl a ochrana zdrojové DB.
+Download_files nabídne CSV, webový běh používá paměť/dočasnou kopii. Při
+přímém python reseni.py vznikne stitky.csv v cwd.
+
+Uložená29/30, po dokončení reseni.py:
+    python spust_pujcovnu.py --help
+    python overeni.py
+    python spust_pujcovnu.py pridat "Míč" 2
+    python spust_pujcovnu.py pujcit 18 "Žofie"
+    python spust_pujcovnu.py vypujcky
+    python spust_pujcovnu.py vratit 1
+    python spust_pujcovnu.py zaloha kopie.sqlite3
+Ve30 navíc:
+    python spust_pujcovnu.py export stitky.csv
+    python spust_pujcovnu.py qr 1 stitek.png
+
+Skutečné kódy/id berte z výstupu. Prázdná DB první pomůcka1→kód18. Vrátit
+používá id výpůjčky. --db CESTA patří před příkaz, rodič musí existovat.
+Help bez otevření DB, overeni6/8 izolovaných případů. Spouštěč29 importuje
+studentovy cesty/zálohu,30 jeho MojePujcovna, helpery z27/28/29 jsou přesné
+předchozí definice. Chyby CLI2, source DB nesmí být cílem. Bez QR běží ostatní
+příkazy. Význam všech příkazů je v lekcích a NAVOD.md.
+
+Ověření:
+- Devět nových unit skupin: reference/šablony, chyby/alternativy, AST/helpery,
+ 12 samostatných běhů a CLI v dalších procesech. Trvalost, jediné vrácení,
+ samostatná záloha, CSV s apostrofem/středníkem a6/8 dodaných testů OK.
+- Skutečné QR27/30: šest roundtrip s přesnými UTF-8 bajty, mezerami/novým
+ řádkem i512 bajty, a QR uložené CLI. Zxing nezávisle přečetl všechny symboly.
+- Chromium nové26–30:7 ukázek/5 úkolů, přesná lazy řešení bez změny draftu,
+ šablony odmítnuté/vzory přijaté, PNG/CSV náhled a stažení, workspace/helpery,
+ reload a starší25 kód/postup. Mobil380/320 bez přesahu; dlouhá hlavička CSV
+ ve výkladu rozdělena na jednotlivé klíče. QR a mobilní řešení prohlédnuté.
+- Regrese Chromium: řešení dalších230 lekcí, SQLite6–10 a příprava10 profilů/
+ 3 systémů/3 editorů OK. Nativní Windows/macOS/editory nebyly testované.
+- Čisté předání ověřeno také v nové .venv Python3.14.8 bez pip balíčků:
+  složka s češtinou, jiné cwd, osm testů, výpůjčka, CSV, backup/reopen a
+  návod místo QR. Bez kopírování původního virtuálního prostředí.
+- Celková unittest sada: 407 testů OK bez přeskočených, 1136 s na Python3.14.8/Linux, včetně validace všech285 lekcí. Cílená konečná sada9 testů navíc OK (6.6 s).
+- Cílený validátor Databází: 30 lekcí, 0 chyb a 0 upozornění.
+
+Aktualizované katalog/kurz/plán/příprava/dokumentace/počty. Změny commit/push
+do main přímo na GitHub, bez ZIPů nebo publikace cloud prostředí. Protokoly a
+snímky mimo repo: /workspace/scratch/predani-work.
+
+Další krok na další pokyn: **volitelné PostgreSQL31–32** podle plánu, zatím
+není potřeba jej instalovat/spouštět. Po dokončení kurzů revize/zpětná vazba.
+
 ## Aktuální v0.78 (12. 11. 2026): Místní účty a soubory 21–25
 
 Dokončen m05 Databáze a projekty: scrypt/sůl/ověření, registrace, sezení

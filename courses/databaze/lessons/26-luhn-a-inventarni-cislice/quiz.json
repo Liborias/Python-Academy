@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co je tělo inventárního kódu?",
+    "options": [
+      "Text číslic, úvodní nuly se zachovají.",
+      "Celé číslo, úvodní nuly zahodíme.",
+      "Číslo včetně už přidané kontrolní číslice."
+    ],
+    "answer": 0,
+    "why": "Obecný algoritmus neodstraňuje významné nuly."
+  },
+  {
+    "q": "Odkud zdvojnásobujeme při tvorbě z těla?",
+    "options": [
+      "Zleva vždy první.",
+      "Zprava poslední a každou druhou.",
+      "Kontrolní číslici dvakrát."
+    ],
+    "answer": 1,
+    "why": "Kontrolní číslice bude připojená až za tělo."
+  },
+  {
+    "q": "Co samotný Luhn nepotvrdí?",
+    "options": [
+      "Změnu jedné číslice.",
+      "Dělitelnost součtu.",
+      "Existenci a správnou identitu předmětu."
+    ],
+    "answer": 2,
+    "why": "Některé chyby zůstanou platné."
+  }
+]

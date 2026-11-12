@@ -1,6 +1,6 @@
 ## Databáze a projekty: od souboru ke klubovní evidenci
 
-**Připraveno prvních 25 z 32 lekcí.** Úvod má obtížnost 2/4, celek 4/4:
+**Připraveno prvních 30 z 32 lekcí.** Úvod má obtížnost 2/4, celek 4/4:
 základní funkce Pythonu stačí pro první SQL, později přibudou vazby, transakce,
 Tkinter a spolupráce součástí. Předpoklady jsou doporučení, nic se nezamyká.
 
@@ -86,7 +86,25 @@ Bez dalších pip balíčků. Scrypt spotřebuje přibližně 128 MiB pracovní 
 24. Volitelný převod textu na řeč offline.
 25. Komprese zlib a přenos textu přes base64; význam a omezení.
 
-## Modul 6 — Malé nástroje a předání (lekce 26–30, plán)
+## Modul 6 — Malé nástroje a předání (lekce 26–30)
+
+**Hotovo: lekce 26–30.** Sedm ukázek/pět úkolů s možnými řešeními a třemi kvízy.
+Celý kurz má **56 ukázek a 66 úkolů**. Obecný Luhn zachová ASCII/úvodní nuly,
+půjčovna navíc vyžaduje existující kladné id bez úvodních nul. Kontrolní číslice
+není identita ani oprávnění; QR obsah je otevřený text.
+
+Vlastní unittest sada odhalí šest cílených poruch modelu. Cesty oddělují adresář
+spouštěče od cwd; záloha používá SQLite backup API a atomické nahrazení cíle.
+Závěr propojí karty/aktivní výpůjčky/CSV/QR a osm testů. Uložená konzole
+spust_pujcovnu.py používá vlastní pujcovna.sqlite3 vedle sebe, --db před příkazem
+naváže na jinou uloženou složku. Projekt z 10 se nemigruje, začněte novou DB.
+Předání obsahuje všechny helpery a NAVOD.md, data zvlášť a novou .venv.
+
+Jádro je standardní knihovna. Pouze QR potřebuje volitelný qrcode[pil]>=8.2,<9:
+python -m pip install "qrcode[pil]>=8.2,<9" do stejné .venv, nebo v kořeni
+Akademie python tools/setup_env.py --courses databaze --extras. Bez knihovny
+se ukáže postup a ostatní části běží dál. Generování PNG funguje offline.
+Ověřeno qrcode8.2/Pillow, čtení skutečných PNG nezávislým dekodérem.
 
 26. Luhn a zkušební kontrolní číslice.
 27. Volitelný QR kód a export vlastních dat.
@@ -99,8 +117,8 @@ Bez dalších pip balíčků. Scrypt spotřebuje přibližně 128 MiB pracovní 
 31. PostgreSQL: jiné připojení a psycopg 3.
 32. Správa spojení a connection pool, srovnání s SQLite.
 
-Pozdější témata zatím nejsou implementovaná. Tkinter vyžaduje místní grafickou
+PostgreSQL 31–32 zatím není implementovaný. Tkinter vyžaduje místní grafickou
 plochu, offline řeč dostupné systémové hlasy a QR další knihovnu. Volitelné
 PostgreSQL potřebuje vlastní dostupný server a nastavení přístupu.
-Pro prvních pětadvacet lekcí se neinstalují pip balíčky; pro okna je potřeba dostupný systémový Tk.
-Odhad celku 20–30 hodin plus procvičení. Dalším krokem jsou malé nástroje a předání 26–30.
+Jádro prvních třiceti lekcí nepotřebuje pip balíčky; pouze QR je volitelné, pro okna je potřeba systémový Tk.
+Odhad celku 20–30 hodin plus procvičení. Dalším krokem je volitelné PostgreSQL 31–32.

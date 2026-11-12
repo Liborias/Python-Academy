@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kam se posílá obsah při místní tvorbě QR?",
+    "options": [
+      "Nikam, knihovna sestaví obrázek lokálně.",
+      "Automaticky na web.",
+      "Do databázového serveru."
+    ],
+    "answer": 0,
+    "why": "QR text sám neotevíráme."
+  },
+  {
+    "q": "K čemu je bílý okraj?",
+    "options": [
+      "Nahrazuje kontrolní číslici inventáře.",
+      "Pomáhá čtečce oddělit symbol od okolí.",
+      "Zvětšuje množství uloženého textu."
+    ],
+    "answer": 1,
+    "why": "Okraj je součástí čitelnosti."
+  },
+  {
+    "q": "Co při chybě zápisu?",
+    "options": [
+      "Vymazat starý cíl.",
+      "Přepsat zdrojovou DB.",
+      "Zachovat starý cíl a uklidit dočasný soubor."
+    ],
+    "answer": 2,
+    "why": "Cíl se nahradí až po úplném úspěchu."
+  }
+]

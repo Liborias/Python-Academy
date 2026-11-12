@@ -1180,3 +1180,47 @@ Celková unittest sada 398 testů OK bez přeskočených na Python3.14.8/Linux,
 1120 s včetně validace všech280 lekcí. Cílená řeč znovu OK i se skutečným
 podprocesem vracejícím neplatné UTF-8 diagnostiky; errors=replace chrání její
 čtení, vstupní text je validovaný předem. API/JS/CSS a limity beze změny.
+
+## Databáze a projekty, nástroje a předání 26–30 (od v0.79)
+
+M06, draft30/32, nově7 ukázek/5 úkolů, celkem56/66.26 má3 přepínatelné ukázky,
+27–30 souvislé kroky po1. Možné řešení a3 kvízy všude. Globálně270+360=630
+řešení/188 doplňkových ukázek/285 lekcí včetně15 průvodců.
+Vše console20s,27 preview_images PNG,30 download_files CSV. Žádné změny API/
+JS/CSS/runtime/limitů. Python3.12+, ověřeno3.14.8/SQLite3.53.1.
+
+Kontrolni_cislice(str ASCII1–32) -> str jedné číslice, platny_kod(ASCII2–33)
+-> bool, špatný formát False. Obecně úvodní nuly ano;1099/1909 záměna09/90
+projde. QR_png(text,cesta,*,zdroj=None) -> absolutní Path neboNone bez knihovny.
+Přesné UTF-8 do512B bez strip, PNG, M/6/4/fit, černá/bílá, explicit format.
+Lazy import qrcode/Pillow. Jediný volitelný balíček qrcode[pil]>=8.2,<9 přes
+--extras, ostatní základ bez pip. Původně plánovaný pyttsx3 není instalovaný.
+Atomický pomocník z20 zachová starý cíl při chybě a chrání source/hardlink.
+
+Pujcovna(Evidence10) přidává cesta/kod/id_z_kodu/pujc_kod, kód kladného
+existujícího SQLite id bez nul. Dřívější Evidence a Luhn definice převzaty
+přesně, žádné kopírování aktuálního řešení mezi podklady. Vytvor_sadu(Model)
+vrací≥6 unittest případů, izolované DB, close/cleanup. Grader zkouší6 poruch:
+commit, nedostupný kus, druhé vrácení, checksum, apostrof, rollback druhého
+SQL zápisu. Triggery a reopen jsou skutečné SQLite, alternativní testy povolené.
+
+Cesty_projektu(soubor,db=None) -> {'koren':Path,'db':Path}, výchozí vedle
+skriptu, explicit relativní vůči cwd, bez IO. Zaloha_projektu -> Path,
+Connection.backup včetně memory, cílový autocommitTrue/closing a atomické
+nahrazení. Model vlastní transakce, žádné cizí rozpracované změny.
+MojePujcovna.karty -> list dict id/nazev/kod/dostupne/vypujceno/celkem,orderbyid,
+LEFT JOIN aktivní v ON + COUNT(v.id), jen aktivní kusy/sparse id/prázdná DB.
+Souhrn -> pomucky/dostupne/vypujceno. Stitky_csv -> počet řádků, UTF-8/semicolon/
+newline/citování, přesná hlavička i hodnoty, prázdná DB jen hlavička.
+
+Uložená29/30: spust_pujcovnu.py používá studentovy cesty/zálohu či třídu,
+pujcovna.sqlite3 vedle spouštěče, --db před příkazem, help bez DB, chyby2.
+Přehled/přidat/půjčit kódem/vrátit id/výpůjčky/záloha;30 export/qr id PNG,
+payload PY-AKADEMIE:PUJ:<kód>. Testy overeni6/8 bez vlastních dat.27/30 PNG/
+CSV vznikají při web běhu v dočasné kopii. Přímé reseni30 zapisuje CSV do cwd.
+Předání všechny helpery/NAVOD, .venv znovu/data zvlášť, bez ZIP. PostgreSQL
+31–32 zůstává plán. Devět unit skupin,12 samostatných běhů, skutečné uložené
+CLI/DB/backup/CSV. QR šest UTF-8 roundtrip a CLI přes nezávislý vývojový
+zxing-cpp3.1.1; dekodér není závislost výuky. Chromium7/5,PNG/CSV stažení,
+workspace/reload/starší postup/mobil380/320; regrese230 řešení/SQLite6–10/
+přípravy10 profilů OK. Celková unittest sada: 407 testů OK bez přeskočených, 1136 s na Python3.14.8/Linux, včetně validace všech285 lekcí. Cílená konečná sada9 testů navíc OK (6.6 s).

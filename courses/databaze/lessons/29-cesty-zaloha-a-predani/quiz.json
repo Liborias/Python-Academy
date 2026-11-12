@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Odkud určit výchozí vlastní DB?",
+    "options": [
+      "Od souboru spouštěče.",
+      "Vždy z cwd.",
+      "Vždy z domovské složky uživatele."
+    ],
+    "answer": 0,
+    "why": "Program lze spouštět i z jiné složky."
+  },
+  {
+    "q": "Jak kopírovat otevřenou SQLite DB?",
+    "options": [
+      "Prostým čtením souboru.",
+      "Connection.backup.",
+      "CSV jako celou databázi."
+    ],
+    "answer": 1,
+    "why": "Backup API vytvoří konzistentní samostatnou databázi."
+  },
+  {
+    "q": "Co udělat s .venv při předání?",
+    "options": [
+      "Přenést celou .venv i se starými cestami.",
+      "Přesunout ji, cesty v ní se opraví samy.",
+      "Na novém místě připravit znovu."
+    ],
+    "answer": 2,
+    "why": "Obsahuje cesty a závislosti konkrétního prostředí."
+  }
+]

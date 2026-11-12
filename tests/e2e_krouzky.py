@@ -79,8 +79,8 @@ with tempfile.TemporaryDirectory() as temp:
                 assert editor.input_value()==source and page.is_checked('.done-toggle input')
                 page.set_viewport_size({'width':1100,'height':900})
             page.goto(f'{base}#/kurz/databaze');page.wait_for_selector('.mod li')
-            assert page.locator('.mod li').count()==25 and page.locator('.mod li.done').count()==6
-            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Prvních 25 z 32")')
+            assert page.locator('.mod li').count()==30 and page.locator('.mod li.done').count()==6
+            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Prvních 30 z 32")')
             assert 'python -m tkinter' in page.locator('.prep-content').inner_text()
             page.locator('.learning-plan summary').click()
             assert '33 ukázek a 51 úkolů' in page.locator('.learning-plan').inner_text()

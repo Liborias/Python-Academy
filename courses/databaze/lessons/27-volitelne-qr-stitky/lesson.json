@@ -1,0 +1,12 @@
+{
+  "title": "Volitelně: QR štítky do PNG",
+  "minutes": 50,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "projekt",
+    "predani"
+  ],
+  "example_title": "Volitelně: QR štítky do PNG",
+  "preview_images": true
+}

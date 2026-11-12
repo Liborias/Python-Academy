@@ -1,0 +1,11 @@
+{
+  "title": "Luhn a inventární kontrolní číslice",
+  "minutes": 45,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "projekt",
+    "predani"
+  ],
+  "example_title": "Luhn a inventární kontrolní číslice"
+}

@@ -2,7 +2,7 @@
 
 Plán: PLAN.md. Nový rozhovor začněte slovem „pokračuj“, přečtu tento soubor.
 
-Nejnovější stav: v0.78 na konci tohoto souboru, Databáze včetně místních účtů a přenosu poznámek (25/32). Pygame 2 má všech 30 lekcí a Datová analýza všech 42; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
+Nejnovější stav: v0.79 na konci tohoto souboru, Databáze včetně vlastní půjčovny a předání (30/32). Pygame 2 má všech 30 lekcí a Datová analýza všech 42; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
 
 ## Rozhodnutí
 - Stažitelná složka, spouští se `python start.py` (potvrzeno implicitně, uživatel řekl „pokračuj“).
@@ -1125,3 +1125,46 @@ Revizi provedl samostatný agent bez znalosti mých závěrů (23 nálezů). Opr
 - Aktualizované katalog/kurz/plány/příprava/dokumentace/počty. API/JS/CSS
   a limity beze změny. Commit/push do main bez ZIPů/cloud publikace.
 - Další krok na další pokyn: Databáze26–30, Malé nástroje a předání podle plánu.
+
+## v0.79 (12. 11. 2026): Malé nástroje a předání 26–30
+
+- Hotov m06: Luhn, volitelné QR, vlastní testy, cesty/backup/předání a vlastní
+  konzolová půjčovna. Každý úkol má možné řešení a tři kvízy,26 tři ukázky,
+  zbytek souvislé kroky. Nově7/5, kurz draft30/32,56 ukázek/66 úkolů.
+  Globálně270+360=630 řešení,188 doplňkových ukázek,285 lekcí včetně15 průvodců.
+  Starší ID, postup a rozepsaný kód zachované.
+- Jádro standardní knihovna/Python3.12+, ověřeno3.14.8/SQLite3.53.1. Vše
+  console20s,27 PNG preview/30 CSV download; API/JS/CSS/runtime/limity stejné.
+  Pouze QR má qrcode[pil]>=8.2,<9, ověřeno8.2/Pillow. --extras databaze
+  instaluje jen tento doplněk, odstraněn plánovaný pyttsx3 (24 má OS hlas).
+  Stejná .venv pro editory/terminál, bez knihovny instrukce/None bez zápisu.
+- ASCII Luhn chrání některé překlepy, zachová nuly,09↔90 může projít; není
+  identita/permission. QR přesné UTF-8≤512B, profilM/box6/border4, offline,
+  černobílý PNG. Cíl atomický a nesmí přepsat zdrojovou DB.
+- Půjčovna dědí skutečnou Evidence10, kanonický kód existujícího id/pujc_kod.
+  Vlastní6 testů odhaluje poruchy commit/stock/return/checksum/apostrof/
+  rollback. TemporaryDirectory pro každý test a close před úklidem.
+- Cesty oddělují složku spouštěče od cwd, backup API pracuje i z paměti,
+  předání zdrojů s novou .venv a oddělenými daty.30 LEFT JOIN/COUNT aktivních,
+  sparse id/prázdné karty/souhrn, přesné UTF-8 CSV se středníkem a citováním.
+- Uložený spust_pujcovnu.py29/30 používá vlastní pujcovna.sqlite3 vedle sebe,
+  --db před příkazem naváže na jinou složku. Help bez DB, overeni6/8 případů,
+  přidat/půjčit/vrátit/přehled/záloha a30 export/qr. Zdrojová DB chráněná,
+  chyba2. Lekce/NAVOD vysvětlují příkazy včetně nové .venv, web běhy dočasné.
+- Devět nových unit skupin a12 běhů OK, CLI ve skutečných dalších procesech,
+  testy6/8, trvalost/záloha/CSV. QR dekódovaný nezávislým zxing-cpp3.1.1:
+  6 přesných UTF-8 roundtrip včetně512B/mezer/newline a skutečný CLI štítek.
+  Dekodér je pouze vývojový smoke, není závislost kurzu/unittest sady.
+- Čisté předání ověřeno také v nové .venv Python3.14.8 bez pip balíčků:
+  složka s češtinou, jiné cwd, osm testů, výpůjčka, CSV, backup/reopen a
+  návod místo QR. Bez kopírování původního virtuálního prostředí.
+- Celková unittest sada: 407 testů OK bez přeskočených, 1136 s na Python3.14.8/Linux, včetně validace všech285 lekcí. Cílená konečná sada9 testů navíc OK (6.6 s).
+- Cílený validátor Databází: 30 lekcí, 0 chyb a 0 upozornění.
+- Chromium26–30 OK:7/5, lazy řešení, kontroly/běhy, PNG/CSV ke stažení,
+  workspace/helpery/reload/mobil380/320, zachovaná rozepsaná25. Opraven
+  přesah textové hlavičky CSV při320px bez zásahu do CSS. Regrese řešení
+  dalších230 lekcí, SQLite6–10 a přípravy10 profilů/3 systémů/3 editorů OK.
+  QR a mobilní řešení prohlédnuté. Windows/macOS/nativní editory netestované.
+- Aktualizované katalog/kurz/plány/příprava/dokumentace/počty. Přímý commit/
+  push do main, bez ZIPů/cloud publikace. Logy/snímky /workspace/scratch/predani-work.
+- Další krok na další pokyn: volitelné PostgreSQL31–32 podle plánu.

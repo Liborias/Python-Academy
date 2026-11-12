@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co je celkový počet kusů?",
+    "options": [
+      "Dostupné + aktivně vypůjčené.",
+      "Počet všech historických výpůjček.",
+      "Pouze aktuálně dostupné kusy."
+    ],
+    "answer": 0,
+    "why": "Vrácená historie počet nezvyšuje."
+  },
+  {
+    "q": "Co počítá COUNT(v.id) po LEFT JOIN?",
+    "options": [
+      "Každý levý řádek jednou.",
+      "Jen odpovídající aktivní výpůjčky.",
+      "Všechny historické výpůjčky včetně vrácených."
+    ],
+    "answer": 1,
+    "why": "Prázdná pravá strana má nulu."
+  },
+  {
+    "q": "Jak ověřit zálohu při předání?",
+    "options": [
+      "Ponechat ji otevřenou jen v původním spojení.",
+      "Pouze ověřit, že soubor existuje.",
+      "Otevřít ji novým procesem a přečíst data."
+    ],
+    "answer": 2,
+    "why": "Kopie má být samostatně použitelná."
+  }
+]

@@ -21,12 +21,12 @@ class ExamplesTest(unittest.TestCase):
             extra = view['examples']
             expected = ((course == 'zaklady' and (int(lesson.name[:2]) <= 31 or 37 <= int(lesson.name[:2]) <= 39))
                         or (course == 'pandas' and (int(lesson.name[:2]) <= 19 or 21 <= int(lesson.name[:2]) <= 34))
-                        or (course == 'databaze' and (int(lesson.name[:2]) <= 9 or int(lesson.name[:2]) in (16,21,25)))
+                        or (course == 'databaze' and (int(lesson.name[:2]) <= 9 or int(lesson.name[:2]) in (16,21,25,26)))
                         or (course == 'pygame-2' and (int(lesson.name[:2]) <= 5 or 16 <= int(lesson.name[:2]) <= 20 or 26 <= int(lesson.name[:2]) <= 29)))
             self.assertEqual(len(extra), 2 if expected else 0, str(lesson))
             self.assertEqual(view['example'], (lesson / 'example.py').read_text('utf-8') if (lesson / 'example.py').is_file() else '')
             count += len(extra)
-        self.assertEqual(count, 186)
+        self.assertEqual(count, 188)
 
     def validate(self, value):
         with tempfile.TemporaryDirectory() as temp:

@@ -39,7 +39,7 @@ Volitelná aktivace: `source .venv/bin/activate`. Pro Tkinter u Homebrew Pythonu
 
 `tools/setup_env.py --courses zaklady` vytvoří nebo použije společnou `.venv` tohoto výukového projektu bez dalších balíčků. `--courses soubory-web,pygame-1` doplní jen závislosti těchto kurzů. `--dry-run` vypíše plán a nic nezmění.
 
-Bez `--courses` pomocník připraví běžné balíčky všech kurzů: requests, beautifulsoup4, pygame-ce, pandas řady 3, matplotlib, openpyxl, ipykernel a aiosmtpd pro místní e-mailový záchyt. Pro začátečníka to není nutné. Příznak `--extras` přidá volitelné součásti zvoleného kurzu: PyInstaller pro balení v tkinter-api, qrcode a pyttsx3 pro pozdější projekty databaze. Jejich funkce a systémové závislosti se ověřují až v příslušném projektu.
+Bez `--courses` pomocník připraví běžné balíčky všech kurzů: requests, beautifulsoup4, pygame-ce, pandas řady 3, matplotlib, openpyxl, ipykernel a aiosmtpd pro místní e-mailový záchyt. Pro začátečníka to není nutné. Příznak `--extras` přidá volitelné součásti zvoleného kurzu: PyInstaller pro balení v tkinter-api, qrcode[pil]>=8.2,<9 pro volitelné QR štítky v databaze. Jejich funkce a systémové závislosti se ověřují až v příslušném projektu.
 
 Pro Datovou analýzu použijte `python tools/setup_env.py --courses pandas`.
 Všech 42 lekcí je připravených: prvních 25 používá pandas, grafy v lekcích
@@ -59,12 +59,12 @@ Matplotlib ověří `python -c "import matplotlib; print(matplotlib.__version__)
 Editor musí mít zvolené stejné prostředí. Všechny úvodní .py soubory běží také
 v terminálu; podpora buněk `# %%` a notebooků závisí na editoru a rozšířeních.
 
-Databáze a projekty mají prvních 25 z 32 lekcí. Standardní sqlite3
+Databáze a projekty mají prvních 30 z 32 lekcí. Standardní sqlite3
 nepotřebuje pip balíčky, síťový server ani grafickou plochu. Použijte
 `python tools/setup_env.py --courses databaze` a ve všech editorech i terminálu
 vyberte stejnou .venv. Ověřte `python -c "import sys, sqlite3; print(sys.executable); print(sqlite3.sqlite_version)"`.
 Python 3.12+ umožňuje výslovný autocommit; ověřeno 3.14.8/SQLite 3.53.1.
-Kurz má 49 ukázek/61 úkolů s možnými řešeními a vysvětluje SQL,
+Kurz má 56 ukázek/66 úkolů s možnými řešeními a vysvětluje SQL,
 parametry, čtení, close proti commit/rollback a celé transakce.
 Ukázky jsou paměťové či dočasné. Pro trvalou databázi uložte pracovní složku,
 použijte v editoru vlastní cestu a spusťte python reseni.py. Běžné spuštění
@@ -151,3 +151,15 @@ Pro každý vlastní projekt mimo Dílnu vytvořte jeho vlastní `.venv`. Výbě
 Otevřete adresu, kterou `start.py` vypíše. Terminál nechte běžet, zastavení je Ctrl+C. Obsazený port změňte například pomocí `start.py --port 8766`. Server má běžet jen na vašem počítači. Pro první kurz nepotřebujete nic nasazovat na internet.
 
 Návody pro Windows/macOS a grafická menu editorů ověřte na svém počítači; automatické testy aplikace jejich funkčnost nepotvrzují. Volby a zaškrtávací seznamy v průvodci představují vaše vlastní potvrzení.
+
+Půjčovna 26–30 propojí Luhn, vlastní unittest, karty/CSV a předání. Jádro
+nepotřebuje pip balíčky. Pro PNG ve 27/30 do stejné .venv nainstalujte
+`python -m pip install "qrcode[pil]>=8.2,<9"` a ověřte `python -c "import qrcode, PIL; print('QR připraveno')"`.
+V kořeni Akademie lze použít `python tools/setup_env.py --courses databaze --extras`.
+Po instalaci aplikaci restartujte. Bez knihovny ukázka vypíše postup; testy,
+CSV, záloha a práce s DB zůstávají dostupné. Generování je lokální/offline.
+Uložený `spust_pujcovnu.py` ve 29/30 má vlastní pujcovna.sqlite3 vedle skriptu,
+--db CESTA před příkazem naváže na předchozí složku. `python overeni.py`
+spustí šest/osm izolovaných testů bez vlastních dat; --help nevytváří DB.
+Předávejte celou pracovní složku s helpery a NAVOD.md, na novém místě vytvořte
+novou .venv. Volitelné PostgreSQL 31–32 zůstává plánované.
