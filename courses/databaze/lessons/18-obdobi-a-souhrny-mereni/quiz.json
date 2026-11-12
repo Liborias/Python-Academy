@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jsou obě meze období včetně?",
+    "options": [
+      "Ano.",
+      "Ne.",
+      "Jen horní."
+    ],
+    "answer": 0,
+    "why": "Použijeme >= a <=."
+  },
+  {
+    "q": "Co vrátí průměr prázdného období?",
+    "options": [
+      "0.",
+      "None.",
+      "Včerejší výsledek."
+    ],
+    "answer": 1,
+    "why": "Nula není totéž jako chybějící výsledek."
+  },
+  {
+    "q": "Jak se počítá průměr BMI?",
+    "options": [
+      "Z průměrné výšky a váhy.",
+      "Z maxima.",
+      "Z jednotlivých vypočtených BMI."
+    ],
+    "answer": 2,
+    "why": "Tyto postupy nejsou obecně zaměnitelné."
+  }
+]

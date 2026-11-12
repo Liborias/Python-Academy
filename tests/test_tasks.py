@@ -24,7 +24,9 @@ class TasksTest(unittest.TestCase):
             cid, lid = directory.parent.parent.name, directory.name
             view = lesson_view(ROOT / 'courses', cid, lid)
             tasks = view['tasks']
-            expected = cid in {'zaklady', 'pandas', 'pygame-2', 'databaze'} and (directory / 'examples.json').exists()
+            # Více ukázek může doprovázet i jeden návazný projektový úkol.
+            expected = ((cid in {'zaklady', 'pandas', 'pygame-2'} and (directory / 'examples.json').exists())
+                        or (cid == 'databaze' and int(lid[:2]) <= 9))
             self.assertEqual(len(tasks), 4 if expected else 0, str(directory))
             total += len(tasks)
             for task in tasks:

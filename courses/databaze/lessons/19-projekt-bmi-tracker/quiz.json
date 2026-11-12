@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Kdy vyčistit formulář?",
+    "options": [
+      "Po úspěšném uložení.",
+      "Před ověřením data.",
+      "Při každé chybě."
+    ],
+    "answer": 0,
+    "why": "Člověk může chybu opravit bez ztráty vstupů."
+  },
+  {
+    "q": "Proč po přidání nemusí být nový řádek vidět?",
+    "options": [
+      "Nikdy se neuložil.",
+      "Může ležet mimo aktivní období.",
+      "Model přestal fungovat."
+    ],
+    "answer": 1,
+    "why": "Všechna měření zruší filtr."
+  },
+  {
+    "q": "Kde se otevře Tk okno?",
+    "options": [
+      "Uvnitř webové stránky.",
+      "Na GitHubu.",
+      "Na počítači s běžícím Pythonem."
+    ],
+    "answer": 2,
+    "why": "Pro vzdálený Python potřebujete přístup k jeho grafické ploše."
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "title": "Měření s datem do SQLite",
+  "minutes": 55,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "projekt",
+    "bmi"
+  ],
+  "example_title": "Měření s datem do SQLite"
+}

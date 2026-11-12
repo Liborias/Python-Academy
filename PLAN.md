@@ -126,20 +126,21 @@ obsahové korektury celého kurzu a připomínky studentů; stav draft zůstáv�
 Tkinter základy (okno, Label, Button, Entry, `pack`, `grid`, `place`, `ttk`) · Převodník měn · Úkolníček (Listbox, Scrollbar, ukládání do JSON) · API (REST, stavové kódy, chyby, `requests`) · Převodník měn 2.0 · E-maily přes lokální testovací server, Gmail volitelně · Balení do spustitelného souboru (PyInstaller, ověřit podporu Pythonu 3.14/3.15).
 
 ### E. Databáze a projekty (32 lekcí)
-**Stav v0.76: prvních 15 z 32 lekcí připravených.** Úvod 1–5: SQLite spojení,
-schéma, změny/čtení/transakce; 6–10: NULL/typy, souhrny, vazby/JOIN a klubovní
-konzole. Témata 1–9 mají tři ukázky/pět úkolů s řešeními; projekty jsou souvislé.
-Hotov modul 11–15: datová vrstva evidence kroužků, Tkinter formulář, výběr,
-úpravy/mazání, přihlášky s kapacitou a závěrečné vlastní testy. Celkem 33 ukázek/
-51 úkolů s možnými řešeními. Úvod 2/4, celek 4/4. Python 3.12+, ověřeno
-3.14.8/SQLite 3.53.1/Tk 9.0. Bez pip instalací; pro okna dostupný Tk a grafická
-plocha, ověřit python -m tkinter. Příprava všech editorů a výklad příkazů.
-Ukázky používají paměť, uložená konzole klub.sqlite3 a okenní projekt
-krouzky.sqlite3 vedle příslušného spouštěče. Staré schéma se nemigruje.
-Každý krok modelu/GUI je přiložen v dalším kroku se stejnými definicemi.
-Šest vlastních unittest případů musí odhalit i porouchané modely a nepoužívá
-vlastní data studenta. Další modul je BMI tracker 16–20.
-Celý plán v courses/databaze/plan.md; budoucí témata zatím nejsou hotová.
+**Stav v0.77: prvních 20 z 32 lekcí připravených.** SQLite základy 1–5,
+vazby/JOIN a klubovní konzole 6–10, Tkinter kroužky 11–15 a BMI tracker 16–20.
+Celkem 40 ukázek/56 úkolů s možnými řešeními. Samostatná témata mají více
+procvičení, návazné projekty souvislé kroky. Výpočet BMI má tři ukázky:
+jednotky, nezaokrouhlené hranice a neplatné vstupy. Tracker ukládá datum/kg/cm/
+poznámku, filtruje období a souhrny, má okno s českou čárkou a zachováním vstupů.
+BMI je orientační dospělý ukazatel, ne individuální zdravotní hodnocení.
+Závěr exportuje UTF-8 CSV a celou SQLite DB přes backup API; cílový soubor se
+nahradí až po úspěchu, nesmí být zdrojovou DB. Tři izolované testy overeni.py.
+Python 3.12+, ověřeno 3.14.8/SQLite 3.53.1/Tk 9.0, bez nových pip balíčků.
+Pro okna 12–14/19 dostupný Tk a grafická plocha, ověřit python -m tkinter.
+Příprava všech editorů a vysvětlení příkazů. Uložené spouštěče používají vlastní
+klub.sqlite3/krouzky.sqlite3/bmi.sqlite3 vedle sebe; --db naváže na starší složku.
+Další modul 21–25: místní účty a soubory. Celý plán v courses/databaze/plan.md,
+pozdější témata zatím neimplementovaná.
 
 SQL základy (SQLite) · CRUD z Pythonu · **parametrizované dotazy a SQL injection** · venv a Git (editor má podporu Gitu, samostatný Git musí být nainstalovaný) · Tkinter a databáze (evidence kroužků místo učitelů) · BMI tracker · registrace a přihlášení (scrypt) · text na řeč (offline) · komprese souborů (`zlib`, `base64`) · kontrolní číslice (Luhn na zkušebních číslech) · generátor QR kódů · volitelně PostgreSQL + psycopg 3 + connection pool.
 

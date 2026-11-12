@@ -102,8 +102,8 @@ with tempfile.TemporaryDirectory() as temp:
             assert 'Sport' in cli('prehled') and cli('vypujcky')==''
             assert (work/'klub.sqlite3').read_bytes().startswith(b'SQLite format 3\x00')
             page.goto(f'{base}#/kurz/databaze');page.wait_for_selector('.mod li')
-            assert page.locator('.mod li').count()==15 and page.locator('.mod li.done').count()==6
-            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Prvních 15 z 32")')
+            assert page.locator('.mod li').count()==20 and page.locator('.mod li.done').count()==6
+            page.wait_for_function('document.querySelector(".prep-content")?.textContent.includes("Prvních 20 z 32")')
             page.locator('.learning-plan summary').click()
             text=page.locator('.learning-plan').inner_text()
             assert '28 ukázek a 46 úkolů' in text and 'Hotovo: lekce 6–10.' in text

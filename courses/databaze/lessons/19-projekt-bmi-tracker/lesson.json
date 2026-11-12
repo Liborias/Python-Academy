@@ -1,0 +1,11 @@
+{
+  "title": "Projekt: vlastní BMI tracker",
+  "minutes": 80,
+  "kind": "gui",
+  "tags": [
+    "sqlite",
+    "projekt",
+    "bmi"
+  ],
+  "example_title": "Projekt: vlastní BMI tracker"
+}

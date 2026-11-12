@@ -1,5 +1,125 @@
 # Předávací dokument: Dílna Pythonu
 
+## Aktuální v0.77 (12. 11. 2026): BMI tracker 16–20
+
+Dokončen m04 Databáze a projekty: výpočet/jednotky/meze BMI, měření s datem,
+období/souhrny, vlastní Tkinter okno a předání s CSV/backup/testy. Pět návazných
+úkolů, každý s možným řešením a třemi kvízy. Výpočetní 16 má tři přepínatelné
+ukázky, ostatní kroky po jedné; nově sedm ukázek/pět úkolů. Kurz draft 20/32,
+celkem 40 ukázek/56 úkolů. Úvod 2/4, celek 4/4. Globálně 260 hlavních + 360
+jiných řešení = 620, doplňkových ukázek 182; 275 lekcí včetně 15 průvodců.
+Starší ID, postup a rozepsaná práce zachovány.
+
+Nové ID:
+- 16-bmi-vypocet-a-jednotky
+- 17-mereni-a-datum-v-sqlite
+- 18-obdobi-a-souhrny-mereni
+- 19-projekt-bmi-tracker
+- 20-export-zaloha-a-testy-trackeru
+
+16–18/20 console/20 s, 19 gui/běžných 600 s, bez změny runtime/limitů.
+Python 3.12+ kvůli autocommit, ověřeno Python 3.14.8/SQLite 3.53.1/Tk 9.0.
+Bez nových pip balíčků nebo účtů/serveru/sítě. Okno potřebuje systémový Tk
+s grafickou plochou; python -m tkinter ověří zkušební okno. Příprava a NAVOD.md
+popisují Windows Tcl/Tk, Linux odpovídající python3-tk, macOS oficiální Python,
+stejnou .venv ve VS Code/VSCodium/PyCharm a terminálu.
+
+BMI je orientační dospělý ukazatel, ne individuální zdravotní hodnocení.
+Fiktivní data, vysvětlené omezení svaly/tuk/souvislosti a nepřenášení jednoduchých
+pásem na děti/těhotenství. Projekt nenavrhuje léčbu ani cílovou hmotnost.
+Výpočet přijímá přesný int/float bez bool, kladný a konečný. Cm se dělí stem,
+nevypočitatelný výsledek/NaN/inf je ValueError. Pásma se vybírají bez zaokrouhlení
+s hranicemi 18.5/25/30; dvě místa jsou pouze zobrazení. Přepínatelné ukázky
+ukazují blízké hranice a odmítnuté vstupy.
+
+Tracker 17 vlastní spojení a každou transakci, ukládá datum/kg/cm/poznámku,
+ne zaokrouhlený BMI. Poznámka zůstává přesná včetně mezer/uvozovek/nových řádků.
+Datum je skutečný kalendářní den v přesném YYYY-MM-DD; dvojí měření v témže
+dni je dovoleno. Pořadí datum,id, lastrowid a commit ihned pro jiné spojení.
+Nový bmi.sqlite3, schema 17–20 stejné; kontrola sloupců není migrace/audit cizí DB.
+
+Přehled 18 má volitelné od/do včetně mezí, obrácené/neplatné období odmítne.
+Vrací id/datum/kg/cm/BMI/poznámku. Souhrn: pocet, prvni_den, posledni_den,
+prumer_bmi, zmena_kg; průměr jednotlivých BMI, poslední minus první kg podle
+datum,id. Prázdný výběr počet 0 a ostatní None; jednotlivý záznam rozdíl 0.
+SQL podmínky jsou pevné části, hodnoty bind parametry. Žádné klinické hodnocení.
+
+GUI 19 pouze převádí/předává hodnoty, SQL je v modelu. Čárka/tečka pro čísla,
+poznámka se nemění. Chyba zachová formulář i přehled, po uložení se vymaže
+hmotnost a poznámka, datum/výška zůstanou. Změna filtru se projeví až po
+úspěšném načtení, Všechna měření jej zruší. Záznam mimo období je stále uložený.
+SQLite chyba zápisu má vysvětlení; selhání až po commit se liší od chyby uložení.
+
+20 exportuje UTF-8 CSV se středníkem/hlavičkou a desetinnou tečkou, nezaokrouhlené
+hodnoty, přesnou poznámku, počet řádků bez hlavičky. Prázdný export má hlavičku.
+Záloha používá Connection.backup včetně paměťové DB; vrací absolutní Path,
+cílové spojení autocommit=True a close před nahrazením souboru. Bezpecny_cil
+zapisuje do stejné složky a os.replace provede jen po úspěchu. Chyba zachová
+starý cíl/uklidí dočasný; zdroj nesmí být cílem ani přes shodný soubor/odkaz.
+Do model.con nepatří cizí rozpracované změny, projekt pro jednoho místního uživatele.
+
+Návaznost: vypocet.py = 16, model.py = 17, prehledy.py = 18, aplikace.py = 19.
+Definice funkcí/tříd mají shodné AST předchozích řešení; helper neobsahuje
+odpověď právě řešeného úkolu. Import neotevírá okno/databázi. Ukázky jsou
+paměťové nebo TemporaryDirectory. Okno je u Pythonu, ne uvnitř webové stránky.
+
+Ve stálé uložené složce po dokončení 19/20:
+
+```powershell
+python spust_bmi.py --help
+python spust_bmi.py
+```
+
+Výchozí vlastní DB je prázdný bmi.sqlite3 vedle spouštěče, i při jiném cwd.
+--db CESTA před příkazem naváže na jiné umístění/předchozí uloženou lekci,
+rodič musí existovat. Nepoužívat klub.sqlite3/krouzky.sqlite3. Spouštěč 19
+importuje studentovu Aplikace a model z 18; nabízí jen GUI. 20 importuje
+studentův Tracker a hotové GUI 19, přidává:
+
+```powershell
+python spust_bmi.py export mereni.csv --od 2026-04-01 --do 2026-04-30
+python spust_bmi.py zaloha kopie.sqlite3
+python overeni.py
+```
+
+Export/záloha/help/overeni.py v 20 nepotřebují Tkinter ani grafickou plochu;
+Tk se importuje až ve větvi GUI. Chyba CLI kód 2, testy 0/1. Overeni.py
+má tři izolované unittest proti studentovu Tracker: prázdný CSV, citování
+poznámky, nezávislá záloha. Vlastní data se netestují. Webový běh je dočasný.
+
+Validátor 20 lekcí bez chyb/upozornění, pět vzorů přijato/pět šablon odmítnuto.
+Devět nových unit skupin OK: 29 chybných variant odmítnuto/pět alternativ přijato,
+AST/helpery, 11 samostatných běhů (pět úryvků/čtyři konzolové vzory/dvě další
+ukázky), uložené CLI/overeni.py, zákaz importu Tk v negrafických větvích,
+okamžitý commit, kalendář, období/prázdné sady, přesnost/CSV/SQLite backup
+z paměti i souboru, řízená částečná chyba kopírování se zachováním starého cíle.
+Celkový běh: 389 testů/1035 s na Pythonu 3.14.8/Linux, z toho 388 OK a jediný
+neúspěch ve starém test_scope_and_public_content: odvozoval pět úkolů z existence
+přepínatelných ukázek. Rozsah byl opraven (BMI má více ukázek a jeden návazný
+úkol); všechny čtyři cílené test_tasks potom OK v 1.072 s. Po numerickém
+zpřesnění všech devět BMI skupin znovu OK v 7.229 s. Validace všech 275 lekcí
+v celkovém běhu prošla. Celou sadu jsme po izolované opravě testu neopakovali.
+Místní HTTP/SMTP servery povolené; starší ResourceWarning ze souborů/procesů
+nejsou selhání testů. Základní chybné předpoklady a všechny nálezy jsou vyřešené.
+
+Chromium e2e_bmi_tracker OK: sedm ukázek/pět úkolů, lazy řešení bez změny práce,
+kontroly/console, skutečný GUI start/stop, workspace/helpery, reload/splnění
+s zachováním rozepsané lekce 15 a mobil 380/320. Regrese kroužků 11–15,
+řešení dalších 220 praktických lekcí a přípravy 10 profilů/3 systémů/3 editorů
+prošly. Nativní test čtyř GUI procesů: vytvoření/vlastní data/reopen 19 a 20,
+CSV/backup z exportovaného projektu, otevření zálohy v novém okně. Skutečný
+Tk 9.0 přes stávající Xorg dummy, bez nových instalací/konfigurace prostředí.
+Velikosti 840x700/650x600, datum/čárka/období i query_only chyba se zachováním
+vstupů. Nativní okno a mobilní řešení prohlédnuty; Windows/macOS/nativní menu
+editorů netestovány. Logy/snímky mimo repo: /workspace/scratch/bmi-work.
+
+Aktualizované katalog/kurz/plány/příprava/dokumentace/počty testů. API/JS/CSS
+a limity beze změny. Dodávka commit/push do main, bez ZIPů nebo cloud publikace.
+Další krok na další pokyn: **Databáze 21–25, Místní účty a soubory** podle plánu:
+scrypt/salt/ověření hesla, registrace/jedinečnost, místní přihlášení, volitelná
+offline řeč a zlib/base64. Další témata zatím neimplementovaná, historické
+zápisy níže nejsou zadání.
+
 ## Aktuální v0.76 (11. 11. 2026): Evidence kroužků 11–15
 
 Dokončen m03 kurzu Databáze a projekty: datová vrstva, Tkinter formulář,

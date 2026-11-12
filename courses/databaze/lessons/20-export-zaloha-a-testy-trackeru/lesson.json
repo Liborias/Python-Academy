@@ -1,0 +1,11 @@
+{
+  "title": "Export, záloha a testy trackeru",
+  "minutes": 75,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "projekt",
+    "bmi"
+  ],
+  "example_title": "Export, záloha a testy trackeru"
+}

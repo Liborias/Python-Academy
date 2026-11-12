@@ -35,15 +35,26 @@
         "14-prihlasky-a-kapacita",
         "15-dokonceni-a-testy-evidence"
       ]
+    },
+    {
+      "id": "m04",
+      "title": "BMI tracker: měření v čase",
+      "lessons": [
+        "16-bmi-vypocet-a-jednotky",
+        "17-mereni-a-datum-v-sqlite",
+        "18-obdobi-a-souhrny-mereni",
+        "19-projekt-bmi-tracker",
+        "20-export-zaloha-a-testy-trackeru"
+      ]
     }
   ],
   "learning_plan": {
     "title": "Od SQLite ke klubovním projektům",
     "status": "draft",
     "level": 4,
-    "summary": "Prvních 15 z 32 lekcí: SQLite, vazby a konzolová evidence; nově návazná okenní evidence kroužků s přihláškami, kapacitou a vlastními testy. Všechna zadání mají možná řešení.",
+    "summary": "Prvních 20 z 32 lekcí: SQLite, klubovní evidence, Tkinter kroužky a samostatný BMI tracker. Výpočet a jednotky, měření v čase, přehledy, vlastní okno, CSV a záloha; všechna zadání s možnými řešeními.",
     "placement": "Základy Pythonu pro úvod; práce se soubory a později Tkinter pro navazující projekty. Nic se nezamyká.",
     "difficulty_reason": "Úvod 2/4, celek 4/4: SQL, vlastnictví spojení, transakce, vazby a spolupráce databáze s aplikací.",
-    "duration": "Plán 32 lekcí, prvních 15 dostupných. Odhad celku 20–30 hodin plus vlastní úpravy."
+    "duration": "Plán 32 lekcí, prvních 20 dostupných. Odhad celku 20–30 hodin plus vlastní úpravy."
   }
 }

@@ -1,0 +1,14 @@
+[
+  {
+    "id": "hranice",
+    "title": "Hranice pásem bez zaokrouhlení",
+    "description": "Porovnejte blízké hodnoty a přesné hranice.",
+    "code": "# Hmotnost zadáváme v kg, výšku v cm; výsledek předčasně nezaokrouhlujeme.\nimport math\nfrom validace import kladne_cislo\n\ndef bmi(hmotnost_kg, vyska_cm):\n    hmotnost_kg = kladne_cislo(hmotnost_kg)\n    vyska_m = kladne_cislo(vyska_cm) / 100\n    try:\n        hodnota = (hmotnost_kg / vyska_m) / vyska_m\n    except ZeroDivisionError:\n        raise ValueError('Výška je pro výpočet příliš malá.') from None\n    if not math.isfinite(hodnota) or hodnota <= 0:\n        raise ValueError('Výsledek nelze reprezentovat jako kladný konečný float.')\n    return hodnota\n\ndef pasmo(hodnota):\n    hodnota = kladne_cislo(hodnota)\n    if hodnota < 18.5:\n        return 'pod 18,5'\n    if hodnota < 25:\n        return '18,5 až pod 25'\n    if hodnota < 30:\n        return '25 až pod 30'\n    return '30 a více'\n\n# Řízené vstupy ukazují význam validace a přesného porovnání.\nfor hodnota in [18.499, 18.5, 24.999, 25, 29.999, 30]:\n    print(f'{hodnota:.2f} -> {pasmo(hodnota)}')\n"
+  },
+  {
+    "id": "chybne-vstupy",
+    "title": "Jednotky a odmítnuté hodnoty",
+    "description": "Vyzkoušejte kg/cm a řízené chyby včetně NaN a bool.",
+    "code": "# Hmotnost zadáváme v kg, výšku v cm; výsledek předčasně nezaokrouhlujeme.\nimport math\nfrom validace import kladne_cislo\n\ndef bmi(hmotnost_kg, vyska_cm):\n    hmotnost_kg = kladne_cislo(hmotnost_kg)\n    vyska_m = kladne_cislo(vyska_cm) / 100\n    try:\n        hodnota = (hmotnost_kg / vyska_m) / vyska_m\n    except ZeroDivisionError:\n        raise ValueError('Výška je pro výpočet příliš malá.') from None\n    if not math.isfinite(hodnota) or hodnota <= 0:\n        raise ValueError('Výsledek nelze reprezentovat jako kladný konečný float.')\n    return hodnota\n\ndef pasmo(hodnota):\n    hodnota = kladne_cislo(hodnota)\n    if hodnota < 18.5:\n        return 'pod 18,5'\n    if hodnota < 25:\n        return '18,5 až pod 25'\n    if hodnota < 30:\n        return '25 až pod 30'\n    return '30 a více'\n\n# Řízené vstupy ukazují význam validace a přesného porovnání.\nprint('81 kg / 180 cm:', bmi(81, 180))\nfor hmotnost, vyska in [(True, 180), (81, 0), (float('nan'), 180), ('81', 180)]:\n    try:\n        print(bmi(hmotnost, vyska))\n    except ValueError as chyba:\n        print('Odmítnuto:', chyba)\n"
+  }
+]

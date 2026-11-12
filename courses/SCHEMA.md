@@ -1074,3 +1074,57 @@ na Tk 9.0/Linux. Windows/macOS tím netestované. API/JS/CSS a limity beze změn
 Celková unittest sada: 380 testů OK bez přeskočených na Pythonu 3.14.8/Linux,
 1025 s, včetně validace všech 270 lekcí. Okamžité potvrzení každé operace
 ověřuje jiné skutečné spojení před následným čtením modelem.
+
+## Databáze a projekty, BMI tracker 16–20 (od v0.77)
+
+M04: výpočet/jednotky/meze, SQLite měření s datem, období/souhrny, Tkinter okno,
+CSV/záloha/testy. Pět návazných úkolů s možnými řešeními a třemi kvízy; 16 má
+navíc dvě přepínatelné ukázky hranic/chybných vstupů. Kurz draft 20/32,
+40 ukázek/56 úkolů. Console 16–18/20 (20 s), GUI 19 (600 s), původní limity.
+Python 3.12+, ověřeno 3.14.8/SQLite 3.53.1/Tk 9.0, bez nových pip balíčků.
+
+BMI z kg/cm, konečné kladné int/float bez bool, nereprezentovatelný výsledek
+je ValueError. Pásma 18.5/25/30 se porovnávají bez zaokrouhlení. Orientační
+ukazatel pro dospělé s vysvětlenými omezeními, ne zdravotní hodnocení/doporučení.
+Model ukládá původní datum/kg/cm/poznámku, ne BMI. Datum skutečné a kanonické
+YYYY-MM-DD, poznámka přesná. Tabulka mereni(id INTEGER PRIMARY KEY,den TEXT
+NOT NULL,hmotnost REAL NOT NULL CHECK>0,vyska_cm REAL NOT NULL CHECK>0,
+poznamka TEXT NOT NULL DEFAULT ''). Model validuje také konečnost a kalendář;
+samotné SQL CHECK nenahrazuje API validaci. Více záznamů za den je dovoleno.
+Pořadí datum,id, lastrowid, transakce vlastní model a commit musí být ihned
+vidět v dalším spojení. self.cesta je absolutní Path nebo None pro :memory:.
+
+Prehled(od=None,do=None) má meze včetně, vrací id/datum/kg/cm/BMI/poznámku,
+parametrizované podmínky; obrácené/neplatné období je chyba. Souhrn vrací
+pocet/prvni_den/posledni_den/prumer_bmi/zmena_kg; průměr jednotlivých hodnot,
+rozdíl poslední minus první kg podle chronologie. Prázdná sada 0 a None.
+GUI používá model, přijímá čárku/tečku, nevalidní vstup/filtr zachová, po zápisu
+vyčistí kg a poznámku; může zůstat mimo právě vybrané období.
+
+Export_csv vrací počet datových řádků, UTF-8/newline=''/středník/hlavička
+id,datum,hmotnost_kg,vyska_cm,bmi,poznamka, nezaokrouhlená čísla a citování.
+Zaloha používá Connection.backup, funguje z paměti, target autocommit=True
+s close, vrací absolutní Path. Bezpecny_cil připraví soubor ve stejné složce,
+os.replace až po úspěchu, chybu uklidí bez změny starého cíle. Zdroj nesmí
+být cílem ani přes odkaz. Do modelu nevkládat jiné rozpracované transakce.
+
+Vypocet/model/prehledy/aplikace přebírají definice předchozích řešení, AST se
+kontroluje. Import bez DB/okna. Ukázky dočasné, uložený spust_bmi.py importuje
+studentovu App 19 či Tracker 20 a má bmi.sqlite3 vedle sebe. --db před příkazem
+naváže na jinou pracovní složku, schéma 17–20 stejné, rodič musí existovat.
+19 nabízí jen GUI; 20 GUI/export/zaloha. Help nevytváří okno/DB. Negrafické
+větve 20 neimportují Tk, overeni.py má tři izolované unittest proti studentovi.
+Chyba CLI 2, testy 0/1. API/JS/CSS beze změny, okno je u serveru Pythonu.
+
+Devět nových unit skupin: 29 chyb odmítnuto/pět alternativ přijato, pět vzorů/
+šablon, AST, 11 samostatných běhů, CLI a skutečné soubory. Kontrola ověřuje
+kalendář/chronologii, inkluzivní meze/prázdné výsledky, nezaokrouhlený výpočet
+i export, CSV poznámky, reálné SQLite backup API a částečné selhání se zachováním
+předchozí zálohy. Chromium: sedm ukázek/pět úkolů/řešení, skutečné GUI start-stop,
+workspace/reload/mobil 380/320 a starší postup. Native: čtyři Tk 9.0 procesy
+na Linuxu, uložený spouštěč 19/20, 840x700/650x600, read-only chyba bez ztráty
+vstupů, CSV/backup a nové otevření kopie. Windows/macOS tím neověřené.
+Celkový běh 389 testů/1035 s: 388 OK a zastaralý test rozsahu ukázek/úkolů
+opraven s následnými čtyřmi test_tasks OK; devět numericky zpřesněných BMI
+skupin také OK. Validace všech 275 lekcí prošla, celý běh po izolované opravě
+testu neopakován. Původní časové limity zůstávají.

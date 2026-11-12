@@ -1,0 +1,11 @@
+{
+  "title": "Období a souhrny měření",
+  "minutes": 65,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "projekt",
+    "bmi"
+  ],
+  "example_title": "Období a souhrny měření"
+}

@@ -111,7 +111,7 @@
         "tkinter-api"
       ],
       "status": "draft",
-      "summary": "Prvních 15 z 32 lekcí: SQLite a konzolová evidence, nově okenní evidence kroužků v Tkinteru. Přihlášky, kapacita, úpravy a vlastní testy; všechna zadání s možnými řešeními.",
+      "summary": "Prvních 20 z 32 lekcí: SQLite a klubovní projekty, nově BMI tracker s časovými přehledy, oknem, CSV a zálohou. Výklad příkazů, více ukázek výpočtu a možná řešení všech úkolů.",
       "planned_lessons": 32
     }
   ]

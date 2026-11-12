@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Proč uložit i výšku?",
+    "options": [
+      "Patří ke konkrétnímu historickému měření.",
+      "Aby se staré hodnoty přepsaly.",
+      "SQLite neumí čísla."
+    ],
+    "answer": 0,
+    "why": "BMI lze vždy znovu spočítat z původních údajů."
+  },
+  {
+    "q": "Lze mít dvě měření stejného dne?",
+    "options": [
+      "Ne.",
+      "Ano, každé má vlastní id.",
+      "Jen s novou tabulkou."
+    ],
+    "answer": 1,
+    "why": "Při shodě data řadíme podle id."
+  },
+  {
+    "q": "Co nejlépe ověří commit?",
+    "options": [
+      "Čtení stejným spojením.",
+      "Změna názvu okna.",
+      "Ihned čtení jiným spojením."
+    ],
+    "answer": 2,
+    "why": "Vlastní spojení může vidět nepotvrzené změny."
+  }
+]

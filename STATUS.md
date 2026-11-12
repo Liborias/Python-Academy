@@ -2,7 +2,7 @@
 
 Plán: PLAN.md. Nový rozhovor začněte slovem „pokračuj“, přečtu tento soubor.
 
-Nejnovější stav: v0.76 na konci tohoto souboru, Databáze včetně okenní evidence kroužků a vlastních testů (15/32). Pygame 2 má všech 30 lekcí a Datová analýza všech 42; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
+Nejnovější stav: v0.77 na konci tohoto souboru, Databáze včetně BMI trackeru s exportem/zálohou (20/32). Pygame 2 má všech 30 lekcí a Datová analýza všech 42; starší zápisy a otevřené body níže jsou historie jednotlivých verzí. Aktuální předání je v úvodu HANDOVER.md.
 
 ## Rozhodnutí
 - Stažitelná složka, spouští se `python start.py` (potvrzeno implicitně, uživatel řekl „pokračuj“).
@@ -1027,3 +1027,53 @@ Revizi provedl samostatný agent bez znalosti mých závěrů (23 nálezů). Opr
   a limity beze změny. Dodávka commit/push do main, bez ZIPů/cloud publikace.
 - Další krok na další pokyn: Databáze 16–20, samostatný BMI tracker dle plánu,
   s možnými řešeními a dalšími variantami tam, kde dávají smysl.
+
+## v0.77 (12. 11. 2026): BMI tracker 16–20
+
+- Dokončen m04: výpočet/jednotky/meze, měření s datem, období/souhrny,
+  Tkinter tracker a CSV/backup/testy. Pět návazných úkolů s možnými řešeními,
+  v 16 tři ukázky, ostatní po jedné; všude tři kvízy. Nově 7 ukázek/5 úkolů,
+  kurz draft 20/32, 40 ukázek/56 úkolů. Úvod 2/4, celek 4/4. Globálně 260
+  hlavních + 360 dalších řešení = 620, dalších ukázek 182; 275 lekcí včetně
+  15 průvodců. Starší ID, postup i rozepsaná práce zachovány.
+- Python 3.12+, ověřeno 3.14.8/SQLite 3.53.1/Tk 9.0. Standardní knihovna,
+  bez pip instalací/účtů/serveru/sítě. Console 16–18/20 (20 s), GUI 19 (600 s).
+  Pro okno systémový Tk/grafika a stejná .venv v terminálu/všech editorech,
+  příprava a NAVOD.md vysvětlují instalaci/ověření a každý příkaz.
+- Fiktivní data; BMI je orientační dospělý ukazatel s popsanými omezeními,
+  bez zdravotních doporučení. Kg/cm, kladná konečná čísla bez bool, žádné
+  předčasné zaokrouhlení v pásmu/modelu/exportu. Skutečná kanonická data,
+  více měření za den, datum/id pořadí, přesná poznámka. Model vlastní celé
+  transakce, commit ihned vidí druhé spojení. Souhrny z jednotlivých BMI,
+  rozdíl kg poslední minus první; prázdný výběr 0 a čtyři None.
+- Okno přijímá čárku/tečku, při chybě zachová vstupy i přehled, filtrované
+  období se změní až po úspěšném čtení. Po zápisu se vymaže jen kg/poznámka.
+  Vlastní spust_bmi.py používá bmi.sqlite3 vedle sebe, --db CESTA naváže
+  na jinou uloženou složku se stejným schématem 17–20. Demo je dočasné,
+  vlastní prázdná DB bez ukázkových řádků. Nepoužívat DB jiných projektů.
+- CSV UTF-8/středník/hlavička/tečka v číslech, správně citované nové řádky.
+  Záloha Connection.backup i z paměti, nezávislá DB. Cíl se atomicky nahradí
+  až po úspěchu, zdroj nesmí být cílem; částečná chyba zachová starý cíl.
+  20 nabízí GUI/export/zaloha; negrafické větve a help neimportují Tk.
+  Overeni.py: tři izolované unittest nad studentovým Tracker, vlastní data
+  se nepoužívají. Chyba CLI 2, testy 0/1. Helpery shodné AST předchozích kroků.
+- Devět nových unit skupin OK: 29 chybných variant/pět alternativ, pět vzorů
+  přijato/pět šablon odmítnuto, AST, 11 samostatných běhů, uložené CLI,
+  zákaz importu Tk, přesnost/kalendář/období/CSV/backup a částečná chyba.
+  Validátor 20 lekcí: 0 chyb/upozornění.
+- Celkový běh Python 3.14.8/Linux: 389 testů/1035 s, 388 OK a jediný starý
+  test rozsahu odvozoval pět úkolů z více ukázek v BMI. Opraveno; všechny čtyři
+  test_tasks znovu OK v 1.072 s. Po numerickém zpřesnění devět BMI skupin OK
+  v 7.229 s. Validace všech 275 lekcí prošla. Celý běh po izolované opravě
+  testu neopakován. HTTP/SMTP povolené, starší ResourceWarning nejsou selhání.
+- Chromium BMI OK: 7/5, řešení/checky/console/GUI start-stop, workspace,
+  reload/postup, zachovaná rozepsaná 15 a mobil 380/320. Regrese 11–15,
+  řešení dalších 220 lekcí a přípravy 10 profilů/3 systémů/3 editorů prošly.
+- Native_bmi_tracker.py: čtyři skutečné Tk GUI procesy 19/20 přes stávající
+  Xorg dummy, velikosti 840x700/650x600, datum/čárka/filtr/chyba query_only,
+  uložené vlastní DB, CSV/backup a nové otevření zálohy. Nativní okno a mobil
+  prohlédnuty, Windows/macOS/editory netestované. Bez instalací a publikace
+  prostředí. Logy/snímky mimo repo v /workspace/scratch/bmi-work.
+- Aktualizované katalog/kurz/plány/příprava/dokumentace/počty. API/JS/CSS
+  a limity beze změny. Commit/push do main, bez ZIPů/cloud publikace.
+- Další krok na další pokyn: Databáze 21–25, místní účty a soubory podle plánu.

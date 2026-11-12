@@ -34,7 +34,7 @@ python tools/setup_env.py --dry-run
 ```
 Základní podkurz **Základy** žádné balíčky nepotřebuje.
 
-Pro Databáze a projekty (prvních 15 z 32 lekcí):
+Pro Databáze a projekty (prvních 20 z 32 lekcí):
 ```
 python tools/setup_env.py --courses databaze
 python -c "import sys, sqlite3; print(sys.executable); print(sqlite3.sqlite_version)"
@@ -42,7 +42,7 @@ python -c "import sys, sqlite3; print(sys.executable); print(sqlite3.sqlite_vers
 První příkaz připraví projektovou .venv bez dalších povinných balíčků,
 druhý ověří vybraný interpreter a SQLite. Ve VS Code/VSCodium/PyCharm
 zvolte stejný Python. Vyžadujeme Python 3.12+, ověřeno 3.14.8/SQLite 3.53.1.
-Server, účet ani síť nejsou potřeba. Pro okna 12–14 potřebujete Tk a grafickou plochu. V lekcích jsou
+Server, účet ani síť nejsou potřeba. Pro okna 12–14 a 19 potřebujete Tk a grafickou plochu. V lekcích jsou
 vysvětlené SQL příkazy, parametry, vlastnictví spojení a commit/rollback.
 Ukázky používají :memory: či TemporaryDirectory. Pro vlastní trvalou evidenci
 uložte pracovní složku a spusťte reseni.py v editoru s vlastní cestou k souboru;
@@ -72,6 +72,27 @@ krouzky.sqlite3 vedle spouštěče. --db CESTA zvolí jiný soubor, rodič už m
 existovat. Běžný reseni.py je paměťová ukázka. V lekci 15 reseni.py spouští
 šest vašich izolovaných testů, spust_krouzky.py otevře hotové GUI z 14.
 Okno se nezobrazuje uvnitř webové stránky, běží na počítači se serverem Pythonu.
+
+BMI tracker 16–20 přidává výpočet, datum/SQLite, období/souhrny a vlastní okno.
+Každý krok má řešení, výpočetní lekce tři ukázky. Bez nových pip balíčků.
+V uloženém dokončeném projektu 19 a 20:
+```
+python spust_bmi.py --help
+python spust_bmi.py
+```
+Help nic nevytváří, okno otevře vlastní prázdný bmi.sqlite3 vedle spouštěče.
+Pro stejná měření mezi složkami použijte absolutní --db CESTA před příkazem;
+schéma 17–20 je stejné. V 20 navíc:
+```
+python spust_bmi.py export mereni.csv --od 2026-04-01 --do 2026-04-30
+python spust_bmi.py zaloha kopie.sqlite3
+python overeni.py
+```
+CSV je UTF-8 se středníkem a desetinnou tečkou, záloha celá DB přes backup API.
+Rodič cíle musí existovat, cíl nesmí přepsat zdrojovou DB. Existující cíl se
+nahradí jen při úspěchu. Overeni.py má tři vlastní izolované testy, nečte vaše
+data. Export/záloha/help/testy nepotřebují Tkinter ani grafickou plochu.
+BMI je orientační ukazatel s mezemi interpretace popsanými v lekci 16.
 
 Pro Pygame 2 (dostupné všechny lekce 1–30):
 ```

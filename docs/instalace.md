@@ -59,12 +59,12 @@ Matplotlib ověří `python -c "import matplotlib; print(matplotlib.__version__)
 Editor musí mít zvolené stejné prostředí. Všechny úvodní .py soubory běží také
 v terminálu; podpora buněk `# %%` a notebooků závisí na editoru a rozšířeních.
 
-Databáze a projekty mají prvních 15 z 32 lekcí. Standardní sqlite3
+Databáze a projekty mají prvních 20 z 32 lekcí. Standardní sqlite3
 nepotřebuje pip balíčky, síťový server ani grafickou plochu. Použijte
 `python tools/setup_env.py --courses databaze` a ve všech editorech i terminálu
 vyberte stejnou .venv. Ověřte `python -c "import sys, sqlite3; print(sys.executable); print(sqlite3.sqlite_version)"`.
 Python 3.12+ umožňuje výslovný autocommit; ověřeno 3.14.8/SQLite 3.53.1.
-Kurz má 33 ukázek/51 úkolů s možnými řešeními a vysvětluje SQL,
+Kurz má 40 ukázek/56 úkolů s možnými řešeními a vysvětluje SQL,
 parametry, čtení, close proti commit/rollback a celé transakce.
 Ukázky jsou paměťové či dočasné. Pro trvalou databázi uložte pracovní složku,
 použijte v editoru vlastní cestu a spusťte python reseni.py. Běžné spuštění
@@ -83,6 +83,14 @@ Uložený `python spust_krouzky.py` používá nový krouzky.sqlite3 vedle skrip
 --db CESTA vybere jinou cestu a rodič už musí existovat. --help nic nevytváří.
 Reseni.py v 12–14 je paměťová ukázka, v 15 spouští testy v dočasných složkách;
 spouštěč v 15 používá dokončený model i GUI z 14. Vlastní data se netestují.
+BMI tracker 16–20 používá stejné prostředí, v 19 potřebuje Tk a grafickou plochu.
+Pět návazných úkolů s řešeními, tři ukázky výpočtu. Uložený spust_bmi.py má
+vlastní bmi.sqlite3 vedle spouštěče; --db CESTA před příkazem naváže na jinou
+složku. V 20 příkazy export a zaloha vytvoří CSV/celou DB, overeni.py spustí
+tři izolované testy. Tyto negrafické větve ani help nepotřebují Tkinter.
+CSV je UTF-8 se středníkem a tečkou v číslech, rodič cíle musí existovat,
+zdrojová DB nesmí být cílem. Při chybě zůstane předchozí cílový soubor.
+BMI výklad zahrnuje omezení orientačního dospělého ukazatele.
 QR, offline řeč a PostgreSQL jsou pozdější volitelné části, zatím nejsou potřeba.
 
 Pygame 2 má připravených všech 30 lekcí: herní objekty, Meteority, Chyť robota,

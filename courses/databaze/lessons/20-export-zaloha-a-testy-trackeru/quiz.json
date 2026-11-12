@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Co zachová celou SQLite databázi?",
+    "options": [
+      "Connection.backup.",
+      "Samotné CSV.",
+      "Zaokrouhlený výpis."
+    ],
+    "answer": 0,
+    "why": "CSV je pouze přenos zvolených řádků."
+  },
+  {
+    "q": "Proč používat dočasný soubor?",
+    "options": [
+      "Aby se přepsal zdroj.",
+      "Cíl se nahradí až po úplném úspěchu.",
+      "Aby se vypnulo testování."
+    ],
+    "answer": 1,
+    "why": "Chyba tak ponechá předchozí export nebo zálohu."
+  },
+  {
+    "q": "Co používají overeni.py testy?",
+    "options": [
+      "Vaši jedinou evidenci.",
+      "Databázi jiného studenta.",
+      "Izolované dočasné databáze."
+    ],
+    "answer": 2,
+    "why": "Testy nesmí ovlivnit vaše vlastní měření."
+  }
+]

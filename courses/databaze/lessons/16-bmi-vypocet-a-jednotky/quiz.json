@@ -1,0 +1,32 @@
+[
+  {
+    "q": "Jakou výšku používá vzorec BMI?",
+    "options": [
+      "V metrech, proto cm nejprve dělíme stem.",
+      "Přímo v cm.",
+      "Na jednotce nezáleží."
+    ],
+    "answer": 0,
+    "why": "Druhá mocnina převodu dává faktor 10 000."
+  },
+  {
+    "q": "Kdy zaokrouhlujeme?",
+    "options": [
+      "Před výběrem pásma.",
+      "Až při zobrazení, ne v modelu.",
+      "Ještě před dělením."
+    ],
+    "answer": 1,
+    "why": "24.999 může být zobrazeno jako 25.00, ale je stále pod 25."
+  },
+  {
+    "q": "Co říká samotné BMI?",
+    "options": [
+      "Určuje léčbu.",
+      "Přesně rozliší svaly a tuk.",
+      "Je orientační ukazatel s omezeními."
+    ],
+    "answer": 2,
+    "why": "Výpočet není individuální posouzení zdraví."
+  }
+]

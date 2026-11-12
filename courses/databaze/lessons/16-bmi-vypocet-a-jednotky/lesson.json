@@ -1,0 +1,11 @@
+{
+  "title": "BMI: výpočet, jednotky a meze",
+  "minutes": 45,
+  "kind": "console",
+  "tags": [
+    "sqlite",
+    "projekt",
+    "bmi"
+  ],
+  "example_title": "BMI: výpočet, jednotky a meze"
+}
